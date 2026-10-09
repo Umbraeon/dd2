@@ -139,3 +139,22 @@ test('retomada keyboard and axe check in the new panel', async ({ page }, testIn
   await testInfo.attach('axe-resume.json', { body: Buffer.from(JSON.stringify(audit.violations, null, 2)), contentType: 'application/json' });
   expect(audit.violations.filter(v => v.impact === 'serious' || v.impact === 'critical')).toEqual([]);
 });
+
+test('blocked external fonts and images do not prevent keyboard-only resume', async ({ page }) => {
+  await page.route('**/*', route => {
+    const url = new URL(route.request().url());
+    if (url.host === '127.0.0.1:3000') return route.continue();
+    return route.abort();
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Retomar a jornada' })).toBeVisible();
+  const defer = page.getByRole('button', { name: 'Adiar sem concluir' });
+  await defer.focus();
+  await expect(defer).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#resume-select')).toBeVisible();
+  const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
+  expect(saved.deferredStepIds).toContain(steps[0].id);
+  expect(saved.steps[steps[0].id]).toBeUndefined();
+});
