@@ -338,6 +338,7 @@ export default function App() {
         </div>
       )}
 
+      <div className={`codex-journey-shell ${view === 'journey' ? 'is-journey' : 'is-consultation'}`}>
       <JourneyResume
         phases={PHASES}
         progress={progress}
@@ -348,6 +349,7 @@ export default function App() {
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
       />
       <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
+      <div className="codex-journal-side">
       <nav className="codex-mode-nav" aria-label="Modo de consulta do compêndio">
         <button type="button" aria-pressed={view === 'journey'} onClick={() => setView('journey')}>Jornada · Diário</button>
         <button type="button" aria-pressed={view === 'consultation'} onClick={() => setView('consultation')}>Consulta · Arquivo completo</button>
@@ -368,6 +370,8 @@ export default function App() {
           onSelect={handleSelectJourney} onDetails={handleNavigateToStep}
           onOpenCheckpoints={() => setIsCheckpointsOpen(true)} />
       )}
+      </div>
+      </div>
       {view === 'consultation' && (
         <>
 
