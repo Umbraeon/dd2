@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, readFileSync } from 'node:fs';
 import { PHASES } from '../src/data/roadmapData';
@@ -8,11 +8,11 @@ const steps = PHASES.flatMap(phase => phase.events);
 const original = () => ({
   version: '3.0.0',
   updatedAt: '2026-01-01T10:00:00.000Z',
-  steps: {}, achievements: {}, sphinx: {}, firstTokenLocation: '',
+  steps: {} as Record<string, boolean>, achievements: {} as Record<number, boolean>, sphinx: {}, firstTokenLocation: '',
   seekerTokensCount: 0, barbecue: {}, maisters: {}, confirmedCheckpoints: {}
 });
-async function seed(page, state) {
-  await page.addInitScript(({ key, state }) => {
+async function seed(page: Page, state: ReturnType<typeof original>) {
+  await page.addInitScript(({ key, state }: { key: string; state: ReturnType<typeof original> }) => {
     localStorage.setItem(key, JSON.stringify(state));
   }, { key, state });
 }
@@ -51,7 +51,7 @@ test('20/53: resume after reload and nonlinear selection does not complete earli
   await expect(page.getByText('Etapa escolhida por você')).toBeVisible();
   await page.reload();
   await expect(page.getByText('Etapa escolhida por você')).toBeVisible();
-  const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   expect(saved.activeStepId).toBe(later.id);
   expect(saved.steps[steps[20].id]).toBeUndefined();
   expect(saved.steps[steps[0].id]).toBe(true);
@@ -62,18 +62,18 @@ test('postpone is not completion; deferred can be selected again; completion tra
   await page.goto('/');
   const first = steps[0].id;
   await page.getByRole('button', { name: 'Adiar sem concluir' }).click();
-  let saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  let saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   expect(saved.steps[first]).toBeUndefined();
   expect(saved.deferredStepIds).toContain(first);
   await page.locator('#resume-select').selectOption(first);
   await expect(page.getByText('Etapa escolhida por você')).toBeVisible();
-  saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   expect(saved.deferredStepIds).not.toContain(first);
   await page.getByRole('button', { name: 'Ver instruções completas' }).click();
   await expect(page.locator(`#step-${first}`)).toBeFocused();
   await page.locator(`#step-${first} button`).first().click();
   await expect(page.getByText('Etapa escolhida concluída')).toBeVisible();
-  saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   expect(saved.activeStepId).toBe(first);
   await page.getByRole('button', { name: 'Ver sugestão do roteiro' }).click();
   await expect(page.getByText('Sugestão do roteiro · não indica sua posição real')).toBeVisible();
@@ -87,7 +87,7 @@ test('continue clears any filters hiding destination and sets focus to the exact
   await expect(page.locator(`#step-${steps[5].id}`)).toBeFocused();
   await expect(page.getByText('Busca e filtros limpos para exibir a etapa solicitada.')).toHaveText(/filtros limpos/);
   const layout = await page.evaluate(id => ({
-    target: document.getElementById(`step-${id}`).getBoundingClientRect().top,
+    target: document.getElementById(`step-${id}`)!.getBoundingClientRect().top,
     toolbar: document.querySelector('input[aria-label="Buscar no roteiro e nas conquistas"]')?.closest('.sticky')?.getBoundingClientRect().bottom ?? 0
   }), steps[5].id);
   expect(layout.target).toBeGreaterThanOrEqual(layout.toolbar - 3);
@@ -110,7 +110,7 @@ test('real v3 JSON import/export roundtrip, rejected import does not replace sto
   page.once('dialog', dialog => dialog.accept());
   await page.getByPlaceholder('Cole o texto do JSON aqui...').fill(JSON.stringify({ app: 'dd2-100-roadmap-ptbr', progress: state }));
   await page.getByRole('button', { name: 'Carregar Dados Colados' }).click();
-  await expect.poll(async () => page.evaluate(key => JSON.parse(localStorage.getItem(key))?.steps, key))
+  await expect.poll(async () => page.evaluate(key => JSON.parse(localStorage.getItem(key)!)?.steps, key))
     .toEqual(state.steps);
   // Successful import closes the dialog after its feedback; reopen it for export.
   await expect(page.getByText('Gerenciamento & Backup de Progresso')).not.toBeVisible({ timeout: 5000 });
@@ -118,7 +118,9 @@ test('real v3 JSON import/export roundtrip, rejected import does not replace sto
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Baixar Arquivo JSON de Backup' }).click();
   const download = await downloadPromise;
-  const downloaded = JSON.parse(readFileSync(await download.path(), 'utf8'));
+  const downloadPath = await download.path();
+  if (!downloadPath) throw new Error('O navegador não salvou o backup exportado.');
+  const downloaded = JSON.parse(readFileSync(downloadPath, 'utf8'));
   expect(downloaded.progress.steps).toEqual(state.steps);
   expect(downloaded.progress.extraLegacy).toBe('preserve');
   const before = await page.evaluate(key => localStorage.getItem(key), key);
