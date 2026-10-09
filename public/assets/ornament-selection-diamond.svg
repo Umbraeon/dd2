@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><defs><linearGradient id="dd2-dia-c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d092"/><stop offset=".5" stop-color="#c98f4d"/><stop offset="1" stop-color="#7a4e28"/></linearGradient><linearGradient id="dd2-dia-i" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8a5a2b"/><stop offset="1" stop-color="#e2b36d"/></linearGradient></defs><path d="M24 2L46 24L24 46L2 24Z" stroke="url(#dd2-dia-c)" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M24 7L41 24L24 41L7 24Z" stroke="url(#dd2-dia-i)" stroke-width=".8" stroke-linejoin="round"/>
+<path d="M24 13L35 24L24 35L13 24Z" fill="url(#dd2-dia-c)" fill-opacity=".9"/>
+<path d="M24 18L30 24L24 30L18 24Z" fill="#241608" fill-opacity=".8"/>
+<path d="M24 21L27 24L24 27L21 24Z" fill="url(#dd2-dia-c)"/>
+<circle cx="24" cy="2" r="1.6" fill="#f0c987"/>
+<circle cx="46" cy="24" r="1.6" fill="#c58a4a"/>
+<circle cx="24" cy="46" r="1.6" fill="#a8733f"/>
+<circle cx="2" cy="24" r="1.6" fill="#c58a4a"/></svg>

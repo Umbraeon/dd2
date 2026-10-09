@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-label="Paisagem editorial fictícia de fantasia sombria">
+<defs>
+<linearGradient id="sky" x2=".1" y2="1"><stop stop-color="#11171b"/><stop offset=".42" stop-color="#40362c"/><stop offset=".75" stop-color="#736046"/><stop offset="1" stop-color="#25251d"/></linearGradient>
+<linearGradient id="fore" x2="0" y2="1"><stop stop-color="#262820"/><stop offset="1" stop-color="#0c0f0e"/></linearGradient>
+<radialGradient id="sun"><stop stop-color="#e1b781" stop-opacity=".7"/><stop offset=".3" stop-color="#ba8960" stop-opacity=".16"/><stop offset="1" stop-color="#876744" stop-opacity="0"/></radialGradient>
+<linearGradient id="mist" x2="0" y2="1"><stop stop-color="#d2c1a2" stop-opacity=".2"/><stop offset="1" stop-color="#afa28b" stop-opacity="0"/></linearGradient>
+<filter id="grain"><feTurbulence baseFrequency=".34" numOctaves="3" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".11"/></feComponentTransfer></filter>
+</defs>
+<rect width="1200" height="470" fill="url(#sky)"/>
+<ellipse cx="695" cy="182" rx="310" ry="230" fill="url(#sun)"/>
+<path d="M0 266 L60 220 115 249 190 175 250 221 319 143 380 207 445 152 530 235 603 172 702 235 793 155 858 212 955 135 1019 218 1123 176 1200 238V470H0Z" fill="#22262a" opacity=".88"/>
+<path d="M0 306 L90 257 166 307 256 241 327 293 432 214 532 304 616 245 690 300 780 244 843 294 931 224 1009 286 1090 232 1200 298 V470H0Z" fill="#2d302c" opacity=".95"/>
+<path d="M0 310 Q280 282 515 319 T1200 289 L1200 375H0Z" fill="url(#mist)"/>
+<!-- Entirely original generic hilltop citadel, not an actual DD2 location -->
+<g fill="#171d1b" stroke="#4a4032" stroke-width="2" stroke-opacity=".6">
+<path d="M570 317V218h22v-15h24v-49h16v-24h21v24h14v47h29v16h33v99Z"/>
+<path d="M606 216V167l-6-6v-8l8-10h23l9 10v8l-6 6v49Z"/>
+<path d="M713 317V246h15v-20h21v-50h14v-22h19v22h15v50h20v20h16v71Z"/>
+<path d="M796 317V215h12v-18h22v-17h21v17h15v18h12v102Z"/>
+<path d="M540 317V270h36v-17h20v64Z M867 317v-39h30v-22h17v61Z"/>
+</g>
+<path d="M604 318 V274a19 19 0 0 1 38 0v44Z M745 318v-49a15 15 0 0 1 30 0v49Z" fill="#544638" opacity=".7"/>
+<g stroke="#82705a" stroke-opacity=".35" fill="none"><path d="M570 233h159M715 258h113M586 205h36M808 227h58" stroke-width="1"/><path d="M644 130V99m-20 34v-20m148 45v-26" stroke-width="2"/></g>
+<path d="M0 350C143 296 233 338 340 312s215 35 342 20 246-28 336-4 132 0 182-23V470H0Z" fill="#1d211d"/>
+<path d="M0 380Q140 354 250 397T500 376t250 18 245-33 205 3v106H0Z" fill="url(#fore)"/>
+<g fill="#111814"><path d="M80 420l23-75 12 44 16-61 18 92Zm962 40 22-132 16 63 19-102 26 161Zm-98-5 14-88 24 72 12-59 21 75Z"/>
+<path d="M270 470l16-86 12 47 18-93 26 132Zm840 0 16-75 12 48 15-70 18 97Z"/></g>
+<path d="M0 418C146 389 256 451 373 419s197 6 313 11 192-39 288-14 157-12 226-2" fill="none" stroke="#b29c7b" stroke-width="16" opacity=".055"/>
+<rect width="1200" height="470" filter="url(#grain)" opacity=".55"/>
+<rect width="1200" height="470" fill="none" stroke="#aa8b65" stroke-opacity=".24" stroke-width="3"/>
+</svg>

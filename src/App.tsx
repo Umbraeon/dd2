@@ -18,10 +18,11 @@ import {
 import { PHASES, ROADMAP_METADATA } from './data/roadmapData';
 import { UserProgress, Phase } from './types/roadmap';
 import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, allowExplicitProgressReplacement } from './utils/storage';
-import { selectJourneyStep, deferJourneyStep, listJourneySteps } from './utils/journey';
+import { selectJourneyStep, deferJourneyStep, listJourneySteps, resolveJourney, firstPendingStep } from './utils/journey';
 
 import { Header } from './components/Header';
-import { JourneyResume } from './components/JourneyResume';
+import { QuestCodex } from './components/QuestCodex';
+
 import { ProgressSummary } from './components/ProgressSummary';
 import { FilterToolbar, FilterType } from './components/FilterToolbar';
 import { ChapterSection } from './components/ChapterSection';
@@ -42,6 +43,12 @@ export default function App() {
   const [navigationNotice, setNavigationNotice] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [view, setView] = useState<'journey' | 'consultation'>('journey');
+  const [selectedChapter, setSelectedChapter] = useState(() => {
+    return resolveJourney(PHASES, progress).target?.phase.id ?? PHASES[0].id;
+  });
+  const [expandedEventId, setExpandedEventId] = useState<string | null>(null);
+  const [showAchievements, setShowAchievements] = useState(false);
 
   // Modals state
   const [isSphinxOpen, setIsSphinxOpen] = useState(false);
@@ -61,15 +68,18 @@ export default function App() {
   useEffect(() => {
     if (!navigationTarget) return;
     const frame = requestAnimationFrame(() => {
-      const element = document.getElementById(`step-${navigationTarget}`);
+      const targetId = navigationTarget.startsWith('phase:') ? navigationTarget.slice(6) :
+        navigationTarget.startsWith('achievement:') ? `achievement-${navigationTarget.slice(12)}` :
+        `step-${navigationTarget}`;
+      const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         element.focus({ preventScroll: true });
       }
-      setNavigationTarget(null);
+      if (element) setNavigationTarget(null);
     });
     return () => cancelAnimationFrame(frame);
-  }, [navigationTarget]);
+  }, [navigationTarget, view, selectedChapter, expandedEventId, showAchievements]);
 
   // Handler for toggling an event step
   const handleToggleEvent = (eventId: string) => {
@@ -172,14 +182,24 @@ export default function App() {
   const handleSelectJourney = (id: string) => {
     if (!listJourneySteps(PHASES).some(({ event }) => event.id === id && !progress.steps[event.id])) return;
     setProgress(prev => selectJourneyStep(prev, id));
+    const found = listJourneySteps(PHASES).find(({ event }) => event.id === id);
+    if (found) setSelectedChapter(found.phase.id);
   };
 
   const handleDeferJourney = (id: string) => {
     if (!listJourneySteps(PHASES).some(({ event }) => event.id === id && !progress.steps[event.id])) return;
-    setProgress(prev => deferJourneyStep(prev, id));
+    const next = deferJourneyStep(progress, id);
+    const suggestion = resolveJourney(PHASES, next).target;
+    setProgress(next);
+    if (suggestion) setSelectedChapter(suggestion.phase.id);
   };
 
   const handleNavigateToStep = (id: string) => {
+    const found = listJourneySteps(PHASES).find(({ event }) => event.id === id);
+    if (!found) return;
+    setView('consultation');
+    setSelectedChapter(found.phase.id);
+    setExpandedEventId(id);
     // The destination may be hidden by search or completion/risk/DLC filters.
     if (searchQuery.trim() || activeFilter !== 'all') {
       setNavigationNotice('Busca e filtros limpos para exibir a etapa solicitada.');
@@ -277,11 +297,28 @@ export default function App() {
   const totalFilteredAchievements = filteredPhases.reduce((acc, p) => acc + p.achievements.length, 0);
 
   const handleJumpToPhase = (phaseId: string) => {
-    const el = document.getElementById(phaseId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (!PHASES.some(phase => phase.id === phaseId)) return;
+    setView('consultation');
+    setSelectedChapter(phaseId);
+    if (searchQuery || activeFilter !== 'all') {
+      setSearchQuery('');
+      setActiveFilter('all');
+      setNavigationNotice('Busca e filtros limpos para abrir o capítulo solicitado.');
     }
+    setNavigationTarget('phase:' + phaseId);
   };
+
+  const handleJumpToAchievement = (phaseId: string, id: number) => {
+    setView('consultation');
+    setSelectedChapter(phaseId);
+    setSearchQuery('');
+    setActiveFilter('all');
+    setShowAchievements(true);
+    setNavigationNotice('Busca e filtros limpos para abrir a conquista solicitada.');
+    setNavigationTarget('achievement:' + id);
+  };
+  const currentPhase = PHASES.find(phase => phase.id === selectedChapter) ?? PHASES[0];
+  const visibleChapters = filteredPhases.filter(phase => phase.id === selectedChapter);
 
   return (
     <div className="codex-app min-h-screen text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
@@ -291,6 +328,8 @@ export default function App() {
         onOpenTools={() => setIsSphinxOpen(true)}
         onOpenSources={() => setIsSourcesOpen(true)}
         onOpenBackup={() => setIsBackupOpen(true)}
+        onGoJourney={() => { setView('journey'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        onGoChapter={handleJumpToPhase}
       />
 
       {storageIssue && (
@@ -301,16 +340,32 @@ export default function App() {
         </div>
       )}
 
-      <JourneyResume
+      <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
+      {view === 'journey' && <QuestCodex
         phases={PHASES}
         progress={progress}
-        onSelect={handleSelectJourney}
-        onDefer={handleDeferJourney}
+        selectedChapter={selectedChapter}
+        onChapterChange={setSelectedChapter}
+        onSetActive={handleSelectJourney}
+        onDefer={(id) => setProgress(prev => deferJourneyStep(prev, id))}
         onClearSelection={() => setProgress(prev => ({ ...prev, activeStepId: undefined }))}
-        onNavigate={handleNavigateToStep}
+        onToggleDone={handleToggleEvent}
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
-      />
-      <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
+        onShowFull={handleNavigateToStep}
+        onOpenConsultation={() => setView('consultation')}
+      />}
+      {view === 'consultation' && <nav className="codex-mode-nav" aria-label="Modos do compêndio">
+        <button type="button" onClick={() => setView('journey')}>← Voltar ao diário de missões</button>
+      </nav>}
+      {view === 'consultation' && <div className="codex-chapter-picker">
+        <label htmlFor="chapter-jump">Capítulo do roteiro</label>
+        <select id="chapter-jump" value={selectedChapter} onChange={e => handleJumpToPhase(e.target.value)}>
+          {PHASES.map((phase, index) => <option key={phase.id} value={phase.id}>{String(index + 1).padStart(2, '0')} · {phase.slug}</option>)}
+        </select>
+        <span>9 capítulos · consulta integral</span>
+      </div>}
+      {view === 'consultation' && (
+        <>
 
       {/* Abertura editorial — arte oficial da Steam; composição própria em CSS */}
       <section className="codex-hero" aria-labelledby="hero-title">
@@ -322,7 +377,7 @@ export default function App() {
             <p className="codex-hero-subtitle">O Caminho do Nascen</p>
             <p className="codex-hero-description">Missões em ordem de progressão, conquistas ilustradas e alertas para decisões que podem bloquear conteúdo. Um companheiro de jornada — não uma promessa de rota infalível.</p>
             <div className="codex-hero-actions">
-              <a className="codex-action-primary" href="#melve">INICIAR A JORNADA <span aria-hidden="true">↗</span></a>
+              <button type="button" className="codex-action-primary" onClick={() => handleJumpToPhase("melve")}>ABRIR MELVE <span aria-hidden="true">↗</span></button>
               <button className="codex-action-secondary" type="button" onClick={() => setIsCheckpointsOpen(true)}>VER ALERTAS CRÍTICOS <ShieldAlert className="w-4 h-4"/></button>
             </div>
             <p className="codex-image-credit">Arte oficial de Dragon’s Dogma 2 © CAPCOM · imagem disponibilizada pela Steam</p>
@@ -372,84 +427,28 @@ export default function App() {
       />
 
       {/* Main Content Layout (Sidebar + Chapters Stream) */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-8 flex-1 grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] gap-8 w-full items-start">
-        {/* Sticky Desktop Sidebar Nav */}
-        <aside className="codex-sidebar hidden lg:block sticky top-36 border border-[#3d372e] p-5 max-h-[calc(100vh-160px)] overflow-y-auto space-y-4">
-          <div className="flex items-center gap-2 font-serif text-sm uppercase tracking-wider text-[#d9b780] pb-2 border-b border-[#3d372e]">
-            <Compass className="w-4 h-4" />
-            <span>Jornada do Nascen</span>
-          </div>
-
-          <nav className="space-y-1">
-            {PHASES.map((p, idx) => {
-              const eventsCount = p.events.length;
-              const achCount = p.achievements.length;
-              const isDLC = p.id === 'dlc';
-
-              return (
-                <a
-                  key={p.id}
-                  href={`#${p.id}`}
-                  className={`flex items-center justify-between p-2 rounded text-xs transition-colors group ${
-                    isDLC
-                      ? 'text-[#a4c7e8] hover:bg-[#1c2430]'
-                      : 'text-[#cfc8bd] hover:bg-[#1e2125] hover:text-[#f0d1a0]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 truncate">
-                    <span className="font-mono text-[10px] text-[#726044] group-hover:text-[#d9b780]">
-                      {String(idx + 1).padStart(2, '0')}.
-                    </span>
-                    <span className="truncate">{p.slug}</span>
-                  </div>
-
-                  <span className="text-[10px] font-mono text-[#8e887d] group-hover:text-[#aea79b] shrink-0">
-                    {achCount > 0 ? `${achCount} troféus` : `${eventsCount} etapas`}
-                  </span>
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Quick Shortcuts */}
-          <div className="pt-3 border-t border-[#3d372e] space-y-1.5 text-xs text-[#aea79b]">
-            <span className="text-[10px] font-serif uppercase tracking-wider text-[#726044] block mb-1">
-              Atalhos de Acesso Rápido
-            </span>
-            <button
-              onClick={() => setIsCheckpointsOpen(true)}
-              className="w-full text-left p-1.5 rounded hover:bg-[#202327] text-[#df8c75] flex items-center justify-between"
-            >
-              <span>Pontos Sem Retorno</span>
-              <ShieldAlert className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => setIsSphinxOpen(true)}
-              className="w-full text-left p-1.5 rounded hover:bg-[#202327] text-[#d9b780] flex items-center justify-between"
-            >
-              <span>Esfinge (10 Enigmas)</span>
-              <HelpCircle className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => setIsBarbecueOpen(true)}
-              className="w-full text-left p-1.5 rounded hover:bg-[#202327] text-[#ecd2ac] flex items-center justify-between"
-            >
-              <span>Churrasco (16 Carnes)</span>
-              <Flame className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => setIsMaistersOpen(true)}
-              className="w-full text-left p-1.5 rounded hover:bg-[#202327] text-[#cfc8bd] flex items-center justify-between"
-            >
-              <span>12 Ensinamentos</span>
-              <Award className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </aside>
-
+      <div className="max-w-5xl mx-auto px-4 lg:px-8 py-6 flex-1 w-full min-w-0">
         {/* Chapters Stream */}
         <main className="codex-main space-y-2 min-w-0">
-          {filteredPhases.length === 0 ? (
+          {(searchQuery.trim() || activeFilter !== 'all') && (
+            <section aria-label="Índice de resultados" className="codex-search-index">
+              <h2>Resultados encontrados</h2>
+              <p>Escolha um resultado para abrir o item exato. A busca e os filtros serão limpos antes de navegar.</p>
+              <div className="codex-search-hits">
+                {filteredPhases.flatMap(phase => [
+                  ...phase.events.map(event => (
+                    <button type="button" key={event.id} onClick={() => handleNavigateToStep(event.id)}>
+                      <span>{phase.slug} · Marco</span><strong>{event.title}</strong>
+                    </button>)),
+                  ...phase.achievements.map(ach => (
+                    <button type="button" key={`ach-${ach.id}`} onClick={() => handleJumpToAchievement(phase.id, ach.id)}>
+                      <span>{phase.slug} · Conquista</span><strong>{ach.title}</strong>
+                    </button>))
+                ])}
+              </div>
+            </section>
+          )}
+          {visibleChapters.length === 0 ? (
             <div className="bg-[#15171a] border border-[#3d372e] rounded-lg p-10 text-center space-y-3">
               <Compass className="w-8 h-8 text-[#726044] mx-auto" />
               <h3 className="font-serif font-bold text-lg text-[#f0d1a0]">
@@ -469,7 +468,7 @@ export default function App() {
               </button>
             </div>
           ) : (
-            filteredPhases.map((phase) => (
+            visibleChapters.map((phase) => (
               <ChapterSection
                 key={phase.id}
                 phase={phase}
@@ -477,6 +476,10 @@ export default function App() {
                 onToggleEvent={handleToggleEvent}
                 onToggleAchievement={handleToggleAchievement}
                 onConfirmCheckpoint={handleToggleCheckpoint}
+                expandedEventId={expandedEventId}
+                onExpandEvent={(id) => setExpandedEventId(prev => prev === id ? null : id)}
+                showAchievements={showAchievements}
+                onToggleAchievements={() => setShowAchievements(prev => !prev)}
               />
             ))
           )}
@@ -512,7 +515,10 @@ export default function App() {
         </main>
       </div>
 
-      {/* Footer */}
+        </>
+      )}
+
+            {/* Footer */}
       <footer className="codex-footer border-t border-[#3d372e] py-8 px-4 text-center text-xs text-[#8e887d] space-y-2">
         <p>
           Dragon's Dogma 2 · Rota 100% PT-BR · Guia Comunitário Independente sem Vínculo Oficial com Capcom ou Valve.
