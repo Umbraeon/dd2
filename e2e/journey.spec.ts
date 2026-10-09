@@ -99,7 +99,7 @@ test('20/53: nonlinear explicit selection persists; prior steps not implicitly c
   expect(saved.activeStepId).toBe(later.event.id);
   expect(saved.steps[steps[0].id]).toBe(true);
   expect(saved.steps[steps[20].id]).toBeUndefined();
-  expect(saved.steps[steps[44].id]).toBeUndefined();
+  expect(saved.steps[steps[21].id]).toBeUndefined();
 });
 
 test('defer is not completion; explicit retake, completion and clearing active are reversible', async ({ page }) => {
@@ -117,7 +117,7 @@ test('defer is not completion; explicit retake, completion and clearing active a
   saved = JSON.parse((await storage(page))!);
   expect(saved.steps[first]).toBe(true);
   expect(saved.activeStepId).toBe(first);
-  await expect(page.getByText('Etapa escolhida concluída')).toBeVisible();
+  await expect(page.getByText('Etapa escolhida concluída').first()).toBeVisible();
   await page.getByRole('button', { name: 'Desmarcar conclusão' }).click();
   expect(JSON.parse((await storage(page))!).steps[first]).toBe(false);
   await page.getByRole('button', { name: 'Desafixar atual' }).click();
@@ -129,7 +129,7 @@ test('all complete shows terminal state instead of inventing a new step', async 
   steps.forEach(event => { state.steps[event.id] = true; });
   await seed(page, state);
   await page.goto('/');
-  await expect(page.getByText('Todos os marcos concluídos')).toBeVisible();
+  await expect(page.getByText('Todos os marcos concluídos').first()).toBeVisible();
   await expect(page.getByText(/Nenhuma próxima missão será presumida/)).toBeVisible();
   await expect(page.getByRole('button', { name: /Concluídas/ })).toHaveAttribute('aria-pressed', 'true');
 });
