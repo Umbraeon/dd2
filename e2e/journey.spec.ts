@@ -78,6 +78,8 @@ test('inspecting another item updates context without writing storage', async ({
   await page.getByRole('button', { name: `Consultar atividade: ${item.title}` }).click();
   await expect(page.getByRole('heading', { name: item.title })).toBeVisible();
   await expect(page.getByText('APENAS EM CONSULTA')).toBeVisible();
+  mkdirSync('test-results/screenshots', { recursive: true });
+  await page.screenshot({ path: 'test-results/screenshots/review-desktop-inspected-1440x900.png', fullPage: false });
   await expect(page.getByRole('button', { name: `Consultar atividade: ${item.title}` })).toHaveAttribute('aria-current', 'true');
   expect(await storage(page)).toBeNull();
 });
@@ -155,6 +157,8 @@ test('mobile list → detail → back; consultation alone is nonpersistent', asy
   await expect(page.locator('.quest-detail')).toBeVisible();
   await expect(page.locator('.quest-master')).toBeHidden();
   await expect(page.getByRole('heading', { name: next.title })).toBeVisible();
+  mkdirSync('test-results/screenshots', { recursive: true });
+  await page.screenshot({ path: 'test-results/screenshots/review-mobile-detail-390x844.png', fullPage: false });
   await page.getByRole('button', { name: 'Voltar à lista de missões' }).click();
   await expect(page.locator('.quest-master')).toBeVisible();
   expect(await storage(page)).toBeNull();
@@ -228,6 +232,8 @@ test('blocked external images and fonts display SVG panorama fallback and preser
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
   await expect(page.locator('.quest-panorama img.quest-fallback-scene')).toBeVisible();
+  mkdirSync('test-results/screenshots', { recursive: true });
+  await page.screenshot({ path: 'test-results/screenshots/review-panorama-offline-1440x900.png', fullPage: false });
   await expect(page.getByRole('button', { name: /Fixar como atual/ })).toBeVisible();
   await page.getByRole('button', { name: /Fixar como atual/ }).focus();
   await page.keyboard.press('Enter');
