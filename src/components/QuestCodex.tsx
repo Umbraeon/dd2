@@ -127,8 +127,8 @@ export const QuestCodex: React.FC<Props> = ({
           <div className="quest-detail-scroll">
             <figure className="quest-panorama">
               {!imageError ? <img src={PROMO_IMAGE} alt="Arte promocional geral de Dragon's Dogma 2; não representa necessariamente esta missão." onError={() => setImageError(true)}/> :
-                <div className="quest-art-fallback" role="img" aria-label="Arte indisponível. Moldura ilustrativa autoral do diário."><span aria-hidden="true">✥</span><span>CRÔNICAS DO NASCEN</span></div>}
-              <figcaption>Arte promocional oficial © CAPCOM via Steam · imagem geral, não da missão</figcaption>
+                <img className="quest-fallback-scene" src="/assets/chronicles-panorama.svg" alt="Ilustração editorial SVG de paisagem fictícia de fantasia, não representa um lugar real do jogo." />}
+              <figcaption>{imageError ? 'Ilustração editorial original (SVG) · paisagem fictícia, não é local da missão' : 'Arte promocional oficial © CAPCOM via Steam · imagem geral, não da missão'}</figcaption>
             </figure>
             <div className="quest-detail-body">
               <p className="quest-detail-chapter">{displayed?.phase.slug} <span aria-hidden="true">·</span> {event.type.toUpperCase()}</p>
