@@ -13,7 +13,8 @@ const original = () => ({
 });
 async function seed(page: Page, state: ReturnType<typeof original>) {
   await page.addInitScript(({ key, state }: { key: string; state: ReturnType<typeof original> }) => {
-    localStorage.setItem(key, JSON.stringify(state));
+    // A fixture must not overwrite the user's in-test edits on a real reload.
+    if (localStorage.getItem(key) === null) localStorage.setItem(key, JSON.stringify(state));
   }, { key, state });
 }
 
