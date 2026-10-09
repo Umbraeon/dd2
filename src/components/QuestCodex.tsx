@@ -4,6 +4,8 @@ import type { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
 import { isStepCompleted, isStepDeferred, listJourneySteps, resolveJourney } from '../utils/journey';
 
+const USER_PANORAMA = '/assets/gemini-codex-panorama.webp';
+// AI illustration supplied by the project owner: fictional generic landscape, never mission evidence.
 const PROMO_IMAGE = 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2054970/library_hero.jpg';
 // CAPCOM promotional artwork distributed on Steam. Generic illustration, NEVER evidence of a quest location.
 interface Props {
@@ -28,7 +30,8 @@ export const QuestCodex: React.FC<Props> = ({
   const [tab, setTab] = useState<'pending' | 'completed'>(() => journey.kind === 'all-complete' || journey.kind === 'completed-active' ? 'completed' : 'pending');
   const [mobileDetail, setMobileDetail] = useState(false);
   const [more, setMore] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  // Generated file is owner-supplied separately; fall back safely until it is added to public/assets.
+  const [imageKind, setImageKind] = useState<'gemini' | 'promo' | 'fallback'>('gemini');
   const phase = phases.find(item => item.id === selectedChapter) ?? phases[0];
   const all = listJourneySteps(phases);
   const inspected = all.find(({ event }) => event.id === inspectedId) ??
@@ -126,9 +129,18 @@ export const QuestCodex: React.FC<Props> = ({
         {event ? <>
           <div className="quest-detail-scroll">
             <figure className="quest-panorama">
-              {!imageError ? <img src={PROMO_IMAGE} alt="Arte promocional geral de Dragon's Dogma 2; não representa necessariamente esta missão." onError={() => setImageError(true)}/> :
-                <img className="quest-fallback-scene" src="/assets/chronicles-panorama.svg" alt="Ilustração editorial SVG de paisagem fictícia de fantasia, não representa um lugar real do jogo." />}
-              <figcaption>{imageError ? 'Ilustração editorial original (SVG) · paisagem fictícia, não é local da missão' : 'Arte promocional oficial © CAPCOM via Steam · imagem geral, não da missão'}</figcaption>
+              {imageKind === 'gemini' ? (
+                <img src={USER_PANORAMA} alt="Ilustração de fantasia medieval gerada por IA, cenário fictício sem associação factual à missão." onError={() => setImageKind('promo')} />
+              ) : imageKind === 'promo' ? (
+                <img src={PROMO_IMAGE} alt="Arte promocional geral de Dragon's Dogma 2; não representa necessariamente esta missão." onError={() => setImageKind('fallback')} />
+              ) : (
+                <img className="quest-fallback-scene" src="/assets/chronicles-panorama.svg" alt="Ilustração editorial SVG de paisagem fictícia de fantasia, não representa um lugar real do jogo." />
+              )}
+              <figcaption>{imageKind === 'gemini'
+                ? 'Ilustração de IA fornecida pelo proprietário · cenário fictício, não é local da missão'
+                : imageKind === 'promo'
+                  ? 'Arte promocional oficial © CAPCOM via Steam · imagem geral, não da missão'
+                  : 'Ilustração SVG original · paisagem fictícia, não é local da missão'}</figcaption>
             </figure>
             <div className="quest-detail-body">
               <p className="quest-detail-chapter">{displayed?.phase.slug} <span aria-hidden="true">·</span> {event.type.toUpperCase()}</p>
