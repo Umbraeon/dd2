@@ -18,7 +18,7 @@ import {
 import { PHASES, ROADMAP_METADATA } from './data/roadmapData';
 import { UserProgress, Phase } from './types/roadmap';
 import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, allowExplicitProgressReplacement } from './utils/storage';
-import { selectJourneyStep, deferJourneyStep, listJourneySteps } from './utils/journey';
+import { selectJourneyStep, deferJourneyStep, listJourneySteps, resolveJourney, firstPendingStep } from './utils/journey';
 
 import { Header } from './components/Header';
 import { JourneyResume } from './components/JourneyResume';
@@ -45,8 +45,7 @@ export default function App() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [view, setView] = useState<'journey' | 'consultation'>('journey');
   const [selectedChapter, setSelectedChapter] = useState(() => {
-    const active = listJourneySteps(PHASES).find(({ event }) => event.id === progress.activeStepId && !progress.steps[event.id]);
-    return active?.phase.id ?? PHASES.find(phase => phase.events.some(event => !progress.steps[event.id]))?.id ?? PHASES[0].id;
+    return resolveJourney(PHASES, progress).target?.phase.id ?? PHASES[0].id;
   });
   const [expandedEventId, setExpandedEventId] = useState<string | null>(null);
   const [showAchievements, setShowAchievements] = useState(false);
@@ -189,7 +188,10 @@ export default function App() {
 
   const handleDeferJourney = (id: string) => {
     if (!listJourneySteps(PHASES).some(({ event }) => event.id === id && !progress.steps[event.id])) return;
-    setProgress(prev => deferJourneyStep(prev, id));
+    const next = deferJourneyStep(progress, id);
+    const suggestion = resolveJourney(PHASES, next).target;
+    setProgress(next);
+    if (suggestion) setSelectedChapter(suggestion.phase.id);
   };
 
   const handleNavigateToStep = (id: string) => {
@@ -344,7 +346,12 @@ export default function App() {
         progress={progress}
         onSelect={handleSelectJourney}
         onDefer={handleDeferJourney}
-        onClearSelection={() => setProgress(prev => ({ ...prev, activeStepId: undefined }))}
+        onClearSelection={() => {
+          const newProgress = { ...progress, activeStepId: undefined };
+          const first = firstPendingStep(PHASES, newProgress);
+          if (first) setSelectedChapter(first.phase.id);
+          setProgress(newProgress);
+        }}
         onNavigate={handleNavigateToStep}
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
       />
