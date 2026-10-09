@@ -21,10 +21,10 @@ export const SourcesModal: React.FC<SourcesModalProps> = ({ isOpen, onClose }) =
             </div>
             <div>
               <h3 className="font-serif font-bold text-lg text-[#f0d1a0]">
-                Auditoria de Fontes & Esclarecimentos Editoriais
+                Fontes & Notas Editoriais
               </h3>
               <p className="text-xs text-[#aea79b]">
-                Pesquisa Checada em 09/10/2026 · Zero Conteúdo Inventado
+                Fontes públicas e comunidade · revisão de precisão em andamento
               </p>
             </div>
           </div>
@@ -42,13 +42,13 @@ export const SourcesModal: React.FC<SourcesModalProps> = ({ isOpen, onClose }) =
           {/* Audit Summary Box */}
           <div className="bg-[#181b1e] border border-[#3d372e] rounded-lg p-4 space-y-3">
             <span className="font-serif font-bold text-sm text-[#f0d1a0] block">
-              Divergências Comunitárias Resolvidas por Evidência Oficial
+              Pontos relevantes e verificações pendentes
             </span>
             <ul className="space-y-2 text-[#cfc8bd] text-xs">
               <li className="flex items-start gap-2">
                 <span className="text-[#d9b780] font-bold">•</span>
                 <span>
-                  <b>Contagem de Conquistas (54 vs 60):</b> O jogo original possui 54 conquistas. A expansão <i>Dark Arisen</i> (lançada em outubro de 2026) adicionou 6 novas conquistas à Steam global. O guia brasileiro de 2024 cobria apenas o jogo-base; as 6 da DLC estão separadas em capítulo próprio com rotas marcadas como <i>em verificação</i> para não induzir a erro.
+                  <b>Contagem de Conquistas (54 vs. 60):</b> O jogo original possui 54 conquistas. A expansão <i>Dark Arisen</i>, anunciada pela Capcom para outubro de 2026, possui 6 conquistas adicionais listadas na Steam global. O guia brasileiro de 2024 cobria apenas o jogo-base; as 6 da DLC estão separadas em capítulo próprio com rotas marcadas como <i>em verificação</i> para não induzir a erro.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -87,7 +87,7 @@ export const SourcesModal: React.FC<SourcesModalProps> = ({ isOpen, onClose }) =
           {/* Sources Table */}
           <div className="space-y-3">
             <h4 className="font-serif uppercase tracking-wider text-xs text-[#d9b780]">
-              Tabela de Fontes Diretas Consultadas
+              Referências para consulta e conferência
             </h4>
             <div className="border border-[#3d372e] rounded-lg overflow-hidden bg-[#181a1d]">
               <table className="w-full text-left border-collapse text-xs">

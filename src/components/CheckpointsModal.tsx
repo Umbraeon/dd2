@@ -31,10 +31,10 @@ export const CheckpointsModal: React.FC<CheckpointsModalProps> = ({
             </div>
             <div>
               <h3 className="font-serif font-bold text-lg text-[#f0d1a0]">
-                4 Pontos Sem Retorno & Checkpoints de Risco
+                4 Alertas de Progressão & Checkpoints
               </h3>
               <p className="text-xs text-[#aea79b]">
-                Prevenção de perdas definitivas e bloqueios na campanha
+                Alertas de risco — não representam garantia de conclusão
               </p>
             </div>
           </div>

@@ -17,7 +17,7 @@ export const AchievementCard: React.FC<AchievementCardProps> = ({
 
   return (
     <article 
-      className={`border rounded-lg p-3.5 transition-all duration-200 flex flex-col justify-between ${
+      className={`codex-achievement border rounded-lg p-3.5 transition-all duration-200 flex flex-col justify-between ${
         isCompleted
           ? 'bg-[#141618]/70 border-[#38483c]/60 opacity-80'
           : achievement.missable
@@ -31,7 +31,7 @@ export const AchievementCard: React.FC<AchievementCardProps> = ({
         {/* Top: Icon + Title Lockup */}
         <div className="flex items-start gap-3">
           {/* Steam Icon or Resilient Fallback */}
-          <div className="relative w-12 h-12 rounded border border-[#52493b] bg-[#121315] shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
+          <div className="codex-achievement-icon relative w-12 h-12 border border-[#52493b] bg-[#121315] shrink-0 overflow-hidden shadow-sm flex items-center justify-center">
             {!imgError ? (
               <img
                 src={achievement.icon}

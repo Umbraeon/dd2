@@ -47,13 +47,13 @@ export const ProgressSummary: React.FC<ProgressSummaryProps> = ({
   const stepsPercent = totalEventsCount > 0 ? Math.round((stepsDone / totalEventsCount) * 100) : 0;
 
   return (
-    <section className="bg-[#141619] border-y border-[#3d372e] py-6 px-4 lg:px-8 shadow-inner">
+    <section className="codex-progress border-y border-[#3d372e] py-6 px-4 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Top Disclaimer Notice */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#aea79b] bg-[#1a1c20] p-3 rounded border border-[#383b40]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#d9b780]" />
-            <span className="font-medium text-[#e9e2d7]">Auditoria Cronológica Verificada</span>
+            <span className="font-medium text-[#e9e2d7]">Roteiro em revisão editorial</span>
             <span className="text-[#726044]">·</span>
             <span>09 de Outubro de 2026</span>
           </div>
@@ -62,7 +62,7 @@ export const ProgressSummary: React.FC<ProgressSummaryProps> = ({
               onClick={onOpenSources}
               className="text-[#d9b780] hover:text-[#edd9ba] underline flex items-center gap-1 transition-colors"
             >
-              <span>Ver 15 Fontes Independentes</span>
+              <span>Consultar fontes de referência</span>
               <ExternalLink className="w-3 h-3" />
             </button>
           </div>
@@ -161,7 +161,7 @@ export const ProgressSummary: React.FC<ProgressSummaryProps> = ({
               />
             </div>
             <span className="text-[10px] text-[#8e887d] mt-2 block">
-              Missões e marcos verificados
+              Marcos resumidos da jornada
             </span>
           </div>
         </div>
