@@ -108,7 +108,7 @@ export function loadProgress(): UserProgress {
 
 function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
-  if (isRecord(value)) return `{${Object.keys(value).filter(key => key !== 'updatedAt').sort()
+  if (isRecord(value)) return `{${Object.keys(value).filter(key => key !== 'updatedAt' && value[key] !== undefined).sort()
     .map(key => `${JSON.stringify(key)}:${stable(value[key])}`).join(',')}}`;
   return JSON.stringify(value);
 }
@@ -118,7 +118,14 @@ export function saveProgress(progress: UserProgress): boolean {
   if (storageError) return false;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw !== null && stable(JSON.parse(raw)) === stable(progress)) return true;
+    if (raw !== null) {
+      const existing = parseProgress(JSON.parse(raw));
+      if (!existing.data) {
+        storageError = existing.error ?? 'Progresso salvo inválido.';
+        return false;
+      }
+      if (stable(existing.data) === stable(progress)) return true;
+    }
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       ...progress,
       updatedAt: new Date().toISOString()
