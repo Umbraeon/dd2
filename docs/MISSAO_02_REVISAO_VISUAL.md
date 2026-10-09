@@ -1,3 +1,7 @@
+> **REGISTRO HISTÓRICO DO PR #8.** O cabeçalho antigo deste documento descreve um protótipo ainda não integrado; **o PR #8 foi integrado à `main` em 09/10/2026**, com ressalvas visuais/UX do proprietário. Consulte [o handoff atualizado](./HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md). Os WebPs Gemini previstos não foram encontrados na `main` na transição; os quatro SVG ornamentais foram versionados. Nenhuma nova alteração visual foi autorizada nesta transição.
+
+---
+
 # Missão 02 — revisão visual mestre–detalhe
 
 **Status:** protótipo web implementado para revisão visual do Head; **não aprovado pelo proprietário e não integrado à main**.

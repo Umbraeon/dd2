@@ -1,3 +1,7 @@
+> **REGISTRO HISTÓRICO (antes das Missões 01 e 02).** Este documento mantém o diagnóstico inicial e propostas então futuras. A situação operacional e decisões mais recentes estão em [HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md](./HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md). Os PRs #7 e #8 já foram integrados à `main`. Não iniciar novamente o PR de retomada.
+
+---
+
 # HANDOFF — Head do Compêndio do Nascen
 **Projeto:** Umbraeon/dd2 · Dragon's Dogma 2 (PT-BR)  
 **Data-base deste documento:** 09/10/2026  

@@ -1,6 +1,6 @@
 # AGENTS.md — regras permanentes para agentes deste projeto
 
-Este repositório contém o **Compêndio do Nascen**, aplicativo de acompanhamento de Dragon's Dogma 2 em PT-BR. Antes de qualquer mudança, leia **docs/PROJECT_HEAD_HANDOFF.md** e **docs/AUDITORIA_CONTEUDO.md**. Depois, inspecione o código efetivo da branch main, a issue #2 e os PRs abertos. Não trate este arquivo como substituto da inspeção.
+Este repositório contém o **Compêndio do Nascen**, aplicativo de acompanhamento de Dragon's Dogma 2 em PT-BR. Antes de qualquer mudança, leia primeiro **docs/HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md** (estado após as Missões 01 e 02), depois **docs/PROJECT_HEAD_HANDOFF.md** (histórico), **docs/AUDITORIA_CONTEUDO.md** e **docs/MISSAO_02_REVISAO_VISUAL.md** (histórico da revisão). Depois, inspecione o código efetivo da branch main, a issue #2 e os PRs abertos. Não trate este arquivo como substituto da inspeção.
 
 ## Seu papel
 
@@ -18,7 +18,7 @@ Foco na legibilidade, baixa carga cognitiva, controles móveis e retomada após 
 
 - **Não inventar dados sobre o jogo.** O código tem 9 capítulos, 53 marcos resumidos e 60 fichas de conquistas (54 base e 6 separadas da expansão). Esses 53 marcos NÃO são todas as missões individualizadas. "Rota 100% infalível" e "auditado integralmente" são afirmações proibidas sem comprovação.
 - Evidência por requisito: distinguir **fonte oficial**, **consenso comunitário**, **hipótese**, **não verificado**, **teste de usuário** e **teste automatizado**. O fato de um link estar no código não prova que a frase associada foi auditada.
-- **Sem imagens geradas por IA.** Artes oficiais somente com origem verificada e créditos; fallback CSS/SVG não gerado. Não usar imagens de bancos genéricos.
+- **Recursos gráficos gerados por IA:** o proprietário autorizou expressamente seu uso para textura, molduras e ilustrações editoriais; registrar origem, indicação de material ilustrativo e licenças aplicáveis. Não copiar diretamente recursos gráficos proprietários do jogo nem apresentar arte fictícia como documentação factual de missão. Artes oficiais exigem procedência e atribuição; a jornada básica deve funcionar com fallback sem dependência de IA em execução.
 - **Preservar progresso:** chave localStorage dd2_roadmap_user_progress_v3 e backups exportados; não alterar sem migração e testes. IDs existentes devem permanecer estáveis.
 - **Não confundir build verde com UX validada.** npm run lint hoje chama apenas TypeScript (--noEmit); npm run build verifica compilação, não usabilidade, segurança factual ou acessibilidade.
 - Quando possível, executar o site e testar com DOM, Playwright/axe, mobile, zoom, teclado e estados de progresso. Se não houver navegador, informar claramente que a verificação foi só estática.
@@ -34,4 +34,4 @@ Foco na legibilidade, baixa carga cognitiva, controles móveis e retomada após 
 4. Implemente com testes e revise como adversário honesto da sua própria solução.
 5. Reporte o que funcionou, o que falhou, o que ficou incerto, o próximo passo. Peça decisão do usuário somente quando escolha material ou irreversível depender dele.
 
-**Entrada do próximo Head:** leia docs/PROJECT_HEAD_HANDOFF.md por inteiro e comece por uma avaliação do PR 1 de retomada, não por uma terceira reformulação ornamental.
+**Entrada do próximo Head:** leia o handoff de encerramento mais recente, confira no GitHub os PRs #7 e #8 (ambos integrados em 09/10/2026) e o CI da `main`; não retome a Missão 03, a Missão 04 ou um redesign sem nova solicitação do proprietário. O resultado visual do PR #8 foi integrado com ressalvas de UX e estética.
