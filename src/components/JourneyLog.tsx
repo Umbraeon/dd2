@@ -62,7 +62,9 @@ export const JourneyLog: React.FC<JourneyLogProps> = ({
                   {event.failureRisk ? ' · Nota de cautela em verificação' : ''}
                 </span>
               </div>
-              {selected && <span className="journal-active-symbol" aria-label="Etapa em destaque"><Check size={17}/></span>}
+              {selected && <span className="journal-active-symbol" aria-label={resolved.kind === 'suggested' ? 'Sugestão em destaque' : 'Etapa escolhida em destaque'}>
+                {resolved.kind === 'suggested' ? <Compass size={17} /> : <Check size={17} />}
+              </span>}
               {completed ? (
                 <button className="journal-entry-action" type="button" onClick={() => onDetails(event.id)}
                   aria-label={`Consultar etapa concluída: ${event.title}`}>Consultar <ChevronRight size={17} aria-hidden="true"/></button>
@@ -71,7 +73,7 @@ export const JourneyLog: React.FC<JourneyLogProps> = ({
                   onSelect(event.id);
                   document.getElementById('resume-heading')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
                 }} aria-label={`Selecionar atividade: ${event.title}`}>
-                  {selected ? 'Selecionada' : deferred ? 'Retomar' : 'Escolher'} <ChevronRight size={17} aria-hidden="true"/>
+                  {selected && resolved.kind === 'active' ? 'Selecionada' : deferred ? 'Retomar' : 'Escolher'} <ChevronRight size={17} aria-hidden="true"/>
                 </button>
               )}
             </div>
