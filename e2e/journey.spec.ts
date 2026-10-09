@@ -99,7 +99,7 @@ test('20/53: nonlinear explicit selection persists; prior steps not implicitly c
   expect(saved.activeStepId).toBe(later.event.id);
   expect(saved.steps[steps[0].id]).toBe(true);
   expect(saved.steps[steps[20].id]).toBeUndefined();
-  expect(saved.steps[44].id).toBeUndefined();
+  expect(saved.steps[steps[44].id]).toBeUndefined();
 });
 
 test('defer is not completion; explicit retake, completion and clearing active are reversible', async ({ page }) => {
