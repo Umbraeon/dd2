@@ -36,6 +36,7 @@ export const JourneyLog: React.FC<JourneyLogProps> = ({
         <span className="journal-count">{completedCount} / {phase.events.length} marcos marcados</span>
       </div>
 
+      <h3 className="journal-chapter-title">{phase.title} <span>· {phase.subtitle}</span></h3>
       {phase.cue && (
         <p className="journal-chapter-cue"><Compass size={18} aria-hidden="true" /> Orientação cadastrada para {phase.slug}: {phase.cue}</p>
       )}
