@@ -2,6 +2,7 @@ import type { UserProgress } from '../types/roadmap';
 
 export const STORAGE_KEY = 'dd2_roadmap_user_progress_v3';
 let storageError: string | null = null;
+let explicitReplacement = false;
 
 export const DEFAULT_PROGRESS: UserProgress = {
   version: '3.0.0',
@@ -82,9 +83,11 @@ export function getProgressStorageError(): string | null {
 /** Only call after the user explicitly confirms replacement via import or reset. */
 export function allowExplicitProgressReplacement(): void {
   storageError = null;
+  explicitReplacement = true;
 }
 
 export function loadProgress(): UserProgress {
+  explicitReplacement = false;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw === null) {
@@ -118,7 +121,7 @@ export function saveProgress(progress: UserProgress): boolean {
   if (storageError) return false;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw !== null) {
+    if (raw !== null && !explicitReplacement) {
       const existing = parseProgress(JSON.parse(raw));
       if (!existing.data) {
         storageError = existing.error ?? 'Progresso salvo inválido.';
@@ -130,6 +133,7 @@ export function saveProgress(progress: UserProgress): boolean {
       ...progress,
       updatedAt: new Date().toISOString()
     }));
+    explicitReplacement = false;
     return true;
   } catch (error) {
     console.error('Falha ao salvar progresso no localStorage:', error);
@@ -138,10 +142,17 @@ export function saveProgress(progress: UserProgress): boolean {
 }
 
 export function exportProgressFile(progress: UserProgress): void {
+  // The persisted version has the timestamp of the last real edit.
+  let exportData = progress;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const saved = raw ? parseProgress(JSON.parse(raw)).data : undefined;
+    if (saved && stable(saved) === stable(progress)) exportData = saved;
+  } catch { /* Keep the in-memory copy if local storage cannot be read. */ }
   const payload = {
     app: 'dd2-100-roadmap-ptbr',
     exportedAt: new Date().toISOString(),
-    progress
+    progress: exportData
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
