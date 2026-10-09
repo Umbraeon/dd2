@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, readFileSync } from 'node:fs';
-import { PHASES } from '../src/data/roadmapData';
+import { PHASES, RISK_CHECKPOINTS } from '../src/data/roadmapData';
 
 const key = 'dd2_roadmap_user_progress_v3';
 const steps = PHASES.flatMap(phase => phase.events);
@@ -252,4 +252,31 @@ test('Mission 02: main navigation and journal controls have labels, keyboard foc
   const result = await new AxeBuilder({ page }).include('.quest-journal').include('.codex-chapter-picker').analyze();
   await testInfo.attach('axe-mission02.json', { body: Buffer.from(JSON.stringify(result.violations, null, 2)), contentType: 'application/json' });
   expect(result.violations.filter(v => v.impact === 'serious' || v.impact === 'critical')).toEqual([]);
+});
+
+test('Mission 02: chapter alerts stay visible while event details are collapsed', async ({ page }) => {
+  const checkpoint = RISK_CHECKPOINTS[0];
+  await page.goto('/');
+  await page.getByRole('button', { name: /Consulta · Arquivo completo/ }).click();
+  await page.getByRole('combobox', { name: 'Capítulo do roteiro' }).selectOption(checkpoint.phaseId);
+  await expect(page.getByText(`Alerta cadastrado para o capítulo: ${checkpoint.title}`)).toBeVisible();
+  await expect(page.locator('.quest-event-details')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Mostrar instruções e vínculos' }).first().click();
+  await expect(page.getByText(`Alerta cadastrado para o capítulo: ${checkpoint.title}`)).toBeVisible();
+  await page.getByRole('button', { name: 'Recolher instruções' }).click();
+  await expect(page.getByText(`Alerta cadastrado para o capítulo: ${checkpoint.title}`)).toBeVisible();
+});
+
+test('Mission 02: exact navigation after filters clears sticky overlap at 375px', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await page.locator('#resume-select').selectOption(steps[15].id);
+  await page.getByRole('button', { name: 'Ver instruções completas' }).click();
+  await expect(page.locator(`#step-${steps[15].id}`)).toBeFocused();
+  await expect.poll(async () => page.evaluate(id => {
+    const top = document.getElementById(`step-${id}`)!.getBoundingClientRect().top;
+    const bottom = document.querySelector('.codex-header')!.getBoundingClientRect().bottom;
+    return top >= bottom - 2;
+  }, steps[15].id)).toBe(true);
+  await expect(page.locator(`#event-details-${steps[15].id}`)).toBeVisible();
 });
