@@ -225,3 +225,6 @@ html { scroll-padding-top:92px; }
   .codex-header-tools button { min-width:40px; }
   .journal-entry-action { min-width:69px; font-size:12px; }
 }
+
+.journal-chapter-title { padding:12px clamp(16px,4vw,36px); font:600 17px/1.5 'Plus Jakarta Sans',system-ui,sans-serif; color:#f2d7a9; border-bottom:1px solid #54442e; }
+.journal-chapter-title span { font-size:13px; font-weight:400; color:#c6baab; }
