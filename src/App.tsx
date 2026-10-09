@@ -21,8 +21,8 @@ import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, 
 import { selectJourneyStep, deferJourneyStep, listJourneySteps, resolveJourney, firstPendingStep } from './utils/journey';
 
 import { Header } from './components/Header';
-import { JourneyResume } from './components/JourneyResume';
-import { JourneyLog } from './components/JourneyLog';
+import { QuestCodex } from './components/QuestCodex';
+
 import { ProgressSummary } from './components/ProgressSummary';
 import { FilterToolbar, FilterType } from './components/FilterToolbar';
 import { ChapterSection } from './components/ChapterSection';
@@ -328,7 +328,7 @@ export default function App() {
         onOpenTools={() => setIsSphinxOpen(true)}
         onOpenSources={() => setIsSourcesOpen(true)}
         onOpenBackup={() => setIsBackupOpen(true)}
-        onGoJourney={() => { setView('journey'); document.getElementById('resume-heading')?.scrollIntoView({ block: 'start' }); }}
+        onGoJourney={() => { setView('journey'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         onGoChapter={handleJumpToPhase}
       />
 
@@ -340,45 +340,30 @@ export default function App() {
         </div>
       )}
 
-      <div className={`codex-journey-shell ${view === 'journey' ? 'is-journey' : 'is-consultation'}`}>
-      <JourneyResume
+      <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
+      {view === 'journey' && <QuestCodex
         phases={PHASES}
         progress={progress}
-        onSelect={handleSelectJourney}
-        onDefer={handleDeferJourney}
-        onClearSelection={() => {
-          const newProgress = { ...progress, activeStepId: undefined };
-          const first = firstPendingStep(PHASES, newProgress);
-          if (first) setSelectedChapter(first.phase.id);
-          setProgress(newProgress);
-        }}
-        onNavigate={handleNavigateToStep}
+        selectedChapter={selectedChapter}
+        onChapterChange={setSelectedChapter}
+        onSetActive={handleSelectJourney}
+        onDefer={(id) => setProgress(prev => deferJourneyStep(prev, id))}
+        onClearSelection={() => setProgress(prev => ({ ...prev, activeStepId: undefined }))}
+        onToggleDone={handleToggleEvent}
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
-      />
-      <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
-      <div className="codex-journal-side">
-      <nav className="codex-mode-nav" aria-label="Modo de consulta do compêndio">
-        <button type="button" aria-pressed={view === 'journey'} onClick={() => setView('journey')}>Jornada · Diário</button>
-        <button type="button" aria-pressed={view === 'consultation'} onClick={() => setView('consultation')}>Consulta · Arquivo completo</button>
-      </nav>
-      <div className="codex-chapter-picker">
+        onShowFull={handleNavigateToStep}
+        onOpenConsultation={() => setView('consultation')}
+      />}
+      {view === 'consultation' && <nav className="codex-mode-nav" aria-label="Modos do compêndio">
+        <button type="button" onClick={() => setView('journey')}>← Voltar ao diário de missões</button>
+      </nav>}
+      {view === 'consultation' && <div className="codex-chapter-picker">
         <label htmlFor="chapter-jump">Capítulo do roteiro</label>
-        <select id="chapter-jump" value={selectedChapter} onChange={e => {
-          const id = e.target.value;
-          setSelectedChapter(id);
-          if (view === 'consultation') handleJumpToPhase(id);
-        }}>
+        <select id="chapter-jump" value={selectedChapter} onChange={e => handleJumpToPhase(e.target.value)}>
           {PHASES.map((phase, index) => <option key={phase.id} value={phase.id}>{String(index + 1).padStart(2, '0')} · {phase.slug}</option>)}
         </select>
-        <span>9 capítulos · seleção não altera o progresso</span>
-      </div>
-      {view === 'journey' && (
-        <JourneyLog phase={currentPhase} phases={PHASES} progress={progress}
-          onSelect={handleSelectJourney} onDetails={handleNavigateToStep}
-          onOpenCheckpoints={() => setIsCheckpointsOpen(true)} />
-      )}
-      </div>
-      </div>
+        <span>9 capítulos · consulta integral</span>
+      </div>}
       {view === 'consultation' && (
         <>
 
