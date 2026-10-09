@@ -368,3 +368,64 @@ body,.codex-app { background-color:#100e0d; }
   background-position:center;
   background-size:cover;
 }
+
+
+/* Missão 02 · ornamentos SVG vetoriais fornecidos pelo proprietário (Sonnet).
+   Sem quadriculado: SVGs com alfa; apenas molduras e seleção consultada.
+   Todos decorativos. Estados de progresso continuam descritos por texto e ícones. */
+.quest-codex > .codex-frame-corner {
+  font-size:0;
+  line-height:0;
+  color:transparent;
+  width:clamp(72px,7.4vw,112px);
+  height:clamp(72px,7.4vw,112px);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  opacity:.55;
+  filter:brightness(.82) saturate(.72);
+  text-shadow:none;
+  pointer-events:none;
+  z-index:1;
+}
+.quest-codex > .codex-frame-corner.top-left {
+  top:2px;
+  left:2px;
+  background-image:url('/assets/ornament-corner-top-left.svg');
+}
+.quest-codex > .codex-frame-corner.top-right {
+  top:2px;
+  right:2px;
+  background-image:url('/assets/ornament-corner-top-right.svg');
+}
+.quest-codex > .codex-frame-corner.bottom-left,
+.quest-codex > .codex-frame-corner.bottom-right {
+  display:none;
+}
+.quest-master-heading,
+.quest-detail-scroll { position:relative; z-index:2; }
+.quest-detail-body h2::after {
+  content:"";
+  display:block;
+  width:min(100%,440px);
+  height:17px;
+  margin:13px 0 3px;
+  background:url('/assets/ornament-divider.svg') no-repeat center / contain;
+  opacity:.68;
+  pointer-events:none;
+}
+.quest-row.is-inspected .quest-row-chevron { display:none; }
+.quest-row.is-inspected .quest-row-button::after {
+  content:"";
+  display:block;
+  flex:0 0 23px;
+  width:23px;
+  height:23px;
+  background:url('/assets/ornament-selection-diamond.svg') no-repeat center / contain;
+  opacity:.82;
+  pointer-events:none;
+}
+@media(max-width:800px) {
+  .quest-codex > .codex-frame-corner { width:64px; height:64px; opacity:.35; }
+  .quest-detail-body h2::after { height:13px; margin:9px 0 2px; opacity:.55; }
+}
