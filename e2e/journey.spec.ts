@@ -88,7 +88,7 @@ test('continue clears any filters hiding destination and sets focus to the exact
   await expect(page.getByText('Busca e filtros limpos para exibir a etapa solicitada.')).toHaveText(/filtros limpos/);
   const layout = await page.evaluate(id => ({
     target: document.getElementById(`step-${id}`).getBoundingClientRect().top,
-    toolbar: document.querySelector('.sticky.top-\\[57px\\]')?.getBoundingClientRect().bottom ?? 0
+    toolbar: document.querySelector('input[aria-label="Buscar no roteiro e nas conquistas"]')?.closest('.sticky')?.getBoundingClientRect().bottom ?? 0
   }), steps[5].id);
   expect(layout.target).toBeGreaterThanOrEqual(layout.toolbar - 3);
 });
@@ -112,8 +112,9 @@ test('real v3 JSON import/export roundtrip, rejected import does not replace sto
   await page.getByRole('button', { name: 'Carregar Dados Colados' }).click();
   await expect.poll(async () => page.evaluate(key => JSON.parse(localStorage.getItem(key))?.steps, key))
     .toEqual(state.steps);
-  await page.getByRole('button', { name: 'Backup do progresso' }).click().catch(() => {});
-  // Import feedback modal can still be open; use the modal's existing export button.
+  // Successful import closes the dialog after its feedback; reopen it for export.
+  await expect(page.getByText('Gerenciamento & Backup de Progresso')).not.toBeVisible({ timeout: 5000 });
+  await page.getByRole('button', { name: 'Backup do progresso' }).click();
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Baixar Arquivo JSON de Backup' }).click();
   const download = await downloadPromise;
