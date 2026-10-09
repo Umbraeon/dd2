@@ -27,7 +27,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
   const isFiltered = searchQuery.trim().length > 0 || activeFilter !== 'all';
 
   return (
-    <div className="sticky top-[57px] z-30 bg-[#0d0f11]/95 backdrop-blur-md border-b border-[#403e38] py-3 px-4 lg:px-8">
+    <div className="codex-filters relative z-10 bg-[#0d0f11]/95 backdrop-blur-md border-b border-[#403e38] py-3 px-4 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         {/* Search Input Box */}
         <div className="relative flex-1 max-w-md">
@@ -38,12 +38,12 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
             onChange={(e) => onSearchChange(e.target.value)}
             aria-label="Buscar no roteiro e nas conquistas"
             placeholder="Buscar por missão, conquista, NPC, local ou item..."
-            className="w-full bg-[#181b1e] border border-[#52493b] rounded-md pl-10 pr-9 py-2 text-xs text-[#e9e2d7] placeholder-[#8e887d] focus:outline-none focus:border-[#d9b780] focus:ring-1 focus:ring-[#d9b780]/40 transition-colors"
+            className="w-full bg-[#181b1e] border border-[#52493b] rounded-md pl-10 pr-10 min-h-11 py-2 text-sm text-[#e9e2d7] placeholder-[#8e887d] focus:outline-none focus:border-[#d9b780] focus:ring-1 focus:ring-[#d9b780]/40 transition-colors"
           />
           {searchQuery && (
             <button
               onClick={() => onSearchChange('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8e887d] hover:text-[#e9e2d7]"
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center text-[#bcb0a0] hover:text-[#e9e2d7]" aria-label="Limpar busca"
               title="Limpar busca"
             >
               <X className="w-3.5 h-3.5" />
@@ -54,8 +54,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
         {/* Filter Segmented Buttons */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
           <button
-            onClick={() => onFilterChange('all')}
-            className={`px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'all'} onClick={() => onFilterChange('all')}
+            className={`px-3 min-h-11 py-2 text-sm font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'all'
                 ? 'bg-[#d9b780] text-[#111315] font-semibold shadow-sm'
                 : 'bg-[#1a1c1f] text-[#cfc8bd] hover:bg-[#25282d] border border-[#3d372e]'
@@ -65,8 +65,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </button>
 
           <button
-            onClick={() => onFilterChange('missable')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'missable'} onClick={() => onFilterChange('missable')}
+            className={`flex items-center gap-1.5 px-3 min-h-11 py-2 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'missable'
                 ? 'bg-[#df8c75] text-[#161210] font-semibold shadow-sm'
                 : 'bg-[#1a1c1f] text-[#df8c75] hover:bg-[#2b1f1c] border border-[#5a342c]'
@@ -77,8 +77,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </button>
 
           <button
-            onClick={() => onFilterChange('timed')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'timed'} onClick={() => onFilterChange('timed')}
+            className={`flex items-center gap-1.5 px-3 min-h-11 py-2 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'timed'
                 ? 'bg-[#e2bc76] text-[#16130e] font-semibold shadow-sm'
                 : 'bg-[#1a1c1f] text-[#ecd2ac] hover:bg-[#2c261e] border border-[#5d4d36]'
@@ -89,8 +89,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </button>
 
           <button
-            onClick={() => onFilterChange('undone')}
-            className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'undone'} onClick={() => onFilterChange('undone')}
+            className={`flex items-center gap-1 px-3 min-h-11 py-2 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'undone'
                 ? 'bg-[#8e887d] text-[#111315] font-semibold'
                 : 'bg-[#1a1c1f] text-[#aea79b] hover:bg-[#25282d] border border-[#3d372e]'
@@ -101,8 +101,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </button>
 
           <button
-            onClick={() => onFilterChange('done')}
-            className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'done'} onClick={() => onFilterChange('done')}
+            className={`flex items-center gap-1 px-3 min-h-11 py-2 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'done'
                 ? 'bg-[#9bc4a5] text-[#101612] font-semibold'
                 : 'bg-[#1a1c1f] text-[#9bc4a5] hover:bg-[#1e2821] border border-[#38483c]'
@@ -113,8 +113,8 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
           </button>
 
           <button
-            onClick={() => onFilterChange('dlc')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
+            aria-pressed={activeFilter === 'dlc'} onClick={() => onFilterChange('dlc')}
+            className={`flex items-center gap-1.5 px-3 min-h-11 py-2 text-xs font-medium rounded transition-all whitespace-nowrap shrink-0 ${
               activeFilter === 'dlc'
                 ? 'bg-[#79a6d2] text-[#0d151e] font-semibold shadow-sm'
                 : 'bg-[#1a1c1f] text-[#a4c7e8] hover:bg-[#1a232f] border border-[#394a5e]'
