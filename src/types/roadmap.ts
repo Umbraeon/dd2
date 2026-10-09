@@ -91,8 +91,4 @@ export interface UserProgress {
   barbecue: Record<string, { day: boolean; night: boolean }>; // meat.id -> {day, night}
   maisters: Record<string, { acquired: boolean; learned: boolean }>; // maister.id -> status
   confirmedCheckpoints: Record<string, boolean>; // checkpoint.id -> confirmed
-  /** Seleção explícita do jogador; ausente significa somente sugestão. */
-  activeStepId?: string;
-  /** Atividades adiadas permanecem pendentes e recuperáveis. */
-  deferredStepIds?: string[];
 }

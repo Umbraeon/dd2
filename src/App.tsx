@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Compass, 
   ShieldAlert, 
@@ -17,11 +17,9 @@ import {
 
 import { PHASES, ROADMAP_METADATA } from './data/roadmapData';
 import { UserProgress, Phase } from './types/roadmap';
-import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, allowExplicitProgressReplacement } from './utils/storage';
-import { selectJourneyStep, deferJourneyStep, listJourneySteps } from './utils/journey';
+import { loadProgress, saveProgress, DEFAULT_PROGRESS } from './utils/storage';
 
 import { Header } from './components/Header';
-import { JourneyResume } from './components/JourneyResume';
 import { ProgressSummary } from './components/ProgressSummary';
 import { FilterToolbar, FilterType } from './components/FilterToolbar';
 import { ChapterSection } from './components/ChapterSection';
@@ -36,10 +34,6 @@ import { DataBackupModal } from './components/DataBackupModal';
 
 export default function App() {
   const [progress, setProgress] = useState<UserProgress>(() => loadProgress());
-  const initialProgress = useRef(progress);
-  const [storageIssue, setStorageIssue] = useState(() => getProgressStorageError());
-  const [navigationTarget, setNavigationTarget] = useState<string | null>(null);
-  const [navigationNotice, setNavigationNotice] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
 
@@ -53,23 +47,10 @@ export default function App() {
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
   const [isBackupOpen, setIsBackupOpen] = useState(false);
 
-  // Opening (including React StrictMode effect replay) must not write a timestamp.
+  // Auto-save to localStorage whenever progress updates
   useEffect(() => {
-    if (progress !== initialProgress.current) saveProgress(progress);
+    saveProgress(progress);
   }, [progress]);
-
-  useEffect(() => {
-    if (!navigationTarget) return;
-    const frame = requestAnimationFrame(() => {
-      const element = document.getElementById(`step-${navigationTarget}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        element.focus({ preventScroll: true });
-      }
-      setNavigationTarget(null);
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [navigationTarget]);
 
   // Handler for toggling an event step
   const handleToggleEvent = (eventId: string) => {
@@ -169,28 +150,6 @@ export default function App() {
   const allEvents = useMemo(() => PHASES.flatMap((p) => p.events), []);
   const allAchievements = useMemo(() => PHASES.flatMap((p) => p.achievements), []);
 
-  const handleSelectJourney = (id: string) => {
-    if (!listJourneySteps(PHASES).some(({ event }) => event.id === id && !progress.steps[event.id])) return;
-    setProgress(prev => selectJourneyStep(prev, id));
-  };
-
-  const handleDeferJourney = (id: string) => {
-    if (!listJourneySteps(PHASES).some(({ event }) => event.id === id && !progress.steps[event.id])) return;
-    setProgress(prev => deferJourneyStep(prev, id));
-  };
-
-  const handleNavigateToStep = (id: string) => {
-    // The destination may be hidden by search or completion/risk/DLC filters.
-    if (searchQuery.trim() || activeFilter !== 'all') {
-      setNavigationNotice('Busca e filtros limpos para exibir a etapa solicitada.');
-      setSearchQuery('');
-      setActiveFilter('all');
-    } else {
-      setNavigationNotice('');
-    }
-    setNavigationTarget(id);
-  };
-
   // Filtered phases and events based on searchQuery and activeFilter
   const filteredPhases = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
@@ -210,7 +169,7 @@ export default function App() {
 
         // Filter button
         if (activeFilter === 'missable') {
-          return ev.risk === 'critico' || ev.risk === 'alerta' || ev.risk === 'cuidado';
+          return ev.risk === 'critico' || ev.risk === 'alerta';
         }
         if (activeFilter === 'timed') {
           return ev.risk === 'alerta' || ev.note.toLowerCase().includes('prazo');
@@ -247,8 +206,7 @@ export default function App() {
           return ach.missable;
         }
         if (activeFilter === 'timed') {
-          // An achievement marked missable does not necessarily have a deadline.
-          return false;
+          return ach.missable;
         }
         if (activeFilter === 'undone') {
           return !progress.achievements[ach.id];
@@ -292,25 +250,6 @@ export default function App() {
         onOpenSources={() => setIsSourcesOpen(true)}
         onOpenBackup={() => setIsBackupOpen(true)}
       />
-
-      {storageIssue && (
-        <div role="alert" className="px-4 py-3 bg-[#402219] text-[#ffe3d2] text-sm border-b border-[#bb795b]">
-          O progresso armazenado está inválido: {storageIssue} Nenhum dado original será sobrescrito.
-          Exporte uma cópia manual do localStorage antes de importar um backup válido ou confirmar uma redefinição.
-          <button type="button" className="underline ml-2 font-semibold" onClick={() => setIsBackupOpen(true)}>Abrir backup</button>
-        </div>
-      )}
-
-      <JourneyResume
-        phases={PHASES}
-        progress={progress}
-        onSelect={handleSelectJourney}
-        onDefer={handleDeferJourney}
-        onClearSelection={() => setProgress(prev => ({ ...prev, activeStepId: undefined }))}
-        onNavigate={handleNavigateToStep}
-        onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
-      />
-      <div role="status" aria-live="polite" className="sr-only">{navigationNotice}</div>
 
       {/* Abertura editorial — arte oficial da Steam; composição própria em CSS */}
       <section className="codex-hero" aria-labelledby="hero-title">
@@ -575,16 +514,8 @@ export default function App() {
         isOpen={isBackupOpen}
         onClose={() => setIsBackupOpen(false)}
         progress={progress}
-        onImportSuccess={(newProg) => {
-          allowExplicitProgressReplacement();
-          setStorageIssue(null);
-          setProgress(newProg);
-        }}
-        onResetAll={() => {
-          allowExplicitProgressReplacement();
-          setStorageIssue(null);
-          setProgress({ ...DEFAULT_PROGRESS, updatedAt: new Date().toISOString() });
-        }}
+        onImportSuccess={(newProg) => setProgress(newProg)}
+        onResetAll={() => setProgress({ ...DEFAULT_PROGRESS })}
       />
     </div>
   );
