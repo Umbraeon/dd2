@@ -267,7 +267,7 @@ export default function App() {
             <p className="codex-image-credit">Arte oficial de Dragon’s Dogma 2 © CAPCOM · imagem disponibilizada pela Steam</p>
           </div>
           <div className="codex-hero-insignia" aria-hidden="true">
-            <span className="codex-seal-top">VERMUND · BATTAHL · NORGAn</span>
+            <span className="codex-seal-top">VERMUND · BATTAHL · NORGAN</span>
             <div className="codex-seal">
               <span className="codex-seal-inner">II</span>
             </div>
