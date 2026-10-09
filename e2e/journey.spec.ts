@@ -83,6 +83,7 @@ test('postpone is not completion; deferred can be selected again; completion tra
 test('continue clears any filters hiding destination and sets focus to the exact step', async ({ page }) => {
   await page.goto('/');
   await page.locator('#resume-select').selectOption(steps[5].id);
+  await page.getByRole('button', { name: /Consulta · Arquivo completo/ }).click();
   await page.getByRole('button', { name: 'Concluídas' }).click();
   await page.getByRole('button', { name: 'Ver instruções completas' }).click();
   await expect(page.locator(`#step-${steps[5].id}`)).toBeFocused();
@@ -157,4 +158,98 @@ test('blocked external fonts and images do not prevent keyboard-only resume', as
   const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   expect(saved.deferredStepIds).toContain(steps[0].id);
   expect(saved.steps[steps[0].id]).toBeUndefined();
+});
+
+
+test('Mission 02: 9 chapters in one keyboard-accessible selector, no progress written by browsing', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Retomar a jornada' })).toBeVisible();
+  const picker = page.getByRole('combobox', { name: 'Capítulo do roteiro' });
+  await expect(picker.locator('option')).toHaveCount(9);
+  const last = PHASES[PHASES.length - 1];
+  await picker.selectOption(last.id);
+  await expect(page.getByRole('heading', { name: 'Diário de atividades' })).toBeVisible();
+  await expect(page.getByText(last.title, { exact: false }).first()).toBeVisible();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
+  await page.getByRole('button', { name: /Consulta · Arquivo completo/ }).click();
+  await expect(page.locator(`#${last.id}`)).toBeVisible();
+  const kept = await page.evaluate(key => localStorage.getItem(key), key);
+  await picker.selectOption(PHASES[0].id);
+  await expect(page.locator(`#${PHASES[0].id}`)).toBeVisible();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(kept);
+});
+
+test('Mission 02: compact selection, full detail in two actions, source and warnings remain discoverable', async ({ page }) => {
+  await page.goto('/');
+  const first = PHASES[0].events[0];
+  await expect(page.locator('.journal-entry')).toHaveCount(PHASES[0].events.length);
+  const next = PHASES[0].events[2];
+  await page.getByRole('button', { name: `Selecionar atividade: ${next.title}` }).click();
+  await expect(page.getByText('Etapa escolhida por você')).toBeVisible();
+  await page.getByRole('button', { name: 'Ver instruções completas' }).click();
+  await expect(page.locator(`#step-${next.id}`)).toBeFocused();
+  await expect(page.locator(`#event-details-${next.id}`)).toBeVisible();
+  await expect(page.locator(`#step-${first.id}`)).toBeVisible();
+  const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
+  expect(saved.activeStepId).toBe(next.id);
+  expect(saved.steps[first.id]).toBeUndefined();
+});
+
+test('Mission 02: search index opens an exact match and long achievement list is on demand', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: /Consulta · Arquivo completo/ }).click();
+  await expect(page.getByRole('button', { name: /Mostrar fichas e requisitos/ })).toBeVisible();
+  await expect(page.locator('.codex-achievement')).toHaveCount(0);
+  await page.getByRole('textbox', { name: 'Buscar no roteiro e nas conquistas' }).fill('Prólogo');
+  const index = page.getByRole('region', { name: 'Índice de resultados' });
+  await expect(index.getByRole('button').first()).toBeVisible();
+  await index.getByRole('button').first().click();
+  await expect(page.locator('.quest-event-details').first()).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Buscar no roteiro e nas conquistas' })).toHaveValue('');
+  await page.getByRole('button', { name: /Mostrar fichas e requisitos/ }).click();
+  await expect(page.locator('.codex-achievement').first()).toBeVisible();
+});
+
+test('Mission 02: screenshots and reflow across all four viewports with 20/53 saved', async ({ page }) => {
+  const state = original();
+  steps.slice(0, 20).forEach(event => { state.steps[event.id] = true; });
+  await seed(page, state);
+  mkdirSync('test-results/screenshots', { recursive: true });
+  for (const [width, height] of [[375, 812], [390, 844], [820, 1180], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    await expect(page.getByText('Sugestão do roteiro · não indica sua posição real')).toBeVisible();
+    const data = await page.evaluate(() => ({
+      full: document.documentElement.scrollWidth,
+      viewport: document.documentElement.clientWidth,
+      top: document.getElementById('resume-heading')!.getBoundingClientRect().top,
+      font: getComputedStyle(document.querySelector('.journal-entry-content strong')!).fontSize
+    }));
+    expect(data.full).toBeLessThanOrEqual(data.viewport + 1);
+    expect(data.top).toBeGreaterThanOrEqual(0);
+    expect(data.top).toBeLessThan(height);
+    expect(parseFloat(data.font)).toBeGreaterThanOrEqual(16);
+    await page.screenshot({ path: `test-results/screenshots/mission02-after-${width}x${height}-20of53.png`, fullPage: false });
+  }
+  await page.setViewportSize({ width: 320, height: 812 }); // Reflow 400% proxy: 1280 CSS px / 4
+  await page.goto('/');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.evaluate(() => { document.documentElement.style.zoom = '2'; }); // CSS zoom proxy, not native browser zoom
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+});
+
+test('Mission 02: main navigation and journal controls have labels, keyboard focus, axe', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const chapterPicker = page.getByRole('combobox', { name: 'Capítulo do roteiro' });
+  await chapterPicker.focus();
+  await expect(chapterPicker).toBeFocused();
+  await chapterPicker.press('End');
+  await chapterPicker.press('Enter');
+  await expect(page.getByRole('heading', { name: 'Diário de atividades' })).toBeVisible();
+  const result = await new AxeBuilder({ page }).include('.quest-journal').include('.codex-chapter-picker').analyze();
+  await testInfo.attach('axe-mission02.json', { body: Buffer.from(JSON.stringify(result.violations, null, 2)), contentType: 'application/json' });
+  expect(result.violations.filter(v => v.impact === 'serious' || v.impact === 'critical')).toEqual([]);
 });
