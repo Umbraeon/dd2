@@ -242,7 +242,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d0f11] text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
+    <div className="codex-app min-h-screen text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
       {/* Top Bar Navigation */}
       <Header
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
@@ -251,27 +251,39 @@ export default function App() {
         onOpenBackup={() => setIsBackupOpen(true)}
       />
 
-      {/* Hero Marquee Section */}
-      <section className="bg-gradient-to-b from-[#181a1d] via-[#121416] to-[#0d0f11] border-b border-[#726044]/40 px-4 lg:px-8 pt-10 pb-8">
-        <div className="max-w-7xl mx-auto space-y-4">
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-[#d9b780]">
-            <span>ROTEIRO CRONOLÓGICO 100% · AUDITORIA DE FONTES CHECADA</span>
-            <span className="text-[#726044]">·</span>
-            <span>09.10.2026</span>
+      {/* Abertura editorial — arte oficial da Steam; composição própria em CSS */}
+      <section className="codex-hero" aria-labelledby="hero-title">
+        <div className="codex-hero-inner">
+          <div className="codex-hero-copy">
+            <p className="codex-kicker"><span className="codex-diamond">✦</span> COMPÊNDIO DO NASCEN <span className="codex-kicker-line" /> EDIÇÃO PT-BR</p>
+            <div className="codex-title-rule" aria-hidden="true"><span>✥</span></div>
+            <h1 id="hero-title" className="codex-hero-title">Dragon’s<br/>Dogma <em>II</em></h1>
+            <p className="codex-hero-subtitle">O Caminho do Nascen</p>
+            <p className="codex-hero-description">Missões em ordem de progressão, conquistas ilustradas e alertas para decisões que podem bloquear conteúdo. Um companheiro de jornada — não uma promessa de rota infalível.</p>
+            <div className="codex-hero-actions">
+              <a className="codex-action-primary" href="#melve">INICIAR A JORNADA <span aria-hidden="true">↗</span></a>
+              <button className="codex-action-secondary" type="button" onClick={() => setIsCheckpointsOpen(true)}>VER ALERTAS CRÍTICOS <ShieldAlert className="w-4 h-4"/></button>
+            </div>
+            <p className="codex-image-credit">Arte oficial de Dragon’s Dogma 2 © CAPCOM · imagem disponibilizada pela Steam</p>
           </div>
-
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#f0d1a0] uppercase leading-tight">
-            Dragon's Dogma II
-            <span className="block text-xl sm:text-2xl text-[#d9b780] font-medium tracking-normal mt-1 lowercase font-serif italic">
-              — rota cronológica, conquistas & checkpoints de segurança
-            </span>
-          </h1>
-
-          <p className="text-sm text-[#cfc8bd] max-w-3xl leading-relaxed">
-            Percurso meticulosamente ordenado pelas etapas do guia comunitário brasileiro de 2024, com ações reescritas para zero risco de perda, conquistas da Steam agrupadas por ordem de obtenção e separação transparente da expansão <b>Dark Arisen</b> (outubro/2026).
-          </p>
+          <div className="codex-hero-insignia" aria-hidden="true">
+            <span className="codex-seal-top">VERMUND · BATTAHL · NORGAN</span>
+            <div className="codex-seal">
+              <span className="codex-seal-inner">II</span>
+            </div>
+            <span className="codex-seal-bottom">A CRÔNICA CONTINUA</span>
+          </div>
+        </div>
+        <div className="codex-hero-bottom">
+          <span>VOLUME I / O JOGO-BASE</span><span>54 CONQUISTAS ORIGINAIS</span><span>6 ADICIONAIS NA EXPANSÃO</span>
         </div>
       </section>
+
+      <div className="codex-editorial-note" role="note">
+        <div className="codex-note-emblem" aria-hidden="true">!</div>
+        <div><strong>Antes de avançar:</strong> são 53 marcos resumidos e 60 fichas de conquistas, <u>não</u> um registro individual de todas as missões. A sequência foi adaptada de um guia comunitário de 2024 e ainda requer validação etapa a etapa. Faça salvamentos de pousada antes de decisões importantes e confira as fontes.</div>
+        <button type="button" onClick={() => setIsSourcesOpen(true)}>Ler fontes ↗</button>
+      </div>
 
       {/* Progress & Quick Tools Bar */}
       <ProgressSummary
@@ -301,7 +313,7 @@ export default function App() {
       {/* Main Content Layout (Sidebar + Chapters Stream) */}
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-8 flex-1 grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] gap-8 w-full items-start">
         {/* Sticky Desktop Sidebar Nav */}
-        <aside className="hidden lg:block sticky top-36 bg-[#141619] border border-[#3d372e] rounded-lg p-4 max-h-[calc(100vh-160px)] overflow-y-auto space-y-4">
+        <aside className="codex-sidebar hidden lg:block sticky top-36 border border-[#3d372e] p-5 max-h-[calc(100vh-160px)] overflow-y-auto space-y-4">
           <div className="flex items-center gap-2 font-serif text-sm uppercase tracking-wider text-[#d9b780] pb-2 border-b border-[#3d372e]">
             <Compass className="w-4 h-4" />
             <span>Jornada do Nascen</span>
@@ -375,7 +387,7 @@ export default function App() {
         </aside>
 
         {/* Chapters Stream */}
-        <main className="space-y-2 min-w-0">
+        <main className="codex-main space-y-2 min-w-0">
           {filteredPhases.length === 0 ? (
             <div className="bg-[#15171a] border border-[#3d372e] rounded-lg p-10 text-center space-y-3">
               <Compass className="w-8 h-8 text-[#726044] mx-auto" />
@@ -417,7 +429,7 @@ export default function App() {
               </h3>
             </div>
             <p className="text-xs text-[#cfc8bd] leading-relaxed">
-              Este guia interativo foi compilado sob auditoria rigorosa de fontes em <b>09 de Outubro de 2026</b>. Cada missão foi conferida cruzando o percurso cronológico do guia de 2024, soluções da PowerPyx, Game8 e TrueAchievements, e a nomenclatura oficial em português brasileiro da Steam. Conquistas da expansão <b>Dark Arisen</b> possuem condições comprovadas, mas walkthroughs completos permanecem marcados em verificação contínua.
+              Material comunitário em revisão, organizado a partir da rota de 2024, da lista de conquistas da Steam e de guias especializados. <b>As referências não comprovam automaticamente cada instrução</b>. Ao identificar divergência, priorize a descrição oficial e consulte as fontes originais. A expansão <b>Dark Arisen</b> está separada e suas rotas detalhadas ainda não foram confirmadas.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <button
@@ -440,12 +452,12 @@ export default function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#090b0d] border-t border-[#3d372e] py-8 px-4 text-center text-xs text-[#8e887d] space-y-2">
+      <footer className="codex-footer border-t border-[#3d372e] py-8 px-4 text-center text-xs text-[#8e887d] space-y-2">
         <p>
           Dragon's Dogma 2 · Rota 100% PT-BR · Guia Comunitário Independente sem Vínculo Oficial com Capcom ou Valve.
         </p>
         <p className="text-[11px] text-[#726044]">
-          Pesquisa finalizada em 09/10/2026 · 54 Conquistas do Jogo-Base · 6 Conquistas Dark Arisen DLC · 60 no Total Global
+          Compilação comunitária em revisão · 54 conquistas do jogo-base · 6 adicionais da expansão · sem garantia de 100% em uma só campanha
         </p>
       </footer>
 

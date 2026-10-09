@@ -27,9 +27,9 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   const completedAchievements = phase.achievements.filter(a => progress.achievements[a.id]).length;
 
   return (
-    <section id={phase.id} className="scroll-mt-32 pt-8 pb-12 border-b border-[#3d372e]/70">
+    <section id={phase.id} className="codex-chapter scroll-mt-32 pt-8 pb-12 border-b border-[#3d372e]/70">
       {/* Chapter Header */}
-      <div className="mb-6">
+      <div className="mb-6 codex-chapter-intro">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#726044]/50 pb-3">
           <div>
             <span className="text-[11px] font-mono tracking-widest uppercase text-[#d9b780]">
@@ -143,13 +143,13 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
             </span>
           </div>
 
-          <div className="space-y-3">
+          <div className="codex-timeline space-y-3">
             {phase.events.map((event, idx) => {
               const isEventDone = !!progress.steps[event.id];
               return (
                 <div
                   key={event.id}
-                  className={`border rounded-lg p-3.5 transition-all ${
+                  className={`codex-step border rounded-lg p-3.5 transition-all ${
                     isEventDone
                       ? 'bg-[#141619]/60 border-[#2d382f] opacity-85'
                       : event.risk === 'critico'

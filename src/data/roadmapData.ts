@@ -7,7 +7,7 @@ export const ROADMAP_METADATA = {
   baseAchievements: 54,
   darkArisenAchievements: 6,
   totalAchievements: 60,
-  disclaimer: "Ordem cronológica adaptada do guia comunitário de 2024 para minimizar perdas. A expansão Dark Arisen (outubro/2026) está mantida em capítulo separado com rotas marcadas como 'em verificação', sem dados inventados.",
+  disclaimer: "Rota comunitária resumida, adaptada de um guia de 2024. Os marcos não representam todas as missões individualmente e nem cada instrução foi validada de forma independente. A expansão Dark Arisen tem seção própria com rotas ainda em verificação.",
   sources: {
     steam_pt: { label: "Steam Conquistas (PT-BR)", url: "https://steamcommunity.com/stats/2054970/achievements?l=brazilian" },
     steam_en: { label: "Steam Achievements (Global)", url: "https://steamcommunity.com/stats/2054970/achievements" },
