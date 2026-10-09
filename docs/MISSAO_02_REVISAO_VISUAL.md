@@ -47,3 +47,18 @@ A tela principal do PR #8 anterior colocava um painel de retomada extenso ao lad
 ## Evidências técnicas
 
 O CI gera PNGs reais Playwright de desktop 1440×900 e 1920×1080, mobile 390×844 e 375×812, tanto no estado novo quanto 20/53, além de teste de persistência, backup e axe. Consultar a seção de evidências do PR #8 e os artefatos do GitHub Actions **após a execução**, sem deduzir aprovação estética a partir de CI verde.
+
+
+## Assets Gemini recebidos do proprietário em 09/10/2026 — integração condicionada ao upload
+
+Foram recebidos três JPGs: textura escura 2048×2048 RGB, ornamentos 2048×2048 RGB e pintura panorâmica 2048×1143 RGB. O conteúdo é gerado por IA e **não representa material oficial nem locais canônicos do jogo**.
+
+A textura e a paisagem foram convertidas localmente sem mudanças composicionais para WebP:
+- `public/assets/gemini-codex-background.webp` — preparado em 1600×1600, ~92 KiB; aplicado sob sobreposição escura em ambos os painéis. **O arquivo binário ainda precisa ser enviado à branch**.
+- `public/assets/gemini-codex-panorama.webp` — preparado em 1600×893, ~93 KiB; imagem principal do painel de detalhes, com atribuição explícita. **O arquivo binário ainda precisa ser enviado à branch**.
+
+A captura ornamental foi enviada como **JPG RGB**, sem canal alfa. O padrão quadriculado visível é parte real da imagem, não transparência. **Não publicar este arquivo diretamente nos cantos ou separadores**. Solicitar PNG/RGBA com transparência verdadeira e reavaliar densidade visual: os arabescos produzidos são sensivelmente mais espessos/ornamentados que a referência do jogo, portanto devem ocupar somente a moldura externa.
+
+O código já identifica os recursos opcionais. Até o upload dos WebPs, a imagem recua para o material promocional da Steam e para o SVG autoral, e a textura recua para o fundo CSS existente. Isso evita bloquear o protótipo ou publicar uma imagem quebrada. **Não declarar o novo visual implantado nem sua captura de referência validada antes do upload dos arquivos e screenshots reais.**
+
+O proprietário deve realizar o upload destes dois WebP para `public/assets/` **na branch `feat/missao-02-diario-navegacao-mobile`**, mantendo os nomes acima. A revisão continua em draft e sem merge.
