@@ -36,7 +36,6 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            aria-label="Buscar no roteiro e nas conquistas"
             placeholder="Buscar por missão, conquista, NPC, local ou item..."
             className="w-full bg-[#181b1e] border border-[#52493b] rounded-md pl-10 pr-9 py-2 text-xs text-[#e9e2d7] placeholder-[#8e887d] focus:outline-none focus:border-[#d9b780] focus:ring-1 focus:ring-[#d9b780]/40 transition-colors"
           />
@@ -73,7 +72,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
             }`}
           >
             <AlertTriangle className="w-3.5 h-3.5" />
-            <span>Cautelas / Riscos</span>
+            <span>⚠ Perdíveis / Risco</span>
           </button>
 
           <button
@@ -85,7 +84,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
             }`}
           >
             <Clock className="w-3.5 h-3.5" />
-            <span>Alertas do roteiro</span>
+            <span>Prazo / Críticas</span>
           </button>
 
           <button
