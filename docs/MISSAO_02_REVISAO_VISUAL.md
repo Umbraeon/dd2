@@ -62,3 +62,18 @@ A captura ornamental foi enviada como **JPG RGB**, sem canal alfa. O padrão qua
 O código já identifica os recursos opcionais. Até o upload dos WebPs, a imagem recua para o material promocional da Steam e para o SVG autoral, e a textura recua para o fundo CSS existente. Isso evita bloquear o protótipo ou publicar uma imagem quebrada. **Não declarar o novo visual implantado nem sua captura de referência validada antes do upload dos arquivos e screenshots reais.**
 
 O proprietário deve realizar o upload destes dois WebP para `public/assets/` **na branch `feat/missao-02-diario-navegacao-mobile`**, mantendo os nomes acima. A revisão continua em draft e sem merge.
+
+
+## Ornamentos vetoriais Sonnet — arquivo `files.zip` recebido após a revisão
+
+Em 09/10/2026, o proprietário enviou **quatro arquivos SVG** independentes criados com auxílio do Claude Sonnet (cantos superiores esquerdo/direito, divisor horizontal e losango de seleção).
+
+- Arquivos versionados: `public/assets/ornament-corner-top-left.svg`, `ornament-corner-top-right.svg`, `ornament-divider.svg` e `ornament-selection-diamond.svg`.
+- Origem: arquivos SVG enviados pelo proprietário em ZIP; o código incorporado mantém os desenhos geométricos e as cores desses SVGs. Metadados volumosos de proveniência embutidos foram removidos dos arquivos distribuídos (a proveniência é documentada aqui).
+- Teste local: XML válido; todos usam primitivas vetoriais sem fundo sólido, imagens raster embutidas, scripts ou dependências externas. Rasterização de verificação em RGBA confirmou pixels transparentes (aproximadamente 94% transparentes nos cantos; 80% no divisor; 60% no losango).
+- Aplicação: discretos **apenas** nos cantos superiores da moldura externa, abaixo de textos; divisor após título da missão; losango apenas para seleção visual, sem substituir estado/ícone textual de progresso.
+- A funcionalidade e o localStorage v3 não foram modificados. A imagem SVG não representa um objeto de missão nem uma alegação sobre o jogo.
+- Comportamento em ausência de SVG: CSS continua com bordas e espaçamentos definidos, e o texto dos estados permanece acessível.
+- Validação: teste Playwright abre os quatro endpoints, confere conteúdo SVG, estilos computados, ausência de scroll horizontal e gera capturas reais 1440×900 e 390×844.
+
+**Atenção:** o ZIP novo contém somente os quatro ornamentos. Os dois recursos de fundo/panorama convertidos anteriormente para WebP continuam **sem arquivo binário versionado** na branch; o site usa as alternativas existentes até o proprietário enviar esses recursos.
