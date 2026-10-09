@@ -136,5 +136,5 @@ test('retomada keyboard and axe check in the new panel', async ({ page }, testIn
   await expect(page.locator(':focus')).toBeVisible();
   const audit = await new AxeBuilder({ page }).include('section[aria-labelledby="resume-heading"]').analyze();
   await testInfo.attach('axe-resume.json', { body: Buffer.from(JSON.stringify(audit.violations, null, 2)), contentType: 'application/json' });
-  expect(audit.violations.filter(v => ['serious', 'critical'].includes(v.impact))).toEqual([]);
+  expect(audit.violations.filter(v => v.impact === 'serious' || v.impact === 'critical')).toEqual([]);
 });
