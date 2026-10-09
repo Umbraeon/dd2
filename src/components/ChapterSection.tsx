@@ -10,6 +10,10 @@ interface ChapterSectionProps {
   onToggleEvent: (eventId: string) => void;
   onToggleAchievement: (achievementId: number) => void;
   onConfirmCheckpoint: (checkpointId: string) => void;
+  expandedEventId: string | null;
+  onExpandEvent: (eventId: string) => void;
+  showAchievements: boolean;
+  onToggleAchievements: () => void;
 }
 
 export const ChapterSection: React.FC<ChapterSectionProps> = ({
@@ -17,7 +21,11 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   progress,
   onToggleEvent,
   onToggleAchievement,
-  onConfirmCheckpoint
+  onConfirmCheckpoint,
+  expandedEventId,
+  onExpandEvent,
+  showAchievements,
+  onToggleAchievements
 }) => {
   // Check if any critical checkpoint belongs to this phase
   const phaseCheckpoints = RISK_CHECKPOINTS.filter(cp => cp.phaseId === phase.id);
@@ -27,7 +35,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   const completedAchievements = phase.achievements.filter(a => progress.achievements[a.id]).length;
 
   return (
-    <section id={phase.id} className="codex-chapter scroll-mt-32 pt-8 pb-12 border-b border-[#3d372e]/70">
+    <section id={phase.id} tabIndex={-1} className="codex-chapter scroll-mt-28 pt-8 pb-12 border-b border-[#3d372e]/70">
       {/* Chapter Header */}
       <div className="mb-6 codex-chapter-intro">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#726044]/50 pb-3">
@@ -38,7 +46,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
             <h2 className="font-serif text-2xl lg:text-3xl font-bold text-[#f0d1a0] mt-0.5">
               {phase.title}
             </h2>
-            <p className="text-xs text-[#aea79b] mt-0.5 font-sans">
+            <p className="text-sm text-[#cfc3ae] mt-0.5 font-sans">
               {phase.subtitle}
             </p>
           </div>
@@ -61,7 +69,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
 
         {/* Tactical Cue Box */}
         {phase.cue && (
-          <div className="mt-3 bg-[#1e1c18] border border-[#6b583e] rounded-md p-3 text-xs text-[#ecd2ac] flex items-start gap-2.5">
+          <div className="mt-3 bg-[#1e1c18] border border-[#6b583e] rounded-md p-3 text-base text-[#ecd2ac] flex items-start gap-2.5">
             <span className="font-serif font-bold text-[#d9b780] text-sm leading-none shrink-0 mt-0.5">
               ORIENTAÇÃO:
             </span>
@@ -96,7 +104,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               </span>
             </div>
 
-            <p className="text-xs mt-2 leading-relaxed text-[#dcd6cc]">
+            <p className="text-base mt-2 leading-relaxed text-[#dcd6cc]">
               {cp.description}
             </p>
 
@@ -104,7 +112,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               <span className="text-[11px] font-serif uppercase tracking-wider text-[#d9b780] block mb-1.5">
                 Itens sugeridos para conferência (não auditados individualmente):
               </span>
-              <ul className="text-xs space-y-1 text-[#cfc8bd]">
+              <ul className="text-base space-y-2 text-[#cfc8bd]">
                 {cp.verificationList.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="text-[#d9b780] font-mono">•</span>
@@ -122,7 +130,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                   onChange={() => onConfirmCheckpoint(cp.id)}
                   className="w-4 h-4 rounded border-[#726044] text-[#d9b780] focus:ring-0 bg-[#1c1e21] cursor-pointer"
                 />
-                <span className="text-xs font-medium text-[#e9e2d7]">
+                <span className="text-sm font-medium text-[#e9e2d7]">
                   Confirmo que verifiquei todas as pendências acima antes de prosseguir
                 </span>
               </label>
@@ -151,7 +159,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                   key={event.id}
                   id={`step-${event.id}`}
                   tabIndex={-1}
-                  className={`codex-step scroll-mt-56 focus:outline focus:outline-2 focus:outline-[#f0d1a0] border rounded-lg p-3.5 transition-all ${
+                  className={`codex-step scroll-mt-28 focus:outline focus:outline-2 focus:outline-[#f0d1a0] border rounded-lg p-3.5 transition-all ${
                     isEventDone
                       ? 'bg-[#141619]/60 border-[#2d382f] opacity-85'
                       : event.risk === 'critico'
@@ -165,9 +173,10 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                     {/* Step Checkbox */}
                     <button
                       onClick={() => onToggleEvent(event.id)}
-                      className="mt-0.5 text-[#aea79b] hover:text-[#d9b780] transition-colors shrink-0"
+                      className="quest-complete-toggle mt-0.5 text-[#aea79b] hover:text-[#d9b780] transition-colors shrink-0 min-h-11 min-w-11 flex items-center justify-center"
                       title={isEventDone ? "Marcar etapa como pendente" : "Marcar etapa como concluída"}
                       aria-label={`Alternar conclusão da etapa ${event.title}`}
+                      aria-pressed={isEventDone}
                     >
                       {isEventDone ? (
                         <CheckCircle2 className="w-5 h-5 text-[#9bc4a5]" />
@@ -183,7 +192,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                           <span className="font-mono text-[11px] text-[#8e887d]">
                             {String(idx + 1).padStart(2, '0')}.
                           </span>
-                          <h4 className={`text-sm font-semibold ${isEventDone ? 'line-through text-[#8e887d]' : 'text-[#f0d1a0]'}`}>
+                          <h4 className={`text-base font-semibold ${isEventDone ? 'line-through text-[#8e887d]' : 'text-[#f0d1a0]'}`}>
                             {event.title}
                           </h4>
                         </div>
@@ -206,14 +215,20 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                         </div>
                       </div>
 
+                      <button type="button" className="quest-detail-toggle" aria-expanded={expandedEventId === event.id}
+                        aria-controls={`event-details-${event.id}`} onClick={() => onExpandEvent(event.id)}>
+                        {expandedEventId === event.id ? 'Recolher instruções' : 'Mostrar instruções e vínculos'}
+                      </button>
+                      {expandedEventId === event.id && (
+                      <div id={`event-details-${event.id}`} className="quest-event-details">
                       {/* Event Note */}
-                      <p className="text-xs text-[#d0c9be] leading-relaxed mt-1">
+                      <p className="text-base text-[#e1d6c6] leading-relaxed mt-2">
                         {event.note}
                       </p>
 
                       {/* Failure Risk Explicit Callout */}
                       {event.failureRisk && (
-                        <div className="mt-2 text-[11px] text-[#f4ad9b] bg-[#291714] p-2 rounded border border-[#6b2f24] flex items-start gap-1.5">
+                        <div className="mt-2 text-sm text-[#f4ad9b] bg-[#291714] p-2 rounded border border-[#6b2f24] flex items-start gap-1.5">
                           <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#df8c75]" />
                           <span><b>O que pode dar errado:</b> {event.failureRisk}</span>
                         </div>
@@ -221,7 +236,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
 
                       {/* Associated Achievements Link Tag */}
                       {event.achievements.length > 0 && (
-                        <div className="mt-2.5 flex items-center gap-1.5 text-[11px] text-[#d9b780]">
+                        <div className="mt-2.5 flex items-center gap-1.5 text-sm text-[#d9b780] flex-wrap">
                           <BookmarkCheck className="w-3.5 h-3.5" />
                           <span className="font-serif">Gera Conquistas:</span>
                           <div className="flex flex-wrap gap-1">
@@ -248,7 +263,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
 
                       {/* Source Link */}
                       {event.source && (
-                        <div className="mt-2 text-[10px] text-[#8e887d]">
+                        <div className="mt-2 text-sm text-[#b8ad9d]">
                           <a
                             href={event.source}
                             target="_blank"
@@ -259,6 +274,8 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                             <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         </div>
+                      )}
+                      </div>
                       )}
                     </div>
                   </div>
@@ -272,16 +289,12 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
       {/* Achievements Cards for this Phase */}
       {phase.achievements.length > 0 && (
         <div>
-          <div className="flex items-center justify-between mb-3.5">
-            <h3 className="text-xs font-serif uppercase tracking-widest text-[#d9b780]">
-              Conquistas Deste Capítulo ({phase.achievements.length})
-            </h3>
-            <span className="text-[10px] text-[#8e887d] font-sans">
-              Desbloqueie nesta ordem cronológica
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <button type="button" className="quest-achievement-toggle" aria-expanded={showAchievements}
+            onClick={onToggleAchievements}>
+            <span>Conquistas deste capítulo ({phase.achievements.length})</span>
+            <span>{showAchievements ? 'Ocultar fichas' : 'Mostrar fichas e requisitos'}</span>
+          </button>
+          {showAchievements && <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mt-4">
             {phase.achievements.map(ach => (
               <AchievementCard
                 key={ach.id}
@@ -290,7 +303,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                 onToggle={onToggleAchievement}
               />
             ))}
-          </div>
+          </div>}
         </div>
       )}
     </section>
