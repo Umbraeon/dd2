@@ -86,13 +86,13 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               <div className="flex items-center gap-2">
                 <ShieldAlert className={`w-5 h-5 ${isConfirmed ? 'text-[#9bc4a5]' : 'text-[#df8c75]'}`} />
                 <h3 className="font-serif font-bold text-base text-[#f0d1a0]">
-                  Ponto Crítico Sem Retorno: {cp.title}
+                  Alerta cadastrado para o capítulo: {cp.title}
                 </h3>
               </div>
               <span className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded ${
                 isConfirmed ? 'bg-[#233b2a] text-[#9bc4a5]' : 'bg-[#4b2720] text-[#f4ad9b]'
               }`}>
-                {isConfirmed ? 'Revisado e Confirmado' : 'Atenção Iminente'}
+                {isConfirmed ? 'Marcado como revisado' : 'Gatilho em verificação'}
               </span>
             </div>
 
@@ -102,7 +102,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
 
             <div className="mt-3 bg-[#111315]/70 rounded p-3 border border-[#3d372e]/60">
               <span className="text-[11px] font-serif uppercase tracking-wider text-[#d9b780] block mb-1.5">
-                Verificações Mandatórias Antes de Avançar:
+                Itens sugeridos para conferência (não auditados individualmente):
               </span>
               <ul className="text-xs space-y-1 text-[#cfc8bd]">
                 {cp.verificationList.map((item, idx) => (
@@ -139,7 +139,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               Sequência de Execução ({phase.events.length} etapas)
             </h3>
             <span className="text-[10px] text-[#8e887d] font-sans">
-              Ordem estrita para minimizar perdas
+              Ordem sugerida · conteúdo em revisão
             </span>
           </div>
 
@@ -149,7 +149,9 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               return (
                 <div
                   key={event.id}
-                  className={`codex-step border rounded-lg p-3.5 transition-all ${
+                  id={`step-${event.id}`}
+                  tabIndex={-1}
+                  className={`codex-step scroll-mt-56 focus:outline focus:outline-2 focus:outline-[#f0d1a0] border rounded-lg p-3.5 transition-all ${
                     isEventDone
                       ? 'bg-[#141619]/60 border-[#2d382f] opacity-85'
                       : event.risk === 'critico'
@@ -197,7 +199,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                           {event.risk === 'alerta' && (
                             <span className="text-[#ecd2ac] flex items-center gap-1">
                               <Clock className="w-3 h-3" />
-                              Prazo Oculto
+                              Alerta no roteiro
                             </span>
                           )}
                           <span className="text-[#aea79b]">{event.type}</span>
@@ -253,7 +255,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                             rel="noopener noreferrer"
                             className="hover:text-[#d9b780] inline-flex items-center gap-1 transition-colors"
                           >
-                            <span>Fonte de conferência da missão</span>
+                            <span>Fonte indicada pelo roteiro (verificação pendente)</span>
                             <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         </div>
