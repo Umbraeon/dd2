@@ -136,3 +136,92 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .codex-editorial-note { margin:12px 12px 0; flex-wrap:wrap; padding:13px; font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+
+
+/* MISSÃO 02 · diário de atividades. Geometria editorial, não uma grade de cartões.
+   Inspirado na hierarquia de listas do manual oficial de Dragon's Dogma 2,
+   sem copiar sua arte ou seus elementos gráficos. */
+html { scroll-padding-top:92px; }
+:where(button, a, input, select, textarea, summary):focus-visible {
+  outline:3px solid #f6d59e;
+  outline-offset:3px;
+}
+.codex-brand { border:0; background:transparent; cursor:pointer; padding:0; text-align:left; }
+.codex-header-tools button { min-height:44px; min-width:44px; }
+.codex-mode-nav { display:flex; gap:0; max-width:1100px; margin:18px auto 0; border-bottom:1px solid #766348; padding:0 16px; }
+.codex-mode-nav button { min-height:48px; padding:11px 22px; font:600 14px/1.35 'Plus Jakarta Sans',system-ui,sans-serif; text-align:center; color:#cabda6; background:transparent; border:0; border-bottom:3px solid transparent; cursor:pointer; }
+.codex-mode-nav button[aria-pressed="true"] { color:#f3dfb6; border-color:#d9b780; background:#2b261e; }
+.codex-mode-nav button:hover { color:white; }
+.codex-chapter-picker { max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; padding:18px 16px; }
+.codex-chapter-picker label { color:#e8d4aa; font:600 14px 'Plus Jakarta Sans',system-ui,sans-serif; }
+.codex-chapter-picker select { min-height:46px; min-width:0; width:min(370px,100%); padding:9px 38px 9px 14px; color:#f4e7d1; background:#1b1a17; border:1px solid #8a704c; border-radius:2px; font:500 16px 'Plus Jakarta Sans',system-ui,sans-serif; }
+.codex-chapter-picker > span { color:#bdb2a3; font-size:12px; }
+.quest-journal { max-width:1100px; width:calc(100% - 32px); margin:0 auto 36px; color:#e9e2d7; border:1px solid #675234; border-top:2px solid #bd975c; background:repeating-linear-gradient(0deg,transparent 0,transparent 45px,rgba(201,169,108,.028) 46px,transparent 47px),radial-gradient(ellipse at 90% 0,rgba(111,81,45,.17),transparent 55%),#151614; box-shadow:0 14px 45px #0005; }
+.journal-heading { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:8px 24px; padding:25px clamp(16px,4vw,36px) 18px; border-bottom:1px solid #52442f; }
+.journal-eyebrow { color:#c1a774; font:600 11px/1.4 'Plus Jakarta Sans',sans-serif; letter-spacing:.19em; }
+.journal-heading h2 { font:500 clamp(23px,3vw,35px)/1.2 Cinzel,Georgia,serif; margin:5px 0 8px; color:#f5e1bc; }
+.journal-heading p:not(.journal-eyebrow) { color:#d0c4b1; font-size:15px; line-height:1.5; }
+.journal-count { color:#e1c999; font-size:13px; flex-shrink:0; padding-bottom:3px; }
+.journal-chapter-cue { display:flex; align-items:start; gap:12px; padding:14px clamp(16px,4vw,36px); color:#decbaa; font-size:15px; line-height:1.55; border-bottom:1px solid #4c4030; }
+.journal-chapter-cue svg { flex-shrink:0; margin-top:3px; color:#bb985e; }
+.journal-chapter-warning { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:14px clamp(16px,4vw,36px); border-bottom:1px solid #705040; color:#ead2be; background:#301e1a; font-size:14px; }
+.journal-chapter-warning svg { color:#d6a28c; flex-shrink:0; }
+.journal-chapter-warning p { flex:1 1 240px; line-height:1.5; }
+.journal-chapter-warning button { min-height:44px; display:inline-flex; align-items:center; gap:5px; text-decoration:underline; text-underline-offset:3px; padding:4px 8px; color:#f4dbc2; cursor:pointer; }
+.journal-list { margin:0; padding:0; }
+.journal-entry { display:flex; align-items:center; gap:12px; min-height:71px; padding:8px clamp(12px,3vw,30px); border-bottom:1px solid #39372f; border-left:4px solid transparent; }
+.journal-entry:hover { background:#28251f; }
+.journal-entry.is-selected { background:#363022; border-left-color:#d3ad74; }
+.journal-entry-number { color:#bcab8e; font:600 12px 'JetBrains Mono',monospace; flex-shrink:0; }
+.journal-entry-content { flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; }
+.journal-entry-content strong { color:#f0e5d3; font-size:16px; font-weight:600; line-height:1.4; }
+.journal-entry-status { color:#cebd9f; font-size:12px; letter-spacing:.04em; line-height:1.5; }
+.journal-entry.is-selected .journal-entry-status { color:#eccc8e; }
+.journal-active-symbol { display:inline-flex; color:#d8bb86; }
+.journal-entry-action { min-height:44px; min-width:95px; display:inline-flex; align-items:center; justify-content:flex-end; gap:3px; color:#edce98; font-size:14px; font-weight:600; cursor:pointer; padding:7px; }
+.journal-entry-action:hover { color:white; text-decoration:underline; }
+.journal-toggle-completed { min-height:44px; margin:12px clamp(16px,4vw,36px); padding:9px 4px; color:#e7c999; font-size:14px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.journal-disclaimer { display:flex; align-items:flex-start; gap:9px; border-top:1px solid #4d4437; padding:15px clamp(16px,4vw,36px) 18px; color:#c2b6a5; font-size:13px; line-height:1.55; }
+.journal-disclaimer svg { flex-shrink:0; }
+.journal-empty { padding:18px; font-size:15px; }
+.codex-filters { border-block:1px solid #655137; background:#181715; }
+.codex-filters button { min-height:44px; }
+.codex-search-index { margin:0 0 22px; border:1px solid #695437; padding:20px; background:#191916; }
+.codex-search-index h2 { font-size:21px; color:#f0d7ad; }
+.codex-search-index > p { font-size:14px; line-height:1.5; color:#c8bcab; margin:7px 0 12px; }
+.codex-search-hits { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:1px; background:#554735; border:1px solid #554735; max-height:360px; overflow:auto; }
+.codex-search-hits button { min-height:67px; background:#181a19; padding:12px 14px; display:flex; flex-direction:column; align-items:flex-start; gap:4px; cursor:pointer; text-align:left; }
+.codex-search-hits button:hover { background:#30291e; }
+.codex-search-hits button span { font-size:12px; color:#c5a87d; }
+.codex-search-hits button strong { font-size:15px; line-height:1.45; color:#eee1cf; }
+.codex-chapter .codex-step { background-image:none; }
+.codex-step .quest-detail-toggle { min-height:44px; padding:8px 0; margin-top:4px; color:#e8c894; text-decoration:underline; text-underline-offset:4px; font-size:14px; cursor:pointer; }
+.codex-step .quest-event-details { border-top:1px solid #524734; padding-top:12px; margin-top:7px; }
+.quest-achievement-toggle { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:54px; width:100%; text-align:left; padding:12px; border-block:1px solid #80613d; background:#29241c; color:#f0d19e; font-size:16px; cursor:pointer; }
+.quest-achievement-toggle span:last-child { font-size:13px; color:#d3c0a0; }
+.codex-achievement .codex-achievement-icon { flex-shrink:0; }
+@media(max-width:700px) {
+  .codex-header-inner { padding:7px 10px; gap:5px; }
+  .codex-brand-words small { font-size:8px; letter-spacing:.1em; }
+  .codex-brand-mark { font-size:18px; padding-right:6px; }
+  .codex-header-tools { gap:3px; }
+  .codex-header-tools button { padding:7px; min-width:42px; min-height:44px; }
+  .codex-mode-nav button { flex:1; padding:10px 6px; font-size:13px; }
+  .codex-chapter-picker { align-items:stretch; gap:8px; }
+  .codex-chapter-picker select { width:100%; }
+  .codex-chapter-picker > span { width:100%; }
+  .journal-heading { padding-top:19px; }
+  .journal-entry { gap:6px; padding:9px 10px; }
+  .journal-entry-number { font-size:11px; }
+  .journal-entry-content strong { font-size:16px; }
+  .journal-entry-action { min-width:74px; padding:6px 2px; font-size:13px; }
+  .journal-active-symbol { display:none; }
+  .codex-step { margin-left:10px; padding-left:10px; }
+  .codex-timeline::before { left:0; }
+  .codex-step::before { left:-13px; }
+}
+@media(max-width:360px) {
+  .codex-brand-words strong { font-size:12px; }
+  .codex-header-tools button { min-width:40px; }
+  .journal-entry-action { min-width:69px; font-size:12px; }
+}
