@@ -263,3 +263,43 @@ test('reflow proxy at 320 CSS px and CSS zoom 2× have no horizontal overflow', 
   await page.evaluate(() => { document.documentElement.style.zoom = '2'; });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
 });
+
+
+test('Mission 02: owner Sonnet SVG ornaments load transparently and remain decorative', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const paths = [
+    'ornament-corner-top-left.svg',
+    'ornament-corner-top-right.svg',
+    'ornament-divider.svg',
+    'ornament-selection-diamond.svg'
+  ];
+  for (const file of paths) {
+    const response = await page.request.get('/assets/' + file);
+    expect(response.ok(), file + ' should be served').toBe(true);
+    const svg = await response.text();
+    expect(svg).toContain('<svg');
+    expect(svg).toContain('viewBox=');
+    expect(svg).not.toMatch(/<rect[^>]+fill=["'](?:#fff|white)/i);
+    expect(svg).not.toMatch(/<script|<image|<foreignObject|javascript:/i);
+  }
+  const css = await page.evaluate(() => ({
+    left: getComputedStyle(document.querySelector('.codex-frame-corner.top-left')!).backgroundImage,
+    right: getComputedStyle(document.querySelector('.codex-frame-corner.top-right')!).backgroundImage,
+    divider: getComputedStyle(document.querySelector('.quest-detail-body h2')!, '::after').backgroundImage,
+    diamond: getComputedStyle(document.querySelector('.quest-row.is-inspected .quest-row-button')!, '::after').backgroundImage,
+    horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
+  }));
+  expect(css.left).toContain('ornament-corner-top-left.svg');
+  expect(css.right).toContain('ornament-corner-top-right.svg');
+  expect(css.divider).toContain('ornament-divider.svg');
+  expect(css.diamond).toContain('ornament-selection-diamond.svg');
+  expect(css.horizontalOverflow).toBe(false);
+  mkdirSync('test-results/screenshots', { recursive: true });
+  await page.screenshot({ path: 'test-results/screenshots/review-ornaments-desktop-1440x900.png', fullPage: false });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.screenshot({ path: 'test-results/screenshots/review-ornaments-mobile-390x844.png', fullPage: false });
+  await expect(page.getByRole('heading', { name: 'Diário do Nascen' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+});
