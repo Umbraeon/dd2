@@ -17,7 +17,7 @@ for (const [width,height] of [[390,844],[1440,900]]) {
    report.responses.push({viewport:sample.viewport,status:response.status(),url:response.url(),xFrameOptions:headers['x-frame-options']||null,csp:headers['content-security-policy']||null});
  });
  page.on('requestfailed', request => {
-   if (request.url().includes('mapgenie.io')) report.failures.push({viewport:sample.viewport,url:request.url(),failure:request.failure()?.errorText||'unknown'});
+   if (request.url().startsWith('https://mapgenie.io/')) report.failures.push({viewport:sample.viewport,resource:'mapgenie.io',failure:request.failure()?.errorText||'unknown'});
  });
  page.on('console', message => {
    if (message.type()==='error' && /mapgenie|frame|refused to connect|blocked by/i.test(message.text()))
@@ -50,6 +50,42 @@ for (const [width,height] of [[390,844],[1440,900]]) {
    }
  } catch(e) { sample.error=String(e).slice(0,270); }
  report.checks.push(sample); await page.close();
+}
+// Production-app integration check, with the real provider, after the explicit user flow.
+report.appChecks=[];
+for (const [width,height] of [[375,812],[390,844],[1440,900],[1920,1080]]) {
+  const page=await browser.newPage({viewport:{width,height}});
+  const entry={viewport:`${width}x${height}`,mapSurfaceCount:0,interactiveControlCount:0,frameUrl:null,storageBefore:null,storageAfter:null};
+  try {
+    await page.goto(ORIGIN,{waitUntil:'domcontentloaded',timeout:12000});
+    entry.storageBefore=await page.evaluate(()=>localStorage.getItem('dd2_roadmap_user_progress_v3'));
+    await page.getByRole('button',{name:'Abrir central de ferramentas'}).click();
+    await page.getByRole('region',{name:'Central de Ferramentas'}).getByRole('button',{name:/^Mementos do Buscador/}).click();
+    await page.screenshot({path:`test-results/screenshots/pr-d-real-app-tracker-${width}x${height}.png`});
+    await page.getByRole('button',{name:'Ver mapa interativo'}).click();
+    await page.waitForTimeout(10000);
+    const frame=page.frames().find(f=>f.url().startsWith('https://mapgenie.io/dragons-dogma-2/'));
+    entry.frameUrl=frame?.url()||null;
+    if(frame) {
+      entry.mapSurfaceCount=await frame.locator('.leaflet-container, .mapboxgl-map, canvas').count();
+      entry.interactiveControlCount=await frame.locator('button, input, [role="button"]').count();
+    }
+    await page.screenshot({path:`test-results/screenshots/pr-d-real-app-map-${width}x${height}.png`});
+    if(entry.mapSurfaceCount>0){
+      const rect=await page.locator('.tokens-map-frame iframe').boundingBox();
+      if(rect){
+        await page.mouse.move(rect.x+rect.width/2,rect.y+rect.height/2);
+        await page.mouse.wheel(0,-350);
+        await page.waitForTimeout(750);
+        await page.screenshot({path:`test-results/screenshots/pr-d-real-app-after-zoom-${width}x${height}.png`});
+      }
+    }
+    await page.getByRole('button',{name:'Voltar aos Mementos'}).click();
+    entry.returnFocused=await page.getByRole('button',{name:'Ver mapa interativo'}).evaluate(node=>document.activeElement===node);
+    entry.storageAfter=await page.evaluate(()=>localStorage.getItem('dd2_roadmap_user_progress_v3'));
+    await page.screenshot({path:`test-results/screenshots/pr-d-real-app-return-${width}x${height}.png`});
+  } catch(e) { entry.error=String(e).slice(0,260); }
+  report.appChecks.push(entry);await page.close();
 }
 await browser.close();
 report.verdict=report.checks.some(x=>x.mapSurfaceCount>0) ? 'technical-surface-observed-not-authorization' : 'not-verified-or-blocked';
