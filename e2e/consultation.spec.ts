@@ -68,7 +68,7 @@ test('sem resultados, limpeza de filtros e alternância de três seções', asyn
   await page.getByRole('navigation', { name: 'Seções da Consulta' }).getByRole('button', { name: 'Referências', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Referências', exact: true })).toBeVisible();
   await expect(page.getByText('Conteúdo comunitário ainda não auditado por etapa')).toBeVisible();
-  await expect(page.getByRole('button', {name:'Esfinge'})).toBeVisible();
+  await expect(page.getByRole('button', {name:'Esfinge', exact:true})).toBeVisible();
   await page.getByRole('button', { name: 'Missões', exact: true }).click();
   await expect(page.getByRole('combobox', {name:'Capítulo do roteiro'})).toBeVisible();
   await page.getByRole('combobox', { name: 'Mostrar' }).selectOption('done');
