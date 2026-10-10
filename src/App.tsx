@@ -31,6 +31,7 @@ import { SphinxTrackerModal } from './components/SphinxTrackerModal';
 import { BarbecueTrackerModal } from './components/BarbecueTrackerModal';
 import { MaistersTrackerModal } from './components/MaistersTrackerModal';
 import { TokensTrackerModal } from './components/TokensTrackerModal';
+import { TokensInteractiveMap } from './components/TokensInteractiveMap';
 import { CheckpointsModal } from './components/CheckpointsModal';
 import { GlossaryModal } from './components/GlossaryModal';
 import { SourcesModal } from './components/SourcesModal';
@@ -57,6 +58,7 @@ export default function App() {
   const [isBarbecueOpen, setIsBarbecueOpen] = useState(false);
   const [isMaistersOpen, setIsMaistersOpen] = useState(false);
   const [isTokensOpen, setIsTokensOpen] = useState(false);
+  const [isTokensMapOpen, setIsTokensMapOpen] = useState(false);
   const [isCheckpointsOpen, setIsCheckpointsOpen] = useState(false);
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
@@ -322,6 +324,21 @@ export default function App() {
     });
   };
 
+  const openTokensMap = () => {
+    // Exchange one top-level overlay for another; never mount two at once.
+    setIsTokensOpen(false);
+    setIsTokensMapOpen(true);
+  };
+
+  const returnToTokens = () => {
+    setIsTokensMapOpen(false);
+    setIsTokensOpen(true);
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLButtonElement>('[data-token-map-trigger]')
+        ?.focus({ preventScroll: true });
+    });
+  };
+
   const handleGoJourney = () => {
     setView('journey');
     setNavigationTarget('journey');
@@ -422,7 +439,10 @@ export default function App() {
         progress={progress}
         onUpdateTokensCount={handleUpdateTokensCount}
         onUpdateFirstTokenLocation={handleUpdateFirstTokenLocation}
+        onOpenMap={openTokensMap}
       />
+
+      <TokensInteractiveMap isOpen={isTokensMapOpen} onBack={returnToTokens} />
 
       <CheckpointsModal
         isOpen={isCheckpointsOpen}

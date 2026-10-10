@@ -8,6 +8,7 @@ interface TokensTrackerModalProps {
   progress: UserProgress;
   onUpdateTokensCount: (count: number) => void;
   onUpdateFirstTokenLocation: (notes: string) => void;
+  onOpenMap: () => void;
 }
 
 export const TokensTrackerModal: React.FC<TokensTrackerModalProps> = ({
@@ -15,7 +16,8 @@ export const TokensTrackerModal: React.FC<TokensTrackerModalProps> = ({
   onClose,
   progress,
   onUpdateTokensCount,
-  onUpdateFirstTokenLocation
+  onUpdateFirstTokenLocation,
+  onOpenMap
 }) => {
   if (!isOpen) return null;
 
@@ -133,7 +135,7 @@ export const TokensTrackerModal: React.FC<TokensTrackerModalProps> = ({
           </div>
 
           {/* Map Link */}
-          <div className="bg-[#181a1d] border border-[#3d372e] rounded-md p-3.5 flex items-center justify-between">
+          <div className="tokens-map-entry bg-[#181a1d] border border-[#3d372e] rounded-md p-3.5 flex items-center justify-between">
             <div>
               <span className="font-serif font-bold text-[#f0d1a0] block">
                 Mapa Interativo de Todos os Mementos
@@ -142,15 +144,18 @@ export const TokensTrackerModal: React.FC<TokensTrackerModalProps> = ({
                 MapGenie possui os 240 mementos catalogados com fotos e filtros.
               </span>
             </div>
-            <a
-              href="https://mapgenie.io/dragons-dogma-2/maps/world"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 text-xs font-semibold rounded bg-[#1e2125] text-[#d9b780] hover:bg-[#292d33] border border-[#403e38] flex items-center gap-1.5 transition-colors shrink-0"
-            >
-              <span>Abrir MapGenie</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            <div className="tokens-map-entry-actions">
+              <button data-token-map-trigger type="button" onClick={onOpenMap}
+                className="tokens-map-open">Ver mapa interativo</button>
+              <a
+                href="https://mapgenie.io/dragons-dogma-2/maps/world"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tokens-map-original-link"
+              >
+                Abrir mapa no MapGenie <ExternalLink className="w-3.5 h-3.5" aria-hidden="true"/>
+              </a>
+            </div>
           </div>
         </div>
 
