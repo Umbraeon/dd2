@@ -62,7 +62,15 @@ export const ToolsHub: React.FC<Props> = ({ open, top, trigger, onDismiss, onSel
       if (!(target instanceof Node)) return;
       if (panelRef.current?.contains(target)) return;
       if (target instanceof Element && target.closest('[data-tools-hub-trigger]')) return;
-      onDismiss(false); // A pointer target should keep its own natural focus.
+      // Plain text/background does not reliably receive pointer focus. Restore the
+      // origin only when focus would otherwise be stranded in the hidden panel.
+      // Interactive targets keep their natural focus and click behavior.
+      const interactive = target instanceof Element && !!target.closest(
+        'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), ' +
+        'textarea:not(:disabled), summary, [contenteditable="true"], [tabindex]:not([tabindex="-1"])'
+      );
+      const focusInPanel = !!panelRef.current?.contains(document.activeElement);
+      onDismiss(!interactive && focusInPanel);
     };
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('pointerdown', onPointerDown);
