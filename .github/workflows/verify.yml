@@ -27,17 +27,17 @@ jobs:
           done
           node scripts/probe-mapgenie-embed.mjs
       - run: npm run test:e2e
-      - name: Capturas comparativas da main anterior (mesmo estado inicial)
+      - name: Capturas do rastreador original na main após PR C
         if: always()
         run: |
-          git worktree add --detach /tmp/dd2-pr-c-baseline 438abf4c5a31ae8ca074837c06b0faa17dfd9267
-          ln -s "$GITHUB_WORKSPACE/node_modules" /tmp/dd2-pr-c-baseline/node_modules
-          (cd /tmp/dd2-pr-c-baseline && npm run dev -- --port 3001 --host 127.0.0.1 > /tmp/dd2-pr-c-baseline.log 2>&1 &)
+          git worktree add --detach /tmp/dd2-pr-d-baseline 3cdfe744ab0c2551ee24c386d57ef256547494ba
+          ln -s "$GITHUB_WORKSPACE/node_modules" /tmp/dd2-pr-d-baseline/node_modules
+          (cd /tmp/dd2-pr-d-baseline && npm run dev -- --port 3001 --host 127.0.0.1 > /tmp/dd2-pr-d-baseline.log 2>&1 &)
           for i in $(seq 1 40); do
             if curl -fsS http://127.0.0.1:3001/ >/dev/null; then break; fi
             sleep 2
           done
-          node --import tsx scripts/capture-tools-hub-baseline.mjs
+          node --import tsx scripts/capture-tokens-map-baseline.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
