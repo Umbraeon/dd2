@@ -72,6 +72,7 @@ test('sete opções abrem apenas o respectivo modal; navegação não registra p
     await expect(closeModal(page)).toBeFocused();
     await closeModal(page).click();
     await expect(modal(page)).toHaveCount(0);
+    await expect(headerButton(page)).toBeFocused();
   }
   expect(await stored(page)).toBeNull();
 });
@@ -144,6 +145,84 @@ test('atalhos Alertas/Backup independentes e recuperação com armazenamento inv
   await page.getByRole('button',{name:'Backup do progresso'}).click();
   await expect(modal(page)).toHaveCount(1);
   expect(await stored(page)).toBe(original);
+});
+
+test('P1: foco retorna ao cabeçalho após fechar rastreador pelo teclado em mobile e desktop', async ({page}) => {
+  mkdirSync('test-results/screenshots', {recursive:true});
+  for (const [width,height] of [[390,844],[1440,900]]) {
+    await page.setViewportSize({width,height});
+    await page.goto('/');
+    await headerButton(page).focus();
+    await page.keyboard.press('Enter');
+    await expect(hub(page).getByRole('button',{name:/^Esfinge/})).toBeFocused();
+    await hub(page).getByRole('button',{name:/^Mementos do Buscador/}).focus();
+    await page.keyboard.press('Enter');
+    await expect(closeModal(page)).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(modal(page)).toHaveCount(0);
+    await expect(headerButton(page)).toBeFocused();
+    await page.screenshot({
+      path:`test-results/screenshots/pr-c-review-modal-focus-restored-header-${width}x${height}.png`,
+      fullPage:false
+    });
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button',{name:'Backup do progresso'})).toBeFocused();
+    expect(await stored(page)).toBeNull();
+  }
+});
+
+test('P1: foco retorna à entrada Referências; se invisível usa acionador estável do cabeçalho', async ({page}) => {
+  await page.goto('/');
+  const entry = await openReferenceHub(page);
+  await hub(page).getByRole('button',{name:/^Esfinge/}).focus();
+  await page.keyboard.press('Enter');
+  await expect(closeModal(page)).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(entry).toBeFocused();
+  await page.keyboard.press('Tab');
+  const tabDestination = await page.evaluate(() => {
+    const el = document.activeElement;
+    return el instanceof HTMLElement && el !== document.body &&
+      el.getClientRects().length > 0 && !el.closest('[hidden]');
+  });
+  expect(tabDestination).toBe(true);
+  await entry.focus();
+  await page.keyboard.press('Enter');
+  await hub(page).getByRole('button',{name:/^Mementos do Buscador/}).focus();
+  await page.keyboard.press('Enter');
+  await expect(closeModal(page)).toBeFocused();
+  // Simulate a route change that leaves the previously active trigger unavailable.
+  await entry.evaluate(element => element.setAttribute('hidden',''));
+  await page.keyboard.press('Enter');
+  await expect(headerButton(page)).toBeFocused();
+  expect(await stored(page)).toBeNull();
+});
+
+test('P2: clique em conteúdo passivo devolve foco; outro botão mantém seu próprio fluxo', async ({page}) => {
+  mkdirSync('test-results/screenshots', {recursive:true});
+  for (const [width,height] of [[375,812],[1440,900]]) {
+    await page.setViewportSize({width,height});
+    await page.goto('/');
+    await openHub(page);
+    await expect(hub(page).getByRole('button',{name:/^Esfinge/})).toBeFocused();
+    await page.locator('footer.codex-footer').click({position:{x:12,y:12}});
+    await expect(hub(page)).toBeHidden();
+    await expect(headerButton(page)).toBeFocused();
+    await page.screenshot({
+      path:`test-results/screenshots/pr-c-review-outside-passive-focus-${width}x${height}.png`,
+      fullPage:false
+    });
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button',{name:'Backup do progresso'})).toBeFocused();
+    await openHub(page);
+    await page.getByRole('button',{name:'Backup do progresso'}).click();
+    await expect(hub(page)).toBeHidden();
+    await expect(modal(page).getByRole('heading',{name:/Gerenciamento & Backup/})).toBeVisible();
+    await expect(closeModal(page)).toBeFocused();
+    await closeModal(page).click();
+    await expect(page.getByRole('button',{name:'Backup do progresso'})).toBeFocused();
+    expect(await stored(page)).toBeNull();
+  }
 });
 
 test('registro do primeiro memento permanece compartilhado com a Esfinge', async ({page}) => {
