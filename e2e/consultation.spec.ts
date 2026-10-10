@@ -142,32 +142,39 @@ test('axe e capturas reais em quatro viewports e oito estados de Consulta', asyn
   for (const [width,height] of [[375,812],[390,844],[1440,900],[1920,1080]]) {
     await page.setViewportSize({width,height});
     await openConsultation(page);
-    const screenshot = async (label:string) => {
-      await page.evaluate(() => window.scrollTo(0,0));
+    const screenshot = async (label:string, showSection = false) => {
+      if (!showSection) await page.evaluate(() => window.scrollTo(0,0));
       await page.screenshot({path:'test-results/screenshots/pr-b-after-' + label + '-' + width + 'x' + height + '.png',fullPage:false});
       const size = await page.evaluate(() => [document.documentElement.scrollWidth,document.documentElement.clientWidth]);
       expect(size[0],label + ' overflow horizontal').toBeLessThanOrEqual(size[1]+1);
     };
     await screenshot('entry');
-    await screenshot('missions');
+    await page.getByRole('heading',{name:'Missões',exact:true}).scrollIntoViewIfNeeded();
+    await screenshot('missions',true);
     await page.getByRole('button',{name:'Conquistas',exact:true}).click();
-    await screenshot('achievements');
+    await page.getByRole('heading',{name:'Conquistas',exact:true}).scrollIntoViewIfNeeded();
+    await screenshot('achievements',true);
     await page.getByRole('button',{name:'Referências',exact:true}).click();
-    await screenshot('references');
+    await page.getByRole('heading',{name:'Referências',exact:true}).scrollIntoViewIfNeeded();
+    await screenshot('references',true);
     await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('conquista');
-    await screenshot('global-search');
+    await page.getByRole('heading',{name:'Resultados encontrados'}).scrollIntoViewIfNeeded();
+    await screenshot('global-search',true);
     await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('termo-sem-resultados-999');
-    await screenshot('empty');
+    await page.getByRole('heading',{name:/Nenhum resultado/}).scrollIntoViewIfNeeded();
+    await screenshot('empty',true);
     await page.getByRole('button',{name:'Limpar busca e filtros'}).click();
     await page.getByRole('button',{name:'Missões',exact:true}).click();
     await page.getByRole('combobox',{name:'Capítulo do roteiro'}).selectOption(firstCritical.phase.id);
-    await screenshot('critical');
+    await page.locator('#step-' + firstCritical.event.id).scrollIntoViewIfNeeded();
+    await screenshot('critical',true);
     await page.getByRole('combobox',{name:'Capítulo do roteiro'}).selectOption(firstCritical.phase.id);
     await page.getByRole('button',{name:'Voltar ao Diário'}).click();
     await page.getByRole('button',{name:'Consulta e ferramentas'}).click();
     await page.getByRole('button',{name:'Conquistas',exact:true}).click();
     await page.locator('.consult-achievement-list button').first().click();
-    await screenshot('achievement-from-diary-flow');
+    await page.locator('.codex-achievement').scrollIntoViewIfNeeded();
+    await screenshot('achievement-from-diary-flow',true);
     const scan = await new AxeBuilder({page}).include('.consultation').analyze();
     expect(scan.violations.filter(v=>['critical','serious'].includes(v.impact??''))).toEqual([]);
   }
