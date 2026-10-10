@@ -479,3 +479,98 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   .quest-row-button .inline-achievement-mobile-overflow { display:inline; }
   .inline-achievements-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); }
 }
+
+
+/* Issue #9 / PR B — Consultation. Diary master/detail grid remains unchanged. */
+.consultation { width:min(100%,1120px); margin:0 auto; padding:25px 22px 70px; color:#e9e2d7; min-width:0; }
+.consult-heading { display:flex; align-items:start; justify-content:space-between; gap:20px; padding:10px 0 20px; border-bottom:1px solid #66553e; }
+.consult-eyebrow { font:600 11px/1.45 'Plus Jakarta Sans',system-ui,sans-serif; letter-spacing:.13em; color:#d0ad77; }
+.consult-heading h1 { font:600 clamp(32px,4vw,48px)/1.14 Georgia,serif; color:#eed2a6; margin:5px 0 7px; }
+.consult-heading p:last-child, .consult-muted { color:#cfc4b4; font-size:14px; line-height:1.55; }
+.consult-return, .consult-back-index { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; color:#ead0a5; border:1px solid #7e6949; padding:8px 15px; background:#211d18; font-size:14px; cursor:pointer; }
+.consult-return:hover,.consult-back-index:hover { background:#30271d; }
+.consult-search-area { margin-top:22px; padding:18px 20px; background:linear-gradient(140deg,#231e19,#151514); border:1px solid #7b6445; }
+.consult-search-area label,.consult-label { display:block; font-size:13px; font-weight:700; color:#efd1a1; margin-bottom:9px; }
+.consult-search-field { display:flex; align-items:center; gap:11px; border:1px solid #977e59; min-height:52px; background:#100f0e; padding:0 13px; }
+.consult-search-field > svg { flex-shrink:0; color:#e2bf86; }
+.consult-search-field input { flex:1; min-width:0; width:100%; color:#f6e9d5; background:transparent; border:0; outline:0; font-size:16px; min-height:48px; }
+.consult-search-field input::placeholder { color:#ac9d8b; opacity:1; }
+.consult-search-field:focus-within { outline:2px solid #dbb97e; outline-offset:2px; }
+.consult-search-field button { min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center; color:#e3c99f; cursor:pointer; }
+.consult-search-hint { color:#b9ae9e; font-size:12px; margin-top:10px; }
+.consult-sections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin-top:14px; border-bottom:1px solid #6b573c; }
+.consult-sections button { display:flex; align-items:center; justify-content:center; gap:9px; min-height:50px; padding:10px 8px; border-bottom:3px solid transparent; color:#d3c5b0; background:#1c1a17; cursor:pointer; font-size:15px; font-weight:600; }
+.consult-sections button:hover { color:#ffdeaa; background:#30291f; }
+.consult-sections button.is-active { border-bottom-color:#d5b57e; background:#30271e; color:#ffe1b2; }
+.consult-controls { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:14px 0; }
+.consult-controls label { font-size:13px; color:#cbbba3; }
+.consult-controls select,.consult-chapter-select { background:#1c1c1d; color:#f0d6b0; border:1px solid #796548; padding:10px 36px 10px 12px; min-height:44px; max-width:100%; font-size:14px; }
+.consult-controls button, .consult-empty button { min-height:44px; padding:9px 14px; background:#d9b780; color:#17130e; font-weight:700; font-size:13px; cursor:pointer; }
+.consult-section-title { display:flex; justify-content:space-between; gap:16px; align-items:end; padding:24px 0 14px; border-bottom:1px solid #494035; margin-bottom:16px; }
+.consult-section-title h2 { font:600 28px/1.25 Georgia,serif; color:#f2d4a8; margin-top:4px; }
+.consult-section-title > span { font-size:12px; color:#cbbca5; text-align:right; }
+.consult-chapter-select { display:block; width:min(100%,430px); margin-bottom:12px; }
+.consultation .codex-chapter { padding-top:12px; }
+.consultation .codex-chapter-intro { margin-bottom:12px; }
+.consultation .codex-timeline { display:grid; gap:9px; }
+.consultation .codex-step { border-radius:2px; }
+.consultation .quest-detail-toggle { min-height:44px; }
+.consult-priority-risk { display:flex; align-items:start; gap:8px; margin:9px 0; background:#321b16; border-left:3px solid #d88c77; padding:9px 11px; color:#f7d3c6; font-size:13px; line-height:1.5; }
+.consult-priority-risk svg { margin-top:1px; flex:0 0 auto; }
+.consult-results-list,.consult-achievement-list { overflow-y:auto; overscroll-behavior:contain; border:1px solid #514538; background:#161616; }
+.consult-results-list { max-height:520px; }
+.consult-results-list button { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 14px; width:100%; min-height:62px; text-align:left; padding:12px 15px; border-bottom:1px solid #38332d; cursor:pointer; }
+.consult-results-list button:hover,.consult-achievement-list button:hover { background:#2b251f; }
+.consult-results-list button span { grid-column:1; font-size:11px; color:#ceaa74; }
+.consult-results-list button strong { grid-column:1; font-size:15px; color:#f0ddbd; font-weight:600; }
+.consult-results-list button svg { grid-column:2; grid-row:1/3; align-self:center; color:#c6aa80; }
+.consult-empty { padding:25px; border:1px dashed #806a4c; background:#1e1b18; text-align:center; }
+.consult-empty h3,.consult-detail-placeholder h3 { font:600 21px/1.35 Georgia,serif; color:#f2d4a8; }
+.consult-empty p,.consult-detail-placeholder p { font-size:14px; color:#d1c2aa; margin:10px 0 16px; }
+.consult-achievements-layout { display:grid; grid-template-columns:minmax(230px,.42fr) minmax(0,.58fr); gap:18px; margin-top:15px; align-items:start; min-width:0; }
+.consult-achievement-list { max-height:570px; }
+.consult-achievement-list button { width:100%; display:flex; align-items:center; gap:10px; text-align:left; min-height:60px; padding:8px 11px; border-bottom:1px solid #40372b; cursor:pointer; }
+.consult-achievement-list button.is-selected { background:#332a20; box-shadow:inset 3px 0 #dcbf8b; }
+.consult-achievement-list button > span:nth-child(2) { display:flex; flex-direction:column; min-width:0; gap:3px; flex:1; }
+.consult-achievement-list button strong { font-size:14px; color:#f1ddbd; font-weight:600; line-height:1.4; }
+.consult-achievement-list button small { color:#c8bba7; font-size:12px; }
+.consult-achievement-list button > svg { color:#c7a775; flex:0 0 auto; }
+.consult-achievement-detail { min-width:0; }
+.consult-achievement-detail .codex-achievement { scroll-margin-top:115px; }
+.consult-back-index { margin-bottom:12px; width:100%; }
+.consult-detail-placeholder { border:1px solid #574b3c; background:#1d1b18; text-align:center; min-height:245px; padding:50px 20px; }
+.consult-detail-placeholder > svg { color:#cbb080; margin:0 auto 12px; }
+.consult-references h3 { margin:25px 0 10px; font:600 20px Georgia,serif; color:#edd3aa; }
+.consult-editorial-warning { display:flex; gap:12px; padding:16px; border:1px solid #996049; background:#2e1c18; color:#ffe0d2; line-height:1.55; }
+.consult-editorial-warning > svg { color:#f0ae94; flex-shrink:0; }
+.consult-editorial-warning p { margin-top:5px; font-size:14px; }
+.consult-reference-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; border:1px solid #5c503e; background:#5c503e; }
+.consult-reference-list a { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px; min-height:70px; background:#1c1a18; }
+.consult-reference-list a:hover { background:#302820; }
+.consult-reference-list a span { min-width:0; }
+.consult-reference-list a strong { display:block; color:#eed4ae; font-size:14px; }
+.consult-reference-list a small { display:block; color:#bdb09d; font-size:12px; margin-top:3px; }
+.consult-reference-list a > svg { color:#d9b780; flex:0 0 auto; }
+.consult-reference-actions,.consult-tools { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.consult-reference-actions button,.consult-tools button { min-height:44px; padding:9px 12px; border:1px solid #786448; color:#efd4a8; background:#242019; cursor:pointer; }
+.consult-reference-actions button:hover,.consult-tools button:hover { background:#3a2c20; }
+.consult-nav-notice { padding:12px max(18px,calc((100% - 1120px)/2)); background:#273324; border-bottom:1px solid #698260; color:#e3f0d8; font-size:14px; }
+.consultation :is(button,select,input,a):focus-visible { outline:3px solid #f0d090; outline-offset:3px; }
+@media(max-width:800px) {
+ .consultation { padding:14px 14px 48px; }
+ .consult-heading { display:block; }
+ .consult-return { margin-top:14px; }
+ .consult-achievements-layout { grid-template-columns:minmax(0,1fr); gap:12px; }
+ .consult-achievement-list { max-height:300px; }
+ .consult-reference-list { grid-template-columns:minmax(0,1fr); }
+ .consult-search-area { padding:14px; }
+}
+@media(max-width:420px) {
+ .consult-sections button { font-size:13px; gap:5px; padding:9px 3px; }
+ .consult-sections button svg { width:15px; }
+ .consult-section-title h2 { font-size:25px; }
+ .consult-section-title { align-items:start; }
+ .consult-heading h1 { font-size:34px; }
+ .consultation .codex-chapter-intro h2 { font-size:22px; }
+ .consultation .codex-step { padding:10px; }
+}
