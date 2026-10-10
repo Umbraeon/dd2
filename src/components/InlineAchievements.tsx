@@ -44,6 +44,7 @@ export const AchievementPreview: React.FC<SharedProps> = ({ ids, phases, progres
         </span>
       ))}
       {total > visible.length && <span className="inline-achievement-overflow">+{total - visible.length}</span>}
+      {total > 1 && <span className="inline-achievement-mobile-overflow">+{total - 1}</span>}
     </span>
   );
 };
