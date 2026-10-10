@@ -2,7 +2,7 @@ import React from 'react';
 import { BookOpen, ShieldAlert, FolderDown } from 'lucide-react';
 
 interface HeaderProps {
-  onOpenCheckpoints: () => void;
+  onOpenCheckpoints: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onOpenTools: (event: React.MouseEvent<HTMLButtonElement>) => void;
   toolsExpanded: boolean;
   onOpenSources: () => void;
