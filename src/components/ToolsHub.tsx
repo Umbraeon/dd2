@@ -8,6 +8,7 @@ export type ToolId = 'sphinx' | 'tokens' | 'barbecue' | 'maisters' |
   'checkpoints' | 'backup' | 'glossary';
 
 interface Props {
+  open: boolean;
   top: number;
   trigger: HTMLButtonElement | null;
   onDismiss: (returnFocus?: boolean) => void;
@@ -43,11 +44,12 @@ const groups = [
 ] as const;
 
 /** One non-modal disclosure panel shared by both the header and References entry. */
-export const ToolsHub: React.FC<Props> = ({ top, trigger, onDismiss, onSelect }) => {
+export const ToolsHub: React.FC<Props> = ({ open, top, trigger, onDismiss, onSelect }) => {
   const panelRef = useRef<HTMLElement>(null);
   const firstActionRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    if (!open) return;
     firstActionRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -68,14 +70,15 @@ export const ToolsHub: React.FC<Props> = ({ top, trigger, onDismiss, onSelect })
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('pointerdown', onPointerDown);
     };
-  }, [onDismiss]);
+  }, [open, onDismiss]);
 
   return (
     <section
       ref={panelRef}
       id="tools-hub-panel"
       className="tools-hub"
-      style={{ top: top + 6 }}
+      hidden={!open}
+      style={{ top: top + 6, maxHeight: `calc(100dvh - ${top + 18}px)` }}
       aria-labelledby="tools-hub-title"
       aria-describedby="tools-hub-description"
       data-origin={trigger?.dataset.toolsHubTrigger ?? 'header'}
