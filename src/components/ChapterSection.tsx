@@ -222,6 +222,12 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                         </div>
                       </div>
 
+                      {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && expandedEventId !== event.id && (
+                        <p className="consult-priority-risk" role="note">
+                          <AlertTriangle size={15} aria-hidden="true" />
+                          <span><strong>Cautela registrada:</strong> {event.failureRisk}</span>
+                        </p>
+                      )}
                       <div className="consult-achievement-preview"><AchievementPreview ids={event.achievements} phases={phases} progress={progress}/></div>
                       <button type="button" className="quest-detail-toggle" aria-expanded={expandedEventId === event.id}
                         aria-controls={`event-details-${event.id}`} onClick={() => onExpandEvent(event.id)}>
