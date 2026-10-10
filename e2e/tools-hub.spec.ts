@@ -187,10 +187,12 @@ test('backup v3 importa/exporta sem mudança de contrato, após entrada pela cen
 
 test('progresso 0/20/53 e rotas Diário/Consulta não mudam ao navegar na central', async ({page}) => {
   for (const done of [0,20,53]) {
-    await page.context().clearCookies();
-    await page.addInitScript(() => localStorage.clear());
-    await seed(page,done);
     await page.goto('/');
+    const base = state();
+    allEvents.slice(0,done).forEach(event => { base.steps[event.id] = true; });
+    await page.evaluate(({key,data}) => localStorage.setItem(key,JSON.stringify(data)),
+      {key:storageKey,data:base});
+    await page.reload();
     const before = await stored(page);
     await expect(page.getByRole('heading',{name:'Diário do Nascen'})).toBeVisible();
     await openHub(page);
