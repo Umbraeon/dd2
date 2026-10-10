@@ -179,14 +179,13 @@ test('P1: foco retorna à entrada Referências; se invisível usa acionador est�
   await expect(closeModal(page)).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(entry).toBeFocused();
+  // References entry is the final tab stop in the page. Tab forward may
+  // legitimately leave the document; Shift+Tab must reach the preceding link,
+  // and a subsequent Tab must return to the restored origin.
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('button',{name:'Consultar glossário bilíngue'})).toBeFocused();
   await page.keyboard.press('Tab');
-  const tabDestination = await page.evaluate(() => {
-    const el = document.activeElement;
-    return el instanceof HTMLElement && el !== document.body &&
-      el.getClientRects().length > 0 && !el.closest('[hidden]');
-  });
-  expect(tabDestination).toBe(true);
-  await entry.focus();
+  await expect(entry).toBeFocused();
   await page.keyboard.press('Enter');
   await hub(page).getByRole('button',{name:/^Mementos do Buscador/}).focus();
   await page.keyboard.press('Enter');
