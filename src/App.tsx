@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { 
   Compass, 
   ShieldAlert, 
@@ -21,6 +21,7 @@ import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, 
 import { selectJourneyStep, deferJourneyStep, listJourneySteps, resolveJourney, firstPendingStep } from './utils/journey';
 
 import { Header } from './components/Header';
+import { ToolsHub, type ToolId } from './components/ToolsHub';
 import { QuestCodex } from './components/QuestCodex';
 
 import { ProgressSummary } from './components/ProgressSummary';
@@ -60,6 +61,13 @@ export default function App() {
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
   const [isBackupOpen, setIsBackupOpen] = useState(false);
+
+  // The shared Tools Hub is navigation-only; no progress is created or written here.
+  const [toolsHubOpen, setToolsHubOpen] = useState(false);
+  const [toolsHubTop, setToolsHubTop] = useState(72);
+  const toolsHubTrigger = useRef<HTMLButtonElement | null>(null);
+  // Origin is kept outside modal components so their internals remain unchanged.
+  const modalReturnFocus = useRef<HTMLElement | null>(null);
 
   // Opening (including React StrictMode effect replay) must not write a timestamp.
   useEffect(() => {
@@ -256,6 +264,64 @@ export default function App() {
     setNavigationTarget('references');
   };
 
+  const dismissToolsHub = useCallback((returnFocus = true) => {
+    setToolsHubOpen(false);
+    if (returnFocus) requestAnimationFrame(() => toolsHubTrigger.current?.focus());
+  }, []);
+
+  const toggleToolsHub = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const source = event.currentTarget;
+    if (toolsHubOpen && toolsHubTrigger.current === source) {
+      dismissToolsHub(true);
+      return;
+    }
+    toolsHubTrigger.current = source;
+    // Anchor below the current sticky header, not over its navigation controls.
+    setToolsHubTop(document.querySelector('.codex-header')?.getBoundingClientRect().bottom ?? 64);
+    setToolsHubOpen(true);
+  };
+
+  const closeTool = (tool: ToolId) => {
+    const setters: Record<ToolId, React.Dispatch<React.SetStateAction<boolean>>> = {
+      sphinx: setIsSphinxOpen, tokens: setIsTokensOpen, barbecue: setIsBarbecueOpen,
+      maisters: setIsMaistersOpen, checkpoints: setIsCheckpointsOpen,
+      backup: setIsBackupOpen, glossary: setIsGlossaryOpen
+    };
+    setters[tool](false);
+    const origin = modalReturnFocus.current;
+    modalReturnFocus.current = null;
+    if (!origin) return; // Other existing contextual entrances retain their behavior.
+    requestAnimationFrame(() => {
+      const visible = (element: HTMLElement | null): element is HTMLElement =>
+        !!element?.isConnected && element.getClientRects().length > 0 &&
+        getComputedStyle(element).visibility !== 'hidden' &&
+        !element.closest('[hidden], [inert]');
+      const fallback = document.querySelector<HTMLElement>('[data-tools-hub-trigger="header"]');
+      const destination = visible(origin) ? origin : visible(fallback) ? fallback : null;
+      destination?.focus({ preventScroll: true });
+    });
+  };
+
+  const openTool = (tool: ToolId, source?: HTMLElement) => {
+    // Hub actions restore to their actual opener; direct shortcuts restore to themselves.
+    modalReturnFocus.current = source ??
+      (toolsHubOpen ? toolsHubTrigger.current : null);
+    setToolsHubOpen(false);
+    // A tool selection opens exactly one existing modal; no progress callbacks execute.
+    setIsSphinxOpen(tool === 'sphinx');
+    setIsTokensOpen(tool === 'tokens');
+    setIsBarbecueOpen(tool === 'barbecue');
+    setIsMaistersOpen(tool === 'maisters');
+    setIsCheckpointsOpen(tool === 'checkpoints');
+    setIsBackupOpen(tool === 'backup');
+    setIsGlossaryOpen(tool === 'glossary');
+    setIsSourcesOpen(false);
+    // The originating panel unmounts. Move keyboard focus into the existing dialog.
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLButtonElement>('.fixed.inset-0.z-50 button[title="Fechar"]')?.focus();
+    });
+  };
+
   const handleGoJourney = () => {
     setView('journey');
     setNavigationTarget('journey');
@@ -265,13 +331,17 @@ export default function App() {
     <div className="codex-app min-h-screen text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
       {/* Top Bar Navigation */}
       <Header
-        onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
-        onOpenTools={() => setIsSphinxOpen(true)}
+        onOpenCheckpoints={event => openTool('checkpoints', event.currentTarget)}
+        onOpenTools={toggleToolsHub}
+        toolsExpanded={toolsHubOpen}
         onOpenSources={handleOpenSources}
-        onOpenBackup={() => setIsBackupOpen(true)}
+        onOpenBackup={event => openTool('backup', event.currentTarget)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
       />
+
+      <ToolsHub open={toolsHubOpen} top={toolsHubTop} trigger={toolsHubTrigger.current}
+        onDismiss={dismissToolsHub} onSelect={openTool} />
 
       {storageIssue && (
         <div role="alert" className="px-4 py-3 bg-[#402219] text-[#ffe3d2] text-sm border-b border-[#bb795b]">
@@ -307,13 +377,9 @@ export default function App() {
           onOpenEvent={handleNavigateToStep} onOpenAchievement={handleJumpToAchievement}
           onToggleEvent={handleToggleEvent} onToggleAchievement={handleToggleAchievement}
           onConfirmCheckpoint={handleToggleCheckpoint} onGoJourney={handleGoJourney}
-          onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
           onOpenSources={() => setIsSourcesOpen(true)}
-          onOpenGlossary={() => setIsGlossaryOpen(true)}
-          onOpenSphinx={() => setIsSphinxOpen(true)}
-          onOpenBarbecue={() => setIsBarbecueOpen(true)}
-          onOpenMaisters={() => setIsMaistersOpen(true)}
-          onOpenTokens={() => setIsTokensOpen(true)}
+          onOpenGlossary={() => openTool('glossary')}
+          onOpenTools={toggleToolsHub} toolsExpanded={toolsHubOpen}
         />
       )}
 
@@ -330,7 +396,7 @@ export default function App() {
       {/* Modals */}
       <SphinxTrackerModal
         isOpen={isSphinxOpen}
-        onClose={() => setIsSphinxOpen(false)}
+        onClose={() => closeTool('sphinx')}
         progress={progress}
         onToggleRiddle={handleToggleRiddle}
         onUpdateFirstTokenLocation={handleUpdateFirstTokenLocation}
@@ -338,21 +404,21 @@ export default function App() {
 
       <BarbecueTrackerModal
         isOpen={isBarbecueOpen}
-        onClose={() => setIsBarbecueOpen(false)}
+        onClose={() => closeTool('barbecue')}
         progress={progress}
         onToggleMeatTime={handleToggleMeatTime}
       />
 
       <MaistersTrackerModal
         isOpen={isMaistersOpen}
-        onClose={() => setIsMaistersOpen(false)}
+        onClose={() => closeTool('maisters')}
         progress={progress}
         onToggleMaisterStatus={handleToggleMaisterStatus}
       />
 
       <TokensTrackerModal
         isOpen={isTokensOpen}
-        onClose={() => setIsTokensOpen(false)}
+        onClose={() => closeTool('tokens')}
         progress={progress}
         onUpdateTokensCount={handleUpdateTokensCount}
         onUpdateFirstTokenLocation={handleUpdateFirstTokenLocation}
@@ -360,7 +426,7 @@ export default function App() {
 
       <CheckpointsModal
         isOpen={isCheckpointsOpen}
-        onClose={() => setIsCheckpointsOpen(false)}
+        onClose={() => closeTool('checkpoints')}
         progress={progress}
         onToggleCheckpoint={handleToggleCheckpoint}
         onJumpToPhase={handleJumpToPhase}
@@ -368,7 +434,7 @@ export default function App() {
 
       <GlossaryModal
         isOpen={isGlossaryOpen}
-        onClose={() => setIsGlossaryOpen(false)}
+        onClose={() => closeTool('glossary')}
       />
 
       <SourcesModal
@@ -378,7 +444,7 @@ export default function App() {
 
       <DataBackupModal
         isOpen={isBackupOpen}
-        onClose={() => setIsBackupOpen(false)}
+        onClose={() => closeTool('backup')}
         progress={progress}
         onImportSuccess={(newProg) => {
           allowExplicitProgressReplacement();

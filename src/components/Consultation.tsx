@@ -30,13 +30,10 @@ interface Props {
   onToggleAchievement: (id: number) => void;
   onConfirmCheckpoint: (id: string) => void;
   onGoJourney: () => void;
-  onOpenCheckpoints: () => void;
   onOpenSources: () => void;
   onOpenGlossary: () => void;
-  onOpenSphinx: () => void;
-  onOpenBarbecue: () => void;
-  onOpenMaisters: () => void;
-  onOpenTokens: () => void;
+  onOpenTools: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  toolsExpanded: boolean;
 }
 
 const normalize = (value: string) =>
@@ -47,8 +44,7 @@ export const Consultation: React.FC<Props> = ({
   search, onSearchChange, filter, onFilterChange, selectedAchievementId,
   onClearAchievement, expandedEventId, onExpandEvent, onOpenEvent,
   onOpenAchievement, onToggleEvent, onToggleAchievement, onConfirmCheckpoint,
-  onGoJourney, onOpenCheckpoints, onOpenSources, onOpenGlossary,
-  onOpenSphinx, onOpenBarbecue, onOpenMaisters, onOpenTokens
+  onGoJourney, onOpenSources, onOpenGlossary, onOpenTools, toolsExpanded
 }) => {
   const [achievementChapter, setAchievementChapter] = useState('all');
   useEffect(() => { if (selectedAchievementId !== null) setAchievementChapter('all'); }, [selectedAchievementId]);
@@ -259,14 +255,13 @@ export const Consultation: React.FC<Props> = ({
                 <button type="button" onClick={onOpenSources}>Abrir notas editoriais e metodologia</button>
                 <button type="button" onClick={onOpenGlossary}>Consultar glossário bilíngue</button>
               </div>
-              <h3>Ferramentas existentes</h3>
-              <p className="consult-muted">Os rastreadores continuam separados do progresso das missões e das conquistas.</p>
+              <h3>Ferramentas de acompanhamento</h3>
+              <p className="consult-muted">Abra os rastreadores existentes na mesma central acessível pelo cabeçalho, sem mudar seu progresso.</p>
               <div className="consult-tools">
-                <button type="button" onClick={onOpenCheckpoints}>Alertas / checkpoints</button>
-                <button type="button" onClick={onOpenSphinx}>Esfinge</button>
-                <button type="button" onClick={onOpenBarbecue}>Churrasco</button>
-                <button type="button" onClick={onOpenMaisters}>Mestres</button>
-                <button type="button" onClick={onOpenTokens}>Mementos</button>
+                <button type="button" data-tools-hub-trigger="references" onClick={onOpenTools}
+                  aria-controls="tools-hub-panel" aria-expanded={toolsExpanded}>
+                  Abrir Central de Ferramentas
+                </button>
               </div>
             </section>
           )}
