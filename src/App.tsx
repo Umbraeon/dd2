@@ -352,6 +352,7 @@ export default function App() {
         onToggleDone={handleToggleEvent}
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
         onShowFull={handleNavigateToStep}
+        onOpenAchievement={handleJumpToAchievement}
         onOpenConsultation={() => setView('consultation')}
       />}
       {view === 'consultation' && <nav className="codex-mode-nav" aria-label="Modos do compêndio">
@@ -472,9 +473,11 @@ export default function App() {
               <ChapterSection
                 key={phase.id}
                 phase={phase}
+                phases={PHASES}
                 progress={progress}
                 onToggleEvent={handleToggleEvent}
                 onToggleAchievement={handleToggleAchievement}
+                onOpenAchievement={handleJumpToAchievement}
                 onConfirmCheckpoint={handleToggleCheckpoint}
                 expandedEventId={expandedEventId}
                 onExpandEvent={(id) => setExpandedEventId(prev => prev === id ? null : id)}

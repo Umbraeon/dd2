@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AlertTriangle, ArrowLeft, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ChevronRight, Circle, Compass, ExternalLink, ShieldAlert, SkipForward } from 'lucide-react';
 import type { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
+import { AchievementPreview, InlineAchievements } from './InlineAchievements';
 import { isStepCompleted, isStepDeferred, listJourneySteps, resolveJourney } from '../utils/journey';
 
 const USER_PANORAMA = '/assets/gemini-codex-panorama.webp';
@@ -19,11 +20,12 @@ interface Props {
   onToggleDone: (id: string) => void;
   onOpenCheckpoints: () => void;
   onShowFull: (id: string) => void;
+  onOpenAchievement: (phaseId: string, id: number) => void;
   onOpenConsultation: () => void;
 }
 export const QuestCodex: React.FC<Props> = ({
   phases, progress, selectedChapter, onChapterChange, onSetActive, onDefer,
-  onClearSelection, onToggleDone, onOpenCheckpoints, onShowFull, onOpenConsultation
+  onClearSelection, onToggleDone, onOpenCheckpoints, onShowFull, onOpenAchievement, onOpenConsultation
 }) => {
   const journey = resolveJourney(phases, progress);
   const [inspectedId, setInspectedId] = useState(() => journey.target?.event.id ?? listJourneySteps(phases)[0]?.event.id ?? '');
@@ -99,16 +101,21 @@ export const QuestCodex: React.FC<Props> = ({
             return <div key={e.id} role="listitem" className={`quest-row ${chosen ? 'is-inspected' : ''}`}>
               <button type="button" onClick={() => inspect(e)}
                 aria-current={chosen ? 'true' : undefined}
-                aria-label={`Consultar atividade: ${e.title}`}
+                aria-label={`Consultar atividade: ${e.title}${e.achievements.length ? ` · ${new Set(e.achievements).size} conquistas associadas no roteiro, em verificação` : ""}`}
                 className="quest-row-button">
                 <span className="quest-row-symbol" aria-hidden="true">
                   {isStepCompleted(progress, e.id) ? <CheckCircle2 size={17}/> : isActive ? <Bookmark size={17}/> : isDeferred ? <SkipForward size={17}/> : isSuggested ? <Compass size={17}/> : <Circle size={13}/>}
                 </span>
                 <span className="quest-row-main">
                   <strong>{e.title}</strong>
-                  {(isActive || isSuggested || isDeferred) && <small>
-                    {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
-                  </small>}
+                  {(isActive || isSuggested || isDeferred || e.achievements.length > 0) && (
+                    <span className="quest-row-meta">
+                      {(isActive || isSuggested || isDeferred) && <small>
+                        {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
+                      </small>}
+                      <AchievementPreview ids={e.achievements} phases={phases} progress={progress} />
+                    </span>
+                  )}
                 </span>
                 <ChevronRight className="quest-row-chevron" size={18} aria-hidden="true" />
               </button>
@@ -163,12 +170,12 @@ export const QuestCodex: React.FC<Props> = ({
                 <p>{chapterCheckpoints.length} alerta(s) cadastrados para este capítulo. A relação com a atividade selecionada ainda não foi verificada.</p>
                 <button type="button" onClick={onOpenCheckpoints}>Ver alertas</button>
               </div>}
+              <InlineAchievements key={event.id} ids={event.achievements} phases={phases} progress={progress} onOpenAchievement={onOpenAchievement} />
               <button className="quest-more-toggle" type="button" aria-expanded={more} onClick={() => setMore(v => !v)}>
                 Informações adicionais e fontes <ChevronDown size={17} aria-hidden="true" />
               </button>
               {more && <div className="quest-more-content">
                 <p>Tipo: {event.type} · Nível editorial de cautela: {event.risk}. Nenhum aviso equivale a prazo ou irreversibilidade comprovados sem auditoria.</p>
-                {event.achievements.length > 0 && <p>Conquistas associadas no roteiro: {event.achievements.map(id => '#' + id).join(', ')}.</p>}
                 <p>Os marcos são adaptações resumidas de fontes comunitárias. Consulte a cronologia completa antes de decisões irreversíveis.</p>
                 {event.source && <a href={event.source} target="_blank" rel="noopener noreferrer">Fonte indicada no roteiro (não auditada) <ExternalLink size={15} aria-hidden="true"/></a>}
                 <button type="button" onClick={() => onShowFull(event.id)}>Abrir ficha completa na Consulta <ChevronRight size={16} aria-hidden="true"/></button>

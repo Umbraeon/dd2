@@ -1,14 +1,17 @@
 import React from 'react';
-import { AlertTriangle, Clock, ShieldAlert, CheckCircle2, Circle, ExternalLink, BookmarkCheck } from 'lucide-react';
+import { AlertTriangle, Clock, ShieldAlert, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
 import { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { AchievementCard } from './AchievementCard';
+import { AchievementPreview, InlineAchievements } from './InlineAchievements';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
 
 interface ChapterSectionProps {
   phase: Phase;
+  phases: readonly Phase[];
   progress: UserProgress;
   onToggleEvent: (eventId: string) => void;
   onToggleAchievement: (achievementId: number) => void;
+  onOpenAchievement: (phaseId: string, achievementId: number) => void;
   onConfirmCheckpoint: (checkpointId: string) => void;
   expandedEventId: string | null;
   onExpandEvent: (eventId: string) => void;
@@ -18,9 +21,11 @@ interface ChapterSectionProps {
 
 export const ChapterSection: React.FC<ChapterSectionProps> = ({
   phase,
+  phases,
   progress,
   onToggleEvent,
   onToggleAchievement,
+  onOpenAchievement,
   onConfirmCheckpoint,
   expandedEventId,
   onExpandEvent,
@@ -215,6 +220,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                         </div>
                       </div>
 
+                      <div className="consult-achievement-preview"><AchievementPreview ids={event.achievements} phases={phases} progress={progress}/></div>
                       <button type="button" className="quest-detail-toggle" aria-expanded={expandedEventId === event.id}
                         aria-controls={`event-details-${event.id}`} onClick={() => onExpandEvent(event.id)}>
                         {expandedEventId === event.id ? 'Recolher instruções' : 'Mostrar instruções e vínculos'}
@@ -234,32 +240,9 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                         </div>
                       )}
 
-                      {/* Associated Achievements Link Tag */}
-                      {event.achievements.length > 0 && (
-                        <div className="mt-2.5 flex items-center gap-1.5 text-sm text-[#d9b780] flex-wrap">
-                          <BookmarkCheck className="w-3.5 h-3.5" />
-                          <span className="font-serif">Gera Conquistas:</span>
-                          <div className="flex flex-wrap gap-1">
-                            {event.achievements.map(achId => {
-                              const ach = phase.achievements.find(a => a.id === achId);
-                              const achTitle = ach ? ach.title : `Conquista #${achId}`;
-                              const isDone = !!progress.achievements[achId];
-                              return (
-                                <span
-                                  key={achId}
-                                  className={`text-[10px] px-1.5 py-0.5 rounded border ${
-                                    isDone
-                                      ? 'bg-[#1b261d] text-[#9bc4a5] border-[#2e4a34]'
-                                      : 'bg-[#212429] text-[#ecd2ac] border-[#4a4235]'
-                                  }`}
-                                >
-                                  #{achId} {achTitle}
-                                </span>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
+                      {/* Linked to the global catalogue; editorial, never an automatic unlock. */}
+                      <InlineAchievements ids={event.achievements} phases={phases}
+                        progress={progress} onOpenAchievement={onOpenAchievement} />
 
                       {/* Source Link */}
                       {event.source && (
