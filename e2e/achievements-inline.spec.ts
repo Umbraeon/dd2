@@ -109,3 +109,90 @@ test('inline icons and full-card navigation have no axe serious/critical finding
   });
   expect(report.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? ''))).toEqual([]);
 });
+
+
+test('mobile title keeps its full width and badge sits below (new player, 375/390)', async ({ page }) => {
+  mkdirSync('test-results/screenshots', { recursive: true });
+  for (const [width, height] of [[375, 812], [390, 844]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    const row = page.locator('.quest-row').first();
+    const title = row.locator('.quest-row-main strong');
+    const badge = row.locator('.quest-row-meta .inline-achievement-preview');
+    const titleBox = await title.boundingBox();
+    const badgeBox = await badge.boundingBox();
+    expect(titleBox).toBeTruthy();
+    expect(badgeBox).toBeTruthy();
+    expect(badgeBox!.y).toBeGreaterThanOrEqual(titleBox!.y + titleBox!.height - 1);
+    const titleMeasurements = await title.evaluate(el => {
+      const style = getComputedStyle(el);
+      return { lines: el.getBoundingClientRect().height / parseFloat(style.lineHeight),
+        availableWidth: el.getBoundingClientRect().width };
+    });
+    // Original approved title occupies two lines at 390px. The icon must not force a third.
+    if (width === 390) expect(titleMeasurements.lines).toBeLessThanOrEqual(2.1);
+    expect(titleMeasurements.availableWidth).toBeGreaterThan(250);
+    await expect(badge.locator('.inline-achievement-preview-icon:visible')).toHaveCount(1);
+    await expect(badge.locator('.inline-achievement-mobile-overflow')).toHaveText('+1');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+    await page.screenshot({ path: `test-results/screenshots/pr-a-mobile-list-corrected-${width}x${height}.png`, fullPage: false });
+    expect(await readProgress(page)).toBeNull();
+  }
+});
+
+test('critical requirements and warnings precede inline achievements without expanding details', async ({ page }) => {
+  // Covers the Head's specific six high-risk examples; no factual unlock assumptions.
+  for (const id of ['v205', 'b05', 'b06', 'p05', 'u05', 'u08']) {
+    const match = all.find(({ event }) => event.id === id)!;
+    expect(match.event.failureRisk).toBeTruthy();
+    expect(match.event.achievements.length).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(match.phase.id);
+    await page.getByRole('button', { name: 'Consultar atividade: ' + match.event.title, exact: false }).click();
+    const detail = page.locator('.quest-detail-body');
+    const region = detail.locator('.inline-achievements');
+    const warning = detail.locator('.quest-warning');
+    await expect(region).toBeVisible();
+    await expect(warning).toBeVisible();
+    await expect(detail.locator('.quest-more-toggle')).toHaveAttribute('aria-expanded', 'false');
+    const positions = await detail.evaluate(el => {
+      const order = (a: string, b: string) => {
+        const x = el.querySelector(a), y = el.querySelector(b);
+        return !!x && !!y && !!(x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING);
+      };
+      return {
+        objectiveBeforeWarning: order('.quest-objective', '.quest-warning'),
+        warningBeforeAchievements: order('.quest-warning', '.inline-achievements'),
+        requirementBeforeAchievements: !el.querySelector('.quest-requirements') ||
+          order('.quest-requirements', '.inline-achievements'),
+        checkpointBeforeAchievements: !el.querySelector('.quest-chapter-alert') ||
+          order('.quest-chapter-alert', '.inline-achievements')
+      };
+    });
+    expect(Object.values(positions).every(Boolean), JSON.stringify({ id, positions })).toBe(true);
+    expect(await readProgress(page)).toBeNull();
+  }
+});
+
+test('critical-warning-first screenshots on desktop and mobile, with unchanged progression', async ({ page }) => {
+  const target = all.find(({ event }) => event.id === 'b05')!;
+  mkdirSync('test-results/screenshots', { recursive: true });
+  for (const [width, height] of [[375, 812], [390, 844], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(target.phase.id);
+    await page.getByRole('button', { name: 'Consultar atividade: ' + target.event.title, exact: false }).click();
+    const detail = page.locator('.quest-detail');
+    const warning = detail.locator('.quest-warning');
+    const achievements = detail.locator('.inline-achievements');
+    await warning.scrollIntoViewIfNeeded();
+    await expect(warning).toBeInViewport();
+    await expect(achievements).toBeVisible();
+    await page.screenshot({ path: `test-results/screenshots/pr-a-critical-warning-first-${width}x${height}.png`, fullPage: false });
+    await achievements.locator('.inline-achievement-entry').first().scrollIntoViewIfNeeded();
+    await expect(achievements.locator('.inline-achievement-entry').first()).toBeInViewport();
+    await page.screenshot({ path: `test-results/screenshots/pr-a-critical-achievement-after-warning-${width}x${height}.png`, fullPage: false });
+    expect(await readProgress(page)).toBeNull();
+  }
+});
