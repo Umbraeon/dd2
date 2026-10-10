@@ -189,13 +189,14 @@ test('full details and exact step navigation remain available without losing per
 test('search index still opens exact achievements and records in secondary consultation', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Consulta e ferramentas' }).click();
-  await page.getByRole('textbox', { name: 'Buscar no roteiro e nas conquistas' }).fill('Prólogo');
-  const index = page.getByRole('region', { name: 'Índice de resultados' });
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Prólogo');
+  const index = page.getByRole('region', { name: 'Resultados encontrados' });
   await expect(index.getByRole('button').first()).toBeVisible();
   await index.getByRole('button').first().click();
   await expect(page.locator('.quest-event-details').first()).toBeVisible();
-  await page.getByRole('button', { name: /Mostrar fichas e requisitos/ }).click();
-  await expect(page.locator('.codex-achievement').first()).toBeVisible();
+  await page.getByRole('button', { name: 'Conquistas', exact: true }).click();
+  await page.locator('.consult-achievement-list button').first().click();
+  await expect(page.locator('.codex-achievement')).toBeVisible();
 });
 
 test('real v3 JSON import/export roundtrip, rejected import does not replace stored data', async ({ page }) => {
