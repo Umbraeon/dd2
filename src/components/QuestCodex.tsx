@@ -108,11 +108,15 @@ export const QuestCodex: React.FC<Props> = ({
                 </span>
                 <span className="quest-row-main">
                   <strong>{e.title}</strong>
-                  {(isActive || isSuggested || isDeferred) && <small>
-                    {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
-                  </small>}
+                  {(isActive || isSuggested || isDeferred || e.achievements.length > 0) && (
+                    <span className="quest-row-meta">
+                      {(isActive || isSuggested || isDeferred) && <small>
+                        {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
+                      </small>}
+                      <AchievementPreview ids={e.achievements} phases={phases} progress={progress} />
+                    </span>
+                  )}
                 </span>
-                <AchievementPreview ids={e.achievements} phases={phases} progress={progress} />
                 <ChevronRight className="quest-row-chevron" size={18} aria-hidden="true" />
               </button>
             </div>;
@@ -155,7 +159,6 @@ export const QuestCodex: React.FC<Props> = ({
               <div className="quest-objective"><span className="quest-section-kicker">OBJETIVO / ORIENTAÇÃO COMUNITÁRIA</span>
                 <p>{event.note}</p>
               </div>
-              <InlineAchievements key={event.id} ids={event.achievements} phases={phases} progress={progress} onOpenAchievement={onOpenAchievement} />
               {event.prerequisites && <div className="quest-requirements">
                 <h3>Requisitos registrados · em verificação</h3><p>{event.prerequisites}</p>
               </div>}
@@ -167,6 +170,7 @@ export const QuestCodex: React.FC<Props> = ({
                 <p>{chapterCheckpoints.length} alerta(s) cadastrados para este capítulo. A relação com a atividade selecionada ainda não foi verificada.</p>
                 <button type="button" onClick={onOpenCheckpoints}>Ver alertas</button>
               </div>}
+              <InlineAchievements key={event.id} ids={event.achievements} phases={phases} progress={progress} onOpenAchievement={onOpenAchievement} />
               <button className="quest-more-toggle" type="button" aria-expanded={more} onClick={() => setMore(v => !v)}>
                 Informações adicionais e fontes <ChevronDown size={17} aria-hidden="true" />
               </button>
