@@ -56,7 +56,7 @@ test('mapa retorna ao contador, foco do botão, Escape e Esfinge compartilham re
   await openTokens(page);
   const notes='Primeiro memento perto da ponte — verificação de mapa';
   await tokensModal(page).locator('textarea').first().fill(notes);
-  await tokensModal(page).getByRole('button',{name:'Aumentar 5'}).click();
+  await tokensModal(page).getByRole('button',{name:'+5',exact:true}).click();
   await expect.poll(async()=>JSON.parse((await stored(page))!).seekerTokensCount).toBe(5);
   const before=await stored(page);
   await mapTrigger(page).focus();
