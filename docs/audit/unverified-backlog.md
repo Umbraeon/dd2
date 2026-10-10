@@ -22,6 +22,7 @@
 | P2 | #47 | Diferenciar coletar 80 vs entregar 80 | Teste de conquista e descrição oficial; Steam diz «coletou». |
 | P2 | #39 | Associação em v205 e b06 = **um** desbloqueio | Confirmar com captura evento Steam e sequência; modelo já deduplica conquistas. |
 | P2 | Fontes | Manual Capcom PT-BR devolveu erro no acesso por ferramenta | Reabrir em navegador e registrar URL/versão; não inferir conteúdo não acessível. |
+| P1 | Vídeos de platina indicados pelo proprietário (playlist YouTube) | Conteúdo do vídeo `tQGRLcSk7yI` e episódios da playlist não pôde ser aberto/transcrito; autor, datas, versão e afirmações ainda desconhecidos | Ver vídeos reais com timestamps; coletar cenas do diário PT-BR, avisos, checkpoints e desbloqueios; confrontar duas fontes nos riscos altos. Playlist: https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T |
 | P2 | UX | Nenhum teste de usuário/viewport; sem imagem de gameplay | Executar roteiro do relatório de clareza. |
 | P2 | Progresso | Persistência v3 não testada com relatórios | Não tocar em IDs/schema; teste de regressão somente no PR executor aprovado. |
 
