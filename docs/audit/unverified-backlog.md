@@ -51,3 +51,19 @@ Ver [relatório incremental de versão](2026-version-impact-report.md) e matrize
 | P1 | Capcom Support FAQ atualizado em 08/10/2026 vs Capcom TU3.2 no Steam | FAQ ainda afirma **um único save**; TU3.2 confirma três slots com três estados por slot. O trecho do FAQ parece desatualizado, mas não houve reprodução do menu do jogo. | Print/grav. do menu de salvar e carregar na build TU3.2+ e plataforma identificada; não prometer restauro automático. Fonte FAQ: https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms |
 | P1 | PS5 patch 3.210 de 07/09/2026 | Relato secundário de bug na seleção do save mais recente depois de TU3.2, corrigido em PS5. | Nota Capcom original, versão exata e validação de correção; não generalizar para outras plataformas. https://mp1st.com/title-updates-and-patches/dragons-dogma-2-update-3-210-fixes-loading-data-issues |
 | P2 | Ajuda para NPCs perdidos e quests temporizadas | FAQ oficial mostra ampulheta na lista, deslocamento de NPC e opção de necrotérios/Diviner's Salon, mas o guia não oferece fallback por quest. | Testar e inserir orientação contextual, preservando IDs e nomes extraídos sem trocar traduções. |
+
+
+## Testes que faltam para homologar checkpoints de alto risco — CP1–CP4
+| Grau | Questão precisa | Teste pendente | Estado |
+|---|---|---|---|
+| P1 | `Feast of Deception`: aceitar convite vs concluir quest | Antes/depois em três estados para `Readvent`, `Home Is Where the Hearth Is`, `Ornate Box`, `Vocation Frustration`, `Every Rose`. | EVIDÊNCIA POR ESTADO INCOMPLETA |
+| P1 | `A New Godsway`: instante da última oportunidade de limpar quests | Registrar etapas antes de entregar 15 WLC, cruzar portão selado e acionar cena Gigantus. | LACUNA DE REPRODUÇÃO |
+| P1 | `Gigantus`: flecha, autosave, instante de desbloqueio e Talos | Testar com flecha e sem flecha, observar menu e pop-up; não usar Medusa até provar efeito. | FONTES DIVERGEM |
+| P1 | TU3.2: retornar ao salão após `Paz` | Capturar menu novo e interagir com Pathfinder sem iniciar NG+, comparar com walkthrough 2024. | PENDENTE GAMEPLAY |
+| P1 | `O Guardião` vs cinco quests de evacuação | Capturar exato instante do troféu Steam e conclusão das **5** quests (Henrique é linha independente de Ernesto). | 5 QUESTS LOCALIZADAS; TROFÉU NÃO ENSAIADO |
+| P1 | Mapa Unmoored: feixes de prova, azul de evacuação e vermelho final | Screenshots PT-BR após cada estado, sem confundir quatro trials com quatro feixes periféricos. | TOPOLOGIA DO GUIA INCOMPLETA |
+| P1 | Número de repousos/janela da névoa | Testar quais repousos avançam o relógio após cada prova e relação com TU3.2. | CONTAGEM NÃO HOMOLOGADA |
+| P1 | `Seafloor Shrine` e `Sacred Arbor`: nomes literais de mapa PT-BR | Kiranico usa «Templo Abissal» e «Jardim Sagrado» em objetivos; app usa «Santuário do Leito Marinho» e «Bosque Sagrado». | TÍTULOS DO MAPA NÃO CONFIRMADOS |
+| P1 | DLC Dark Arisen durante Mundo Desancorado | Segunda fonte independente ou teste de save; PC Gamer 08/10 diz que não pode acessar. | FONTE ÚNICA |
+
+Mais detalhes em [CP1–CP4](critical-checkpoints-review-2026.md) e [matriz 22 alegações](critical-checkpoints-evidence-2026.csv).
