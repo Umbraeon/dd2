@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Search, X, BookOpen, ListChecks, Award, ShieldAlert, ExternalLink, ChevronRight, ArrowLeft } from 'lucide-react';
 import type { Phase, UserProgress } from '../types/roadmap';
 import { ROADMAP_METADATA } from '../data/roadmapData';
@@ -51,6 +51,7 @@ export const Consultation: React.FC<Props> = ({
   onOpenSphinx, onOpenBarbecue, onOpenMaisters, onOpenTokens
 }) => {
   const [achievementChapter, setAchievementChapter] = useState('all');
+  useEffect(() => { if (selectedAchievementId !== null) setAchievementChapter('all'); }, [selectedAchievementId]);
   const achievements = useMemo(() => {
     const unique = new Map<number, { phase: Phase; achievement: Phase['achievements'][number] }>();
     for (const phase of phases) for (const achievement of phase.achievements) {
