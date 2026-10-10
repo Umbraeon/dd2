@@ -45,5 +45,8 @@
 4. As seis conquistas da DLC têm nomes PT-BR verificados na Steam, mas **não** há trilhas de execução comprovadas individualmente.
 5. Não foi realizada execução Playwright, captura de tela, teste manual do jogo, nem estudo com três jogadores; avaliação de clareza é **heurística textual**, não teste de UX.
 
+## Fonte adicional encaminhada para auditoria (10/10/2026)
+O proprietário forneceu uma [playlist de detonado/platinagem do DD2](https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T) e um [vídeo específico](https://www.youtube.com/watch?v=tQGRLcSk7yI) de criador em quem confia após platinar o jogo anterior. O **título da playlist** foi recuperado, mas não os episódios, transcrições, timestamps, autoria nem a interface do jogo; portanto **nenhuma instrução ou nome de missão foi validado com essa fonte**. Ela passa a ser prioridade de confronto audiovisual assim que seu conteúdo estiver acessível. Ver `source-register.md` e `unverified-backlog.md`. Não altera contagens nem conclusões já documentadas.
+
 ## Saída de governança
 **Somente documentação.** Sem modificar `src/`, `storage`, dados, assets, progresso do usuário ou qualquer PR existente. PR de relatórios deve permanecer **draft**, sem merge, aguardando proprietário e Head. `main` permanece fonte da auditoria; verificar SHA de base ao reproduzir.
