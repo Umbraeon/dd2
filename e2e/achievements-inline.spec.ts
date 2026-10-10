@@ -64,7 +64,7 @@ test('12 linked cards start compact, reveal all on demand and never overflow in 
     const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
     await expect(region.locator('.inline-achievement-entry')).toHaveCount(3);
     await expect(region.getByRole('button', { name: 'Ver mais 9 conquistas associadas' })).toBeVisible();
-    await region.locator('h3').scrollIntoViewIfNeeded();
+    await region.locator('.inline-achievement-entry').first().scrollIntoViewIfNeeded();
     await expect(region.locator('.inline-achievement-entry').first()).toBeInViewport();
     await page.screenshot({ path: `test-results/screenshots/pr-a-12-inline-${width}x${height}.png`, fullPage: false });
     await region.getByRole('button', { name: 'Ver mais 9 conquistas associadas' }).click();
@@ -73,7 +73,7 @@ test('12 linked cards start compact, reveal all on demand and never overflow in 
     expect(hasOverflow).toBe(false);
     const minHeight = await region.getByRole('button', { name: /Abrir ficha da conquista/ }).first().evaluate(el => el.getBoundingClientRect().height);
     expect(minHeight).toBeGreaterThanOrEqual(44);
-    await region.locator('h3').scrollIntoViewIfNeeded();
+    await region.locator('.inline-achievement-entry').first().scrollIntoViewIfNeeded();
     await expect(region.locator('.inline-achievement-entry').first()).toBeInViewport();
     await page.screenshot({ path: `test-results/screenshots/pr-a-12-expanded-${width}x${height}.png`, fullPage: false });
   }
@@ -89,7 +89,7 @@ test('external Steam images blocked: compact layout uses accessible fallback', a
   await expect(region.getByText('Ícone indisponível').first()).toBeAttached();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   mkdirSync('test-results/screenshots', { recursive: true });
-  await region.locator('h3').scrollIntoViewIfNeeded();
+  await region.locator('.inline-achievement-fallback').first().scrollIntoViewIfNeeded();
   await expect(region.locator('.inline-achievement-fallback').first()).toBeInViewport();
   await page.screenshot({ path: 'test-results/screenshots/pr-a-fallback-mobile-390x844.png', fullPage: false });
   expect(await readProgress(page)).toBeNull();
