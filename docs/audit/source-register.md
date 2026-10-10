@@ -64,3 +64,17 @@ Uma URL listada pelo guia **não valida automaticamente** as afirmações que lh
 
 ## Regras de rastreabilidade
 Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `quest-name-mapping.csv` inclui fontes EN/PT e status de prova; `achievement-audit.csv` distingue título Steam de estratégia editorial. **Sem capturas do jogo PT-BR**, nenhum rótulo de quest foi promovido a `OFICIAL_COMPROVADO`.
+
+
+## Documentação de versão acrescentada — TU3.1, TU3.2 e Dark Arisen (10/10/2026)
+| Referência | Classe | Afirmações verificadas / limites |
+|---|---|---|
+| [Capcom — trailer e comunicado oficial da expansão](https://captown.capcom.com/en/theaters/dragonsdogma/57) | **PRIMARIA** | Atualizações 3.1/3.2, cronologia (junho/agosto), região Norgan e doze masmorras; não demonstra as condições de desbloqueio nem nomes de quests PT-BR. |
+| [RPG Site — notas TU3.1 e TU3.2 republicadas](https://www.rpgsite.net/news/20636-dragons-dogma-2-new-update-patch-notes-august-2026-optimization-save-system-qol) | **REPUBLICACAO_DE_NOTAS** | Gatilho da Eternal Ferrystone, portcrystals, Guardian, ampulheta, saves, 6 slots, carnes, bugs. Não conta como segunda fonte independente se outro site copiar as mesmas notas. Artigo de junho anunciava TU3.2 **antes** de ir ao ar. |
+| [Steam — notícia oficial de disponibilização TU3.2 (01/09)](https://steamcommunity.com/app/2054970/allnews/?l=brazilian) | **PRIMARIA** | Capcom anuncia TU3.2 já disponível, melhorias de 4→6 habilidades, saves, início da DLC por Brant, níveis recomendados por tipo de conteúdo. |
+| [Steam — Q&A da equipe Capcom](https://steamcommunity.com/games/2054970/announcements/detail/705527117835665762) | **PRIMARIA** | Três slots independentes com três tipos de save, comportamento da pousada, conteúdo de expansão, níveis 40 e 20 **recomendados**, não mandatórios. Detalhe individual da URL indisponível na ferramenta; texto reproduzido nas listagens Steam. |
+| [Capcom — notas update](https://www.dragonsdogma.com/2/en-us/topics/update/) e [update notice](https://www.dragonsdogma.com/2/en-us/topics/update-notice/) | **PRIMARIA_INACESSIVEL** | Ambas retornaram HTTP 403 nesta sessão; não afirmar leitura do original. |
+| [PC Gamer — início da DLC](https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/) | **CORROBORACAO_POS_LANCAMENTO** | Taverna Stardrop à noite e bloqueio no Unmoored; detalhes aguardam segunda fonte ou reprodução real. |
+
+**Decisão editorial:** fonte oficial Capcom/Steam das atualizações pode ser adicionada como link contextual em instruções dependentes da versão. **Não aumentar automaticamente de quatro para seis ou sete as referências globais visíveis ao jogador.** Manter todas as URLs específicas na matriz.
+
