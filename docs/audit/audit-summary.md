@@ -29,9 +29,14 @@
 **P0:** nenhum achado recebeu P0; essa ausência **não equivale** a ausência de bugs de bloqueio. **P1:** há erros com evidência replicável e riscos de alto impacto ainda sem comprovação completa. Consulte `claims-matrix.csv` para as linhas do guia individualmente.
 
 ## Cobertura técnica reproduzível
-- Linhas de inventário: **53 eventos**; **60 conquistas**; **59 registros de quests** (57 com PT-BR candidato extraído, **2 nomes EN da DLC sem PT-BR verificado**); **157 linhas** da matriz de alegações (53 notas de marcos, 60 estratégias/títulos de conquistas, 10 soluções Esfinge, 12 mestres, 8 carnes, 4 checkpoints e 10 cruzamentos adicionais). Os registros de quests foram extraídos de várias partes do roteiro, inclusive auxiliares, e não devem ser confundidos com a quantidade de marcos.
+- Linhas de inventário: **53 eventos**; **60 conquistas**; **59 registros de quests** (57 com PT-BR candidato extraído, **2 nomes EN da DLC sem PT-BR verificado**); **201 linhas** da matriz de alegações (53 notas de marcos, 60 estratégias/títulos de conquistas, 10 soluções da Esfinge, 12 mestres, 8 carnes, 4 checkpoints, 10 cruzamentos adicionais e **44 alegações críticas decompostas**). Os registros de quests foram extraídos de várias partes do roteiro, inclusive auxiliares, e não devem ser confundidos com a quantidade de marcos.
 - O registro de fontes enumera **17 URLs globais** e referências adicionais por risco, reduzindo a proposta da interface para **quatro** fontes gerais com as demais rastreadas.
 - **Nenhum** dos 57 nomes de quest provenientes de extração textual atinge `OFICIAL_COMPROVADO` porque não se obteve captura do diário real no jogo; candidatos são `LOCALIZACAO_EXTRAIDA`. Nenhum dos dois nomes de quest da DLC recebeu tradução proposta.
+
+## Outros problemas textuais a preservar na revisão
+- `m01` fala em fuga «com a ajuda da esfinge/grifo», mas os objetivos da localização distinguem criatura ofídica no prólogo e travessia nas asas de grifo; o envolvimento da **Esfinge** na fuga não está documentado. Evitar confusão de criaturas sem afirmar identificação exata não provada.
+- `achievement #47` instrui **entregar** 80 Mementos na Guilda; a descrição Steam exige **coletar** 80, sem citar entrega. A recomendação de entrega deve ser separada da condição da conquista.
+- `achievement #60` usa «Snowfoot» no texto do guia, mas a descrição Steam PT-BR chama o ladrão de **Troll das Neves**; o nome do inimigo no bestiário ainda carece de prova direta.
 
 ## Decisões de auditoria
 1. Não publicar «nome oficial da missão» sem captura in-game/Capcom. Base Kiranico = **LOCALIZACAO_EXTRAIDA**. Para conquistas, Steam PT-BR é prova primária do **título e descrição Steam**, não de objetivos invisíveis.
