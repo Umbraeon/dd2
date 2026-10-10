@@ -17,6 +17,7 @@ interface ChapterSectionProps {
   onExpandEvent: (eventId: string) => void;
   showAchievements: boolean;
   onToggleAchievements: () => void;
+  showAchievementSection?: boolean;
 }
 
 export const ChapterSection: React.FC<ChapterSectionProps> = ({
@@ -30,7 +31,8 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   expandedEventId,
   onExpandEvent,
   showAchievements,
-  onToggleAchievements
+  onToggleAchievements,
+  showAchievementSection = true
 }) => {
   // Check if any critical checkpoint belongs to this phase
   const phaseCheckpoints = RISK_CHECKPOINTS.filter(cp => cp.phaseId === phase.id);
@@ -61,7 +63,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
             <span>
               Etapas: <b className="text-[#9bc4a5]">{completedEvents}/{phase.events.length}</b>
             </span>
-            {phase.achievements.length > 0 && (
+            {showAchievementSection && phase.achievements.length > 0 && (
               <>
                 <span className="text-[#726044]">·</span>
                 <span>
