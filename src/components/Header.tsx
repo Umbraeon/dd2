@@ -6,7 +6,7 @@ interface HeaderProps {
   onOpenTools: (event: React.MouseEvent<HTMLButtonElement>) => void;
   toolsExpanded: boolean;
   onOpenSources: () => void;
-  onOpenBackup: () => void;
+  onOpenBackup: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onGoJourney: () => void;
   onGoChapter: (phaseId: string) => void;
 }
