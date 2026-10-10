@@ -53,7 +53,8 @@ export const PHASES: Phase[] = [
         note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. Como as fontes divergem sobre o prazo real de Accardo, resolva o resgate assim que o receber, sem presumir cronômetro comprovado.",
         achievements: [],
         risk: "alerta",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit"],
         failureRisk: "Há divergência entre walkthroughs sobre limite de tempo e possibilidade de morte de Accardo. Trate o resgate como prioritário por prudência; a falha irreversível ainda não foi testada."
       },
       {
@@ -73,7 +74,8 @@ export const PHASES: Phase[] = [
         note: "Em Melve, ajude Flora em 'Bravura Revigorante' (Medicament Predicament), entregando o revigorante de frutas. Para 'Problemas Aninhados' (Nesting Troubles), fale com Lennart, use barris explosivos e jarro de veneno contra o ninho de saurianos e informe a ele. Ian inicia outra missão, 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), para resgatar Norbert.",
         achievements: [],
         risk: "normal",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"]
       },
       {
         id: "m05",
@@ -475,7 +477,8 @@ export const PHASES: Phase[] = [
         note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'Feast of Deception'; NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
         achievements: [],
         risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
+        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
+        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
         failureRisk: "Não confunda o gatilho da missão com seu prazo: os três dias se referem à coleta das provas depois de aceitar ajudar Wilhelmina. A disponibilidade exata ao avançar na história ainda exige validação por versão."
       },
       {
@@ -486,6 +489,7 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/", "https://steamcommunity.com/app/2054970/discussions/0/4352240417148094670/?ctp=2"],
         failureRisk: "A coroação pode encerrar janelas de missões específicas. Condições e efeitos variam por quest; a recuperação pelo novo sistema de saves não foi comprovada."
       },
       {
@@ -495,7 +499,8 @@ export const PHASES: Phase[] = [
         note: "Conclua 'Feast of Deception'. Brant libera a sequência para Battahl ('Nation of the Lambent Flame'). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
         achievements: [],
         risk: "normal",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
+        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn"]
       }
     ],
     achievements: []
@@ -943,7 +948,8 @@ export const PHASES: Phase[] = [
         note: "Antes de avançar 'A New Godsway' e a rota de 'The Guardian Gigantus', revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
         achievements: [],
         risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
+        source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
+        extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/"]
       },
       {
         id: "p05",
@@ -952,7 +958,8 @@ export const PHASES: Phase[] = [
         note: "A conquista exige deter Gigantus RAPIDAMENTE. Prepare-se antes de sua marcha e ataque os cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow). Walkthroughs relatam que a flecha pode gerar autosave e que o troféu não aparece necessariamente no instante do disparo. A distância exata limite e a interação desse método com 'Eu, Talos' ainda exigem teste; não presuma retorno garantido ao save anterior.",
         achievements: [44],
         risk: "critico",
-        source: "https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement",
+        source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
+        extraSources: ["https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement"],
         failureRisk: "Deixar o Gigantus completar a rota sem intervenção suficientemente rápida pode perder a conquista nesta tentativa. O instante exato do gatilho não foi validado em jogo atualizado."
       },
       {
@@ -962,7 +969,7 @@ export const PHASES: Phase[] = [
         note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'A New Godsway', e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
         achievements: [],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
       }
     ],
     achievements: [
@@ -1195,7 +1202,8 @@ export const PHASES: Phase[] = [
         note: "Para o final comum, derrote o Dragão e permaneça sentado no trono durante os créditos para 'Paz'. Se também quiser o final verdadeiro na MESMA campanha, NÃO inicie Novo Jogo+. Guias descrevem o retorno à cena do salão e a interação com o Pioneiro (Pathfinder) para voltar ao voo do Dragão. As opções exatas de menu da atualização 3.2 ainda precisam de validação; não dependa de uma instrução de botão de 2024.",
         achievements: [40],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/",
+        extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-true-ending-unmoored-world-guide/2900-5194/"]
       },
       {
         id: "u02",
@@ -1222,7 +1230,8 @@ export const PHASES: Phase[] = [
         note: "Para cobrir TODAS as evacuações de 'Átrios da Primeira Aurora' (Halls of the First Dawn), faça CINCO MISSÕES: Vernworth — 'A Determinação do Príncipe Regente' (Sven/Brant); Bakbattahl — 'Instabilidade Civil' (Menella/Nadinia); Jardim Sagrado — 'Raízes Errantes' (Taliesin); Acampamento Vulcânico — 'A Importância de Ajudar Ernesto' (Ernesto); e LOCAL DE ESCAVAÇÃO — 'Pastor de Peões' (Henrique). Acampamento e escavação são duas missões diferentes. Evite descansos desnecessários. Completar as cinco cobre o conteúdo, mas não foi comprovado que 'O Guardião' só desbloqueie na quinta.",
         achievements: [36],
         risk: "critico",
-        source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/"
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn"]
       },
       {
         id: "u05",
@@ -1231,7 +1240,8 @@ export const PHASES: Phase[] = [
         note: "Verifique no mapa os feixes de prova ainda acessíveis, inclusive em Vernworth, Jardim Sagrado e Bakbattahl; algumas resoluções envolvem Talos e dependem do estado da campanha. NÃO confunda a contagem de provas com uma lista fixa de quatro feixes periféricos. O marcador AZUL do Templo Abissal está ligado à evacuação; o feixe VERMELHO FINAL dessa região encerra a sequência. Deixe o feixe final para depois das evacuações, provas e atividades opcionais.",
         achievements: [37],
         risk: "critico",
-        source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/",
+        source: "https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/", "https://game8.co/games/Dragons-Dogma-2/archives/449759"],
         failureRisk: "Ativar o feixe vermelho final do Templo Abissal inicia o encerramento do Mundo Desancorado. Conclua objetivos pendentes antes; retorno pelo salvamento atual não foi comprovado."
       },
       {
