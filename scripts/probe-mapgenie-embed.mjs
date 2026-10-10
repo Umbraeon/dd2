@@ -71,6 +71,20 @@ for (const [width,height] of [[375,812],[390,844],[1440,900],[1920,1080]]) {
       entry.interactiveControlCount=await frame.locator('button, input, [role="button"]').count();
     }
     await page.screenshot({path:`test-results/screenshots/pr-d-real-app-map-${width}x${height}.png`});
+    // User-level interaction with the public filter UI only; no marker extraction.
+    entry.seekerFilterAttempted=false;
+    entry.seekerFilterActivated=false;
+    if(frame){
+      const category=frame.getByText("Seeker's Token",{exact:true}).first();
+      if(await category.count() && await category.isVisible()){
+        entry.seekerFilterAttempted=true;
+        try {
+          await category.click({timeout:3000});
+          entry.seekerFilterActivated=true;
+          await page.screenshot({path:`test-results/screenshots/pr-d-real-app-seeker-filter-${width}x${height}.png`});
+        } catch(e){entry.filterError=String(e).slice(0,160);}
+      }
+    }
     if(entry.mapSurfaceCount>0){
       const rect=await page.locator('.tokens-map-frame iframe').boundingBox();
       if(rect){
