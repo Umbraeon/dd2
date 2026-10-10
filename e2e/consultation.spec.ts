@@ -65,7 +65,7 @@ test('sem resultados, limpeza de filtros e alternância de três seções', asyn
   await page.getByRole('button', { name: 'Conquistas', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Conquistas', exact: true })).toBeVisible();
   await expect(page.locator('.consult-achievement-list button')).toHaveCount(60);
-  await page.getByRole('button', { name: 'Referências', exact: true }).click();
+  await page.getByRole('navigation', { name: 'Seções da Consulta' }).getByRole('button', { name: 'Referências', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Referências', exact: true })).toBeVisible();
   await expect(page.getByText('Conteúdo comunitário ainda não auditado por etapa')).toBeVisible();
   await expect(page.getByRole('button', {name:'Esfinge'})).toBeVisible();
@@ -154,7 +154,7 @@ test('axe e capturas reais em quatro viewports e oito estados de Consulta', asyn
     await page.getByRole('button',{name:'Conquistas',exact:true}).click();
     await page.getByRole('heading',{name:'Conquistas',exact:true}).scrollIntoViewIfNeeded();
     await screenshot('achievements',true);
-    await page.getByRole('button',{name:'Referências',exact:true}).click();
+    await page.getByRole('navigation',{name:'Seções da Consulta'}).getByRole('button',{name:'Referências',exact:true}).click();
     await page.getByRole('heading',{name:'Referências',exact:true}).scrollIntoViewIfNeeded();
     await screenshot('references',true);
     await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('conquista');
