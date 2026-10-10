@@ -78,3 +78,6 @@ Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `
 
 **Decisão editorial:** fonte oficial Capcom/Steam das atualizações pode ser adicionada como link contextual em instruções dependentes da versão. **Não aumentar automaticamente de quatro para seis ou sete as referências globais visíveis ao jogador.** Manter todas as URLs específicas na matriz.
 
+
+## FAQ Capcom sobre suporte de quests — prova primária com ressalvas (10/10/2026)
+[Capcom Support — FAQ de Dragon's Dogma 2](https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms) apresenta prova **primária** para semântica da ampulheta de quest, marcadores que desaparecem, localização de NPCs por horário, visita aos necrotérios e acesso a pistas no Diviner's Salon/Reverent Shrine. **ATENÇÃO: o trecho do FAQ que afirma somente um save é contraditório com a comunicação primária de TU3.2; classificar este trecho especificamente como DIVERGENTE/PROVAVELMENTE_OBSOLETO**, mesmo com data exibida de outubro. Não fazer do FAQ fonte absoluta para saves da versão atual. [MP1st 3.210 PS5](https://mp1st.com/title-updates-and-patches/dragons-dogma-2-update-3-210-fixes-loading-data-issues) é referência secundária de bug já corrigido; conteúdo completo não acessado nesta sessão.
