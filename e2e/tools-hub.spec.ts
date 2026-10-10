@@ -215,7 +215,7 @@ test('P2: clique em conteúdo passivo devolve foco; outro botão mantém seu pr�
     await page.keyboard.press('Tab');
     await expect(page.getByRole('button',{name:'Backup do progresso'})).toBeFocused();
     await openHub(page);
-    await page.getByRole('button',{name:'Backup do progresso'}).click();
+    await page.locator('header.codex-header').getByRole('button',{name:'Backup do progresso',exact:true}).click();
     await expect(hub(page)).toBeHidden();
     await expect(modal(page).getByRole('heading',{name:/Gerenciamento & Backup/})).toBeVisible();
     await expect(closeModal(page)).toBeFocused();
