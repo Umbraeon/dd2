@@ -574,3 +574,38 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
  .consultation .codex-chapter-intro h2 { font-size:22px; }
  .consultation .codex-step { padding:10px; }
 }
+
+/* PR #11 — revisão Head: first fold da Consulta, sem tocar no Diário.
+   Compactação da moldura editorial; conteúdo e alvos de toque permanecem. */
+@media (max-width: 800px) {
+  .consultation { padding-top: 8px; }
+  .consult-heading { display: flex; align-items: center; gap: 10px; padding: 0 0 9px; }
+  .consult-heading .consult-eyebrow, .consult-heading > div > p:last-child { display: none; }
+  .consult-heading h1 { font-size: 28px; line-height: 1.15; margin: 0; }
+  .consult-return { margin-top: 0; min-height: 44px; font-size: 13px; padding: 8px 10px; }
+  .consult-search-area { margin-top: 9px; padding: 10px 12px; }
+  .consult-search-area label { margin-bottom: 5px; }
+  .consult-search-hint { display: none; }
+  .consult-search-field { min-height: 46px; }
+  .consult-search-field input { min-height: 44px; }
+  .consult-sections { margin-top: 8px; }
+  .consult-sections button { min-height: 44px; }
+  .consult-controls { padding: 8px 0; }
+  .consult-section-title { padding: 9px 0 7px; margin-bottom: 9px; }
+  .consult-section-title .consult-eyebrow { display: none; }
+  .consult-section-title h2 { font-size: 23px; margin-top: 0; }
+  .consult-label { margin-bottom: 5px; }
+  .consult-chapter-select { margin-bottom: 5px; }
+  .consultation .codex-chapter { padding-top: 0; }
+  .consultation .codex-chapter-intro { margin-bottom: 8px; }
+  .consultation .codex-chapter-intro > div:first-child { padding-bottom: 7px; }
+  .consultation .codex-chapter-intro .font-mono.tracking-widest { display: none; }
+  .consultation .codex-chapter-intro h2 { font-size: 20px; }
+  .consultation .codex-chapter-intro p { margin-top: 0; }
+  .consultation .codex-chapter-intro > div:nth-child(2) { padding: 9px; margin-top: 7px; font-size: 13px; line-height: 1.4; }
+}
+@media (max-width: 420px) {
+  .consult-heading h1 { font-size: 28px; }
+  .consult-section-title h2 { font-size: 23px; }
+  .consultation .codex-chapter-intro h2 { font-size: 20px; }
+}
