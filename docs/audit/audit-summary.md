@@ -50,3 +50,17 @@ O proprietário forneceu uma [playlist de detonado/platinagem do DD2](https://ww
 
 ## Saída de governança
 **Somente documentação.** Sem modificar `src/`, `storage`, dados, assets, progresso do usuário ou qualquer PR existente. PR de relatórios deve permanecer **draft**, sem merge, aguardando proprietário e Head. `main` permanece fonte da auditoria; verificar SHA de base ao reproduzir.
+
+
+## Auditoria incremental: alterações de versão de 2026 (10/10/2026)
+Relatório e cruzamentos publicados em **[2026-version-impact-report.md](2026-version-impact-report.md)**, **[2026-update-impact-events.csv](2026-update-impact-events.csv)** (**53/53 marcos**) e **[2026-update-impact-achievements.csv](2026-update-impact-achievements.csv)** (**60/60 registros**). **14 marcos** têm vínculo direto documentado com um item das notas de versão; os demais possuem impacto indireto ou nenhuma alteração específica observada — isto **não** significa comprovação da dica antiga.
+
+**Principais novos P1 de compatibilidade:**
+- `v303`, `p04`, `cp1–cp4`: TU3.2 (disponível em 01/09/2026) introduz **três slots de campanha**, com três tipos de save por slot. O texto «salvamento manual na pousada» mistura mecanismos diferentes; pousada continua sobrescrevendo dados. Nem mais slots nem um `interim save` asseguram rollback após decisões irreversíveis. [Steam, anúncio oficial 01/09](https://steamcommunity.com/app/2054970/allnews/?l=brazilian), [Q&A Capcom](https://steamcommunity.com/games/2054970/announcements/detail/705527117835665762).
+- `v101`/`v201`: TU3.1 de **junho**, não outubro, acrescentou `Eternal Ferrystone` após falar com Brant na quest `Seat of the Sovran` e `Portcrystal` como recompensa de `Monster Culling`. Títulos PT-BR dos **itens novos não comprovados em tela**. [Notas TU3.1 republicadas](https://www.rpgsite.net/news/20636-dragons-dogma-2-new-update-patch-notes-august-2026-optimization-save-system-qol).
+- `d01`: fonte **primária** Capcom via Steam separa o **Domínio Esquecido** (nível inicial **recomendado 40**) dos **Rituais Perdidos** (**recomendado 20**). Ambos podem ser iniciados cedo com Brant na taverna após chegar a Vernworth; **não existem mínimos obrigatórios na comunicação oficial**. Os rótulos de conteúdo na notícia PT-BR não provam títulos de quests no diário. [Steam, aviso e Q&A](https://steamcommunity.com/app/2054970?l=brazilian).
+- `p03`: recomprar **tomos de especialização de peão** no TU3.2 não implica recomprar **os 12 ensinamentos de mestres** da conquista #50.
+- `m04`: notas TU3.1 de bug fix mencionam **Lennart em Nesting Troubles**, corroborando independentemente o erro Ian/Lennart no roteiro.
+
+A fonte original de patch no domínio `dragonsdogma.com` respondeu **HTTP 403** à ferramenta. Para os detalhes das notas foi usada reprodução do RPG Site com identificação de publicação, além de comunicados oficiais Capcom/Steam sobre lançamento de updates. **Nenhum save, conquista, nome de item novo PT-BR ou alteração de jogo foi testado in-game.**
+
