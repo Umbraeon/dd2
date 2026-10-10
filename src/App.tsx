@@ -314,8 +314,8 @@ export default function App() {
         onGoChapter={handleJumpToPhase}
       />
 
-      {toolsHubOpen && <ToolsHub top={toolsHubTop} trigger={toolsHubTrigger.current}
-        onDismiss={dismissToolsHub} onSelect={openTool} />}
+      <ToolsHub open={toolsHubOpen} top={toolsHubTop} trigger={toolsHubTrigger.current}
+        onDismiss={dismissToolsHub} onSelect={openTool} />
 
       {storageIssue && (
         <div role="alert" className="px-4 py-3 bg-[#402219] text-[#ffe3d2] text-sm border-b border-[#bb795b]">
