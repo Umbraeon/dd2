@@ -51,5 +51,16 @@ Uma URL listada pelo guia **não valida automaticamente** as afirmações que lh
 
 **Não exibir as outras 13 referências globais em bloco de igual peso**: mantê-las no registro técnico e fornecer links contextuais em dicas críticas com status de confiabilidade. Não eliminar nenhuma URL da produção sem aprovação. Steam EN e Kiranico EN permanecem como prova de comparação. Evitar contar os 17 itens listados como 17 verificações independentes por alegação.
 
+## Fonte em vídeo indicada pelo proprietário — 10/10/2026
+
+- **Playlist:** [Dragon's Dogma 2 Detonado Platina/todas as Quests](https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T).
+- **Vídeo compartilhado:** https://www.youtube.com/watch?v=tQGRLcSk7yI
+- **Categoria:** `GUIA_COMUNITARIO_VIDEO / EVIDENCIA_POTENCIAL_IN_GAME`. **Prioridade alta para confronto** em razão da experiência favorável relatada pelo proprietário com o criador em Dragon's Dogma 1. Isso é evidência de utilidade pessoal, não validação universal do DD2.
+- **O que foi realmente acessível:** a página de playlist foi indexada com o título acima. O vídeo específico, a identidade do criador, a lista completa de episódios, seus capítulos, legendas/transcrição, a versão/plataforma e a data de gravação **não puderam ser extraídos** nesta sessão; a tentativa de abrir a página do vídeo falhou.
+- **O que pode provar quando os episódios forem efetivamente visualizados:** nome de quest na interface PT-BR (com timestamp, idioma e versão/plataforma identificada), NPC e localização mostrados, sequência de ações, prazo observado e tela de desbloqueio. Só elevar para `OFICIAL_COMPROVADO` um título visível inequivocamente **no diário PT-BR do jogo**, não a fala do narrador ou título da miniatura.
+- **O que NÃO prova por si:** que outra escolha não falharia, que não há conteúdo perdível, que o desbloqueio funcionará após atualizações ou que a expansão de 2026 está incluída.
+- **Decisão:** manter na trilha de evidências, **sem promover a quinta fonte principal ainda**; depois da visualização, comparar o valor de navegação prática da playlist com o guia escrito Steam de 2024. Caso seja mais executável e cubra os riscos, propor substituir a referência comunitária principal por ela, mantendo ambos nos registros técnicos.
+- **Controle de verificabilidade:** ao auditar um episódio, registrar URL do vídeo, minuto exato, título literal exibido, ações na tela, plataforma/versão e eventual divergência com o diário PT-BR ou outros walkthroughs independentes.
+
 ## Regras de rastreabilidade
 Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `quest-name-mapping.csv` inclui fontes EN/PT e status de prova; `achievement-audit.csv` distingue título Steam de estratégia editorial. **Sem capturas do jogo PT-BR**, nenhum rótulo de quest foi promovido a `OFICIAL_COMPROVADO`.
