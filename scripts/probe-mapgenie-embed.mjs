@@ -3,7 +3,7 @@
 // Does NOT assert provider authorization; legal and product review remain separate.
 import { chromium } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
-const ORIGIN = 'http://127.0.0.1:3001/';
+const ORIGIN = 'http://127.0.0.1:3011/';
 const URL = 'https://mapgenie.io/dragons-dogma-2/maps/world?embed=light';
 mkdirSync('test-results/screenshots', { recursive: true });
 const browser = await chromium.launch({headless:true});
