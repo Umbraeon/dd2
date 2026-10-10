@@ -1,0 +1,55 @@
+# Registro de fontes — auditoria factual PT-BR
+**Consultadas ou identificadas em:** 10/10/2026 · **repositório:** Umbraeon/dd2 (`main`) · **escopo:** `ROADMAP_METADATA.sources`, marcos, conquistas e fontes externas adicionais.
+
+## Metodologia
+Uma URL listada pelo guia **não valida automaticamente** as afirmações que lhe foram associadas. Uma fonte repetida em diversas etapas equivale a **um** documento, não a múltiplas provas independentes. Aqui «PRIMARIA» diz respeito apenas à **classe específica de alegações que o documento demonstra**, não a todas as dicas do app. Estados `INACESSIVEL` registram a falha desta sessão, não indisponibilidade universal.
+
+## Inventário dos 17 links globais da produção
+| Chave | Documento/URL | Categoria | Alegação a que se presta | Proposta de visibilidade | Limitação de uso |
+|---|---|---|---|---|---|
+| `steam_pt` | [Steam Conquistas (PT-BR)](https://steamcommunity.com/stats/2054970/achievements?l=brazilian) | PRIMARIA | Nome e descrição de conquistas, 60 observadas em PT-BR | PRINCIPAL | Descrição do troféu não prova gatilho/rota oculta. |
+| `steam_en` | [Steam Achievements (Global)](https://steamcommunity.com/stats/2054970/achievements) | PRIMARIA | Comparação de atualização DLC em inglês | TÉCNICA | Página EN suplementar; não substituir nomes PT-BR. |
+| `route_guide` | [Guia Cronológico de Missões (2024)](https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992) | GUIA_COMUNITARIO | Ordem geral de 2024 para o jogo-base | PRINCIPAL | Não valida DLC 2026 nem afirma garantia de conclusão. |
+| `achievement_guide` | [Guia Complementar de Conquistas](https://steamcommunity.com/sharedfiles/filedetails/?id=3195173063) | GUIA_COMUNITARIO | Estratégias de conquistas do jogo-base | CONTEXTUAL | Não é prova primária de desbloqueio. |
+| `points_of_no_return` | [Game8: Pontos Sem Retorno](https://game8.co/games/Dragons-Dogma-2/archives/447927) | CORROBORACAO | Checklist pré-coroação, missões perdíveis | CONTEXTUAL | Checar quest individual e estágio de progresso; risco de generalizar. |
+| `sphinx_powerpyx` | [PowerPyx: Enigmas da Esfinge](https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/) | CORROBORACAO | 10 enigmas e Ruminação, prazo de sete dias | CONTEXTUAL | Confrontar erros e variações por santuário. |
+| `maister_skills` | [TrueAchievements: 12 Ensinamentos de Mestres](https://www.trueachievements.com/a429012/master-of-the-maisters-achievement) | CORROBORACAO | 12 ensinamentos de mestres | CONTEXTUAL | Steam apenas define aquisição; uso de pergaminho é hipótese comunitária. |
+| `caves_guide` | [PowerPyx: 50 Cavernas (Turista)](https://www.powerpyx.com/dragons-dogma-2-all-cave-locations-tourist-trophy/) | CORROBORACAO | Localizações de 50 cavernas | CONTEXTUAL | Lista não substitui gatilho Steam. |
+| `barbecue_guide` | [PlayStationTrophies: 16 Churrascos](https://www.playstationtrophies.org/game/dragons-dogma-2/trophy/the-barbecue-maister.html) | CORROBORACAO | 8 carnes em períodos distintos | CONTEXTUAL | Pedir confirmação in-game de variantes. |
+| `phantom_oxcart` | [PowerPyx: Carroça Fantasma](https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/) | CORROBORACAO | Rota da carroça fantasma e entrada na carroça | CONTEXTUAL | Quest pode ter rotas alternativas; conquista depende de embarque. |
+| `gigantus_guide` | [TrueAchievements: Gigantus Rápido](https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement) | CORROBORACAO | Conquista de derrota veloz do Gigantus | CONTEXTUAL | Limite exato requer prova; risco alto. |
+| `unmoored_compendium` | [Quest Compendium: Mundo Desancorado](https://questcompendium.com/guides/dragon-s-dogma-2/achievements/) | GUIA_COMUNITARIO | Evacuações, faróis e Mundo Desancorado | CONTEXTUAL | Risco alto de prazos e ordem; confrontar antes de publicar. |
+| `reapers_scorn` | [TrueAchievements: Desprezo pelo Ceifador](https://www.trueachievements.com/a429033/reapers-scorn-achievement) | CORROBORACAO | Pedra de Despertar Eterna e ressuscitação | CONTEXTUAL | Separar missão Esfinge de gatilho do troféu. |
+| `cyclops_abridged` | [TrueAchievements: Ciclopes na Ponte](https://www.trueachievements.com/a429024/cyclops-abridged-achievement) | CORROBORACAO | Ciclope usado como ponte | CONTEXTUAL | Exige atravessar com ciclope vivo? Testar. |
+| `short_sighted` | [PowerPyx: Short-Sighted Ambition](https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/) | CORROBORACAO | Isaac, cópia do livro, destino da família | CONTEXTUAL | Escolha irreversível; buscar 2 provas e títulos PT-BR dos itens. |
+| `dlc_trueachievements` | [TrueAchievements: Dark Arisen DLC](https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen) | INACESSIVEL | Catálogo de 6 conquistas DLC 2026 | CONTEXTUAL | Falha ao abrir na ferramenta; Steam PT-BR atualmente suficiente para títulos, não roteiros. |
+| `mapgenie` | [MapGenie: Mapa Interativo Geral](https://mapgenie.io/dragons-dogma-2/maps/world) | CORROBORACAO | Mapa interativo de lugares e itens | CONTEXTUAL | Útil navegação; geolocalização não prova condição de quest. |
+
+## Fontes externas incluídas pela auditoria
+| URL | Categoria | Uso e limites |
+|---|---|---|
+| [Kiranico PT-BR — quests](https://dragonsdogma2.kiranico.com/pt-BR/data/quests) | **LOCALIZACAO_EXTRAIDA / PRINCIPAL** | Pareamento literal de rótulos PT-BR. **Não é screenshot primária do jogo nem publicação da Capcom.** Os nomes registrados em `quest-name-mapping.csv` permanecem `LOCALIZACAO_EXTRAIDA`. |
+| [Kiranico EN — quests](https://dragonsdogma2.kiranico.com/en/data/quests) | **LOCALIZACAO_EXTRAIDA / TÉCNICA** | Confrontar pares EN e PT e distinguir quest de objetivo. |
+| [Capcom — anúncio Dark Arisen (2026)](https://www.capcom.co.jp/ir/english/news/html/e260610.html) | **PRIMARIA / PRINCIPAL** | Existência/escopo e anúncio da DLC; não comprova rotas de jogadores ou tradução de quests. |
+| [Capcom Store — expansão, 09/10/2026](https://us-store.captown.capcom.com/blogs/news/0000036) | **PRIMARIA / TÉCNICA** | Comunicação oficial complementando DLC; não substitui jogo ou diário de missões. |
+| [Manual oficial Capcom PT-BR](https://game.capcom.com/manual/dd2/pt-br/) | **PRIMARIA / INACESSIVEL NA SESSÃO** | Pode apoiar mecânicas; abriu com erro de ferramenta, sem validação de seu conteúdo. Não selecionar como principal **até acesso real**. |
+| [PC Gamer, 08/10/2026 — como iniciar DLC](https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/) | **CORROBORACAO / CONTEXTUAL CRÍTICA** | Brant à noite no Stardrop Inn, `Chilling Tidings` e `Lost Rites` em inglês; nível 40 recomendado, não obrigatório; 12 masmorras. **Quest PT-BR ainda não confirmada** e uma fonte não é homologação. |
+| [PowerPyx — Ordeals of a New Recruit](https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/) | **CORROBORACAO / CONTEXTUAL** | Phill/Accardo; escreve que Accardo não sofre dano; **diverge** do Game8 quanto à urgência. |
+| [Game8 — Ordeals of a New Recruit](https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit) | **CORROBORACAO / CONTRADITORIA NO PRAZO** | Também Phill/Accardo; classifica como sensível ao tempo. Preservar desacordo. |
+| [PowerPyx — Nesting Troubles](https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/) | **CORROBORACAO / CONTEXTUAL** | Lennart, não Ian; confirma erro de associação no marco `m04`. |
+| [Game8 — Brothers Brave and Timid](https://game8.co/games/Dragons-Dogma-2/archives/Brothers-Brave-and-Timid) | **CORROBORACAO / CONTEXTUAL** | Ian inicia outra missão que deve ser separada no roteiro. |
+| [Push Square — Esfinge](https://www.pushsquare.com/guides/dragons-dogma-2-all-sphinx-riddle-answers-locations-and-rewards) | **CORROBORACAO / CONTEXTUAL** | Confrontar sequência e irreversibilidade dos enigmas. |
+| [Windows Central — Esfinge](https://www.windowscentral.com/gaming/dragons-dogma-2-sphinx-guide-locations-riddle-answers) | **CORROBORACAO / CONTEXTUAL** | Diferença de comportamento quando enigma falha nas duas localizações; sem substituir reprodução. |
+| [Discussão Steam de jogadores sobre coroação](https://steamcommunity.com/app/2054970/discussions/0/4352240417148094670/?ctp=2) | **RELATO_COMUNITARIO / CONTEXTUAL** | Hipótese para perder quests; depoimento não equivale a teste sistemático de estados. |
+| [Steam em EN — conquistas](https://steamcommunity.com/stats/2054970/achievements) | **PRIMARIA / TÉCNICA** | Conferir seis registros novos e textos em inglês; comparativo de atualização, não nome PT-BR. |
+
+## Proposta de **4 referências principais visíveis** ao jogador
+1. [Steam — conquistas PT-BR](https://steamcommunity.com/stats/2054970/achievements?l=brazilian): nomes e descrições de conquistas exibidas na Steam. Nota visível: «a conquista Steam não homologa os passos do roteiro».
+2. [Kiranico — nomes de missões PT-BR](https://dragonsdogma2.kiranico.com/pt-BR/data/quests): base extraída, rótulos candidatos, não captura do jogo. Nota: «extração de localização».
+3. [Capcom — anúncio/escopo de Dark Arisen](https://www.capcom.co.jp/ir/english/news/html/e260610.html): fonte primária para a expansão, não os gatilhos jogáveis.
+4. [Steam — guia comunitário cronológico de 2024](https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992): inspiração de ordem para o jogo-base, **não validado independentemente, não cobre a DLC de 2026**.
+
+**Não exibir as outras 13 referências globais em bloco de igual peso**: mantê-las no registro técnico e fornecer links contextuais em dicas críticas com status de confiabilidade. Não eliminar nenhuma URL da produção sem aprovação. Steam EN e Kiranico EN permanecem como prova de comparação. Evitar contar os 17 itens listados como 17 verificações independentes por alegação.
+
+## Regras de rastreabilidade
+Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `quest-name-mapping.csv` inclui fontes EN/PT e status de prova; `achievement-audit.csv` distingue título Steam de estratégia editorial. **Sem capturas do jogo PT-BR**, nenhum rótulo de quest foi promovido a `OFICIAL_COMPROVADO`.
