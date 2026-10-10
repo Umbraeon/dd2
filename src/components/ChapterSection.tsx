@@ -15,8 +15,11 @@ interface ChapterSectionProps {
   onConfirmCheckpoint: (checkpointId: string) => void;
   expandedEventId: string | null;
   onExpandEvent: (eventId: string) => void;
-  showAchievements: boolean;
-  onToggleAchievements: () => void;
+  showAchievements?: boolean;
+  onToggleAchievements?: () => void;
+  showAchievementSection?: boolean;
+  /** Only controls the visible rows, never the chronological indices or chapter totals. */
+  visibleEventIds?: readonly string[];
 }
 
 export const ChapterSection: React.FC<ChapterSectionProps> = ({
@@ -30,7 +33,9 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   expandedEventId,
   onExpandEvent,
   showAchievements,
-  onToggleAchievements
+  onToggleAchievements,
+  showAchievementSection = true,
+  visibleEventIds
 }) => {
   // Check if any critical checkpoint belongs to this phase
   const phaseCheckpoints = RISK_CHECKPOINTS.filter(cp => cp.phaseId === phase.id);
@@ -38,6 +43,8 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
   // Calculate phase stats
   const completedEvents = phase.events.filter(e => progress.steps[e.id]).length;
   const completedAchievements = phase.achievements.filter(a => progress.achievements[a.id]).length;
+  const visibleEvents = phase.events.map((event, index) => ({ event, ordinal: index + 1 }))
+    .filter(({ event }) => !visibleEventIds || visibleEventIds.includes(event.id));
 
   return (
     <section id={phase.id} tabIndex={-1} className="codex-chapter scroll-mt-28 pt-8 pb-12 border-b border-[#3d372e]/70">
@@ -61,7 +68,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
             <span>
               Etapas: <b className="text-[#9bc4a5]">{completedEvents}/{phase.events.length}</b>
             </span>
-            {phase.achievements.length > 0 && (
+            {showAchievementSection && phase.achievements.length > 0 && (
               <>
                 <span className="text-[#726044]">·</span>
                 <span>
@@ -157,7 +164,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
           </div>
 
           <div className="codex-timeline space-y-3">
-            {phase.events.map((event, idx) => {
+            {visibleEvents.map(({ event, ordinal }) => {
               const isEventDone = !!progress.steps[event.id];
               return (
                 <div
@@ -195,7 +202,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                       <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-mono text-[11px] text-[#8e887d]">
-                            {String(idx + 1).padStart(2, '0')}.
+                            {String(ordinal).padStart(2, '0')}.
                           </span>
                           <h4 className={`text-base font-semibold ${isEventDone ? 'line-through text-[#8e887d]' : 'text-[#f0d1a0]'}`}>
                             {event.title}
@@ -220,6 +227,12 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                         </div>
                       </div>
 
+                      {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && expandedEventId !== event.id && (
+                        <p className="consult-priority-risk" role="note">
+                          <AlertTriangle size={15} aria-hidden="true" />
+                          <span><strong>Cautela registrada:</strong> {event.failureRisk}</span>
+                        </p>
+                      )}
                       <div className="consult-achievement-preview"><AchievementPreview ids={event.achievements} phases={phases} progress={progress}/></div>
                       <button type="button" className="quest-detail-toggle" aria-expanded={expandedEventId === event.id}
                         aria-controls={`event-details-${event.id}`} onClick={() => onExpandEvent(event.id)}>
@@ -270,7 +283,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
       )}
 
       {/* Achievements Cards for this Phase */}
-      {phase.achievements.length > 0 && (
+      {showAchievementSection && onToggleAchievements && phase.achievements.length > 0 && (
         <div>
           <button type="button" className="quest-achievement-toggle" aria-expanded={showAchievements}
             onClick={onToggleAchievements}>

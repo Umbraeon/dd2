@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -17,6 +19,17 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - name: Capturas reais da main anterior (mesmos dados de progresso)
+        if: always()
+        run: |
+          git worktree add --detach /tmp/dd2-pr-b-baseline 2c4f94ae35edd8d1f105ee33de092310e8255df2
+          ln -s "$GITHUB_WORKSPACE/node_modules" /tmp/dd2-pr-b-baseline/node_modules
+          (cd /tmp/dd2-pr-b-baseline && npm run dev -- --port 3001 --host 127.0.0.1 > /tmp/dd2-pr-b-baseline.log 2>&1 &)
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:3001/ >/dev/null; then break; fi
+            sleep 2
+          done
+          node --import tsx scripts/capture-consultation-baseline.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
