@@ -66,6 +66,8 @@ export default function App() {
   const [toolsHubOpen, setToolsHubOpen] = useState(false);
   const [toolsHubTop, setToolsHubTop] = useState(72);
   const toolsHubTrigger = useRef<HTMLButtonElement | null>(null);
+  // Origin is kept outside modal components so their internals remain unchanged.
+  const modalReturnFocus = useRef<HTMLElement | null>(null);
 
   // Opening (including React StrictMode effect replay) must not write a timestamp.
   useEffect(() => {
@@ -279,7 +281,31 @@ export default function App() {
     setToolsHubOpen(true);
   };
 
-  const openTool = (tool: ToolId) => {
+  const closeTool = (tool: ToolId) => {
+    const setters: Record<ToolId, React.Dispatch<React.SetStateAction<boolean>>> = {
+      sphinx: setIsSphinxOpen, tokens: setIsTokensOpen, barbecue: setIsBarbecueOpen,
+      maisters: setIsMaistersOpen, checkpoints: setIsCheckpointsOpen,
+      backup: setIsBackupOpen, glossary: setIsGlossaryOpen
+    };
+    setters[tool](false);
+    const origin = modalReturnFocus.current;
+    modalReturnFocus.current = null;
+    if (!origin) return; // Other existing contextual entrances retain their behavior.
+    requestAnimationFrame(() => {
+      const visible = (element: HTMLElement | null): element is HTMLElement =>
+        !!element?.isConnected && element.getClientRects().length > 0 &&
+        getComputedStyle(element).visibility !== 'hidden' &&
+        !element.closest('[hidden], [inert]');
+      const fallback = document.querySelector<HTMLElement>('[data-tools-hub-trigger="header"]');
+      const destination = visible(origin) ? origin : visible(fallback) ? fallback : null;
+      destination?.focus({ preventScroll: true });
+    });
+  };
+
+  const openTool = (tool: ToolId, source?: HTMLElement) => {
+    // Hub actions restore to their actual opener; direct shortcuts restore to themselves.
+    modalReturnFocus.current = source ??
+      (toolsHubOpen ? toolsHubTrigger.current : null);
     setToolsHubOpen(false);
     // A tool selection opens exactly one existing modal; no progress callbacks execute.
     setIsSphinxOpen(tool === 'sphinx');
@@ -305,11 +331,11 @@ export default function App() {
     <div className="codex-app min-h-screen text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
       {/* Top Bar Navigation */}
       <Header
-        onOpenCheckpoints={() => openTool('checkpoints')}
+        onOpenCheckpoints={event => openTool('checkpoints', event.currentTarget)}
         onOpenTools={toggleToolsHub}
         toolsExpanded={toolsHubOpen}
         onOpenSources={handleOpenSources}
-        onOpenBackup={() => openTool('backup')}
+        onOpenBackup={event => openTool('backup', event.currentTarget)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
       />
@@ -370,7 +396,7 @@ export default function App() {
       {/* Modals */}
       <SphinxTrackerModal
         isOpen={isSphinxOpen}
-        onClose={() => setIsSphinxOpen(false)}
+        onClose={() => closeTool('sphinx')}
         progress={progress}
         onToggleRiddle={handleToggleRiddle}
         onUpdateFirstTokenLocation={handleUpdateFirstTokenLocation}
@@ -378,21 +404,21 @@ export default function App() {
 
       <BarbecueTrackerModal
         isOpen={isBarbecueOpen}
-        onClose={() => setIsBarbecueOpen(false)}
+        onClose={() => closeTool('barbecue')}
         progress={progress}
         onToggleMeatTime={handleToggleMeatTime}
       />
 
       <MaistersTrackerModal
         isOpen={isMaistersOpen}
-        onClose={() => setIsMaistersOpen(false)}
+        onClose={() => closeTool('maisters')}
         progress={progress}
         onToggleMaisterStatus={handleToggleMaisterStatus}
       />
 
       <TokensTrackerModal
         isOpen={isTokensOpen}
-        onClose={() => setIsTokensOpen(false)}
+        onClose={() => closeTool('tokens')}
         progress={progress}
         onUpdateTokensCount={handleUpdateTokensCount}
         onUpdateFirstTokenLocation={handleUpdateFirstTokenLocation}
@@ -400,7 +426,7 @@ export default function App() {
 
       <CheckpointsModal
         isOpen={isCheckpointsOpen}
-        onClose={() => setIsCheckpointsOpen(false)}
+        onClose={() => closeTool('checkpoints')}
         progress={progress}
         onToggleCheckpoint={handleToggleCheckpoint}
         onJumpToPhase={handleJumpToPhase}
@@ -408,7 +434,7 @@ export default function App() {
 
       <GlossaryModal
         isOpen={isGlossaryOpen}
-        onClose={() => setIsGlossaryOpen(false)}
+        onClose={() => closeTool('glossary')}
       />
 
       <SourcesModal
@@ -418,7 +444,7 @@ export default function App() {
 
       <DataBackupModal
         isOpen={isBackupOpen}
-        onClose={() => setIsBackupOpen(false)}
+        onClose={() => closeTool('backup')}
         progress={progress}
         onImportSuccess={(newProg) => {
           allowExplicitProgressReplacement();
