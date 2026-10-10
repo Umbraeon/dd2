@@ -29,3 +29,11 @@ Três voluntários: 1 iniciante, 1 intermediário e 1 experiente. Testar 375×81
 
 ## Limitações
 Nenhum navegador gráfico, emulação Playwright ou sessão de jogo foi executado. **Não há screenshot**, tempos de tarefa, comparação responsiva observada ou entrevista com usuário. Análise de código não substitui teste de UX. Ilustração panorâmica da interface é explicitamente rotulada como não factual e não serve de evidência de quest.
+
+
+## Evidência primária nova — ajuda in-game documentada pela Capcom (10/10/2026)
+[FAQ oficial de Dragon's Dogma 2, última atualização indicada 08/10/2026](https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms) explica: (1) símbolo **ampulheta na lista de quests** sinaliza disponibilidade por tempo limitado; (2) marcadores de objetivos podem aparecer/desaparecer conforme condições; (3) NPC pode se deslocar conforme horário ou estar morto (necrotério); (4) `Diviner's Salon` e `Reverent Shrine` podem fornecer dicas pagas à missão definida como prioritária.
+
+**Melhoria de clareza proposta:** apresentar, em fichas sem gatilho/NPC claro, instrução condicional «verifique horário, outros locais e se a quest está marcada como prioritária; para NPC ausente, confira também o necrotério». O FAQ não substitui condições específicas de cada quest nem prova que todas possam ser recuperadas.
+
+**Limitação importante:** o mesmo FAQ contradiz o anúncio TU3.2 sobre a quantidade de saves, devendo ser tratado como **provavelmente obsoleto nesse trecho**. Não importar seu texto antigo de saves.
