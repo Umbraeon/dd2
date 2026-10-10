@@ -72,7 +72,7 @@ test('sem resultados, limpeza de filtros e alternância de três seções', asyn
   await page.getByRole('button', { name: 'Missões', exact: true }).click();
   await expect(page.getByRole('combobox', {name:'Capítulo do roteiro'})).toBeVisible();
   await page.getByRole('combobox', { name: 'Mostrar' }).selectOption('done');
-  await page.getByRole('button', { name: 'Limpar filtros' }).click();
+  await page.locator('.consult-controls').getByRole('button', { name: 'Limpar filtros' }).click();
   await expect(page.getByRole('combobox', { name: 'Mostrar' })).toHaveValue('all');
   await page.getByRole('button', { name: 'Voltar ao Diário' }).click();
   await expect(page.getByRole('heading', { name: 'Diário do Nascen' })).toBeFocused();
