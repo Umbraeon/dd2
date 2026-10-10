@@ -66,3 +66,21 @@ Esses textos são **propostas de estrutura**, não substituições finais ou nom
 - Não tratar inferência de `tu3.2` como prova de novas regras de desbloqueio de nenhuma conquista.
 
 **Governança:** Somente relatório; respeitar aprovação do proprietário e Head antes de correção de conteúdo de produção. Nenhum merge.
+
+
+## Nota adversarial adicional — FAQ oficial de suporte vs TU3.2 (10/10/2026)
+
+**Fonte primária obtida:** [Capcom Support — Dragon's Dogma 2 FAQ, atualização exibida de 08/10/2026](https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms).
+
+**Contradição documental relevante para salvar:** o FAQ afirma que se cria *somente um* dado de salvamento, com autosave/manual compartilhando um único slot, enquanto a [notícia oficial Capcom publicada no Steam em 01/09/2026](https://steamcommunity.com/app/2054970/allnews/?l=brazilian), o Q&A da equipe e as notas TU3.2 informam **três slots** e **três estados por slot**. O artigo de FAQ mostra data recente mas texto de comportamento pré-TU3.2; **não assumir que sua data de edição significa atualização técnica completa**. Marcar `DIVERGENTE/PROVAVELMENTE_OBSOLETO` e buscar print do menu/save pós-TU3.2, com versão/plataforma. Isso **não** autoriza definir autonomamente o procedimento seguro antes do Gigantus. Não substituir prova in-game pela mera divergência.
+
+**Guia oficial de diagnóstico de missões — melhora de clareza, sem nenhuma tradução de quest:**
+- FAQ informa diretamente: **ampulheta ao lado da missão na tela de quests = janela temporal limitada**, evidência primária de como ler o marcador. O TU3.1 tinha introduzido o aviso nas notificações; FAQ especifica também a lista de quests. Não inferir que `m02` ou `v203` tem ampulheta sem observá-las individualmente.
+- FAQ confirma que certos marcadores podem **aparecer/desaparecer** conforme hora, e que um NPC pode mudar de localização ou morrer.
+- Se NPC sumiu, verificar horários, locais relacionados e, em última instância, **Vermund Charnel House** ou **Battahl Morgue** (nomes EN; localização PT-BR desses lugares a confirmar).
+- FAQ sugere priorizar a quest e pedir ajuda ao `Diviner's Salon` ou `Reverent Shrine` pagando taxa. É um **mecanismo geral** útil a fichas sem NPC, não solução universal para quests bloqueadas. [Fonte Capcom Support](https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms).
+
+**Questão específica PS5:** [MP1st, notícia de 07/09/2026 sobre update 3.210](https://mp1st.com/title-updates-and-patches/dragons-dogma-2-update-3-210-fixes-loading-data-issues) relata correção de bug pós-TU3.2 em que `Load from Last Saved Data` poderia selecionar registro anterior e timestamps ficarem errados. É **fonte secundária**, inacessível pelo navegador completo desta sessão, mas sumário da busca identificou claramente escopo PS5 e patch posterior de reparo. **Não generalizar para PC/Xbox, nem dizer bug ainda vigente**. Requer fonte Capcom e confirmação de build do jogador antes de recomendar procedimentos.
+
+**Ações propostas para o guia (ainda NÃO aplicadas):** adicionar linha «como descobrir por que a quest/NPC sumiu» e explicação do ícone ampulheta, com link direto ao FAQ Capcom. Nos checkpoints, descrever tipos de save conforme build TU3.2 e alertar que documentações Capcom divergem; não prometer checkpoint infalível.
+
