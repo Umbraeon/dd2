@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { 
   Compass, 
   ShieldAlert, 
@@ -21,6 +21,7 @@ import { loadProgress, saveProgress, DEFAULT_PROGRESS, getProgressStorageError, 
 import { selectJourneyStep, deferJourneyStep, listJourneySteps, resolveJourney, firstPendingStep } from './utils/journey';
 
 import { Header } from './components/Header';
+import { ToolsHub, type ToolId } from './components/ToolsHub';
 import { QuestCodex } from './components/QuestCodex';
 
 import { ProgressSummary } from './components/ProgressSummary';
@@ -60,6 +61,11 @@ export default function App() {
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
   const [isBackupOpen, setIsBackupOpen] = useState(false);
+
+  // The shared Tools Hub is navigation-only; no progress is created or written here.
+  const [toolsHubOpen, setToolsHubOpen] = useState(false);
+  const [toolsHubTop, setToolsHubTop] = useState(72);
+  const toolsHubTrigger = useRef<HTMLButtonElement | null>(null);
 
   // Opening (including React StrictMode effect replay) must not write a timestamp.
   useEffect(() => {
@@ -256,6 +262,40 @@ export default function App() {
     setNavigationTarget('references');
   };
 
+  const dismissToolsHub = useCallback((returnFocus = true) => {
+    setToolsHubOpen(false);
+    if (returnFocus) requestAnimationFrame(() => toolsHubTrigger.current?.focus());
+  }, []);
+
+  const toggleToolsHub = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const source = event.currentTarget;
+    if (toolsHubOpen && toolsHubTrigger.current === source) {
+      dismissToolsHub(true);
+      return;
+    }
+    toolsHubTrigger.current = source;
+    // Anchor below the current sticky header, not over its navigation controls.
+    setToolsHubTop(document.querySelector('.codex-header')?.getBoundingClientRect().bottom ?? 64);
+    setToolsHubOpen(true);
+  };
+
+  const openTool = (tool: ToolId) => {
+    setToolsHubOpen(false);
+    // A tool selection opens exactly one existing modal; no progress callbacks execute.
+    setIsSphinxOpen(tool === 'sphinx');
+    setIsTokensOpen(tool === 'tokens');
+    setIsBarbecueOpen(tool === 'barbecue');
+    setIsMaistersOpen(tool === 'maisters');
+    setIsCheckpointsOpen(tool === 'checkpoints');
+    setIsBackupOpen(tool === 'backup');
+    setIsGlossaryOpen(tool === 'glossary');
+    setIsSourcesOpen(false);
+    // The originating panel unmounts. Move keyboard focus into the existing dialog.
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLButtonElement>('.fixed.inset-0.z-50 button[title="Fechar"]')?.focus();
+    });
+  };
+
   const handleGoJourney = () => {
     setView('journey');
     setNavigationTarget('journey');
@@ -265,13 +305,17 @@ export default function App() {
     <div className="codex-app min-h-screen text-[#e9e2d7] font-sans flex flex-col selection:bg-[#726044]/40 selection:text-[#f3e5cb]">
       {/* Top Bar Navigation */}
       <Header
-        onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
-        onOpenTools={() => setIsSphinxOpen(true)}
+        onOpenCheckpoints={() => openTool('checkpoints')}
+        onOpenTools={toggleToolsHub}
+        toolsExpanded={toolsHubOpen}
         onOpenSources={handleOpenSources}
-        onOpenBackup={() => setIsBackupOpen(true)}
+        onOpenBackup={() => openTool('backup')}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
       />
+
+      {toolsHubOpen && <ToolsHub top={toolsHubTop} trigger={toolsHubTrigger.current}
+        onDismiss={dismissToolsHub} onSelect={openTool} />}
 
       {storageIssue && (
         <div role="alert" className="px-4 py-3 bg-[#402219] text-[#ffe3d2] text-sm border-b border-[#bb795b]">
@@ -307,13 +351,9 @@ export default function App() {
           onOpenEvent={handleNavigateToStep} onOpenAchievement={handleJumpToAchievement}
           onToggleEvent={handleToggleEvent} onToggleAchievement={handleToggleAchievement}
           onConfirmCheckpoint={handleToggleCheckpoint} onGoJourney={handleGoJourney}
-          onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
           onOpenSources={() => setIsSourcesOpen(true)}
-          onOpenGlossary={() => setIsGlossaryOpen(true)}
-          onOpenSphinx={() => setIsSphinxOpen(true)}
-          onOpenBarbecue={() => setIsBarbecueOpen(true)}
-          onOpenMaisters={() => setIsMaistersOpen(true)}
-          onOpenTokens={() => setIsTokensOpen(true)}
+          onOpenGlossary={() => openTool('glossary')}
+          onOpenTools={toggleToolsHub} toolsExpanded={toolsHubOpen}
         />
       )}
 
