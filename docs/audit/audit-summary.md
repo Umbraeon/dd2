@@ -64,3 +64,15 @@ Relatório e cruzamentos publicados em **[2026-version-impact-report.md](2026-ve
 
 A fonte original de patch no domínio `dragonsdogma.com` respondeu **HTTP 403** à ferramenta. Para os detalhes das notas foi usada reprodução do RPG Site com identificação de publicação, além de comunicados oficiais Capcom/Steam sobre lançamento de updates. **Nenhum save, conquista, nome de item novo PT-BR ou alteração de jogo foi testado in-game.**
 
+
+## Auditoria incremental de quatro checkpoints críticos — 10/10/2026
+**Nova matriz [22 alegações por CP1–CP4](critical-checkpoints-evidence-2026.csv)**, [relatório detalhado](critical-checkpoints-review-2026.md) e [5 missões de evacuação em matriz](unmoored-five-evacuations-2026.csv). **Somente pesquisa/relatório; sem mudanças em produção.**
+
+**P1 documentais prioritários:**
+- `v303/cp1_feast`: a coroação de `Feast of Deception` pode encerrar janelas de quests, mas o guia incorretamente afirma que todas as **já abertas** serão canceladas ao **aceitar** a proposta; Game8 diferencia condições de **iniciar** e **concluir**. `Readvent of Calamity`, `Home Is Where the Hearth Is`, `Every Rose Has Its Thorn` merecem segurança, e as demais quests exigem condição específica por estado.
+- `p04/p05/cp2_gigantus`: `Last Inn Rest Save` ≠ `Interim Save`; uso de `Unmaking Arrow` pode criar autosave e o troféu de Gigantus não necessariamente aparece no disparo. O momento exato da queda e influência da cabeça da Medusa sobre `Eu, Talos` ainda requerem prova.
+- `p06,u01,u02/cp3_confrontation`: proteção de secundárias deve ocorrer ANTES de `A New Godsway` (recomendação conservadora dos walkthroughs), não apenas ao subir a torre. Finais `Paz` e Mundo Desancorado podem ser alcançados numa campanha via interação com Pathfinder, **sem iniciar NG+**; menu de retorno TU3.2 não foi testado.
+- `u04/u05/cp4_unmoored_evac`: o guia **omite a distinção das cinco quests de evacuação**, sobretudo `Shepherd of the Pawns` (peões com Henrique na Escavação) além de `The Importance of Aiding Ernesto` (Acampamento Vulcânico). **O critério exato da conquista #36 pode desbloquear antes da quinta quest**, conforme PowerPyx: não confundir completar todo conteúdo com condição Steam do troféu. O feixe vermelho **final** do centro não é o quarto feixe **periférico**; o marcador **azul** do Santuário se refere à rota de evacuação. Os guias divergem na contagem de trials e nos limites de repousos; não anunciar um cronômetro universal como fato.
+
+**Fontes de confronto:** [PowerPyx finais](https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/), [PowerPyx cinco evacuações](https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/), [GameSpot Gigantus](https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/), [Game8 pré-coroação](https://game8.co/games/Dragons-Dogma-2/archives/449610), [Kiranico PT-BR](https://dragonsdogma2.kiranico.com/pt-BR/data/quests), [Capcom Steam TU3.2](https://steamcommunity.com/app/2054970/allnews/?l=portuguese). Testes in-game, screenshots PT-BR de diário/mapa, saves e troféus **não realizados**.
+
