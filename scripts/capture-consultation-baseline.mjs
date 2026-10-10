@@ -1,3 +1,4 @@
+import { PHASES } from '../src/data/roadmapData.ts';
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 
@@ -25,7 +26,7 @@ for (const [width,height] of screens) {
   await page.locator('.codex-achievement').first().scrollIntoViewIfNeeded();
   await capture('achievements');
 
-  await page.getByRole('button',{name:'Referências',exact:true}).click();
+  await page.locator('.codex-editorial-note button').click();
   await capture('references');
   await page.getByRole('button',{name:'Fechar'}).first().click();
 
@@ -42,17 +43,14 @@ for (const [width,height] of screens) {
   await capture('critical');
 
   await page.goto(origin);
-  const linked = page.locator('.quest-row').first();
-  await linked.locator('button').first().click();
-  const inline = page.locator('.inline-achievement-entry').filter({has:page.locator('button')}).first();
-  if (await inline.count()) {
-    await inline.click();
-    await page.locator('.codex-achievement').first().scrollIntoViewIfNeeded();
-  } else {
-    await page.getByRole('button',{name:'Consulta e ferramentas'}).click();
-    await page.getByRole('button',{name:/Mostrar fichas e requisitos/}).first().click();
-    await page.locator('.codex-achievement').first().scrollIntoViewIfNeeded();
-  }
+  const first = PHASES.flatMap(phase => phase.events
+    .filter(event => event.achievements.length > 0)
+    .map(event => ({phase,event})))[0];
+  await page.getByRole('combobox',{name:'Capítulo'}).selectOption(first.phase.id);
+  await page.getByRole('button',{name:'Consultar atividade: '+first.event.title,exact:false}).click();
+  await page.getByRole('region',{name:'Conquistas associadas no roteiro'})
+    .getByRole('button',{name:/Abrir ficha da conquista/}).first().click();
+  await page.locator('.codex-achievement').first().scrollIntoViewIfNeeded();
   await capture('achievement-from-diary-flow');
   await page.close();
 }
