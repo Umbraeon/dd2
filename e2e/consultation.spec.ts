@@ -106,6 +106,75 @@ test('cautela crítica continua visível antes de abrir as instruções', async 
   await expect(step.locator('.quest-event-details')).not.toBeVisible();
 });
 
+test('P1: Missões não mostra controle inerte; Conquistas tem acervo funcional', async ({ page }) => {
+  await openConsultation(page);
+  for (const width of [375, 390, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : width === 390 ? 844 : 900 });
+    await expect(page.getByRole('heading', { name: 'Missões', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Conquistas deste capítulo|Mostrar fichas e requisitos/ })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Conquistas', exact: true }).click();
+    await expect(page.locator('.consult-achievement-list button')).toHaveCount(60);
+    await page.getByRole('button', { name: 'Missões', exact: true }).click();
+  }
+  expect(await saved(page)).toBeNull();
+});
+
+test('P1: Referências no header limpa busca ativa e abre destino por teclado', async ({ page }) => {
+  await openConsultation(page);
+  const input = page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' });
+  await input.fill('Prólogo');
+  await expect(page.getByRole('heading', { name: 'Resultados encontrados' })).toBeVisible();
+  const headerReferences = page.getByRole('navigation', { name: 'Navegação principal' })
+    .getByRole('button', { name: 'Referências', exact: true });
+  await headerReferences.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading', { name: 'Referências', exact: true })).toBeFocused();
+  await expect(page.getByRole('heading', { name: 'Resultados encontrados' })).toHaveCount(0);
+  await expect(input).toHaveValue('');
+  await expect(page.getByRole('status').filter({ hasText: 'Busca e filtros limpos para abrir Referências.' })).toBeVisible();
+  expect(await saved(page)).toBeNull();
+});
+
+test('P2: filtro de marcos mantém totais e posição ordinal original sem persistir', async ({ page }) => {
+  const phase = PHASES.find(item => item.events.length === 6) ??
+    PHASES.find(item => item.events.length >= 2)!;
+  await openConsultation(page);
+  await page.getByRole('combobox', { name: 'Capítulo do roteiro' }).selectOption(phase.id);
+  const chapter = page.locator('.codex-chapter');
+  await chapter.locator('.quest-complete-toggle').first().click();
+  const snapshot = await saved(page);
+  expect(snapshot).not.toBeNull();
+  const originalTotal = phase.events.length;
+  await expect(chapter).toContainText(`Etapas: 1/${originalTotal}`);
+  const filter = page.getByRole('combobox', { name: 'Mostrar' });
+  await filter.selectOption('done');
+  await expect(chapter).toContainText(`Etapas: 1/${originalTotal}`);
+  await expect(chapter).toContainText(`Sequência de Execução (${originalTotal} etapas)`);
+  await expect(chapter.locator('.codex-step')).toHaveCount(1);
+  await expect(chapter.locator('.codex-step').first().getByText('01.', { exact: true })).toBeVisible();
+  expect(await saved(page)).toBe(snapshot);
+  await filter.selectOption('undone');
+  await expect(chapter.locator('.codex-step')).toHaveCount(originalTotal - 1);
+  await expect(chapter.locator('.codex-step').first().getByText('02.', { exact: true })).toBeVisible();
+  await expect(chapter).toContainText(`Etapas: 1/${originalTotal}`);
+  expect(await saved(page)).toBe(snapshot);
+});
+
+test('P2 visual: primeiro fold mobile da Consulta, primeira missão e sem overflow', async ({ page }) => {
+  mkdirSync('test-results/screenshots', { recursive: true });
+  for (const [width,height] of [[375,812],[390,844]]) {
+    await page.setViewportSize({ width, height });
+    await openConsultation(page);
+    await page.evaluate(() => window.scrollTo(0,0));
+    const first = page.locator('.codex-step').first();
+    const rect = await first.boundingBox();
+    expect(rect, 'A primeira missão deve existir').not.toBeNull();
+    expect(rect!.y, 'O início da primeira missão deve aparecer no primeiro fold').toBeLessThan(height);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+    await page.screenshot({ path: `test-results/screenshots/pr-b-review-mobile-first-fold-${width}x${height}.png`, fullPage: false });
+  }
+});
+
 test('conquistas e marcos não se concluem mutuamente no catálogo', async ({ page }) => {
   await openConsultation(page);
   await page.getByRole('button', { name: 'Conquistas', exact:true }).click();
