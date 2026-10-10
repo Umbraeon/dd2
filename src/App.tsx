@@ -70,6 +70,7 @@ export default function App() {
     if (!navigationTarget) return;
     const frame = requestAnimationFrame(() => {
       const targetId = navigationTarget === 'journey' ? 'resume-heading' :
+         navigationTarget === 'references' ? 'consult-references-title' :
          navigationTarget.startsWith('phase:') ? navigationTarget.slice(6) :
         navigationTarget.startsWith('achievement:') ? `achievement-${navigationTarget.slice(12)}` :
         `step-${navigationTarget}`;
@@ -242,6 +243,19 @@ export default function App() {
     setNavigationTarget('achievement:' + id);
   };
 
+  const handleOpenSources = () => {
+    if (view !== 'consultation') {
+      setIsSourcesOpen(true);
+      return;
+    }
+    const reset = !!searchQuery.trim() || activeFilter !== 'all';
+    setSearchQuery('');
+    setActiveFilter('all');
+    setConsultationSection('references');
+    setNavigationNotice(reset ? 'Busca e filtros limpos para abrir Referências.' : '');
+    setNavigationTarget('references');
+  };
+
   const handleGoJourney = () => {
     setView('journey');
     setNavigationTarget('journey');
@@ -253,7 +267,7 @@ export default function App() {
       <Header
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
         onOpenTools={() => setIsSphinxOpen(true)}
-        onOpenSources={() => view === 'consultation' ? setConsultationSection('references') : setIsSourcesOpen(true)}
+        onOpenSources={handleOpenSources}
         onOpenBackup={() => setIsBackupOpen(true)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
