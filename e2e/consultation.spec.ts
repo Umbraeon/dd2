@@ -97,6 +97,15 @@ test('teclado e foco em fichas abertas via Diário, sem alterar progresso', asyn
   expect(await saved(page)).toBeNull();
 });
 
+test('cautela crítica continua visível antes de abrir as instruções', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('combobox', { name: 'Capítulo do roteiro' }).selectOption(firstCritical.phase.id);
+  const step = page.locator('#step-' + firstCritical.event.id);
+  await expect(step.locator('.consult-priority-risk')).toBeVisible();
+  await expect(step.locator('.consult-priority-risk')).toContainText(firstCritical.event.failureRisk!);
+  await expect(step.locator('.quest-event-details')).not.toBeVisible();
+});
+
 test('conquistas e marcos não se concluem mutuamente no catálogo', async ({ page }) => {
   await openConsultation(page);
   await page.getByRole('button', { name: 'Conquistas', exact:true }).click();
