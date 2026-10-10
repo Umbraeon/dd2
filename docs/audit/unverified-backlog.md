@@ -56,7 +56,7 @@ Ver [relatório incremental de versão](2026-version-impact-report.md) e matrize
 ## Testes que faltam para homologar checkpoints de alto risco — CP1–CP4
 | Grau | Questão precisa | Teste pendente | Estado |
 |---|---|---|---|
-| P1 | `Feast of Deception`: aceitar convite vs concluir quest | Antes/depois em três estados para `Readvent`, `Home Is Where the Hearth Is`, `Ornate Box`, `Vocation Frustration`, `Every Rose`. | EVIDÊNCIA POR ESTADO INCOMPLETA |
+| P1 | `Feast of Deception`: aceitar convite vs concluir quest | Antes/depois em três estados para `Readvent`, `Home Is Where the Hearth Is`, `Ornate Box`, `Vocation Frustration`; investigar `Every Rose` **separadamente**, pois PowerPyx/Gameranx a posicionam depois da coroação e Gamer Guides propõe alternativas mais cedo. | EVIDÊNCIA POR ESTADO INCOMPLETA; cronologia de Wilhelmina corrigida |
 | P1 | `A New Godsway`: instante da última oportunidade de limpar quests | Registrar etapas antes de entregar 15 WLC, cruzar portão selado e acionar cena Gigantus. | LACUNA DE REPRODUÇÃO |
 | P1 | `Gigantus`: flecha, autosave, instante de desbloqueio e Talos | Testar com flecha e sem flecha, observar menu e pop-up; não usar Medusa até provar efeito. | FONTES DIVERGEM |
 | P1 | TU3.2: retornar ao salão após `Paz` | Capturar menu novo e interagir com Pathfinder sem iniciar NG+, comparar com walkthrough 2024. | PENDENTE GAMEPLAY |
