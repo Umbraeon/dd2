@@ -44,3 +44,10 @@
 
 Ver [relatório incremental de versão](2026-version-impact-report.md) e matrizes por [marco](2026-update-impact-events.csv) e [conquista](2026-update-impact-achievements.csv). **A auditoria de versão não é equivalente à validação integral da jogabilidade.**
 
+
+## Contradição documental de salvamentos e verificação de interface
+| Prioridade | Caso | Lacuna | Resolução necessária |
+|---|---|---|---|
+| P1 | Capcom Support FAQ atualizado em 08/10/2026 vs Capcom TU3.2 no Steam | FAQ ainda afirma **um único save**; TU3.2 confirma três slots com três estados por slot. O trecho do FAQ parece desatualizado, mas não houve reprodução do menu do jogo. | Print/grav. do menu de salvar e carregar na build TU3.2+ e plataforma identificada; não prometer restauro automático. Fonte FAQ: https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms |
+| P1 | PS5 patch 3.210 de 07/09/2026 | Relato secundário de bug na seleção do save mais recente depois de TU3.2, corrigido em PS5. | Nota Capcom original, versão exata e validação de correção; não generalizar para outras plataformas. https://mp1st.com/title-updates-and-patches/dragons-dogma-2-update-3-210-fixes-loading-data-issues |
+| P2 | Ajuda para NPCs perdidos e quests temporizadas | FAQ oficial mostra ampulheta na lista, deslocamento de NPC e opção de necrotérios/Diviner's Salon, mas o guia não oferece fallback por quest. | Testar e inserir orientação contextual, preservando IDs e nomes extraídos sem trocar traduções. |
