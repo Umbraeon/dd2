@@ -253,7 +253,7 @@ export default function App() {
       <Header
         onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
         onOpenTools={() => setIsSphinxOpen(true)}
-        onOpenSources={() => setIsSourcesOpen(true)}
+        onOpenSources={() => view === 'consultation' ? setConsultationSection('references') : setIsSourcesOpen(true)}
         onOpenBackup={() => setIsBackupOpen(true)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
