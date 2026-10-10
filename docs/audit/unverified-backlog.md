@@ -27,3 +27,20 @@
 | P2 | Progresso | Persistência v3 não testada com relatórios | Não tocar em IDs/schema; teste de regressão somente no PR executor aprovado. |
 
 **Regra:** «NAO_CONFIRMADO» significa falta de prova suficiente, **não** que missão/condição é falsa. «LOCALIZACAO_EXTRAIDA» não é prova primária da UI.
+
+
+## Novas pendências introduzidas pelas atualizações TU3.1/TU3.2
+| Prioridade | Escopo | Lacuna e situação | Evidência a obter |
+|---|---|---|---|
+| P1 | `v303,p04`, checkpoints de finais | Termos e comportamento reais de **autosave/interim save/última pousada** nos três slots após TU3.2, especialmente efeitos de **descansar** e **carregar**. | Teste com dois saves em campanha de ensaio, build/plataforma e resultado antes/depois de estado crítico. |
+| P1 | `d01` | Fonte oficial distingue **Domínio Esquecido** nível **40 recomendado** e **Rituais Perdidos** nível **20 recomendado**; ainda falta nome exato das duas quests que Brant oferece no diário PT-BR. | Captura UI PT-BR e etapas de acesso; nunca traduzir `Chilling Tidings` e `Lost Rites` por inferência. |
+| P1 | `d01,u01–u08` | Guia PC Gamer diz que a DLC não está disponível no Mundo Desancorado; sem confirmação primária ou teste. | Testar via save antes/depois de Unmoored ou encontrar segundo vídeo pós-expansão de 2026. |
+| P1 | `p03` e #50 | Patch TU3.2 torna recompráveis **tomos de especialização**; não há prova de que essa regra se aplique a **ensinamentos de maestria**. | Nome/tela de item e loja real, confirmação de regras distintas. |
+| P2 | `v101,v201` e #7 | Titulação real PT-BR e funcionamento da `Eternal Ferrystone`; não sabemos se novo item dispara conquista `Just a Stone's Throw Away`. | Teste de uso em save sem #7; print Steam antes/depois. |
+| P2 | `m03,v106,v107,v202` | Como `Guardian` aparece em PT-BR; recompensa de `Claw Them Into Shape`, `Readvent of Calamity` e compra na Nameless Apothecary em saves atuais. | Screenshots no idioma e build, loja e questlog. |
+| P2 | `m02,v203,v302` | O TU3.1 introduz ampulheta em quests temporizadas, mas não certifica *quais* quests a exibem. | Print das notificações correspondentes, versão/plataforma; preservar divergência Accardo até teste. |
+| P2 | `p02` e #52 | TU3.2 inclui opção de impedir consumo de carne por atalho. | Confirmar título PT-BR exato no menu de opções e se a mudança evita só atalhos. |
+| P2 | Todas | Notas originais de update Capcom retornaram HTTP 403. | Abrir em navegador real e conferir com a reprodução de 2026. |
+
+Ver [relatório incremental de versão](2026-version-impact-report.md) e matrizes por [marco](2026-update-impact-events.csv) e [conquista](2026-update-impact-achievements.csv). **A auditoria de versão não é equivalente à validação integral da jogabilidade.**
+
