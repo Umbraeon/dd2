@@ -3,7 +3,8 @@ import { BookOpen, ShieldAlert, FolderDown } from 'lucide-react';
 
 interface HeaderProps {
   onOpenCheckpoints: () => void;
-  onOpenTools: () => void;
+  onOpenTools: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  toolsExpanded: boolean;
   onOpenSources: () => void;
   onOpenBackup: () => void;
   onGoJourney: () => void;
@@ -11,7 +12,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  onOpenCheckpoints, onOpenTools, onOpenSources, onOpenBackup, onGoJourney, onGoChapter
+  onOpenCheckpoints, onOpenTools, toolsExpanded, onOpenSources, onOpenBackup, onGoJourney, onGoChapter
 }) => (
   <header className="codex-header sticky top-0 z-40">
     <div className="codex-header-inner">
@@ -28,7 +29,8 @@ export const Header: React.FC<HeaderProps> = ({
         <button type="button" onClick={onOpenCheckpoints} className="codex-header-warning" title="Conferir alertas registrados no roteiro" aria-label="Conferir alertas">
           <ShieldAlert size={16}/><span className="hidden sm:inline">ALERTAS</span>
         </button>
-        <button type="button" onClick={onOpenTools} className="codex-header-tool" title="Abrir rastreador da Esfinge" aria-label="Abrir rastreador da Esfinge">
+        <button type="button" onClick={onOpenTools} className="codex-header-tool" title="Abrir central de ferramentas" aria-label="Abrir central de ferramentas"
+          data-tools-hub-trigger="header" aria-controls="tools-hub-panel" aria-expanded={toolsExpanded}>
           <BookOpen size={16}/><span className="hidden md:inline">FERRAMENTAS</span>
         </button>
         <button type="button" onClick={onOpenBackup} className="codex-header-tool" title="Salvar ou importar o progresso" aria-label="Backup do progresso">
