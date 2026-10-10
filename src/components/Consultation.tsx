@@ -175,12 +175,11 @@ export const Consultation: React.FC<Props> = ({
                 )}
               </select>
               {matchingEvents.length ? (
-                <ChapterSection key={activePhase.id} phase={{ ...activePhase, events: matchingEvents }}
+                <ChapterSection key={activePhase.id} phase={activePhase} visibleEventIds={matchingEvents.map(event => event.id)}
                   phases={phases} progress={progress} onToggleEvent={onToggleEvent}
                   onToggleAchievement={onToggleAchievement} onOpenAchievement={onOpenAchievement}
                   onConfirmCheckpoint={onConfirmCheckpoint} expandedEventId={expandedEventId}
-                  onExpandEvent={onExpandEvent} showAchievements={false}
-                  onToggleAchievements={() => {}} showAchievementSection={false}/>
+                  onExpandEvent={onExpandEvent} showAchievementSection={false}/>
               ) : (
                 <div className="consult-empty" role="status">
                   <h3>Nenhum marco neste estado</h3>
