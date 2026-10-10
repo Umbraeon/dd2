@@ -1,7 +1,7 @@
 import { Phase, SphinxRiddle, MaisterSkill, BarbecueMeat, GlossaryTerm } from '../types/roadmap';
 
 export const ROADMAP_METADATA = {
-  title: "Dragon’s Dogma 2 — Rota 100% PT-BR",
+  title: "Dragon’s Dogma 2 — Compêndio PT-BR de Jornada e Conquistas",
   researchDate: "2026-10-09",
   gameSteamAppId: 2054970,
   baseAchievements: 54,
@@ -50,11 +50,11 @@ export const PHASES: Phase[] = [
         id: "m02",
         title: "Resolva as missões de novatos antes de se afastar do posto",
         type: "missao",
-        note: "Priorize 'Ordeals of a New Recruit' (resgate de Rook/soldado sob ataque de harpia) e 'The Provisioner’s Plight' com Geoffrey. Algumas tarefas de resgate possuem prazo oculto.",
+        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. Como as fontes divergem sobre o prazo real de Accardo, resolva o resgate assim que o receber, sem presumir cronômetro comprovado.",
         achievements: [],
         risk: "alerta",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Deixar o recruta sofrer dano fatal por demora invalida a conclusão ideal da missão."
+        failureRisk: "Há divergência entre walkthroughs sobre limite de tempo e possibilidade de morte de Accardo. Trate o resgate como prioritário por prudência; a falha irreversível ainda não foi testada."
       },
       {
         id: "m03",
@@ -70,7 +70,7 @@ export const PHASES: Phase[] = [
         id: "m04",
         title: "Siga para Melve e conclua as tarefas locais imediatas",
         type: "missao",
-        note: "Ao chegar em Melve, fale com Flora para 'Medicament Predicament' (entrega de Salve Frutado, rende desconto e especialização de peão) e Ian para 'Nesting Troubles' (destruição de ninhos de sauros).",
+        note: "Em Melve, ajude Flora em 'Bravura Revigorante' (Medicament Predicament), entregando o revigorante de frutas. Para 'Problemas Aninhados' (Nesting Troubles), fale com Lennart, use barris explosivos e jarro de veneno contra o ninho de saurianos e informe a ele. Ian inicia outra missão, 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), para resgatar Norbert.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -470,29 +470,29 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v302",
-        title: "Resolva o romance e vingança de Wilhelmina ('Every Rose Has Its Thorn')",
+        title: "Prepare a missão de Wilhelmina e cumpra seu prazo quando disponível",
         type: "alerta",
-        note: "Após construir afinidade no Rose Chateau Bordelrie e investigar Allard, ajude Wilhelmina a coletar provas no castelo com Sven e Brant antes que o prazo expire.",
+        note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'Feast of Deception'; NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Avançar a coroação ou demorar mais de 3 dias de jogo para entregar as provas resultará no desaparecimento de Wilhelmina e falha na missão."
+        failureRisk: "Não confunda o gatilho da missão com seu prazo: os três dias se referem à coleta das provas depois de aceitar ajudar Wilhelmina. A disponibilidade exata ao avançar na história ainda exige validação por versão."
       },
       {
         id: "v303",
         title: "CHECKPOINT DE SEGURANÇA 1: Revisão Pré-Coroação",
         type: "checkpoint",
-        note: "PARE E VERIFIQUE: Se você aceitar ir à coroação em 'Feast of Deception' com Brant, as seguintes missões serão CANCELADAS se estiverem abertas: Readvent of Calamity (Ulrika), Home Is Where the Hearth Is, The Ornate Box (Sven), Vocation Frustration, e Every Rose Has Its Thorn. Faça salvamento na Pousada agora!",
+        note: "PARE antes de concluir 'Feast of Deception' com Brant. Termine a linha de Ulrika em Melve e Harve ('Readvent of Calamity' e missões ligadas); confira as missões de Ian, Lennart, Sven ('The Ornate Box') e Klaus ('Vocation Frustration'). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Bloqueio irreversível de dezenas de horas de conteúdo secundário."
+        failureRisk: "A coroação pode encerrar janelas de missões específicas. Condições e efeitos variam por quest; a recuperação pelo novo sistema de saves não foi comprovada."
       },
       {
         id: "v304",
         title: "Realize a Coroação e receba a autorização para Battahl",
         type: "historia",
-        note: "Conclua 'Feast of Deception'. Brant entrega a autorização de passagem de fronteira para a missão 'Nation of the Lambent Flame'. Siga de carroça até o Posto de Controle da Fronteira (Checkpoint Rest Town).",
+        note: "Conclua 'Feast of Deception'. Brant libera a sequência para Battahl ('Nation of the Lambent Flame'). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -938,9 +938,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p04",
-        title: "CHECKPOINT DE SEGURANÇA 2: Descanso na Pousada antes do Gigantus",
+        title: "CHECKPOINT DE SEGURANÇA 2: Confira os saves antes do Gigantus",
         type: "checkpoint",
-        note: "Na missão 'A New Godsway' / 'The Guardian Gigantus', o colosso emergirá do mar. Faça um salvamento manual na Pousada em Bakbattahl ou na Ilha Vulcânica ANTES de ativar a perseguição!",
+        note: "Antes de avançar 'A New Godsway' e a rota de 'The Guardian Gigantus', revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
@@ -949,17 +949,17 @@ export const PHASES: Phase[] = [
         id: "p05",
         title: "Derrote o Gigantus rapidamente ('Gigantus, nem sei quem é')",
         type: "conquista",
-        note: "Destrua os espinhos de cristal mágicos espalhados pelo corpo do Gigantus usando balistas, flechas explosivas ou a Flecha da Ruína (Unmaking Arrow) imediatamente. Ele precisa desabar antes de alcançar o portão de escavação!",
+        note: "A conquista exige deter Gigantus RAPIDAMENTE. Prepare-se antes de sua marcha e ataque os cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow). Walkthroughs relatam que a flecha pode gerar autosave e que o troféu não aparece necessariamente no instante do disparo. A distância exata limite e a interação desse método com 'Eu, Talos' ainda exigem teste; não presuma retorno garantido ao save anterior.",
         achievements: [44],
         risk: "critico",
         source: "https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement",
-        failureRisk: "Se o Gigantus avançar demais e for parado pela lava/cutscene automática, a conquista falhará."
+        failureRisk: "Deixar o Gigantus completar a rota sem intervenção suficientemente rápida pode perder a conquista nesta tentativa. O instante exato do gatilho não foi validado em jogo atualizado."
       },
       {
         id: "p06",
         title: "Suba a Torre do Luar (Moonglint Tower) até o confronto",
         type: "historia",
-        note: "Enfrente Phaesus e os guardas no topo da torre. O Dragão aparecerá para oferecer a clássica escolha do destino.",
+        note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'A New Godsway', e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
@@ -1192,7 +1192,7 @@ export const PHASES: Phase[] = [
         id: "u01",
         title: "Conquiste o final comum no trono ('Paz')",
         type: "conquista",
-        note: "Derrote o Dragão na arena tradicional e sente no trono durante a coroação. Assista aos créditos e ganhe 'Paz'. Durante os créditos ou na tela de título, fale com o Pathfinder para retornar ao voo do dragão!",
+        note: "Para o final comum, derrote o Dragão e permaneça sentado no trono durante os créditos para 'Paz'. Se também quiser o final verdadeiro na MESMA campanha, NÃO inicie Novo Jogo+. Guias descrevem o retorno à cena do salão e a interação com o Pioneiro (Pathfinder) para voltar ao voo do Dragão. As opções exatas de menu da atualização 3.2 ainda precisam de validação; não dependa de uma instrução de botão de 2024.",
         achievements: [40],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
@@ -1217,22 +1217,22 @@ export const PHASES: Phase[] = [
       },
       {
         id: "u04",
-        title: "Evacue todas as quatro regiões para 'O Guardião'",
+        title: "Conclua as cinco missões de evacuação do Mundo Desancorado",
         type: "conquista",
-        note: "A névoa vermelha avança com descansos. Evacue as cidades rapidamente: Vernworth (fale com Brant e Sven), Bakbattahl (resolva a disputa civil com Nadinia), Bosque Sagrado (fale com Taliesin e Doireann) e Ilha Vulcânica (evacue as escavações e os anões das termas). Evite dormir à toa!",
+        note: "Para cobrir TODAS as evacuações de 'Átrios da Primeira Aurora' (Halls of the First Dawn), faça CINCO MISSÕES: Vernworth — 'A Determinação do Príncipe Regente' (Sven/Brant); Bakbattahl — 'Instabilidade Civil' (Menella/Nadinia); Jardim Sagrado — 'Raízes Errantes' (Taliesin); Acampamento Vulcânico — 'A Importância de Ajudar Ernesto' (Ernesto); e LOCAL DE ESCAVAÇÃO — 'Pastor de Peões' (Henrique). Acampamento e escavação são duas missões diferentes. Evite descansos desnecessários. Completar as cinco cobre o conteúdo, mas não foi comprovado que 'O Guardião' só desbloqueie na quinta.",
         achievements: [36],
         risk: "critico",
         source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/"
       },
       {
         id: "u05",
-        title: "Elimine as ameaças dos feixes vermelhos ('O Herói')",
+        title: "Enfrente os feixes de prova sem ativar o feixe final",
         type: "conquista",
-        note: "Interaja com os 4 feixes vermelhos periféricos (Santuário do Leito Marinho / Ilha Vulcânica / Vernworth / Bakbattahl) e derrote as calamidades que emergem. NÃO toque no feixe central final do Santuário até terminar todas as evacuações e armas!",
+        note: "Verifique no mapa os feixes de prova ainda acessíveis, inclusive em Vernworth, Jardim Sagrado e Bakbattahl; algumas resoluções envolvem Talos e dependem do estado da campanha. NÃO confunda a contagem de provas com uma lista fixa de quatro feixes periféricos. O marcador AZUL do Templo Abissal está ligado à evacuação; o feixe VERMELHO FINAL dessa região encerra a sequência. Deixe o feixe final para depois das evacuações, provas e atividades opcionais.",
         achievements: [37],
         risk: "critico",
         source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/",
-        failureRisk: "Tocar no feixe final do Santuário do Leito Marinho encerra imediatamente o Mundo Desancorado e aciona o encerramento do jogo."
+        failureRisk: "Ativar o feixe vermelho final do Templo Abissal inicia o encerramento do Mundo Desancorado. Conclua objetivos pendentes antes; retorno pelo salvamento atual não foi comprovado."
       },
       {
         id: "u06",
@@ -1764,14 +1764,14 @@ export const RISK_CHECKPOINTS = [
     phaseId: "vernworth3",
     title: "Antes da Coroação ('Feast of Deception')",
     dangerLevel: "Crítico",
-    description: "Concluir a missão principal 'Feast of Deception' com o Capitão Brant encerra irremediavelmente diversas missões secundárias da primeira metade do jogo.",
+    description: "Avançar a coroação em 'Feast of Deception' pode encerrar janelas para INICIAR ou CONCLUIR missões específicas. Verifique cada cadeia antes de prosseguir: não é comprovado que todas as quests abertas falhem ao aceitar o convite.",
     verificationList: [
       "Concluiu 'Readvent of Calamity' e acompanhou Ulrika em Melve e Harve?",
       "Concluiu 'The Ornate Box' com o jovem Sven nos mercados?",
       "Concluiu 'Vocation Frustration' na Guilda de Vocações?",
       "Concluiu 'The Arisen's Shadow' capturando o espião Bermudo?",
-      "Concluiu 'Every Rose Has Its Thorn' com Wilhelmina no bordel?",
-      "Fez um salvamento na Pousada para ter um ponto de restauração seguro?"
+      "Planejou procurar Wilhelmina no Rose Chateau logo após a coroação, quando guias situam a missão 'As Rosas Têm Espinhos'?",
+      "Conferiu a diferença entre salvamento intermediário e último descanso na pousada na sua versão, sem contar com recuperação garantida?"
     ]
   },
   {
@@ -1779,11 +1779,11 @@ export const RISK_CHECKPOINTS = [
     phaseId: "preend",
     title: "Antes de Interceptar o Gigantus ('The Guardian Gigantus')",
     dangerLevel: "Crítico",
-    description: "A derrota de Gigantus para a conquista 'Gigantus, nem sei quem é' exige destruição ágil de todos os pontos antes que ele alcance o limite do trajeto.",
+    description: "A conquista 'Gigantus, nem sei quem é' exige detê-lo rapidamente. A margem exata de progresso, o instante do troféu e o impacto de saves automáticos variam entre relatos e requerem validação.",
     verificationList: [
-      "Fez salvamento na pousada imediatamente antes de acionar a marcha do Gigantus?",
+      "Conferiu os tipos de save da atualização 3.2 antes da marcha e qual estado é realmente recuperável?",
       "Possui a Flecha da Ruína (Unmaking Arrow) ou build de arqueiro com flechas explosivas/balistas preparadas?",
-      "Lembrou de que se ele morrer por lava/cutscene automática a conquista falha?"
+      "Está preparado para deter o colosso cedo, sem depender de uma cena automática nem presumir troféu instantâneo?"
     ]
   },
   {
@@ -1791,11 +1791,11 @@ export const RISK_CHECKPOINTS = [
     phaseId: "unmoored",
     title: "Antes do Confronto com o Dragão (Moonglint Tower)",
     dangerLevel: "Crítico",
-    description: "O final tradicional ('Paz') e o final verdadeiro ('Dogma do Dragão 2' / 'Encerramento') são conquistas distintas. Faça o final tradicional primeiro!",
+    description: "O final tradicional ('Paz') e o verdadeiro são objetivos distintos. Guias documentam a sequência Paz → retorno ao voo → Mundo Desancorado na mesma campanha, sem iniciar Novo Jogo+ entre eles. O menu da atualização 3.2 não foi testado.",
     verificationList: [
-      "Fez um salvamento na pousada antes de subir o elevador da Torre do Luar?",
+      "Revisou atividades pendentes ANTES de avançar 'A New Godsway' e conferiu os saves recuperáveis?",
       "Sabe que deve derrotar o dragão e sentar no trono para a conquista 'Paz'?",
-      "Sabe que durante os créditos deve conversar com o Pathfinder para retornar ao voo do dragão e usar a Godsbane no coração?"
+      "Sabe que NÃO deve iniciar Novo Jogo+ antes de tentar interagir com o Pioneiro (Pathfinder) e retornar ao voo do Dragão?"
     ]
   },
   {
@@ -1803,13 +1803,13 @@ export const RISK_CHECKPOINTS = [
     phaseId: "unmoored",
     title: "Mundo Desancorado: Evacuações e Feixe Vermelho Final",
     dangerLevel: "Crítico",
-    description: "Descansar na cama avança a névoa vermelha da destruição. Interagir com o feixe central do Santuário do Leito Marinho encerra o jogo sem aviso prévio.",
+    description: "Descansos podem avançar a névoa do Mundo Desancorado. O marcador azul do Templo Abissal participa da evacuação; o feixe vermelho FINAL encaminha o encerramento da campanha. Não confunda ambos.",
     verificationList: [
       "Evitou descansar em demasia no Mundo Desancorado para conter a névoa?",
-      "Concluiu as evacuações de Vernworth, Bakbattahl, Bosque Sagrado e Ilha Vulcânica ('O Guardião')?",
-      "Derrotou os 4 chefes dos feixes vermelhos periféricos ('O Herói')?",
+      "Concluiu as CINCO missões de evacuação: Vernworth, Bakbattahl, Jardim Sagrado, Acampamento Vulcânico e Local de Escavação (Henrique)?",
+      "Revisou os feixes de prova restantes no mapa, incluindo a participação possível de Talos, sem contar o feixe vermelho final como periférico?",
       "Reativou o Gigantus na praia ('Eu, Talos')?",
-      "Comprou a espada Dragon's Dogma com o Forjado pelo Dragão por 110 WLC ('Dogma do Dragão')?",
+      "Revisou itens, conquistas e tarefas opcionais pendentes ANTES de ativar o feixe vermelho final?",
       "Confirmou que NÃO está no Modo Casual (o Modo Casual anula a conquista 'Encerramento')?"
     ]
   }
