@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, Clock, ShieldAlert, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
 import { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { AchievementCard } from './AchievementCard';
 import { AchievementPreview, InlineAchievements } from './InlineAchievements';
@@ -83,71 +83,30 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
         {phase.cue && (
           <div className="mt-3 bg-[#1e1c18] border border-[#6b583e] rounded-md p-3 text-base text-[#ecd2ac] flex items-start gap-2.5">
             <span className="font-serif font-bold text-[#d9b780] text-sm leading-none shrink-0 mt-0.5">
-              ORIENTAÇÃO:
+              DICA:
             </span>
             <p className="leading-relaxed">{phase.cue}</p>
           </div>
         )}
       </div>
 
-      {/* Critical Checkpoint Warning Box (if applicable to this phase) */}
+      {/* Checkpoints permanecem acessíveis sem competir com as etapas do roteiro. */}
       {phaseCheckpoints.map(cp => {
         const isConfirmed = !!progress.confirmedCheckpoints[cp.id];
         return (
-          <div 
-            key={cp.id}
-            className={`my-6 rounded-lg border p-4 transition-colors ${
-              isConfirmed 
-                ? 'bg-[#151c17] border-[#385940] text-[#cfdecb]' 
-                : 'bg-[#291b17] border-[#8a4b3d] text-[#eed4cb]'
-            }`}
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <ShieldAlert className={`w-5 h-5 ${isConfirmed ? 'text-[#9bc4a5]' : 'text-[#df8c75]'}`} />
-                <h3 className="font-serif font-bold text-base text-[#f0d1a0]">
-                  Alerta cadastrado para o capítulo: {cp.title}
-                </h3>
-              </div>
-              <span className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded ${
-                isConfirmed ? 'bg-[#233b2a] text-[#9bc4a5]' : 'bg-[#4b2720] text-[#f4ad9b]'
-              }`}>
-                {isConfirmed ? 'Marcado como revisado' : 'Gatilho em verificação'}
-              </span>
-            </div>
-
-            <p className="text-base mt-2 leading-relaxed text-[#dcd6cc]">
-              {cp.description}
-            </p>
-
-            <div className="mt-3 bg-[#111315]/70 rounded p-3 border border-[#3d372e]/60">
-              <span className="text-[11px] font-serif uppercase tracking-wider text-[#d9b780] block mb-1.5">
-                Itens sugeridos para conferência (não auditados individualmente):
-              </span>
-              <ul className="text-base space-y-2 text-[#cfc8bd]">
-                {cp.verificationList.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#d9b780] font-mono">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-3 pt-2 border-t border-[#403e38]/50 flex items-center justify-between">
-              <label className="flex items-center gap-2 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={isConfirmed}
-                  onChange={() => onConfirmCheckpoint(cp.id)}
-                  className="w-4 h-4 rounded border-[#726044] text-[#d9b780] focus:ring-0 bg-[#1c1e21] cursor-pointer"
-                />
-                <span className="text-sm font-medium text-[#e9e2d7]">
-                  Confirmo que verifiquei todas as pendências acima antes de prosseguir
-                </span>
-              </label>
-            </div>
-          </div>
+          <details key={cp.id} className="my-3 rounded border border-[#6b583e] bg-[#1e1c18] p-3 text-[#ecd2ac]">
+            <summary className="cursor-pointer font-semibold text-sm">
+              {isConfirmed ? 'Revisado' : 'Antes de avançar'} · {cp.title}
+            </summary>
+            <p className="text-sm mt-3 leading-relaxed">{cp.description}</p>
+            <ul className="text-sm mt-2 space-y-1.5">
+              {cp.verificationList.map((item, idx) => <li key={idx}>• {item}</li>)}
+            </ul>
+            <label className="mt-3 flex gap-2 items-center text-sm cursor-pointer">
+              <input type="checkbox" checked={isConfirmed} onChange={() => onConfirmCheckpoint(cp.id)} />
+              Revisei estes pontos
+            </label>
+          </details>
         );
       })}
 
@@ -159,7 +118,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
               Sequência de Execução ({phase.events.length} etapas)
             </h3>
             <span className="text-[10px] text-[#8e887d] font-sans">
-              Ordem sugerida · conteúdo em revisão
+              Ordem sugerida
             </span>
           </div>
 
@@ -209,34 +168,19 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                           </h4>
                         </div>
 
-                        {/* Event Category / Risk Badge */}
-                        <div className="flex items-center gap-2 text-[10px] uppercase font-mono shrink-0">
-                          {event.risk === 'critico' && (
-                            <span className="text-[#f4ad9b] flex items-center gap-1 font-bold">
-                              <AlertTriangle className="w-3 h-3" />
-                              Risco Crítico
-                            </span>
-                          )}
-                          {event.risk === 'alerta' && (
-                            <span className="text-[#ecd2ac] flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              Alerta no roteiro
-                            </span>
-                          )}
-                          <span className="text-[#aea79b]">{event.type}</span>
-                        </div>
+                        <span className="text-[10px] uppercase font-mono text-[#aea79b]">{event.type}</span>
                       </div>
 
-                      {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && expandedEventId !== event.id && (
+                      {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && (
                         <p className="consult-priority-risk" role="note">
                           <AlertTriangle size={15} aria-hidden="true" />
-                          <span><strong>Cautela registrada:</strong> {event.failureRisk}</span>
+                          <span><strong>Antes de avançar:</strong> {event.failureRisk}</span>
                         </p>
                       )}
                       <div className="consult-achievement-preview"><AchievementPreview ids={event.achievements} phases={phases} progress={progress}/></div>
                       <button type="button" className="quest-detail-toggle" aria-expanded={expandedEventId === event.id}
                         aria-controls={`event-details-${event.id}`} onClick={() => onExpandEvent(event.id)}>
-                        {expandedEventId === event.id ? 'Recolher instruções' : 'Mostrar instruções e vínculos'}
+                        {expandedEventId === event.id ? 'Recolher instruções' : 'Ver instruções'}
                       </button>
                       {expandedEventId === event.id && (
                       <div id={`event-details-${event.id}`} className="quest-event-details">
@@ -244,14 +188,6 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                       <p className="text-base text-[#e1d6c6] leading-relaxed mt-2">
                         {event.note}
                       </p>
-
-                      {/* Failure Risk Explicit Callout */}
-                      {event.failureRisk && (
-                        <div className="mt-2 text-sm text-[#f4ad9b] bg-[#291714] p-2 rounded border border-[#6b2f24] flex items-start gap-1.5">
-                          <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#df8c75]" />
-                          <span><b>O que pode dar errado:</b> {event.failureRisk}</span>
-                        </div>
-                      )}
 
                       {/* Linked to the global catalogue; editorial, never an automatic unlock. */}
                       <InlineAchievements ids={event.achievements} phases={phases}
@@ -266,7 +202,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                             rel="noopener noreferrer"
                             className="hover:text-[#d9b780] inline-flex items-center gap-1 transition-colors"
                           >
-                            <span>Fonte indicada pelo roteiro (verificação pendente)</span>
+                            <span>Fonte da etapa</span>
                             <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         </div>
