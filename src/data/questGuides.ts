@@ -379,7 +379,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'Agarre Bermudo com o comando de agarrar, em vez de atacá-lo à distância.',
       'Após a conversa, escolha entre soltá-lo ou entregá-lo às autoridades; as opções têm resultados diferentes.'
     ],
-    completion: 'A decisão sobre Bermudo encerra a missão. Não é necessário concluir a perseguição para acessar os guias das demais missões.',
+    completion: 'A decisão sobre Bermudo encerra a missão.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-the-arisens-shadow-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Arisens-Shadow']
   },
   {
@@ -415,7 +415,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'Confirme a decisão para iniciar a tentativa de entrada na coroação. A cena termina com a reação do peão e o recuo do grupo.',
       'Volte à Stardrop Inn e converse com Brant para receber o próximo destino da história.'
     ],
-    completion: 'A missão termina após a nova conversa com Brant, que encaminha a viagem para Battahl. Não afirma que todas as quests abertas são canceladas.',
+    completion: 'A missão termina após a nova conversa com Brant, que encaminha a viagem para Battahl.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-feast-of-deception-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Feast-of-Deception']
   },
   {
