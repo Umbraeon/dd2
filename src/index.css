@@ -789,3 +789,14 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   .tokens-map-help { padding: 7px 12px; font-size: 11px; line-height: 1.45; }
   .tokens-map-footer { padding: 6px 12px; font-size: 11px; gap: 2px 10px; }
 }
+
+
+/* Índice de nomenclatura de quests: fechado por padrão para reduzir ruído. */
+.quest-related-names { margin: 1rem 0; padding: .65rem .85rem; border: 1px solid #50483d; background: #151513b8; color: #ded6c6; border-radius: .3rem; }
+.quest-related-names summary { cursor: pointer; color: #e7c58e; font-weight: 600; line-height: 1.55; }
+.quest-related-names summary:focus-visible { outline: 2px solid #dec18a; outline-offset: 3px; }
+.quest-related-names p { font-size: .85rem; line-height: 1.5; margin: .55rem 0; }
+.quest-related-names ul { padding-left: 1.3rem; margin: .4rem 0 .15rem; }
+.quest-related-names li { line-height: 1.5; margin: .4rem 0; }
+.quest-related-names li span { color: #b4ad9f; }
+.quest-related-names li small { color: #aaa393; display: block; }
