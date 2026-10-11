@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 5);
+  assert.equal(QUEST_GUIDES.length, 8);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -20,6 +20,8 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
     assert.ok(guide.relatedEventIds.every(id => knownEvents.has(id)), `Marco desconhecido em ${guide.id}`);
   }
   assert.equal(questGuidesForEvent('b03')[0].id, 'short_sighted');
+  assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
+  assert.equal(questGuidesForEvent('m04').length, 2);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
