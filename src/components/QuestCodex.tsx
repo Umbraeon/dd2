@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AlertTriangle, ArrowLeft, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ChevronRight, Circle, Compass, ExternalLink, ShieldAlert, SkipForward } from 'lucide-react';
 import type { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
+import { questNamesForEvent } from '../data/questNameIndex';
 import { AchievementPreview, InlineAchievements } from './InlineAchievements';
 import { isStepCompleted, isStepDeferred, listJourneySteps, resolveJourney } from '../utils/journey';
 
@@ -41,6 +42,7 @@ export const QuestCodex: React.FC<Props> = ({
     all.find(step => step.phase.id === phase.id);
   const displayed = inspected?.phase.id === phase.id ? inspected : all.find(step => step.phase.id === phase.id);
   const event = displayed?.event;
+  const relatedQuestNames = event ? questNamesForEvent(event.id) : [];
   const completed = event ? isStepCompleted(progress, event.id) : false;
   const deferred = event ? isStepDeferred(progress, event.id) : false;
   const active = event ? progress.activeStepId === event.id : false;
@@ -174,6 +176,16 @@ export const QuestCodex: React.FC<Props> = ({
               <button className="quest-more-toggle" type="button" aria-expanded={more} onClick={() => setMore(v => !v)}>
                 Informações adicionais e fontes <ChevronDown size={17} aria-hidden="true" />
               </button>
+              {relatedQuestNames.length > 0 && <details className="quest-related-names">
+                <summary>Missões relacionadas em PT-BR ({relatedQuestNames.length})</summary>
+                <p>Associações de pesquisa, não uma ordem obrigatória nem lista exaustiva de objetivos. Nome inglês mantido para consulta.</p>
+                <ul>{relatedQuestNames.map(quest => <li key={quest.english}>
+                  <strong>{quest.ptBR}</strong> <span>({quest.english})</span>
+                  <small>{quest.evidence === 'pak_sample_reported'
+                    ? 'Amostra PAK reportada · chave e SHA256 documentados'
+                    : 'Base EN/PT-BR pareada · conferência individual do PAK pendente'}</small>
+                </li>)}</ul>
+              </details>}
               {more && <div className="quest-more-content">
                 <p>Tipo: {event.type} · Nível editorial de cautela: {event.risk}. Nenhum aviso equivale a prazo ou irreversibilidade comprovados sem auditoria.</p>
                 <p>Os marcos são adaptações resumidas de fontes comunitárias. Consulte a cronologia completa antes de decisões irreversíveis.</p>
