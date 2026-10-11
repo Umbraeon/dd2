@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, ExternalLink, ScrollText } from 'lucide-react';
+import { BookOpen, ExternalLink } from 'lucide-react';
 import { FORGERY_ITEMS, QUEST_GUIDES, questGuidesForEvent } from '../data/questGuides';
 import type { QuestGuide } from '../data/questGuides';
 
@@ -88,7 +88,7 @@ export const ForgeryGuide: React.FC = () => (
   </section>
 );
 
-export const QuestGuideLibrary: React.FC = () => {
+export const QuestGuideLibrary: React.FC<{ initialGuideId?: string }> = ({ initialGuideId = '' }) => {
   const [filter, setFilter] = useState('');
   const normalized = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const visible = QUEST_GUIDES.filter(guide =>
@@ -108,7 +108,7 @@ export const QuestGuideLibrary: React.FC = () => {
         <input id="quest-guide-filter" type="search" value={filter} onChange={event => setFilter(event.target.value)}
           placeholder="Ex.: Trysha, Jadeite, Isaac"
           className="w-full min-h-11 rounded border border-[#5d5140] bg-[#16181b] p-3 text-[#f0e2cf]" />
-        {visible.map(guide => <WalkthroughCard guide={guide} key={guide.id}/>)}
+        {visible.map(guide => <WalkthroughCard guide={guide} key={guide.id} initialOpen={guide.id === initialGuideId}/>)}
         {visible.length === 0 && <p role="status" className={note}>Nenhuma ficha encontrada. Tente outro nome.</p>}
       </div>
     </section>
