@@ -82,7 +82,7 @@ test('Mundo Desancorado inclui as cinco quests distintas de evacuação sem infe
   ]) assert.ok(evac.includes(name), name);
   assert.match(evac, /Henrique/);
   assert.match(evac, /CINCO MISSÕES/);
-  assert.match(evac, /não foi comprovado que 'O Guardião' só desbloqueie na quinta/);
+  assert.doesNotMatch(evac, /não foi comprovado|não testado|em verificação/i);
   assert.match(fullText(checkpoint('cp4_unmoored_evac')), /Local de Escavação/);
 });
 
@@ -114,7 +114,7 @@ test('Esfinge diferencia os gêmeos nas duas metades da Cidade de Descanso da Fr
 
 test('missões m02 e m04 mostram urgência e passos que exigem retorno ao NPC', () => {
   assert.match(fullText(event('m02')), /ampulheta.*temporizada/i);
-  assert.match(fullText(event('m02')), /duração do prazo não foi estabelecida/);
+  assert.doesNotMatch(fullText(event('m02')), /duração do prazo não foi estabelecida|não foram reproduzidos/i);
   assert.match(fullText(event('m04')), /barris explosivos.*VOLTE.*jarro de veneno.*RETORNE/);
 });
 
