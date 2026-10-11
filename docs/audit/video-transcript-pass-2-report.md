@@ -15,8 +15,8 @@ Não houve reprodução do conteúdo do vídeo nem inspeção de frames. O fato 
 | Transcrições acessíveis | 19 |
 | Transcrições percorridas integralmente | 19 |
 | Indisponibilidades reais | 0 |
-| Registros factuais produzidos | 76 |
-| Registros `NARRACAO_TRANSCRITA` | 76 |
+| Registros factuais produzidos | 77 |
+| Registros `NARRACAO_TRANSCRITA` | 77 |
 
 Não houve episódio marcado `PARCIAL` ou `INDISPONIVEL` no índice. “Integralmente” refere-se ao percurso do texto disponível no painel, até o último segmento; não significa que toda afirmação do criador tenha sido confirmada por uma segunda fonte.
 
@@ -35,7 +35,7 @@ Não houve episódio marcado `PARCIAL` ou `INDISPONIVEL` no índice. “Integral
 - O episódio 29 registra que a ordem sugerida para uma quest de afinidade foi invertida e ainda funcionou, limitando qualquer afirmação de obrigatoriedade.
 - Os episódios 27–28 e 36 mantêm bloqueios ou conclusões diferentes em contas/execuções distintas; o próprio narrador não identifica a causa.
 - O episódio 31 descreve possíveis finais bons/ruins sem comparar as alternativas.
-- Os episódios 38 e 43 mantêm ramificações de entrega/evacuação, incluindo a fala posterior de que evacuação talvez não seja necessária para o troféu; a necessidade não foi resolvida.
+- Os episódios 38 e 43 mantêm ramificações de entrega/evacuação, incluindo a fala posterior de que evacuação talvez não seja necessária para o troféu; a necessidade não foi resolvida. A fala sobre a névoa parar após o terceiro pilar e o limite de tempo permanece separada em VTP2-077.
 - O episódio 41 relata que o troféu associado ao Gigantus não apareceu por problema técnico na segunda gravação. Isso não prova que a rota falhe nem que o requisito esteja ausente.
 - Nomes reconhecidos como `Chefe de Guerra`, `Haja luz`, `Diana/Dafne`, `Guardian`, `Gigantus` e outros foram mantidos como fala/ASR potencialmente incerta; não foram promovidos automaticamente a nomes oficiais PT-BR.
 
