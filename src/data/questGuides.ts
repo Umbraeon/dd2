@@ -297,8 +297,8 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     relatedEventIds: ['v103'],
     preparation: ['Tenha comida e algum ouro para as doações pedidas por Kendrick.', 'O local descoberto nesta missão serve também para O Magistrado Aprisionado.'],
     steps: [
-      'Encontre Kendrick diante da Mão Graciosa no Bairro Pobre e faça as doações solicitadas até ele pedir ajuda para procurar Malcolm.',
-      'Pergunte pelo menino às crianças da vizinhança: um menino perto dos escombros, outro no mirante e uma menina dentro da Mão Graciosa.',
+      'Encontre Kendrick diante da Mão Graciosa no Bairro Pobre. Ofereça comida e 1.000 moedas de ouro para iniciar a busca por Malcolm.',
+      'Pergunte por Malcolm a Harvey, perto dos escombros; Rick, no mirante; e Aimee, dentro da Mão Graciosa.',
       'Volte a Kendrick com as informações. Siga-o até a entrada bloqueada das galerias subterrâneas.',
       'Entre no subterrâneo e procure Malcolm pelo caminho até encontrá-lo.',
       'Acompanhe Malcolm até a biblioteca escondida. Depois, informe Waldhar sobre a biblioteca na missão O Magistrado Aprisionado.'
@@ -325,7 +325,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'readvent_calamity', title: 'Revinda da Calamidade', original: 'Readvent of Calamity',
     region: 'Melve e Aldeia de Harve', giver: 'Iniciada pelo ataque do dragão em Melve',
     relatedEventIds: ['v107', 'v202'],
-    preparation: ['Enquanto estiver cumprindo as missões de Brant em Vernworth, volte a Melve antes de concluir O Banquete da Farsa.', 'Não use uma condição específica de viagem como garantia de ativação: os guias divergem sobre o gatilho anterior ao ataque.'],
+    preparation: ['Enquanto estiver cumprindo as missões de Brant em Vernworth, volte a Melve antes de concluir O Banquete da Farsa.', 'Se encontrar o ataque em Melve, dê prioridade a esta sequência antes de concluir O Banquete da Farsa.'],
     steps: [
       'Quando o dragão atacar Melve, ajude os moradores a repelir a criatura. Se Sigurd estiver presente, fale com ele para liberar Lanceiro Místico.',
       'Retorne a Melve depois de algum tempo e converse com Ulrika na casa dela.',
