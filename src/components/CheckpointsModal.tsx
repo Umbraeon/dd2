@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ShieldAlert, CheckCircle2, Circle, AlertTriangle, ExternalLink } from 'lucide-react';
+import { X, ShieldAlert, ExternalLink } from 'lucide-react';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
 import { UserProgress } from '../types/roadmap';
 
@@ -31,10 +31,10 @@ export const CheckpointsModal: React.FC<CheckpointsModalProps> = ({
             </div>
             <div>
               <h3 className="font-serif font-bold text-lg text-[#f0d1a0]">
-                4 Alertas de Progressão & Checkpoints
+                Pontos de decisão
               </h3>
               <p className="text-xs text-[#aea79b]">
-                Alertas de risco — não representam garantia de conclusão
+                O que conferir antes de continuar
               </p>
             </div>
           </div>
@@ -49,18 +49,6 @@ export const CheckpointsModal: React.FC<CheckpointsModalProps> = ({
 
         {/* Content */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-6 text-xs text-[#d0c9be]">
-          <div className="bg-[#241a18] border border-[#6b352b] rounded-md p-3.5 text-[#ecd4cc] flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-[#df8c75] shrink-0 mt-0.5" />
-            <div>
-              <p className="font-serif font-bold text-[#f4ad9b] text-sm">
-                A Filosofia de Salvamento de Dragon's Dogma 2
-              </p>
-              <p className="mt-1 leading-relaxed text-[#aea79b]">
-                O jogo só possui um arquivo de progresso contínuo e autosave constante, <b>mas</b> permite restaurar o último salvamento manual realizado ao descansar em uma <b>Pousada</b> ou na sua <b>Casa Própria</b>. Antes de cada um dos quatro checkpoints abaixo, durma em uma pousada para congelar um ponto de restauração seguro!
-              </p>
-            </div>
-          </div>
-
           <div className="space-y-4">
             {RISK_CHECKPOINTS.map((cp, idx) => {
               const isConfirmed = !!progress.confirmedCheckpoints[cp.id];
@@ -103,7 +91,7 @@ export const CheckpointsModal: React.FC<CheckpointsModalProps> = ({
 
                   <div className="bg-[#111315]/80 p-3 rounded border border-[#313338] space-y-1.5">
                     <span className="font-serif uppercase tracking-wider text-[11px] text-[#d9b780] block">
-                      Lista de Verificação Prévia:
+                      Antes de avançar
                     </span>
                     <ul className="space-y-1 text-xs text-[#aea79b]">
                       {cp.verificationList.map((item, i) => (
@@ -124,13 +112,11 @@ export const CheckpointsModal: React.FC<CheckpointsModalProps> = ({
                         className="w-4 h-4 rounded border-[#726044] text-[#d9b780] focus:ring-0 bg-[#1c1e21]"
                       />
                       <span className={`text-xs font-semibold ${isConfirmed ? 'text-[#9bc4a5]' : 'text-[#f0d1a0]'}`}>
-                        {isConfirmed ? 'Verificado & Confirmado' : 'Marcar como verificado e ciente'}
+                        {isConfirmed ? 'Pontos revisados' : 'Revisei estes pontos'}
                       </span>
                     </label>
 
-                    <span className="text-[10px] uppercase font-mono text-[#8e887d]">
-                      {cp.dangerLevel}
-                    </span>
+
                   </div>
                 </div>
               );

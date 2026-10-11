@@ -21,7 +21,7 @@ const options = [
   ['Mementos do Buscador', /Mementos do Buscador · 80 Tokens/],
   ['Churrasco', /Mestre do Churrasco · Matriz/],
   ['Mestres', /Mestre dos Mestres · 12 Ensinamentos/],
-  ['Alertas e checkpoints', /4 Alertas de Progressão & Checkpoints/],
+  ['Pontos de decisão', /Pontos de decisão/],
   ['Backup do progresso', /Gerenciamento & Backup de Progresso/],
   ['Glossário PT\/EN', /Glossário Bilíngue de Termos/]
 ] as const;
@@ -109,7 +109,7 @@ test('Referências acessa o mesmo painel, fecha por Escape e mantém fontes, met
   await expect(entry).toHaveAttribute('aria-controls','tools-hub-panel');
   await expect(entry).toHaveAttribute('aria-expanded','true');
   await expect(page.locator('.consult-reference-list a').first()).toBeVisible();
-  await expect(page.getByRole('button', {name:'Abrir notas editoriais e metodologia'})).toBeVisible();
+  await expect(page.getByRole('button', {name:'Ver fontes do guia'})).toBeVisible();
   await expect(page.getByRole('button', {name:'Consultar glossário bilíngue'})).toBeVisible();
   await expect(page.locator('.consult-tools button')).toHaveCount(1);
   await page.keyboard.press('Escape');
@@ -127,7 +127,7 @@ test('Referências acessa o mesmo painel, fecha por Escape e mantém fontes, met
 test('atalhos Alertas/Backup independentes e recuperação com armazenamento inválido', async ({page}) => {
   await page.goto('/');
   await page.getByRole('button',{name:'Conferir alertas'}).click();
-  await expect(modal(page).getByRole('heading',{name:/Alertas de Progressão/})).toBeVisible();
+  await expect(modal(page).getByRole('heading',{name:/Pontos de decisão/})).toBeVisible();
   await closeModal(page).click();
   await page.getByRole('button',{name:'Backup do progresso'}).click();
   await expect(modal(page).getByRole('heading',{name:/Gerenciamento & Backup/})).toBeVisible();

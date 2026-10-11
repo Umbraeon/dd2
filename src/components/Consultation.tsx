@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Search, X, BookOpen, ListChecks, Award, ShieldAlert, ExternalLink, ChevronRight, ArrowLeft } from 'lucide-react';
+import { Search, X, BookOpen, ListChecks, Award, ExternalLink, ChevronRight, ArrowLeft } from 'lucide-react';
 import type { Phase, UserProgress } from '../types/roadmap';
 import { ROADMAP_METADATA } from '../data/roadmapData';
 import { ChapterSection } from './ChapterSection';
@@ -104,7 +104,7 @@ export const Consultation: React.FC<Props> = ({
             autoComplete="off"/>
           {search && <button type="button" onClick={() => onSearchChange('')} aria-label="Limpar busca"><X size={18} aria-hidden="true"/></button>}
         </div>
-        <p className="consult-search-hint">53 marcos resumidos · 60 conquistas distintas · informações em revisão</p>
+        <p className="consult-search-hint">53 etapas do roteiro · 60 conquistas</p>
       </div>
 
       <nav className="consult-sections" aria-label="Seções da Consulta">
@@ -192,7 +192,7 @@ export const Consultation: React.FC<Props> = ({
                 <div><p className="consult-eyebrow">CATÁLOGO STEAM</p><h2 id="consult-achievements-title">Conquistas</h2></div>
                 <span>{achievements.length} fichas distintas</span>
               </div>
-              <p className="consult-muted">Associações às missões são editoriais, em verificação. Marcar uma conquista não conclui um marco.</p>
+              <p className="consult-muted">Conquistas e etapas são marcadas separadamente.</p>
               <label htmlFor="consult-achievement-chapter" className="consult-label">Abrangência do acervo</label>
               <select id="consult-achievement-chapter" className="consult-chapter-select" value={achievementChapter}
                 onChange={e => { setAchievementChapter(e.target.value); onClearAchievement(); }}>
@@ -235,28 +235,23 @@ export const Consultation: React.FC<Props> = ({
           {section === 'references' && (
             <section aria-labelledby="consult-references-title" className="consult-references">
               <div className="consult-section-title">
-                <div><p className="consult-eyebrow">CRITÉRIOS E PROCEDÊNCIA</p><h2 id="consult-references-title">Referências</h2></div>
+                <div><p className="consult-eyebrow">BIBLIOTECA</p><h2 id="consult-references-title">Referências</h2></div>
               </div>
-              <div className="consult-editorial-warning" role="note">
-                <ShieldAlert size={21} aria-hidden="true"/>
-                <div><strong>Conteúdo comunitário ainda não auditado por etapa</strong>
-                  <p>Os 53 marcos são resumos, não todas as missões individualizadas. Fontes indicadas não comprovam cada instrução. Alertas, requisitos, associações de conquistas e rotas da expansão devem ser conferidos antes de decisões irreversíveis.</p>
-                </div>
-              </div>
-              <h3>Fontes cadastradas</h3>
+
+              <h3>Fontes principais</h3>
               <div className="consult-reference-list">
-                {Object.entries(ROADMAP_METADATA.sources).map(([key, entry]) =>
-                  <a key={key} href={entry.url} target="_blank" rel="noopener noreferrer">
-                    <span><strong>{entry.label}</strong><small>Fonte para conferência · conteúdo em revisão</small></span>
+                {(['steam_pt', 'steam_en', 'route_guide', 'mapgenie'] as const).map(key =>
+                  <a key={key} href={ROADMAP_METADATA.sources[key].url} target="_blank" rel="noopener noreferrer">
+                    <span><strong>{ROADMAP_METADATA.sources[key].label}</strong></span>
                     <ExternalLink size={16} aria-hidden="true"/>
                   </a>)}
               </div>
               <div className="consult-reference-actions">
-                <button type="button" onClick={onOpenSources}>Abrir notas editoriais e metodologia</button>
+                <button type="button" onClick={onOpenSources}>Ver fontes do guia</button>
                 <button type="button" onClick={onOpenGlossary}>Consultar glossário bilíngue</button>
               </div>
               <h3>Ferramentas de acompanhamento</h3>
-              <p className="consult-muted">Abra os rastreadores existentes na mesma central acessível pelo cabeçalho, sem mudar seu progresso.</p>
+              <p className="consult-muted">Rastreadores, checkpoints, backup e glossário.</p>
               <div className="consult-tools">
                 <button type="button" data-tools-hub-trigger="references" onClick={onOpenTools}
                   aria-controls="tools-hub-panel" aria-expanded={toolsExpanded}>

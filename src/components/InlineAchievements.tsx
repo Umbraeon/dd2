@@ -68,16 +68,16 @@ export const InlineAchievements: React.FC<InlineProps> = ({ ids, phases, progres
   const remaining = total - initialCount;
 
   return (
-    <section className="inline-achievements" aria-label="Conquistas associadas no roteiro">
-      <h3>Conquistas associadas no roteiro <span>(em verificação)</span></h3>
-      <p className="inline-achievement-caveat">Vínculo editorial: não confirma o momento nem garante o desbloqueio. O progresso da conquista é independente do marco.</p>
+    <section className="inline-achievements" aria-label="Conquistas para acompanhar">
+      <h3>Conquistas para acompanhar</h3>
+      <p className="inline-achievement-caveat">Marque cada conquista quando ela aparecer no jogo.</p>
       <div className="inline-achievements-grid">
         {visible.map(({ id, link }) => link ? (
           <button type="button" key={id} className="inline-achievement-entry"
             onClick={() => onOpenAchievement(link.phaseId, id)}
             title={'Abrir ficha: ' + link.achievement.title}
             aria-label={'Abrir ficha da conquista ' + link.achievement.title + ', ' +
-              (progress.achievements[id] ? 'obtida' : 'não obtida') + ', vínculo em verificação'}>
+              (progress.achievements[id] ? 'obtida' : 'não obtida')}>
             <AchievementMiniIcon achievement={link.achievement} />
             <span className="inline-achievement-name">
               <strong>{link.achievement.title}</strong>
@@ -88,7 +88,7 @@ export const InlineAchievements: React.FC<InlineProps> = ({ ids, phases, progres
         ) : (
           <span className="inline-achievement-entry is-missing" key={id} role="note">
             <span className="inline-achievement-icon inline-achievement-fallback"><Award size={18} aria-hidden="true" /></span>
-            <span className="inline-achievement-name"><strong>Conquista #{id}</strong><small>Ficha não localizada · em verificação</small></span>
+            <span className="inline-achievement-name"><strong>Conquista #{id}</strong><small>Ficha indisponível</small></span>
           </span>
         ))}
       </div>

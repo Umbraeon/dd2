@@ -67,7 +67,7 @@ test('sem resultados, limpeza de filtros e alternância de três seções', asyn
   await expect(page.locator('.consult-achievement-list button')).toHaveCount(60);
   await page.getByRole('navigation', { name: 'Seções da Consulta' }).getByRole('button', { name: 'Referências', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Referências', exact: true })).toBeVisible();
-  await expect(page.getByText('Conteúdo comunitário ainda não auditado por etapa')).toBeVisible();
+  await expect(page.getByText('Fontes principais')).toBeVisible();
   await expect(page.locator('.consult-tools').getByRole('button', {name:'Abrir Central de Ferramentas'})).toBeVisible();
   await page.getByRole('button', { name: 'Missões', exact: true }).click();
   await expect(page.getByRole('combobox', {name:'Capítulo do roteiro'})).toBeVisible();
@@ -83,12 +83,12 @@ test('teclado e foco em fichas abertas via Diário, sem alterar progresso', asyn
   const mission = entries.find(item => item.event.achievements.length > 0)!;
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(mission.phase.id);
   await page.getByRole('button', { name: 'Consultar atividade: ' + mission.event.title, exact:false }).click();
-  await page.getByRole('button', { name: 'Informações adicionais e fontes' }).click();
+  await page.getByRole('button', { name: 'Detalhes e fonte' }).click();
   const open = page.getByRole('button', { name: 'Abrir ficha completa na Consulta' });
   await open.focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('#step-' + mission.event.id)).toBeFocused();
-  const achievementLink = page.getByRole('region', { name:'Conquistas associadas no roteiro' })
+  const achievementLink = page.getByRole('region', { name:'Conquistas para acompanhar' })
     .getByRole('button', { name:/Abrir ficha da conquista/ }).first();
   await achievementLink.focus();
   await page.keyboard.press('Enter');

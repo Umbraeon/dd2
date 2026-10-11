@@ -30,7 +30,7 @@ const groups = [
     id: 'safety',
     heading: 'Segurança e progresso',
     items: [
-      { id: 'checkpoints', name: 'Alertas e checkpoints', summary: 'Cuidados antes de decisões de risco', icon: ShieldAlert },
+      { id: 'checkpoints', name: 'Pontos de decisão', summary: 'O que conferir antes de avançar', icon: ShieldAlert },
       { id: 'backup', name: 'Backup do progresso', summary: 'Exportar, importar e recuperar dados v3', icon: FolderDown }
     ]
   },

@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
       </nav>
       <div className="codex-header-tools">
         <button type="button" onClick={onOpenCheckpoints} className="codex-header-warning" title="Conferir alertas registrados no roteiro" aria-label="Conferir alertas">
-          <ShieldAlert size={16}/><span className="hidden sm:inline">ALERTAS</span>
+          <ShieldAlert size={16}/><span className="hidden sm:inline">CHECKPOINTS</span>
         </button>
         <button type="button" onClick={onOpenTools} className="codex-header-tool" title="Abrir central de ferramentas" aria-label="Abrir central de ferramentas"
           data-tools-hub-trigger="header" aria-controls="tools-hub-panel" aria-expanded={toolsExpanded}>

@@ -33,7 +33,7 @@ test('new player: current/suggested step in first screen, no storage writes, fou
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await expect(page.getByRole('heading', { name: 'Diário do Nascen' })).toBeVisible();
-    await expect(page.getByText('Sugestão do roteiro · não indica sua posição real')).toBeVisible();
+    await expect(page.getByText('Próxima etapa sugerida')).toBeVisible();
     await expect(page.locator('.quest-codex')).toBeInViewport();
     const dimensions = await page.evaluate(() => ({
       width: document.documentElement.clientWidth, scrollWidth: document.documentElement.scrollWidth
@@ -62,7 +62,7 @@ test('20/53: screenshot on four viewports, active suggestion is not assumed posi
   for (const [width, height] of [[375, 812], [390, 844], [1440, 900], [1920, 1080]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/');
-    await expect(page.getByText('Sugestão do roteiro · não indica sua posição real')).toBeVisible();
+    await expect(page.getByText('Próxima etapa sugerida')).toBeVisible();
     await expect(page.locator('.quest-master')).toContainText(steps[20].title);
     const dim = await page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
     expect(dim[0]).toBeLessThanOrEqual(dim[1] + 1);
@@ -168,9 +168,7 @@ test('warnings are visible without opening extra details, and factual limits are
   const cp = RISK_CHECKPOINTS[0];
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(cp.phaseId);
-  await expect(page.getByText(/alerta\(s\) cadastrados para este capítulo/)).toBeVisible();
-  await expect(page.locator('.quest-chapter-alert')).toContainText('ainda não foi verificada');
-  await page.getByRole('button', { name: 'Ver alertas' }).click();
+  await page.getByRole('button', { name: 'Conferir alertas' }).click();
   await expect(page.getByText(cp.title).first()).toBeVisible();
 });
 
@@ -178,7 +176,7 @@ test('full details and exact step navigation remain available without losing per
   await page.goto('/');
   const target = PHASES[0].events[1];
   await page.getByRole('button', { name: `Consultar atividade: ${target.title}` }).click();
-  await page.getByRole('button', { name: 'Informações adicionais e fontes' }).click();
+  await page.getByRole('button', { name: 'Detalhes e fonte' }).click();
   await expect(page.locator('.quest-more-content')).toBeVisible();
   await page.getByRole('button', { name: 'Abrir ficha completa na Consulta' }).click();
   await expect(page.locator(`#step-${target.id}`)).toBeFocused();
