@@ -1,5 +1,7 @@
 # Parecer crítico sobre relatório Gemini Deep Research (10/10/2026)
 
+> **Nota de atualização (11/10/2026):** este parecer é um registro histórico anterior à extração dos PAKs. Suas ressalvas sobre gameplay continuam válidas, mas as conclusões de nomenclatura baseadas apenas no Kiranico foram superadas: `quest-name-mapping.csv` agora contém 59 títulos `OFICIAL_COMPROVADO` por ID/chave no build 25290080.
+
 **Natureza:** revisão adversarial de um relatório externo entregue pelo proprietário, NÃO uma confirmação de tudo o que ele relata. **Escopo:** nova pesquisa documental sobre fontes diretas, sem testes in-game nem leitura completa de vídeos. Nenhum dado de produção foi alterado. **Estado:** APROVEITAR COM FILTRO.
 
 ## Referências e fontes confrontadas
@@ -36,7 +38,7 @@
 2. Incluir Guardião somente com status de nomenclatura adequado até comprovação do termo localizado em PT-BR. O patch mostra seu efeito nas carroças e como obter o tomo.
 3. O patch passou a exibir **ícone de ampulheta** para missões temporizadas, mas **não prova o cronômetro específico de Accardo**.
 4. O TU 3.2 de agosto adicionou **três slots de salvamento** e diferencia autosave, interim save e last inn rest save. Qualquer instrução do roteiro anterior baseada em sistema de save de 2024 merece revisão por versão, sem presumir idêntico comportamento.
-5. Todos os títulos de missões localizados pelo Kiranico permanecem `LOCALIZACAO_EXTRAIDA`, sem comprovação primária do diário PT-BR.
+5. **Estado histórico superado:** os títulos baseados apenas no Kiranico eram `LOCALIZACAO_EXTRAIDA`; a extração reproduzida do build 25290080 agora comprova os 59 literais e vínculos ID/chave. A exibição no diário em cada estado continua sem captura.
 
 ## Limitações e governança
 O relatório Gemini não fornece evidências diretas de que o autor viu quadros in-game PT-BR dos 43 vídeos. Sua lista de referências tem descrições de páginas, mas não sustenta cada alegação com link direto e timestamp individual. Consequentemente, seus rótulos «FATO COMPROVADO», «irrefutável» e «exaustivo» não devem ser herdados. Esta revisão não modifica `src/`, dados de produção, IDs, storage v3, progresso, nem efetua merge. Manter PR em draft; mudanças na aplicação só com aprovação do proprietário e Head.

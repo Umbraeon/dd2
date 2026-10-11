@@ -94,4 +94,4 @@ O marco `u04` agrega «quatro regiões», mas a fonte [PowerPyx](https://www.pow
 2. Antes de `A New Godsway`, confirmar autosave ao disparar a Flecha da Ruína e ponto de conclusão antes de o Gigantus cruzar o acampamento. Comparar método tradicional e observar `Eu, Talos` na mesma campanha.
 3. Após `Paz`, registrar tela real de menu TU3.2 e retorno ao voo com Pathfinder, sem clicar NG+ e sem sobrescrever dados.
 4. Mundo Desancorado: print dos marcadores **azul/vermelhos** por estado, testes de acesso antes/depois de Talos, de cada uma das cinco quests, quantidade de repousos e o que ocorre se ativar o feixe vermelho final.
-5. Capturar nomes reais PT-BR do mapa: `Seafloor Shrine`, `Sacred Arbor`, `Excavation Site`, instruções de save, novo termo `Interim Save`. **Status dos títulos no CSV = LOCALIZACAO_EXTRAIDA, nunca screenshot oficial.**
+5. Capturar nomes reais PT-BR do **mapa**: `Seafloor Shrine`, `Sacred Arbor`, `Excavation Site`, instruções de save e novo termo `Interim Save`. Os **títulos das quests** do CSV já foram promovidos por ID/chave nos PAKs do build 25290080; isso não resolve rótulos de mapa nem equivale a screenshot/runtime.
