@@ -240,7 +240,7 @@ export const PHASES: Phase[] = [
         achievements: [12],
         risk: "cuidado",
         source: "https://steamcommunity.com/stats/2054970/achievements",
-        failureRisk: "Entrar sem traje de corte fará a guarda atacar e impedirá a conquista nessa tentativa."
+        failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas."
       },
       {
         id: "v105",
@@ -474,7 +474,7 @@ export const PHASES: Phase[] = [
         id: "v302",
         title: "Prepare a missão de Wilhelmina e cumpra seu prazo quando disponível",
         type: "alerta",
-        note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'O Banquete da Farsa' (Feast of Deception); NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
+        note: "Conheça Wilhelmina durante a história. Após 'O Banquete da Farsa' (Feast of Deception), volte ao Rose Chateau Bordelrie para falar com ela. Se receber a missão 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), reúna as provas de Allard dentro de três dias no jogo.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
@@ -485,7 +485,7 @@ export const PHASES: Phase[] = [
         id: "v303",
         title: "Confira as missões pendentes antes da coroação",
         type: "checkpoint",
-        note: "PARE antes de concluir 'O Banquete da Farsa' (Feast of Deception) com Brant. Termine a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity, entre outras missões); confira as missões de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
+        note: "Antes de concluir 'O Banquete da Farsa' (Feast of Deception), termine 'O Vilarejo sem Nome' e 'Uma Sombra à Espreita' se ainda pretende fazê-las. Confira também a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity) e as tarefas de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Quando Brant perguntar se você está pronto, revise o diário de missões e os salvamentos disponíveis.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
@@ -496,7 +496,7 @@ export const PHASES: Phase[] = [
         id: "v304",
         title: "Realize a Coroação e receba a autorização para Battahl",
         type: "historia",
-        note: "Conclua 'O Banquete da Farsa' (Feast of Deception). Brant libera a sequência para Battahl ('Nação da Chama Luzente' — Nation of the Lambent Flame). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
+        note: "Conclua 'O Banquete da Farsa' (Feast of Deception) e fale com Brant para começar a viagem a Battahl ('Nação da Chama Luzente' — Nation of the Lambent Flame). Antes de deixar Vernworth, procure Wilhelmina no Rose Chateau Bordelrie. Se ela solicitar provas contra Allard, conclua essa tarefa dentro de três dias no jogo. Depois siga para o Posto de Controle da Fronteira.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
