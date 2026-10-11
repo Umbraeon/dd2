@@ -118,7 +118,7 @@ test('missões m02 e m04 mostram urgência e passos que exigem retorno ao NPC', 
   assert.match(fullText(event('m04')), /barris explosivos.*VOLTE.*jarro de veneno.*RETORNE/);
 });
 
-test('DLC de 11 de outubro usa seis títulos PT-BR verificados e sem tradução provisória', () => {
+test('DLC preserva seis fichas e mostra apenas objetivos concretos ao jogador', () => {
   const expected = new Map([
     [55, 'Terras Esquecidas do Norte'],
     [56, 'Antagonista do Dogma'],
@@ -129,18 +129,13 @@ test('DLC de 11 de outubro usa seis títulos PT-BR verificados e sem tradução 
   ]);
   for (const achievement of achievements.filter(item => item.dlc)) {
     assert.equal(achievement.title, expected.get(achievement.id));
-    assert.doesNotMatch(achievement.title, /provisóri|\[|\]/i);
-    assert.match(achievement.nameStatus, /gatilho não reproduzido/);
+    assert.doesNotMatch(achievement.tip, /em verificação|não reproduzid|em apuração|falta captura|relatam/i);
+    assert.match(achievement.nameStatus, /gatilho não reproduzido/); // Mantido como dado interno.
     expected.delete(achievement.id);
   }
   assert.equal(expected.size, 0);
-  assert.match(event('d01').title, /Fale com Brant/);
-  const dlc = fullText(event('d01'));
-  for (const required of ['Brant', 'Stardrop Inn', 'Chilling Tidings', 'Lost Rites', 'nível 40 RECOMENDADO', 'nível 20 RECOMENDADO']) {
-    assert.ok(dlc.includes(required), required);
-  }
-  assert.match(dlc, /Chilling Tidings — Notícias Congelantes \(PT-BR extraído do questlog/);
-  assert.match(dlc, /Lost Rites — Rituais Perdidos \(PT-BR extraído do questlog/);
-  assert.match(dlc, /falta captura dos títulos no diário PT-BR/i);
+  assert.equal(event('d01').title, 'Consulte as conquistas de Dark Arisen');
+  assert.equal(event('d01').risk, 'normal');
+  assert.doesNotMatch(fullText(event('d01')), /em verificação|não reproduzid|em apuração|falta captura|relatam/i);
   assert.equal(ROADMAP_METADATA.researchDate, '2026-10-11');
 });
