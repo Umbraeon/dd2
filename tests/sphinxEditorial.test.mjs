@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { SPHINX_RIDDLES } from '../src/data/roadmapData.ts';
+import { PHASES, SPHINX_RIDDLES } from '../src/data/roadmapData.ts';
 
 const modal = readFileSync(new URL('../src/components/SphinxTrackerModal.tsx', import.meta.url), 'utf8');
 const byId = id => {
@@ -30,4 +30,17 @@ test('Memória permite contar baús desbloqueados e usa ordem variável da front
   assert.match(byId('sphinx_memory').solution, /baús de recompensa/i);
   assert.match(byId('sphinx_memory').solution, /Reunião/i);
   assert.match(byId('sphinx_memory').solution, /ordem.+varia/i);
+});
+
+test('Diário não declara fim da Esfinge ao errar vaso ou número de estátuas', () => {
+  const events = PHASES.flatMap(phase => phase.events);
+  for (const id of ['v205', 'b06']) {
+    const entry = events.find(event => event.id === id);
+    assert.ok(entry, id);
+    assert.doesNotMatch(entry.failureRisk, /tranca permanentemente os baús restantes|encerra o evento/i);
+    assert.match(entry.failureRisk, /Confira|Antes de responder/i);
+  }
+  const final = events.find(entry => entry.id === 'b062');
+  assert.ok(final);
+  assert.match(final.note, /Antes do último enigma/);
 });
