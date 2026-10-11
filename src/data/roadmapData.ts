@@ -50,12 +50,12 @@ export const PHASES: Phase[] = [
         id: "m02",
         title: "Resolva as missões de novatos antes de se afastar do posto",
         type: "missao",
-        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. O indicador de ampulheta no diário marca a missão como temporizada. Resolva o resgate ao recebê-la e retorne a Phill; a duração do prazo não foi estabelecida.",
+        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill, ajude Accardo contra as harpias e volte a Phill. A ampulheta no diário indica missão temporizada. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey.",
         achievements: [],
         risk: "alerta",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit"],
-        failureRisk: "O questlog do build 25290080 contém desfechos de sucesso e de morte de Accardo; Game8 também descreve a consequência. O tempo exato e a relação causal entre espera e morte não foram reproduzidos em gameplay. Não adie o resgate."
+        failureRisk: "O resgate de Accardo é temporizado. Ajude-o assim que receber a missão e retorne a Phill."
       },
       {
         id: "m03",
@@ -479,7 +479,7 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
         extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
-        failureRisk: "Não confunda o gatilho da missão com seu prazo: os três dias se referem à coleta das provas depois de aceitar ajudar Wilhelmina. A disponibilidade exata ao avançar na história ainda exige validação por versão."
+        failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias."
       },
       {
         id: "v303",
@@ -490,7 +490,7 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/", "https://steamcommunity.com/app/2054970/discussions/0/4352240417148094670/?ctp=2"],
-        failureRisk: "A coroação pode encerrar janelas de missões específicas. Condições e efeitos variam por quest; a recuperação pelo novo sistema de saves não foi comprovada."
+        failureRisk: "Antes da coroação, confira as missões de Vermund que ainda pretende concluir."
       },
       {
         id: "v304",
@@ -955,7 +955,7 @@ export const PHASES: Phase[] = [
         id: "p05",
         title: "Derrote o Gigantus rapidamente ('Gigantus, nem sei quem é')",
         type: "conquista",
-        note: "A conquista exige deter Gigantus RAPIDAMENTE. Prepare-se antes de sua marcha e ataque os cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow). Walkthroughs relatam que a flecha pode gerar autosave e que o troféu não aparece necessariamente no instante do disparo. A distância exata limite e a interação desse método com 'Eu, Talos' ainda exigem teste; não presuma retorno garantido ao save anterior.",
+        note: "Para deter Gigantus rapidamente, prepare-se antes da marcha e ataque seus cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow).",
         achievements: [44],
         risk: "critico",
         source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
@@ -966,7 +966,7 @@ export const PHASES: Phase[] = [
         id: "p06",
         title: "Suba a Torre do Luar (Moonglint Tower) até o confronto",
         type: "historia",
-        note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'Um Novo Chamado Divino' (A New Godsway), e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
+        note: "Confira as missões pendentes antes de avançar 'Um Novo Chamado Divino' (A New Godsway). Depois, siga para a Torre do Luar e o confronto com Phaesus e o Dragão.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
@@ -1199,7 +1199,7 @@ export const PHASES: Phase[] = [
         id: "u01",
         title: "Conquiste o final comum no trono ('Paz')",
         type: "conquista",
-        note: "Para o final comum, derrote o Dragão e permaneça sentado no trono durante os créditos para 'Paz'. Se também quiser o final verdadeiro na MESMA campanha, NÃO inicie Novo Jogo+. Guias descrevem o retorno à cena do salão e a interação com o Pioneiro (Pathfinder) para voltar ao voo do Dragão. As opções exatas de menu da atualização 3.2 ainda precisam de validação; não dependa de uma instrução de botão de 2024.",
+        note: "Para o final comum, derrote o Dragão e permaneça no trono durante os créditos para obter 'Paz'. Se também pretende buscar o final verdadeiro na mesma campanha, não inicie Novo Jogo+. Procure o Pioneiro (Pathfinder) no salão para retornar ao voo do Dragão.",
         achievements: [40],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/",
@@ -1227,7 +1227,7 @@ export const PHASES: Phase[] = [
         id: "u04",
         title: "Conclua as cinco missões de evacuação do Mundo Desancorado",
         type: "conquista",
-        note: "Para cobrir TODAS as evacuações de 'Átrios da Primeira Aurora' (Halls of the First Dawn), faça CINCO MISSÕES: Vernworth — 'A Determinação do Príncipe Regente' (Sven/Brant); Bakbattahl — 'Instabilidade Civil' (Menella/Nadinia); Jardim Sagrado — 'Raízes Errantes' (Taliesin); Acampamento Vulcânico — 'A Importância de Ajudar Ernesto' (Ernesto); e LOCAL DE ESCAVAÇÃO — 'Pastor de Peões' (Henrique). Acampamento e escavação são duas missões diferentes. Evite descansos desnecessários. Completar as cinco cobre o conteúdo, mas não foi comprovado que 'O Guardião' só desbloqueie na quinta.",
+        note: "Para realizar as CINCO MISSÕES de evacuação de 'Átrios da Primeira Aurora' (Halls of the First Dawn), visite: Vernworth — 'A Determinação do Príncipe Regente' (Sven/Brant); Bakbattahl — 'Instabilidade Civil' (Menella/Nadinia); Jardim Sagrado — 'Raízes Errantes' (Taliesin); Acampamento Vulcânico — 'A Importância de Ajudar Ernesto' (Ernesto); e Local de Escavação — 'Pastor de Peões' (Henrique). Acampamento e escavação são missões distintas.",
         achievements: [36],
         risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
@@ -1242,7 +1242,7 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/", "https://game8.co/games/Dragons-Dogma-2/archives/449759"],
-        failureRisk: "Ativar o feixe vermelho final do Templo Abissal inicia o encerramento do Mundo Desancorado. Conclua objetivos pendentes antes; retorno pelo salvamento atual não foi comprovado."
+        failureRisk: "Conclua as tarefas pendentes do Mundo Desancorado antes de ativar o feixe vermelho final do Templo Abissal."
       },
       {
         id: "u06",
@@ -1378,17 +1378,17 @@ export const PHASES: Phase[] = [
   {
     id: "dlc",
     title: "09 · DARK ARISEN (EXPANSÃO)",
-    subtitle: "Seis Novas Conquistas — Atualização Parcial (11/10/2026)",
+    subtitle: "Seis conquistas da expansão",
     slug: "Dark Arisen",
-    cue: "ALERTA EDITORIAL: A expansão já foi lançada, mas as rotas completas, a perdibilidade e os gatilhos das seis conquistas ainda não foram testados em jogo. Os nomes PT-BR foram conferidos em listas de conquistas; etapas descritas por guias externos não equivalem a gameplay homologado.",
+    cue: "Seis conquistas adicionais de Dark Arisen.",
     events: [
       {
         id: "d01",
-        title: "Fale com Brant para iniciar Dark Arisen (6 novas conquistas)",
-        type: "alerta",
-        note: "A expansão Dark Arisen soma 6 conquistas às 54 do jogo-base (60 na Steam). Em Vernworth, fale com Brant à NOITE na Stardrop Inn. Para Norgan: Chilling Tidings — Notícias Congelantes (PT-BR extraído do questlog; nível 40 RECOMENDADO). Para as masmorras: Lost Rites — Rituais Perdidos (PT-BR extraído do questlog; nível 20 RECOMENDADO). Esses níveis NÃO são mínimos obrigatórios. A extração local foi reportada para o build Steam 25290080; falta captura dos títulos no diário PT-BR. Um guia relata bloqueio de acesso no Mundo Desancorado, ainda sem verificação independente. Rotas e desbloqueios continuam em apuração.",
+        title: "Consulte as conquistas de Dark Arisen",
+        type: "conquista",
+        note: "A expansão Dark Arisen acrescenta seis conquistas às 54 do jogo-base. Abra as fichas para consultar os objetivos e marque apenas as conquistas obtidas no jogo.",
         achievements: [55, 56, 57, 58, 59, 60],
-        risk: "critico",
+        risk: "normal",
         source: "https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/",
         extraSources: ["https://www.thebiglead.com/dragons-dogma-2-dark-arisen-how-to-start/", "https://www.capcom.co.jp/ir/english/news/html/e260610.html", "https://steamcommunity.com/stats/2054970/achievements"]
       }
@@ -1399,7 +1399,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Terras Esquecidas do Norte",
         original: "The Forgotten North",
-        tip: "Alcance Norgan. Guias pós-lançamento orientam iniciar a linha de Norgan com Brant à noite em Vernworth (nível 40 recomendado, não obrigatório); o gatilho foi descrito publicamente, mas não reproduzido nesta auditoria.",
+        tip: "Alcance Norgan.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/38d3cf867cc1d816df4c5e26cda10cb748c230b8.jpg",
@@ -1414,7 +1414,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Antagonista do Dogma",
         original: "Dogma Defied",
-        tip: "Condição oficial confirmada: Chegar ao fim da Provação Final (The Final Trial) sem recuperar o medidor de perda de vida (sem descansar/curar a barra cinza). Estratégia de montagem de build em verificação.",
+        tip: "Chegue ao fim da Provação Final (The Final Trial) sem recuperar o medidor de perda de vida.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e5480e4d3147e62fa33b0bac572cb3c183e68e3a.jpg",
@@ -1429,7 +1429,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Dogma Defendido",
         original: "Dogma Defended",
-        tip: "Condição oficial confirmada: Atender e realizar o pedido do guardião de Norgan. Detalhes de escolhas da missão ainda em apuração.",
+        tip: "Atenda ao pedido do guardião de Norgan.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/f73a45653008d60e1e0fa7b788882512c4ffb246.jpg",
@@ -1444,7 +1444,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Mestre do Strike",
         original: "Strike!",
-        tip: "Condição oficial confirmada: Romper e quebrar cinco barreiras de olhos malignos simultaneamente em um único golpe. Técnica ideal de feitiço/área em verificação.",
+        tip: "Destrua cinco barreiras de olhos malignos simultaneamente em um único golpe.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/622189a1c911b9188379cd45e3725fc49c059599.jpg",
@@ -1459,7 +1459,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Reunidos",
         original: "Reunited",
-        tip: "Condição oficial confirmada: Concluir o desejo e pedido especial da personagem Eir na trama de Dark Arisen.",
+        tip: "Conclua o pedido especial de Eir.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e3c64285aeb6bf2249a92516ebe628bf285a0bb9.jpg",
@@ -1474,7 +1474,7 @@ export const PHASES: Phase[] = [
         category: "Dark Arisen (DLC)",
         title: "Abominável Ladrão das Neves",
         original: "Abominable Snowstash",
-        tip: "Recupere os itens roubados no covil do Troll das Neves (Snowfoot). Local e condições exatas da rota não foram reproduzidos nesta auditoria.",
+        tip: "Recupere os itens roubados no covil do Troll das Neves (Snowfoot).",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/9665a146ef860935b919937b332bce2127d9e710.jpg",
@@ -1775,7 +1775,7 @@ export const RISK_CHECKPOINTS = [
     phaseId: "vernworth3",
     title: "Antes da Coroação ('O Banquete da Farsa' — Feast of Deception)",
     dangerLevel: "Crítico",
-    description: "Avançar a coroação em 'O Banquete da Farsa' (Feast of Deception) pode encerrar janelas para INICIAR ou CONCLUIR missões específicas. Verifique cada cadeia antes de prosseguir: não é comprovado que todas as quests abertas falhem ao aceitar o convite.",
+    description: "Antes de avançar a coroação em 'O Banquete da Farsa' (Feast of Deception), confira as missões que ainda pretende concluir em Vermund.",
     verificationList: [
       "Concluiu 'Revinda da Calamidade' (Readvent of Calamity) e acompanhou Ulrika em Melve e Harve?",
       "Concluiu 'A Caixa Ornamentada' (The Ornate Box) com o jovem Sven nos mercados?",
@@ -1790,7 +1790,7 @@ export const RISK_CHECKPOINTS = [
     phaseId: "preend",
     title: "Antes de Interceptar o Gigantus ('O Guardião Gigantus' — The Guardian Gigantus)",
     dangerLevel: "Crítico",
-    description: "A conquista 'Gigantus, nem sei quem é' exige detê-lo rapidamente. A margem exata de progresso, o instante do troféu e o impacto de saves automáticos variam entre relatos e requerem validação.",
+    description: "Prepare seus equipamentos antes da marcha de Gigantus e tente detê-lo o mais cedo possível.",
     verificationList: [
       "Conferiu os tipos de save da atualização 3.2 antes da marcha e qual estado é realmente recuperável?",
       "Possui a Flecha da Ruína (Unmaking Arrow) ou build de arqueiro com flechas explosivas/balistas preparadas?",
@@ -1802,7 +1802,7 @@ export const RISK_CHECKPOINTS = [
     phaseId: "unmoored",
     title: "Antes do Confronto com o Dragão (Moonglint Tower)",
     dangerLevel: "Crítico",
-    description: "O final tradicional ('Paz') e o verdadeiro são objetivos distintos. Guias documentam a sequência Paz → retorno ao voo → Mundo Desancorado na mesma campanha, sem iniciar Novo Jogo+ entre eles. O menu da atualização 3.2 não foi testado.",
+    description: "Para tentar os finais comum e verdadeiro na mesma campanha, conclua 'Paz' e evite iniciar Novo Jogo+ antes de continuar a história.",
     verificationList: [
       "Revisou atividades pendentes ANTES de avançar 'Um Novo Chamado Divino' (A New Godsway) e conferiu os saves recuperáveis?",
       "Sabe que deve derrotar o dragão e sentar no trono para a conquista 'Paz'?",
