@@ -1384,9 +1384,9 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "d01",
-        title: "Auditoria da Expansão Dark Arisen (6 Novas Conquistas)",
+        title: "Fale com Brant para iniciar Dark Arisen (6 novas conquistas)",
         type: "alerta",
-        note: "A expansão Dark Arisen acrescentou 6 conquistas às 54 do jogo-base (60 na Steam global). Para iniciar o conteúdo, encontre Brant à NOITE na Stardrop Inn, em Vernworth, depois de avançar a história até a cidade. Pergunte sobre o novo Nascen para seguir a linha de Norgan (Chilling Tidings; nível 40 RECOMENDADO) ou sobre as ruínas descobertas para iniciar as masmorras de Lost Rites (nível 20 RECOMENDADO). Não são níveis mínimos obrigatórios. Os nomes em inglês das duas missões foram confirmados em guias pós-lançamento; o nome exato exibido no diário PT-BR ainda requer captura. Evite adiar o acesso até o Mundo Desancorado: um guia recente relata bloqueio nessa fase, ainda sem teste independente. As rotas e os desbloqueios não estão homologados.",
+        note: "A expansão Dark Arisen soma 6 conquistas às 54 do jogo-base (60 na Steam). Em Vernworth, fale com Brant à NOITE na Stardrop Inn. Para Norgan: Chilling Tidings — Notícias Congelantes (PT-BR extraído do questlog; nível 40 RECOMENDADO). Para as masmorras: Lost Rites — Rituais Perdidos (PT-BR extraído do questlog; nível 20 RECOMENDADO). Esses níveis NÃO são mínimos obrigatórios. A extração local foi reportada para o build Steam 25290080; falta captura dos títulos no diário PT-BR. Um guia relata bloqueio de acesso no Mundo Desancorado, ainda sem verificação independente. Rotas e desbloqueios continuam em apuração.",
         achievements: [55, 56, 57, 58, 59, 60],
         risk: "critico",
         source: "https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/",

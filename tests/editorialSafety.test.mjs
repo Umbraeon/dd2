@@ -132,10 +132,13 @@ test('DLC de 11 de outubro usa seis títulos PT-BR verificados e sem tradução 
     expected.delete(achievement.id);
   }
   assert.equal(expected.size, 0);
+  assert.match(event('d01').title, /Fale com Brant/);
   const dlc = fullText(event('d01'));
   for (const required of ['Brant', 'Stardrop Inn', 'Chilling Tidings', 'Lost Rites', 'nível 40 RECOMENDADO', 'nível 20 RECOMENDADO']) {
     assert.ok(dlc.includes(required), required);
   }
-  assert.match(dlc, /ainda requer captura/);
+  assert.match(dlc, /Chilling Tidings — Notícias Congelantes \(PT-BR extraído do questlog/);
+  assert.match(dlc, /Lost Rites — Rituais Perdidos \(PT-BR extraído do questlog/);
+  assert.match(dlc, /falta captura dos títulos no diário PT-BR/i);
   assert.equal(ROADMAP_METADATA.researchDate, '2026-10-11');
 });
