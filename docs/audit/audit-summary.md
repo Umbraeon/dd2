@@ -1,6 +1,8 @@
 # Auditoria factual PT-BR — primeira passagem (read-only)
 **Data:** 2026-10-10 · **Base:** `main` de Umbraeon/dd2 · **Issue:** #13 · **Autor:** Auditor Factual PT-BR · **Estado:** revisão necessária; **NÃO HOMOLOGADO**.
 
+> **Estado deste relatório após a integração de 11/10/2026:** este é o diagnóstico histórico da `main` **anterior** às correções da [PR #20](https://github.com/Umbraeon/dd2/pull/20), integrada no commit `925f5d5808d5bcaf64f36ac8c2fb1fcd940239af`. Erros de NPCs iniciais, sequência de Lennart, localização de Vergil, avisos dos checkpoints e rótulos das seis conquistas DLC foram corrigidos no código. Os achados abaixo continuam preservados como rastreabilidade do estado anterior, **não como lista de bugs ainda presentes**. Rotas de DLC, consequências e mecânicas sem prova seguem não homologadas. Ver [evidência localizada complementar de 11/10](game-localization-extraction-evidence-2026-10-11.md) para as duas missões DLC reportadas em extração local, distinta de captura do diário.
+
 ## Escopo verificado e limites
 - Inventário estrutural integral: **53/53 marcos editoriais**, **60/60 registros de conquistas** (54 base e 6 Dark Arisen), **9/9 fases**, metadados e listas auxiliares (10 enigmas, 12 mestres, 8 tipos de carne × dia/noite, 4 checkpoints, glossário).
 - **53 marcos NÃO são 53 quests oficiais**. Classificação por ID em `milestone-inventory.csv`; nomes EN/PT em `quest-name-mapping.csv`; cada conquista em `achievement-audit.csv`; afirmações em `claims-matrix.csv`.
