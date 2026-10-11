@@ -1,8 +1,8 @@
 import { Phase, SphinxRiddle, MaisterSkill, BarbecueMeat, GlossaryTerm } from '../types/roadmap';
 
 export const ROADMAP_METADATA = {
-  title: "Dragon’s Dogma 2 — Rota 100% PT-BR",
-  researchDate: "2026-10-09",
+  title: "Dragon’s Dogma 2 — Compêndio PT-BR de Jornada e Conquistas",
+  researchDate: "2026-10-11",
   gameSteamAppId: 2054970,
   baseAchievements: 54,
   darkArisenAchievements: 6,
@@ -50,11 +50,12 @@ export const PHASES: Phase[] = [
         id: "m02",
         title: "Resolva as missões de novatos antes de se afastar do posto",
         type: "missao",
-        note: "Priorize 'Ordeals of a New Recruit' (resgate de Rook/soldado sob ataque de harpia) e 'The Provisioner’s Plight' com Geoffrey. Algumas tarefas de resgate possuem prazo oculto.",
+        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. O indicador de ampulheta no diário marca a missão como temporizada. Resolva o resgate ao recebê-la e retorne a Phill; a duração do prazo não foi estabelecida.",
         achievements: [],
         risk: "alerta",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Deixar o recruta sofrer dano fatal por demora invalida a conclusão ideal da missão."
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit"],
+        failureRisk: "O questlog do build 25290080 contém desfechos de sucesso e de morte de Accardo; Game8 também descreve a consequência. O tempo exato e a relação causal entre espera e morte não foram reproduzidos em gameplay. Não adie o resgate."
       },
       {
         id: "m03",
@@ -70,10 +71,11 @@ export const PHASES: Phase[] = [
         id: "m04",
         title: "Siga para Melve e conclua as tarefas locais imediatas",
         type: "missao",
-        note: "Ao chegar em Melve, fale com Flora para 'Medicament Predicament' (entrega de Salve Frutado, rende desconto e especialização de peão) e Ian para 'Nesting Troubles' (destruição de ninhos de sauros).",
+        note: "Em Melve, ajude Flora em 'Bravura Revigorante' (Medicament Predicament), entregando o revigorante de frutas. Para 'Problemas Aninhados' (Nesting Troubles), fale com Lennart, jogue barris explosivos no ninho, VOLTE a Lennart, jogue o jarro de veneno no mesmo local e RETORNE a Lennart para encerrar. Ian inicia outra missão, 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), para resgatar Norbert.",
         achievements: [],
         risk: "normal",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"]
       },
       {
         id: "m05",
@@ -470,32 +472,35 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v302",
-        title: "Resolva o romance e vingança de Wilhelmina ('Every Rose Has Its Thorn')",
+        title: "Prepare a missão de Wilhelmina e cumpra seu prazo quando disponível",
         type: "alerta",
-        note: "Após construir afinidade no Rose Chateau Bordelrie e investigar Allard, ajude Wilhelmina a coletar provas no castelo com Sven e Brant antes que o prazo expire.",
+        note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'Feast of Deception'; NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
         achievements: [],
         risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Avançar a coroação ou demorar mais de 3 dias de jogo para entregar as provas resultará no desaparecimento de Wilhelmina e falha na missão."
+        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
+        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
+        failureRisk: "Não confunda o gatilho da missão com seu prazo: os três dias se referem à coleta das provas depois de aceitar ajudar Wilhelmina. A disponibilidade exata ao avançar na história ainda exige validação por versão."
       },
       {
         id: "v303",
         title: "CHECKPOINT DE SEGURANÇA 1: Revisão Pré-Coroação",
         type: "checkpoint",
-        note: "PARE E VERIFIQUE: Se você aceitar ir à coroação em 'Feast of Deception' com Brant, as seguintes missões serão CANCELADAS se estiverem abertas: Readvent of Calamity (Ulrika), Home Is Where the Hearth Is, The Ornate Box (Sven), Vocation Frustration, e Every Rose Has Its Thorn. Faça salvamento na Pousada agora!",
+        note: "PARE antes de concluir 'Feast of Deception' com Brant. Termine a linha de Ulrika em Melve e Harve ('Readvent of Calamity' e missões ligadas); confira as missões de Ian, Lennart, Sven ('The Ornate Box') e Klaus ('Vocation Frustration'). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Bloqueio irreversível de dezenas de horas de conteúdo secundário."
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/", "https://steamcommunity.com/app/2054970/discussions/0/4352240417148094670/?ctp=2"],
+        failureRisk: "A coroação pode encerrar janelas de missões específicas. Condições e efeitos variam por quest; a recuperação pelo novo sistema de saves não foi comprovada."
       },
       {
         id: "v304",
         title: "Realize a Coroação e receba a autorização para Battahl",
         type: "historia",
-        note: "Conclua 'Feast of Deception'. Brant entrega a autorização de passagem de fronteira para a missão 'Nation of the Lambent Flame'. Siga de carroça até o Posto de Controle da Fronteira (Checkpoint Rest Town).",
+        note: "Conclua 'Feast of Deception'. Brant libera a sequência para Battahl ('Nation of the Lambent Flame'). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
         achievements: [],
         risk: "normal",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
+        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn"]
       }
     ],
     achievements: []
@@ -938,31 +943,33 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p04",
-        title: "CHECKPOINT DE SEGURANÇA 2: Descanso na Pousada antes do Gigantus",
+        title: "CHECKPOINT DE SEGURANÇA 2: Confira os saves antes do Gigantus",
         type: "checkpoint",
-        note: "Na missão 'A New Godsway' / 'The Guardian Gigantus', o colosso emergirá do mar. Faça um salvamento manual na Pousada em Bakbattahl ou na Ilha Vulcânica ANTES de ativar a perseguição!",
+        note: "Antes de avançar 'A New Godsway' e a rota de 'The Guardian Gigantus', revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
         achievements: [],
         risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
+        source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
+        extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/"]
       },
       {
         id: "p05",
         title: "Derrote o Gigantus rapidamente ('Gigantus, nem sei quem é')",
         type: "conquista",
-        note: "Destrua os espinhos de cristal mágicos espalhados pelo corpo do Gigantus usando balistas, flechas explosivas ou a Flecha da Ruína (Unmaking Arrow) imediatamente. Ele precisa desabar antes de alcançar o portão de escavação!",
+        note: "A conquista exige deter Gigantus RAPIDAMENTE. Prepare-se antes de sua marcha e ataque os cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow). Walkthroughs relatam que a flecha pode gerar autosave e que o troféu não aparece necessariamente no instante do disparo. A distância exata limite e a interação desse método com 'Eu, Talos' ainda exigem teste; não presuma retorno garantido ao save anterior.",
         achievements: [44],
         risk: "critico",
-        source: "https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement",
-        failureRisk: "Se o Gigantus avançar demais e for parado pela lava/cutscene automática, a conquista falhará."
+        source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
+        extraSources: ["https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement"],
+        failureRisk: "Deixar o Gigantus completar a rota sem intervenção suficientemente rápida pode perder a conquista nesta tentativa. O instante exato do gatilho não foi validado em jogo atualizado."
       },
       {
         id: "p06",
         title: "Suba a Torre do Luar (Moonglint Tower) até o confronto",
         type: "historia",
-        note: "Enfrente Phaesus e os guardas no topo da torre. O Dragão aparecerá para oferecer a clássica escolha do destino.",
+        note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'A New Godsway', e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
         achievements: [],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
       }
     ],
     achievements: [
@@ -1192,10 +1199,11 @@ export const PHASES: Phase[] = [
         id: "u01",
         title: "Conquiste o final comum no trono ('Paz')",
         type: "conquista",
-        note: "Derrote o Dragão na arena tradicional e sente no trono durante a coroação. Assista aos créditos e ganhe 'Paz'. Durante os créditos ou na tela de título, fale com o Pathfinder para retornar ao voo do dragão!",
+        note: "Para o final comum, derrote o Dragão e permaneça sentado no trono durante os créditos para 'Paz'. Se também quiser o final verdadeiro na MESMA campanha, NÃO inicie Novo Jogo+. Guias descrevem o retorno à cena do salão e a interação com o Pioneiro (Pathfinder) para voltar ao voo do Dragão. As opções exatas de menu da atualização 3.2 ainda precisam de validação; não dependa de uma instrução de botão de 2024.",
         achievements: [40],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/",
+        extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-true-ending-unmoored-world-guide/2900-5194/"]
       },
       {
         id: "u02",
@@ -1217,22 +1225,24 @@ export const PHASES: Phase[] = [
       },
       {
         id: "u04",
-        title: "Evacue todas as quatro regiões para 'O Guardião'",
+        title: "Conclua as cinco missões de evacuação do Mundo Desancorado",
         type: "conquista",
-        note: "A névoa vermelha avança com descansos. Evacue as cidades rapidamente: Vernworth (fale com Brant e Sven), Bakbattahl (resolva a disputa civil com Nadinia), Bosque Sagrado (fale com Taliesin e Doireann) e Ilha Vulcânica (evacue as escavações e os anões das termas). Evite dormir à toa!",
+        note: "Para cobrir TODAS as evacuações de 'Átrios da Primeira Aurora' (Halls of the First Dawn), faça CINCO MISSÕES: Vernworth — 'A Determinação do Príncipe Regente' (Sven/Brant); Bakbattahl — 'Instabilidade Civil' (Menella/Nadinia); Jardim Sagrado — 'Raízes Errantes' (Taliesin); Acampamento Vulcânico — 'A Importância de Ajudar Ernesto' (Ernesto); e LOCAL DE ESCAVAÇÃO — 'Pastor de Peões' (Henrique). Acampamento e escavação são duas missões diferentes. Evite descansos desnecessários. Completar as cinco cobre o conteúdo, mas não foi comprovado que 'O Guardião' só desbloqueie na quinta.",
         achievements: [36],
         risk: "critico",
-        source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/"
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn"]
       },
       {
         id: "u05",
-        title: "Elimine as ameaças dos feixes vermelhos ('O Herói')",
+        title: "Enfrente os feixes de prova sem ativar o feixe final",
         type: "conquista",
-        note: "Interaja com os 4 feixes vermelhos periféricos (Santuário do Leito Marinho / Ilha Vulcânica / Vernworth / Bakbattahl) e derrote as calamidades que emergem. NÃO toque no feixe central final do Santuário até terminar todas as evacuações e armas!",
+        note: "Verifique no mapa os feixes de prova ainda acessíveis, inclusive em Vernworth, Jardim Sagrado e Bakbattahl; algumas resoluções envolvem Talos e dependem do estado da campanha. NÃO confunda a contagem de provas com uma lista fixa de quatro feixes periféricos. O marcador AZUL do Templo Abissal está ligado à evacuação; o feixe VERMELHO FINAL dessa região encerra a sequência. Deixe o feixe final para depois das evacuações, provas e atividades opcionais.",
         achievements: [37],
         risk: "critico",
-        source: "https://questcompendium.com/guides/dragon-s-dogma-2/achievements/",
-        failureRisk: "Tocar no feixe final do Santuário do Leito Marinho encerra imediatamente o Mundo Desancorado e aciona o encerramento do jogo."
+        source: "https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/", "https://game8.co/games/Dragons-Dogma-2/archives/449759"],
+        failureRisk: "Ativar o feixe vermelho final do Templo Abissal inicia o encerramento do Mundo Desancorado. Conclua objetivos pendentes antes; retorno pelo salvamento atual não foi comprovado."
       },
       {
         id: "u06",
@@ -1368,110 +1378,111 @@ export const PHASES: Phase[] = [
   {
     id: "dlc",
     title: "09 · DARK ARISEN (EXPANSÃO)",
-    subtitle: "Seis Novas Conquistas — Documentação em Verificação (Outubro/2026)",
+    subtitle: "Seis Novas Conquistas — Atualização Parcial (11/10/2026)",
     slug: "Dark Arisen",
-    cue: "ALERTA EDITORIAL: A expansão foi lançada em outubro de 2026. As condições oficiais estão confirmadas pela Steam/TrueAchievements, mas a rota detalhada passo a passo ainda não foi homologada. Nenhuma estratégia é inventada aqui.",
+    cue: "ALERTA EDITORIAL: A expansão já foi lançada, mas as rotas completas, a perdibilidade e os gatilhos das seis conquistas ainda não foram testados em jogo. Os nomes PT-BR foram conferidos em listas de conquistas; etapas descritas por guias externos não equivalem a gameplay homologado.",
     events: [
       {
         id: "d01",
         title: "Auditoria da Expansão Dark Arisen (6 Novas Conquistas)",
         type: "alerta",
-        note: "O jogo-base contém 54 conquistas. A expansão de outubro de 2026 adicionou exatamente 6 conquistas, totalizando 60 na Steam global. Suas rotas e missões NÃO fazem parte do guia comunitário de 2024 e estão listadas aqui de forma independente.",
+        note: "A expansão Dark Arisen acrescentou 6 conquistas às 54 do jogo-base (60 na Steam global). Para iniciar o conteúdo, encontre Brant à NOITE na Stardrop Inn, em Vernworth, depois de avançar a história até a cidade. Pergunte sobre o novo Nascen para seguir a linha de Norgan (Chilling Tidings; nível 40 RECOMENDADO) ou sobre as ruínas descobertas para iniciar as masmorras de Lost Rites (nível 20 RECOMENDADO). Não são níveis mínimos obrigatórios. Os nomes em inglês das duas missões foram confirmados em guias pós-lançamento; o nome exato exibido no diário PT-BR ainda requer captura. Evite adiar o acesso até o Mundo Desancorado: um guia recente relata bloqueio nessa fase, ainda sem teste independente. As rotas e os desbloqueios não estão homologados.",
         achievements: [55, 56, 57, 58, 59, 60],
         risk: "critico",
-        source: "https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"
+        source: "https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/",
+        extraSources: ["https://www.thebiglead.com/dragons-dogma-2-dark-arisen-how-to-start/", "https://www.capcom.co.jp/ir/english/news/html/e260610.html", "https://steamcommunity.com/stats/2054970/achievements"]
       }
     ],
     achievements: [
       {
         id: 55,
         category: "Dark Arisen (DLC)",
-        title: "O Norte Esquecido [tradução provisória]",
+        title: "Terras Esquecidas do Norte",
         original: "The Forgotten North",
-        tip: "Condição oficial confirmada: Chegar à nova região de Norgan. Rota exata de acesso ainda não homologada nesta pesquisa.",
+        tip: "Alcance Norgan. Guias pós-lançamento orientam iniciar a linha de Norgan com Brant à noite em Vernworth (nível 40 recomendado, não obrigatório); o gatilho foi descrito publicamente, mas não reproduzido nesta auditoria.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/38d3cf867cc1d816df4c5e26cda10cb748c230b8.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 56,
         category: "Dark Arisen (DLC)",
-        title: "Dogma Desafiado [tradução provisória]",
+        title: "Antagonista do Dogma",
         original: "Dogma Defied",
         tip: "Condição oficial confirmada: Chegar ao fim da Provação Final (The Final Trial) sem recuperar o medidor de perda de vida (sem descansar/curar a barra cinza). Estratégia de montagem de build em verificação.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e5480e4d3147e62fa33b0bac572cb3c183e68e3a.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 57,
         category: "Dark Arisen (DLC)",
-        title: "Dogma Defendido [tradução provisória]",
+        title: "Dogma Defendido",
         original: "Dogma Defended",
         tip: "Condição oficial confirmada: Atender e realizar o pedido do guardião de Norgan. Detalhes de escolhas da missão ainda em apuração.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/f73a45653008d60e1e0fa7b788882512c4ffb246.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 58,
         category: "Dark Arisen (DLC)",
-        title: "Strike! [nome oficial em inglês]",
+        title: "Mestre do Strike",
         original: "Strike!",
         tip: "Condição oficial confirmada: Romper e quebrar cinco barreiras de olhos malignos simultaneamente em um único golpe. Técnica ideal de feitiço/área em verificação.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/622189a1c911b9188379cd45e3725fc49c059599.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Nome original mantido (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 59,
         category: "Dark Arisen (DLC)",
-        title: "Reunidos [tradução provisória]",
+        title: "Reunidos",
         original: "Reunited",
         tip: "Condição oficial confirmada: Concluir o desejo e pedido especial da personagem Eir na trama de Dark Arisen.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e3c64285aeb6bf2249a92516ebe628bf285a0bb9.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 60,
         category: "Dark Arisen (DLC)",
-        title: "Esconderijo Abominável [tradução provisória]",
+        title: "Abominável Ladrão das Neves",
         original: "Abominable Snowstash",
-        tip: "Condição oficial confirmada: Recuperar os suprimentos e tesouros roubados dentro do covil do Snowfoot nas terras gélidas.",
+        tip: "Recupere os itens roubados no covil do Troll das Neves (Snowfoot). Local e condições exatas da rota não foram reproduzidos nesta auditoria.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/9665a146ef860935b919937b332bce2127d9e710.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       }
     ]
   }
@@ -1568,7 +1579,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     nameEn: "Riddle of Differentiation",
     isRandomOrder: true,
     summary: "Encontrar e trazer Dante ou Vergil conforme a imagem mostrada.",
-    solution: "Examine com lupa o cabelo da imagem: Dante tem cabelo repartido para o lado esquerdo e fica na Cidade de Descanso da Fronteira; Vergil tem cabelo repartido para o lado direito e fica em Bakbattahl. Use a Sealing Phial ou carregue o gêmeo certo até o pedestal.",
+    solution: "Compare o retrato mostrado pela Esfinge com o registro dos NPCs: Dante tem cabelo liso e circula ao NORTE do portão da Cidade de Descanso da Fronteira; Vergil tem cabelo cacheado e circula ao SUL do mesmo portão, ainda na Cidade de Descanso da Fronteira (lado de Battahl). Não vá ao centro de Bakbattahl. Use o Frasco Selante ou leve a pessoa correta até o pedestal.",
     warning: "Trazer o irmão errado causará falha irreversível no enigma."
   },
   {
@@ -1764,14 +1775,14 @@ export const RISK_CHECKPOINTS = [
     phaseId: "vernworth3",
     title: "Antes da Coroação ('Feast of Deception')",
     dangerLevel: "Crítico",
-    description: "Concluir a missão principal 'Feast of Deception' com o Capitão Brant encerra irremediavelmente diversas missões secundárias da primeira metade do jogo.",
+    description: "Avançar a coroação em 'Feast of Deception' pode encerrar janelas para INICIAR ou CONCLUIR missões específicas. Verifique cada cadeia antes de prosseguir: não é comprovado que todas as quests abertas falhem ao aceitar o convite.",
     verificationList: [
       "Concluiu 'Readvent of Calamity' e acompanhou Ulrika em Melve e Harve?",
       "Concluiu 'The Ornate Box' com o jovem Sven nos mercados?",
       "Concluiu 'Vocation Frustration' na Guilda de Vocações?",
       "Concluiu 'The Arisen's Shadow' capturando o espião Bermudo?",
-      "Concluiu 'Every Rose Has Its Thorn' com Wilhelmina no bordel?",
-      "Fez um salvamento na Pousada para ter um ponto de restauração seguro?"
+      "Planejou procurar Wilhelmina no Rose Chateau logo após a coroação, quando guias situam a missão 'As Rosas Têm Espinhos'?",
+      "Conferiu a diferença entre salvamento intermediário e último descanso na pousada na sua versão, sem contar com recuperação garantida?"
     ]
   },
   {
@@ -1779,11 +1790,11 @@ export const RISK_CHECKPOINTS = [
     phaseId: "preend",
     title: "Antes de Interceptar o Gigantus ('The Guardian Gigantus')",
     dangerLevel: "Crítico",
-    description: "A derrota de Gigantus para a conquista 'Gigantus, nem sei quem é' exige destruição ágil de todos os pontos antes que ele alcance o limite do trajeto.",
+    description: "A conquista 'Gigantus, nem sei quem é' exige detê-lo rapidamente. A margem exata de progresso, o instante do troféu e o impacto de saves automáticos variam entre relatos e requerem validação.",
     verificationList: [
-      "Fez salvamento na pousada imediatamente antes de acionar a marcha do Gigantus?",
+      "Conferiu os tipos de save da atualização 3.2 antes da marcha e qual estado é realmente recuperável?",
       "Possui a Flecha da Ruína (Unmaking Arrow) ou build de arqueiro com flechas explosivas/balistas preparadas?",
-      "Lembrou de que se ele morrer por lava/cutscene automática a conquista falha?"
+      "Está preparado para deter o colosso cedo, sem depender de uma cena automática nem presumir troféu instantâneo?"
     ]
   },
   {
@@ -1791,11 +1802,11 @@ export const RISK_CHECKPOINTS = [
     phaseId: "unmoored",
     title: "Antes do Confronto com o Dragão (Moonglint Tower)",
     dangerLevel: "Crítico",
-    description: "O final tradicional ('Paz') e o final verdadeiro ('Dogma do Dragão 2' / 'Encerramento') são conquistas distintas. Faça o final tradicional primeiro!",
+    description: "O final tradicional ('Paz') e o verdadeiro são objetivos distintos. Guias documentam a sequência Paz → retorno ao voo → Mundo Desancorado na mesma campanha, sem iniciar Novo Jogo+ entre eles. O menu da atualização 3.2 não foi testado.",
     verificationList: [
-      "Fez um salvamento na pousada antes de subir o elevador da Torre do Luar?",
+      "Revisou atividades pendentes ANTES de avançar 'A New Godsway' e conferiu os saves recuperáveis?",
       "Sabe que deve derrotar o dragão e sentar no trono para a conquista 'Paz'?",
-      "Sabe que durante os créditos deve conversar com o Pathfinder para retornar ao voo do dragão e usar a Godsbane no coração?"
+      "Sabe que NÃO deve iniciar Novo Jogo+ antes de tentar interagir com o Pioneiro (Pathfinder) e retornar ao voo do Dragão?"
     ]
   },
   {
@@ -1803,13 +1814,13 @@ export const RISK_CHECKPOINTS = [
     phaseId: "unmoored",
     title: "Mundo Desancorado: Evacuações e Feixe Vermelho Final",
     dangerLevel: "Crítico",
-    description: "Descansar na cama avança a névoa vermelha da destruição. Interagir com o feixe central do Santuário do Leito Marinho encerra o jogo sem aviso prévio.",
+    description: "Descansos podem avançar a névoa do Mundo Desancorado. O marcador azul do Templo Abissal participa da evacuação; o feixe vermelho FINAL encaminha o encerramento da campanha. Não confunda ambos.",
     verificationList: [
       "Evitou descansar em demasia no Mundo Desancorado para conter a névoa?",
-      "Concluiu as evacuações de Vernworth, Bakbattahl, Bosque Sagrado e Ilha Vulcânica ('O Guardião')?",
-      "Derrotou os 4 chefes dos feixes vermelhos periféricos ('O Herói')?",
+      "Concluiu as CINCO missões de evacuação: Vernworth, Bakbattahl, Jardim Sagrado, Acampamento Vulcânico e Local de Escavação (Henrique)?",
+      "Revisou os feixes de prova restantes no mapa, incluindo a participação possível de Talos, sem contar o feixe vermelho final como periférico?",
       "Reativou o Gigantus na praia ('Eu, Talos')?",
-      "Comprou a espada Dragon's Dogma com o Forjado pelo Dragão por 110 WLC ('Dogma do Dragão')?",
+      "Revisou itens, conquistas e tarefas opcionais pendentes ANTES de ativar o feixe vermelho final?",
       "Confirmou que NÃO está no Modo Casual (o Modo Casual anula a conquista 'Encerramento')?"
     ]
   }
