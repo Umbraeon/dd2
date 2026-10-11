@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { PHASES, RISK_CHECKPOINTS, ROADMAP_METADATA } from '../src/data/roadmapData.ts';
+import { PHASES, RISK_CHECKPOINTS, ROADMAP_METADATA, SPHINX_RIDDLES } from '../src/data/roadmapData.ts';
 
 const events = PHASES.flatMap(phase => phase.events);
 const achievements = PHASES.flatMap(phase => phase.achievements);
@@ -98,4 +98,44 @@ test('eventos editoriais alterados têm pelo menos uma fonte direta não-vazia',
     assert.match(selected.source, /^https:\/\//);
     assert.ok(!selected.extraSources || selected.extraSources.every(url => url.startsWith('https://')));
   }
+});
+
+
+test('Esfinge diferencia os gêmeos nas duas metades da Cidade de Descanso da Fronteira', () => {
+  const diff = SPHINX_RIDDLES.find(item => item.id === 'sphinx_diff');
+  assert.ok(diff);
+  assert.match(diff.solution, /Dante.*NORTE/);
+  assert.match(diff.solution, /Vergil.*SUL/);
+  assert.match(diff.solution, /mesmo portão/);
+  assert.doesNotMatch(diff.solution, /Vergil.*fica em Bakbattahl/);
+});
+
+test('missões m02 e m04 mostram urgência e passos que exigem retorno ao NPC', () => {
+  assert.match(fullText(event('m02')), /ampulheta.*temporizada/i);
+  assert.match(fullText(event('m02')), /duração do prazo não foi estabelecida/);
+  assert.match(fullText(event('m04')), /barris explosivos.*VOLTE.*jarro de veneno.*RETORNE/);
+});
+
+test('DLC de 11 de outubro usa seis títulos PT-BR verificados e sem tradução provisória', () => {
+  const expected = new Map([
+    [55, 'Terras Esquecidas do Norte'],
+    [56, 'Antagonista do Dogma'],
+    [57, 'Dogma Defendido'],
+    [58, 'Mestre do Strike'],
+    [59, 'Reunidos'],
+    [60, 'Abominável Ladrão das Neves']
+  ]);
+  for (const achievement of achievements.filter(item => item.dlc)) {
+    assert.equal(achievement.title, expected.get(achievement.id));
+    assert.doesNotMatch(achievement.title, /provisóri|\[|\]/i);
+    assert.match(achievement.nameStatus, /gatilho não reproduzido/);
+    expected.delete(achievement.id);
+  }
+  assert.equal(expected.size, 0);
+  const dlc = fullText(event('d01'));
+  for (const required of ['Brant', 'Stardrop Inn', 'Chilling Tidings', 'Lost Rites', 'nível 40 RECOMENDADO', 'nível 20 RECOMENDADO']) {
+    assert.ok(dlc.includes(required), required);
+  }
+  assert.match(dlc, /ainda requer captura/);
+  assert.equal(ROADMAP_METADATA.researchDate, '2026-10-11');
 });
