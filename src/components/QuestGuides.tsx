@@ -107,7 +107,7 @@ export const QuestGuideLibrary: React.FC<{ initialGuideId?: string }> = ({ initi
       <div>
         <p className="consult-eyebrow">PASSO A PASSO</p>
         <h2 id="guides-title" className="font-serif text-xl font-bold text-[#f0d1a0]">Guias de missões e falsificações</h2>
-        <p className={note}>Fichas por missão. A cobertura será ampliada conforme cada sequência for conferida.</p>
+        <p className={note}>Consulte os passos de cada missão, seus requisitos e os itens envolvidos.</p>
       </div>
       <ForgeryGuide />
       <div className="space-y-3">
