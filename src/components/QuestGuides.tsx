@@ -21,7 +21,7 @@ const WalkthroughCard: React.FC<{ guide: QuestGuide; initialOpen?: boolean }> = 
   guide, initialOpen = false
 }) => (
   <details id={`quest-guide-${guide.id}`} open={initialOpen ? true : undefined} className="rounded-md border border-[#574b39] bg-[#16191c] p-3 sm:p-4">
-    <summary tabIndex={-1} className="cursor-pointer text-[#f0d1a0] font-semibold">
+    <summary className="cursor-pointer text-[#f0d1a0] font-semibold">
       {guide.title} <span className="text-[#a99f90] font-normal text-sm">({guide.original})</span>
     </summary>
     <div className="pt-3 space-y-3">
