@@ -8,7 +8,7 @@
 - **19 episódios previstos.**
 - **19 painéis de transcrição encontrados.** Em todos foram confirmados a aba `Transcrição`, o campo `Pesquisar transcrição` e segmentos com timestamp/texto.
 - **19 transcrições lidas do primeiro ao último segmento.** O primeiro e o último timestamp de cada painel foram conferidos; nenhum vídeo foi reproduzido como conteúdo e não houve inspeção de frames.
-- **75 registros factuais** produzidos em `video-transcript-pass-1.csv`.
+- **76 registros factuais** produzidos em `video-transcript-pass-1.csv`.
 - **0 indisponibilidades reais.** O registro anterior de indisponibilidade foi corrigido; exportadores ASR vazios e duração de anúncio não foram tratados como ausência de painel.
 
 O fluxo usado por episódio foi: página individual → aguardar hidratação/anúncio → `mais` da descrição → `Mostrar transcrição` → confirmação do painel → leitura dos segmentos via DOM. Quando o player ainda mostrava anúncio, a duração só foi aceita depois de o player exibir a duração integral; no episódio 23 isso exigiu aguardar o fim do anúncio. A transcrição foi lida pelo painel, não pelo título ou pelos capítulos.
