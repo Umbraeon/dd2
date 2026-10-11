@@ -214,7 +214,129 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'A missão só termina depois do segundo retorno a Lennart.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles']
+
+  },
+  {
+    id: 'provisioners_plight', title: 'Um Fornecedor em Apuros', original: "The Provisioner's Plight",
+    region: 'Posto Avançado da Guarda', giver: 'Geoffrey',
+    relatedEventIds: ['m02'],
+    preparation: ['Separe três Harspuds e dois Salubrious Draughts. Os draughts podem ser fabricados combinando frutas com ervas curativas.'],
+    steps: [
+      'Encontre Geoffrey entre as tendas do Posto Avançado da Guarda e aceite levar o recado.',
+      'Siga pela trilha ao norte até Markus e entregue a nota do fornecedor.',
+      'Recolha três Harspuds nas áreas marcadas. Prepare também dois Salubrious Draughts; uma combinação possível é maçã com Greenwarish.',
+      'Entregue as três Harspuds e os dois Salubrious Draughts a Markus.',
+      'Volte ao Posto Avançado e converse novamente com Geoffrey para concluir.'
+    ],
+    completion: 'A entrega a Markus não encerra a missão: converse com Geoffrey depois.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-provisioners-plight-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/448764']
+  },
+  {
+    id: 'brothers_brave', title: 'A Tímida Bravura dos Irmãos', original: 'Brothers Brave and Timid',
+    region: 'Melve', giver: 'Ian, perto da casa de Lennart',
+    relatedEventIds: ['m04'],
+    preparation: ['Aceite a missão com Ian antes de avançar muito as missões posteriores de Melve.', 'Prepare curativos e deixe os peões acompanhar o grupo.'],
+    steps: [
+      'Converse com Ian em Melve e concorde em procurar o irmão dele, Norbert.',
+      'Siga Ian pela trilha ao norte de Melve e proteja-o dos monstros encontrados no caminho.',
+      'No bosque, derrote os lobos que atacam Norbert.',
+      'Quando os irmãos estiverem reunidos, acompanhe os dois de volta até Melve.',
+      'Entre na vila com eles para concluir a missão.'
+    ],
+    completion: 'O resgate e a escolta de volta à vila fazem parte da mesma missão.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Brothers-Brave-and-Timid']
+  },
+  {
+    id: 'vocation_frustration', title: 'Frustração Vocacional', original: 'Vocation Frustration',
+    region: 'Vernworth e Mina de Trevo', giver: 'Klaus, na Guilda de Vocações',
+    relatedEventIds: ['v102'],
+    preparation: ['A missão consome as armas entregues a Klaus. Não entregue uma arma equipada que queira preservar.', 'A ida à mina também serve para cumprir parte de Elimine os Monstros, de Brant.'],
+    steps: [
+      'Na Guilda de Vocações de Vernworth, tente consultar Guerreiro ou Feiticeiro e converse com Klaus.',
+      'Fale com Roderick na ferraria da praça para receber a indicação da Mina de Trevo.',
+      'Entre na Mina de Trevo. No primeiro trecho, encontre o baú da espada de duas mãos Two-Hander.',
+      'Na grande caverna de vários níveis e passarelas, desça até o piso inferior e procure o caminho lateral com o baú do cajado Grievous Horns.',
+      'Leve as duas armas a Klaus e entregue-as para liberar as vocações Guerreiro e Feiticeiro.'
+    ],
+    completion: 'Depois da entrega das armas, as duas vocações ficam disponíveis na guilda.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-vocation-frustration-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Vocation-Frustration']
+  },
+  {
+    id: 'gift_of_bow', title: 'O Dom do Arco', original: 'Gift of the Bow',
+    region: 'Bairro Comercial de Vernworth e Ruínas da Montanha', giver: 'Glyndwr',
+    relatedEventIds: ['v102'],
+    preparation: ['Tenha um arco para dar a Glyndwr.', 'Na etapa de treinamento, troque para a vocação Arqueiro antes de encontrá-lo nas ruínas.'],
+    steps: [
+      'Encontre Glyndwr próximo à ferraria de Roderick, no Bairro Comercial de Vernworth.',
+      'Entregue a ele um arco e aceite o convite para treinar.',
+      'Siga até as Ruínas da Montanha, a noroeste da capital, e encontre Glyndwr no lugar marcado.',
+      'Equipe a vocação Arqueiro e atire em um dos alvos suspensos entre os arcos de pedra.',
+      'Converse novamente com Glyndwr para terminar o treinamento.'
+    ],
+    completion: 'A demonstração com arco libera a próxima missão de Glyndwr, A Prova de Arco e Flecha.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-gift-of-the-bow-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Gift-of-the-Bow']
+  },
+  {
+    id: 'trial_of_archery', title: 'A Prova de Arco e Flecha', original: 'A Trial of Archery',
+    region: 'Vernworth, Bosque Sagrado e Câmara Ancestral', giver: 'Glyndwr',
+    relatedEventIds: ['v102'],
+    preparation: ['Conclua O Dom do Arco antes de procurar Glyndwr novamente.', 'Reserve curativos para a caminhada e o resgate de Doireann.'],
+    steps: [
+      'Depois de O Dom do Arco, encontre Glyndwr novamente próximo à ferraria de Roderick em Vernworth.',
+      'Vá ao ponto de encontro indicado na floresta e acompanhe Glyndwr até o Bosque Sagrado.',
+      'Após a cena na vila élfica, siga até a Câmara Ancestral para procurar Doireann.',
+      'Avance pela câmara até encontrar Doireann e o ogro. Quando ela cair, pegue-a no colo e leve-a para fora. Se derrotar o ogro, o caminho de saída fica mais simples.',
+      'Converse com Taliesin após a retirada de Doireann para terminar a missão.'
+    ],
+    completion: 'Fale com Taliesin ao final. Esta missão também prepara o relacionamento com os elfos para atividades posteriores.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-a-trial-of-archery-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/A-Trial-of-Archery']
+  },
+  {
+    id: 'heel_of_history', title: 'A História sob a Profundez', original: 'The Heel of History',
+    region: 'Bairro Pobre de Vernworth', giver: 'Kendrick, diante da Mão Graciosa',
+    relatedEventIds: ['v103'],
+    preparation: ['Tenha comida e algum ouro para as doações pedidas por Kendrick.', 'O local descoberto nesta missão serve também para O Magistrado Aprisionado.'],
+    steps: [
+      'Encontre Kendrick diante da Mão Graciosa no Bairro Pobre e faça as doações solicitadas até ele pedir ajuda para procurar Malcolm.',
+      'Pergunte pelo menino às crianças da vizinhança: um menino perto dos escombros, outro no mirante e uma menina dentro da Mão Graciosa.',
+      'Volte a Kendrick com as informações. Siga-o até a entrada bloqueada das galerias subterrâneas.',
+      'Entre no subterrâneo e procure Malcolm pelo caminho até encontrá-lo.',
+      'Acompanhe Malcolm até a biblioteca escondida. Depois, informe Waldhar sobre a biblioteca na missão O Magistrado Aprisionado.'
+    ],
+    completion: 'Encontrar Malcolm e alcançar a biblioteca encerra a busca; a mesma biblioteca resolve a exigência de Waldhar.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-heel-of-history-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Heel-of-History']
+  },
+  {
+    id: 'ornate_box', title: 'A Caixa Ornamentada', original: 'The Ornate Box',
+    region: 'Bairro Comercial de Vernworth', giver: 'Sven, junto às lojas da praça',
+    relatedEventIds: ['v103'],
+    preparation: ['Reserve ouro para comprar a caixa, caso escolha entregá-la a Sven em vez de dar dinheiro.', 'Volte à praça em dias posteriores para receber as recompensas.'],
+    steps: [
+      'Observe Sven discutindo com Auriol em frente à loja do Bairro Comercial.',
+      'Converse com Sven e escolha entre comprar a Caixa Ornamentada para ele ou dar o dinheiro solicitado.',
+      'Depois que Sven sair, passe pelo menos um dia no jogo e procure-o sentado junto à fonte da praça.',
+      'Fale com Sven para receber a primeira parte da recompensa. Repita as visitas à fonte em outros dois dias.',
+      'Na última conversa, receba a recompensa final, incluindo o traje de corte.'
+    ],
+    completion: 'São encontros em dias diferentes; a primeira conversa após comprar a caixa não encerra a missão.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-ornate-box-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Ornate-Box']
+  },
+  {
+    id: 'readvent_calamity', title: 'Revinda da Calamidade', original: 'Readvent of Calamity',
+    region: 'Melve e Aldeia de Harve', giver: 'Iniciada pelo ataque do dragão em Melve',
+    relatedEventIds: ['v107', 'v202'],
+    preparation: ['Enquanto estiver cumprindo as missões de Brant em Vernworth, volte a Melve antes de concluir O Banquete da Farsa.', 'Não use uma condição específica de viagem como garantia de ativação: os guias divergem sobre o gatilho anterior ao ataque.'],
+    steps: [
+      'Quando o dragão atacar Melve, ajude os moradores a repelir a criatura. Se Sigurd estiver presente, fale com ele para liberar Lanceiro Místico.',
+      'Retorne a Melve depois de algum tempo e converse com Ulrika na casa dela.',
+      'Após os acontecimentos com Ulrika, fale com Lennart quando ele pedir notícias sobre ela.',
+      'Vá à Aldeia de Harve e procure Ulrika. A cadeia de missões da vila pode começar com As Mãos Atadas que Abraçam a Causa.',
+      'Depois de falar com Ulrika em Harve, retorne a Melve e conte a Lennart que a encontrou.'
+    ],
+    completion: 'A conversa de retorno com Lennart encerra esta missão; a história de Ulrika continua em outras missões.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Readvent-of-Calamity']
   }
+
 
 ];
 
