@@ -159,7 +159,7 @@ export const Consultation: React.FC<Props> = ({
         </section>
       ) : (
         <>
-          {section !== 'references' && (
+          {(section === 'missions' || section === 'achievements') && (
             <div className="consult-controls">
               <label htmlFor="consult-filter">Mostrar</label>
               <select id="consult-filter" value={filter} onChange={e => onFilterChange(e.target.value as ConsultationFilter)}>
