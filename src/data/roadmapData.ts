@@ -61,7 +61,7 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Conheça Beren e prepare a rota de grimórios genuínos",
         type: "missao",
-        note: "Inicie o contato com Beren no acampamento e encontre Trysha em Spellbound. JAMAIS entregue grimórios mágicos genuínos sem antes saber quem precisa deles (Trysha vs Myrddin) ou forjar cópias no Emporium de Ibrahim.",
+        note: "Inicie o contato com Beren no acampamento e encontre Trysha na missão 'Magia Vertiginosa' (Spellbound). JAMAIS entregue grimórios mágicos genuínos sem antes saber quem precisa deles (Trysha vs Myrddin) ou forjar cópias no Emporium de Ibrahim.",
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
@@ -203,7 +203,7 @@ export const PHASES: Phase[] = [
     title: "02 · VERNWORTH · PARTE 1",
     subtitle: "A Capital, Guilda, Bairros e Primeiras Missões de Brant",
     slug: "Vernworth pt.1",
-    cue: "Não avance as missões principais até a Coroação (Feast of Deception). Faça todas as secundárias de Vernworth primeiro.",
+    cue: "Não avance as missões principais até a coroação de 'O Banquete da Farsa' (Feast of Deception). Faça todas as secundárias de Vernworth primeiro.",
     events: [
       {
         id: "v101",
@@ -218,7 +218,7 @@ export const PHASES: Phase[] = [
         id: "v102",
         title: "Ative a Guilda e inicie missões urbanas prioritárias",
         type: "missao",
-        note: "Fale com Klaus na Guilda de Vocações para 'Vocation Frustration' (entregar espada de duas mãos e cajado de arquimago da mina de Trevo). Ajude Glyndwr em 'Gift of the Bow' com um arco fabricado por humanos.",
+        note: "Fale com Klaus na Guilda de Vocações para 'Frustração Vocacional' (Vocation Frustration), entregando a espada de duas mãos e o cajado de arquimago da mina de Trevo. Ajude Glyndwr em 'O Dom do Arco' (Gift of the Bow) com um arco fabricado por humanos.",
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -227,7 +227,7 @@ export const PHASES: Phase[] = [
         id: "v103",
         title: "Execute as tarefas dos bairros e dos pobres",
         type: "missao",
-        note: "Conclua 'The Ornate Box' (compre a caixa e entregue a Sven ao longo de 3 encontros na praça), 'The Heel of History' e 'The Caged Magistrate' com o Magistrado Waldhar nas celas do castelo.",
+        note: "Conclua 'A Caixa Ornamentada' (The Ornate Box): compre a caixa e entregue a Sven ao longo de 3 encontros na praça; depois conclua 'A História sob a Profundez' (The Heel of History) e 'O Magistrado Aprisionado' (The Caged Magistrate) com o Magistrado Waldhar nas celas do castelo.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -236,7 +236,7 @@ export const PHASES: Phase[] = [
         id: "v104",
         title: "Participe do baile de máscaras com traje nobre",
         type: "conquista",
-        note: "Durante a missão de Brant 'The Stolen Throne', equipe a Túnica da Corte, Calças da Corte e a Máscara do Baile antes de adentrar o salão real à noite.",
+        note: "Durante a missão de Brant 'O Trono Roubado' (The Stolen Throne), equipe a Túnica da Corte, Calças da Corte e a Máscara do Baile antes de adentrar o salão real à noite.",
         achievements: [12],
         risk: "cuidado",
         source: "https://steamcommunity.com/stats/2054970/achievements",
@@ -246,7 +246,7 @@ export const PHASES: Phase[] = [
         id: "v105",
         title: "Adquira sua própria residência em Vernworth",
         type: "conquista",
-        note: "Aceite o pedido de Mildred nos bairros residenciais ('A Place to Call Home'). Cuide da casa por uma semana no jogo e, ao retorno dela, compre o imóvel por 20.000 moedas de ouro.",
+        note: "Aceite o pedido de Mildred nos bairros residenciais ('Um Lugar para Chamar de Lar' — A Place to Call Home). Cuide da casa por uma semana no jogo e, ao retorno dela, compre o imóvel por 20.000 moedas de ouro.",
         achievements: [10],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -262,9 +262,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v107",
-        title: "Gatilho de retorno a Melve (Readvent of Calamity)",
+        title: "Retorne a Melve: Revinda da Calamidade (Readvent of Calamity)",
         type: "alerta",
-        note: "Após algumas missões de Brant, retorne a Melve via carroça. Um dragão menor atacará o vilarejo; este é o gatilho da missão crítica de Ulrika e do Lanceiro Místico com Sigurd. NÃO termine Feast of Deception antes de resolver essa cadeia!",
+        note: "Após algumas missões de Brant, retorne a Melve via carroça. Um dragão menor atacará o vilarejo; este é o gatilho da missão crítica de Ulrika e do Lanceiro Místico com Sigurd. NÃO termine O Banquete da Farsa (Feast of Deception) antes de resolver essa cadeia!",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
@@ -382,24 +382,24 @@ export const PHASES: Phase[] = [
         id: "v201",
         title: "Avance pela Vila Sem Nome e Aldeia de Harve",
         type: "missao",
-        note: "Explore Harve para resgatar soldados sauros ('Monster Culling') e siga até a Vila Sem Nome ('The Nameless Village') para obter as habilidades iniciais do Ladrão com Flaude e Srail.",
+        note: "Explore Harve para resgatar soldados sauros ('Elimine os Monstros' — Monster Culling) e siga até a Vila Sem Nome ('O Vilarejo sem Nome' — The Nameless Village) para obter as habilidades iniciais do Ladrão com Flaude e Srail.",
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
         id: "v202",
-        title: "Acompanhe Ulrika em Melve e Harve ('Readvent of Calamity')",
+        title: "Acompanhe Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity)",
         type: "missao",
-        note: "Depois do ataque do dragão em Melve, fale com Ulrika. Quando ela fugir, encontre-a em Harve ('Trouble on the Cape'). Defenda os moradores dos sauros e acompanhe a nomeação dela como líder.",
+        note: "Depois do ataque do dragão em Melve, fale com Ulrika. Quando ela fugir, encontre-a em Harve ('As Mãos Atadas que Abraçam a Causa' — Trouble on the Cape). Defenda os moradores dos sauros e acompanhe a nomeação dela como líder.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Avançar a missão de coroação Feast of Deception fará toda essa cadeia falhar silenciosamente para sempre."
+        failureRisk: "Avançar a coroação em 'O Banquete da Farsa' (Feast of Deception) pode fechar a janela de iniciar missões dessa cadeia. Os efeitos sobre missões já abertas variam e não foram integralmente reproduzidos."
       },
       {
         id: "v203",
-        title: "Resgate Gregor no Pântano ('Till Death Do Us Part')",
+        title: "Resgate Gregor no Pântano ('Até que a Morte Nos Separe' — Till Death Do Us Part)",
         type: "missao",
         note: "Ouça os rumores sobre a trama de Ludolph contra Gregor em Vernworth. Corra até os pântanos enevoados no noroeste para salvar Gregor do Dullahan (Cavaleiro Sem Cabeça) antes que ele morra.",
         achievements: [],
@@ -431,7 +431,7 @@ export const PHASES: Phase[] = [
         id: "v206",
         title: "Coordene a troca de grimórios genuínos e falsos",
         type: "missao",
-        note: "Antes de entregar os livros mágicos para Trysha ('Spellbound') e Myrddin ('The Sorcerer's Appraisal'), faça cópias idênticas no Emporium de Ibrahim na Cidade de Descanso da Fronteira.",
+        note: "Antes de entregar os livros mágicos para Trysha ('Magia Vertiginosa' — Spellbound) e Myrddin ('O Julgamento do Feiticeiro' — The Sorcerer's Appraisal), faça cópias idênticas no Emporium de Ibrahim na Cidade de Descanso da Fronteira.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.trueachievements.com/a429012/master-of-the-maisters-achievement"
@@ -459,13 +459,13 @@ export const PHASES: Phase[] = [
     title: "04 · VERNWORTH · PARTE 3",
     subtitle: "Wilhelmina, Tramas da Corte e Ponto de Não Retorno da Coroação",
     slug: "Vernworth pt.3",
-    cue: "CHECKPOINT OBRIGATÓRIO: Concluir 'Feast of Deception' encerra o primeiro ato e cancela missões antigas pendentes!",
+    cue: "CHECKPOINT DE CAUTELA: 'O Banquete da Farsa' (Feast of Deception) pode fechar janelas de missões. Verifique pendências antes de prosseguir.",
     events: [
       {
         id: "v301",
         title: "Conclua as investigações de conspiração no castelo",
         type: "missao",
-        note: "Termine 'Disa's Plot' (infiltração no escritório da rainha regente), 'The Arisen's Shadow' (capture Bermudo nas ruas de Vernworth e poupe ou prenda-o) e tarefas de Sven.",
+        note: "Termine 'O Plano de Disa' (Disa's Plot), investigando o escritório da rainha regente; 'Uma Sombra à Espreita' (The Arisen's Shadow), sobre Bermudo; e as tarefas de Sven.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -474,7 +474,7 @@ export const PHASES: Phase[] = [
         id: "v302",
         title: "Prepare a missão de Wilhelmina e cumpra seu prazo quando disponível",
         type: "alerta",
-        note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'Feast of Deception'; NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
+        note: "Conheça Wilhelmina durante a história e desenvolva afinidade. Os walkthroughs divergem sobre o momento exato de ativar 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), mas vários a situam após 'O Banquete da Farsa' (Feast of Deception); NÃO exija concluí-la antes da coroação. Assim que ela pedir ajuda, reúna as evidências em até três dias, conforme o diário localizado.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
@@ -485,7 +485,7 @@ export const PHASES: Phase[] = [
         id: "v303",
         title: "CHECKPOINT DE SEGURANÇA 1: Revisão Pré-Coroação",
         type: "checkpoint",
-        note: "PARE antes de concluir 'Feast of Deception' com Brant. Termine a linha de Ulrika em Melve e Harve ('Readvent of Calamity' e missões ligadas); confira as missões de Ian, Lennart, Sven ('The Ornate Box') e Klaus ('Vocation Frustration'). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
+        note: "PARE antes de concluir 'O Banquete da Farsa' (Feast of Deception) com Brant. Termine a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' (Readvent of Calamity) e missões ligadas); confira as missões de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
@@ -496,7 +496,7 @@ export const PHASES: Phase[] = [
         id: "v304",
         title: "Realize a Coroação e receba a autorização para Battahl",
         type: "historia",
-        note: "Conclua 'Feast of Deception'. Brant libera a sequência para Battahl ('Nation of the Lambent Flame'). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
+        note: "Conclua 'O Banquete da Farsa' (Feast of Deception). Brant libera a sequência para Battahl ('Nação da Chama Luzente' — Nation of the Lambent Flame). Antes de sair por muito tempo de Vernworth, procure Wilhelmina no Rose Chateau Bordelrie: guias situam aqui uma oportunidade de ativar 'As Rosas Têm Espinhos'. Se ela pedir ajuda, priorize o prazo de três dias para reunir provas; afinidade e gatilhos narrativos podem influenciar. Depois prossiga para o Posto de Controle da Fronteira.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
@@ -525,14 +525,14 @@ export const PHASES: Phase[] = [
         id: "b02",
         title: "Execute as missões locais de Bakbattahl",
         type: "missao",
-        note: "Progrida 'Mercy Among Thieves' (esconderijo dos Ladrões de Coral com Hugo), 'Shadowed Prayers' (captura do assassino da Imperatriz Nadinia) e 'A Poisonous Proposal'.",
+        note: "Progrida 'Piedade entre Ladrões' (Mercy among Thieves), relacionada a Hugo e aos Ladrões de Coral; 'Orações Ensombradas' (Shadowed Prayers), para proteger Nadinia; e 'Uma Proposta Venenosa' (A Poisonous Proposal).",
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
         id: "b03",
-        title: "Evite a tragédia em 'Short-Sighted Ambition' (Família de Isaac)",
+        title: "Proteja a família de Isaac em 'Ambição Cega' (Short-Sighted Ambition)",
         type: "checkpoint",
         note: "Isaac pede o segundo tomo 'On the Transference of Souls 2'. Vá ao Ibrahim na Fronteira e crie a falsificação 'On the Transit of Souls 2'. Entregue APENAS a falsificação para que o experimento falhe inofensivamente e a esposa e filha de Isaac sobrevivam!",
         achievements: [],
@@ -551,7 +551,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "b05",
-        title: "Infiltre-se na Carroça Fantasma ('The Phantom Oxcart')",
+        title: "Infiltre-se em 'A Carroça Fantasma' (The Phantom Oxcart)",
         type: "alerta",
         note: "À noite perto de Vernworth, após ouvir rumores, aguarde a carroça fantasma. DESEQUIPE TODAS AS ARMAS E ARMADURAS, aproxime-se do cocheiro, converse e ENTRE dentro da carroça. Não reaja quando os guardas baterem nos peões até cruzar o portão de Battahl!",
         achievements: [33],
@@ -645,7 +645,7 @@ export const PHASES: Phase[] = [
         category: "Desafios Perdíveis",
         title: "Já Chegamos?",
         original: "Are We There Yet?",
-        tip: "Durante a missão The Phantom Oxcart, retire armas e roupas, fale com o cocheiro disfarçado de peão e ENTRE na carroça. Apenas seguir a pé não desbloqueia a conquista.",
+        tip: "Durante 'A Carroça Fantasma' (The Phantom Oxcart), retire armas e roupas, fale com o cocheiro disfarçado de peão e ENTRE na carroça. Apenas seguir a pé não desbloqueia a conquista.",
         missable: true,
         dlc: false,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/f298893741bd5f1ac1eab6159ff96ab27163def3.jpg",
@@ -787,7 +787,7 @@ export const PHASES: Phase[] = [
         id: "i03",
         title: "Desbloqueie Arqueiro Mágico com Cliodhna e Gautstafr",
         type: "conquista",
-        note: "Ajude o anão Gautstafr na estrada pegando 3 flores de ervas e escoltando-o até as termas do acampamento na missão 'Put a Spring in Thy Step'. Sua esposa Cliodhna desbloqueia Arqueiro Mágico.",
+        note: "Ajude o anão Gautstafr na estrada pegando 3 flores de ervas e escoltando-o até as termas do acampamento na missão 'A Fonte do Contentamento' (Put a Spring in Thy Step). Sua esposa Cliodhna desbloqueia Arqueiro Mágico.",
         achievements: [23],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -805,7 +805,7 @@ export const PHASES: Phase[] = [
         id: "i05",
         title: "Entregue 3 Licores de Lagarto a Lamond para Chefe de Guerra",
         type: "conquista",
-        note: "Lamond está sentado na entrada das termas ('The Sotted Sage'). Entregue 3 garrafas de Newt Liqueur (feitas combinando Fruit Wine com Saurian Tail ou compradas no Higgs' Tavern Stand) para desbloquear a vocação Warfarer.",
+        note: "Lamond está sentado na entrada das termas ('O Sábio Beberrão' — The Sotted Sage). Entregue 3 garrafas de Newt Liqueur (feitas combinando Fruit Wine com Saurian Tail ou compradas no Higgs' Tavern Stand) para desbloquear a vocação Warfarer.",
         achievements: [26],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -814,7 +814,7 @@ export const PHASES: Phase[] = [
         id: "i06",
         title: "Resolva as missões de forja e afeto da ilha",
         type: "missao",
-        note: "Complete 'Steeled Resolve, Blazing Forge' com Sara e Brokkr para destravar a melhor forja de estilo anão do jogo.",
+        note: "Complete 'Vontade Resistente, Forja Ardente' (Steeled Resolve, Blazing Forge) com Sara e Brokkr para destravar a melhor forja de estilo anão do jogo.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -945,7 +945,7 @@ export const PHASES: Phase[] = [
         id: "p04",
         title: "CHECKPOINT DE SEGURANÇA 2: Confira os saves antes do Gigantus",
         type: "checkpoint",
-        note: "Antes de avançar 'A New Godsway' e a rota de 'The Guardian Gigantus', revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
+        note: "Antes de avançar 'Um Novo Chamado Divino' (A New Godsway) e a rota de 'O Guardião Gigantus' (The Guardian Gigantus), revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
         achievements: [],
         risk: "critico",
         source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
@@ -966,7 +966,7 @@ export const PHASES: Phase[] = [
         id: "p06",
         title: "Suba a Torre do Luar (Moonglint Tower) até o confronto",
         type: "historia",
-        note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'A New Godsway', e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
+        note: "O aviso de última limpeza das missões deve ocorrer ANTES de avançar 'Um Novo Chamado Divino' (A New Godsway), e não só nesta subida à Torre do Luar. Se já concluiu os preparativos, confira as pendências antes do confronto com Phaesus e o Dragão; o retorno por carregamento após decisões não foi testado na versão 3.2.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
@@ -1090,7 +1090,7 @@ export const PHASES: Phase[] = [
         category: "História e Finais",
         title: "Gigantus, nem sei quem é",
         original: "Gigantus, I Hardly Knew Ye",
-        tip: "Em The Guardian Gigantus, destrua rapidamente todos os pontos fracos do colosso antes que ele alcance o ponto final de sua caminhada. Salve antes na pousada!",
+        tip: "Na missão 'O Guardião Gigantus' (The Guardian Gigantus), destrua rapidamente todos os pontos fracos do colosso antes que ele alcance o ponto final de sua caminhada. Salve antes na pousada!",
         missable: true,
         dlc: false,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/37ca1039d5c0f50beb3fb75665ed98a0daa806f6.jpg",
@@ -1603,7 +1603,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Riotous Fury",
     npc: "Lennart",
     location: "Melve ou Aldeia de Harve",
-    questOrCondition: "Conclua 'Readvent of Calamity' e aumente afinidade conversando ou entregando presentes.",
+    questOrCondition: "Conclua 'Revinda da Calamidade' (Readvent of Calamity) e aumente afinidade conversando ou entregando presentes.",
     missableNote: "Perdível se Ulrika ou Melve forem ignoradas antes da coroação."
   },
   {
@@ -1614,7 +1614,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Heavenly Shot",
     npc: "Taliesin",
     location: "Bosque Sagrado (Sacred Arbor)",
-    questOrCondition: "Conclua a cadeia de Glyndwr ('Gift of the Bow' e 'Trial of Archery') salvando a irmã dele Doireann."
+    questOrCondition: "Conclua a cadeia de Glyndwr ('O Dom do Arco' (Gift of the Bow) e 'Trial of Archery') salvando a irmã dele Doireann."
   },
   {
     id: "thief_flaude",
@@ -1644,7 +1644,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Celestial Paean",
     npc: "Eini",
     location: "Casa de Eini (norte de Melve)",
-    questOrCondition: "Conclua 'Spellbound' com Trysha sem que ela morra no surto mágico; depois fale com a avó Eini."
+    questOrCondition: "Conclua 'Magia Vertiginosa' (Spellbound) com Trysha sem que ela morra no surto mágico; depois fale com a avó Eini."
   },
   {
     id: "sorcerer_trysha",
@@ -1674,7 +1674,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Arc of Might",
     npc: "Beren",
     location: "Acampamento de Fronteira / Casa de Infância de Beren em Battahl",
-    questOrCondition: "Conclua 'Claw Them Into Shape' e 'Beren's Final Lesson'; visite Beren do outro lado da fronteira."
+    questOrCondition: "Conclua 'Treino Leonino' (Claw Them Into Shape) e 'A Última Lição de Beren' (Beren's Final Lesson); visite Beren do outro lado da fronteira."
   },
   {
     id: "mystic_spearhand_sigurd",
@@ -1704,7 +1704,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Martyr's Bolt",
     npc: "Cliodhna",
     location: "Cabana de Cliodhna / Ilha Vulcânica",
-    questOrCondition: "Conclua 'Put a Spring in Thy Step' levando Gautstafr até as fontes termais do acampamento."
+    questOrCondition: "Conclua 'A Fonte do Contentamento' (Put a Spring in Thy Step) levando Gautstafr até as fontes termais do acampamento."
   },
   {
     id: "warfarer_lamond",
@@ -1714,7 +1714,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Rearmament",
     npc: "Lamond",
     location: "Fontes Termais da Ilha Vulcânica",
-    questOrCondition: "Entregue 3 garrafas de Licor de Lagarto (Newt Liqueur) em 'The Sotted Sage'."
+    questOrCondition: "Entregue 3 garrafas de Licor de Lagarto (Newt Liqueur) em 'O Sábio Beberrão' (The Sotted Sage)."
   }
 ];
 
@@ -1773,14 +1773,14 @@ export const RISK_CHECKPOINTS = [
   {
     id: "cp1_feast",
     phaseId: "vernworth3",
-    title: "Antes da Coroação ('Feast of Deception')",
+    title: "Antes da Coroação ('O Banquete da Farsa' — Feast of Deception)",
     dangerLevel: "Crítico",
-    description: "Avançar a coroação em 'Feast of Deception' pode encerrar janelas para INICIAR ou CONCLUIR missões específicas. Verifique cada cadeia antes de prosseguir: não é comprovado que todas as quests abertas falhem ao aceitar o convite.",
+    description: "Avançar a coroação em 'O Banquete da Farsa' (Feast of Deception) pode encerrar janelas para INICIAR ou CONCLUIR missões específicas. Verifique cada cadeia antes de prosseguir: não é comprovado que todas as quests abertas falhem ao aceitar o convite.",
     verificationList: [
-      "Concluiu 'Readvent of Calamity' e acompanhou Ulrika em Melve e Harve?",
-      "Concluiu 'The Ornate Box' com o jovem Sven nos mercados?",
-      "Concluiu 'Vocation Frustration' na Guilda de Vocações?",
-      "Concluiu 'The Arisen's Shadow' capturando o espião Bermudo?",
+      "Concluiu 'Revinda da Calamidade' (Readvent of Calamity) e acompanhou Ulrika em Melve e Harve?",
+      "Concluiu 'A Caixa Ornamentada' (The Ornate Box) com o jovem Sven nos mercados?",
+      "Concluiu 'Frustração Vocacional' (Vocation Frustration) na Guilda de Vocações?",
+      "Concluiu 'Uma Sombra à Espreita' (The Arisen's Shadow) capturando o espião Bermudo?",
       "Planejou procurar Wilhelmina no Rose Chateau logo após a coroação, quando guias situam a missão 'As Rosas Têm Espinhos'?",
       "Conferiu a diferença entre salvamento intermediário e último descanso na pousada na sua versão, sem contar com recuperação garantida?"
     ]
@@ -1788,7 +1788,7 @@ export const RISK_CHECKPOINTS = [
   {
     id: "cp2_gigantus",
     phaseId: "preend",
-    title: "Antes de Interceptar o Gigantus ('The Guardian Gigantus')",
+    title: "Antes de Interceptar o Gigantus ('O Guardião Gigantus' — The Guardian Gigantus)",
     dangerLevel: "Crítico",
     description: "A conquista 'Gigantus, nem sei quem é' exige detê-lo rapidamente. A margem exata de progresso, o instante do troféu e o impacto de saves automáticos variam entre relatos e requerem validação.",
     verificationList: [
@@ -1804,7 +1804,7 @@ export const RISK_CHECKPOINTS = [
     dangerLevel: "Crítico",
     description: "O final tradicional ('Paz') e o verdadeiro são objetivos distintos. Guias documentam a sequência Paz → retorno ao voo → Mundo Desancorado na mesma campanha, sem iniciar Novo Jogo+ entre eles. O menu da atualização 3.2 não foi testado.",
     verificationList: [
-      "Revisou atividades pendentes ANTES de avançar 'A New Godsway' e conferiu os saves recuperáveis?",
+      "Revisou atividades pendentes ANTES de avançar 'Um Novo Chamado Divino' (A New Godsway) e conferiu os saves recuperáveis?",
       "Sabe que deve derrotar o dragão e sentar no trono para a conquista 'Paz'?",
       "Sabe que NÃO deve iniciar Novo Jogo+ antes de tentar interagir com o Pioneiro (Pathfinder) e retornar ao voo do Dragão?"
     ]
