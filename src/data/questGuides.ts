@@ -72,7 +72,7 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'jadeite_orb', item: 'Jadeite Orb (Orbe de Jadeíta)', forged: 'Forged Jadeite Orb',
+    id: 'jadeite_orb', item: 'Jadeite Orb (Orbe de Jadeíta)', forged: 'Imitation Jadeite Orb',
     obtain: 'Compre o orbe com Ibrahim na Cidade de Descanso da Fronteira.',
     originalTo: 'Everard',
     copyTo: 'Offulve',
