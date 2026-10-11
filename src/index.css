@@ -498,7 +498,7 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
 .consult-search-field:focus-within { outline:2px solid #dbb97e; outline-offset:2px; }
 .consult-search-field button { min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center; color:#e3c99f; cursor:pointer; }
 .consult-search-hint { color:#b9ae9e; font-size:12px; margin-top:10px; }
-.consult-sections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin-top:14px; border-bottom:1px solid #6b573c; }
+.consult-sections { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px; margin-top:14px; border-bottom:1px solid #6b573c; }
 .consult-sections button { display:flex; align-items:center; justify-content:center; gap:9px; min-height:50px; padding:10px 8px; border-bottom:3px solid transparent; color:#d3c5b0; background:#1c1a17; cursor:pointer; font-size:15px; font-weight:600; }
 .consult-sections button:hover { color:#ffdeaa; background:#30291f; }
 .consult-sections button.is-active { border-bottom-color:#d5b57e; background:#30271e; color:#ffe1b2; }
@@ -800,3 +800,9 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
 .quest-related-names li { line-height: 1.5; margin: .4rem 0; }
 .quest-related-names li span { color: #b4ad9f; }
 .quest-related-names li small { color: #aaa393; display: block; }
+
+/* Biblioteca de missões: quatro opções no desktop, duas linhas no celular. */
+@media (max-width: 600px) {
+  .consult-sections { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .consult-sections button { min-width:0; gap:6px; }
+}
