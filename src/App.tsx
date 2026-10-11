@@ -378,7 +378,6 @@ export default function App() {
         onDefer={(id) => setProgress(prev => deferJourneyStep(prev, id))}
         onClearSelection={() => setProgress(prev => ({ ...prev, activeStepId: undefined }))}
         onToggleDone={handleToggleEvent}
-        onOpenCheckpoints={() => setIsCheckpointsOpen(true)}
         onShowFull={handleNavigateToStep}
         onOpenAchievement={handleJumpToAchievement}
         onOpenConsultation={() => setView('consultation')}
@@ -402,12 +401,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="codex-footer border-t border-[#3d372e] py-8 px-4 text-center text-xs text-[#8e887d] space-y-2">
-        <p>
-          Dragon's Dogma 2 · Rota 100% PT-BR · Guia Comunitário Independente sem Vínculo Oficial com Capcom ou Valve.
-        </p>
-        <p className="text-[11px] text-[#726044]">
-          Compilação comunitária em revisão · 54 conquistas do jogo-base · 6 adicionais da expansão · sem garantia de 100% em uma só campanha
-        </p>
+        <p>Compêndio do Nascen · Guia independente de Dragon's Dogma 2 · Não afiliado à CAPCOM ou Valve.</p>
       </footer>
 
       {/* Modals */}
