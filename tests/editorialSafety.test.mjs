@@ -51,13 +51,15 @@ test('Wilhelmina não é descrita como obrigação de concluir antes da coroaç�
   const preparation = fullText(event('v302'));
   const before = fullText(event('v303'));
   const after = fullText(event('v304'));
-  assert.match(preparation, /após 'Feast of Deception'/);
+  assert.match(preparation, /após 'O Banquete da Farsa' \(Feast of Deception\)/);
   assert.match(preparation, /três dias/);
   assert.match(before, /NÃO tratar|pode surgir após/i);
   assert.match(after, /Wilhelmina/);
   assert.match(checkpoint('cp1_feast').verificationList.join(' '), /logo após a coroação/);
   assert.doesNotMatch(before, /missões serão CANCELADAS se estiverem abertas/);
   assert.doesNotMatch(before, /Every Rose Has Its Thorn.*CANCELADAS/);
+  assert.match(fullText(checkpoint('cp1_feast')), /O Banquete da Farsa/);
+  assert.doesNotMatch(PHASES.find(phase => phase.id === 'vernworth3').cue, /cancela missões antigas pendentes/i);
 });
 
 test('checkpoints distinguem os tipos de save e nunca prometem rollback infalível', () => {
