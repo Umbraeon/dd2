@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, HelpCircle, AlertTriangle, CheckCircle2, Circle, Clock, Sword, ExternalLink } from 'lucide-react';
+import { X, HelpCircle, CheckCircle2, Circle, Sword, ExternalLink } from 'lucide-react';
 import { SPHINX_RIDDLES } from '../data/roadmapData';
 import { UserProgress } from '../types/roadmap';
 
@@ -36,7 +36,7 @@ export const SphinxTrackerModal: React.FC<SphinxTrackerModalProps> = ({
                 Grimório da Esfinge · 10 Enigmas
               </h3>
               <p className="text-xs text-[#aea79b]">
-                Conquista 'Marcas completas' (#39) e Pedra de Despertar Eterna (#51)
+                Conquistas: 'Marcas completas' (#39) e 'Desprezo pelo ceifador' (#51)
               </p>
             </div>
           </div>
@@ -56,15 +56,9 @@ export const SphinxTrackerModal: React.FC<SphinxTrackerModalProps> = ({
 
         {/* Content */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-6 text-xs text-[#d0c9be]">
-          {/* Critical Rule Banner */}
-          <div className="bg-[#241a18] border border-[#7a392e] rounded-md p-3.5 text-[#ecd4cc] space-y-1.5">
-            <div className="flex items-center gap-2 font-serif font-bold text-[#f4ad9b] text-sm">
-              <AlertTriangle className="w-4 h-4" />
-              <span>Regra de Tentativa Única & Prazo de 7 Dias</span>
-            </div>
-            <p className="leading-relaxed">
-              Cada enigma só tem <b>uma tentativa</b>! Se você falhar, errar a contagem de estátuas ou quebrar o vaso, a Esfinge voará embora para sempre e os baús trancarão. Sempre faça um salvamento na Pousada antes de falar com ela!
-            </p>
+          <div className="rounded border border-[#52493b] bg-[#1b1c1d] p-3 text-sm text-[#d0c9be]">
+            <strong className="text-[#f0d1a0]">Antes de responder</strong>
+            <p className="mt-1 leading-relaxed">Cada enigma oferece uma tentativa. Se errar, você perde a recompensa daquele enigma, mas pode continuar os demais. O prazo de sete dias se aplica à Ruminação.</p>
           </div>
 
           {/* First Token Location Recorder (Riddle of Rumination) */}
@@ -140,28 +134,24 @@ export const SphinxTrackerModal: React.FC<SphinxTrackerModalProps> = ({
                     <p className="text-[#ecd2ac] bg-[#121315] p-2 rounded border border-[#313338]">
                       <b className="text-[#d9b780]">Solução:</b> {riddle.solution}
                     </p>
-                    {riddle.warning && (
-                      <p className="text-[11px] text-[#f4ad9b]">
-                        ⚠ <b>Atenção:</b> {riddle.warning}
-                      </p>
-                    )}
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Killing the Sphinx for Eternal Wakestone */}
           <div className="bg-[#1d1b18] border border-[#726044] rounded-md p-4 space-y-2">
             <div className="flex items-center gap-2 font-serif font-bold text-[#f0d1a0] text-sm">
-              <Sword className="w-4 h-4 text-[#df8c75]" />
-              <span>Como Derrotar a Esfinge e Obter a Pedra de Despertar Eterna (#51)</span>
+              <Sword className="w-4 h-4 text-[#d9b780]" aria-hidden="true" />
+              <span>Baú final: Pedra de Despertar Eterna</span>
             </div>
             <p className="leading-relaxed">
-              Ao responder ao décimo enigma, a Esfinge começará a se despedir para voar para sempre. <b>Imediatamente</b> empunhe a Flecha da Ruína (Unmaking Arrow) como Arqueiro ou desferir dano crítico com seu melhor guerreiro no peito e asas. Derrotando-a antes de escapar, ela derrubará a <b>Chave da Sabedoria</b> (Key of Sagacity), que abre o imenso baú dourado central contendo a <b>Pedra de Despertar Eterna</b>.
+              Antes do último enigma, equipe a vocação Arqueiro e guarde a Flecha da Ruína.
+              Quando a Esfinge tentar partir, inicie o combate e acerte-a com a flecha.
+              Pegue a Chave da Sabedoria e abra o grande baú dourado.
             </p>
-            <p className="text-[11px] text-[#9bc4a5]">
-              Use a pedra depois em um necrotério repleto de defuntos para reviver 2 ou mais pessoas de uma só vez e conquistar 'Desprezo pelo ceifador' (#51).
+            <p className="text-[#cfc8bd]">
+              Para a conquista 'Desprezo pelo ceifador', use a Pedra de Despertar Eterna para ressuscitar pelo menos duas pessoas ao mesmo tempo.
             </p>
           </div>
         </div>
@@ -181,7 +171,7 @@ export const SphinxTrackerModal: React.FC<SphinxTrackerModalProps> = ({
             onClick={onClose}
             className="px-4 py-1.5 text-xs font-semibold rounded bg-[#d9b780] text-[#111315] hover:bg-[#edd9ba] transition-colors"
           >
-            Concluir & Fechar
+            Fechar
           </button>
         </div>
       </div>

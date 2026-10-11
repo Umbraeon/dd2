@@ -421,11 +421,11 @@ export const PHASES: Phase[] = [
         id: "v205",
         title: "Chegue ao Santuário da Montanha e resolva os 5 enigmas da Esfinge",
         type: "alerta",
-        note: "Passe pelo Campo de Batalha Antigo e desça pela caverna até o Santuário da Montanha. Resolva: Olhos (baú acima da porta), Loucura (coloque seu peão ou amado no pedestal), Sabedoria (traga um peão 'SphinxParent'), Convicção (entregue um Portcrystal para duplicar) e Ruminação (encontre o Finder's Token no local exato do seu 1º Seeker's Token dentro de 7 dias!).",
+        note: "No Santuário da Montanha, resolva os enigmas dos Olhos, Loucura, Sabedoria, Convicção e Ruminação. Este último pede o Memento do Descobridor no lugar de seu primeiro Memento do Buscador, em até sete dias no jogo.",
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Errar qualquer enigma tranca permanentemente os baús restantes e a conquista 'Marcas completas' nesta rodada."
+        failureRisk: "Confira cada resposta antes de entregá-la. Se errar um enigma, não poderá obter a recompensa daquele desafio nesta campanha."
       },
       {
         id: "v206",
@@ -567,13 +567,13 @@ export const PHASES: Phase[] = [
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Ordem aleatória exige atenção: quebrar o vaso ou errar a contagem de estátuas encerra o evento."
+        failureRisk: "Antes de responder à Memória, conte os baús desbloqueados. Na Futilidade, prefira levar Maurits até o vaso."
       },
       {
         id: "b062",
         title: "Derrote a Esfinge e obtenha a Pedra de Despertar Eterna",
         type: "conquista",
-        note: "Assim que o décimo enigma for concluído, antes que a Esfinge voe embora, equipe a Flecha da Ruína (Unmaking Arrow) como Arqueiro ou acerte golpes pesados nas asas. Pegue a Chave da Sabedoria, abra o baú dourado e use a pedra para ressuscitar múltiplas pessoas simultaneamente no necrotério.",
+        note: "Antes do último enigma, esteja de Arqueiro e tenha a Flecha da Ruína (Unmaking Arrow). Quando a Esfinge tentar partir, inicie o combate, use a flecha, pegue a Chave da Sabedoria e abra o baú dourado.",
         achievements: [51],
         risk: "critico",
         source: "https://www.trueachievements.com/a429033/reapers-scorn-achievement"
@@ -1496,8 +1496,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma dos Olhos",
     nameEn: "Riddle of Eyes",
     summary: "Entrar na caverna indicada e recuperar o item de maior valor.",
-    solution: "Não vá até o fim da caverna cheia de ogros! O baú correto está escondido logo acima do arco de entrada da caverna. Suba a saliência e abra o baú para pegar o Frasco Selante (Sealing Phial). Entregue-o à Esfinge.",
-    warning: "Cuidado para não entregar um item incorreto. Apenas um item pode ser apresentado."
+    solution: "Não vá até o fim da caverna cheia de ogros! O baú correto está escondido logo acima do arco de entrada da caverna. Suba a saliência e abra o baú para pegar o Frasco Selante (Sealing Phial). Entregue-o à Esfinge."
   },
   {
     id: "sphinx_madness",
@@ -1506,8 +1505,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma da Loucura",
     nameEn: "Riddle of Madness",
     summary: "Apresentar a pessoa mais amada pelo Nascen sobre o pedestal.",
-    solution: "Carregue no colo o seu Peão Principal (ou qualquer NPC com bochechas coradas por afeição alta, como Ulrika) e coloque-o sobre o pedestal em frente à Esfinge antes de falar com ela.",
-    warning: "Se o NPC cair ou fugir, recoloque-o exatamente em cima do pedestal antes de confirmar a resposta."
+    solution: "Carregue no colo o seu Peão Principal (ou qualquer NPC com bochechas coradas por afeição alta, como Ulrika) e coloque-o sobre o pedestal em frente à Esfinge antes de falar com ela."
   },
   {
     id: "sphinx_wisdom",
@@ -1516,8 +1514,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma da Sabedoria",
     nameEn: "Riddle of Wisdom",
     summary: "Trazer o parente da Esfinge até ela.",
-    solution: "Vá a uma Pedra da Fenda, procure um peão oficial criado pela Capcom chamado 'SphinxParent', 'SphinxMother' ou 'SphinxFather' (geralmente nos Peões Oficiais ou filtrando por nome). Contrate-o, leve-o até o pedestal e fale com a Esfinge.",
-    warning: "Peões de jogadores com esse nome nem sempre são validados; use preferencialmente os peões oficiais da Capcom."
+    solution: "Vá a uma Pedra da Fenda, procure um peão oficial criado pela Capcom chamado 'SphinxParent', 'SphinxMother' ou 'SphinxFather' (geralmente nos Peões Oficiais ou filtrando por nome). Contrate-o, leve-o até o pedestal e fale com a Esfinge."
   },
   {
     id: "sphinx_conviction",
@@ -1526,8 +1523,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma da Convicção",
     nameEn: "Riddle of Conviction",
     summary: "Entregar o seu bem mais precioso.",
-    solution: "A Esfinge duplicará o item exato que você entregar! Entregue um Cristal de Porto (Portcrystal) para obter um segundo cristal idêntico sem custo.",
-    warning: "Não entregue itens inúteis; o item entregue é retornado no baú duplicado em cópia genuína perfeita."
+    solution: "A Esfinge duplicará o item exato que você entregar! Entregue um Cristal de Porto (Portcrystal) para obter um segundo cristal idêntico sem custo."
   },
   {
     id: "sphinx_rumination",
@@ -1536,8 +1532,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma da Ruminação",
     nameEn: "Riddle of Rumination",
     summary: "Retornar ao local onde encontrou seu primeiro Memento do Buscador dentro de 7 dias.",
-    solution: "Vá ao local exato onde você pegou seu primeiríssimo Seeker's Token. Lá estará no chão o 'Memento do Descobridor' (Finder's Token). Pegue-o e entregue à Esfinge antes do sétimo amanhecer no jogo.",
-    warning: "CRÍTICO: O relógio corre no jogo! Caso não lembre, é impossível usar detecção automática; marque sempre a localização do primeiro memento no início da campanha."
+    solution: "Retorne ao lugar em que coletou seu primeiro Memento do Buscador. Pegue o Memento do Descobridor (Finder's Token) nesse local e entregue-o à Esfinge dentro de sete dias no jogo."
   },
   {
     id: "sphinx_reunification",
@@ -1546,8 +1541,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Reunião (Mudança de Santuário)",
     nameEn: "Riddle of Reunification",
     summary: "A Esfinge bate as asas para voar para o Santuário da Fronteira.",
-    solution: "Assim que ela iniciar o discurso de mudança, segure firme nas pernas/penas dela com o botão de agarrar e viaje montado nela diretamente até o Frontier Shrine (oeste de Checkpoint Rest Town). Se perdê-la de vista, você terá que caminhar até o Frontier Shrine.",
-    warning: "Se for montado, mantenha seu vigor vigiado para não cair nas fendas do cânion."
+    solution: "Quando a Esfinge partir, você pode agarrar-se a ela e subir até suas costas para viajar até o Santuário da Fronteira. Também é possível chegar a esse santuário a pé, a oeste da Cidade de Descanso da Fronteira."
   },
   {
     id: "sphinx_memory",
@@ -1557,8 +1551,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     nameEn: "Riddle of Memory",
     isRandomOrder: true,
     summary: "Colocar no pedestal o número exato de estátuas correspondente aos enigmas já respondidos.",
-    solution: "Conte quantos enigmas você resolveu com sucesso até este momento (incluindo os 5 da montanha e eventuais enigmas já feitos na fronteira). Carregue e empilhe essa quantidade exata de estátuas de pedra no pedestal antes de responder.",
-    warning: "Errar o número fecha a Esfinge permanentemente."
+    solution: "Conte quantos baús de recompensa da Esfinge você já desbloqueou nos dois santuários, incluindo o baú da Reunião. Coloque essa quantidade de estátuas diante dela e confirme a resposta. A ordem dos desafios da fronteira varia."
   },
   {
     id: "sphinx_contest",
@@ -1568,8 +1561,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     nameEn: "Riddle of Contest",
     isRandomOrder: true,
     summary: "Derrotar o guerreiro armado enquanto equipado com o Anel da Derisão.",
-    solution: "A Esfinge equipa em você o Ring of Derision (que reduz seu dano a quase zero). Simplesmente agarre o oponente no chão e jogue-o penhasco abaixo, ou empurre-o no abismo!",
-    warning: "Não tente golpeá-lo com ataques normais; ele não sofrerá dano. O desequilíbrio e arremesso são a solução."
+    solution: "A Esfinge equipa em você o Ring of Derision (que reduz seu dano a quase zero). Simplesmente agarre o oponente no chão e jogue-o penhasco abaixo, ou empurre-o no abismo!"
   },
   {
     id: "sphinx_diff",
@@ -1579,8 +1571,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     nameEn: "Riddle of Differentiation",
     isRandomOrder: true,
     summary: "Encontrar e trazer Dante ou Vergil conforme a imagem mostrada.",
-    solution: "Compare o retrato mostrado pela Esfinge com o registro dos NPCs: Dante tem cabelo liso e circula ao NORTE do portão da Cidade de Descanso da Fronteira; Vergil tem cabelo cacheado e circula ao SUL do mesmo portão, ainda na Cidade de Descanso da Fronteira (lado de Battahl). Não vá ao centro de Bakbattahl. Use o Frasco Selante ou leve a pessoa correta até o pedestal.",
-    warning: "Trazer o irmão errado causará falha irreversível no enigma."
+    solution: "Compare o retrato mostrado pela Esfinge com o registro dos NPCs: Dante tem cabelo liso e circula ao NORTE do portão da Cidade de Descanso da Fronteira; Vergil tem cabelo cacheado e circula ao SUL do mesmo portão, ainda na Cidade de Descanso da Fronteira (lado de Battahl). Não vá ao centro de Bakbattahl. Use o Frasco Selante ou leve a pessoa correta até o pedestal."
   },
   {
     id: "sphinx_futility",
@@ -1589,8 +1580,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     namePt: "Enigma da Futilidade",
     nameEn: "Riddle of Futility",
     summary: "Entregar o frágil vaso de cerâmica para Maurits em Bakbattahl sem quebrá-lo.",
-    solution: "Não tente carregar o vaso a pé pelo deserto cheio de harpias! Em vez disso, vá até Bakbattahl, pegue Maurits no colo (ou guarde-o na Sealing Phial), use uma Pedra-barca para voltar ao Santuário da Fronteira e coloque Maurits ao lado do vaso!",
-    warning: "Um único golpe quebra o vaso para sempre. Levar Maurits até o vaso é a estratégia 100% segura."
+    solution: "Não tente carregar o vaso a pé pelo deserto cheio de harpias! Em vez disso, vá até Bakbattahl, pegue Maurits no colo (ou guarde-o na Sealing Phial), use uma Pedra-barca para voltar ao Santuário da Fronteira e coloque Maurits ao lado do vaso!"
   }
 ];
 
