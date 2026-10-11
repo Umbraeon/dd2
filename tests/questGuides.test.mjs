@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 16);
+  assert.equal(QUEST_GUIDES.length, 22);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -26,7 +26,12 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v102').length, 3);
   assert.equal(questGuidesForEvent('v103').length, 3);
   assert.equal(questGuidesForEvent('v107').length, 1);
-  assert.equal(questGuidesForEvent('v202').length, 1);
+  assert.equal(questGuidesForEvent('v202').length, 2);
+  assert.equal(questGuidesForEvent('v301').length, 2);
+  assert.equal(questGuidesForEvent('v303').length, 4);
+  assert.equal(questGuidesForEvent('v304').length, 1);
+  assert.equal(questGuidesForEvent('v104').length, 1);
+  assert.equal(questGuidesForEvent('v201').length, 1);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
