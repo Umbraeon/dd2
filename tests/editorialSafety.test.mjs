@@ -53,9 +53,12 @@ test('Wilhelmina não é descrita como obrigação de concluir antes da coroaç�
   const preparation = fullText(event('v302'));
   const before = fullText(event('v303'));
   const after = fullText(event('v304'));
-  assert.match(preparation, /após 'O Banquete da Farsa' \(Feast of Deception\)/);
+  assert.match(preparation, /Após 'O Banquete da Farsa' \(Feast of Deception\)/);
   assert.match(preparation, /três dias/);
-  assert.match(before, /NÃO tratar|pode surgir após/i);
+  assert.match(before, /O Vilarejo sem Nome.*Uma Sombra à Espreita/i);
+  for (const copy of [preparation, before, after]) {
+    assert.doesNotMatch(copy, /walkthroughs divergem|não prova que|NÃO exija|gatilhos narrativos podem/i);
+  }
   assert.match(after, /Wilhelmina/);
   assert.match(checkpoint('cp1_feast').verificationList.join(' '), /logo após a coroação/);
   assert.doesNotMatch(before, /missões serão CANCELADAS se estiverem abertas/);

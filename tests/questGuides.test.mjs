@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 16);
+  assert.equal(QUEST_GUIDES.length, 22);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -26,7 +26,12 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v102').length, 3);
   assert.equal(questGuidesForEvent('v103').length, 3);
   assert.equal(questGuidesForEvent('v107').length, 1);
-  assert.equal(questGuidesForEvent('v202').length, 1);
+  assert.equal(questGuidesForEvent('v202').length, 2);
+  assert.equal(questGuidesForEvent('v301').length, 2);
+  assert.equal(questGuidesForEvent('v303').length, 4);
+  assert.equal(questGuidesForEvent('v304').length, 1);
+  assert.equal(questGuidesForEvent('v104').length, 1);
+  assert.equal(questGuidesForEvent('v201').length, 1);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
@@ -93,4 +98,28 @@ test('Revinda da Calamidade: sem gatilho inventado e com retorno a Lennart', () 
   assert.match(ulrika.steps.join(' '), /Harve/);
   assert.match(ulrika.completion, /Lennart/);
   assert.doesNotMatch(ulrika.preparation.join(' '), /atravesse a fronteira|obrigatório ir a Battahl|guias divergem/i);
+});
+
+test('onda 3: investigação, baile e coroação têm sequências individualizadas', () => {
+  const ids = ['disas_plot', 'stolen_throne', 'arisen_shadow',
+    'nameless_village', 'feast_deception', 'home_hearth'];
+  for (const id of ids) {
+    const entry = guide(id);
+    assert.ok(entry.steps.length >= 4, `Passo a passo curto: ${id}`);
+    assert.equal(entry.references.length, 2);
+  }
+  assert.match(guide('disas_plot').steps.join(' '), /evidência.*Disa|carta.*evidência/i);
+  assert.match(guide('stolen_throne').steps.join(' '), /passagem secreta/);
+  assert.match(guide('arisen_shadow').steps.join(' '), /Bermudo/);
+  assert.match(guide('nameless_village').steps.join(' '), /Flaude.*Srail/);
+  assert.match(guide('feast_deception').steps.join(' '), /missões pendentes antes de confirmar/);
+  assert.match(guide('home_hearth').steps.join(' '), /quatro espadas/);
+  assert.match(guide('home_hearth').completion, /Ulrika/);
+  assert.doesNotMatch(guide('feast_deception').completion, /todas as missões abertas.*canceladas/i);
+});
+
+test('passos de coronação e Wilhelmina não expõem hipóteses internas', () => {
+  const copy = [...QUEST_GUIDES.filter(g => ['feast_deception', 'home_hearth'].includes(g.id))
+    .flatMap(g => [...g.preparation, ...g.steps, g.completion])].join(' ');
+  assert.doesNotMatch(copy, /walkthroughs divergem|fonte única|não comprovado|em auditoria|não foi reproduzido/i);
 });
