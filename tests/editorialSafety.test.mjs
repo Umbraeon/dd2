@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PHASES, RISK_CHECKPOINTS, ROADMAP_METADATA, SPHINX_RIDDLES } from '../src/data/roadmapData.ts';
+import { questGuidesForEvent } from '../src/data/questGuides.ts';
 
 const events = PHASES.flatMap(phase => phase.events);
 const achievements = PHASES.flatMap(phase => phase.achievements);
@@ -44,7 +45,8 @@ test('Melve distingue Phill/Accardo, Lennart e Ian sem atribuir ninhos a Ian', (
   assert.match(melve, /Ian/);
   assert.match(melve, /Norbert/);
   assert.match(melve, /Problemas Aninhados/);
-  assert.match(melve, /Bravura Revigorante/);
+  assert.ok(questGuidesForEvent('m04').some(guide => guide.title === 'Bravura Revigorante'));
+  assert.ok(questGuidesForEvent('m04').some(guide => guide.title === 'A Tímida Bravura dos Irmãos'));
 });
 
 test('Wilhelmina não é descrita como obrigação de concluir antes da coroação', () => {
@@ -113,9 +115,13 @@ test('Esfinge diferencia os gêmeos nas duas metades da Cidade de Descanso da Fr
 });
 
 test('missões m02 e m04 mostram urgência e passos que exigem retorno ao NPC', () => {
-  assert.match(fullText(event('m02')), /ampulheta.*temporizada/i);
+  assert.match(fullText(event('m02')), /resgate de Accardo é temporizado/i);
+  assert.ok(questGuidesForEvent('m02').some(guide => /temporizada/.test(guide.preparation.join(' '))));
   assert.doesNotMatch(fullText(event('m02')), /duração do prazo não foi estabelecida|não foram reproduzidos/i);
-  assert.match(fullText(event('m04')), /barris explosivos.*VOLTE.*jarro de veneno.*RETORNE/);
+  assert.match(fullText(event('m04')), /Lennart.*barris.*veneno/i);
+  const nesting = questGuidesForEvent('m04').find(guide => guide.id === 'nesting');
+  assert.ok(nesting);
+  assert.match(nesting.steps.join(' '), /Volte a Lennart.*Retorne a Lennart/i);
 });
 
 test('DLC preserva seis fichas e mostra apenas objetivos concretos ao jogador', () => {
