@@ -335,6 +335,104 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'A conversa de retorno com Lennart encerra esta missão; a história de Ulrika continua em outras missões.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Readvent-of-Calamity']
+
+  },
+  {
+    id: 'disas_plot', title: 'O Plano de Disa', original: "Disa's Plot",
+    region: 'Vernworth e Castelo de Vernworth', giver: 'Capitão Brant',
+    relatedEventIds: ['v301'],
+    preparation: ['Encontre Brant à noite na Stardrop Inn e pergunte sobre a rainha regente.', 'A investigação acontece no castelo durante a noite.'],
+    steps: [
+      'Aceite a missão com Brant, na Stardrop Inn, à noite.',
+      'Vá ao Castelo de Vernworth pelo Bairro Nobre. Durante a noite, entre pela guarita na parte posterior do castelo.',
+      'Na guarita, você pode pegar um uniforme de guarda em um baú. Suba as escadas até os escritórios no segundo andar.',
+      'Entre na sala indicada e pegue a carta sobre a mesa como evidência dos planos de Disa.',
+      'Depois da cena com Sven, saia do castelo e entregue a carta a Brant na taverna.'
+    ],
+    completion: 'Brant recebe a evidência e encerra a investigação.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-disas-plot-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Disas-Plot']
+  },
+  {
+    id: 'stolen_throne', title: 'O Trono Roubado', original: 'The Stolen Throne',
+    region: 'Vernworth, salão de baile do castelo', giver: 'Capitão Brant',
+    relatedEventIds: ['v104'],
+    preparation: ['Tenha a Túnica da Corte, as Calças da Corte e a máscara que Brant entrega.', 'Há trajes de corte na residência do Comissário (Comptroller) no Bairro Nobre.'],
+    steps: [
+      'Fale com Brant à noite sobre o baile de máscaras e receba a máscara.',
+      'Equipe máscara, Túnica da Corte e Calças da Corte antes de ir ao salão de baile do castelo.',
+      'Vá ao salão à noite. Se o baile não estiver acontecendo, descanse e tente na noite seguinte.',
+      'Depois da cena de entrada, procure o corredor nos fundos do salão e atravesse a parede que esconde uma passagem secreta.',
+      'Siga pelo corredor oculto até o Rose Chateau para descobrir o que está acontecendo com o falso soberano.',
+      'Retorne a Brant na Stardrop Inn e conte o que descobriu.'
+    ],
+    completion: 'O relatório a Brant conclui a missão. Comparecer ao baile trajado também permite acompanhar a conquista relacionada.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-stolen-throne-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Stolen-Throne']
+  },
+  {
+    id: 'arisen_shadow', title: 'Uma Sombra à Espreita', original: "The Arisen's Shadow",
+    region: 'Bairro Comercial de Vernworth', giver: 'Inicia-se durante as investigações de Brant',
+    relatedEventIds: ['v301', 'v303'],
+    preparation: ['Resolva esta missão antes de concluir O Banquete da Farsa.', 'Procure alguém que passa a fugir quando você se aproxima no Bairro Comercial.'],
+    steps: [
+      'Depois de avançar as investigações em Vernworth, observe o personagem que segue você pelo Bairro Comercial.',
+      'Quando ele fugir, persiga-o pelas ruas até conseguir alcançá-lo.',
+      'Agarre Bermudo com o comando de agarrar, em vez de atacá-lo à distância.',
+      'Após a conversa, escolha entre soltá-lo ou entregá-lo às autoridades; as opções têm resultados diferentes.'
+    ],
+    completion: 'A decisão sobre Bermudo encerra a missão. Não é necessário concluir a perseguição para acessar os guias das demais missões.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-arisens-shadow-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Arisens-Shadow']
+  },
+  {
+    id: 'nameless_village', title: 'O Vilarejo sem Nome', original: 'The Nameless Village',
+    region: 'Leste de Vermund, Vila Sem Nome', giver: 'Capitão Brant',
+    relatedEventIds: ['v201', 'v303'],
+    preparation: ['Pergunte a Brant sobre o falso soberano antes de concluir O Banquete da Farsa.', 'A estrada direta está bloqueada; contorne pela Floresta Oriental para chegar à vila.'],
+    steps: [
+      'Converse com Brant à noite e aceite investigar a Vila Sem Nome.',
+      'Siga para leste de Vernworth, contorne o bloqueio na estrada e entre na vila pela floresta.',
+      'Visite a mansão no alto da vila e converse com Flaude, incluindo a opção de perguntar sobre o símbolo de latão.',
+      'Procure a entrada das Profundezas da Vila Sem Nome atrás da mansão e avance pelo percurso de plataformas.',
+      'Fale com Srail na sala ao final e receba a evidência sobre o falso soberano.',
+      'Retorne a Brant na Stardrop Inn, à noite, e apresente as informações encontradas.'
+    ],
+    completion: 'Brant recebe a evidência. Flaude e Srail também são relevantes para os ensinamentos de mestre da vocação Ladrão.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-the-nameless-village-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Nameless-Village']
+  },
+  {
+    id: 'feast_deception', title: 'O Banquete da Farsa', original: 'Feast of Deception',
+    region: 'Vernworth, Stardrop Inn', giver: 'Capitão Brant',
+    relatedEventIds: ['v303', 'v304'],
+    preparation: [
+      'Conclua O Vilarejo sem Nome e Uma Sombra à Espreita se ainda pretende fazer essas missões.',
+      'Revise as tarefas pendentes de Melve e Harve, especialmente a linha de Ulrika.',
+      'Equipe Túnica da Corte e Calças da Corte antes de conversar com Brant.'
+    ],
+    steps: [
+      'Depois das investigações de Brant, volte à Stardrop Inn à noite com o traje de corte equipado.',
+      'Converse com Brant sobre a coroação e acompanhe a cena de preparação.',
+      'Espere o tempo pedido por Brant e volte a falar com ele na taverna à noite.',
+      'Quando Brant perguntar se você está pronto para avançar, confira as missões pendentes antes de confirmar.',
+      'Confirme a decisão para iniciar a tentativa de entrada na coroação. A cena termina com a reação do peão e o recuo do grupo.',
+      'Volte à Stardrop Inn e converse com Brant para receber o próximo destino da história.'
+    ],
+    completion: 'A missão termina após a nova conversa com Brant, que encaminha a viagem para Battahl. Não afirma que todas as quests abertas são canceladas.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-feast-of-deception-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Feast-of-Deception']
+  },
+  {
+    id: 'home_hearth', title: 'Lar é Onde o Coração Está', original: 'Home Is Where the Hearth Is',
+    region: 'Melve e Aldeia de Harve', giver: 'Lennart',
+    relatedEventIds: ['v202', 'v303'],
+    preparation: ['Acompanhe a sequência de Ulrika em Harve e retorne a Melve para encontrar a vila ocupada por soldados.', 'Se ajudou Ian e Norbert anteriormente, os irmãos podem ajudar você a recuperar as armas.'],
+    steps: [
+      'Na entrada de Melve, converse com o guarda e consiga passagem para a vila.',
+      'Entre na casa de Ulrika e converse com Lennart sobre como ajudar os moradores.',
+      'Obtenha quatro espadas: procure as armas confiscadas no depósito, aproveitando a distração dos irmãos, ou leve quatro do seu inventário.',
+      'Entregue as quatro espadas a Lennart e, ao sair, ajude os moradores a repelir os soldados.',
+      'Depois de algum tempo no jogo, vá a Harve e conte a Ulrika o que aconteceu em Melve.',
+      'Volte ao cais de Harve à noite e fale com Ulrika para concluir esta etapa da história.'
+    ],
+    completion: 'A conversa noturna com Ulrika encerra a missão e a cadeia de eventos iniciada em Melve.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Home-is-Where-the-Hearth-is']
   }
 
 
