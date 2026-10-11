@@ -1,0 +1,71 @@
+# Pendências verificáveis — sem homologação
+**Data:** 10/10/2026. Priorizar antes de permitir textos absolutos ou título «100%».
+| Prioridade | Objeto | Lacuna exata | Prova necessária |
+|---|---|---|---|
+| P1 | 58/59 quests mapeadas sem prova direta de título na UI | Apenas `Provações de um Novo Recruta` foi lida diretamente no HUD PT-BR; 56 continuam como localização extraída e 2 DLC não confirmadas. Plataforma/build do trecho também são desconhecidas. | Capturar título no diário, menu de idioma, edição/build, data e contexto; confrontar Kiranico. |
+| P1 | d01/DLC | «Chilling Tidings» e «Lost Rites» **não têm PT-BR localizado confirmado** na pesquisa | Captura do diário PT-BR de 2026 ou extração pareada atualização DLC; não traduzir. |
+| P1 | d01 | Rotas das 12 novas masmorras de Dark Arisen e condições exclusivas | Caminhos reproduzidos em save; capturas antes/depois; fonte adicional pós-09/10/2026. |
+| P1 | d01 | Início via Brant/duas opções e bloqueio no Unmoored só uma fonte de walkthrough de 08/10 | Segunda fonte independente, jogo PT-BR; observar modificações de slots/NG+. |
+| P1 | v303/cp1 | Quais quests são bloqueadas por aceitar ou concluir `Feast of Deception` | Duas fontes por quest e testes antes/depois; distinguir missão não iniciada x aberta x concluída. |
+| P1 | v202 | Falha silenciosa da linha Ulrika e pré-requisitos Melve/Harve | Captura do diário e save de fronteira de estado. |
+| P1 | v302 | O prazo de três dias após aceitar ajudar está corroborado; o gatilho de disponibilidade anterior continua divergente (afinidade, avanço narrativo, saída da cidade). | Capturar o diário ao aceitar ajuda e testar estados de ativação, sem converter a primeira hipótese do narrador em requisito. |
+| P1 | m02 | Accardo sofre dano/morre com demora? Game8 × PowerPyx divergem | Ensaio de espera in-game, versão/plataforma e fonte primária. |
+| P1 | v205,b06 | Erro de enigma por localização e efeito sobre todos os baús/recompensas | Experimento por enigma/estado; WindowsCentral × PushSquare, incluindo uso da flecha. |
+| P1 | b062 | Flecha da Ruína na Esfinge; mira nas asas, chave e baú | Reproduzir e documentar sucesso/falha; evitar instrução potencialmente irreversível. |
+| P1 | b03 | Isaac: cópia, grafia PT-BR de tomos e efeitos exatos sobre família | Captura de item/quest no PT-BR, outcomes com saves separados. |
+| P1 | p04,p05 | Condição temporal de `Gigantus, nem sei quem é`; fronteira de derrota; recuperabilidade | Duas provas independentes + teste; checar efeito no Mundial Desancorado. |
+| P1 | u01,u02,u08 | Fluxo exato de finais, retorno por Pathfinder, modo Casual e save | Testes de bifurcação e Steam #31, sem prometer campanha única. |
+| P1 | u04,u05,u06 | Quantos feixes periféricos; teleporte/ordem; evacuações; reativação Talos | Mapa e questlog PT-BR por fase; gatilhos individualizados de #36/#37/#41. |
+| P1 | achievements #55–60 | Gatilho efetivo e perdibilidade, além das descrições Steam | Walkthrough pós-lançamento independente + teste em DLC. |
+| P2 | #50 | Uso dos 12 pergaminhos: Steam só diz «adquiriu»; guia pede «aprenda» | Captura antes/depois e comparativo de duas fontes. |
+| P2 | #52 | 8 itens distintos × dia/noite e versões de carne não listadas na Steam | Filmagem/Steam trigger e comparação com rastreador. |
+| P2 | #47 | Diferenciar coletar 80 vs entregar 80 | Teste de conquista e descrição oficial; Steam diz «coletou». |
+| P2 | #39 | Associação em v205 e b06 = **um** desbloqueio | Confirmar com captura evento Steam e sequência; modelo já deduplica conquistas. |
+| P2 | Fontes | Manual Capcom PT-BR devolveu erro no acesso por ferramenta | Reabrir em navegador e registrar URL/versão; não inferir conteúdo não acessível. |
+| P1 | Playlist Romar, cobertura restante | 43 episódios identificados; somente transcrições 1, 2, 12, 18 e 24 examinadas. Série de 2024 não cobre DLC/updates 2026; plataforma/build desconhecidas e alternativas muitas vezes não testadas. | Usar índice e matriz de timestamps; só ampliar a amostra quando uma alegação P1 específica exigir, sem inspeção audiovisual exaustiva. |
+| P1 | `sphinx_diff` | Guia envia Vergil a Bakbattahl; transcrição + PowerPyx o colocam ao sul da fronteira na Cidade de Descanso da Fronteira. | Corrigir no PR de produção e validar em UI/mapa PT-BR; conferir imagem/cabelo em cada tentativa. |
+| P1 | `m04` — sequência dos ninhos | NPC Lennart já corroborado; transcrição demonstra barris, retorno, veneno e novo retorno, etapas ausentes no texto de produção. | Head conferir o diff do PR #19 e garantir sequência completa antes de merge. |
+| P2 | UX | Nenhum teste de usuário/viewport; sem imagem de gameplay | Executar roteiro do relatório de clareza. |
+| P2 | Progresso | Persistência v3 não testada com relatórios | Não tocar em IDs/schema; teste de regressão somente no PR executor aprovado. |
+
+**Regra:** «NAO_CONFIRMADO» significa falta de prova suficiente, **não** que missão/condição é falsa. «LOCALIZACAO_EXTRAIDA» não é prova primária da UI.
+
+
+## Novas pendências introduzidas pelas atualizações TU3.1/TU3.2
+| Prioridade | Escopo | Lacuna e situação | Evidência a obter |
+|---|---|---|---|
+| P1 | `v303,p04`, checkpoints de finais | Termos e comportamento reais de **autosave/interim save/última pousada** nos três slots após TU3.2, especialmente efeitos de **descansar** e **carregar**. | Teste com dois saves em campanha de ensaio, build/plataforma e resultado antes/depois de estado crítico. |
+| P1 | `d01` | Fonte oficial distingue **Domínio Esquecido** nível **40 recomendado** e **Rituais Perdidos** nível **20 recomendado**; ainda falta nome exato das duas quests que Brant oferece no diário PT-BR. | Captura UI PT-BR e etapas de acesso; nunca traduzir `Chilling Tidings` e `Lost Rites` por inferência. |
+| P1 | `d01,u01–u08` | Guia PC Gamer diz que a DLC não está disponível no Mundo Desancorado; sem confirmação primária ou teste. | Testar via save antes/depois de Unmoored ou encontrar segundo vídeo pós-expansão de 2026. |
+| P1 | `p03` e #50 | Patch TU3.2 torna recompráveis **tomos de especialização**; não há prova de que essa regra se aplique a **ensinamentos de maestria**. | Nome/tela de item e loja real, confirmação de regras distintas. |
+| P2 | `v101,v201` e #7 | Titulação real PT-BR e funcionamento da `Eternal Ferrystone`; não sabemos se novo item dispara conquista `Just a Stone's Throw Away`. | Teste de uso em save sem #7; print Steam antes/depois. |
+| P2 | `m03,v106,v107,v202` | Como `Guardian` aparece em PT-BR; recompensa de `Claw Them Into Shape`, `Readvent of Calamity` e compra na Nameless Apothecary em saves atuais. | Screenshots no idioma e build, loja e questlog. |
+| P2 | `m02,v203,v302` | `m02` teve ampulheta observada no episódio 1; os demais casos e a consequência exata da demora seguem não testados. | Capturar notificações correspondentes com versão/plataforma e ensaiar espera controlada. |
+| P2 | `p02` e #52 | TU3.2 inclui opção de impedir consumo de carne por atalho. | Confirmar título PT-BR exato no menu de opções e se a mudança evita só atalhos. |
+| P2 | Todas | Notas originais de update Capcom retornaram HTTP 403. | Abrir em navegador real e conferir com a reprodução de 2026. |
+
+Ver [relatório incremental de versão](2026-version-impact-report.md) e matrizes por [marco](2026-update-impact-events.csv) e [conquista](2026-update-impact-achievements.csv). **A auditoria de versão não é equivalente à validação integral da jogabilidade.**
+
+
+## Contradição documental de salvamentos e verificação de interface
+| Prioridade | Caso | Lacuna | Resolução necessária |
+|---|---|---|---|
+| P1 | Capcom Support FAQ atualizado em 08/10/2026 vs Capcom TU3.2 no Steam | FAQ ainda afirma **um único save**; TU3.2 confirma três slots com três estados por slot. O trecho do FAQ parece desatualizado, mas não houve reprodução do menu do jogo. | Print/grav. do menu de salvar e carregar na build TU3.2+ e plataforma identificada; não prometer restauro automático. Fonte FAQ: https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms |
+| P1 | PS5 patch 3.210 de 07/09/2026 | Relato secundário de bug na seleção do save mais recente depois de TU3.2, corrigido em PS5. | Nota Capcom original, versão exata e validação de correção; não generalizar para outras plataformas. https://mp1st.com/title-updates-and-patches/dragons-dogma-2-update-3-210-fixes-loading-data-issues |
+| P2 | Ajuda para NPCs perdidos e quests temporizadas | FAQ oficial mostra ampulheta na lista, deslocamento de NPC e opção de necrotérios/Diviner's Salon, mas o guia não oferece fallback por quest. | Testar e inserir orientação contextual, preservando IDs e nomes extraídos sem trocar traduções. |
+
+
+## Testes que faltam para homologar checkpoints de alto risco — CP1–CP4
+| Grau | Questão precisa | Teste pendente | Estado |
+|---|---|---|---|
+| P1 | `Feast of Deception`: aceitar convite vs concluir quest | Antes/depois em três estados para `Readvent`, `Home Is Where the Hearth Is`, `Ornate Box`, `Vocation Frustration`; investigar `Every Rose` **separadamente**, pois PowerPyx/Gameranx a posicionam depois da coroação e Gamer Guides propõe alternativas mais cedo. | EVIDÊNCIA POR ESTADO INCOMPLETA; cronologia de Wilhelmina corrigida |
+| P1 | `A New Godsway`: instante da última oportunidade de limpar quests | Registrar etapas antes de entregar 15 WLC, cruzar portão selado e acionar cena Gigantus. | LACUNA DE REPRODUÇÃO |
+| P1 | `Gigantus`: flecha, autosave, instante de desbloqueio e Talos | Testar com flecha e sem flecha, observar menu e pop-up; não usar Medusa até provar efeito. | FONTES DIVERGEM |
+| P1 | TU3.2: retornar ao salão após `Paz` | Capturar menu novo e interagir com Pathfinder sem iniciar NG+, comparar com walkthrough 2024. | PENDENTE GAMEPLAY |
+| P1 | `O Guardião` vs cinco quests de evacuação | Capturar exato instante do troféu Steam e conclusão das **5** quests (Henrique é linha independente de Ernesto). | 5 QUESTS LOCALIZADAS; TROFÉU NÃO ENSAIADO |
+| P1 | Mapa Unmoored: feixes de prova, azul de evacuação e vermelho final | Screenshots PT-BR após cada estado, sem confundir quatro trials com quatro feixes periféricos. | TOPOLOGIA DO GUIA INCOMPLETA |
+| P1 | Número de repousos/janela da névoa | Testar quais repousos avançam o relógio após cada prova e relação com TU3.2. | CONTAGEM NÃO HOMOLOGADA |
+| P1 | `Seafloor Shrine` e `Sacred Arbor`: nomes literais de mapa PT-BR | Kiranico usa «Templo Abissal» e «Jardim Sagrado» em objetivos; app usa «Santuário do Leito Marinho» e «Bosque Sagrado». | TÍTULOS DO MAPA NÃO CONFIRMADOS |
+| P1 | DLC Dark Arisen durante Mundo Desancorado | Segunda fonte independente ou teste de save; PC Gamer 08/10 diz que não pode acessar. | FONTE ÚNICA |
+
+Mais detalhes em [CP1–CP4](critical-checkpoints-review-2026.md) e [matriz 22 alegações](critical-checkpoints-evidence-2026.csv).
