@@ -99,13 +99,6 @@ export const AchievementCard: React.FC<AchievementCardProps> = ({
         <div className="mt-3 text-base text-[#dcd6cc] leading-relaxed bg-[#111315]/60 p-2.5 rounded border border-[#313338]/60">
           <p>{achievement.tip}</p>
         </div>
-
-        {/* Validation / Caveat Notice */}
-        {achievement.dlc && (
-          <div className="mt-2 text-[10px] text-[#79a6d2] bg-[#141b24] p-1.5 rounded border border-[#2b3c52]">
-            <span>Status: {achievement.validation}</span>
-          </div>
-        )}
       </div>
 
       {/* Bottom Bar: Action Checkbox + Steam Source Link */}
