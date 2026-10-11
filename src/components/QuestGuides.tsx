@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { FORGERY_ITEMS, QUEST_GUIDES, questGuidesForEvent } from '../data/questGuides';
 import type { QuestGuide } from '../data/questGuides';
@@ -20,8 +20,8 @@ const SourceLinks: React.FC<{ urls: readonly string[] }> = ({ urls }) => (
 const WalkthroughCard: React.FC<{ guide: QuestGuide; initialOpen?: boolean }> = ({
   guide, initialOpen = false
 }) => (
-  <details open={initialOpen ? true : undefined} className="rounded-md border border-[#574b39] bg-[#16191c] p-3 sm:p-4">
-    <summary className="cursor-pointer text-[#f0d1a0] font-semibold">
+  <details id={`quest-guide-${guide.id}`} open={initialOpen ? true : undefined} className="rounded-md border border-[#574b39] bg-[#16191c] p-3 sm:p-4">
+    <summary tabIndex={-1} className="cursor-pointer text-[#f0d1a0] font-semibold">
       {guide.title} <span className="text-[#a99f90] font-normal text-sm">({guide.original})</span>
     </summary>
     <div className="pt-3 space-y-3">
@@ -90,6 +90,14 @@ export const ForgeryGuide: React.FC = () => (
 
 export const QuestGuideLibrary: React.FC<{ initialGuideId?: string }> = ({ initialGuideId = '' }) => {
   const [filter, setFilter] = useState('');
+  useEffect(() => {
+    if (!initialGuideId) return;
+    const selected = document.getElementById(`quest-guide-${initialGuideId}`);
+    if (selected) {
+      selected.scrollIntoView({ block: 'start' });
+      selected.querySelector('summary')?.focus();
+    }
+  }, [initialGuideId]);
   const normalized = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const visible = QUEST_GUIDES.filter(guide =>
     [guide.title, guide.original, guide.region, guide.giver].join(' ')
