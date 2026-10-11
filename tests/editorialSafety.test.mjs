@@ -136,6 +136,8 @@ test('DLC de 11 de outubro usa seis títulos PT-BR verificados e sem tradução 
   for (const required of ['Brant', 'Stardrop Inn', 'Chilling Tidings', 'Lost Rites', 'nível 40 RECOMENDADO', 'nível 20 RECOMENDADO']) {
     assert.ok(dlc.includes(required), required);
   }
-  assert.match(dlc, /ainda requer captura/);
+  assert.match(dlc, /Chilling Tidings — Notícias Congelantes, localização EXTRAÍDA do questlog/);
+  assert.match(dlc, /Lost Rites \\(Rituais Perdidos, localização EXTRAÍDA do questlog/);
+  assert.match(dlc, /ainda falta captura dos títulos no diário PT-BR/i);
   assert.equal(ROADMAP_METADATA.researchDate, '2026-10-11');
 });
