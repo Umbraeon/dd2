@@ -5,10 +5,10 @@
 ## Entregue neste PR
 
 - Nova aba `Consulta → Guias e cópias`, acessível também pela busca global de missão.
-- Cinco fichas individuais (não cinco novos marcos): `Spellbound`, `The Sorcerer's Appraisal`, `Hunt for the Jadeite Orb`, `Short-Sighted Ambition`, `The Caged Magistrate`.
+- Oito fichas individuais (não oito novos marcos): `Spellbound`, `The Sorcerer's Appraisal`, `Hunt for the Jadeite Orb`, `Short-Sighted Ambition`, `The Caged Magistrate`, `Ordeals of a New Recruit`, `Medicament Predicament` e `Nesting Troubles`.
 - Oito itens em `O que falsificar`: cinco grimórios, Orbe de Jadeíta, tomo de Isaac e Chave da Prisão.
 - Em cada item, campos separados para **original**, **falsificação**, **destinatário** e **local**.
-- Fichas vinculadas aos marcos `m03`, `v206`, `p03`, `b03` e `v103` tanto no Diário quanto na Consulta; Jadeite acessível como missão individual no catálogo.
+- Fichas vinculadas aos marcos `m02`, `m03`, `m04`, `v206`, `p03`, `b03` e `v103` tanto no Diário quanto na Consulta; Jadeite acessível como missão individual no catálogo.
 - Conteúdo recolhido por padrão no Diário e fichas, mantendo o texto operacional como foco.
 - Nenhuma mudança no esquema do progresso local `dd2_roadmap_user_progress_v3`, IDs de marcos, contadores ou conclusão automática.
 
