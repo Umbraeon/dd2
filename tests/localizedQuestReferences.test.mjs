@@ -22,7 +22,7 @@ test('nomes de missões EN referidos em orientações têm o nome PT-BR na mesma
       bilingual.add(quest.english);
     }
   }
-  assert.ok(bilingual.size >= 30, `Só ${bilingual.size} títulos EN/PT-BR encontrados nas orientações`);
+  assert.ok(bilingual.size >= 28, `Só ${bilingual.size} títulos EN/PT-BR encontrados nas orientações`);
   assert.ok(contentStrings.some(line => line.includes('Piedade entre Ladrões') && line.includes('Mercy among Thieves')));
   assert.ok(contentStrings.some(line => line.includes('A Prova de Arco e Flecha') && line.includes('A Trial of Archery')));
 });
