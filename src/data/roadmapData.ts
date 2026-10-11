@@ -2,7 +2,7 @@ import { Phase, SphinxRiddle, MaisterSkill, BarbecueMeat, GlossaryTerm } from '.
 
 export const ROADMAP_METADATA = {
   title: "Dragon’s Dogma 2 — Compêndio PT-BR de Jornada e Conquistas",
-  researchDate: "2026-10-09",
+  researchDate: "2026-10-11",
   gameSteamAppId: 2054970,
   baseAchievements: 54,
   darkArisenAchievements: 6,
@@ -50,12 +50,12 @@ export const PHASES: Phase[] = [
         id: "m02",
         title: "Resolva as missões de novatos antes de se afastar do posto",
         type: "missao",
-        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. Como as fontes divergem sobre o prazo real de Accardo, resolva o resgate assim que o receber, sem presumir cronômetro comprovado.",
+        note: "Priorize 'Provações de um Novo Recruta' (Ordeals of a New Recruit): fale com Phill e ajude o soldado Accardo, ameaçado por harpias. Depois faça 'Um Fornecedor em Apuros' (The Provisioner's Plight) com Geoffrey. O indicador de ampulheta no diário marca a missão como temporizada. Resolva o resgate ao recebê-la e retorne a Phill; a duração do prazo não foi estabelecida.",
         achievements: [],
         risk: "alerta",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit"],
-        failureRisk: "Há divergência entre walkthroughs sobre limite de tempo e possibilidade de morte de Accardo. Trate o resgate como prioritário por prudência; a falha irreversível ainda não foi testada."
+        failureRisk: "O questlog do build 25290080 contém desfechos de sucesso e de morte de Accardo; Game8 também descreve a consequência. O tempo exato e a relação causal entre espera e morte não foram reproduzidos em gameplay. Não adie o resgate."
       },
       {
         id: "m03",
@@ -71,7 +71,7 @@ export const PHASES: Phase[] = [
         id: "m04",
         title: "Siga para Melve e conclua as tarefas locais imediatas",
         type: "missao",
-        note: "Em Melve, ajude Flora em 'Bravura Revigorante' (Medicament Predicament), entregando o revigorante de frutas. Para 'Problemas Aninhados' (Nesting Troubles), fale com Lennart, use barris explosivos e jarro de veneno contra o ninho de saurianos e informe a ele. Ian inicia outra missão, 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), para resgatar Norbert.",
+        note: "Em Melve, ajude Flora em 'Bravura Revigorante' (Medicament Predicament), entregando o revigorante de frutas. Para 'Problemas Aninhados' (Nesting Troubles), fale com Lennart, jogue barris explosivos no ninho, VOLTE a Lennart, jogue o jarro de veneno no mesmo local e RETORNE a Lennart para encerrar. Ian inicia outra missão, 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), para resgatar Norbert.",
         achievements: [],
         risk: "normal",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
@@ -1378,110 +1378,111 @@ export const PHASES: Phase[] = [
   {
     id: "dlc",
     title: "09 · DARK ARISEN (EXPANSÃO)",
-    subtitle: "Seis Novas Conquistas — Documentação em Verificação (Outubro/2026)",
+    subtitle: "Seis Novas Conquistas — Atualização Parcial (11/10/2026)",
     slug: "Dark Arisen",
-    cue: "ALERTA EDITORIAL: A expansão foi lançada em outubro de 2026. As condições oficiais estão confirmadas pela Steam/TrueAchievements, mas a rota detalhada passo a passo ainda não foi homologada. Nenhuma estratégia é inventada aqui.",
+    cue: "ALERTA EDITORIAL: A expansão já foi lançada, mas as rotas completas, a perdibilidade e os gatilhos das seis conquistas ainda não foram testados em jogo. Os nomes PT-BR foram conferidos em listas de conquistas; etapas descritas por guias externos não equivalem a gameplay homologado.",
     events: [
       {
         id: "d01",
         title: "Auditoria da Expansão Dark Arisen (6 Novas Conquistas)",
         type: "alerta",
-        note: "O jogo-base contém 54 conquistas. A expansão de outubro de 2026 adicionou exatamente 6 conquistas, totalizando 60 na Steam global. Suas rotas e missões NÃO fazem parte do guia comunitário de 2024 e estão listadas aqui de forma independente.",
+        note: "A expansão Dark Arisen acrescentou 6 conquistas às 54 do jogo-base (60 na Steam global). Para iniciar o conteúdo, encontre Brant à NOITE na Stardrop Inn, em Vernworth, depois de avançar a história até a cidade. Pergunte sobre o novo Nascen para seguir a linha de Norgan (Chilling Tidings; nível 40 RECOMENDADO) ou sobre as ruínas descobertas para iniciar as masmorras de Lost Rites (nível 20 RECOMENDADO). Não são níveis mínimos obrigatórios. Os nomes em inglês das duas missões foram confirmados em guias pós-lançamento; o nome exato exibido no diário PT-BR ainda requer captura. Evite adiar o acesso até o Mundo Desancorado: um guia recente relata bloqueio nessa fase, ainda sem teste independente. As rotas e os desbloqueios não estão homologados.",
         achievements: [55, 56, 57, 58, 59, 60],
         risk: "critico",
-        source: "https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"
+        source: "https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/",
+        extraSources: ["https://www.thebiglead.com/dragons-dogma-2-dark-arisen-how-to-start/", "https://www.capcom.co.jp/ir/english/news/html/e260610.html", "https://steamcommunity.com/stats/2054970/achievements"]
       }
     ],
     achievements: [
       {
         id: 55,
         category: "Dark Arisen (DLC)",
-        title: "O Norte Esquecido [tradução provisória]",
+        title: "Terras Esquecidas do Norte",
         original: "The Forgotten North",
-        tip: "Condição oficial confirmada: Chegar à nova região de Norgan. Rota exata de acesso ainda não homologada nesta pesquisa.",
+        tip: "Alcance Norgan. Guias pós-lançamento orientam iniciar a linha de Norgan com Brant à noite em Vernworth (nível 40 recomendado, não obrigatório); o gatilho foi descrito publicamente, mas não reproduzido nesta auditoria.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/38d3cf867cc1d816df4c5e26cda10cb748c230b8.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 56,
         category: "Dark Arisen (DLC)",
-        title: "Dogma Desafiado [tradução provisória]",
+        title: "Antagonista do Dogma",
         original: "Dogma Defied",
         tip: "Condição oficial confirmada: Chegar ao fim da Provação Final (The Final Trial) sem recuperar o medidor de perda de vida (sem descansar/curar a barra cinza). Estratégia de montagem de build em verificação.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e5480e4d3147e62fa33b0bac572cb3c183e68e3a.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 57,
         category: "Dark Arisen (DLC)",
-        title: "Dogma Defendido [tradução provisória]",
+        title: "Dogma Defendido",
         original: "Dogma Defended",
         tip: "Condição oficial confirmada: Atender e realizar o pedido do guardião de Norgan. Detalhes de escolhas da missão ainda em apuração.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/f73a45653008d60e1e0fa7b788882512c4ffb246.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 58,
         category: "Dark Arisen (DLC)",
-        title: "Strike! [nome oficial em inglês]",
+        title: "Mestre do Strike",
         original: "Strike!",
         tip: "Condição oficial confirmada: Romper e quebrar cinco barreiras de olhos malignos simultaneamente em um único golpe. Técnica ideal de feitiço/área em verificação.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/622189a1c911b9188379cd45e3725fc49c059599.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Nome original mantido (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 59,
         category: "Dark Arisen (DLC)",
-        title: "Reunidos [tradução provisória]",
+        title: "Reunidos",
         original: "Reunited",
         tip: "Condição oficial confirmada: Concluir o desejo e pedido especial da personagem Eir na trama de Dark Arisen.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/e3c64285aeb6bf2249a92516ebe628bf285a0bb9.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       },
       {
         id: 60,
         category: "Dark Arisen (DLC)",
-        title: "Esconderijo Abominável [tradução provisória]",
+        title: "Abominável Ladrão das Neves",
         original: "Abominable Snowstash",
-        tip: "Condição oficial confirmada: Recuperar os suprimentos e tesouros roubados dentro do covil do Snowfoot nas terras gélidas.",
+        tip: "Recupere os itens roubados no covil do Troll das Neves (Snowfoot). Local e condições exatas da rota não foram reproduzidos nesta auditoria.",
         missable: false,
         dlc: true,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/9665a146ef860935b919937b332bce2127d9e710.jpg",
         phase: "dlc",
-        validation: "Requisito oficial verificado na Steam/TrueAchievements; walkthrough passo a passo pendente de auditoria",
+        validation: "Descrição pública da conquista; passo a passo e perdibilidade ainda não testados em jogo",
         sourceUrl: "https://steamcommunity.com/stats/2054970/achievements",
-        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen"],
-        nameStatus: "Tradução PT-BR provisória (aguarda localização da Steam PT-BR)"
+        sourceExtra: ["https://www.trueachievements.com/game/Dragons-Dogma-2/dlc/Dark-Arisen", "https://www.exophase.com/game/dragon-s-dogma-2-steam/achievements/pt/"],
+        nameStatus: "Título PT-BR registrado em listas atuais de conquistas; gatilho não reproduzido"
       }
     ]
   }
@@ -1578,7 +1579,7 @@ export const SPHINX_RIDDLES: SphinxRiddle[] = [
     nameEn: "Riddle of Differentiation",
     isRandomOrder: true,
     summary: "Encontrar e trazer Dante ou Vergil conforme a imagem mostrada.",
-    solution: "Examine com lupa o cabelo da imagem: Dante tem cabelo repartido para o lado esquerdo e fica na Cidade de Descanso da Fronteira; Vergil tem cabelo repartido para o lado direito e fica em Bakbattahl. Use a Sealing Phial ou carregue o gêmeo certo até o pedestal.",
+    solution: "Compare o retrato mostrado pela Esfinge com o registro dos NPCs: Dante tem cabelo liso e circula ao NORTE do portão da Cidade de Descanso da Fronteira; Vergil tem cabelo cacheado e circula ao SUL do mesmo portão, ainda na Cidade de Descanso da Fronteira (lado de Battahl). Não vá ao centro de Bakbattahl. Use o Frasco Selante ou leve a pessoa correta até o pedestal.",
     warning: "Trazer o irmão errado causará falha irreversível no enigma."
   },
   {
