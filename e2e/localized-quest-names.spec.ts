@@ -4,7 +4,8 @@ import { PHASES } from '../src/data/roadmapData';
 
 test('orientações Bakbattahl aparecem em PT-BR sem mudar progresso desktop e mobile', async ({ page }) => {
   const phase = PHASES.find(x => x.id === 'battahl');
-  const event = phase?.events.find(x => x.id === 'b02');
+  if (!phase) throw Error('Capítulo battahl indisponível');
+  const event = phase.events.find(x => x.id === 'b02');
   if (!event) throw Error('Marco b02 indisponível');
   mkdirSync('test-results/screenshots', { recursive: true });
   for (const [width,height] of [[390,844],[1440,900]]) {
