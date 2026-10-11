@@ -35,7 +35,7 @@ export const PHASES: Phase[] = [
     title: "01 · MELVE",
     subtitle: "Prólogo, Acampamento e Primeira Vila",
     slug: "Melve",
-    cue: "Atenção crucial: registre imediatamente o local do 1º Memento do Buscador que coletar. Não o perca de vista!",
+    cue: "Anote o local do primeiro Memento do Buscador que encontrar.",
     events: [
       {
         id: "m01",
@@ -88,13 +88,13 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m06",
-        title: "REGRA DE OURO: Primeiro Memento do Buscador (Seeker's Token)",
+        title: "Registre o local do primeiro Memento do Buscador",
         type: "alerta",
-        note: "O enigma de Ruminação da Esfinge exige voltar ao LOCAL EXATO onde você pegou seu 1º Memento do Buscador em até 7 dias in-game. O guia cronológico recomenda evitar coletar qualquer um até um local fácil e marcante, tirar uma captura de tela e anotar as coordenadas exatas no rastreador deste guia!",
+        note: "Ao coletar seu primeiro Memento do Buscador, anote o local ou tire uma captura de tela. Essa informação será útil no Enigma de Ruminação da Esfinge.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Se você esquecer onde pegou o primeiro memento, terá que vasculhar centenas de locais às cegas durante a contagem de 7 dias da Esfinge."
+        failureRisk: "Guarde o local do primeiro memento para não precisar procurá-lo novamente durante o enigma."
       }
     ],
     achievements: [
@@ -376,7 +376,7 @@ export const PHASES: Phase[] = [
     title: "03 · VERNWORTH · PARTE 2",
     subtitle: "Campo de Batalha Antigo, Ponte de Ciclope e Primeira Fase da Esfinge",
     slug: "Vernworth pt.2",
-    cue: "Faça um salvamento na pousada antes de se aventurar na Esfinge. Cada enigma tem tentativa única e limite de tempo!",
+    cue: "Antes dos enigmas da Esfinge, confira suas opções de salvamento e prepare cada resposta.",
     events: [
       {
         id: "v201",
@@ -395,7 +395,7 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Avançar a coroação em 'O Banquete da Farsa' (Feast of Deception) pode fechar a janela de iniciar missões dessa cadeia. Os efeitos sobre missões já abertas variam e não foram integralmente reproduzidos."
+        failureRisk: "Conclua a história de Ulrika em Melve e Harve antes de avançar a coroação."
       },
       {
         id: "v203",
@@ -405,7 +405,7 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
-        failureRisk: "Missão com prazo oculto: se demorar vários dias após o alerta, Gregor morrerá e sua esposa ficará viúva."
+        failureRisk: "Resgate Gregor assim que receber a missão. Adiar pode impedir o desfecho desejado."
       },
       {
         id: "v204",
@@ -459,7 +459,7 @@ export const PHASES: Phase[] = [
     title: "04 · VERNWORTH · PARTE 3",
     subtitle: "Wilhelmina, Tramas da Corte e Ponto de Não Retorno da Coroação",
     slug: "Vernworth pt.3",
-    cue: "CHECKPOINT DE CAUTELA: 'O Banquete da Farsa' (Feast of Deception) pode fechar janelas de missões. Verifique pendências antes de prosseguir.",
+    cue: "Antes de avançar 'O Banquete da Farsa' (Feast of Deception), confira as missões pendentes de Vermund.",
     events: [
       {
         id: "v301",
@@ -483,7 +483,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v303",
-        title: "CHECKPOINT DE SEGURANÇA 1: Revisão Pré-Coroação",
+        title: "Confira as missões pendentes antes da coroação",
         type: "checkpoint",
         note: "PARE antes de concluir 'O Banquete da Farsa' (Feast of Deception) com Brant. Termine a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity, entre outras missões); confira as missões de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
         achievements: [],
@@ -912,7 +912,7 @@ export const PHASES: Phase[] = [
     title: "07 · CHECAGEM ANTES DO FINAL / GIGANTUS",
     subtitle: "Varredura 100%, 16 Churrascos, 12 Mestres, 80 Mementos e Derrota do Colosso",
     slug: "Antes do final",
-    cue: "ÚLTIMA OPORTUNIDADE segura do jogo-base: complete os 16 preparos de carne, os 12 ensinamentos de mestres e pare o Gigantus rapidamente!",
+    cue: "Antes do Gigantus, confira as tarefas opcionais, os ensinamentos de mestres e as conquistas que deseja concluir.",
     events: [
       {
         id: "p01",
@@ -943,9 +943,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p04",
-        title: "CHECKPOINT DE SEGURANÇA 2: Confira os saves antes do Gigantus",
+        title: "Prepare-se antes do confronto com Gigantus",
         type: "checkpoint",
-        note: "Antes de avançar 'Um Novo Chamado Divino' (A New Godsway) e a rota de 'O Guardião Gigantus' (The Guardian Gigantus), revise missões secundárias e prepare a batalha. Na atualização 3.2 há salvamento automático, intermediário e último descanso na pousada por espaço de campanha: DESCANSAR na pousada não é fazer um salvamento manual intermediário e pode atualizar registros do mesmo espaço. Confira a versão e os dados realmente recuperáveis ANTES da cena; não há garantia de repetir a luta depois de um autosave.",
+        note: "Antes de avançar 'Um Novo Chamado Divino' (A New Godsway) e a rota de 'O Guardião Gigantus' (The Guardian Gigantus), revise as missões pendentes. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada. Confira o registro disponível antes de seguir.",
         achievements: [],
         risk: "critico",
         source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
@@ -960,7 +960,7 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
         extraSources: ["https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement"],
-        failureRisk: "Deixar o Gigantus completar a rota sem intervenção suficientemente rápida pode perder a conquista nesta tentativa. O instante exato do gatilho não foi validado em jogo atualizado."
+        failureRisk: "Para buscar a conquista, detenha Gigantus antes que ele conclua sua marcha."
       },
       {
         id: "p06",
@@ -1193,7 +1193,7 @@ export const PHASES: Phase[] = [
     title: "08 · FINAIS E MUNDO DESANCORADO",
     subtitle: "Final Convencional do Trono, Quebra do Ciclo e Evacuações",
     slug: "Unmoored World",
-    cue: "FAÇA O FINAL CONVENCIONAL PRIMEIRO! Depois recarregue o salvamento para usar a Godsbane no voo do dragão e entrar no Mundo Desancorado. A conquista 'Encerramento' NÃO funciona no modo Casual!",
+    cue: "Se quiser buscar os dois finais na mesma campanha, não inicie Novo Jogo+ após obter 'Paz'.",
     events: [
       {
         id: "u01",
