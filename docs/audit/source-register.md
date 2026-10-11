@@ -56,14 +56,22 @@ Uma URL listada pelo guia **não valida automaticamente** as afirmações que lh
 - **Playlist:** [Dragon's Dogma 2 Detonado Platina/todas as Quests](https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T).
 - **Vídeo compartilhado:** https://www.youtube.com/watch?v=tQGRLcSk7yI
 - **Categoria:** `GUIA_COMUNITARIO_VIDEO / EVIDENCIA_POTENCIAL_IN_GAME`. **Prioridade alta para confronto** em razão da experiência favorável relatada pelo proprietário com o criador em Dragon's Dogma 1. Isso é evidência de utilidade pessoal, não validação universal do DD2.
-- **O que foi realmente acessível:** a página de playlist foi indexada com o título acima. O vídeo específico, a identidade do criador, a lista completa de episódios, seus capítulos, legendas/transcrição, a versão/plataforma e a data de gravação **não puderam ser extraídos** nesta sessão; a tentativa de abrir a página do vídeo falhou.
+- **Primeira tentativa de acesso:** somente o título da playlist foi recuperado. Coleta posterior em 11/10 superou esse limite; ver a retificação abaixo.
 - **O que pode provar quando os episódios forem efetivamente visualizados:** nome de quest na interface PT-BR (com timestamp, idioma e versão/plataforma identificada), NPC e localização mostrados, sequência de ações, prazo observado e tela de desbloqueio. Só elevar para `OFICIAL_COMPROVADO` um título visível inequivocamente **no diário PT-BR do jogo**, não a fala do narrador ou título da miniatura.
 - **O que NÃO prova por si:** que outra escolha não falharia, que não há conteúdo perdível, que o desbloqueio funcionará após atualizações ou que a expansão de 2026 está incluída.
-- **Decisão:** manter na trilha de evidências, **sem promover a quinta fonte principal ainda**; depois da visualização, comparar o valor de navegação prática da playlist com o guia escrito Steam de 2024. Caso seja mais executável e cubra os riscos, propor substituir a referência comunitária principal por ela, mantendo ambos nos registros técnicos.
+- **Decisão inicial, substituída em 11/10:** manter na trilha de evidências até examinar transcrições. A decisão atual está na retificação abaixo.
 - **Controle de verificabilidade:** ao auditar um episódio, registrar URL do vídeo, minuto exato, título literal exibido, ações na tela, plataforma/versão e eventual divergência com o diário PT-BR ou outros walkthroughs independentes.
 
 ## Regras de rastreabilidade
-Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `quest-name-mapping.csv` inclui fontes EN/PT e status de prova; `achievement-audit.csv` distingue título Steam de estratégia editorial. **Sem capturas do jogo PT-BR**, nenhum rótulo de quest foi promovido a `OFICIAL_COMPROVADO`.
+Registros de `claims-matrix.csv` incluem campos de proveniência e confiança; `quest-name-mapping.csv` inclui fontes EN/PT e status de prova; `achievement-audit.csv` distingue título Steam de estratégia editorial. Após a coleta pontual de 11/10, somente `Provações de um Novo Recruta` foi promovido a `OFICIAL_COMPROVADO`; os demais títulos continuam extraídos ou não confirmados.
+
+## Retificação da coleta da playlist — 11/10/2026
+
+O bloco anterior sobre inacessibilidade registra corretamente a primeira tentativa, mas foi **superado por acesso posterior à interface de transcrição**. O índice real contém **43 episódios** do canal [Romar](https://www.youtube.com/@RomarJogos). Foram examinadas cinco transcrições temáticas (1, 2, 12, 18, 24), sem assistir episódios inteiros, e preservados 23 trechos reproduzíveis em [video-evidence-matrix.csv](video-evidence-matrix.csv).
+
+**Classificação atual:** `GUIA_COMUNITARIO_VIDEO / REFERENCIA_CONTEXTUAL`. A transcrição sustenta procedimento e registra as incertezas do narrador. Somente texto legível na UI do jogo pode comprovar um título PT-BR; por esse critério, `Provações de um Novo Recruta` foi promovido com timestamp, embora plataforma/build permaneçam desconhecidas. Títulos de capítulos, pronúncia e reconhecimento automático não são localização oficial.
+
+**Decisão revisada:** incluir a playlist entre as **cinco referências contextuais recomendadas**, preservando Steam/Capcom e Kiranico como fontes de maior autoridade nos respectivos escopos. Ela não substitui walkthrough independente: o episódio 2 admite não saber se há outras quests, o episódio 18 não testou escolhas alternativas, e a série de 2024 não cobre Dark Arisen/TU3.1/TU3.2. Independência editorial em relação a rotas de terceiros não foi demonstrada.
 
 
 ## Documentação de versão acrescentada — TU3.1, TU3.2 e Dark Arisen (10/10/2026)

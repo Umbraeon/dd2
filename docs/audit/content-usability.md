@@ -28,7 +28,19 @@ Escala: OK (há informação), PARCIAL, FALTA; resultado indica presença textua
 Três voluntários: 1 iniciante, 1 intermediário e 1 experiente. Testar 375×812, 390×844, 1440×900, 1920×1080; gravação consentida e navegação sem instrução. Pedir: localizar primeiro resgate, achar quest de Lennart, conferir pré-coroação, resolver caminho da Esfinge, escolher início DLC, recuperar marco adiado. Medir tempo para identificar NPC/local, acerto de 5 perguntas, erros de clique, necessidade de busca externa, percepção de autenticidade dos nomes/alertas. Em seguida validar com teste in-game PT-BR e capturas em versão/plataforma registradas.
 
 ## Limitações
-Nenhum navegador gráfico, emulação Playwright ou sessão de jogo foi executado. **Não há screenshot**, tempos de tarefa, comparação responsiva observada ou entrevista com usuário. Análise de código não substitui teste de UX. Ilustração panorâmica da interface é explicitamente rotulada como não factual e não serve de evidência de quest.
+Nenhuma sessão de jogo, emulação Playwright, teste responsivo ou entrevista com usuário foi executada. Houve somente uma inspeção visual pontual do gameplay no YouTube antes da redução de escopo; não foi produzido arquivo local de screenshot. Análise de código e transcrição não substituem teste de UX. Ilustração panorâmica da interface é explicitamente rotulada como não factual e não serve de evidência de quest.
+
+## Ajuste de clareza baseado em transcrições — 11/10/2026
+
+A limitação acima continua válida para UX responsiva e testes de jogadores. Em coleta posterior houve acesso à interface do YouTube e às transcrições. A inspeção visual pontual, anterior à redução de escopo, mostrou o HUD PT-BR com `Provações de um Novo Recruta` e `Ajude Accardo`.
+
+As transcrições reforçam um formato mínimo para fichas executáveis: **quem inicia → onde → ações em ordem → retorno → risco comprovado → limite de evidência**. Aplicações imediatas:
+- `m02`: Phill → portão sudoeste do posto → Accardo ao sul → retorno a Phill; mostrar ampulheta sem inventar resultado fatal.
+- `m04`: Lennart → barris explosivos → retorno → frasco de veneno → retorno; Ian em ficha separada.
+- `v302`: afinidade/gatilho divergente → aceitar ajuda → três dias para provas → Brant/Wilhelmina; não exigir saída da cidade como regra.
+- `sphinx_diff`: comparar imagem e cabelo; Dante ao norte e Vergil ao sul da fronteira na mesma cidade; não mandar até Bakbattahl.
+
+O episódio 2 admite cobertura incompleta, e o 18 admite alternativas não testadas. Essa linguagem de incerteza deve ser preservada na interface em vez de convertida em instrução absoluta.
 
 
 ## Evidência primária nova — ajuda in-game documentada pela Capcom (10/10/2026)

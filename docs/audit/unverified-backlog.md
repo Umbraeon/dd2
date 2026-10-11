@@ -2,13 +2,13 @@
 **Data:** 10/10/2026. Priorizar antes de permitir textos absolutos ou título «100%».
 | Prioridade | Objeto | Lacuna exata | Prova necessária |
 |---|---|---|---|
-| P1 | TODAS as quests mapeadas | **0 capturas diretas** do diário PT-BR (versão/plataforma) | Capturar título do diário no jogo com menu idioma, edição, data e contexto; confrontar Kiranico. |
+| P1 | 58/59 quests mapeadas sem prova direta de título na UI | Apenas `Provações de um Novo Recruta` foi lida diretamente no HUD PT-BR; 56 continuam como localização extraída e 2 DLC não confirmadas. Plataforma/build do trecho também são desconhecidas. | Capturar título no diário, menu de idioma, edição/build, data e contexto; confrontar Kiranico. |
 | P1 | d01/DLC | «Chilling Tidings» e «Lost Rites» **não têm PT-BR localizado confirmado** na pesquisa | Captura do diário PT-BR de 2026 ou extração pareada atualização DLC; não traduzir. |
 | P1 | d01 | Rotas das 12 novas masmorras de Dark Arisen e condições exclusivas | Caminhos reproduzidos em save; capturas antes/depois; fonte adicional pós-09/10/2026. |
 | P1 | d01 | Início via Brant/duas opções e bloqueio no Unmoored só uma fonte de walkthrough de 08/10 | Segunda fonte independente, jogo PT-BR; observar modificações de slots/NG+. |
 | P1 | v303/cp1 | Quais quests são bloqueadas por aceitar ou concluir `Feast of Deception` | Duas fontes por quest e testes antes/depois; distinguir missão não iniciada x aberta x concluída. |
 | P1 | v202 | Falha silenciosa da linha Ulrika e pré-requisitos Melve/Harve | Captura do diário e save de fronteira de estado. |
-| P1 | v302 | Três dias de Wilhelmina: momento em que cronômetro começa | Diário «As Rosas Têm Espinhos» e walkthrough reproduzível. |
+| P1 | v302 | O prazo de três dias após aceitar ajudar está corroborado; o gatilho de disponibilidade anterior continua divergente (afinidade, avanço narrativo, saída da cidade). | Capturar o diário ao aceitar ajuda e testar estados de ativação, sem converter a primeira hipótese do narrador em requisito. |
 | P1 | m02 | Accardo sofre dano/morre com demora? Game8 × PowerPyx divergem | Ensaio de espera in-game, versão/plataforma e fonte primária. |
 | P1 | v205,b06 | Erro de enigma por localização e efeito sobre todos os baús/recompensas | Experimento por enigma/estado; WindowsCentral × PushSquare, incluindo uso da flecha. |
 | P1 | b062 | Flecha da Ruína na Esfinge; mira nas asas, chave e baú | Reproduzir e documentar sucesso/falha; evitar instrução potencialmente irreversível. |
@@ -22,7 +22,9 @@
 | P2 | #47 | Diferenciar coletar 80 vs entregar 80 | Teste de conquista e descrição oficial; Steam diz «coletou». |
 | P2 | #39 | Associação em v205 e b06 = **um** desbloqueio | Confirmar com captura evento Steam e sequência; modelo já deduplica conquistas. |
 | P2 | Fontes | Manual Capcom PT-BR devolveu erro no acesso por ferramenta | Reabrir em navegador e registrar URL/versão; não inferir conteúdo não acessível. |
-| P1 | Vídeos de platina indicados pelo proprietário (playlist YouTube) | Conteúdo do vídeo `tQGRLcSk7yI` e episódios da playlist não pôde ser aberto/transcrito; autor, datas, versão e afirmações ainda desconhecidos | Ver vídeos reais com timestamps; coletar cenas do diário PT-BR, avisos, checkpoints e desbloqueios; confrontar duas fontes nos riscos altos. Playlist: https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T |
+| P1 | Playlist Romar, cobertura restante | 43 episódios identificados; somente transcrições 1, 2, 12, 18 e 24 examinadas. Série de 2024 não cobre DLC/updates 2026; plataforma/build desconhecidas e alternativas muitas vezes não testadas. | Usar índice e matriz de timestamps; só ampliar a amostra quando uma alegação P1 específica exigir, sem inspeção audiovisual exaustiva. |
+| P1 | `sphinx_diff` | Guia envia Vergil a Bakbattahl; transcrição + PowerPyx o colocam ao sul da fronteira na Cidade de Descanso da Fronteira. | Corrigir no PR de produção e validar em UI/mapa PT-BR; conferir imagem/cabelo em cada tentativa. |
+| P1 | `m04` — sequência dos ninhos | NPC Lennart já corroborado; transcrição demonstra barris, retorno, veneno e novo retorno, etapas ausentes no texto de produção. | Head conferir o diff do PR #19 e garantir sequência completa antes de merge. |
 | P2 | UX | Nenhum teste de usuário/viewport; sem imagem de gameplay | Executar roteiro do relatório de clareza. |
 | P2 | Progresso | Persistência v3 não testada com relatórios | Não tocar em IDs/schema; teste de regressão somente no PR executor aprovado. |
 
@@ -38,7 +40,7 @@
 | P1 | `p03` e #50 | Patch TU3.2 torna recompráveis **tomos de especialização**; não há prova de que essa regra se aplique a **ensinamentos de maestria**. | Nome/tela de item e loja real, confirmação de regras distintas. |
 | P2 | `v101,v201` e #7 | Titulação real PT-BR e funcionamento da `Eternal Ferrystone`; não sabemos se novo item dispara conquista `Just a Stone's Throw Away`. | Teste de uso em save sem #7; print Steam antes/depois. |
 | P2 | `m03,v106,v107,v202` | Como `Guardian` aparece em PT-BR; recompensa de `Claw Them Into Shape`, `Readvent of Calamity` e compra na Nameless Apothecary em saves atuais. | Screenshots no idioma e build, loja e questlog. |
-| P2 | `m02,v203,v302` | O TU3.1 introduz ampulheta em quests temporizadas, mas não certifica *quais* quests a exibem. | Print das notificações correspondentes, versão/plataforma; preservar divergência Accardo até teste. |
+| P2 | `m02,v203,v302` | `m02` teve ampulheta observada no episódio 1; os demais casos e a consequência exata da demora seguem não testados. | Capturar notificações correspondentes com versão/plataforma e ensaiar espera controlada. |
 | P2 | `p02` e #52 | TU3.2 inclui opção de impedir consumo de carne por atalho. | Confirmar título PT-BR exato no menu de opções e se a mudança evita só atalhos. |
 | P2 | Todas | Notas originais de update Capcom retornaram HTTP 403. | Abrir em navegador real e conferir com a reprodução de 2026. |
 
