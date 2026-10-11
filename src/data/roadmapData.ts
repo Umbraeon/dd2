@@ -421,11 +421,11 @@ export const PHASES: Phase[] = [
         id: "v205",
         title: "Chegue ao Santuário da Montanha e resolva os 5 enigmas da Esfinge",
         type: "alerta",
-        note: "Passe pelo Campo de Batalha Antigo e desça pela caverna até o Santuário da Montanha. Resolva: Olhos (baú acima da porta), Loucura (coloque seu peão ou amado no pedestal), Sabedoria (traga um peão 'SphinxParent'), Convicção (entregue um Portcrystal para duplicar) e Ruminação (encontre o Finder's Token no local exato do seu 1º Seeker's Token dentro de 7 dias!).",
+        note: "No Santuário da Montanha, resolva os enigmas dos Olhos, Loucura, Sabedoria, Convicção e Ruminação. Este último pede o Memento do Descobridor no lugar de seu primeiro Memento do Buscador, em até sete dias no jogo.",
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Errar qualquer enigma tranca permanentemente os baús restantes e a conquista 'Marcas completas' nesta rodada."
+        failureRisk: "Confira cada resposta antes de entregá-la. Se errar um enigma, não poderá obter a recompensa daquele desafio nesta campanha."
       },
       {
         id: "v206",
@@ -567,13 +567,13 @@ export const PHASES: Phase[] = [
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Ordem aleatória exige atenção: quebrar o vaso ou errar a contagem de estátuas encerra o evento."
+        failureRisk: "Antes de responder à Memória, conte os baús desbloqueados. Na Futilidade, prefira levar Maurits até o vaso."
       },
       {
         id: "b062",
         title: "Derrote a Esfinge e obtenha a Pedra de Despertar Eterna",
         type: "conquista",
-        note: "Assim que o décimo enigma for concluído, antes que a Esfinge voe embora, equipe a Flecha da Ruína (Unmaking Arrow) como Arqueiro ou acerte golpes pesados nas asas. Pegue a Chave da Sabedoria, abra o baú dourado e use a pedra para ressuscitar múltiplas pessoas simultaneamente no necrotério.",
+        note: "Antes do último enigma, esteja de Arqueiro e tenha a Flecha da Ruína (Unmaking Arrow). Quando a Esfinge tentar partir, inicie o combate, use a flecha, pegue a Chave da Sabedoria e abra o baú dourado.",
         achievements: [51],
         risk: "critico",
         source: "https://www.trueachievements.com/a429033/reapers-scorn-achievement"
