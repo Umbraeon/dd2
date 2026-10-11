@@ -17,7 +17,7 @@ Essas duas generalizações eram incompatíveis com os guias consultados. Houve 
 
 1. Substituir o banner alarmista por um parágrafo neutro que diferencia falha de **um enigma** de interrupção da **sequência**.
 2. Indicar explicitamente que **sete dias** se referem à Ruminação.
-3. Retirar as 10 advertências por enigma, pois repetiam recomendações, continham absolutos incorretos ou não acrescentavam ação relevante. As soluções continuam consultáveis.
+3. Retirar as 10 advertências por enigma, pois repetiam recomendações, continham absolutos incorretos ou não acrescentavam ação relevante. As soluções continuam consultáveis. Corrigir também as advertências falsas dos marcos `v205` e `b06` do Diário.
 4. Tornar o último passo objetivo: preparar Arqueiro + Flecha da Ruína, iniciar o combate no momento da partida, pegar a chave e abrir o baú.
 5. Corrigir o cabeçalho para nomear a conquista #51 como **Desprezo pelo ceifador**, e não como o nome do item.
 
