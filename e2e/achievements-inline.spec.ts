@@ -15,9 +15,9 @@ test('linked achievements use Steam art, named status and full catalogue card wi
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(firstLinked.phase.id);
   await page.getByRole('button', { name: new RegExp('Consultar atividade: ' + firstLinked.event.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).click();
-  const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
-  await expect(region).toContainText('em verificação');
-  await expect(region).toContainText('não confirma o momento nem garante o desbloqueio');
+  const region = page.getByRole('region', { name: 'Conquistas para acompanhar' });
+  await expect(region).not.toContainText('em verificação');
+  await expect(region).toContainText('Marque cada conquista quando ela aparecer no jogo.');
   await expect(region.locator('.inline-achievement-entry')).toHaveCount(firstLinked.event.achievements.length);
   const item = region.getByRole('button', { name: /Abrir ficha da conquista/ }).first();
   await expect(item).toContainText('Não obtida');
@@ -40,7 +40,7 @@ test('achievement and milestone toggles remain independent, and v3 user state is
     if (localStorage.getItem(key) === null) localStorage.setItem(key, JSON.stringify(state));
   }, { key, state });
   await page.goto('/');
-  const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
+  const region = page.getByRole('region', { name: 'Conquistas para acompanhar' });
   await expect(region.getByRole('button', { name: /Abrir ficha da conquista/ }).first()).toContainText('Obtida');
   await page.getByRole('button', { name: 'Concluir marco' }).click();
   let saved = JSON.parse((await readProgress(page))!);
@@ -61,7 +61,7 @@ test('12 linked cards start compact, reveal all on demand and never overflow in 
     await page.goto('/');
     await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(large.phase.id);
     await page.getByRole('button', { name: 'Consultar atividade: ' + large.event.title, exact: false }).click();
-    const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
+    const region = page.getByRole('region', { name: 'Conquistas para acompanhar' });
     await expect(region.locator('.inline-achievement-entry')).toHaveCount(3);
     await expect(region.getByRole('button', { name: 'Ver mais 9 conquistas associadas' })).toBeVisible();
     await region.locator('.inline-achievement-entry').first().scrollIntoViewIfNeeded();
@@ -84,7 +84,7 @@ test('external Steam images blocked: compact layout uses accessible fallback', a
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Consultar atividade: ' + firstLinked.event.title, exact: false }).click();
-  const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
+  const region = page.getByRole('region', { name: 'Conquistas para acompanhar' });
   await expect(region.locator('.inline-achievement-fallback').first()).toBeVisible();
   await expect(region.getByText('Ícone indisponível').first()).toBeAttached();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
@@ -99,7 +99,7 @@ test('inline icons and full-card navigation have no axe serious/critical finding
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Consultar atividade: ' + firstLinked.event.title, exact: false }).click();
-  const region = page.getByRole('region', { name: 'Conquistas associadas no roteiro' });
+  const region = page.getByRole('region', { name: 'Conquistas para acompanhar' });
   const button = region.getByRole('button', { name: /Abrir ficha da conquista/ }).first();
   await button.focus();
   await expect(button).toBeFocused();
