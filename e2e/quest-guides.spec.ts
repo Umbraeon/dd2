@@ -49,3 +49,32 @@ test('Diário mostra passo a passo de Trysha e Myrddin sob demanda', async ({ pa
   await expect(myrddin).toContainText('três falsificações diferentes');
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+
+test('biblioteca: nova missão em Melve abre diretamente a ficha na busca global', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Tímida Bravura dos Irmãos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Tímida Bravura dos Irmãos/ }).click();
+  await expect(page.getByRole('button', { name: 'Guias e cópias' })).toHaveAttribute('aria-pressed', 'true');
+  const details = page.locator('#quest-guide-brothers_brave');
+  await expect(details).toHaveAttribute('open', '');
+  await expect(details).toContainText('acompanhe os dois de volta até Melve');
+  await expect(page.getByRole('heading', { name: 'O que falsificar — e quem recebe cada versão' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclusão', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth1');
+  await page.getByRole('button', { name: /Consultar atividade: Ative a Guilda/ }).click();
+  const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
+  await expect(panel.locator('details')).toHaveCount(3);
+  const vocation = panel.locator('details').filter({ hasText: /Frustração Vocacional/ });
+  await vocation.locator('summary').click();
+  await expect(vocation).toContainText('Two-Hander');
+  await expect(vocation).toContainText('Grievous Horns');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
