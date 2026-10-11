@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 8);
+  assert.equal(QUEST_GUIDES.length, 16);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -21,7 +21,12 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   }
   assert.equal(questGuidesForEvent('b03')[0].id, 'short_sighted');
   assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
-  assert.equal(questGuidesForEvent('m04').length, 2);
+  assert.equal(questGuidesForEvent('m04').length, 3);
+  assert.equal(questGuidesForEvent('m02').length, 2);
+  assert.equal(questGuidesForEvent('v102').length, 3);
+  assert.equal(questGuidesForEvent('v103').length, 3);
+  assert.equal(questGuidesForEvent('v107').length, 1);
+  assert.equal(questGuidesForEvent('v202').length, 1);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
@@ -55,4 +60,37 @@ test('fichas não exigem cinco grimórios nem prometem todos os itens funcionand
   assert.match(myrddin.preparation.join(' '), /três falsificações/);
   assert.doesNotMatch(trysha.steps.join(' '), /cinco.*obrigat/i);
   assert.match(recipe('gaol_key').action, /cópia funcional/i);
+});
+
+const guide = id => {
+  const result = QUEST_GUIDES.find(item => item.id === id);
+  assert.ok(result, `Guia ausente: ${id}`);
+  return result;
+};
+
+test('onda 2: missões de Melve e Vernworth têm etapas sem misturar destinos', () => {
+  const ids = [
+    'provisioners_plight', 'brothers_brave', 'vocation_frustration',
+    'gift_of_bow', 'trial_of_archery', 'heel_of_history',
+    'ornate_box', 'readvent_calamity'
+  ];
+  for (const id of ids) {
+    assert.ok(guide(id).steps.length >= 5, `Poucas etapas em ${id}`);
+    assert.equal(guide(id).references.length, 2, `Fontes em ${id}`);
+  }
+  assert.match(guide('provisioners_plight').steps.join(' '), /três Harspuds e os dois Salubrious Draughts/);
+  assert.match(guide('provisioners_plight').completion, /Geoffrey/);
+  assert.match(guide('brothers_brave').completion, /escolta/);
+  assert.match(guide('vocation_frustration').preparation.join(' '), /consome as armas/i);
+  assert.match(guide('gift_of_bow').preparation.join(' '), /Arqueiro/);
+  assert.match(guide('trial_of_archery').steps.join(' '), /Doireann/);
+  assert.match(guide('heel_of_history').steps.join(' '), /Malcolm/);
+  assert.match(guide('ornate_box').steps.join(' '), /outros dois dias/);
+});
+
+test('Revinda da Calamidade: sem gatilho inventado e com retorno a Lennart', () => {
+  const ulrika = guide('readvent_calamity');
+  assert.match(ulrika.steps.join(' '), /Harve/);
+  assert.match(ulrika.completion, /Lennart/);
+  assert.doesNotMatch(ulrika.preparation.join(' '), /atravesse a fronteira|obrigatório ir a Battahl|guias divergem/i);
 });
