@@ -203,7 +203,7 @@ export const PHASES: Phase[] = [
     title: "02 · VERNWORTH · PARTE 1",
     subtitle: "A Capital, Guilda, Bairros e Primeiras Missões de Brant",
     slug: "Vernworth pt.1",
-    cue: "Não avance as missões principais até a coroação de 'O Banquete da Farsa' (Feast of Deception). Faça todas as secundárias de Vernworth primeiro.",
+    cue: "Antes de concluir 'O Banquete da Farsa' (Feast of Deception), confira as missões secundárias de Vernworth que podem ficar indisponíveis.",
     events: [
       {
         id: "v101",
@@ -465,7 +465,7 @@ export const PHASES: Phase[] = [
         id: "v301",
         title: "Conclua as investigações de conspiração no castelo",
         type: "missao",
-        note: "Termine 'O Plano de Disa' (Disa's Plot), investigando o escritório da rainha regente; 'Uma Sombra à Espreita' (The Arisen's Shadow), sobre Bermudo; e as tarefas de Sven.",
+        note: "Termine 'O Plano de Disa' (Disa's Plot), investigando o escritório da rainha regente; 'Uma Sombra à Espreita' (The Arisen's Shadow), capturando Bermudo nas ruas de Vernworth e optando por poupá-lo ou prendê-lo; e as tarefas de Sven.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -485,7 +485,7 @@ export const PHASES: Phase[] = [
         id: "v303",
         title: "CHECKPOINT DE SEGURANÇA 1: Revisão Pré-Coroação",
         type: "checkpoint",
-        note: "PARE antes de concluir 'O Banquete da Farsa' (Feast of Deception) com Brant. Termine a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' (Readvent of Calamity) e missões ligadas); confira as missões de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
+        note: "PARE antes de concluir 'O Banquete da Farsa' (Feast of Deception) com Brant. Termine a linha de Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity, entre outras missões); confira as missões de Ian, Lennart, Sven ('A Caixa Ornamentada' — The Ornate Box) e Klaus ('Frustração Vocacional' — Vocation Frustration). Algumas deixam de poder ser INICIADAS, mas isso não prova que toda missão ABERTA falhe ao aceitar a coroação. 'As Rosas Têm Espinhos', de Wilhelmina, pode surgir após essa etapa: volte a procurá-la cedo. Antes de avançar, confira os tipos de salvamento da sua versão; pousada não é sinônimo de salvamento manual intermediário.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
@@ -525,7 +525,7 @@ export const PHASES: Phase[] = [
         id: "b02",
         title: "Execute as missões locais de Bakbattahl",
         type: "missao",
-        note: "Progrida 'Piedade entre Ladrões' (Mercy among Thieves), relacionada a Hugo e aos Ladrões de Coral; 'Orações Ensombradas' (Shadowed Prayers), para proteger Nadinia; e 'Uma Proposta Venenosa' (A Poisonous Proposal).",
+        note: "Progrida 'Piedade entre Ladrões' (Mercy among Thieves), no esconderijo dos Ladrões de Coral com Hugo; 'Orações Ensombradas' (Shadowed Prayers), para capturar o assassino da imperatriz Nadinia; e 'Uma Proposta Venenosa' (A Poisonous Proposal).",
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -1090,7 +1090,7 @@ export const PHASES: Phase[] = [
         category: "História e Finais",
         title: "Gigantus, nem sei quem é",
         original: "Gigantus, I Hardly Knew Ye",
-        tip: "Na missão 'O Guardião Gigantus' (The Guardian Gigantus), destrua rapidamente todos os pontos fracos do colosso antes que ele alcance o ponto final de sua caminhada. Salve antes na pousada!",
+        tip: "Na missão 'O Guardião Gigantus' (The Guardian Gigantus), destrua rapidamente todos os pontos fracos do colosso antes que ele alcance o ponto final de sua caminhada. Antes da marcha, confira quais tipos de salvamento ainda são recuperáveis na sua versão; o descanso na pousada pode atualizar o registro da pousada.",
         missable: true,
         dlc: false,
         icon: "https://shared.fastly.steamstatic.com/community_assets/images/apps/2054970/37ca1039d5c0f50beb3fb75665ed98a0daa806f6.jpg",
@@ -1614,7 +1614,7 @@ export const MAISTER_SKILLS: MaisterSkill[] = [
     skillEn: "Heavenly Shot",
     npc: "Taliesin",
     location: "Bosque Sagrado (Sacred Arbor)",
-    questOrCondition: "Conclua a cadeia de Glyndwr ('O Dom do Arco' (Gift of the Bow) e 'Trial of Archery') salvando a irmã dele Doireann."
+    questOrCondition: "Conclua a cadeia de Glyndwr ('O Dom do Arco' — Gift of the Bow; e 'A Prova de Arco e Flecha' — A Trial of Archery) salvando a irmã dele Doireann."
   },
   {
     id: "thief_flaude",
