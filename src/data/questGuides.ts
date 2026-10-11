@@ -171,7 +171,51 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'O magistrado passa a frequentar a biblioteca subterrânea. A cópia de chave feita com Ibrahim fica com você.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-the-caged-magistrate-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Caged-Magistrate']
+  },
+  {
+    id: 'new_recruit', title: 'Provações de um Novo Recruta', original: 'Ordeals of a New Recruit',
+    region: 'Posto Avançado da Guarda, norte de Vermund', giver: 'Phill',
+    relatedEventIds: ['m02'],
+    preparation: ['Aceite o pedido de Phill antes de deixar o posto; o diário marca a missão como temporizada.'],
+    steps: [
+      'Ao sair pelo portão sul do Posto Avançado da Guarda, fale com Phill e aceite ajudar Accardo.',
+      'Siga pela estrada ao sul em direção ao marcador de Accardo.',
+      'Derrote as harpias que atacam o soldado. Se não tiver ataques à distância, espere as harpias descerem ou use os peões.',
+      'Volte ao Posto Avançado e converse com Phill para concluir o resgate.'
+    ],
+    completion: 'Conversa final com Phill. Faça o resgate assim que receber a missão.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit']
+  },
+  {
+    id: 'medicament', title: 'Bravura Revigorante', original: 'Medicament Predicament',
+    region: 'Melve, junto à farmácia de Runne', giver: 'Flora',
+    relatedEventIds: ['m04'],
+    preparation: ['Você precisa de um Fruit Roborant (revigorante de frutas), comprado ou fabricado.'],
+    steps: [
+      'Fale com Flora do lado de fora da farmácia em Melve e aceite ajudá-la.',
+      'Compre Fruit Roborant na farmácia ou combine fruta seca com Greenwarish/Morningtide para fabricar o item.',
+      'Confira no inventário que você possui pelo menos uma unidade.',
+      'Volte a Flora e entregue o revigorante para concluir a missão.'
+    ],
+    completion: 'Entrega do revigorante a Flora, com recompensa da missão.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-medicament-predicament-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Medicament-Predicament']
+  },
+  {
+    id: 'nesting', title: 'Problemas Aninhados', original: 'Nesting Troubles',
+    region: 'Melve, perto do poço', giver: 'Lennart',
+    relatedEventIds: ['m04'],
+    preparation: ['A missão aparece depois de avançar a história até Vernworth e retornar a Melve.'],
+    steps: [
+      'Fale com Lennart perto do poço na parte danificada de Melve.',
+      'Pegue os barris explosivos perto do rio e arremesse-os no ninho de sauros na outra margem.',
+      'Volte a Lennart: ele dará uma segunda tarefa, desta vez com veneno.',
+      'Pegue o jarro de veneno próximo à entrada de Melve e arremesse-o no mesmo local do ninho.',
+      'Retorne a Lennart para finalizar a missão.'
+    ],
+    completion: 'A missão só termina depois do segundo retorno a Lennart.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles']
   }
+
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */
