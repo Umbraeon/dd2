@@ -61,11 +61,11 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Conheça Beren e prepare a rota de grimórios genuínos",
         type: "missao",
-        note: "Inicie o contato com Beren no acampamento e encontre Trysha na missão 'Magia Vertiginosa' (Spellbound). JAMAIS entregue grimórios mágicos genuínos sem antes saber quem precisa deles (Trysha vs Myrddin) ou forjar cópias no Emporium de Ibrahim.",
+        note: "Converse com Beren no acampamento e encontre Trysha na missão 'Magia Vertiginosa' (Spellbound). Antes de entregar grimórios, reserve pelo menos três originais para Trysha e prepare três falsificações diferentes para Myrddin. O passo a passo está na ficha desta etapa.",
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
-        failureRisk: "Entregar tomos originais para um mestre sem fazer cópias no vendedor de falsificações pode bloquear magias do outro mestre."
+        failureRisk: "Antes de entregar os grimórios, preserve originais para Trysha; ela não aceita falsificações para avançar normalmente."
       },
       {
         id: "m04",
@@ -431,7 +431,7 @@ export const PHASES: Phase[] = [
         id: "v206",
         title: "Coordene a troca de grimórios genuínos e falsos",
         type: "missao",
-        note: "Antes de entregar os livros mágicos para Trysha ('Magia Vertiginosa' — Spellbound) e Myrddin ('O Julgamento do Feiticeiro' — The Sorcerer's Appraisal), faça cópias idênticas no Emporium de Ibrahim na Cidade de Descanso da Fronteira.",
+        note: "Trysha ('Magia Vertiginosa' — Spellbound) exige grimórios autênticos; Myrddin ('O Julgamento do Feiticeiro' — The Sorcerer's Appraisal) aceita versões falsificadas feitas por Ibrahim. Separe três originais para Trysha e três falsificações diferentes para Myrddin. Veja a lista de livros e os destinos na aba Guias e cópias.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.trueachievements.com/a429012/master-of-the-maisters-achievement"

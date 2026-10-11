@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ChevronRight, Circle, Compass, ExternalLink, ShieldAlert, SkipForward } from 'lucide-react';
 import type { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { AchievementPreview, InlineAchievements } from './InlineAchievements';
+import { QuestWalkthroughsForEvent } from './QuestGuides';
 import { isStepCompleted, isStepDeferred, listJourneySteps, resolveJourney } from '../utils/journey';
 
 const USER_PANORAMA = '/assets/gemini-codex-panorama.webp';
@@ -158,6 +159,7 @@ export const QuestCodex: React.FC<Props> = ({
               {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && <div className="quest-warning" role="note">
                 <ShieldAlert size={19} aria-hidden="true"/><div><h3>Antes de avançar</h3><p>{event.failureRisk}</p></div>
               </div>}
+              <QuestWalkthroughsForEvent eventId={event.id} />
               <InlineAchievements key={event.id} ids={event.achievements} phases={phases} progress={progress} onOpenAchievement={onOpenAchievement} />
               <button className="quest-more-toggle" type="button" aria-expanded={more} onClick={() => setMore(v => !v)}>
                 Detalhes e fonte <ChevronDown size={17} aria-hidden="true" />

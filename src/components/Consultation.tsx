@@ -5,8 +5,10 @@ import { ROADMAP_METADATA } from '../data/roadmapData';
 import { ChapterSection } from './ChapterSection';
 import { AchievementCard } from './AchievementCard';
 import { AchievementMiniIcon } from './InlineAchievements';
+import { QuestGuideLibrary } from './QuestGuides';
+import { QUEST_GUIDES } from '../data/questGuides';
 
-export type ConsultationSection = 'missions' | 'achievements' | 'references';
+export type ConsultationSection = 'missions' | 'achievements' | 'guides' | 'references';
 export type ConsultationFilter = 'all' | 'undone' | 'done';
 
 interface Props {
@@ -47,6 +49,7 @@ export const Consultation: React.FC<Props> = ({
   onGoJourney, onOpenSources, onOpenGlossary, onOpenTools, toolsExpanded
 }) => {
   const [achievementChapter, setAchievementChapter] = useState('all');
+  const [selectedGuideId, setSelectedGuideId] = useState('');
   useEffect(() => { if (selectedAchievementId !== null) setAchievementChapter('all'); }, [selectedAchievementId]);
   const achievements = useMemo(() => {
     const unique = new Map<number, { phase: Phase; achievement: Phase['achievements'][number] }>();
@@ -56,7 +59,8 @@ export const Consultation: React.FC<Props> = ({
     return [...unique.values()].sort((a, b) => a.achievement.id - b.achievement.id);
   }, [phases]);
   const query = normalize(search);
-  const results = useMemo(() => query ? phases.flatMap(phase => [
+  const results = useMemo(() => query ? [
+    ...phases.flatMap(phase => [
     ...phase.events.filter(event => normalize([
       event.title, event.note, event.prerequisites ?? '', event.failureRisk ?? '',
       event.type
@@ -69,7 +73,13 @@ export const Consultation: React.FC<Props> = ({
     ].join(' ')).includes(query)).map(achievement => ({
       type: 'achievement' as const, phase, id: achievement.id, title: achievement.title
     }))
-  ]) : [], [phases, query]);
+    ]),
+    ...QUEST_GUIDES.filter(guide =>
+      normalize([guide.title, guide.original, guide.region, guide.giver,
+        ...guide.steps].join(' ')).includes(query)).map(guide => ({
+      type: 'guide' as const, phase: phases[0], id: guide.id, title: guide.title
+    }))
+  ] : [], [phases, query]);
   const activePhase = phases.find(item => item.id === chapter) ?? phases[0];
   const matchingEvents = activePhase.events.filter(event =>
     filter === 'all' || (filter === 'done' ? !!progress.steps[event.id] : !progress.steps[event.id]));
@@ -114,6 +124,9 @@ export const Consultation: React.FC<Props> = ({
         <button type="button" aria-pressed={section === 'achievements'} className={section === 'achievements' ? 'is-active' : ''} onClick={() => chooseSection('achievements')}>
           <Award size={17} aria-hidden="true"/> Conquistas
         </button>
+        <button type="button" aria-pressed={section === 'guides'} className={section === 'guides' ? 'is-active' : ''} onClick={() => chooseSection('guides')}>
+          <BookOpen size={17} aria-hidden="true"/> Guias e cópias
+        </button>
         <button type="button" aria-pressed={section === 'references'} className={section === 'references' ? 'is-active' : ''} onClick={() => chooseSection('references')}>
           <BookOpen size={17} aria-hidden="true"/> Referências
         </button>
@@ -130,8 +143,8 @@ export const Consultation: React.FC<Props> = ({
             <div className="consult-results-list">
               {results.map(result =>
                 <button type="button" key={result.type + ':' + result.id}
-                  onClick={() => result.type === 'mission' ? onOpenEvent(String(result.id)) : onOpenAchievement(result.phase.id, Number(result.id))}>
-                  <span>{result.phase.slug} · {result.type === 'mission' ? 'Marco' : 'Conquista'}</span>
+                  onClick={() => result.type === 'mission' ? onOpenEvent(String(result.id)) : result.type === 'achievement' ? onOpenAchievement(result.phase.id, Number(result.id)) : (setSelectedGuideId(String(result.id)), onSearchChange(''), onSectionChange('guides'))}>
+                  <span>{result.type === 'guide' ? 'Guia de missão' : `${result.phase.slug} · ${result.type === 'mission' ? 'Marco' : 'Conquista'}`}</span>
                   <strong>{result.title}</strong><ChevronRight size={18} aria-hidden="true"/>
                 </button>
               )}
@@ -146,7 +159,7 @@ export const Consultation: React.FC<Props> = ({
         </section>
       ) : (
         <>
-          {section !== 'references' && (
+          {(section === 'missions' || section === 'achievements') && (
             <div className="consult-controls">
               <label htmlFor="consult-filter">Mostrar</label>
               <select id="consult-filter" value={filter} onChange={e => onFilterChange(e.target.value as ConsultationFilter)}>
@@ -231,6 +244,8 @@ export const Consultation: React.FC<Props> = ({
               </div>
             </section>
           )}
+
+          {section === 'guides' && <QuestGuideLibrary initialGuideId={selectedGuideId} />}
 
           {section === 'references' && (
             <section aria-labelledby="consult-references-title" className="consult-references">

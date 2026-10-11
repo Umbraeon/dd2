@@ -3,6 +3,7 @@ import { AlertTriangle, CheckCircle2, Circle, ExternalLink } from 'lucide-react'
 import { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { AchievementCard } from './AchievementCard';
 import { AchievementPreview, InlineAchievements } from './InlineAchievements';
+import { QuestWalkthroughsForEvent } from './QuestGuides';
 import { RISK_CHECKPOINTS } from '../data/roadmapData';
 
 interface ChapterSectionProps {
@@ -188,6 +189,8 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                       <p className="text-base text-[#e1d6c6] leading-relaxed mt-2">
                         {event.note}
                       </p>
+
+                      <QuestWalkthroughsForEvent eventId={event.id} />
 
                       {/* Linked to the global catalogue; editorial, never an automatic unlock. */}
                       <InlineAchievements ids={event.achievements} phases={phases}
