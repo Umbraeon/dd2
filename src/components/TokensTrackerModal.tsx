@@ -117,7 +117,7 @@ export const TokensTrackerModal: React.FC<TokensTrackerModalProps> = ({
           <div className="bg-[#211a18] border border-[#6b352b] rounded-lg p-4 space-y-2.5">
             <div className="flex items-center gap-2 font-serif font-bold text-[#f4ad9b] text-sm">
               <AlertTriangle className="w-4 h-4" />
-              <span>ALERTA CRÍTICO: Primeiro Memento do Buscador</span>
+              <span>Primeiro Memento do Buscador</span>
             </div>
             <p className="leading-relaxed">
               Durante o 5º enigma da Esfinge (Ruminação), você terá <b>7 dias no jogo</b> para ir exatamente até o local onde coletou seu primeiro memento. Um item chamado <i>Finder's Token</i> estará te esperando lá.
