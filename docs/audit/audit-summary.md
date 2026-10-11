@@ -1,95 +1,67 @@
-# Auditoria factual PT-BR — primeira passagem (read-only)
-**Data:** 2026-10-10 · **Base:** `main` de Umbraeon/dd2 · **Issue:** #13 · **Autor:** Auditor Factual PT-BR · **Estado:** revisão necessária; **NÃO HOMOLOGADO**.
+# Auditoria factual PT-BR — consolidação da Missão 04
 
-> **Estado deste relatório após a integração de 11/10/2026:** este é o diagnóstico histórico da `main` **anterior** às correções da [PR #20](https://github.com/Umbraeon/dd2/pull/20), integrada no commit `925f5d5808d5bcaf64f36ac8c2fb1fcd940239af`. Erros de NPCs iniciais, sequência de Lennart, localização de Vergil, avisos dos checkpoints e rótulos das seis conquistas DLC foram corrigidos no código. Os achados abaixo continuam preservados como rastreabilidade do estado anterior, **não como lista de bugs ainda presentes**. Rotas de DLC, consequências e mecânicas sem prova seguem não homologadas. Ver [evidência localizada complementar de 11/10](game-localization-extraction-evidence-2026-10-11.md) para as duas missões DLC reportadas em extração local, distinta de captura do diário.
+**Data:** 2026-10-11 · **Branch de consolidação:** `codex/audit-task3-consolidation` · **PR #17:** mesclada antes desta publicação complementar · **Estado geral:** **PARCIAL; NÃO HOMOLOGADO EM GAMEPLAY**.
 
-## Escopo verificado e limites
-- Inventário estrutural integral: **53/53 marcos editoriais**, **60/60 registros de conquistas** (54 base e 6 Dark Arisen), **9/9 fases**, metadados e listas auxiliares (10 enigmas, 12 mestres, 8 tipos de carne × dia/noite, 4 checkpoints, glossário).
-- **53 marcos NÃO são 53 quests oficiais**. Classificação por ID em `milestone-inventory.csv`; nomes EN/PT em `quest-name-mapping.csv`; cada conquista em `achievement-audit.csv`; afirmações em `claims-matrix.csv`.
-- Foi verificada a presença textual de todas as entradas, **NÃO a veracidade integral de cada instrução de gameplay**. Nenhum teste de jogo, save, plataformas ou usuários foi realizado. Datas/versões e resultados das fontes estão registrados; chamadas falhas também.
-- Critério estrito: `OFICIAL_COMPROVADO` exige evidência primária de jogo PT-BR; `LOCALIZACAO_EXTRAIDA` corresponde a título no banco PT-BR Kiranico pareado ao EN, NÃO a screenshot in-game; `NAO_CONFIRMADO` conserva EN.
-- Steam PT-BR consultada em 10/10/2026 **já lista 60 conquistas**; nomes e requisitos **descritivos** podem ser confrontados ali. Não extrapolar a descrição sucinta da Steam para gatilhos específicos.
+## Escopo e método
 
-## Achados prioritários
-| ID | Grau | Achado | Prova independente / ação |
-|---|---|---|---|
-| F01 `m02` | **P1 comprovado** | Confunde Rook (prólogo) com Accardo (recruta sob harpias); não indica Phill, NPC que inicia a missão. | [Kiranico PT](https://dragonsdogma2.kiranico.com/pt-BR/data/quests) seção «Provações de um Novo Recruta», [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/) «Aid Accardo / Phill», [Game8](https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit). Corrigir só em PR posterior. |
-| F02 `m04` | **P1 comprovado** | Associa `Nesting Troubles` a Ian; responsável é Lennart. Ian inicia outra quest, `Brothers Brave and Timid`. | [Kiranico PT](https://dragonsdogma2.kiranico.com/pt-BR/data/quests) seções «Problemas Aninhados» e «A Tímida Bravura dos Irmãos», [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/), [Game8](https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles). |
-| F03 `ach#55,#56,#58,#60` | **P1 comprovado** | Quatro rótulos PT-BR cadastrados são **diferentes** dos nomes Steam PT-BR: **Terras Esquecidas do Norte**, **Antagonista do Dogma**, **Mestre do Strike**, **Abominável Ladrão das Neves**. | [Steam PT-BR](https://steamcommunity.com/stats/2054970/achievements?l=brazilian), títulos 55–60. Não substituir strings nesta fase. Os títulos #57 «Dogma Defendido» e #59 «Reunidos» coincidem. |
-| F04 `d01` | **P1 lacuna de alto risco** | Único marco da DLC carece de roteiro executável para Norgan e as 12 masmorras; não explica que Brant, à noite no Stardrop Inn em Vernworth, oferece os diálogos de início, nem o impedimento no Mundo Desancorado. | [PC Gamer, 08/10/2026](https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/) aponta `Chilling Tidings` / `Lost Rites`, nível **40 recomendado**, não exigência; [Capcom, 09/10/2026](https://us-store.captown.capcom.com/blogs/news/0000036) confirma expansão. **PT-BR das missões de DLC: NAO_CONFIRMADO.** |
-| F05 `v205` | **P1 precisão do aviso** | «Errar qualquer enigma tranca permanentemente os baús restantes» é generalização incorreta: relatos de jogo distinguem falha na primeira localização (pode seguir) e na segunda (pode encerrar sequência). **Errar** continua sendo impeditivo à conquista #39 naquela rodada. | [Windows Central](https://www.windowscentral.com/gaming/dragons-dogma-2-sphinx-guide-locations-riddle-answers), [Push Square](https://www.pushsquare.com/guides/dragons-dogma-2-all-sphinx-riddle-answers-locations-and-rewards), [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/). Divergência sobre baús/reação por fase exige reprodução. |
-| F06 `m02` | **P1 parcialmente resolvido** | A UI/transcrição mostra ampulheta e o FAQ Capcom define esse símbolo como disponibilidade limitada. PowerPyx dizer que Accardo não sofre dano não refuta a janela de quest; prazo numérico e morte/falha por espera continuam não demonstrados. | [Episódio 1 em 16:16](https://www.youtube.com/watch?v=tQGRLcSk7yI&t=976s), [FAQ Capcom](https://www.capcom-support.com/hc/en-us/articles/13194547904540-Dragon-s-Dogma-2-Frequently-Asked-Questions-All-Platforms), [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/). Publicar «temporizada», sem inventar prazo ou consequência. |
-| F07 `v303,cp1_feast` | **P1 cautela** | Pré-coroação agrupa todas as quests como bloqueio automático universal; evidência parcial de múltiplas quests bloqueadas, mas condições diferem entre **não iniciar** e **não concluir**. | [Game8 missables](https://game8.co/games/Dragons-Dogma-2/archives/447927), [relato Steam de jogador](https://steamcommunity.com/app/2054970/discussions/0/4352240417148094670/?ctp=2). Validar cada uma, não generalizar. |
-| F08 `v205,m06` | **P2 confirmado parcialmente** | Sete dias in-game para «Rumination» são corroborados. O aviso inicial é útil; explicar que contagem se inicia no enigma, não ao recolher o primeiro memento. | [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/), [Push Square](https://www.pushsquare.com/guides/dragons-dogma-2-all-sphinx-riddle-answers-locations-and-rewards). |
-| F09 `b05` | **P2 precisão** | A exigência da conquista é **embarcar**; seguir a carroça é caminho de quest alternativo, mas **não dá o troféu por si só**. Ação deve incluir pegar rumores, falar com Brant e remover equipamento. | [XboxAchievements](https://www.xboxachievements.com/game/dragons-dogma-2/achievement/are-we-there-yet.html), [Game8](https://game8.co/games/Dragons-Dogma-2/archives/448921). |
-| F10 `p03` | **P2 ressalva** | A Steam diz «adquiriu» todos os ensinamentos; guia exige também **usar/aprender** os 12. Essa interpretação está em walkthrough comunitário; não atribuir o requisito de uso à descrição oficial. | [Steam PT-BR](https://steamcommunity.com/stats/2054970/achievements?l=brazilian), [TrueAchievements](https://www.trueachievements.com/a429012/master-of-the-maisters-achievement). |
-| F11 `metadata,App` | **P2** | Título `Rota 100% PT-BR` induz promessa ampla apesar de disclaimer explícito «sem garantia de 100% em uma só campanha». | [roadmapData.ts](https://github.com/Umbraeon/dd2/blob/main/src/data/roadmapData.ts) e [App.tsx](https://github.com/Umbraeon/dd2/blob/main/src/App.tsx). Recomendar «Roteiro de conquistas — auditoria em curso». |
-| F12 `u08` | **corroborado no escopo** | Descrição Steam PT-BR condiciona conquista «Encerramento» à dificuldade não Casual; **não** prova o fluxo completo de final. | [Steam PT-BR](https://steamcommunity.com/stats/2054970/achievements?l=brazilian), #31. |
-| F13 `u04,u05` | **P1 em verificação** | Contagem/posição dos feixes, ordem das evacuações, «feixe final encerra imediatamente» não foram reproduzidos em jogo; podem bloquear conquistas. | Fontes atuais incluem QuestCompendium; validar mapa real, contingências e dependências individuais. |
-| F14 `b03` | **P1 em verificação** | Entrega de grimório original ou falsificado e consequência familiar de Isaac têm risco irreversível; o título PT-BR de missão é **Ambição Cega** (Kiranico). | [Kiranico PT](https://dragonsdogma2.kiranico.com/pt-BR/data/quests), [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/). Rota sob ressalva até segunda prova independente. |
+- Inventário preservado: 53 marcos editoriais, 60 conquistas, 9 fases, 10 enigmas, 12 mestres, 8 carnes, 4 checkpoints e 59 títulos canônicos de quests.
+- Nenhum jogo, save, conquista ou vídeo foi executado nesta tarefa. As transcrições fornecidas pelo YouTube foram lidas como evidência contextual.
+- O build Steam instalado `25290080` foi listado e teve somente 133 contêineres `questlog` extraídos em modo de leitura, fora do repositório: 97 base e 36 DLC.
+- A revisão de produção considerou o código efetivamente presente em `origin/main@6fe3b38`, além do histórico das PRs #19 e #20.
 
-**P0:** nenhum achado recebeu P0; essa ausência **não equivale** a ausência de bugs de bloqueio. **P1:** há erros com evidência replicável e riscos de alto impacto ainda sem comprovação completa. Consulte `claims-matrix.csv` para as linhas do guia individualmente.
+## Resultados consolidados
 
-## Cobertura técnica reproduzível
-- Linhas de inventário: **53 eventos**; **60 conquistas**; **59 registros de quests** (57 com PT-BR candidato extraído, **2 nomes EN da DLC sem PT-BR verificado**); **201 linhas** da matriz de alegações (53 notas de marcos, 60 estratégias/títulos de conquistas, 10 soluções da Esfinge, 12 mestres, 8 carnes, 4 checkpoints, 10 cruzamentos adicionais e **44 alegações críticas decompostas**). Os registros de quests foram extraídos de várias partes do roteiro, inclusive auxiliares, e não devem ser confundidos com a quantidade de marcos.
-- O registro de fontes enumera **17 URLs globais** e referências adicionais por risco, reduzindo a proposta da interface para **quatro** fontes gerais com as demais rastreadas.
-- **Nenhum** dos 57 nomes de quest provenientes de extração textual atinge `OFICIAL_COMPROVADO` porque não se obteve captura do diário real no jogo; candidatos são `LOCALIZACAO_EXTRAIDA`. Nenhum dos dois nomes de quest da DLC recebeu tradução proposta.
+1. **Playlist:** criador **Romar**; título **Dragon's Dogma 2 Detonado Platina/todas as Quests**.
+2. **Cobertura:** 43 episódios identificados, 43/43 transcrições inspecionadas e nenhuma indisponibilidade real.
+3. **Evidência de transcrição:** 23 registros na passagem temática, 76 no passe 1 e 77 no passe 2, consolidados em 176 registros únicos: 6 `CORROBORADO`, 2 `CONTRADITO`, 1 `DIVERGENTE`, 153 `PARCIAL` e 14 `NAO_VERIFICADO`.
+4. **Nomenclatura do build:** 59/59 títulos canônicos ligados a ID, chave, literal inglês e literal PT-BR; 58 títulos foram promovidos, 1 foi retido como `OFICIAL_COMPROVADO` e 0 ficaram apenas `LOCALIZACAO_EXTRAIDA` ou `NAO_CONFIRMADO`.
+5. **DLC:** `Chilling Tidings` → **Notícias Congelantes**; `Lost Rites` → **Rituais Perdidos**.
+6. **Playlist como fonte:** aceita como quinta referência `GUIA_COMUNITARIO_VIDEO / REFERENCIA_CONTEXTUAL`; não é fonte primária, não prova completude e não cobre DLC/updates de 2026.
+7. **P0:** nenhum demonstrado.
+8. **PR #19:** `SUPERADA/FECHADA`, sem merge; a substituta PR #20 foi integrada e os três P1 textuais históricos não permanecem em produção.
+9. **Auditoria geral:** **PARCIAL**, pois timers, alternativas irreversíveis, saves, troféus e condições de gameplay continuam sem reprodução suficiente.
 
-## Outros problemas textuais a preservar na revisão
-- `m01` fala em fuga «com a ajuda da esfinge/grifo», mas os objetivos da localização distinguem criatura ofídica no prólogo e travessia nas asas de grifo; o envolvimento da **Esfinge** na fuga não está documentado. Evitar confusão de criaturas sem afirmar identificação exata não provada.
-- `achievement #47` instrui **entregar** 80 Mementos na Guilda; a descrição Steam exige **coletar** 80, sem citar entrega. A recomendação de entrega deve ser separada da condição da conquista.
-- `achievement #60` usa «Snowfoot» no texto do guia, mas a descrição Steam PT-BR chama o ladrão de **Troll das Neves**; o nome do inimigo no bestiário ainda carece de prova direta.
+## Evidência de localização
 
-## Decisões de auditoria
-1. Não publicar «nome oficial da missão» sem captura in-game/Capcom. Base Kiranico = **LOCALIZACAO_EXTRAIDA**. Para conquistas, Steam PT-BR é prova primária do **título e descrição Steam**, não de objetivos invisíveis.
-2. Preservar o texto editorial dos 53 marcos e todos os IDs de progresso até aprovação; marcar qual marco contém várias quests reais (CSV).
-3. Manter **4 fontes gerais visíveis**: Steam PT-BR, Kiranico PT-BR (com aviso de que é extração), comunicado/produto Capcom para escopo DLC e guia Steam 2024 como ordem **não validada**. Walkthroughs críticos ficam em links contextuais e matrizes.
-4. As seis conquistas da DLC têm nomes PT-BR verificados na Steam, mas **não** há trilhas de execução comprovadas individualmente.
-5. Não foi realizada execução Playwright, captura de tela, teste manual do jogo, nem estudo com três jogadores; avaliação de clareza é **heurística textual**, não teste de UX.
+O RETool v0.241 descriptografou os TOCs e extraiu seletivamente contêineres `GMSG`. O parser-fonte validou offsets, idiomas e hashes antes de expor as chaves `_log_title`. A matriz [game-localization-evidence.csv](game-localization-evidence.csv) preserva ID, chave, PAK, caminho e SHA-256.
 
-## Fonte adicional encaminhada para auditoria (histórico de 10/10/2026)
-O proprietário forneceu uma [playlist de detonado/platinagem do DD2](https://www.youtube.com/playlist?list=PLqFM8GX-LFqVE3O2aYIvVf-Hq_5D_y92T) e um [vídeo específico](https://www.youtube.com/watch?v=tQGRLcSk7yI). Na primeira tentativa apenas o título da playlist ficou acessível. Esse limite foi superado na coleta de 11/10 descrita abaixo; preservar este registro apenas como histórico da tentativa inicial.
+- **58** registros coincidiram literalmente com o inventário anterior.
+- **1** capitalização inglesa foi corrigida: `Mercy among Thieves`.
+- O vínculo de 59 títulos ao build é **OBSERVED**; sua apresentação em cada estado do diário e seus gatilhos de gameplay permanecem **UNKNOWN**.
 
-## Saída de governança
-**Somente documentação.** Sem modificar `src/`, `storage`, dados, assets, progresso do usuário ou qualquer PR existente. PR de relatórios deve permanecer **draft**, sem merge, aguardando proprietário e Head. `main` permanece fonte da auditoria; verificar SHA de base ao reproduzir.
+Procedimento completo: [game-localization-extraction-report.md](game-localization-extraction-report.md).
 
-## Auditoria incremental por transcrições — 11/10/2026
+## Estado de produção após as PRs #19 e #20
 
-O registro anterior de que a playlist não pôde ser aberta foi **superado**. Foram identificados **43 episódios** e examinadas as transcrições dos episódios **1, 2, 12, 18 e 24**. Nenhum episódio foi assistido integralmente. Antes da restrição de escopo solicitada pelo proprietário, uma inspeção visual pontual no episódio 1 mostrou inequivocamente `Provações de um Novo Recruta` e `Ajude Accardo` em 16:14. Cobertura e timestamps: [video-audit-report.md](video-audit-report.md), [video-episode-index.csv](video-episode-index.csv) e [video-evidence-matrix.csv](video-evidence-matrix.csv).
+A PR #19 (`4fcbd983`) foi fechada sem merge em 11/10/2026. Sua revisão encontrou três P1 textuais. A PR #20 foi mesclada no `main` como `925f5d5`, com check remoto `build` aprovado, e corrigiu os três pontos no caminho consumido pela UI:
 
-O mapeamento passa a ter **1 título com UI PT-BR comprovada**, **56 títulos com localização extraída** e **2 títulos DLC não confirmados**. Plataforma/build do trecho visual permanecem desconhecidas. A matriz principal continua com **201 alegações**; as **23 evidências temporais** ficam em matriz separada e não devem ser somadas como quests ou alegações independentes.
+| Objeto | Estado atual em `main@6fe3b38` | Classificação |
+|---|---|---|
+| `m02` / Accardo | O texto registra outcomes de sucesso e morte no questlog; prazo e nexo temporal continuam não reproduzidos. | Correção **OBSERVED** no código; timer **UNKNOWN**. |
+| `m04` / Lennart | A sequência agora explicita `barris → Lennart → veneno → Lennart`. | Correção **OBSERVED** no código e coberta por regressão textual. |
+| `sphinx_diff` | Dante e Vergil são posicionados ao norte/sul do mesmo portão da Cidade de Descanso da Fronteira; o texto proíbe ir ao centro de Bakbattahl. | Correção **OBSERVED** no código e coberta por regressão textual. |
 
-Novos resultados materiais:
-- `m02`: Phill inicia, Accardo é o recruta; a ampulheta confirma urgência, mas não prazo numérico ou morte por espera.
-- `m04`: Lennart, barris explosivos, retorno, frasco de veneno e segundo retorno; Ian pertence a outra quest.
-- `v302`: três dias começam após aceitar ajudar Wilhelmina; sair de Vernworth não pode ser apresentado como requisito universal.
-- `sphinx_diff`: **P1 novo** — Vergil fica ao sul da fronteira na Cidade de Descanso da Fronteira, não na cidade de Bakbattahl; Dante fica ao norte.
-- `ACH-57` e `ACH-59`: os títulos `Dogma Defendido` e `Reunidos` coincidem com a Steam. O problema é o sufixo editorial `[tradução provisória]`, não divergência literal de título.
+Os commits posteriores `05fc0e4` e `6fe3b38` integraram os 59 nomes PT-BR e sua exibição nas orientações. A revisão histórica e a reavaliação atual estão em [pr19-current-review.md](pr19-current-review.md).
 
-**Decisão de fonte:** a playlist pode ser a quinta referência contextual para sequência prática e demonstração de sucesso. Não é fonte primária, não prova completude e não cobre a DLC/updates de 2026.
+## Achados ainda prioritários
 
+| Objeto | Grau | Conclusão atual |
+|---|---|---|
+| `v302` | P2 | Os três dias começam após aceitar reunir provas; o gatilho completo de disponibilidade continua divergente. |
+| `p04/p06` | P1 pendente de runtime | O aviso antes de `A New Godsway` é prudente; instante universal e recuperação por save não foram reproduzidos. |
+| `p05/u06` | P1 pendente de runtime | Flecha, autosave, momento do troféu e compatibilidade com `Eu, Talos` não estão homologados. |
+| `u04` | P1 pendente de runtime | Existem cinco linhas de evacuação; o gatilho exato de `O Guardião` não foi reproduzido. |
+| `u05/u08` | P1 pendente de runtime | Marcador azul, provas e feixe vermelho final são distintos; contagens e limite de repousos continuam abertos. |
+| `d01` | P1 pendente | Os nomes PT-BR estão resolvidos; rota, NPCs e bloqueio no Mundo Desancorado ainda precisam de segunda prova ou runtime. |
 
-## Auditoria incremental: alterações de versão de 2026 (10/10/2026)
-Relatório e cruzamentos publicados em **[2026-version-impact-report.md](2026-version-impact-report.md)**, **[2026-update-impact-events.csv](2026-update-impact-events.csv)** (**53/53 marcos**) e **[2026-update-impact-achievements.csv](2026-update-impact-achievements.csv)** (**60/60 registros**). **14 marcos** têm vínculo direto documentado com um item das notas de versão; os demais possuem impacto indireto ou nenhuma alteração específica observada — isto **não** significa comprovação da dica antiga.
+## Decisão de fontes e governança
 
-**Principais novos P1 de compatibilidade:**
-- `v303`, `p04`, `cp1–cp4`: TU3.2 (disponível em 01/09/2026) introduz **três slots de campanha**, com três tipos de save por slot. O texto «salvamento manual na pousada» mistura mecanismos diferentes; pousada continua sobrescrevendo dados. Nem mais slots nem um `interim save` asseguram rollback após decisões irreversíveis. [Steam, anúncio oficial 01/09](https://steamcommunity.com/app/2054970/allnews/?l=brazilian), [Q&A Capcom](https://steamcommunity.com/games/2054970/announcements/detail/705527117835665762).
-- `v101`/`v201`: TU3.1 de **junho**, não outubro, acrescentou `Eternal Ferrystone` após falar com Brant na quest `Seat of the Sovran` e `Portcrystal` como recompensa de `Monster Culling`. Títulos PT-BR dos **itens novos não comprovados em tela**. [Notas TU3.1 republicadas](https://www.rpgsite.net/news/20636-dragons-dogma-2-new-update-patch-notes-august-2026-optimization-save-system-qol).
-- `d01`: fonte **primária** Capcom via Steam separa o **Domínio Esquecido** (nível inicial **recomendado 40**) dos **Rituais Perdidos** (**recomendado 20**). Ambos podem ser iniciados cedo com Brant na taverna após chegar a Vernworth; **não existem mínimos obrigatórios na comunicação oficial**. Os rótulos de conteúdo na notícia PT-BR não provam títulos de quests no diário. [Steam, aviso e Q&A](https://steamcommunity.com/app/2054970?l=brazilian).
-- `p03`: recomprar **tomos de especialização de peão** no TU3.2 não implica recomprar **os 12 ensinamentos de mestres** da conquista #50.
-- `m04`: notas TU3.1 de bug fix mencionam **Lennart em Nesting Troubles**, corroborando independentemente o erro Ian/Lennart no roteiro.
+Referências principais por função: Steam/Capcom para escopo oficial e versões; dados do build 25290080 para chaves e literais; Kiranico para navegação contextual; guia Steam 2024 e playlist de Romar para rotas comunitárias. Nenhuma fonte isolada prova consequências invisíveis.
 
-A fonte original de patch no domínio `dragonsdogma.com` respondeu **HTTP 403** à ferramenta. Para os detalhes das notas foi usada reprodução do RPG Site com identificação de publicação, além de comunicados oficiais Capcom/Steam sobre lançamento de updates. **Nenhum save, conquista, nome de item novo PT-BR ou alteração de jogo foi testado in-game.**
+Por decisão do proprietário em 11/10/2026, tarefas futuras de implementação serão executadas por **GPT/Codex**, com revisão técnica do Head antes de qualquer pedido de teste runtime. Esta decisão substitui a atribuição anterior de implementação para este trabalho.
 
+## Próxima decisão
 
-## Auditoria incremental de quatro checkpoints críticos — 10/10/2026
-**Nova matriz [22 alegações por CP1–CP4](critical-checkpoints-evidence-2026.csv)**, [relatório detalhado](critical-checkpoints-review-2026.md) e [5 missões de evacuação em matriz](unmoored-five-evacuations-2026.csv). **Somente pesquisa/relatório; sem mudanças em produção.**
+**Evidência atual:** cobertura textual e nomenclatura `OBSERVED/SUPPORTED`; gameplay de alto risco ainda `UNKNOWN/PARTIAL`.
 
-**P1 documentais prioritários:**
-- `v303/cp1_feast`: a coroação de `Feast of Deception` pode encerrar janelas de quests, mas o guia incorretamente afirma que todas as **já abertas** serão canceladas ao **aceitar** a proposta; Game8 diferencia condições de **iniciar** e **concluir**. `Readvent of Calamity`, `Home Is Where the Hearth Is` merecem verificação **pré-coroação**; **`Every Rose Has Its Thorn` (Wilhelmina) NÃO deve ser tratada como obrigação pré-coroação**, pois walkthroughs demonstram início pós-coroação (PowerPyx, Gameranx) e há gatilhos alternativos apontados por outras fontes, e as demais quests exigem condição específica por estado.
-- `p04/p05/cp2_gigantus`: `Last Inn Rest Save` ≠ `Interim Save`; uso de `Unmaking Arrow` pode criar autosave e o troféu de Gigantus não necessariamente aparece no disparo. O momento exato da queda e influência da cabeça da Medusa sobre `Eu, Talos` ainda requerem prova.
-- `p06,u01,u02/cp3_confrontation`: proteção de secundárias deve ocorrer ANTES de `A New Godsway` (recomendação conservadora dos walkthroughs), não apenas ao subir a torre. Finais `Paz` e Mundo Desancorado podem ser alcançados numa campanha via interação com Pathfinder, **sem iniciar NG+**; menu de retorno TU3.2 não foi testado.
-- `u04/u05/cp4_unmoored_evac`: o guia **omite a distinção das cinco quests de evacuação**, sobretudo `Shepherd of the Pawns` (peões com Henrique na Escavação) além de `The Importance of Aiding Ernesto` (Acampamento Vulcânico). **O critério exato da conquista #36 pode desbloquear antes da quinta quest**, conforme PowerPyx: não confundir completar todo conteúdo com condição Steam do troféu. O feixe vermelho **final** do centro não é o quarto feixe **periférico**; o marcador **azul** do Santuário se refere à rota de evacuação. Os guias divergem na contagem de trials e nos limites de repousos; não anunciar um cronômetro universal como fato.
-
-**Fontes de confronto:** [PowerPyx finais](https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/), [PowerPyx cinco evacuações](https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/), [GameSpot Gigantus](https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/), [Game8 pré-coroação](https://game8.co/games/Dragons-Dogma-2/archives/449610), [Kiranico PT-BR](https://dragonsdogma2.kiranico.com/pt-BR/data/quests), [Capcom Steam TU3.2](https://steamcommunity.com/app/2054970/allnews/?l=portuguese). Testes in-game, screenshots PT-BR de diário/mapa, saves e troféus **não realizados**.
-
+**Ação exata:** priorizar um experimento runtime precommitado para uma lacuna P1 por vez, começando pelo comportamento de saves e pelo ponto de não retorno de `A New Godsway`; nenhuma nova correção dos três P1 históricos da PR #19 é necessária.

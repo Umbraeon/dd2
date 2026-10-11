@@ -2,14 +2,14 @@
 **Data:** 10/10/2026. Priorizar antes de permitir textos absolutos ou título «100%».
 | Prioridade | Objeto | Lacuna exata | Prova necessária |
 |---|---|---|---|
-| P1 | 58/59 quests mapeadas sem prova direta de título na UI | Apenas `Provações de um Novo Recruta` foi lida diretamente no HUD PT-BR; 56 continuam como localização extraída e 2 DLC não confirmadas. Plataforma/build do trecho também são desconhecidas. | Capturar título no diário, menu de idioma, edição/build, data e contexto; confrontar Kiranico. |
-| P1 | d01/DLC | «Chilling Tidings» e «Lost Rites» **não têm PT-BR localizado confirmado** na pesquisa | Captura do diário PT-BR de 2026 ou extração pareada atualização DLC; não traduzir. |
+| RESOLVIDO | 59 títulos canônicos | Build Steam 25290080 liga os 59 IDs/chaves a inglês e PT-BR; 0 permanecem `LOCALIZACAO_EXTRAIDA`/`NAO_CONFIRMADO`. | Não repetir extração; verificar gameplay separadamente. |
+| RESOLVIDO | d01/DLC — nomes | `Chilling Tidings` → `Notícias Congelantes`; `Lost Rites` → `Rituais Perdidos`. | Usar literais do build; acesso/bloqueio continuam abaixo. |
 | P1 | d01 | Rotas das 12 novas masmorras de Dark Arisen e condições exclusivas | Caminhos reproduzidos em save; capturas antes/depois; fonte adicional pós-09/10/2026. |
 | P1 | d01 | Início via Brant/duas opções e bloqueio no Unmoored só uma fonte de walkthrough de 08/10 | Segunda fonte independente, jogo PT-BR; observar modificações de slots/NG+. |
 | P1 | v303/cp1 | Quais quests são bloqueadas por aceitar ou concluir `Feast of Deception` | Duas fontes por quest e testes antes/depois; distinguir missão não iniciada x aberta x concluída. |
 | P1 | v202 | Falha silenciosa da linha Ulrika e pré-requisitos Melve/Harve | Captura do diário e save de fronteira de estado. |
 | P1 | v302 | O prazo de três dias após aceitar ajudar está corroborado; o gatilho de disponibilidade anterior continua divergente (afinidade, avanço narrativo, saída da cidade). | Capturar o diário ao aceitar ajuda e testar estados de ativação, sem converter a primeira hipótese do narrador em requisito. |
-| P1 | m02 | Accardo sofre dano/morre com demora? Game8 × PowerPyx divergem | Ensaio de espera in-game, versão/plataforma e fonte primária. |
+| P1 | m02 | O build contém outcomes salvo/morto, mas não revela prazo numérico nem gatilho temporal exato | Ensaio controlado de espera no build 25290080; separar morte possível de timer desconhecido. |
 | P1 | v205,b06 | Erro de enigma por localização e efeito sobre todos os baús/recompensas | Experimento por enigma/estado; WindowsCentral × PushSquare, incluindo uso da flecha. |
 | P1 | b062 | Flecha da Ruína na Esfinge; mira nas asas, chave e baú | Reproduzir e documentar sucesso/falha; evitar instrução potencialmente irreversível. |
 | P1 | b03 | Isaac: cópia, grafia PT-BR de tomos e efeitos exatos sobre família | Captura de item/quest no PT-BR, outcomes com saves separados. |
@@ -22,13 +22,13 @@
 | P2 | #47 | Diferenciar coletar 80 vs entregar 80 | Teste de conquista e descrição oficial; Steam diz «coletou». |
 | P2 | #39 | Associação em v205 e b06 = **um** desbloqueio | Confirmar com captura evento Steam e sequência; modelo já deduplica conquistas. |
 | P2 | Fontes | Manual Capcom PT-BR devolveu erro no acesso por ferramenta | Reabrir em navegador e registrar URL/versão; não inferir conteúdo não acessível. |
-| P1 | Playlist Romar, cobertura restante | 43 episódios identificados; somente transcrições 1, 2, 12, 18 e 24 examinadas. Série de 2024 não cobre DLC/updates 2026; plataforma/build desconhecidas e alternativas muitas vezes não testadas. | Usar índice e matriz de timestamps; só ampliar a amostra quando uma alegação P1 específica exigir, sem inspeção audiovisual exaustiva. |
-| P1 | `sphinx_diff` | Guia envia Vergil a Bakbattahl; transcrição + PowerPyx o colocam ao sul da fronteira na Cidade de Descanso da Fronteira. | Corrigir no PR de produção e validar em UI/mapa PT-BR; conferir imagem/cabelo em cada tentativa. |
-| P1 | `m04` — sequência dos ninhos | NPC Lennart já corroborado; transcrição demonstra barris, retorno, veneno e novo retorno, etapas ausentes no texto de produção. | Head conferir o diff do PR #19 e garantir sequência completa antes de merge. |
+| RESOLVIDO/PARCIAL | Playlist Romar | 43/43 transcrições examinadas, 176 registros consolidados e 0 indisponibilidades. Série de 2024 não cobre DLC/updates 2026; alternativas e causas muitas vezes não testadas. | Não ampliar por volume; usar somente como referência contextual e testar alegações P1 específicas. |
+| RESOLVIDO/PARCIAL | `sphinx_diff` | A PR #20 corrigiu Vergil para o sul do portão na Cidade de Descanso da Fronteira e adicionou regressão textual. | Validar imagem/cabelo em runtime somente se houver teste seguro; não reabrir a correção textual. |
+| RESOLVIDO/PARCIAL | `m04` — sequência dos ninhos | A PR #20 incorporou barris, retorno, veneno e novo retorno, com regressão textual. | Gameplay continua não reproduzido; preservar a ordem atual. |
 | P2 | UX | Nenhum teste de usuário/viewport; sem imagem de gameplay | Executar roteiro do relatório de clareza. |
 | P2 | Progresso | Persistência v3 não testada com relatórios | Não tocar em IDs/schema; teste de regressão somente no PR executor aprovado. |
 
-**Regra:** «NAO_CONFIRMADO» significa falta de prova suficiente, **não** que missão/condição é falsa. «LOCALIZACAO_EXTRAIDA» não é prova primária da UI.
+**Regra:** `NAO_CONFIRMADO` significa falta de prova suficiente, não falsidade. `LOCALIZACAO_EXTRAIDA` continua válido para strings sem vínculo inequívoco; os 59 títulos canônicos foram promovidos porque ID, chave e colunas EN/PT-BR foram ligados no build atual.
 
 
 ## Novas pendências introduzidas pelas atualizações TU3.1/TU3.2
