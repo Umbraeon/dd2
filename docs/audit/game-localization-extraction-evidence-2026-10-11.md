@@ -1,4 +1,6 @@
-# Evidência de localização de duas missões DLC — relato técnico (11/10/2026)
+# Evidência de localização de duas missões DLC — registro histórico (11/10/2026)
+
+> **SUPERADO:** este documento preserva o estado cautelar anterior à reprodução. A extração foi depois reproduzida no build 25290080, com 59 registros vinculados e hashes em [game-localization-evidence.csv](game-localization-evidence.csv). O procedimento e seus limites estão em [game-localization-extraction-report.md](game-localization-extraction-report.md). Os dois títulos abaixo passam a `OFICIAL_COMPROVADO` no escopo do literal do build; captura de UI e gatilhos de gameplay continuam pendentes.
 
 **Finalidade:** complementar a [auditoria factual preliminar](audit-summary.md) com os títulos localizados reportados pelo proprietário. **Não se trata de prova reproduzida nesta sessão** e não substitui a captura do diário PT-BR nem a verificação de sequências e requisitos de missão.
 
@@ -16,7 +18,7 @@
 | `Chilling Tidings` | **Notícias Congelantes** | `Mes_qu040010_log_title` | `natives/stm/message/questlog/qu040010_log_end.msg.24` | `91B4FAC9E38DFCCC3BB5D46AC9A96EADAD7BF285FFDD464515D7F9F3A6B02CE9` |
 | `Lost Rites` | **Rituais Perdidos** | `Mes_CONTENTS_0014_log_title` | `natives/stm/message/questlog/questlog_contents_0014.msg.24` | `6148A9170CC816A6B51DC3EFF6AF27D1CBF663D6D79A8725513E23BB5392C69C` |
 
-**Classificação editorial recomendada:** `LOCALIZACAO_EXTRAIDA_REPORTADA` (fonte primária de bytes relatada pelo proprietário, ainda não reproduzida pelo revisor). **Não classificar como `CAPTURA_UI_PTBR`**; os títulos podem aparecer em estados específicos do questlog. O mesmo relatório relata 59 pares EN/PT-BR, mas o restante exige CSV completo e vínculo de IDs antes de atualização sistemática de textos.
+**Classificação histórica naquele momento:** `LOCALIZACAO_EXTRAIDA_REPORTADA`. **Estado atual:** `OFICIAL_COMPROVADO` para o literal e vínculo no build, após reprodução e auditoria do CSV completo. Isso não equivale a `CAPTURA_UI_PTBR`; os títulos podem aparecer apenas em estados específicos do questlog.
 
 ## O que é independente do relato
 
