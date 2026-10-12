@@ -1,0 +1,59 @@
+{
+  "asOf": "2026-10-12",
+  "sourceMain": "https://allthings.how/dragon-s-dogma-2-dark-arisen-main-quest-list-and-campaign-length/",
+  "sourceSide": "https://allthings.how/dragon-s-dogma-2-dark-arisen-all-23-norgan-side-quests-prerequisites-and-rewards/",
+  "secondarySourceSide": "https://www.theclick.gg/dragons-dogma-2-norgan-side-quests/",
+  "status": "PROVISIONAL third-party candidate roster; does not prove game resource quest count, completeness, classification, or PT-BR titles",
+  "editorialWarnings": [
+    "Main article labels 12 display entries as main, but says Sage's Wisdom is three questlog quests; do not treat display count as official ID count.",
+    "Main and side articles both list Relics of the Past and Hammer and Tongs; treat as duplicated cross-type candidates, NOT additive quests.",
+    "Side article lists 23 Norgan quests and excludes the separate Lost Rites dungeons; those need their own ID inventory.",
+    "Other content introduced in October 2026, including Lost Rites, may not be represented in either list."
+  ],
+  "candidateMainRows": [
+    "Chilling Tidings",
+    "Relics of the Past",
+    "Hammer and Tongs",
+    "Rumbles in the North",
+    "Seeking the Sage",
+    "Sage’s Wisdom",
+    "Sealed History",
+    "The Castle in the Ice",
+    "Soul Searching",
+    "Where There’s a Will, There’s a Way",
+    "Reunion",
+    "Into Rancor"
+  ],
+  "candidateSideRows": [
+    "A Direwolf Delicacy",
+    "A Hound and His Bone",
+    "A Howl in the Dark",
+    "A Keepsake, for Your Sake",
+    "Back to the Temple",
+    "Beyond Ruin-Night",
+    "Bout of Passage",
+    "Flight in the Night",
+    "Hal’s Treasure Hunt",
+    "Hammer and Tongs",
+    "In for a Hare, in for a Hound",
+    "No Spoils Get Left Behind",
+    "Oh, to Be in Vermund",
+    "Quilt Me Down with a Feather",
+    "Reaching the Far Shore",
+    "Relics of the Past",
+    "Sticks and Stones",
+    "The Obelisks of Benediction",
+    "The Snatching-Beast",
+    "The Stranger in the Snowfield",
+    "The Truant Soldier",
+    "Village Defense",
+    "When the Culling Gets Tough"
+  ],
+  "crossListed": [
+    "Relics of the Past",
+    "Hammer and Tongs"
+  ],
+  "separateFromBoth": [
+    "Lost Rites"
+  ]
+}
