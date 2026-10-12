@@ -1470,6 +1470,109 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://game8.co/games/Dragons-Dogma-2/archives/House-of-the-Blue-Sunbright',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
+  },
+  {
+    id: 'gift_giving', title: 'A Dádiva da Caridade', original: 'The Gift of Giving',
+    region: 'Vernworth — Cortiços e Casa Mãos Caridosas',
+    giver: 'Daphne, menina que circula pelos Cortiços',
+    relatedEventIds: ['v103'],
+    preparation: [
+      'É a missão que antecede A Casa da Luz-Solaris Azul: termine os pedidos de Daphne antes de procurar Diana e Sebastian na Mansão Townsend.',
+      'Prepare 1 Bunch of Flowers (buquê de flores), 1 Silver Ore (minério de prata), 2 Gold Ore (minérios de ouro) e remédios contra intoxicação.',
+      'FONTES DIVERGEM sobre o último pedido: PowerPyx e GamerGuides relatam CINCO Detoxifying Decoctions/Panaceas; Game8 relata TRÊS. Para evitar retornar ao mercado, leve CINCO e confirme a quantidade pedida no diário.',
+      'O buquê pode MURCHAR se ficar muito tempo no inventário; entregue assim que prepará-lo. Os minérios não precisam ser fabricados nem falsificados.'
+    ],
+    steps: [
+      'Depois de No Rastro do Dragão, vá aos Cortiços de Vernworth, encontre Daphne perto da Casa Mãos Caridosas e aceite ajudá-la.',
+      'Junte duas espécies de flores e combine-as em um Bunch of Flowers; também pode usar um buquê já guardado. ENTREGUE-o a Daphne antes que murche.',
+      'Minere 1 Silver Ore em cavernas, como a Mina de Trevo, ou compre-o de um mercador. Volte aos Cortiços e entregue o minério de prata a Daphne.',
+      'Deixe passar cerca de um dia no jogo, retorne à Casa Mãos Caridosas e converse de novo com Daphne para receber o pedido seguinte.',
+      'Recolha e ENTREGUE 2 Gold Ore a Daphne. Minérios encontrados na Mina de Trevo ou já guardados no inventário servem.',
+      'Adquira remédios contra intoxicação, como Detoxifying Decoction; eles podem ser comprados na loja de Philbert no Bairro Mercantil ou preparados com Pitywort e Syrupwort Leaf.',
+      'Leve até cinco remédios e ENTREGUE a quantidade efetivamente solicitada a Daphne. PowerPyx/GamerGuides registram cinco; Game8, três. Confira o marcador da missão na sua versão.',
+      'Depois de concluir, continue visitando os Cortiços para encontrar Diana: esta missão é a pré-condição narrativa de A Casa da Luz-Solaris Azul.'
+    ],
+    completion: 'Daphne recebe flores, minério de prata, dois minérios de ouro e os remédios contra intoxicação. A relação construída nos Cortiços permite continuar a história dela com Sebastian.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-gift-of-giving-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Gift-of-Giving',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'oxcart_courier', title: 'Correio por Carroça', original: 'Oxcart Courier',
+    region: 'Vernworth — estação norte de carroças; Melve — Lennart',
+    giver: 'Donovan, responsável pela carroça ao norte de Vernworth',
+    relatedEventIds: ['v102'],
+    preparation: [
+      'Começa após No Rastro do Dragão e a chegada a Vernworth. Donovan entrega a Letter to Ser Lennart; NÃO é a carta de Sven nem a prova de A Carroça Fantasma.',
+      'Donovan entrega 200 G para a viagem de ida e volta. A carroça pode ser atacada na estrada: ajude a defendê-la, mas se ela quebrar, é possível prosseguir a pé até Melve.',
+      'Lennart pode estar junto ao poço da parte destruída da vila, na estalagem, em casa ou perto do arco em ruínas, dependendo do estado de Melve.'
+    ],
+    steps: [
+      'Vá à Estação Norte de Carroças de Vernworth durante o dia e espere a carroça que parte para Melve. Converse com Donovan e aceite entregar a Letter to Ser Lennart.',
+      'Embarque na carroça, pague a tarifa com o dinheiro recebido e solicite seguir viagem; prepare-se para defender a carroça se monstros atacarem no trajeto.',
+      'Se a carroça for destruída, não abandone a missão. Siga a estrada até Melve por conta própria: o objetivo importante é ENTREGAR a carta.',
+      'Em Melve, procure Lennart perto do poço na parte danificada da vila. Se não estiver lá, verifique a estalagem, sua casa próxima ou o arco em ruínas a noroeste.',
+      'Fale com Lennart e ENTREGUE a Letter to Ser Lennart. Se outra tarefa em Melve interromper a conversa, conclua o diálogo e fale novamente com ele.',
+      'Retorne a Vernworth e converse com Donovan na estação norte para confirmar a entrega e receber a recompensa.'
+    ],
+    completion: 'Carta entregue a Lennart, Donovan informado. Não é necessário manter a carroça intacta até Melve se conseguir completar o percurso a pé.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-oxcart-courier-walkthrough/',
+      'https://clair.6fast.com/dragons-dogma-2/guide/side-quests/vernworth/oxcart-courier-walkthrough',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'magisterial_amenity', title: 'Cortesia Magisterial', original: 'A Magisterial Amenity',
+    region: 'Vernworth — arquivo subterrâneo da Casa Mãos Caridosas e Salão de Máscaras do castelo',
+    giver: 'Waldhar, no arquivo sob os Cortiços, após O Magistrado Aprisionado',
+    relatedEventIds: ['v103', 'v301'],
+    preparation: [
+      'Conclua O Magistrado Aprisionado e A História sob a Profundez para liberar o arquivo subterrâneo onde Waldhar passa a estudar. Converse repetidas vezes com ele até receber a busca pelos óculos.',
+      'Os Exquisite Spectacles (óculos requintados) estão em um depósito atrás do Salão de Máscaras do castelo. Vá durante o DIA para evitar exigência de traje nobre durante um baile.',
+      'O objeto original deve ser ENTREGUE a Waldhar; não há compra nem falsificação necessária.'
+    ],
+    steps: [
+      'Vá aos Cortiços de Vernworth e desça até o arquivo da Casa Mãos Caridosas, descoberto durante A História sob a Profundez.',
+      'Converse com Waldhar até ele pedir que recupere seus Exquisite Spectacles, confiscados pelos guardas.',
+      'Dirija-se ao complexo do Castelo de Vernworth e entre no Salão de Máscaras, no lado oeste do terreno do palácio.',
+      'Na parte dos fundos do salão, entre na sala de depósito e recolha os Exquisite Spectacles. Visitar durante o dia reduz interferência da festa de máscaras.',
+      'Retorne ao arquivo sob os Cortiços e ENTREGUE os óculos originais a Waldhar.',
+      'Confirme a conclusão e recolha a recompensa, o tomo Winter’s Path.'
+    ],
+    completion: 'Óculos devolvidos a Waldhar no arquivo subterrâneo; ele entrega Winter’s Path como recompensa.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-magisterial-amenity-walkthrough/',
+      'https://dragonsdogma.fandom.com/wiki/A_Magisterial_Amenity',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'gossamer_clouds', title: 'Um Véu de Finas Nuvens', original: 'A Veil of Gossamer Clouds',
+    region: 'Vernworth — quarto de Sven no Castelo; Bakbattahl — Laboratório de Pesquisa de Magia Proibida',
+    giver: 'Sven, em seus aposentos no segundo andar do Castelo de Vernworth',
+    relatedEventIds: ['v304', 'b02'],
+    preparation: [
+      'Começa depois de O Banquete da Farsa. Sven entrega uma Unfinished Letter; para a MELHOR RECOMPENSA, investigue Phaesus no laboratório em Bakbattahl ANTES de encerrar a missão.',
+      'Há dois caminhos com recompensas diferentes: analisar a carta com Waldhar pode encerrar mais cedo, com menos ouro e SEM Ferrystone; investigar o laboratório e entregar a Letter to Lord Phaesus concede a recompensa maior.',
+      'Não confunda Unfinished Letter com a Letter to Lord Phaesus, nem com a carta a Lennart de Correio por Carroça.'
+    ],
+    steps: [
+      'Após O Banquete da Farsa, vá ao quarto de Sven, no segundo andar do Castelo de Vernworth, e receba a Unfinished Letter. Leia-a para identificar o nome Phaesus.',
+      'Para a rota de melhor recompensa, viaje até Bakbattahl. Use a passagem atrás dos Depósitos de Tintas, atravessando a ponte curta até o Laboratório de Pesquisa de Magia Proibida, ou entre pelo complexo do palácio se disponível.',
+      'No laboratório, contorne a grande estátua/corpo de dragão e escute dois pesquisadores conversando sobre a correspondência que veio de Vermund.',
+      'Quando os pesquisadores saírem, entre no Laboratorium — Workshop #2 e recolha a Letter to Lord Phaesus sobre a mesa.',
+      'Volte ao quarto de Sven no Castelo de Vernworth e MOSTRE a Letter to Lord Phaesus; conclua a missão com a recompensa maior, relatada como 20.000 G e uma Ferrystone.',
+      'Rota alternativa: Waldhar no arquivo sob a Casa Mãos Caridosas pode interpretar a Unfinished Letter. Apresentar apenas essa análise a Sven encerra mais cedo, porém fontes relatam 14.000 G e ausência de Ferrystone.'
+    ],
+    completion: 'A investigação é entregue a Sven. Para preservar a recompensa maior, leve a carta do laboratório; a análise isolada de Waldhar é um caminho alternativo de recompensa menor.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-veil-of-gossamer-clouds-walkthrough/',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
   }
 ];
 

@@ -91,7 +91,8 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth1');
   await page.getByRole('button', { name: /Consultar atividade: Ative a Guilda/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(3);
+  await expect(panel.locator('details')).toHaveCount(4);
+  await expect(panel.locator('#quest-guide-oxcart_courier')).toBeVisible();
   const vocation = panel.locator('details').filter({ hasText: /Frustração Vocacional/ });
   await vocation.locator('summary').click();
   await expect(vocation).toContainText('Two-Hander');
@@ -756,6 +757,72 @@ test('onda 15: Sebastian recebe três suprimentos ou exige resgate perto de Melv
   await expect(items.locator('li')).toHaveCount(3);
   for(const item of ['Misshapen Eye','Detoxifying Decoction','Waking Powder'])
     await expect(items).toContainText(item);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 16: Daphne pede flores, minérios e alerta sobre contagem divergente de antídotos', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Dádiva da Caridade');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão A Dádiva da Caridade/ }).click();
+  const guide=page.locator('#quest-guide-gift_giving');
+  await expect(guide).toHaveAttribute('open','');
+  await expect(guide).toContainText('Daphne');
+  await expect(guide).toContainText('FONTES DIVERGEM');
+  await expect(guide).toContainText('A Casa da Luz-Solaris Azul');
+  const items=guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(4);
+  for(const item of ['Bunch of Flowers', 'Silver Ore', 'Gold Ore', 'Detoxifying Decoction']) await expect(items).toContainText(item);
+  await expect(items).toContainText('Game8: 3');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 16: Correio por Carroça distingue carta de Donovan e admite viagem a pé', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Correio por Carroça');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Correio por Carroça/ }).click();
+  const guide=page.locator('#quest-guide-oxcart_courier');
+  await expect(guide).toHaveAttribute('open','');
+  for(const word of ['Donovan','Lennart','Melve','200 G','Siga a estrada']) await expect(guide).toContainText(word);
+  await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toContainText('Letter to Ser Lennart');
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 16: Waldhar recebe óculos do Salão de Máscaras, recompensa não é item prévio', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Cortesia Magisterial');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Cortesia Magisterial/ }).click();
+  const guide=page.locator('#quest-guide-magisterial_amenity');
+  await expect(guide).toHaveAttribute('open','');
+  await expect(guide).toContainText('Waldhar');
+  await expect(guide).toContainText('Salão de Máscaras');
+  const items=guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(1);
+  await expect(items).toContainText('Exquisite Spectacles');
+  await expect(items).toContainText('Winter’s Path');
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 16: Sven tem duas cartas e rota de melhor recompensa no laboratório', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Um Véu de Finas Nuvens');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Um Véu de Finas Nuvens/ }).click();
+  const guide=page.locator('#quest-guide-gossamer_clouds');
+  await expect(guide).toHaveAttribute('open','');
+  for(const word of ['Sven','Phaesus','Waldhar','20.000 G','recompensa menor']) await expect(guide).toContainText(word);
+  const items=guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(2);
+  await expect(items).toContainText('Unfinished Letter');
+  await expect(items).toContainText('Letter to Lord Phaesus');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
   expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
 });

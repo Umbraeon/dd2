@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 66);
+  assert.equal(QUEST_GUIDES.length, 70);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -23,13 +23,13 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
   assert.equal(questGuidesForEvent('m04').length, 4);
   assert.equal(questGuidesForEvent('m02').length, 2);
-  assert.equal(questGuidesForEvent('v102').length, 3);
-  assert.equal(questGuidesForEvent('v103').length, 6);
+  assert.equal(questGuidesForEvent('v102').length, 4);
+  assert.equal(questGuidesForEvent('v103').length, 8);
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 4);
-  assert.equal(questGuidesForEvent('v301').length, 3);
+  assert.equal(questGuidesForEvent('v301').length, 4);
   assert.equal(questGuidesForEvent('v303').length, 7);
-  assert.equal(questGuidesForEvent('v304').length, 2);
+  assert.equal(questGuidesForEvent('v304').length, 3);
   assert.equal(questGuidesForEvent('v104').length, 1);
   assert.equal(questGuidesForEvent('v201').length, 3);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
@@ -447,5 +447,29 @@ test('onda 15: mendigo, duas missões élficas e Sebastian têm riscos e rotas d
     assert.match(sebastian.preparation.join(' ')+sebastian.steps.join(' '), new RegExp(name));
   }
   assert.match(sebastian.preparation.join(' '), /ALERTA DE MORTE/);
+  assert.equal(PHASES.flatMap(p=>p.events).length,53);
+});
+
+test('onda 16: quatro missões e divergência de medicamentos ficam explícitas', () => {
+  const guides=['gift_giving','oxcart_courier','magisterial_amenity','gossamer_clouds'].map(id=>QUEST_GUIDES.find(q=>q.id===id));
+  for (const q of guides) {
+    assert.ok(q, 'Ficha inexistente');
+    assert.ok(q.steps.length>=6);
+    assert.ok(q.references.length>=2);
+    assert.ok(q.relatedEventIds.every(id=>knownEvents.has(id)));
+  }
+  const [daphne,cart,waldhar,sven]=guides;
+  assert.match(daphne.preparation.join(' '), /FONTES DIVERGEM/);
+  assert.match(daphne.preparation.join(' '), /CINCO/);
+  assert.match(daphne.steps.join(' '), /Game8, três/);
+  assert.match(daphne.completion, /Sebastian/);
+  assert.match(cart.preparation.join(' '), /200 G/);
+  assert.match(cart.steps.join(' '), /Donovan/);
+  assert.match(cart.completion, /não é necessário manter a carroça intacta/i);
+  assert.match(waldhar.steps.join(' '), /Exquisite Spectacles/);
+  assert.match(waldhar.steps.join(' '), /Waldhar/);
+  assert.match(sven.preparation.join(' '), /MELHOR RECOMPENSA/);
+  assert.match(sven.steps.join(' '), /Letter to Lord Phaesus/);
+  assert.match(sven.steps.join(' '), /Waldhar/);
   assert.equal(PHASES.flatMap(p=>p.events).length,53);
 });
