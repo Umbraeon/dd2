@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 44);
+  assert.equal(QUEST_GUIDES.length, 47);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -324,4 +324,32 @@ test('Mundo Desancorado: quatro evacuações restantes possuem gatilho, roteiro 
   assert.match(hen.steps.join(' '), /Diminished Godsway/);
   assert.match(hen.completion, /obrigatória/);
   assert.equal(new Set(PHASES.flatMap(p => p.events).map(e => e.id)).size, 53);
+});
+
+test('onda 11: feixes de Bakbattahl, Talos e carroça possuem rotas distintas', () => {
+  const expected = [
+    ['scholarly_pursuit', 'u05', 'Bakbattahl'],
+    ['when_wills_collide', 'u06', 'Talos'],
+    ['phantom_oxcart', 'b05', 'Vermund']
+  ];
+  for (const [id, eventId, region] of expected) {
+    const q = QUEST_GUIDES.find(g => g.id === id);
+    assert.ok(q, id);
+    assert.ok(q.relatedEventIds.includes(eventId));
+    assert.match(q.region, new RegExp(region));
+    assert.ok(q.steps.length >= 5);
+    assert.ok(q.references.length >= 2);
+  }
+  const scholarly = QUEST_GUIDES.find(g => g.id === 'scholarly_pursuit');
+  assert.match(scholarly.steps.join(' '), /Phaesus/);
+  assert.match(scholarly.completion, /FINAL/);
+  const talos = QUEST_GUIDES.find(g => g.id === 'when_wills_collide');
+  assert.match(talos.preparation.join(' '), /Peão Principal/);
+  assert.match(talos.preparation.join(' '), /guias divergem/);
+  const cart = QUEST_GUIDES.find(g => g.id === 'phantom_oxcart');
+  assert.match(cart.steps.join(' '), /Navil/);
+  assert.match(cart.steps.join(' '), /Brant/);
+  assert.match(cart.steps.join(' '), /Labor Requisition Orders/);
+  assert.match(cart.preparation.join(' '), /remova TODAS as armas/);
+  assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
