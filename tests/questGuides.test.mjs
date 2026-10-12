@@ -175,7 +175,7 @@ test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () =>
   assert.match(second.steps.join(' '), /ciclope.*Lifetaker.*Childhood Home.*Champion.s Fable.*Arc of Might/s);
   assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
   assert.equal(questGuidesForEvent('p03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
-  assert.equal(questGuidesForEvent('m03').length, 4);
+  assert.equal(questGuidesForEvent('m03').length, 3);
   assert.equal(questGuidesForEvent('p03').length, 6);
   const step = PHASES.flatMap(phase => phase.events).find(event => event.id === 'm03');
   assert.match(step.note, /Treino Leonino.*A Última Lição de Beren.*Champion.s Fable/s);
@@ -249,4 +249,22 @@ test('onda 8: chegada a Battahl diferencia permissões; Legado separa escolhas d
   assert.equal(questGuidesForEvent('b01').find(g => g.id === 'nation_lambent_flame')?.id, 'nation_lambent_flame');
   assert.equal(questGuidesForEvent('p06').find(g => g.id === 'legacy')?.id, 'legacy');
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+});
+
+test('localização de Myrddin: missão inicia na fronteira, não em Melve', () => {
+  const melveGuides = questGuidesForEvent('m03');
+  const vernworthGuides = questGuidesForEvent('v206');
+  const myrddin = guide('sorcerers_appraisal');
+  const trysha = guide('spellbound');
+  assert.deepEqual(myrddin.relatedEventIds, ['v206', 'p03']);
+  assert.ok(!melveGuides.some(q => q.id === myrddin.id), 'Myrddin não pode aparecer em Melve');
+  assert.ok(melveGuides.some(q => q.id === trysha.id), 'Trysha deve permanecer em Melve');
+  assert.ok(vernworthGuides.some(q => q.id === myrddin.id));
+  assert.match(myrddin.region, /Cidade de Descanso da Fronteira/);
+  assert.match(myrddin.preparation.join(' '), /não em Melve nem dentro de Vernworth/);
+  const melve = PHASES.flatMap(p => p.events).find(e => e.id === 'm03');
+  const route = PHASES.flatMap(p => p.events).find(e => e.id === 'v206');
+  assert.match(melve.note, /A missão de Myrddin não começa aqui/);
+  assert.match(route.title, /Cidade de Descanso da Fronteira/);
+  assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
