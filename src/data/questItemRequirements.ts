@@ -281,7 +281,7 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
     ]
   },
   shepherd_pawns: {
-    guidance: 'Aqui existem um item para ABRIR a porta e um item para ENTREGAR. A chave vem de Henrique; o Diminished Godsway é encontrado no alojamento trancado e deve ser devolvido a Henrique. Nenhuma falsificação é necessária.',
+    guidance: 'Esta missão exige uma chave para ABRIR a porta e um objeto para ENTREGAR. A chave vem de Henrique; o Diminished Godsway está no alojamento trancado e deve ser devolvido a Henrique. Nenhuma falsificação é necessária.',
     items: [
       {
         name: 'Overseer’s Lodge Key (chave do alojamento do capataz)',
