@@ -301,7 +301,7 @@ test('itens por missão: Myrddin apresenta traje e cada cópia no local correto'
   const entry = page.locator('#quest-guide-sorcerers_appraisal');
   await expect(entry).toHaveAttribute('open', '');
   const items = entry.getByRole('region', { name: 'Itens necessários e onde conseguir' });
-  await expect(items.locator('li')).toHaveCount(6);
+  await expect(items.locator('li')).toHaveCount(7);
   await expect(items).toContainText('Courtly Tunic + Courtly Breeches');
   await expect(items).toContainText('Fruminous Shield');
   await expect(items).toContainText('Hurling Blizzard');
