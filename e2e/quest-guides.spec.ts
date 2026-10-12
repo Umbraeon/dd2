@@ -564,3 +564,60 @@ test('Convergência: Rothais entrega lâmina e missão precede Um Novo Chamado D
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('casa de Mildred: guia indica uma semana e 20.000 G sem escrever progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Um Lugar para Chamar de Lar');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Um Lugar para Chamar de Lar/ }).click();
+  const guide = page.locator('#quest-guide-place_call_home');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Mildred');
+  await expect(guide).toContainText('uma semana');
+  await expect(guide).toContainText('20.000 G');
+  await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toContainText('20.000 moedas de ouro');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('cadeia da Forja: espada no inventário, 15 a 25 carvões e entrega final a Roman', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  const search = page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' });
+  await search.fill('Lâmina Cega, Forja Fria');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Lâmina Cega, Forja Fria/ }).click();
+  const first = page.locator('#quest-guide-dulled_steel');
+  await expect(first).toHaveAttribute('open', '');
+  for (const detail of ['Roman', 'Sara', '15 Glimmercoal', '25', 'Glymercole']) await expect(first).toContainText(detail);
+  const items = first.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(2);
+  await expect(items).toContainText('Carvão lustrazul');
+  await search.fill('Vontade Resistente, Forja Ardente');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Vontade Resistente, Forja Ardente/ }).click();
+  const second = page.locator('#quest-guide-steeled_resolve');
+  await expect(second).toHaveAttribute('open', '');
+  for (const name of ['Sara', 'Caverna na Base da Montanha', 'Roman']) await expect(second).toContainText(name);
+  await expect(second.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toContainText('Espada Régia restaurada');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Rodge: prazo de resgate destacado e Caverna Pútrida sem exigir item', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Presa da Alcateia');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão A Presa da Alcateia/ }).click();
+  const guide = page.locator('#quest-guide-prey_for_pack');
+  await expect(guide).toHaveAttribute('open', '');
+  for (const term of ['MISSÃO COM PRAZO', 'Rodge', 'Morris', 'Caverna Pútrida', 'não há item obrigatório']) {
+    if (term === 'não há item obrigatório') continue;
+    await expect(guide).toContainText(term);
+  }
+  await expect(guide).toContainText('desfecho pior');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
