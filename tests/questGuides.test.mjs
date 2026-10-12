@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 33);
+  assert.equal(QUEST_GUIDES.length, 35);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -203,4 +203,23 @@ test('onda 6: missões de Mestre da Ilha Vulcânica explicam pergaminhos e passo
     assert.ok(q.references.length >= 2);
     assert.ok(q.preparation.length > 0);
   }
+});
+
+test('onda 7: Godsway e Gigantus distinguem itens, escolha de conquista e ponto de retorno', () => {
+  const godsway = guide('new_godsway');
+  const gigantus = guide('guardian_gigantus');
+  assert.deepEqual(godsway.relatedEventIds, ['p04']);
+  assert.deepEqual(gigantus.relatedEventIds, ['p04', 'p05']);
+  assert.match(godsway.steps.join(' '), /Ambrosius.*quinze Wyrmslife Crystals.*Empowered Godsbane Blade/s);
+  assert.match(godsway.preparation.join(' '), /Unmaking Arrow/);
+  assert.match(gigantus.steps.join(' '), /Phaesus.*Unmaking Arrow.*balistas.*Moonglint Tower/s);
+  assert.match(gigantus.preparation.join(' '), /opcional|ignorar|sem retorno|revis/i);
+  assert.match(gigantus.completion, /separado da progressão da campanha/);
+  assert.equal(questGuidesForEvent('p04').filter(g => ['new_godsway', 'guardian_gigantus'].includes(g.id)).length, 2);
+  assert.equal(questGuidesForEvent('p05').find(g => g.id === 'guardian_gigantus')?.id, 'guardian_gigantus');
+  for (const g of [godsway, gigantus]) {
+    assert.ok(g.references.length >= 2);
+    assert.ok(g.steps.length >= 6);
+  }
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
 });
