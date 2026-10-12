@@ -85,7 +85,7 @@ test('coroação: quatro fichas acionáveis e nenhuma escrita automática de pro
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(4);
+  await expect(panel.locator('details')).toHaveCount(6);
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
   await expect(feast).toContainText('Quando Brant perguntar se você está pronto');
