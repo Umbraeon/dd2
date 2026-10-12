@@ -512,6 +512,67 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     completion: 'O retorno a Margit conclui a missão; a sobrevivência de Gregor e a conquista por derrotar o Dullahan são objetivos distintos.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-till-death-do-us-part-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Till-Death-Do-Us-Part']
   },
+
+  {
+    id: 'mercy_thieves', title: 'Piedade entre Ladrões', original: 'Mercy among Thieves',
+    region: 'Cidade de Descanso da Fronteira, lado de Battahl, e estrada para Bakbattahl',
+    giver: 'Lyssandro, após conversar com os guardas próximos ao portão',
+    relatedEventIds: ['b01', 'b02'],
+    preparation: [
+      'Atravesse o portão da fronteira para o lado de Battahl; esta missão começa antes de chegar ao centro de Bakbattahl.',
+      'Os guardas próximos ao portão e Lyssandro investigam os roubos das Serpentes de Coral; a história de Hugo continua em outra missão.'
+    ],
+    steps: [
+      'Do lado de Battahl da Cidade de Descanso da Fronteira, ouça os guardas sobre os ataques às carroças e procure Lyssandro, de roupas claras, nas proximidades.',
+      'Converse com Toumi, o menino junto às tendas, ofereça comida quando ele pedir e volte a falar com Lyssandro sobre as Serpentes de Coral.',
+      'Siga a estrada principal para o sul, a pé, conversando com sobreviventes e observando o local de uma carroça saqueada.',
+      'Depois do encontro com os bandidos na estrada, persiga Hugo e siga o caminho da caverna marcado pela missão.',
+      'Derrote os dois bandidos que guardam a entrada e avance pelo esconderijo. Se Hugo derrubar uma ponte, use o caminho alternativo com outra ponte ou as escadas.',
+      'Prossiga até os guardas se juntarem a você; enfrente os membros da gangue e avance até a última cena envolvendo Hugo e o chefe dos bandidos.'
+    ],
+    completion: 'A sequência final no esconderijo encerra Piedade entre Ladrões. Hugo será importante em uma missão posterior; esta ficha não garante seu destino nessa etapa.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Mercy-Among-Thieves']
+  },
+  {
+    id: 'shadowed_prayers', title: 'Orações Ensombradas', original: 'Shadowed Prayers',
+    region: 'Bakbattahl, Flamebearer Palace (nome EN do local)',
+    giver: 'Menella',
+    relatedEventIds: ['b02'],
+    preparation: [
+      'Depois de Nação da Chama Luzente, procure Menella na entrada do palácio. Ela pede ajuda para impedir um ataque à imperatriz Nadinia.',
+      'A identificação durante a cerimônia é urgente: depois que Menella iniciar as preces, não se afaste para outras tarefas.'
+    ],
+    steps: [
+      'Fale com Menella no acesso ao Flamebearer Palace e aceite ajudar a proteger Nadinia.',
+      'Retorne ao local indicado pela missão pela manhã para participar da cerimônia.',
+      'Ouça a descrição de Menella: o assassino usa o cabelo preso e tem um ferimento no braço direito.',
+      'Durante as preces, observe os fiéis nas escadas e procure o homem com cabelo amarrado, túnica azul-escura e marca avermelhada no braço direito.',
+      'Aproxime-se do suspeito e use o comando de agarrar para prendê-lo antes que a cerimônia termine; não o confunda com outros participantes.',
+      'Assista ao desfecho da cerimônia e confira a conclusão no diário de missões.'
+    ],
+    completion: 'Prender o suspeito correto impede o atentado e conclui Orações Ensombradas. A escolha errada ou a demora pode mudar o resultado; não conte com recarga automática.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-shadowed-prayers-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Shadowed-Prayers']
+  },
+  {
+    id: 'poisonous_proposal', title: 'Uma Proposta Venenosa', original: 'A Poisonous Proposal',
+    region: 'Bakbattahl, casa de Jarle e arredores',
+    giver: 'Jarle',
+    relatedEventIds: ['b02'],
+    preparation: [
+      'Encontre Jarle em sua casa no noroeste de Bakbattahl, em frente à estalagem Rockmouse’s Burrow, depois de Nação da Chama Luzente.',
+      'Você precisa retornar a ele ainda envenenado duas vezes; poções e peões que curam veneno podem encerrar o efeito antes da conversa.'
+    ],
+    steps: [
+      'Converse com Jarle em casa e aceite participar do estudo sobre venenos.',
+      'Procure um Asp nos arredores da cidade e deixe que seu ataque cause envenenamento. Volte imediatamente a Jarle enquanto o efeito ainda estiver ativo.',
+      'Depois da avaliação, encontre uma Venin Harpy nos locais indicados pelo mapa; deixe que ela o envenene e retorne a Jarle ainda sob o efeito.',
+      'Quando Jarle pedir para testar a quimera em si mesmo, encontre-o no local de reunião marcado ao norte de Bakbattahl.',
+      'Entre com Jarle no covil da quimera. Preserve a cabeça de serpente da cauda para que ela consiga envenená-lo e evite derrotar o monstro antes de ele receber o veneno.',
+      'Proteja Jarle durante o combate; depois que ele for envenenado e sair do covil, encontre-o novamente em sua casa para saber como ficou.'
+    ],
+    completion: 'Conversar com Jarle após o experimento da quimera conclui Uma Proposta Venenosa; não é necessário matar a quimera antes de ele ser envenenado.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-a-poisonous-proposal-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/A-Poisonous-Proposal']
+  },
   {
     id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
     region: 'Vernworth, Rose Chateau Bordelrie, castelo e Bairro Nobre',
