@@ -471,7 +471,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'Retorne a Harve e converse com Fyoran quando os sáurios invadirem novamente a vila.',
       'Derrote o segundo grupo de sáurios e confirme a conclusão com Fyoran.'
     ],
-    completion: 'A segunda defesa da vila encerra Invasores Escamosos e permite continuar a sequência local de Harve.',
+    completion: 'A segunda defesa da vila encerra Invasores Escamosos. A história de Ulrika em Harve continua em uma missão separada.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-scaly-invaders-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Scaly-Invaders']
   },
   {
@@ -506,34 +506,12 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'Ouça Oswald falar da expedição de Gregor e procure Margit no Bairro Nobre.',
       'Converse com Margit sobre Ser Ludolph, conte o que sabe e aceite socorrer Gregor.',
       'Vá ao Pântano Nebuloso, a noroeste da capital, e siga a trilha até o local indicado na missão.',
-      'Encontre Gregor enfrentando o Dullahan à noite e ajude-o a sobreviver à batalha. Derrotar o chefe nessa ocasião também serve para a conquista ligada ao Dullahan.',
+      'Encontre Gregor enfrentando o Dullahan e ajude-o a sobreviver à batalha. Para salvar Gregor, basta mantê-lo vivo até a criatura fugir; derrotar o Dullahan nessa luta também pode render a conquista relacionada.',
       'Volte à casa de Margit, em Vernworth, e fale com ela para encerrar o resgate.'
     ],
     completion: 'O retorno a Margit conclui a missão; a sobrevivência de Gregor e a conquista por derrotar o Dullahan são objetivos distintos.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-till-death-do-us-part-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Till-Death-Do-Us-Part']
   },
-  {
-    id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
-    region: 'Vernworth, Rose Chateau Bordelrie, castelo e Bairro Nobre',
-    giver: 'Wilhelmina',
-    relatedEventIds: ['v302', 'v303', 'v304'],
-    preparation: [
-      'Depois das missões de corte e da coroação, procure Wilhelmina no Rose Chateau. O aparecimento da cena inicial depende do estado da história e da relação com ela.',
-      'Quando aceitar ajudá-la, você terá três dias no jogo para reunir as provas: priorize essa missão antes de descansar ou viajar.'
-    ],
-    steps: [
-      'À noite, procure Wilhelmina no andar superior do Rose Chateau. Quando ela estiver atendendo um cliente, examine a pintura no quarto dela para observar a conversa.',
-      'Depois da cena, diga a Wilhelmina que vai ajudá-la e inicie a busca pelas evidências contra Allard.',
-      'Vá aos aposentos de Sven no Castelo de Vernworth e converse com ele para descobrir como chegar às provas.',
-      'Fale com Patrick no Bairro Nobre e aceite o plano de atrair Allard para fora de casa. Entre no escritório de Allard no andar superior e examine a pintura para obter o Murder Report.',
-      'Na área comercial de Vernworth, procure a casa ao sul da barbearia de Clovis e recolha o Bribery Investigation Findings sobre a mesa.',
-      'À noite, fale com Brant na Stardrop Inn sobre o Myrmecoleon. Apresente primeiro o Bribery Investigation Findings, selecione procurar mais provas, apresente o Murder Report e peça a ajuda de Brant para a fuga.',
-      'Retorne ao Rose Chateau e entregue a Wilhelmina o Murder Report. Confirme que continuará ajudando e, na sala de Allard, agarre-o quando ela pedir.',
-      'Depois da cena, escape do local pela janela e siga Brant. Passe algum tempo e volte a falar com Wilhelmina para concluir a missão.'
-    ],
-    completion: 'A conversa posterior com Wilhelmina encerra a história. O prazo de três dias vale depois que você aceita ajudá-la, não desde o início da campanha.',
-    references: ['https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/', 'https://www.ggrecon.com/guides/dragons-dogma-2-every-rose-has-its-thorns/']
-  }
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */
