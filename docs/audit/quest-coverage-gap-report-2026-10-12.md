@@ -105,6 +105,8 @@ As habilidades de Sigurd e Luz exigem condições próprias, mesmo sem quests EN
 
 O DLC **Dark Arisen** foi lançado em outubro de 2026, **depois** do catálogo PowerPyx de março de 2024. O código inclui referências a `Chilling Tidings` e `Lost Rites`, mas não walkthroughs individuais. Fontes recentes publicaram propostas de listas (12 quests centrais e 23 secundárias de Norgan), **não verificadas neste repositório contra o questlog da build instalada**; não somá-las cegamente às 80 ou certificar sua exaustividade.
 
+O inventário provisório `docs/audit/dark-arisen-candidate-quest-roster-2026-10-12.json` transcreve **12 linhas de campanha** e **23 linhas secundárias** de páginas publicadas em outubro de 2026. É um **roteiro de investigação**, não um catálogo oficial: `Relics of the Past` e `Hammer and Tongs` aparecem nas duas categorias; `Sage's Wisdom` é apresentado como uma linha agregada que, segundo a própria fonte, contém três entradas de questlog; e `Lost Rites` consta fora das 23 secundárias de Norgan. **Não somar 12 + 23 como 35 quests distintas**. A confirmação de IDs fica pendente de recurso do jogo.
+
 Para garantir completude real: extrair IDs, tipo e título PT-BR do **questlog e recursos da instalação atual** (base + DLC) e confrontar com a lista de guias e tarefas contextuais. Validar gatilhos e estados alternativos com saves reais, especialmente quests temporizadas e de afinidade. Sem essa etapa, não existe evidência técnica honesta para declarar “nada falta”.
 
 ## Fonte de comparação e critérios de aceite
