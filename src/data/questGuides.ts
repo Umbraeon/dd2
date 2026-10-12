@@ -19,7 +19,9 @@ export interface QuestGuide {
 export interface ForgeryItem {
   id: string;
   item: string;
+  itemPt?: string;
   forged: string;
+  forgedPt?: string;
   obtain: string;
   originalTo: string;
   copyTo: string;
@@ -32,31 +34,35 @@ const GAME8_APPRAISAL = 'https://game8.co/games/Dragons-Dogma-2/archives/The-Sor
 
 export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   {
-    id: 'fulminous_shield', item: 'Fulminous Shield', forged: 'Fruminous Shield',
-    obtain: 'Compre de Dudley perto da entrada norte de Melve por 5.000 G; ele pode mudar de local após a compra.',
+    id: 'fulminous_shield', item: 'Fulminous Shield', itemPt: 'Escudo Fulminante',
+    forged: 'Fruminous Shield', forgedPt: 'Escudo Fulgentante',
+    obtain: 'Compre de Dudley perto da entrada norte de Melve por 5.000 G (ele pode mudar de local após a compra, aparecendo no Posto do Retiro). Cópia com Ibrahim custa 6.000 G.',
     originalTo: 'Trysha (Magia Vertiginosa)',
     copyTo: 'Myrddin (O Julgamento do Feiticeiro)',
-    action: 'Separe o original antes de criar a falsificação. Se negociar com Wendy na Vila Sem Nome por Howling Blizzard, ofereça uma cópia.',
+    action: 'Separe o original antes de criar a falsificação. Se negociar com Wendy no Vilarejo sem Nome por Howling Blizzard, ofereça uma cópia.',
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'nations_death_knell', item: "Nation's Death Knell", forged: "Nation's Death Knock",
-    obtain: 'Um exemplar em baú no 2º piso da Caverna da Cascata, junto de Howling Blizzard; outro em pedestal no 2º piso da fortaleza do Campo de Batalha Antigo. Não pegue o exemplar do pedestal antes de concluir Tolled to Rest, caso precise dele para a missão de Oskar.',
+    id: 'nations_death_knell', item: "Nation's Death Knell", itemPt: "Dobre de Finados da Nação",
+    forged: "Nation's Death Knock", forgedPt: "Dobla de Finados da Nação",
+    obtain: 'Um exemplar em baú no 2º piso da Gruta da Cachoeira (Caverna da Cascata), junto de Howling Blizzard; outro em pedestal no 2º piso da fortaleza do Antigo Campo de Batalha (Campo de Batalha Antigo) (missão Tolled to Rest). Dois originais existem no jogo.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin (ou entregue um segundo original, se preferir)',
     action: 'Dois exemplares originais permitem economizar uma falsificação.',
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'howling_blizzard', item: 'Howling Blizzard', forged: 'Hurling Blizzard',
-    obtain: "No baú do 2º piso da Caverna da Cascata junto de Nation's Death Knell (abrir o baú invoca um Wight). Alternativamente, troque Fruminous Shield, uma falsificação de Fulminous Shield, com Wendy na Vila Sem Nome.",
+    id: 'howling_blizzard', item: 'Howling Blizzard', itemPt: 'Nevasca Uivante',
+    forged: 'Hurling Blizzard', forgedPt: 'Nevasca Ululante',
+    obtain: "No baú do 2º piso da Gruta da Cachoeira (Caverna da Cascata) junto de Nation's Death Knell (abrir o baú invoca um Wight). Alternativamente, troque Fruminous Shield (Escudo Fulgentante) com Wendy no Vilarejo sem Nome.",
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
     action: 'Não troque o único original por engano.',
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'towering_earth', item: 'Towering Earth', forged: 'Lowering Earth',
+    id: 'towering_earth', item: 'Towering Earth', itemPt: 'Terra Imponente',
+    forged: 'Lowering Earth', forgedPt: 'Terra Impendente',
     obtain: 'Receba de Waldhar após O Magistrado Aprisionado, na biblioteca subterrânea das galerias da Mão Graciosa (Bairro Pobre de Vernworth). Volte a conversar com ele se não receber na primeira interação.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
@@ -64,35 +70,39 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'let_there_be_light', item: 'Let There Be Light', forged: 'Let There Be Lite',
-    obtain: 'Pegue sobre a mesa no andar superior da casa de Myrddin na Cidade de Descanso da Fronteira; entre pela sacada a partir da parede destruída para evitar que ele o ataque por subir pelo interior.',
+    id: 'let_there_be_light', item: 'Let There Be Light', itemPt: 'Que Haja Luz',
+    forged: 'Let There Be Lite', forgedPt: 'Que Haja Lustre',
+    obtain: 'Pegue sobre a mesa no andar superior da casa de Myrddin no Posto do Retiro (Cidade de Descanso da Fronteira); entre pela sacada a partir da parede externa para evitar conflito com ele.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
     action: 'Pegue o livro antes de concluir as entregas.',
     references: [POWERPYX_GRIMOIRES, GAME8_APPRAISAL]
   },
   {
-    id: 'jadeite_orb', item: 'Jadeite Orb (Orbe de Jadeíta)', forged: 'Imitation Jadeite Orb',
-    obtain: 'Compre o orbe com Ibrahim na Cidade de Descanso da Fronteira.',
+    id: 'jadeite_orb', item: 'Jadeite Orb (Orbe de Jadeíta)', itemPt: 'Esfera de Jade',
+    forged: 'Imitation Jadeite Orb', forgedPt: 'Esfera de Jaspe',
+    obtain: 'Compre a Esfera de Jade (Jadeite Orb) com Ibrahim por 7.500 G no Posto do Retiro (Cidade de Descanso da Fronteira) e encomende a falsificação por 2.000 G.',
     originalTo: 'Everard',
     copyTo: 'Offulve',
-    action: 'Everard verifica a autenticidade com Ibrahim; não troque os destinatários.',
+    action: 'Everard verifica a autenticidade com Ibrahim; entregue o original (Esfera de Jade) a ele e a cópia (Esfera de Jaspe) a Offulve.',
     references: ['https://game8.co/games/Dragons-Dogma-2/archives/Hunt-for-the-Jadeite-Orb', 'https://www.windowscentral.com/gaming/dragons-dogma-2-hunt-for-the-jadeite-orb-quest-guide-location-who-to-give-it-to-and-all-outcomes']
   },
   {
-    id: 'transference_souls_2', item: 'On the Transference of Souls 2', forged: 'On the Transit of Souls 2',
-    obtain: 'Compre o segundo tomo com Ibrahim para a missão de Isaac em Bakbattahl.',
+    id: 'transference_souls_2', item: 'On the Transference of Souls 2', itemPt: 'A Transferência de Almas 2',
+    forged: 'On the Transit of Souls 2', forgedPt: 'A Transparência de Almas 2',
+    obtain: 'Compre o segundo tomo com Ibrahim por 2.000 G no Posto do Retiro para a missão de Isaac em Bakbattahl, e encomende a cópia por 2.400 G.',
     originalTo: 'Guarde com você',
     copyTo: 'Isaac',
-    action: 'Entregar a cópia protege a família de Isaac; entregar o original produz outro desfecho.',
+    action: 'Entregar a cópia (A Transparência de Almas 2) protege a família de Isaac; entregar o original produz tragédia familiar.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Short-Sighted-Ambition']
   },
   {
-    id: 'gaol_key', item: 'Gaol Key (Chave da Prisão)', forged: 'Cópia funcional da Gaol Key',
-    obtain: 'Receba de Brant em O Magistrado Aprisionado.',
+    id: 'gaol_key', item: 'Gaol Key (Chave da Prisão)', itemPt: 'Chave da Prisão',
+    forged: 'Makeshift Gaol Key (Chave Frágil da Prisão)', forgedPt: 'Chave Frágil da Prisão',
+    obtain: 'Receba de Brant em O Magistrado Aprisionado. Ibrahim produz a cópia funcional descartável (Chave Frágil da Prisão) por 3.000 G no Posto do Retiro.',
     originalTo: 'Devolva a Brant ao concluir a missão',
     copyTo: 'Guarde com você',
-    action: 'Ibrahim produz uma cópia funcional. Essa falsificação é para uso próprio, não para entregar a NPCs.',
+    action: 'Ibrahim produz uma cópia funcional descartável (quebra após 1 uso). Essa falsificação é para uso próprio em celas futuras, não para entregar a Brant.',
     references: ['https://game8.co/games/Dragons-Dogma-2/archives/448892', 'https://www.windowscentral.com/gaming/dragons-dogma-2-guide-the-caged-magistrate-quest-walkthrough']
   }
 ];
