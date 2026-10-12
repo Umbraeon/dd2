@@ -99,6 +99,58 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
 
 export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
+    id: 'new_godsway', title: 'Um Novo Chamado Divino', original: 'A New Godsway',
+    region: 'Bakbattahl, laboratório Forbidden Magick Research Lab sob Flamebearer Palace',
+    giver: 'Ambrosius',
+    relatedEventIds: ['p04'],
+    preparation: [
+      'Conclua Convergence e tenha consigo a Dulled Godsbane Blade obtida com Rothais; então procure Ambrosius no Forbidden Magick Research Lab, sob o palácio de Bakbattahl.',
+      'Antes de entregar os cristais e avançar para a missão seguinte, revise missões opcionais, conquistas de oportunidade única, equipamentos, vocações e os salvamentos que sua versão realmente permite recuperar.',
+      'Para tentar a conquista de derrotar Gigantus rapidamente, providencie com antecedência uma Unmaking Arrow e esteja pronto para usar Arqueiro com arco; a flecha é consumível e exige planejamento.'
+    ],
+    steps: [
+      'Vá ao Flamebearer Palace em Bakbattahl e entre no Forbidden Magick Research Lab, em um nível inferior; procure Ambrosius e entregue a Dulled Godsbane Blade.',
+      'Concorde em conseguir quinze Wyrmslife Crystals para o pesquisador. Você pode obtê-los ao enfrentar dracos e outros dragões, inclusive na rota de Dragonsbreath Tower.',
+      'Prepare seu grupo para os combates com dragões e reúna pelo menos quinze Wyrmslife Crystals; confirme no inventário antes de retornar.',
+      'Antes de concluir a entrega, faça sua revisão de missões pendentes e anote suas opções reais de salvamento. Não presuma que um salvamento automático permitirá voltar a esse ponto.',
+      'Retorne ao laboratório e entregue os quinze Wyrmslife Crystals a Ambrosius.',
+      'Passe aproximadamente um dia no jogo, fora do laboratório, e retorne a Ambrosius para receber a Empowered Godsbane Blade.',
+      'Confira no diário a conclusão de Um Novo Chamado Divino e o início da missão O Guardião Gigantus.'
+    ],
+    completion: 'Receber a Empowered Godsbane Blade encerra a missão e inicia a próxima etapa. A exploração do caminho para Gigantus e da torre seguinte pode levar ao trecho final da campanha; complete primeiro tudo que não quiser arriscar.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-new-godsway-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/A-New-Godsway',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/walkthrough/bakbattahl/dragons-dogma-2-convergence-walkthrough'
+    ]
+  },
+  {
+    id: 'guardian_gigantus', title: 'O Guardião Gigantus', original: 'The Guardian Gigantus',
+    region: 'Sul de Bakbattahl, portão Spellseal, Ilha Vulcânica de Agamen e acesso a Moonglint Tower',
+    giver: 'Missão principal iniciada após Um Novo Chamado Divino',
+    relatedEventIds: ['p04', 'p05'],
+    preparation: [
+      'Confira a conclusão de Um Novo Chamado Divino e a posse da Empowered Godsbane Blade. Antes de atravessar o Spellseal Door ao sul de Bakbattahl, revise conteúdo opcional, equipamentos e salvamentos disponíveis.',
+      'Se pretende a conquista por deter Gigantus rapidamente, prepare a vocação Arqueiro com um arco e uma Unmaking Arrow; esse item é consumido ao disparar e costuma acionar salvamento.',
+      'O combate contra Gigantus pode ser deixado aos NPCs para continuar a história, mas ignorá-lo não garante a conquista de derrota rápida.'
+    ],
+    steps: [
+      'Siga a missão na direção do Spellseal Door, ao sul de Bakbattahl, no caminho percorrido por Phaesus; a cena apresenta o Gigantus emergindo do mar.',
+      'Se busca a conquista da derrota rápida, aja assim que puder alcançar o Gigantus: com arco equipado, dispare uma Unmaking Arrow no corpo dele, preferencialmente enquanto ainda está na parte inicial da travessia.',
+      'Depois do disparo, observe os cristais e estacas se soltando. O Gigantus ainda pode continuar andando por algum tempo; não interprete o efeito como morte instantânea nem conte com uma segunda flecha.',
+      'Sem Unmaking Arrow, use as balistas existentes ao longo do percurso para atingir os cristais/estacas brilhantes no corpo do Gigantus, ou suba nele com cuidado para atacar os pontos fracos.',
+      'Acompanhe o avanço em direção à Ilha Vulcânica e ao Local de Escavação até ele ser imobilizado. Se optar por ignorar o combate, a campanha prossegue, mas a recompensa de derrota rápida pode ficar indisponível.',
+      'Após a queda de Gigantus, prossiga até a entrada de Moonglint Tower. Reavalie suas tarefas antes de subir para o confronto final, pois entrar no trecho superior pode avançar a campanha sem retorno simples.',
+      'Siga as indicações do diário de missões no acesso à torre e prepare seu grupo para a sequência de confrontos da próxima missão.'
+    ],
+    completion: 'A passagem para Moonglint Tower encerra a sequência de O Guardião Gigantus. Derrotar o colosso rapidamente é objetivo separado da progressão da campanha; não é necessário prometer troféu automático por simplesmente alcançá-lo.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-guardian-gigantus-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Guardian-Gigantus',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/walkthrough/bakbattahl/dragons-dogma-2-a-new-godsway-walkthrough'
+    ]
+  },
+  {
     id: 'spring_thy_step', title: 'A Fonte do Contentamento', original: 'Put a Spring in Thy Step',
     region: 'Ilha Vulcânica de Agamen, estrada após Drabnir’s Grotto, casa Windwalker’s Home e fontes de Geyser Hamlet',
     giver: 'Gautstafr',
