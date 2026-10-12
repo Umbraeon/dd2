@@ -105,3 +105,29 @@ test('busca global encontra a missão de investigação de Disa sem alertas edit
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Harve: busca global abre Invasores Escamosos e mantém progresso intacto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Invasores Escamosos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Invasores Escamosos/ }).click();
+  const guide = page.locator('#quest-guide-scaly_invaders');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('segundo grupo de sáurios');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Wilhelmina: guia diferenciado explica o prazo sem alterar o salvamento', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('As Rosas Têm Espinhos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /As Rosas Têm Espinhos/ }).click();
+  const guide = page.locator('#quest-guide-every_rose');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('três dias no jogo');
+  await expect(guide).toContainText('Murder Report');
+  await expect(guide).toContainText('Bribery Investigation Findings');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
