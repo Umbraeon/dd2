@@ -31,15 +31,19 @@ test('Trysha: cinco livros localizados, três originais diferentes; Myrddin: tr�
   const originals = QUEST_ITEM_REQUIREMENTS.spellbound;
   const fakes = QUEST_ITEM_REQUIREMENTS.sorcerers_appraisal;
   const titles = FORGERY_ITEMS.slice(0, 5).map(book => book.item);
+  const copyOptions = fakes.items.filter(item => item.forgery === 'copy');
+  const conditionalRing = fakes.items.find(item => item.name === 'Turquoise Ring');
+  assert.ok(conditionalRing?.optional, 'Anel Turquesa precisa constar como item condicional');
+  assert.match(conditionalRing.where, /Trysha/);
   assert.deepEqual(originals.items.map(item => item.name), titles);
-  assert.deepEqual(fakes.items.slice(1).map(item => item.name), titles);
+  assert.deepEqual(copyOptions.map(item => item.name), titles);
   for (const entry of originals.items) {
     assert.equal(entry.forgery, 'original');
     assert.match(entry.quantity, /3 dos 5/);
     assert.match(entry.use, /original a Trysha/);
     assert.ok(entry.where.length > 35);
   }
-  for (const entry of fakes.items.slice(1)) {
+  for (const entry of copyOptions) {
     assert.equal(entry.forgery, 'copy');
     assert.match(entry.use, /falsificação/);
     assert.match(entry.use, /Ibrahim/);
