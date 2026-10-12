@@ -1368,6 +1368,108 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.gamesradar.com/dragons-dogma-2-off-the-pilfered-path/',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
+  },
+  {
+    id: 'beggars_tale', title: 'O Conto do Mendigo', original: "A Beggar's Tale",
+    region: 'Vernworth — fonte do Bairro Mercantil, Taverna do Walter, Bairro Popular e mansão Baldwin',
+    giver: 'Benton, perto da fonte onde Albert conta histórias durante o dia',
+    relatedEventIds: ['v103'],
+    preparation: [
+      'SPOILERS DE ESCOLHAS: entregar as vestes do mendigo a Hilda tende a preservar Albert e Celina; entregar a Celina pode causar a morte dos dois. Entregar a Albert mantém seu segredo.',
+      'Só há UM Beggar’s Garb para escolher a quem entregar. Falsificar a roupa não garante novas recompensas nem desfaz a decisão.',
+      'Para economizar tempo, pode ir diretamente à casa de Albert no sudeste do Bairro Popular depois que ele sair, em vez de vigiá-lo durante o dia inteiro.'
+    ],
+    steps: [
+      'Na praça do Bairro Mercantil de Vernworth, fale com Benton perto da fonte e ouça sua suspeita sobre a renda de Albert, que se apresenta como mendigo.',
+      'Acompanhe Albert até o fim da tarde: ele visita a Taverna do Walter nos Cortiços e depois entra na casa no sudeste do Bairro Popular.',
+      'Espere Albert sair da casa com roupas de nobre e entre enquanto a porta estiver destrancada. Recolha Beggar’s Garb (vestes do mendigo) dentro da residência.',
+      'ESCOLHA SEU DESFECHO ANTES DA ENTREGA: leve o traje a Hilda na Mansão Baldwin, no Bairro Nobre, para que Albert abandone o disfarce; volte a falar com ela após alguns dias.',
+      'Alternativa: entregue a roupa diretamente a Albert para preservar a vida dupla e receber ouro; a história não é exposta.',
+      'Evite entregar a roupa a Celina na Taverna do Walter se quiser preservar os personagens: após alguns dias ela descobre a traição e a rota pode terminar com a morte de Celina e Albert.',
+      'Confira no diário o encerramento da missão e a recompensa do personagem escolhido; a escolha não pode ser corrigida por uma segunda entrega do mesmo item.'
+    ],
+    completion: 'Três conclusões possíveis: Hilda força Albert a trabalhar; Albert compra seu silêncio; Celina descobre a verdade com resultado trágico. A rota Hilda é preferível para preservar personagens.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-beggars-tale-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/A-Beggars-Tale',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'ailing_arborheart', title: 'A Dor do Coração do Jardim', original: 'The Ailing Arborheart',
+    region: 'Jardim Sagrado — Coração do Jardim; Bakbattahl — Forja de Brokkr',
+    giver: 'Doireann, no Coração do Jardim depois de A Prova de Arco e Flecha',
+    relatedEventIds: ['v106', 'i06', 'u04'],
+    preparation: [
+      'Complete A Prova de Arco e Flecha (A Trial of Archery) e resgate Doireann. Um peão com especialização Woodland Wordsmith ajuda a traduzir a palavra élfica gwyfencha.',
+      'Gwyfencha é scalecinder (cinza de escama), resíduo de forja de Battahl. NÃO tente obtê-lo de dragões nem confunda com Glimmercoal ou Glymercole.',
+      'Se Sara não oferecer a conversa sobre gwyfencha, avance sua linha de forja de Roman (Lâmina Cega, Forja Fria e Vontade Resistente, Forja Ardente); guias variam quanto à necessidade dessa cadeia antes de falar com ela.'
+    ],
+    steps: [
+      'Após salvar Doireann durante A Prova de Arco e Flecha, retorne ao Jardim Sagrado e encontre-a junto ao Coração do Jardim, a árvore adoecida.',
+      'Converse com Doireann, observe a árvore e pergunte sobre gwyfencha. Use peão intérprete se disponível ou converse com Glyndwr para esclarecer o termo.',
+      'Entenda que gwyfencha corresponde à cinza de escama produzida por ferreiros battahlianos; não existe item obrigatório para ENTREGAR nesta primeira parte.',
+      'Viaje até Bakbattahl e procure Sara na Forja de Brokkr, no sul da cidade. Pergunte sobre obter cinza de escama para salvar a árvore.',
+      'Depois da conversa com Sara, confira a conclusão de A Dor do Coração do Jardim no diário; a sequência Da Floresta à Forja começa em seguida.'
+    ],
+    completion: 'Sara explica uma maneira de obter a cinza de escama para Doireann, liberando a continuação. Nenhuma entrega de cinza é exigida nesta etapa.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-ailing-arborheart-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Ailing-Arborheart',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'forest_to_forge', title: 'Da Floresta à Forja', original: 'Out of the Forest, Into the Forge',
+    region: 'Jardim Sagrado — Doireann; Bakbattahl — Forja de Brokkr e Caverna dos Retardatários',
+    giver: 'Sara, continuação automática de A Dor do Coração do Jardim',
+    relatedEventIds: ['i06', 'u04'],
+    preparation: [
+      'Prepare UMA MAÇÃ APODRECIDA e UM PEIXE APODRECIDO para o nutriabh. Deixe frutas e peixes estragarem no inventário ao passar tempo; os produtos frescos não substituem os apodrecidos.',
+      'O trecho da caverna é CRONOMETRADO. Organize inventário e grupo ANTES de entregar o nutriabh a Sara. Há até SEIS montes de cinza de escama; conseguir os seis é recomendação, não pré-requisito rígido universal de conclusão.',
+      'Um cristal de porto em Bakbattahl e uma pedra de transporte podem encurtar a viagem com Doireann; não são itens obrigatórios desta missão.'
+    ],
+    steps: [
+      'Depois de falar com Sara, volte ao Jardim Sagrado e relate a Doireann que ferreiros de Battahl conhecem a cinza de escama, mas precisam de nutriabh.',
+      'Obtenha uma maçã e um peixe e deixe ambos apodrecerem no inventário. ENTREGUE a maçã apodrecida e o peixe apodrecido a Doireann para que ela prepare o prato.',
+      'Escolte Doireann até Bakbattahl e encontre Sara na Forja de Brokkr; use viagem rápida apenas se houver ponto de transporte válido.',
+      'Entregue o nutriabh a Sara e siga-a com Doireann até a Caverna dos Retardatários (Stragglers’ Cave), próxima de Bakbattahl.',
+      'Quando Brokkr se afastar com o prato, entre IMEDIATAMENTE na caverna e recolha os montes de Scalecinder (cinza de escama). Quebre caixas e investigue os cantos; são seis montes conhecidos.',
+      'Quando Sara chamar, saia e entregue a cinza coletada a Doireann. Coletar os seis montes protege o melhor desfecho da árvore, mas a quantidade recebida pode variar.',
+      'Volte ao Jardim Sagrado depois da missão para conferir como o Coração do Jardim reagiu; a recuperação da árvore também ajuda a contextualizar a evacuação no Mundo Desancorado.'
+    ],
+    completion: 'Cinza de escama entregue a Doireann; missão encerrada com recompensa. Se não encontrar os seis montes, não assuma derrota automática: confira o diário e o resultado no jogo.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-out-of-the-forest-into-the-forge-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Out-of-the-Forest-Into-the-Forge',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'blue_sunbright_house', title: 'A Casa da Luz-Solaris Azul', original: 'House of the Blue Sunbright',
+    region: 'Vernworth — Cortiços, Bairro Nobre e Mansão Townsend; estrada para Melve',
+    giver: 'Diana, criada da família Townsend, após A Dádiva da Caridade',
+    relatedEventIds: ['v103'],
+    preparation: [
+      'Complete A Dádiva da Caridade (The Gift of Giving) para ajudar Daphne. A missão seguinte depende dela e da aproximação da criada Diana.',
+      'Antes de permitir a viagem de Sebastian, reúna TRÊS suprimentos: Misshapen Eye (olho disforme de ciclope), Detoxifying Decoction (antídoto) e Waking Powder (pó despertador).',
+      'ALERTA DE MORTE: sem os suprimentos corretos Sebastian pode ficar preso ou morrer na estrada para Melve. Se ele não voltar após um dia ou dois, NÃO espere passivamente: vá resgatá-lo perto de Melve.'
+    ],
+    steps: [
+      'Depois de ajudar Daphne nos Cortiços, passe perto da escadaria que liga o Bairro Mercantil aos Cortiços para Diana abordá-lo; encontre-a na Mansão Townsend no Bairro Nobre.',
+      'Converse com Diana e com a família e procure Daphne perto da Casa Mãos Caridosas, nos Cortiços. Convide-a a se passar por Sebastian durante uma viagem e ESCOLTE-a até a mansão.',
+      'Antes de Sebastian partir, obtenha um Misshapen Eye, saqueando um ciclope derrotado. Uma alternativa relatada é Rugged Bone, mas o olho é a opção mais consistentemente documentada.',
+      'Compre ou fabrique UM Detoxifying Decoction (cura envenenamento) e UM Waking Powder (acorda quem dorme); são encontrados entre os itens de Philbert no Bairro Mercantil.',
+      'ENTREGUE a Sebastian os três suprimentos no diálogo de preparo e só então permita que ele viaje para Melve.',
+      'Passe aproximadamente um dia e retorne à Mansão Townsend. Se Diana informar que Sebastian desapareceu, vá IMEDIATAMENTE à estrada próxima de Melve, enfrente os monstros e socorra-o; trate veneno se for necessário.',
+      'Depois que Sebastian voltar, fale com Diana e Daphne na mansão para acompanhar o encerramento e a recompensa.'
+    ],
+    completion: 'Sebastian pode voltar sozinho se partir equipado; sem suprimentos, resgate-o rapidamente para evitar sua morte. A missão revela a ligação de Daphne com a família Townsend.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-house-of-the-blue-sunbright-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/House-of-the-Blue-Sunbright',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
   }
 ];
 

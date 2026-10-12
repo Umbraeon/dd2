@@ -506,6 +506,95 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-off-the-pilfered-path-walkthrough/',
       'https://www.gamesradar.com/dragons-dogma-2-off-the-pilfered-path/'
     ]
+  },
+  beggars_tale: {
+    guidance: 'As vestes do mendigo só devem ser ENTREGUES uma vez: Hilda é a rota com sobrevivência de Albert/Celina, Albert mantém a vida dupla e Celina pode gerar final trágico. Falsificação da roupa NÃO permite escolher múltiplas recompensas.',
+    items: [{
+      name: 'Beggar’s Garb',
+      namePt: 'Vestes do mendigo (descrição baseada no objetivo PT-BR da missão)',
+      quantity: '1 roupa original de escolha única',
+      where: 'Casa de Albert no sudeste do Bairro Popular de Vernworth: espere-o sair à noite, entre na casa destrancada e recolha a roupa.',
+      use: 'ESCOLHA um destino. Entregue a Hilda na Mansão Baldwin para preservar vidas; alternativamente a Albert para manter o segredo, ou a Celina para desfecho trágico. Não falsifique.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-beggars-tale-walkthrough/',
+      'https://www.pcgamer.com/games/rpg/dragons-dogma-2-a-beggars-tale/'
+    ]
+  },
+  forest_to_forge: {
+    guidance: 'São necessários itens APODRECIDOS para cozinhar nutriabh, depois coletar cinza de escama em cave cronometrada. SEIS montes é quantidade máxima relatada, NÃO condição rígida comprovada para concluir. Não confunda cinza de escama com Glimmercoal da missão de Roman.',
+    items: [
+      {
+        name: 'Rotten Apple',
+        namePt: 'Maçã apodrecida',
+        quantity: '1 maçã APODRECIDA',
+        where: 'Colha ou compre uma maçã e mantenha no inventário enquanto passa tempo até estragar.',
+        use: 'ENTREGUE a Doireann no Jardim Sagrado junto com o peixe apodrecido para produzir nutriabh.',
+        forgery: 'original'
+      },
+      {
+        name: 'Rotten Fish (e.g. Rotten Shorefish)',
+        namePt: 'Peixe apodrecido',
+        quantity: '1 peixe APODRECIDO',
+        where: 'Pesque ou compre peixe, por exemplo em Harve, e deixe apodrecer no inventário.',
+        use: 'ENTREGUE a Doireann com a maçã apodrecida; peixe fresco não serve para a receita.',
+        forgery: 'original'
+      },
+      {
+        name: 'Nutriabh',
+        namePt: 'Nutriabh (nome culinário élfico)',
+        quantity: '1 prato preparado por Doireann',
+        where: 'Doireann o prepara no Jardim Sagrado quando recebe maçã e peixe apodrecidos.',
+        use: 'ENTREGUE a Sara na Forja de Brokkr em Bakbattahl para atrair Brokkr e permitir a entrada na caverna.',
+        forgery: 'original'
+      },
+      {
+        name: 'Scalecinder',
+        namePt: 'Cinza de escama',
+        quantity: 'Até 6 montes conhecidos; coletar tantos quanto possível antes de o tempo acabar',
+        where: 'Caverna dos Retardatários, fora de Bakbattahl, em montes próximos de caixas e objetos quebráveis. Vasculhe imediatamente quando Brokkr se afastar.',
+        use: 'ENTREGUE a cinza coletada a Doireann ao sair da caverna para ajudá-la a curar o Coração do Jardim. Não equivale a Glimmercoal.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-out-of-the-forest-into-the-forge-walkthrough/',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/Out_of_the_Forest_Into_the_Forge'
+    ]
+  },
+  blue_sunbright_house: {
+    guidance: 'ENTREGUE OS TRÊS antes de Sebastian viajar: Misshapen Eye + Detoxifying Decoction + Waking Powder. Os itens reduzem a chance de ele ficar preso, adormecer ou morrer envenenado. Se ele não voltar, RESGATE-O perto de Melve em vez de esperar.',
+    items: [
+      {
+        name: 'Misshapen Eye',
+        namePt: 'Olho disforme (tradução explicativa)',
+        quantity: '1 olho de ciclope; item mais consistentemente documentado',
+        where: 'Saqueie o cadáver de um ciclope, por exemplo no caminho Melve–Vernworth. Algumas fontes aceitam Rugged Bone, mas não confie em trocas não verificadas.',
+        use: 'ENTREGUE a Sebastian antes da viagem como repelente com cheiro de ciclope.',
+        forgery: 'original'
+      },
+      {
+        name: 'Detoxifying Decoction',
+        namePt: 'Antídoto contra veneno (tradução explicativa)',
+        quantity: '1 unidade',
+        where: 'Compre no mercador Philbert em Vernworth ou fabrique com ervas adequadas.',
+        use: 'ENTREGUE a Sebastian antes da viagem para tratar intoxicação; se ele sair sem o item e adoecer, leve remédio no resgate.',
+        forgery: 'original'
+      },
+      {
+        name: 'Waking Powder',
+        namePt: 'Pó despertador (tradução explicativa)',
+        quantity: '1 unidade',
+        where: 'Compre no mercador Philbert no Bairro Mercantil de Vernworth ou fabrique com ingredientes adequados.',
+        use: 'ENTREGUE a Sebastian antes da viagem para evitar ficar incapacitado por sono no caminho de Melve.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-house-of-the-blue-sunbright-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/House-of-the-Blue-Sunbright'
+    ]
   }
 };
 
@@ -522,5 +611,5 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
   'regentkins_resolve', 'when_wills_collide',
   'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
-  'seat_sovran', 'convergence', 'prey_for_pack'
+  'seat_sovran', 'convergence', 'prey_for_pack', 'ailing_arborheart'
 ];

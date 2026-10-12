@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 62);
+  assert.equal(QUEST_GUIDES.length, 66);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -24,7 +24,7 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('m04').length, 4);
   assert.equal(questGuidesForEvent('m02').length, 2);
   assert.equal(questGuidesForEvent('v102').length, 3);
-  assert.equal(questGuidesForEvent('v103').length, 4);
+  assert.equal(questGuidesForEvent('v103').length, 6);
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 4);
   assert.equal(questGuidesForEvent('v301').length, 3);
@@ -423,4 +423,29 @@ test('onda 14: quatro destinos preservam evidências, prazo e rotas sem promessa
   assert.match(hugo.steps.join(' '), /Lanzo/);
   assert.match(hugo.completion, /morrer/);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
+});
+
+test('onda 15: mendigo, duas missões élficas e Sebastian têm riscos e rotas documentados', () => {
+  const get = id => QUEST_GUIDES.find(q => q.id === id);
+  const [beggar, arbor, forge, sebastian] =
+    ['beggars_tale','ailing_arborheart','forest_to_forge','blue_sunbright_house'].map(get);
+  for (const q of [beggar,arbor,forge,sebastian]) {
+    assert.ok(q, 'Falta ficha');
+    assert.ok(q.steps.length >= 5);
+    assert.ok(q.references.length >= 2);
+    assert.ok(q.relatedEventIds.every(id=>PHASES.flatMap(p=>p.events).some(e=>e.id===id)));
+  }
+  for(const person of ['Hilda','Celina','Albert']) assert.match(beggar.steps.join(' '), new RegExp(person));
+  assert.match(beggar.preparation.join(' '), /morte/);
+  assert.match(arbor.steps.join(' '), /Doireann/);
+  assert.match(arbor.steps.join(' '), /Sara/);
+  assert.match(arbor.completion, /Nenhuma entrega de cinza/);
+  assert.match(forge.steps.join(' '), /apodrecida/);
+  assert.match(forge.preparation.join(' '), /CRONOMETRADO/);
+  assert.match(forge.preparation.join(' '), /não pré-requisito rígido/i);
+  for(const name of ['Misshapen Eye', 'Detoxifying Decoction', 'Waking Powder']) {
+    assert.match(sebastian.preparation.join(' ')+sebastian.steps.join(' '), new RegExp(name));
+  }
+  assert.match(sebastian.preparation.join(' '), /ALERTA DE MORTE/);
+  assert.equal(PHASES.flatMap(p=>p.events).length,53);
 });
