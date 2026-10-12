@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified)",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -162,6 +162,22 @@
     {
       "id": "regentkins_resolve",
       "english": "The Regentkin's Resolve"
+    },
+    {
+      "id": "civil_unrest",
+      "english": "Civil Unrest"
+    },
+    {
+      "id": "wandering_roots",
+      "english": "Wandering Roots"
+    },
+    {
+      "id": "aiding_ernesto",
+      "english": "The Importance of Aiding Ernesto"
+    },
+    {
+      "id": "shepherd_pawns",
+      "english": "Shepherd of the Pawns"
     }
   ],
   "indexedWithoutGuide": [
@@ -278,42 +294,6 @@
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
-    },
-    {
-      "english": "Civil Unrest",
-      "ptBR": "Instabilidade Civil",
-      "events": [
-        "u04"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "Wandering Roots",
-      "ptBR": "Raízes Errantes",
-      "events": [
-        "u04"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "The Importance of Aiding Ernesto",
-      "ptBR": "A Importância de Ajudar Ernesto",
-      "events": [
-        "u04"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "Shepherd of the Pawns",
-      "ptBR": "Pastor de Peões",
-      "events": [
-        "u04"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
     },
     {
       "english": "A Scholarly Pursuit",
