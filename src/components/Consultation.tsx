@@ -7,6 +7,7 @@ import { AchievementCard } from './AchievementCard';
 import { AchievementMiniIcon } from './InlineAchievements';
 import { QuestGuideLibrary } from './QuestGuides';
 import { QUEST_GUIDES } from '../data/questGuides';
+import { QUEST_ITEM_REQUIREMENTS } from '../data/questItemRequirements';
 
 export type ConsultationSection = 'missions' | 'achievements' | 'guides' | 'references';
 export type ConsultationFilter = 'all' | 'undone' | 'done';
@@ -76,7 +77,9 @@ export const Consultation: React.FC<Props> = ({
     ]),
     ...QUEST_GUIDES.filter(guide =>
       normalize([guide.title, guide.original, guide.region, guide.giver,
-        ...guide.steps].join(' ')).includes(query)).map(guide => ({
+        ...guide.steps,
+        ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.where, item.use]) ?? [])
+      ].join(' ')).includes(query)).map(guide => ({
       type: 'guide' as const, phase: phases[0], id: guide.id, title: guide.title
     }))
   ] : [], [phases, query]);
