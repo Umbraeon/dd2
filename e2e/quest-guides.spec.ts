@@ -319,3 +319,21 @@ test('busca global encontra itens de obtenção e falsificações da ficha', asy
   await expect(results.getByRole('button', { name: /O Julgamento do Feiticeiro/ })).toBeVisible();
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('busca global por nome oficial PT-BR de item exibe detalhes e falsificação na ficha no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Esfera de Jade');
+  const results = page.getByRole('region', { name: 'Resultados encontrados' });
+  await results.getByRole('button', { name: /Orbe de Jadeíta/ }).click();
+  const entry = page.locator('#quest-guide-jadeite');
+  await expect(entry).toHaveAttribute('open', '');
+  const items = entry.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items).toContainText('Esfera de Jade / Esfera de Jaspe');
+  await expect(items).toContainText('Posto do Retiro');
+  await expect(items).toContainText('7.500 G');
+  await expect(items).toContainText('Nome da cópia: Imitation Jadeite Orb (PT-BR: Esfera de Jaspe)');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+

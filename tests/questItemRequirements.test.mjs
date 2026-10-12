@@ -76,3 +76,50 @@ test('prólogo: grifo, nunca esfinge/grifo; preserva 53 marcos e 60 conquistas',
   const allAchievements = new Set(PHASES.flatMap(p => p.achievements.map(a => a.id)));
   assert.equal(allAchievements.size, 60);
 });
+
+test('itens possuem traduções oficiais da build e identificação das falsificações em PT-BR', () => {
+  const expectedGrimoires = [
+    { name: 'Fulminous Shield', namePt: 'Escudo Fulminante', forged: 'Fruminous Shield', forgedPt: 'Escudo Fulgentante' },
+    { name: "Nation's Death Knell", namePt: 'Dobre de Finados da Nação', forged: "Nation's Death Knock", forgedPt: 'Dobla de Finados da Nação' },
+    { name: 'Howling Blizzard', namePt: 'Nevasca Uivante', forged: 'Hurling Blizzard', forgedPt: 'Nevasca Ululante' },
+    { name: 'Towering Earth', namePt: 'Terra Imponente', forged: 'Lowering Earth', forgedPt: 'Terra Impendente' },
+    { name: 'Let There Be Light', namePt: 'Que Haja Luz', forged: 'Let There Be Lite', forgedPt: 'Que Haja Lustre' }
+  ];
+
+  for (const expected of expectedGrimoires) {
+    const book = FORGERY_ITEMS.find(item => item.item === expected.name);
+    assert.ok(book, `Livro ausente em FORGERY_ITEMS: ${expected.name}`);
+    assert.equal(book.itemPt, expected.namePt);
+    assert.equal(book.forged, expected.forged);
+    assert.equal(book.forgedPt, expected.forgedPt);
+
+    const tryshaItem = QUEST_ITEM_REQUIREMENTS.spellbound.items.find(item => item.name === expected.name);
+    assert.ok(tryshaItem);
+    assert.equal(tryshaItem.namePt, expected.namePt);
+    assert.equal(tryshaItem.forgedName, expected.forged);
+    assert.equal(tryshaItem.forgedNamePt, expected.forgedPt);
+
+    const myrddinItem = QUEST_ITEM_REQUIREMENTS.sorcerers_appraisal.items.find(item => item.name === expected.name);
+    assert.ok(myrddinItem);
+    assert.equal(myrddinItem.namePt, expected.namePt);
+  }
+
+  // Falsificações e itens-chave verificados na instalação
+  assert.equal(QUEST_ITEM_REQUIREMENTS.jadeite.items[0].namePt, 'Esfera de Jade / Esfera de Jaspe');
+  assert.equal(QUEST_ITEM_REQUIREMENTS.jadeite.items[0].forgedNamePt, 'Esfera de Jaspe');
+
+  assert.equal(QUEST_ITEM_REQUIREMENTS.short_sighted.items[0].namePt, 'A Transferência de Almas 2 / A Transparência de Almas 2');
+  assert.equal(QUEST_ITEM_REQUIREMENTS.short_sighted.items[0].forgedNamePt, 'A Transparência de Almas 2');
+
+  assert.equal(QUEST_ITEM_REQUIREMENTS.caged_magistrate.items[0].namePt, 'Chave da Prisão / Chave Frágil da Prisão');
+  assert.equal(QUEST_ITEM_REQUIREMENTS.caged_magistrate.items[0].forgedNamePt, 'Chave Frágil da Prisão');
+
+  assert.equal(QUEST_ITEM_REQUIREMENTS.new_godsway.items[0].namePt, 'Espada da Sucessão Vil Cega');
+  assert.equal(QUEST_ITEM_REQUIREMENTS.new_godsway.items[1].namePt, 'Cristal de Serserpe');
+
+  assert.equal(QUEST_ITEM_REQUIREMENTS.sotted_sage.items[0].namePt, 'Licor de Salamandra');
+  assert.equal(QUEST_ITEM_REQUIREMENTS.sotted_sage.items[1].namePt, 'Máscara de Leoterian');
+
+  assert.equal(QUEST_ITEM_REQUIREMENTS.sorcerers_appraisal.items[0].namePt, 'Túnica Cortês + Calção Cortês');
+});
+

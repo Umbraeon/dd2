@@ -34,11 +34,23 @@ const WalkthroughCard: React.FC<{ guide: QuestGuide; initialOpen?: boolean }> = 
           <ul className="space-y-3">
             {QUEST_ITEM_REQUIREMENTS[guide.id].items.map(item => (
               <li key={item.name} className="border-t border-[#574b39] pt-2 space-y-1">
-                <p className="text-sm font-semibold text-[#f0d1a0]">{item.name}{item.optional ? ' (opcional/condicional)' : ''}</p>
+                <p className="text-sm font-semibold text-[#f0d1a0]">
+                  {item.name}
+                  {item.namePt ? <span className="text-[#c2baa8] font-normal text-xs ml-1.5">(PT-BR: {item.namePt})</span> : null}
+                  {item.optional ? ' (opcional/condicional)' : ''}
+                </p>
                 <p className={note}><strong>Quantidade:</strong> {item.quantity}</p>
                 <p className={note}><strong>Onde conseguir:</strong> {item.where}</p>
                 <p className={note}><strong>O que fazer:</strong> {item.use}</p>
-                <p className={note}><strong>Falsificação:</strong> {item.forgery === 'original' ? 'preserve ou entregue o original' : item.forgery === 'copy' ? 'faça/entregue uma cópia' : item.forgery === 'optional' ? 'cópia opcional' : 'não é necessário falsificar'}</p>
+                <p className={note}>
+                  <strong>Falsificação:</strong> {item.forgery === 'original' ? 'preserve ou entregue o original' : item.forgery === 'copy' ? 'faça/entregue uma cópia' : item.forgery === 'optional' ? 'cópia opcional' : 'não é necessário falsificar'}
+                  {item.forgedName ? (
+                    <span className="block mt-0.5 text-xs text-[#d9b780]">
+                      Nome da cópia: <strong>{item.forgedName}</strong>
+                      {item.forgedNamePt ? ` (PT-BR: ${item.forgedNamePt})` : ''}
+                    </span>
+                  ) : null}
+                </p>
               </li>
             ))}
           </ul>
@@ -93,7 +105,11 @@ export const ForgeryGuide: React.FC = () => (
       {FORGERY_ITEMS.map(item => (
         <article key={item.id} className="border border-[#4d4437] rounded-md bg-[#17191c] p-3 space-y-2">
           <h4 className={smallHeading}>{item.item}</h4>
-          <p className="text-xs text-[#b8ae9d]">Falsificação: <strong className="text-[#ded3c0]">{item.forged}</strong></p>
+          {item.itemPt && <p className="text-xs text-[#a99f90]">Nome oficial PT-BR: <strong className="text-[#cfc8bd]">{item.itemPt}</strong></p>}
+          <p className="text-xs text-[#b8ae9d]">
+            Falsificação: <strong className="text-[#ded3c0]">{item.forged}</strong>
+            {item.forgedPt && <span className="text-[#a99f90]"> (PT-BR: {item.forgedPt})</span>}
+          </p>
           <p className={note}><strong>Onde encontrar:</strong> {item.obtain}</p>
           <div className="space-y-1.5 border-t border-[#3d372e] pt-2">
             <p className={note}><strong className="text-[#d9b780]">Original →</strong> {item.originalTo}</p>
@@ -120,7 +136,7 @@ export const QuestGuideLibrary: React.FC<{ initialGuideId?: string }> = ({ initi
   const normalized = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const visible = QUEST_GUIDES.filter(guide =>
     [guide.title, guide.original, guide.region, guide.giver,
-      ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.where]) ?? [])].join(' ')
+      ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.namePt ?? '', item.where, item.use, item.forgedName ?? '', item.forgedNamePt ?? '']) ?? [])].join(' ')
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(normalized));
   return (
     <section aria-labelledby="guides-title" className="space-y-5">

@@ -78,7 +78,7 @@ export const Consultation: React.FC<Props> = ({
     ...QUEST_GUIDES.filter(guide =>
       normalize([guide.title, guide.original, guide.region, guide.giver,
         ...guide.steps,
-        ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.where, item.use]) ?? [])
+        ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.namePt ?? '', item.where, item.use, item.forgedName ?? '', item.forgedNamePt ?? '']) ?? [])
       ].join(' ')).includes(query)).map(guide => ({
       type: 'guide' as const, phase: phases[0], id: guide.id, title: guide.title
     }))
