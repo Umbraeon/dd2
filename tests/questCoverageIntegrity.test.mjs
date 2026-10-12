@@ -15,13 +15,14 @@ test('gate: toda ficha publicada até 12/10 permanece cadastrada com ID estável
   const identifiers = QUEST_GUIDES.map(q => q.id);
   assert.equal(new Set(identifiers).size, identifiers.length);
   assert.equal(new Set(QUEST_GUIDES.map(q => normalize(q.original))).size, QUEST_GUIDES.length);
-  assert.equal(gate.publishedGuideRegistry.length, 37);
+  assert.equal(gate.publishedGuideRegistry.length, 40);
   for (const original of gate.publishedGuideRegistry) {
     assert.ok(current.has(original.id), `Guia perdido: ${original.id} (${original.english})`);
     assert.equal(normalize(current.get(original.id).original), normalize(original.english), `Original mudou para ${original.id}`);
   }
   assert.equal(current.size, gate.publishedGuideRegistry.length, 'Toda ficha nova também deve entrar no registro protegido');
   assert.ok(current.has('beren_claw') && current.has('beren_final_lesson'));
+  for (const id of ['dreams_apart', 'halls_first_dawn', 'regentkins_resolve']) assert.ok(current.has(id));
 });
 
 test('gate: não é possível adicionar outra quest ao índice PT-BR sem guia OU backlog explícito', () => {
