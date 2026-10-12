@@ -493,7 +493,7 @@ test('Carroça Fantasma: disfarce sem equipamentos e ordens para Brant acessíve
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Carroça Fantasma');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /A Carroça Fantasma/ }).click();
+    .getByRole('button', { name: /Guia de missão A Carroça Fantasma/ }).click();
   const guide = page.locator('#quest-guide-phantom_oxcart');
   await expect(guide).toHaveAttribute('open', '');
   for (const name of ['Navil', 'Brant', 'Bakbattahl', 'SEM armas nem armaduras']) {
