@@ -200,3 +200,31 @@ test('Ilha Vulcânica: busca encontra Lamond, máscara e Grandmaster’s Path', 
   await expect(entry).toContainText('Grandmaster’s Path');
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Campanha final: buscar Um Novo Chamado Divino abre rota dos 15 cristais sem salvar progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Um Novo Chamado Divino');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Um Novo Chamado Divino/ }).click();
+  const entry = page.locator('#quest-guide-new_godsway');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('quinze Wyrmslife Crystals');
+  await expect(entry).toContainText('Ambrosius');
+  await expect(entry).toContainText('Unmaking Arrow');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Campanha final: buscar O Guardião Gigantus indica fraquezas e diferença da conquista', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('O Guardião Gigantus');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /O Guardião Gigantus/ }).click();
+  const entry = page.locator('#quest-guide-guardian_gigantus');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Unmaking Arrow');
+  await expect(entry).toContainText('balistas');
+  await expect(entry).toContainText('objetivo separado');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
