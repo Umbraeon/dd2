@@ -450,7 +450,7 @@ test('evacuação Local de Escavação: chave e Diminished Godsway obrigatórios
   await expect(items.locator('li')).toHaveCount(2);
   await expect(items).toContainText('Overseer’s Lodge Key');
   await expect(items).toContainText('Diminished Godsway');
-  await expect(items).toContainText('Não há necessidade de encomendar falsificação');
+  await expect(items).toContainText('Nenhuma falsificação é necessária');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
