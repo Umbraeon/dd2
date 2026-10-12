@@ -100,12 +100,13 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: seis fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: sete fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(6);
+  await expect(panel.locator('details')).toHaveCount(7);
+  await expect(panel.locator('#quest-guide-every_rose')).toBeVisible();
   await expect(panel.locator('#quest-guide-unsettling_encounter')).toBeVisible();
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
@@ -618,6 +619,75 @@ test('Rodge: prazo de resgate destacado e Caverna Pútrida sem exigir item', asy
   }
   await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toHaveCount(0);
   await expect(guide).toContainText('desfecho pior');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Wilhelmina: prazo e duas provas distintas visíveis sem gravar progresso no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('As Rosas Têm Espinhos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão As Rosas Têm Espinhos/ }).click();
+  const guide = page.locator('#quest-guide-every_rose');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('TRÊS DIAS NO JOGO');
+  await expect(guide).toContainText('Battahli-Crested Letter');
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(2);
+  await expect(items).toContainText('Murder Report');
+  await expect(items).toContainText('Bribery Investigation Findings');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Santa dos Cortiços: três miasmitas, remédio, registros e captura de Elena', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Santa dos Cortiços');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão A Santa dos Cortiços/ }).click();
+  const guide = page.locator('#quest-guide-saint_slums');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('AGARRAR');
+  await expect(guide).toContainText('Radcliff');
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(3);
+  await expect(items).toContainText('Miasmite');
+  await expect(items).toContainText('Unlabeled Medicine');
+  await expect(items).toContainText('Records of Treatment');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Nadinia: encenação sem golpe mortal e 5.000 G para Herman', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Como uma Vela na Tempestade');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Como uma Vela na Tempestade/ }).click();
+  const guide = page.locator('#quest-guide-candle_storm');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Nadinia');
+  await expect(guide).toContainText('Ashe');
+  await expect(guide).toContainText('sem atacá-la efetivamente');
+  await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toContainText('5.000 G');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Hugo: alerta sobre Lanzo e rotas de emprego; suborno não obrigatório', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Provações do Pobre Desgarrado');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Provações do Pobre Desgarrado/ }).click();
+  const guide = page.locator('#quest-guide-pilfered_path');
+  await expect(guide).toHaveAttribute('open', '');
+  for(const term of ['ALERTA DE MORTE', 'Lanzo', 'Isaac', 'Rose Chateau', 'Ekertt']) {
+    await expect(guide).toContainText(term);
+  }
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items).toContainText('8.500 G');
+  await expect(items).toContainText('opcional/condicional');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
