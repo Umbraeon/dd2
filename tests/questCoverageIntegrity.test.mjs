@@ -20,7 +20,7 @@ test('gate: toda ficha publicada até 12/10 permanece cadastrada com ID estável
     assert.ok(current.has(original.id), `Guia perdido: ${original.id} (${original.english})`);
     assert.equal(normalize(current.get(original.id).original), normalize(original.english), `Original mudou para ${original.id}`);
   }
-  assert.ok(current.size >= gate.publishedGuideRegistry.length);
+  assert.equal(current.size, gate.publishedGuideRegistry.length, 'Toda ficha nova também deve entrar no registro protegido');
   assert.ok(current.has('beren_claw') && current.has('beren_final_lesson'));
 });
 
