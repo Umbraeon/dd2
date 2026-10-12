@@ -613,10 +613,10 @@ test('Rodge: prazo de resgate destacado e Caverna Pútrida sem exigir item', asy
     .getByRole('button', { name: /Guia de missão A Presa da Alcateia/ }).click();
   const guide = page.locator('#quest-guide-prey_for_pack');
   await expect(guide).toHaveAttribute('open', '');
-  for (const term of ['MISSÃO COM PRAZO', 'Rodge', 'Morris', 'Caverna Pútrida', 'não há item obrigatório']) {
-    if (term === 'não há item obrigatório') continue;
+  for (const term of ['MISSÃO COM PRAZO', 'Rodge', 'Morris', 'Caverna Pútrida']) {
     await expect(guide).toContainText(term);
   }
+  await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toHaveCount(0);
   await expect(guide).toContainText('desfecho pior');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
