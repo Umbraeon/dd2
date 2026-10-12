@@ -454,3 +454,54 @@ test('evacuação Local de Escavação: chave e Diminished Godsway obrigatórios
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Mundo Desancorado: A Missão dos Eruditos distingue feixe de Bakbattahl do final', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Missão dos Eruditos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Missão dos Eruditos/ }).click();
+  const guide = page.locator('#quest-guide-scholarly_pursuit');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Phaesus');
+  await expect(guide).toContainText('Laboratório de Pesquisa de Magia Proibida');
+  await expect(guide).toContainText('feixe vermelho FINAL');
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items).toContainText('Empowered Godsbane Blade');
+  await expect(items).toContainText('Um Novo Chamado Divino');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Mundo Desancorado: Quando as Vontades São Conflituantes conserva contingência de Talos', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Quando as Vontades São Conflituantes');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Quando as Vontades São Conflituantes/ }).click();
+  const guide = page.locator('#quest-guide-when_wills_collide');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Talos');
+  await expect(guide).toContainText('Destinos Separados');
+  await expect(guide).toContainText('Os guias divergem quanto ao gatilho exato');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Carroça Fantasma: disfarce sem equipamentos e ordens para Brant acessíveis no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Carroça Fantasma');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Carroça Fantasma/ }).click();
+  const guide = page.locator('#quest-guide-phantom_oxcart');
+  await expect(guide).toHaveAttribute('open', '');
+  for (const name of ['Navil', 'Brant', 'Bakbattahl', 'SEM armas nem armaduras']) {
+    await expect(guide).toContainText(name);
+  }
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items).toContainText('Labor Requisition Orders');
+  await expect(items).toContainText('Estalagem Stardrop');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
