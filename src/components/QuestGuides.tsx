@@ -42,7 +42,7 @@ const WalkthroughCard: React.FC<{ guide: QuestGuide; initialOpen?: boolean }> = 
               </li>
             ))}
           </ul>
-          {QUEST_ITEM_REQUIREMENTS[guide.id].references && <SourceLinks urls={QUEST_ITEM_REQUIREMENTS[guide.id].references} />}
+          {QUEST_ITEM_REQUIREMENTS[guide.id].references && <SourceLinks urls={QUEST_ITEM_REQUIREMENTS[guide.id].references ?? []} />}
         </section>
       )}
       {guide.preparation.length > 0 && <div>
