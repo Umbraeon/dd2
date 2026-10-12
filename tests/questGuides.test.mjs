@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 29);
+  assert.equal(QUEST_GUIDES.length, 31);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -157,5 +157,27 @@ test('onda 5: Bakbattahl separa perseguição, atentado urgente e experimentos d
   assert.match(guide('poisonous_proposal').steps.join(' '), /Asp.*Venin Harpy.*quimera/s);
   assert.match(guide('poisonous_proposal').preparation.join(' '), /ainda envenenado/);
   assert.equal(questGuidesForEvent('b02').filter(q => ['mercy_thieves', 'shadowed_prayers', 'poisonous_proposal'].includes(q.id)).length, 3);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+});
+
+test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () => {
+  const first = guide('beren_claw');
+  const second = guide('beren_final_lesson');
+  assert.equal(first.title, 'Treino Leonino');
+  assert.equal(second.title, 'A Última Lição de Beren');
+  assert.deepEqual(first.relatedEventIds, ['m03', 'p03']);
+  assert.deepEqual(second.relatedEventIds, ['m03', 'p03']);
+  assert.ok(first.references.length >= 2);
+  assert.ok(second.references.length >= 2);
+  assert.match(first.steps.join(' '), /três espadas.*Humphrey.*duelo.*goblins/s);
+  assert.match(first.steps.join(' '), /perder não impede/);
+  assert.match(second.preparation.join(' '), /Treino Leonino/);
+  assert.match(second.steps.join(' '), /ciclope.*Lifetaker.*Childhood Home.*Champion.s Fable.*Arc of Might/s);
+  assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
+  assert.equal(questGuidesForEvent('p03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
+  assert.equal(questGuidesForEvent('m03').length, 4);
+  assert.equal(questGuidesForEvent('p03').length, 4);
+  const step = PHASES.flatMap(phase => phase.events).find(event => event.id === 'm03');
+  assert.match(step.note, /Treino Leonino.*A Última Lição de Beren.*Champion.s Fable/s);
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
 });

@@ -61,10 +61,11 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Conheça Beren e prepare a rota de grimórios genuínos",
         type: "missao",
-        note: "Converse com Beren no acampamento e encontre Trysha na missão 'Magia Vertiginosa' (Spellbound). Antes de entregar grimórios, reserve pelo menos três originais para Trysha e prepare três falsificações diferentes para Myrddin. O passo a passo está na ficha desta etapa.",
+        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'O Trono do Sobran' (Seat of the Sovran), volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Em paralelo, reserve três grimórios originais para Trysha e três falsificações diferentes para Myrddin. Os guias individuais estão abaixo.",
         achievements: [],
         risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
+        source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-berens-final-lesson-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-all-maisters-teachings-locations/"],
         failureRisk: "Antes de entregar os grimórios, preserve originais para Trysha; ela não aceita falsificações para avançar normalmente."
       },
       {
