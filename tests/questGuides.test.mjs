@@ -176,7 +176,7 @@ test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () =>
   assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
   assert.equal(questGuidesForEvent('p03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
   assert.equal(questGuidesForEvent('m03').length, 4);
-  assert.equal(questGuidesForEvent('p03').length, 4);
+  assert.equal(questGuidesForEvent('p03').length, 6);
   const step = PHASES.flatMap(phase => phase.events).find(event => event.id === 'm03');
   assert.match(step.note, /Treino Leonino.*A Última Lição de Beren.*Champion.s Fable/s);
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
