@@ -59,9 +59,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m03",
-        title: "Conheça Beren e prepare a rota de grimórios genuínos",
+        title: "Conheça Beren e Trysha na região de Melve",
         type: "missao",
-        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'O Trono do Sobran' (Seat of the Sovran), volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Em paralelo, reserve três grimórios originais para Trysha e três falsificações diferentes para Myrddin. Os guias individuais estão abaixo.",
+        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'O Trono do Sobran' (Seat of the Sovran), volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Na Casa de Eini, ao norte de Melve, conheça Trysha e preserve três grimórios originais para 'Magia Vertiginosa'. A missão de Myrddin não começa aqui: visite-o mais adiante na Cidade de Descanso da Fronteira, no marco de Vernworth parte 2. Os guias individuais desta região estão abaixo.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
@@ -430,9 +430,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v206",
-        title: "Coordene a troca de grimórios genuínos e falsos",
+        title: "Visite Myrddin na Cidade de Descanso da Fronteira e coordene os grimórios",
         type: "missao",
-        note: "Trysha ('Magia Vertiginosa' — Spellbound) exige grimórios autênticos; Myrddin ('O Julgamento do Feiticeiro' — The Sorcerer's Appraisal) aceita versões falsificadas feitas por Ibrahim. Separe três originais para Trysha e três falsificações diferentes para Myrddin. Veja a lista de livros e os destinos na aba Guias e cópias.",
+        note: "Saia de Vernworth rumo à Cidade de Descanso da Fronteira (Checkpoint Rest Town). Vista a túnica e as calças da corte para iniciar 'O Julgamento do Feiticeiro' (The Sorcerer's Appraisal) com Myrddin na mansão dele. Trysha, por outro lado, fica na Casa de Eini, ao norte de Melve, em 'Magia Vertiginosa' (Spellbound). Guarde pelo menos três grimórios autênticos para Trysha e entregue três falsificações diferentes a Myrddin; Ibrahim faz cópias na própria cidade fronteiriça. Consulte 'Guias e cópias' para os destinos dos livros.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.trueachievements.com/a429012/master-of-the-maisters-achievement"
