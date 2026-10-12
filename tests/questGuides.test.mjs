@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 37);
+  assert.equal(QUEST_GUIDES.length, 40);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -34,6 +34,15 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v201').length, 3);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
+  assert.deepEqual(
+    questGuidesForEvent('u03').map(guide => guide.id),
+    ['dreams_apart'],
+    'O Peão Principal deve ser recuperado em Bakbattahl'
+  );
+  for (const id of ['halls_first_dawn', 'regentkins_resolve']) {
+    assert.ok(questGuidesForEvent('u04').some(guide => guide.id === id));
+  }
+  assert.ok(questGuidesForEvent('u08').some(guide => guide.id === 'halls_first_dawn'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
 });
 
@@ -267,4 +276,25 @@ test('localização de Myrddin: missão inicia na fronteira, não em Melve', () 
   assert.match(melve.note, /A missão de Myrddin não começa aqui/);
   assert.match(route.title, /Cidade de Descanso da Fronteira/);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
+});
+
+test('Mundo Desancorado: Phaesus em Bakbattahl, cinco evacuações e feixe final protegido', () => {
+  const [pawn, halls, vern] = ['dreams_apart', 'halls_first_dawn', 'regentkins_resolve']
+    .map(id => QUEST_GUIDES.find(guide => guide.id === id));
+  assert.match(pawn.region, /Bakbattahl/);
+  assert.match(pawn.steps.join(' '), /Phaesus/);
+  assert.doesNotMatch(pawn.completion, /recuper.*Santuário/i);
+  assert.match(halls.preparation.join(' '), /VERMELHO FINAL/);
+  assert.match(halls.steps.join(' '), /Vernworth/);
+  for (const location of ['Bakbattahl', 'Jardim Sagrado', 'Acampamento da Ilha Vulcânica', 'Local de Escavação']) {
+    assert.ok(halls.steps.join(' ').includes(location), location);
+  }
+  assert.match(vern.steps.join(' '), /Brant/);
+  assert.match(vern.steps.join(' '), /Sven/);
+  assert.match(vern.steps.join(' '), /Disa/);
+  assert.match(vern.steps.join(' '), /Allard/);
+  const u03 = PHASES.flatMap(p => p.events).find(e => e.id === 'u03');
+  assert.match(u03.title, /Bakbattahl/);
+  assert.match(u03.note, /Laboratório.*Phaesus/);
+  assert.doesNotMatch(u03.note, /Acorde no Santuário do Leito Marinho/);
 });

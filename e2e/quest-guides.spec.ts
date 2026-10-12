@@ -337,3 +337,48 @@ test('busca global por nome oficial PT-BR de item exibe detalhes e falsificaçã
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
 
+
+test('Mundo Desancorado: Destinos Separados corrige local do peão no mobile sem salvar progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Destinos Separados');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Destinos Separados/ }).click();
+  const guide = page.locator('#quest-guide-dreams_apart');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Laboratório de Pesquisa de Magia Proibida');
+  await expect(guide).toContainText('Phaesus');
+  await expect(guide).toContainText('NÃO no Santuário do Leito Marinho');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Mundo Desancorado: Átrios reúne cinco evacuações e adverte sobre feixe final', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Átrios da Primeira Aurora');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Átrios da Primeira Aurora/ }).click();
+  const guide = page.locator('#quest-guide-halls_first_dawn');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('VERMELHO FINAL');
+  for (const destination of ['Vernworth', 'Bakbattahl', 'Jardim Sagrado', 'Acampamento da Ilha Vulcânica', 'Local de Escavação']) {
+    await expect(guide).toContainText(destination);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Mundo Desancorado: evacuação de Vernworth explica Disa e Allard sem item obrigatório', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Determinação do Príncipe Regente');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Determinação do Príncipe Regente/ }).click();
+  const guide = page.locator('#quest-guide-regentkins_resolve');
+  await expect(guide).toHaveAttribute('open', '');
+  for (const npc of ['Brant', 'Sven', 'Disa', 'Allard']) await expect(guide).toContainText(npc);
+  await expect(guide).toContainText('Não há item obrigatório');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});

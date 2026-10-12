@@ -1217,12 +1217,13 @@ export const PHASES: Phase[] = [
       },
       {
         id: "u03",
-        title: "Recupere seu Peão Principal no Santuário do Leito Marinho",
+        title: "Recupere seu Peão Principal no laboratório de Bakbattahl",
         type: "missao",
-        note: "Acorde no Santuário do Leito Marinho (Seafloor Shrine). Siga até o local indicado no mapa para reencontrar seu peão e estabelecer a base de refúgio dos sobreviventes.",
+        note: "Em 'Destinos Separados', entre no Laboratório de Pesquisa de Magia Proibida em Bakbattahl, suba ao andar superior e fale com Phaesus para recuperar seu Peão Principal. Só depois siga ao Santuário do Leito Marinho, que é a base de evacuação de 'Átrios da Primeira Aurora'.",
         achievements: [],
         risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-dreams-apart-walkthrough/",
+        extraSources: ["https://game8.co/games/Dragons-Dogma-2/archives/Dreams-Apart"]
       },
       {
         id: "u04",

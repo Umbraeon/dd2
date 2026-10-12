@@ -779,6 +779,71 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'Conversar com Jarle após o experimento da quimera conclui Uma Proposta Venenosa; não é necessário matar a quimera antes de ele ser envenenado.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-a-poisonous-proposal-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/A-Poisonous-Proposal']
+  },
+  {
+    id: 'dreams_apart', title: 'Destinos Separados', original: 'Dreams Apart',
+    region: 'Mundo Desancorado — Bakbattahl, Laboratório de Pesquisa de Magia Proibida',
+    giver: 'Início automático ao entrar no Mundo Desancorado',
+    relatedEventIds: ['u03'],
+    preparation: [
+      'SPOILERS DO FINAL VERDADEIRO. Esta missão começa automaticamente depois de entrar no Mundo Desancorado pela rota de Legado.',
+      'O Peão Principal está em Bakbattahl, NÃO no Santuário do Leito Marinho. Evite combates desnecessários enquanto estiver sem ele.'
+    ],
+    steps: [
+      'Ao recuperar o controle, selecione Destinos Separados no diário e siga em direção a Bakbattahl.',
+      'Entre no Laboratório de Pesquisa de Magia Proibida, na área do Palácio da Chama Luzente, onde você já havia tratado com Ambrosius em Um Novo Chamado Divino.',
+      'Suba as escadas até o andar superior do laboratório e encontre Phaesus na sala indicada.',
+      'Converse com Phaesus e acompanhe a cena para recuperar seu Peão Principal.'
+    ],
+    completion: 'Peão Principal reunido ao grupo. Siga então ao Santuário do Leito Marinho para organizar as evacuações; essa é uma etapa distinta.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-dreams-apart-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Dreams-Apart'
+    ]
+  },
+  {
+    id: 'halls_first_dawn', title: 'Átrios da Primeira Aurora', original: 'Halls of the First Dawn',
+    region: 'Mundo Desancorado — Santuário do Leito Marinho e cinco assentamentos',
+    giver: 'Rothais, no Santuário do Leito Marinho (com Luz)',
+    relatedEventIds: ['u04', 'u08'],
+    preparation: [
+      'SPOILERS DO FINAL VERDADEIRO. Reúna seu Peão Principal em Destinos Separados e prepare pedras de transporte e recursos de cura antes das viagens.',
+      'O tempo e os descansos têm consequências no Mundo Desancorado: priorize as evacuações e as provas. NÃO ative o feixe VERMELHO FINAL do Santuário do Leito Marinho enquanto houver tarefas pendentes.'
+    ],
+    steps: [
+      'Chegue ao Santuário do Leito Marinho pelo leito do mar agora exposto; procure Rothais e Luz na área central e acompanhe a explicação sobre acolher sobreviventes. O marcador azul do santuário está ligado a essa etapa, não à conclusão final.',
+      'Organize a retirada de Vernworth em A Determinação do Príncipe Regente: fale com Brant e resolva os pedidos de Sven.',
+      'Evacue também Bakbattahl (Instabilidade Civil), Jardim Sagrado (Raízes Errantes), Acampamento da Ilha Vulcânica (A Importância de Ajudar Ernesto) e Local de Escavação (Pastor de Peões). As duas localidades vulcânicas exigem missões separadas.',
+      'Resolva as provas dos feixes vermelhos periféricos que ainda estiverem disponíveis, considerando o estado de Talos e os eventos do seu jogo.',
+      'Confira as cinco evacuações e objetivos restantes antes de interagir com o feixe vermelho FINAL no Santuário do Leito Marinho, que avança para o encerramento.'
+    ],
+    completion: 'Cinco evacuações concluídas e sobreviventes encaminhados ao santuário; não confunda essa condição com já ter ativado o feixe final.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn'
+    ]
+  },
+  {
+    id: 'regentkins_resolve', title: 'A Determinação do Príncipe Regente', original: "The Regentkin's Resolve",
+    region: 'Mundo Desancorado — Vernworth, Estalagem Stardrop e Castelo de Vernworth',
+    giver: 'Capitão Brant, na Estalagem Stardrop',
+    relatedEventIds: ['u04'],
+    preparation: [
+      'Missão de evacuação de Vernworth no Mundo Desancorado, relacionada a Átrios da Primeira Aurora.',
+      'Não há item obrigatório para coletar nem necessidade de falsificação: a missão depende de conversar com Sven, reunir Disa e liberar as carroças.'
+    ],
+    steps: [
+      'Fale com o Capitão Brant na Estalagem Stardrop, em Vernworth, para iniciar a evacuação.',
+      'No segundo andar do Castelo de Vernworth, procure Sven em seus aposentos e pergunte o que está impedindo a retirada dos moradores.',
+      'Encontre Disa em seus aposentos, também no segundo andar. Após a conversa, carregue-a até o quarto de Sven para que os dois conversem.',
+      'Vá à área das carroças de boi a oeste/noroeste de Vernworth. Encontre Allard e afaste-o das carroças: intimidá-lo ou agarrá-lo costuma fazê-lo fugir, sem necessidade de matá-lo.',
+      'Volte aos aposentos de Sven e comunique que as carroças estão disponíveis, concluindo a evacuação de Vernworth.'
+    ],
+    completion: 'Vernworth evacuada. A conclusão conta para uma das cinco retiradas exigidas por Átrios da Primeira Aurora; ainda restam as demais localidades.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-regentkins-resolve-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Regentkins-Resolve'
+    ]
   }
 ];
 
