@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import { QUEST_NAME_INDEX, questNamesForEvent } from '../src/data/questNameIndex.ts';
 import { PHASES } from '../src/data/roadmapData.ts';
 
-test('70 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
-  assert.equal(QUEST_NAME_INDEX.length, 70);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 70);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 70);
+test('74 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
+  assert.equal(QUEST_NAME_INDEX.length, 74);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 74);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 74);
   for (const item of QUEST_NAME_INDEX) {
     assert.ok(item.ptBR.trim() && item.english.trim());
     assert.ok(item.eventIds.length >= 1);
   }
 });
 
-test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 11 de catálogo Kiranico', () => {
+test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 15 de catálogo Kiranico', () => {
   const samples = QUEST_NAME_INDEX.filter(item => item.evidence === 'pak_sample_reported');
   assert.equal(samples.length, 7);
   for (const item of samples) {
@@ -51,7 +51,7 @@ test('três novos nomes PT-BR são sustentados por catálogo localizado, não ha
     ['Flickering Shadows', 'Sombras Trêmulas'],
     ['Convergence', 'Convergência']
   ];
-  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 11);
+  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 15);
   for (const [english, ptBR] of expected) {
     const q = QUEST_NAME_INDEX.find(x => x.english === english);
     assert.ok(q);
@@ -103,5 +103,22 @@ test('quatro títulos PT-BR da onda 15 provêm de Kiranico sem inventar chaves P
     assert.equal(entry.evidence,'kiranico_ptbr');
     assert.match(entry.sourceUrl,/kiranico\.com\/pt-BR/);
     assert.equal(entry.titleKey,undefined);
+  }
+});
+
+test('quatro nomes oficiais PT-BR de Daphne, carroça, Waldhar e Sven vêm do catálogo', () => {
+  const expected=[
+    ['The Gift of Giving','A Dádiva da Caridade'],
+    ['Oxcart Courier','Correio por Carroça'],
+    ['A Magisterial Amenity','Cortesia Magisterial'],
+    ['A Veil of Gossamer Clouds','Um Véu de Finas Nuvens']
+  ];
+  for(const [english,pt] of expected) {
+    const x=QUEST_NAME_INDEX.find(q=>q.english===english);
+    assert.ok(x);
+    assert.equal(x.ptBR,pt);
+    assert.equal(x.evidence,'kiranico_ptbr');
+    assert.match(x.sourceUrl,/kiranico\.com\/pt-BR/);
+    assert.equal(x.titleKey,undefined);
   }
 });
