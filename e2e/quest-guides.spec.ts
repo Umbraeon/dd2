@@ -100,12 +100,13 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: cinco fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: seis fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(5);
+  await expect(panel.locator('details')).toHaveCount(6);
+  await expect(panel.locator('#quest-guide-unsettling_encounter')).toBeVisible();
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
   await expect(feast).toContainText('Quando Brant perguntar se você está pronto');
