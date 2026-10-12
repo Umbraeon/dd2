@@ -15,7 +15,7 @@ test('gate: toda ficha publicada até 12/10 permanece cadastrada com ID estável
   const identifiers = QUEST_GUIDES.map(q => q.id);
   assert.equal(new Set(identifiers).size, identifiers.length);
   assert.equal(new Set(QUEST_GUIDES.map(q => normalize(q.original))).size, QUEST_GUIDES.length);
-  assert.equal(gate.publishedGuideRegistry.length, 72);
+  assert.equal(gate.publishedGuideRegistry.length, 76);
   for (const original of gate.publishedGuideRegistry) {
     assert.ok(current.has(original.id), `Guia perdido: ${original.id} (${original.english})`);
     assert.equal(normalize(current.get(original.id).original), normalize(original.english), `Original mudou para ${original.id}`);
@@ -52,8 +52,8 @@ test('gate: catálogo de 2024 identifica 49 faltantes sem confundir marcos com q
   assert.ok(report.summary.withoutIndividualGuide <= 49);
   assert.ok(report.summary.withIndividualGuide >= 31);
   assert.equal(report.summary.indexedWithoutGuide, gate.indexedWithoutGuide.length);
-  assert.equal(report.summary.guidesWithoutLocalizedIndex, 2);
-  assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['jadeite', 'tolled_to_rest']);
+  assert.equal(report.summary.guidesWithoutLocalizedIndex, 6);
+  assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['clash_conclusion', 'jadeite', 'masked_correspondence', 'tensions_highroad', 'tolled_to_rest', 'welcome_battahl']);
   assert.deepEqual(names(report.missingLocalization), names(gate.notInLocalizationIndexFrom2024));
   assert.equal(report.missingLocalization.length, 10);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
