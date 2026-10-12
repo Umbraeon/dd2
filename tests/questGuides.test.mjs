@@ -442,7 +442,7 @@ test('onda 15: mendigo, duas missões élficas e Sebastian têm riscos e rotas d
   assert.match(arbor.completion, /Nenhuma entrega de cinza/);
   assert.match(forge.steps.join(' '), /apodrecida/);
   assert.match(forge.preparation.join(' '), /CRONOMETRADO/);
-  assert.match(forge.preparation.join(' '), /NÃO pré-requisito rígido/);
+  assert.match(forge.preparation.join(' '), /não pré-requisito rígido/i);
   for(const name of ['Misshapen Eye', 'Detoxifying Decoction', 'Waking Powder']) {
     assert.match(sebastian.preparation.join(' ')+sebastian.steps.join(' '), new RegExp(name));
   }
