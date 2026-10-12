@@ -80,7 +80,7 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: quatro fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: seis fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
