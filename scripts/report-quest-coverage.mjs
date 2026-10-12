@@ -42,6 +42,10 @@ export const buildQuestCoverage = (roster, guides = QUEST_GUIDES, titles = QUEST
   const missingGuide = rows.filter(r => r.guideId === null).map(r => ({
     english: r.english, category: r.category, ptBR: r.ptBR, evidence: r.localizationEvidence
   }));
+  const indexedWithoutGuide = titles.filter(q => !guideByName.has(normalizeQuestName(q.english)))
+    .map(q => ({ english: q.english, ptBR: q.ptBR, eventIds: q.eventIds }));
+  const guidesWithoutLocalizedIndex = guides.filter(q => !localeByName.has(normalizeQuestName(q.original)))
+    .map(q => ({ id: q.id, english: q.original, title: q.title }));
   return {
     warning: '2024 third-party reference only, NOT an exhaustive catalogue of the current game or DLC; no 100% coverage claim',
     source: roster.source,
@@ -51,12 +55,18 @@ export const buildQuestCoverage = (roster, guides = QUEST_GUIDES, titles = QUEST
       historicalTotal: rows.length,
       withIndividualGuide: guidedCount,
       withoutIndividualGuide: missingGuide.length,
+      historicalMainWithoutGuide: missingGuide.filter(q => q.category === 'main').length,
+      historicalSideWithoutGuide: missingGuide.filter(q => q.category === 'side').length,
+      indexedWithoutGuide: indexedWithoutGuide.length,
+      guidesWithoutLocalizedIndex: guidesWithoutLocalizedIndex.length,
       withTitleInCurrentIndex: localizedCount,
       withoutTitleInCurrentIndex: missingLocalization.length,
       titlesOutsideHistoricalBaseline: titleIndexOutsideBaseline.length,
       guidesOutsideHistoricalBaseline: unlistedGuides.length
     },
     missingGuide,
+    indexedWithoutGuide,
+    guidesWithoutLocalizedIndex,
     missingLocalization,
     unlistedGuides,
     titleIndexOutsideBaseline,

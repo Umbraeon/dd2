@@ -1,0 +1,439 @@
+{
+  "asOf": "2026-10-12",
+  "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim",
+  "publishedGuideRegistry": [
+    {
+      "id": "beren_claw",
+      "english": "Claw Them Into Shape"
+    },
+    {
+      "id": "beren_final_lesson",
+      "english": "Beren's Final Lesson"
+    },
+    {
+      "id": "spellbound",
+      "english": "Spellbound"
+    },
+    {
+      "id": "sorcerers_appraisal",
+      "english": "The Sorcerer's Appraisal"
+    },
+    {
+      "id": "jadeite",
+      "english": "Hunt for the Jadeite Orb"
+    },
+    {
+      "id": "short_sighted",
+      "english": "Short-Sighted Ambition"
+    },
+    {
+      "id": "caged_magistrate",
+      "english": "The Caged Magistrate"
+    },
+    {
+      "id": "new_recruit",
+      "english": "Ordeals of a New Recruit"
+    },
+    {
+      "id": "medicament",
+      "english": "Medicament Predicament"
+    },
+    {
+      "id": "nesting",
+      "english": "Nesting Troubles"
+    },
+    {
+      "id": "provisioners_plight",
+      "english": "The Provisioner's Plight"
+    },
+    {
+      "id": "brothers_brave",
+      "english": "Brothers Brave and Timid"
+    },
+    {
+      "id": "vocation_frustration",
+      "english": "Vocation Frustration"
+    },
+    {
+      "id": "gift_of_bow",
+      "english": "Gift of the Bow"
+    },
+    {
+      "id": "trial_of_archery",
+      "english": "A Trial of Archery"
+    },
+    {
+      "id": "heel_of_history",
+      "english": "The Heel of History"
+    },
+    {
+      "id": "ornate_box",
+      "english": "The Ornate Box"
+    },
+    {
+      "id": "readvent_calamity",
+      "english": "Readvent of Calamity"
+    },
+    {
+      "id": "disas_plot",
+      "english": "Disa's Plot"
+    },
+    {
+      "id": "stolen_throne",
+      "english": "The Stolen Throne"
+    },
+    {
+      "id": "arisen_shadow",
+      "english": "The Arisen's Shadow"
+    },
+    {
+      "id": "nameless_village",
+      "english": "The Nameless Village"
+    },
+    {
+      "id": "feast_deception",
+      "english": "Feast of Deception"
+    },
+    {
+      "id": "home_hearth",
+      "english": "Home Is Where the Hearth Is"
+    },
+    {
+      "id": "monster_culling",
+      "english": "Monster Culling"
+    },
+    {
+      "id": "scaly_invaders",
+      "english": "Scaly Invaders"
+    },
+    {
+      "id": "trouble_cape",
+      "english": "Trouble on the Cape"
+    },
+    {
+      "id": "till_death",
+      "english": "Till Death Do Us Part"
+    },
+    {
+      "id": "mercy_thieves",
+      "english": "Mercy among Thieves"
+    },
+    {
+      "id": "shadowed_prayers",
+      "english": "Shadowed Prayers"
+    },
+    {
+      "id": "poisonous_proposal",
+      "english": "A Poisonous Proposal"
+    }
+  ],
+  "indexedWithoutGuide": [
+    {
+      "english": "Gaoled Awakening",
+      "ptBR": "O Despertar na Prisão",
+      "events": [
+        "m01"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "The Hand That Guides",
+      "ptBR": "A Mão que Guia",
+      "events": [
+        "m01"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Tale's Beginning",
+      "ptBR": "A História se Inicia",
+      "events": [
+        "m01"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "In Dragon's Wake",
+      "ptBR": "No Rastro do Dragão",
+      "events": [
+        "m01",
+        "v101",
+        "m04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "A Game of Wits",
+      "ptBR": "Um Jogo de Perspicácia",
+      "events": [
+        "m06",
+        "v205",
+        "b06",
+        "b062"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "One-Eyed Interloper",
+      "ptBR": "Intruso de um Olho Só",
+      "events": [
+        "v101"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Seat of the Sovran",
+      "ptBR": "O Trono do Sobran",
+      "events": [
+        "v101"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "A Place to Call Home",
+      "ptBR": "Um Lugar para Chamar de Lar",
+      "events": [
+        "v105"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Every Rose Has Its Thorn",
+      "ptBR": "As Rosas Têm Espinhos",
+      "events": [
+        "v302",
+        "v303"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Nation of the Lambent Flame",
+      "ptBR": "Nação da Chama Luzente",
+      "events": [
+        "v304",
+        "b01"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "The Phantom Oxcart",
+      "ptBR": "A Carroça Fantasma",
+      "events": [
+        "b05"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Put a Spring in Thy Step",
+      "ptBR": "A Fonte do Contentamento",
+      "events": [
+        "i03"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "The Sotted Sage",
+      "ptBR": "O Sábio Beberrão",
+      "events": [
+        "i05"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Dulled Steel, Cold Forge",
+      "ptBR": "Lâmina Cega, Forja Fria",
+      "events": [
+        "i06"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Steeled Resolve, Blazing Forge",
+      "ptBR": "Vontade Resistente, Forja Ardente",
+      "events": [
+        "i06"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "A New Godsway",
+      "ptBR": "Um Novo Chamado Divino",
+      "events": [
+        "p04"
+      ],
+      "evidence": "pak_sample_reported",
+      "priority": "P1"
+    },
+    {
+      "english": "The Guardian Gigantus",
+      "ptBR": "O Guardião Gigantus",
+      "events": [
+        "p04",
+        "p05"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Legacy",
+      "ptBR": "Legado",
+      "events": [
+        "p06",
+        "u01",
+        "u02"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Dreams Apart",
+      "ptBR": "Destinos Separados",
+      "events": [
+        "u03"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Halls of the First Dawn",
+      "ptBR": "Átrios da Primeira Aurora",
+      "events": [
+        "u04",
+        "u08"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "The Regentkin's Resolve",
+      "ptBR": "A Determinação do Príncipe Regente",
+      "events": [
+        "u04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Civil Unrest",
+      "ptBR": "Instabilidade Civil",
+      "events": [
+        "u04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Wandering Roots",
+      "ptBR": "Raízes Errantes",
+      "events": [
+        "u04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "The Importance of Aiding Ernesto",
+      "ptBR": "A Importância de Ajudar Ernesto",
+      "events": [
+        "u04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "Shepherd of the Pawns",
+      "ptBR": "Pastor de Peões",
+      "events": [
+        "u04"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P1"
+    },
+    {
+      "english": "A Scholarly Pursuit",
+      "ptBR": "A Missão dos Eruditos",
+      "events": [
+        "u05"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "When Wills Collide",
+      "ptBR": "Quando as Vontades São Conflituantes",
+      "events": [
+        "u05",
+        "u06"
+      ],
+      "evidence": "paired_catalog",
+      "priority": "P2"
+    },
+    {
+      "english": "Chilling Tidings",
+      "ptBR": "Notícias Congelantes",
+      "events": [
+        "d01"
+      ],
+      "evidence": "pak_sample_reported",
+      "priority": "P2"
+    },
+    {
+      "english": "Lost Rites",
+      "ptBR": "Rituais Perdidos",
+      "events": [
+        "d01"
+      ],
+      "evidence": "pak_sample_reported",
+      "priority": "P2"
+    }
+  ],
+  "notInLocalizationIndexFrom2024": [
+    "An Unsettling Encounter",
+    "Flickering Shadows",
+    "Convergence",
+    "Oxcart Courier",
+    "A Case of Sculptor's Block",
+    "The Gift of Giving",
+    "House of the Blue Sunbright",
+    "Saint of the Slums",
+    "A Magisterial Amenity",
+    "A Veil of Gossamer Clouds",
+    "Hunt for the Jadeite Orb",
+    "Prey for the Pack",
+    "Tolled to Rest",
+    "Masked Correspondence",
+    "Welcome to Battahl",
+    "Tensions on the Highroad",
+    "A Noble Exchange",
+    "Off the Pilfered Path",
+    "'Twixt a Rock and a Hard Place",
+    "A Beggar's Tale",
+    "A Candle in the Storm",
+    "Crossing in Shadow",
+    "The Ailing Arborheart",
+    "Out of the Forest, Into the Forge",
+    "Clash and Conclusion"
+  ],
+  "explanatoryNotes": [
+    "The DLC added in October 2026 is out of scope until questlog/PAK inventory is compared",
+    "Without an individual walkthrough != not mentioned anywhere in summary roadmap",
+    "Jadeite Orb has a walkthrough and PT-BR label but no matching QuestNameIndex entry; validate localization evidence before adding",
+    "Two maister-trigger quests are indexed but lack walkthroughs: Put a Spring in Thy Step and The Sotted Sage"
+  ]
+}
