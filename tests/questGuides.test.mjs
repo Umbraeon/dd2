@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 58);
+  assert.equal(QUEST_GUIDES.length, 62);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -24,11 +24,11 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('m04').length, 4);
   assert.equal(questGuidesForEvent('m02').length, 2);
   assert.equal(questGuidesForEvent('v102').length, 3);
-  assert.equal(questGuidesForEvent('v103').length, 3);
+  assert.equal(questGuidesForEvent('v103').length, 4);
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 4);
   assert.equal(questGuidesForEvent('v301').length, 3);
-  assert.equal(questGuidesForEvent('v303').length, 6);
+  assert.equal(questGuidesForEvent('v303').length, 7);
   assert.equal(questGuidesForEvent('v304').length, 2);
   assert.equal(questGuidesForEvent('v104').length, 1);
   assert.equal(questGuidesForEvent('v201').length, 3);
@@ -398,5 +398,29 @@ test('onda 13: casa, forja sequencial e resgate de Rodge mantêm as condições 
   assert.match(prey.preparation.join(' '), /MISSÃO COM PRAZO/);
   assert.match(prey.steps.join(' '), /Caverna Pútrida/);
   assert.match(prey.completion, /desfecho pior/);
+  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+});
+
+test('onda 14: quatro destinos preservam evidências, prazo e rotas sem promessas absolutas', () => {
+  const row = id => QUEST_GUIDES.find(q => q.id === id);
+  const [rose, saint, candle, hugo] = ['every_rose','saint_slums','candle_storm','pilfered_path'].map(row);
+  for (const q of [rose,saint,candle,hugo]) {
+    assert.ok(q && q.steps.length >= 6);
+    assert.ok(q.references.length >= 2);
+    assert.ok(q.relatedEventIds.every(id => PHASES.flatMap(p => p.events).some(e => e.id === id)));
+  }
+  assert.match(rose.preparation.join(' '), /TRÊS DIAS NO JOGO/);
+  assert.match(rose.steps.join(' '), /Murder Report/);
+  assert.match(rose.steps.join(' '), /Bribery Investigation Findings/);
+  assert.match(rose.preparation.join(' '), /Battahli-Crested Letter/);
+  assert.match(saint.preparation.join(' '), /AGARRAR/);
+  assert.match(saint.steps.join(' '), /Radcliff/);
+  assert.match(saint.steps.join(' '), /Unlabeled Medicine/);
+  assert.match(candle.preparation.join(' '), /Nadinia/);
+  assert.match(candle.steps.join(' '), /Herman/);
+  assert.match(candle.steps.join(' '), /Ashe/);
+  assert.match(hugo.preparation.join(' '), /Isaac/);
+  assert.match(hugo.steps.join(' '), /Lanzo/);
+  assert.match(hugo.completion, /morrer/);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
