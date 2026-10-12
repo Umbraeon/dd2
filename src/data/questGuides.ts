@@ -1573,7 +1573,8 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
-  }  {
+  },
+  {
     id: 'game_of_wits', title: 'Um Jogo de Perspicácia', original: 'A Game of Wits',
     region: 'Campo de Batalha Antigo → Santuário da Montanha → Santuário da Fronteira',
     giver: 'Esfinge, no Santuário da Montanha, após atravessar a Caverna do Fim do Mundo',
