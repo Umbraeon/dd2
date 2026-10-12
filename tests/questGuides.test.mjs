@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 35);
+  assert.equal(QUEST_GUIDES.length, 37);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -29,7 +29,7 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v202').length, 4);
   assert.equal(questGuidesForEvent('v301').length, 2);
   assert.equal(questGuidesForEvent('v303').length, 5);
-  assert.equal(questGuidesForEvent('v304').length, 1);
+  assert.equal(questGuidesForEvent('v304').length, 2);
   assert.equal(questGuidesForEvent('v104').length, 1);
   assert.equal(questGuidesForEvent('v201').length, 3);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
@@ -221,5 +221,32 @@ test('onda 7: Godsway e Gigantus distinguem itens, escolha de conquista e ponto 
     assert.ok(g.references.length >= 2);
     assert.ok(g.steps.length >= 6);
   }
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+});
+
+test('onda 8: chegada a Battahl diferencia permissões; Legado separa escolhas de final', () => {
+  const nation = guide('nation_lambent_flame');
+  const legacy = guide('legacy');
+  assert.equal(nation.title, 'Nação da Chama Luzente');
+  assert.equal(legacy.title, 'Legado');
+  assert.deepEqual(nation.relatedEventIds, ['v304', 'b01']);
+  assert.deepEqual(legacy.relatedEventIds, ['p06', 'u01', 'u02']);
+  for (const entry of [nation, legacy]) {
+    assert.ok(entry.steps.length >= 7);
+    assert.ok(entry.references.length >= 2);
+  }
+  const border = [...nation.preparation, ...nation.steps, nation.completion].join(' ');
+  assert.match(border, /Bermudo.*Border Entry Permit.*Beastren Border Entry Permit/s);
+  assert.match(border, /Beastren Mask/);
+  assert.match(border, /Menella.*Battahl Residence Permit/s);
+  assert.match(border, /Tô Dentro!.*opcional/);
+  const ending = [...legacy.preparation, ...legacy.steps, legacy.completion].join(' ');
+  assert.match(ending, /Moonglint Tower/);
+  assert.match(ending, /Pioneiro.*Empowered Godsbane Blade/s);
+  assert.match(ending, /Paz/);
+  assert.match(ending, /não selecione Novo Jogo\+/i);
+  assert.match(ending, /farol vermelho final/);
+  assert.equal(questGuidesForEvent('b01').find(g => g.id === 'nation_lambent_flame')?.id, 'nation_lambent_flame');
+  assert.equal(questGuidesForEvent('p06').find(g => g.id === 'legacy')?.id, 'legacy');
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
 });
