@@ -66,7 +66,13 @@ test('gate: títulos oficiais registrados permanecem alinhados aos guias, sem tr
     if (name) assert.equal(guide.title, name.ptBR, guide.id);
   }
   assert.ok(!lookup.has(normalize('Hunt for the Jadeite Orb')), 'Rever evidência PT-BR antes de vincular Jadeite');
-  assert.ok(!lookup.has(normalize('An Unsettling Encounter')), 'Não inventar título EN/PT-BR');
+  for (const [en, pt] of [
+    ['An Unsettling Encounter', 'Um Encontro Perturbador'],
+    ['Flickering Shadows', 'Sombras Trêmulas'],
+    ['Convergence', 'Convergência']
+  ]) {
+    assert.equal(lookup.get(normalize(en))?.ptBR, pt, 'Novo par validado por Kiranico: ' + en);
+  }
 });
 
 test('gate: rotas de Mestre têm guias e vínculo aos marcos', () => {
