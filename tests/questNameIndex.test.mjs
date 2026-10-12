@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import { QUEST_NAME_INDEX, questNamesForEvent } from '../src/data/questNameIndex.ts';
 import { PHASES } from '../src/data/roadmapData.ts';
 
-test('66 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
-  assert.equal(QUEST_NAME_INDEX.length, 66);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 66);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 66);
+test('70 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
+  assert.equal(QUEST_NAME_INDEX.length, 70);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 70);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 70);
   for (const item of QUEST_NAME_INDEX) {
     assert.ok(item.ptBR.trim() && item.english.trim());
     assert.ok(item.eventIds.length >= 1);
   }
 });
 
-test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 7 de catálogo Kiranico', () => {
+test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 11 de catálogo Kiranico', () => {
   const samples = QUEST_NAME_INDEX.filter(item => item.evidence === 'pak_sample_reported');
   assert.equal(samples.length, 7);
   for (const item of samples) {
@@ -51,7 +51,7 @@ test('três novos nomes PT-BR são sustentados por catálogo localizado, não ha
     ['Flickering Shadows', 'Sombras Trêmulas'],
     ['Convergence', 'Convergência']
   ];
-  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 7);
+  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 11);
   for (const [english, ptBR] of expected) {
     const q = QUEST_NAME_INDEX.find(x => x.english === english);
     assert.ok(q);
@@ -86,5 +86,22 @@ test('nomes PT-BR de Elena, Nadinia e Hugo são títulos de catálogo, não IDs 
     assert.equal(q.evidence, 'kiranico_ptbr');
     assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
     assert.equal(q.titleKey, undefined);
+  }
+});
+
+test('quatro títulos PT-BR da onda 15 provêm de Kiranico sem inventar chaves PAK', () => {
+  const expected = [
+    ["A Beggar's Tale", 'O Conto do Mendigo'],
+    ['The Ailing Arborheart', 'A Dor do Coração do Jardim'],
+    ['Out of the Forest, Into the Forge', 'Da Floresta à Forja'],
+    ['House of the Blue Sunbright', 'A Casa da Luz-Solaris Azul']
+  ];
+  for(const [english,ptBR] of expected){
+    const entry=QUEST_NAME_INDEX.find(x=>x.english===english);
+    assert.ok(entry);
+    assert.equal(entry.ptBR,ptBR);
+    assert.equal(entry.evidence,'kiranico_ptbr');
+    assert.match(entry.sourceUrl,/kiranico\.com\/pt-BR/);
+    assert.equal(entry.titleKey,undefined);
   }
 });
