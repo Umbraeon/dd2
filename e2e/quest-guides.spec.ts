@@ -691,3 +691,71 @@ test('Hugo: alerta sobre Lanzo e rotas de emprego; suborno não obrigatório', a
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('onda 15: três finais de O Conto do Mendigo com vestes não duplicáveis no mobile', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await openConsultation(page);
+  await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('O Conto do Mendigo');
+  await page.getByRole('region',{name:'Resultados encontrados'})
+    .getByRole('button',{name:/Guia de missão O Conto do Mendigo/}).click();
+  const guide=page.locator('#quest-guide-beggars_tale');
+  await expect(guide).toHaveAttribute('open','');
+  for(const npc of ['Hilda','Celina','Albert']) await expect(guide).toContainText(npc);
+  await expect(guide).toContainText('morte de Celina e Albert');
+  const items=guide.getByRole('region',{name:'Itens necessários e onde conseguir'});
+  await expect(items).toContainText('Beggar’s Garb');
+  await expect(items).toContainText('ESCOLHA');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 15: A Dor do Coração do Jardim distingue a missão curta da continuação', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await openConsultation(page);
+  await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('A Dor do Coração do Jardim');
+  await page.getByRole('region',{name:'Resultados encontrados'})
+    .getByRole('button',{name:/Guia de missão A Dor do Coração do Jardim/}).click();
+  const guide=page.locator('#quest-guide-ailing_arborheart');
+  await expect(guide).toHaveAttribute('open','');
+  for(const npc of ['Doireann','Sara','gwyfencha','Da Floresta à Forja'])
+    await expect(guide).toContainText(npc);
+  await expect(guide.getByRole('region',{name:'Itens necessários e onde conseguir'})).toHaveCount(0);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 15: Da Floresta à Forja exige podres e preserva aviso sobre caverna cronometrada', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await openConsultation(page);
+  await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('Da Floresta à Forja');
+  await page.getByRole('region',{name:'Resultados encontrados'})
+    .getByRole('button',{name:/Guia de missão Da Floresta à Forja/}).click();
+  const guide=page.locator('#quest-guide-forest_to_forge');
+  await expect(guide).toHaveAttribute('open','');
+  await expect(guide).toContainText('CRONOMETRADO');
+  await expect(guide).toContainText('não pré-requisito rígido');
+  const items=guide.getByRole('region',{name:'Itens necessários e onde conseguir'});
+  await expect(items.locator('li')).toHaveCount(4);
+  for(const item of ['Rotten Apple','Rotten Fish','Nutriabh','Scalecinder'])
+    await expect(items).toContainText(item);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
+
+test('onda 15: Sebastian recebe três suprimentos ou exige resgate perto de Melve', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await openConsultation(page);
+  await page.getByRole('searchbox',{name:'Buscar em todos os 9 capítulos'}).fill('A Casa da Luz-Solaris Azul');
+  await page.getByRole('region',{name:'Resultados encontrados'})
+    .getByRole('button',{name:/Guia de missão A Casa da Luz-Solaris Azul/}).click();
+  const guide=page.locator('#quest-guide-blue_sunbright_house');
+  await expect(guide).toHaveAttribute('open','');
+  await expect(guide).toContainText('ALERTA DE MORTE');
+  await expect(guide).toContainText('Daphne');
+  await expect(guide).toContainText('Melve');
+  const items=guide.getByRole('region',{name:'Itens necessários e onde conseguir'});
+  await expect(items.locator('li')).toHaveCount(3);
+  for(const item of ['Misshapen Eye','Detoxifying Decoction','Waking Powder'])
+    await expect(items).toContainText(item);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1)).toBe(true);
+  expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
+});
