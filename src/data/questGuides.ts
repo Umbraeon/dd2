@@ -447,7 +447,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     steps: [
       'Aceite Elimine os Monstros com Brant na Stardrop Inn, durante a noite.',
       'Na Mina de Trevo, a oeste da capital, derrote os goblins que cercam os soldados e fale com eles. Aproveite a passagem para recolher as armas de Frustração Vocacional, caso ainda precise delas.',
-      'Siga para a Aldeia de Harve, entre na Caverna do Vento Sul e elimine os sáurios que prendem os soldados.',
+      'Siga para a Aldeia de Harve, entre na Stormwind Cave e elimine os sáurios que prendem os soldados.',
       'Acompanhe os soldados resgatados até a saída da caverna. Ao sair, você poderá ajudar Fyoran na missão Invasores Escamosos.',
       'Na Floresta Oriental, a leste de Vernworth, encontre o grupo de soldados atacado perto de sua carga, derrote os monstros e converse com os sobreviventes.',
       'Após resolver os três locais, volte à Stardrop Inn à noite e relate o resultado a Brant.'
@@ -476,7 +476,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   },
   {
     id: 'trouble_cape', title: 'As Mãos Atadas que Abraçam a Causa', original: 'Trouble on the Cape',
-    region: 'Aldeia de Harve e Caverna do Vento Sul',
+    region: 'Aldeia de Harve e Stormwind Cave',
     giver: 'Ulrika',
     relatedEventIds: ['v202', 'v303'],
     preparation: [
@@ -485,7 +485,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     steps: [
       'Ao encontrar Ulrika em Harve, acompanhe a discussão dela com os moradores e aceite ajudar no resgate.',
-      'Siga Ulrika e os guardas até a entrada da Caverna do Vento Sul, ao sul da vila.',
+      'Siga Ulrika e os guardas até a entrada da Stormwind Cave, ao sul da vila.',
       'Avance pela caverna e elimine os sáurios que atacam o grupo.',
       'Encontre Zoran nas partes internas da caverna e liberte-o dos monstros.',
       'Escolte Zoran de volta à Aldeia de Harve com Ulrika e acompanhe a conversa dos moradores.'
@@ -527,7 +527,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'Vá aos aposentos de Sven no Castelo de Vernworth e converse com ele para descobrir como chegar às provas.',
       'Fale com Patrick no Bairro Nobre e aceite o plano de atrair Allard para fora de casa. Entre no escritório de Allard no andar superior e examine a pintura para obter o Murder Report.',
       'Na área comercial de Vernworth, procure a casa ao sul da barbearia de Clovis e recolha o Bribery Investigation Findings sobre a mesa.',
-      'À noite, fale com Brant na Stardrop Inn sobre o Myrmecoleon. Apresente as provas, peça para procurar mais evidências quando a opção surgir e solicite a ajuda dele para a fuga.',
+      'À noite, fale com Brant na Stardrop Inn sobre o Myrmecoleon. Apresente primeiro o Bribery Investigation Findings, selecione procurar mais provas, apresente o Murder Report e peça a ajuda de Brant para a fuga.',
       'Retorne ao Rose Chateau e entregue a Wilhelmina o Murder Report. Confirme que continuará ajudando e, na sala de Allard, agarre-o quando ela pedir.',
       'Depois da cena, escape do local pela janela e siga Brant. Passe algum tempo e volte a falar com Wilhelmina para concluir a missão.'
     ],
