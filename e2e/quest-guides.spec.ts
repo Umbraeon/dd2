@@ -91,7 +91,8 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth1');
   await page.getByRole('button', { name: /Consultar atividade: Ative a Guilda/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(3);
+  await expect(panel.locator('details')).toHaveCount(4);
+  await expect(panel.locator('#quest-guide-oxcart_courier')).toBeVisible();
   const vocation = panel.locator('details').filter({ hasText: /Frustração Vocacional/ });
   await vocation.locator('summary').click();
   await expect(vocation).toContainText('Two-Hander');
