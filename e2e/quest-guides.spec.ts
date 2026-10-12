@@ -787,7 +787,7 @@ test('onda 16: Correio por Carroça distingue carta de Donovan e admite viagem a
     .getByRole('button', { name: /Guia de missão Correio por Carroça/ }).click();
   const guide=page.locator('#quest-guide-oxcart_courier');
   await expect(guide).toHaveAttribute('open','');
-  for(const word of ['Donovan','Lennart','Melve','200 G','prossiga a pé']) await expect(guide).toContainText(word);
+  for(const word of ['Donovan','Lennart','Melve','200 G','Siga a estrada']) await expect(guide).toContainText(word);
   await expect(guide.getByRole('region', { name: 'Itens necessários e onde conseguir' })).toContainText('Letter to Ser Lennart');
   expect(await page.evaluate(k=>localStorage.getItem(k),savedKey)).toBeNull();
 });
