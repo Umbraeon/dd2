@@ -237,5 +237,6 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'beren_final_lesson', 'new_recruit', 'brothers_brave', 'trial_of_archery',
   'readvent_calamity', 'arisen_shadow', 'monster_culling', 'scaly_invaders',
   'trouble_cape', 'till_death', 'mercy_thieves', 'shadowed_prayers',
-  'poisonous_proposal'
+  'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
+  'regentkins_resolve'
 ];
