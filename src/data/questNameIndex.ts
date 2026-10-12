@@ -1,14 +1,15 @@
-/** 59 quest-title pairs mapped to editorial milestones, NOT 59 milestone equivalents.
+/** 62 quest-title pairs mapped to editorial milestones, NOT 62 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
  */
-export type QuestNameEvidence = 'pak_sample_reported' | 'paired_catalog';
+export type QuestNameEvidence = 'pak_sample_reported' | 'paired_catalog' | 'kiranico_ptbr';
 export interface QuestNameRecord {
   english: string;
   ptBR: string;
   eventIds: readonly string[];
   evidence: QuestNameEvidence;
+  sourceUrl?: string;
   titleKey?: string;
   resourcePath?: string;
   sha256?: string;
@@ -536,6 +537,27 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
       "MAISTER:archer_taliesin"
     ],
     "evidence": "paired_catalog"
+  },
+  {
+    "english": "An Unsettling Encounter",
+    "ptBR": "Um Encontro Perturbador",
+    "eventIds": ["v301", "v303"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+  },
+  {
+    "english": "Flickering Shadows",
+    "ptBR": "Sombras Trêmulas",
+    "eventIds": ["b02", "b04"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+  },
+  {
+    "english": "Convergence",
+    "ptBR": "Convergência",
+    "eventIds": ["p04"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
   }
 ];
 export const questNamesForEvent = (eventId: string): QuestNameRecord[] =>
