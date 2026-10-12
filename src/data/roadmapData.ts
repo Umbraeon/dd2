@@ -815,7 +815,7 @@ export const PHASES: Phase[] = [
         id: "i06",
         title: "Resolva as missões de forja e afeto da ilha",
         type: "missao",
-        note: "Complete 'Vontade Resistente, Forja Ardente' (Steeled Resolve, Blazing Forge) com Sara e Brokkr para destravar a melhor forja de estilo anão do jogo.",
+        note: "Inicie 'Lâmina Cega, Forja Fria' com Roman no Castelo de Vernworth. Leve a Espada Régia cega e pelo menos 15 carvões lustrazul (até 25 para recompensa maior) a Sara, na Forja de Brokkr em Bakbattahl. Em 'Vontade Resistente, Forja Ardente', resgate Sara na Caverna na Base da Montanha, recupere a espada restaurada e devolva-a a Roman. A forja de estilo anão passa a ficar disponível conforme a progressão.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
