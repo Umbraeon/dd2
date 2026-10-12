@@ -17,6 +17,7 @@ export interface QuestItemNeed {
 export interface QuestItemSection {
   guidance: string;
   items: readonly QuestItemNeed[];
+  references?: readonly string[];
 }
 
 const BOOKS = FORGERY_ITEMS.slice(0, 5);
@@ -34,7 +35,8 @@ const grimoiresFor = (recipient: 'trysha' | 'myrddin'): QuestItemNeed[] =>
 export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>> = {
   spellbound: {
     guidance: 'Escolha pelo menos 3 grimórios de TÍTULOS DIFERENTES entre os 5 abaixo. Trysha precisa de originais, não de cópias. Uma rota segura é obter os livros, fazer as cópias primeiro na loja de Ibrahim, e então entregar 3 originais a Trysha. O preço de falsificação documentado em 2024 é 6.000 G por livro; confirme o preço na sua versão.',
-    items: grimoiresFor('trysha')
+    items: grimoiresFor('trysha'),
+    references: ['https://www.powerpyx.com/dragons-dogma-2-all-grimoire-locations/', 'https://game8.co/games/Dragons-Dogma-2/archives/Spellbound']
   },
   sorcerers_appraisal: {
     guidance: 'Myrddin solicita os mesmos 5 títulos, mas a missão pode ser concluída entregando 3 títulos DIFERENTES falsificados. Ele aceita essas cópias; guarde os livros autênticos para Trysha. A entrega e a obtenção do pergaminho de Mestre são verificações distintas. Se já aprendeu Meteoron com Trysha, a conversa com Myrddin pode requerer o Turquoise Ring dela.',
@@ -47,7 +49,8 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
         forgery: 'not-applicable'
       },
       ...grimoiresFor('myrddin')
-    ]
+    ],
+    references: ['https://www.powerpyx.com/dragons-dogma-2-all-grimoire-locations/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Sorcerers-Appraisal']
   },
   jadeite: {
     guidance: 'A decisão sobre quem recebe original e cópia altera a verificação de Everard. Ibrahim só fará a cópia se você ainda tiver o original.',
@@ -183,7 +186,14 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
     items: [{ name: 'Espadas', quantity: '4', where: 'Armas confiscadas no depósito de Melve, com ajuda da distração dos irmãos, ou quatro espadas simples adquiridas previamente.', use: 'Entregue as quatro a Lennart para armar os moradores.', forgery: 'not-applicable' }]
   },
   nesting: {
-    guidance: 'Os recipientes usados contra o ninho de sáurios fazem parte da ação da missão; verifique sua localização na área marcada antes de usá-los.',
-    items: [{ name: 'Recipientes de veneno da missão', quantity: 'Conforme os recipientes existentes na área', where: 'Procure perto do ninho de sáurios na região de Melve, conforme orientação de Lennart.', use: 'Use o veneno contra o ninho conforme a etapa da missão; não é uma falsificação em Ibrahim.', forgery: 'not-applicable' }]
+    guidance: 'Primeiro destrua os ovos com explosivos, retorne a Lennart e só então use o veneno. Se o jarro cair no rio, pode haver consequência indesejada para Melve.',
+    items: [
+      { name: 'Barris explosivos da missão', quantity: 'Conforme necessário para atingir o ninho', where: 'Perto da margem do rio, fora da entrada de Melve.', use: 'Arremesse contra os ovos de sáurios na outra margem e relate o resultado a Lennart.', forgery: 'not-applicable' },
+      { name: 'Jarro de veneno da missão', quantity: '1 jarro', where: 'No chão perto da entrada de Melve, após a primeira conversa de retorno com Lennart.', use: 'Arremesse no ninho, não na água. Não pode ser falsificado com Ibrahim.', forgery: 'not-applicable' }
+    ]
+  },
+  nameless_village: {
+    guidance: 'A investigação termina ao apresentar a Brant a prova recebida de Srail.',
+    items: [{ name: 'Evidência sobre o falso soberano', quantity: '1 documento da investigação', where: 'Receba de Srail, após atravessar as Profundezas da Vila Sem Nome.', use: 'Leve a informação/prova a Brant na Stardrop Inn. Não é item para copiar.', forgery: 'original' }]
   }
 };
