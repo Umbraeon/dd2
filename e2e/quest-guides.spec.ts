@@ -172,3 +172,31 @@ test('Beren: biblioteca encontra as duas missões PT-BR no celular sem criar pro
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Ilha Vulcânica: busca mobile abre a Fonte do Contentamento e indica pergaminho sem escrever progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Fonte do Contentamento');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Fonte do Contentamento/ }).click();
+  const entry = page.locator('#quest-guide-spring_thy_step');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Gautstafr');
+  await expect(entry).toContainText('Spellbow’s Paradox');
+  await expect(entry).toContainText('Martyr’s Bolt');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Ilha Vulcânica: busca encontra Lamond, máscara e Grandmaster’s Path', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('O Sábio Beberrão');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /O Sábio Beberrão/ }).click();
+  const entry = page.locator('#quest-guide-sotted_sage');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Newt Liqueur');
+  await expect(entry).toContainText('Beastren Mask');
+  await expect(entry).toContainText('Grandmaster’s Path');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
