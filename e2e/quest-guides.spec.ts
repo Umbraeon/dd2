@@ -35,12 +35,13 @@ test('busca global por Jadeite abre guia individual sem criar progresso', async 
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
 
-test('Diário: Beren e grimórios aparecem juntos no marco Conheça Beren', async ({ page }) => {
+test('Diário: Melve exibe Beren e Trysha sem classificar Myrddin como missão local', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('melve');
-  await page.getByRole('button', { name: /Consultar atividade: Conheça Beren/ }).click();
+  await page.getByRole('button', { name: /Consultar atividade: Conheça Beren e Trysha/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(4);
+  await expect(panel.locator('details')).toHaveCount(3);
+  await expect(panel.locator('#quest-guide-sorcerers_appraisal')).toHaveCount(0);
   const beren = panel.locator('#quest-guide-beren_claw');
   await beren.locator('summary').click();
   await expect(beren).toContainText('três espadas');
@@ -52,9 +53,20 @@ test('Diário: Beren e grimórios aparecem juntos no marco Conheça Beren', asyn
   const trysha = panel.locator('details').filter({ hasText: /Magia Vertiginosa/ });
   await trysha.locator('summary').click();
   await expect(trysha).toContainText('pelo menos três grimórios autênticos');
-  const myrddin = panel.locator('details').filter({ hasText: /O Julgamento do Feiticeiro/ });
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Diário: Myrddin tem guia próprio na rota de Vernworth e Cidade de Descanso da Fronteira', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth2');
+  await page.getByRole('button', { name: /Consultar atividade: Visite Myrddin na Cidade de Descanso da Fronteira/ }).click();
+  const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
+  const myrddin = panel.locator('#quest-guide-sorcerers_appraisal');
   await myrddin.locator('summary').click();
+  await expect(myrddin).toContainText('não em Melve nem dentro de Vernworth');
   await expect(myrddin).toContainText('três falsificações diferentes');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
 
