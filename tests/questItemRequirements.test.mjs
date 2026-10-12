@@ -9,9 +9,9 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 62);
-  assert.equal(withItems.length, 39);
-  assert.equal(noItems.length, 23);
+  assert.equal(QUEST_GUIDES.length, 66);
+  assert.equal(withItems.length, 42);
+  assert.equal(noItems.length, 24);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
   for (const [id, section] of Object.entries(QUEST_ITEM_REQUIREMENTS)) {
@@ -214,4 +214,25 @@ test('onda 14: duas provas Wilhelmina, três Elena, suborno Herman e Ekertt opci
   assert.equal(hugo.items[0].optional, true);
   assert.match(hugo.items[0].quantity, /8\.500 G/);
   assert.match(hugo.guidance, /OPCIONAL/);
+});
+
+test('onda 15: roupa irreversível, ingredientes podres e três itens para Sebastian', () => {
+  const beggar=QUEST_ITEM_REQUIREMENTS.beggars_tale;
+  assert.equal(beggar.items.length,1);
+  assert.match(beggar.guidance,/Hilda/);
+  assert.match(beggar.guidance,/Celina/);
+  assert.match(beggar.items[0].use,/ESCOLHA/);
+  assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes('ailing_arborheart'));
+  const forest=QUEST_ITEM_REQUIREMENTS.forest_to_forge;
+  assert.equal(forest.items.length,4);
+  assert.match(forest.items[0].name,/Rotten Apple/);
+  assert.match(forest.items[1].name,/Rotten Fish/);
+  assert.match(forest.items[2].name,/Nutriabh/);
+  assert.match(forest.items[3].name,/Scalecinder/);
+  assert.match(forest.guidance,/NÃO condição rígida/);
+  const house=QUEST_ITEM_REQUIREMENTS.blue_sunbright_house;
+  assert.equal(house.items.length,3);
+  for(const name of ['Misshapen Eye','Detoxifying Decoction','Waking Powder']) {
+    assert.ok(house.items.some(item=>item.name===name),name);
+  }
 });
