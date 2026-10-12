@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 22);
+  assert.equal(QUEST_GUIDES.length, 27);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -122,4 +122,24 @@ test('passos de coronação e Wilhelmina não expõem hipóteses internas', ()
   const copy = [...QUEST_GUIDES.filter(g => ['feast_deception', 'home_hearth'].includes(g.id))
     .flatMap(g => [...g.preparation, ...g.steps, g.completion])].join(' ');
   assert.doesNotMatch(copy, /walkthroughs divergem|fonte única|não comprovado|em auditoria|não foi reproduzido/i);
+});
+
+test('onda 4: cinco missões novas possuem passos, fontes e destinos independentes', () => {
+  const ids = ['monster_culling', 'scaly_invaders', 'trouble_cape', 'till_death', 'every_rose'];
+  for (const id of ids) {
+    const entry = guide(id);
+    assert.ok(entry.steps.length >= 5, `Passos incompletos: ${id}`);
+    assert.equal(entry.references.length, 2, `Duas fontes em ${id}`);
+    assert.ok(entry.relatedEventIds.every(eventId => knownEvents.has(eventId)));
+    assert.ok(entry.completion.length > 35, `Conclusão incompleta: ${id}`);
+  }
+  assert.match(guide('monster_culling').steps.join(' '), /Mina de Trevo.*Harve.*Floresta Oriental/s);
+  assert.match(guide('scaly_invaders').steps.join(' '), /segundo grupo/);
+  assert.match(guide('trouble_cape').steps.join(' '), /Zoran/);
+  assert.match(guide('till_death').completion, /objetivos distintos/);
+  assert.match(guide('every_rose').steps.join(' '), /Sven.*Patrick.*Murder Report.*Bribery Investigation Findings/s);
+  assert.match(guide('every_rose').preparation.join(' '), /três dias no jogo/);
+  assert.match(guide('every_rose').completion, /depois que você aceita/);
+  assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 2);
+  assert.equal(questGuidesForEvent('v203').find(g => g.id === 'till_death')?.id, 'till_death');
 });
