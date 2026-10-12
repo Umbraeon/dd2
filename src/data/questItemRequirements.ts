@@ -55,6 +55,15 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
         use: 'Vista ambos antes de bater à porta de Myrddin no Posto do Retiro (Cidade de Descanso da Fronteira). Não é falsificação.',
         forgery: 'not-applicable'
       },
+      {
+        name: 'Turquoise Ring',
+        namePt: 'Anel Turquesa',
+        quantity: '1, condicional (se você já aprendeu Meteoron com Trysha)',
+        where: 'Recebido de Trysha como recompensa de Magia Vertiginosa (Spellbound), após entregar os grimórios autênticos e concluir o evento com ela.',
+        use: 'Se Myrddin questionar quem ensinou Meteoron, mostre sua ligação com Trysha tendo o anel no inventário ou equipado; se necessário, equipe-o e volte a conversar após descansar. Essa condição varia conforme o estado da missão e não é universal.',
+        forgery: 'not-applicable',
+        optional: true
+      },
       ...grimoiresFor('myrddin')
     ],
     references: ['https://www.powerpyx.com/dragons-dogma-2-all-grimoire-locations/', 'https://game8.co/games/Dragons-Dogma-2/archives/The-Sorcerers-Appraisal']
