@@ -595,6 +595,76 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-house-of-the-blue-sunbright-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/House-of-the-Blue-Sunbright'
     ]
+  },
+  gift_giving: {
+    guidance: 'Daphne pede flores, 1 minério de prata e 2 de ouro. No pedido final existem fontes com DIFERENTES quantidades: PowerPyx/GamerGuides pedem 5 remédios, Game8 indica 3. Leve 5 Detoxifying Decoctions ou Panaceas e entregue o que o diário de sua versão exigir. Flor murcha não equivale a buquê fresco.',
+    items: [
+      { name: 'Bunch of Flowers', namePt: 'Buquê de flores', quantity: '1 buquê fresco', where: 'Combine duas espécies diferentes de flores colhidas ou utilize um buquê guardado; não deixe murchar no inventário.', use: 'ENTREGUE a Daphne nos Cortiços de Vernworth logo após aceitar a missão.', forgery: 'original' },
+      { name: 'Silver Ore', namePt: 'Minério de prata', quantity: '1 minério', where: 'Depósitos de minérios na Mina de Trevo e outras cavernas; ocasionalmente vendido por mercadores.', use: 'ENTREGUE a Daphne depois do buquê de flores.', forgery: 'original' },
+      { name: 'Gold Ore', namePt: 'Minério de ouro', quantity: '2 minérios', where: 'Mineração em cavernas como a Mina de Trevo, vendedores ou estoque; retorne a Daphne após passar cerca de um dia.', use: 'ENTREGUE duas unidades a Daphne depois do minério de prata.', forgery: 'original' },
+      { name: 'Detoxifying Decoction (or Panacea)', namePt: 'Decocção desintoxicante (ou panaceia; tradução explicativa)', quantity: '3–5, FONTES DIVERGENTES: levar 5 é precaução', where: 'Loja de Philbert no Bairro Mercantil de Vernworth; também pode combinar Pitywort com Syrupwort Leaf para fabricar a decocção.', use: 'ENTREGUE a Daphne o número solicitado pelo diário. PowerPyx/GamerGuides: 5; Game8: 3. Não confundir com as três unidades destinadas a Sebastian em outra missão.', forgery: 'original' }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-gift-of-giving-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Gift-of-Giving',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/the-gift-of-giving-walkthrough'
+    ]
+  },
+  oxcart_courier: {
+    guidance: 'Donovan entrega a carta e 200 G para o trajeto da carroça; a missão depende da CARTA entregue a Lennart em Melve, mesmo se a carroça quebrar. Depois informe Donovan em Vernworth. Não confunda com A Carroça Fantasma.',
+    items: [{
+      name: 'Letter to Ser Lennart',
+      namePt: 'Carta para o senhor Lennart (tradução explicativa)',
+      quantity: '1 carta original recebida de Donovan',
+      where: 'Donovan entrega na Estação Norte de Carroças de Vernworth quando você aceita a tarefa.',
+      use: 'ENTREGUE pessoalmente a Lennart na vila de Melve; depois retorne a Donovan para concluir.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-oxcart-courier-walkthrough/',
+      'https://clair.6fast.com/dragons-dogma-2/guide/side-quests/vernworth/oxcart-courier-walkthrough'
+    ]
+  },
+  magisterial_amenity: {
+    guidance: 'O objeto exigido é o par de óculos original de Waldhar, escondido em depósito ATRÁS do Salão de Máscaras do castelo. Visite durante o dia se não quiser participar do baile. A recompensa Winter’s Path é recebida DEPOIS da entrega, não pré-requisito.',
+    items: [{
+      name: 'Exquisite Spectacles',
+      namePt: 'Óculos requintados (descrição explicativa)',
+      quantity: '1 par original',
+      where: 'Sala de depósito nos fundos do Salão de Máscaras, parte oeste do terreno do Castelo de Vernworth.',
+      use: 'ENTREGUE a Waldhar no arquivo da Casa Mãos Caridosas, sob os Cortiços de Vernworth.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-magisterial-amenity-walkthrough/',
+      'https://dragonsdogma.fandom.com/wiki/A_Magisterial_Amenity'
+    ]
+  },
+  gossamer_clouds: {
+    guidance: 'A Unfinished Letter inicia a investigação. Para a recompensa maior, busque Letter to Lord Phaesus no Laboratorium — Workshop #2 e entregue a Sven. Encerrar somente com a interpretação de Waldhar pode dar menos ouro e nenhuma Ferrystone.',
+    items: [
+      {
+        name: 'Unfinished Letter',
+        namePt: 'Carta inacabada (descrição explicativa)',
+        quantity: '1 documento inicial',
+        where: 'Sven entrega em seu quarto no segundo andar do Castelo de Vernworth após O Banquete da Farsa.',
+        use: 'Leia para identificar Phaesus; pode ser interpretada por Waldhar na rota curta, com recompensa menor.',
+        forgery: 'original'
+      },
+      {
+        name: 'Letter to Lord Phaesus',
+        namePt: 'Carta para lorde Phaesus (descrição explicativa)',
+        quantity: '1 documento na rota de melhor recompensa',
+        where: 'Laboratorium — Workshop #2 do Laboratório de Pesquisa de Magia Proibida, em Bakbattahl, após ouvir os pesquisadores perto da estátua de dragão.',
+        use: 'ENTREGUE a Sven em Vernworth para a recompensa maior (fontes relatam 20.000 G e uma Ferrystone).',
+        forgery: 'original',
+        optional: true
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-veil-of-gossamer-clouds-walkthrough/',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds'
+    ]
   }
 };
 
