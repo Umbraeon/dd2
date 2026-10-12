@@ -1,4 +1,4 @@
-/** 70 quest-title pairs mapped to editorial milestones, NOT 70 milestone equivalents.
+/** 74 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
@@ -590,7 +590,11 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   { english: "A Beggar's Tale", ptBR: "O Conto do Mendigo", eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'The Ailing Arborheart', ptBR: 'A Dor do Coração do Jardim', eventIds: ['v106','i06','u04'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'Out of the Forest, Into the Forge', ptBR: 'Da Floresta à Forja', eventIds: ['i06','u04'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'House of the Blue Sunbright', ptBR: 'A Casa da Luz-Solaris Azul', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
+  { english: 'House of the Blue Sunbright', ptBR: 'A Casa da Luz-Solaris Azul', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'The Gift of Giving', ptBR: 'A Dádiva da Caridade', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'Oxcart Courier', ptBR: 'Correio por Carroça', eventIds: ['v102'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'A Magisterial Amenity', ptBR: 'Cortesia Magisterial', eventIds: ['v103', 'v301'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'A Veil of Gossamer Clouds', ptBR: 'Um Véu de Finas Nuvens', eventIds: ['v304','b02'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
 ];
 export const questNamesForEvent = (eventId: string): QuestNameRecord[] =>
   QUEST_NAME_INDEX.filter(item => item.eventIds.includes(eventId));
