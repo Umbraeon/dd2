@@ -19,8 +19,10 @@ test('inventário detecta lacunas sem confundir guias com nomes PT-BR ou 53 marc
   assert.equal(report.summary.withIndividualGuide + report.unlistedGuides.length, QUEST_GUIDES.length);
   assert.equal(report.summary.withoutIndividualGuide, 80 - report.summary.withIndividualGuide);
   assert.equal(report.summary.withoutTitleInCurrentIndex, 80 - report.summary.withTitleInCurrentIndex);
-  assert.ok(report.missingGuide.some(q => q.english === 'An Unsettling Encounter'));
-  assert.ok(report.missingLocalization.includes('An Unsettling Encounter'));
+  assert.equal(report.summary.historicalMainWithoutGuide, 0, 'As 16 missões principais históricas precisam ter ficha');
+  assert.ok(!report.missingGuide.some(q => q.english === 'An Unsettling Encounter'));
+  assert.ok(!report.missingLocalization.includes('An Unsettling Encounter'));
+  assert.equal(QUEST_NAME_INDEX.find(q => q.english === 'An Unsettling Encounter')?.ptBR, 'Um Encontro Perturbador');
   assert.ok(report.titleIndexOutsideBaseline.some(q => q.english === 'Chilling Tidings'));
   assert.equal(report.summary.titlesOutsideHistoricalBaseline, QUEST_NAME_INDEX.length - report.summary.withTitleInCurrentIndex);
   const dlc = JSON.parse(readFileSync(new URL('../docs/audit/dark-arisen-candidate-quest-roster-2026-10-12.json', import.meta.url), 'utf8'));
