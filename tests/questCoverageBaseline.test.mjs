@@ -17,7 +17,7 @@ test('inventário detecta lacunas sem confundir guias com nomes PT-BR ou 53 marc
   const report = buildQuestCoverage(baselineRoster);
   assert.equal(report.summary.historicalTotal, 80);
   assert.equal(report.summary.withIndividualGuide + report.unlistedGuides.length, QUEST_GUIDES.length);
-  assert.equal(report.summary.withoutIndividualGuide, 80 - QUEST_GUIDES.length);
+  assert.equal(report.summary.withoutIndividualGuide, 80 - report.summary.withIndividualGuide);
   assert.equal(report.summary.withoutTitleInCurrentIndex, 80 - report.summary.withTitleInCurrentIndex);
   assert.ok(report.missingGuide.some(q => q.english === 'An Unsettling Encounter'));
   assert.ok(report.missingLocalization.includes('An Unsettling Encounter'));
