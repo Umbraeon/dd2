@@ -134,6 +134,14 @@
     {
       "id": "sotted_sage",
       "english": "The Sotted Sage"
+    },
+    {
+      "id": "new_godsway",
+      "english": "A New Godsway"
+    },
+    {
+      "id": "guardian_gigantus",
+      "english": "The Guardian Gigantus"
     }
   ],
   "indexedWithoutGuide": [
@@ -260,25 +268,6 @@
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
-    },
-    {
-      "english": "A New Godsway",
-      "ptBR": "Um Novo Chamado Divino",
-      "events": [
-        "p04"
-      ],
-      "evidence": "pak_sample_reported",
-      "priority": "P1"
-    },
-    {
-      "english": "The Guardian Gigantus",
-      "ptBR": "O Guardião Gigantus",
-      "events": [
-        "p04",
-        "p05"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
     },
     {
       "english": "Legacy",
@@ -428,6 +417,7 @@
   ],
   "lastReviewed": "2026-10-12",
   "changelog": [
-    "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification"
+    "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification",
+    "PR wave7: the two endgame main quest guides added, registry now 37 and backlog 23. Sources are walkthroughs, not real save verification."
   ]
 }
