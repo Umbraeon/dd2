@@ -535,7 +535,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   },
   {
     id: 'shadowed_prayers', title: 'Orações Ensombradas', original: 'Shadowed Prayers',
-    region: 'Bakbattahl, Palácio da Chama Luzente',
+    region: 'Bakbattahl, Flamebearer Palace (nome EN do local)',
     giver: 'Menella',
     relatedEventIds: ['b02'],
     preparation: [
@@ -543,7 +543,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'A identificação durante a cerimônia é urgente: depois que Menella iniciar as preces, não se afaste para outras tarefas.'
     ],
     steps: [
-      'Fale com Menella no acesso ao Palácio da Chama Luzente e aceite ajudar a proteger Nadinia.',
+      'Fale com Menella no acesso ao Flamebearer Palace e aceite ajudar a proteger Nadinia.',
       'Retorne ao local indicado pela missão pela manhã para participar da cerimônia.',
       'Ouça a descrição de Menella: o assassino usa o cabelo preso e tem um ferimento no braço direito.',
       'Durante as preces, observe os fiéis nas escadas e procure o homem com cabelo amarrado, túnica azul-escura e marca avermelhada no braço direito.',
