@@ -9,8 +9,8 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 58);
-  assert.equal(withItems.length, 35);
+  assert.equal(QUEST_GUIDES.length, 62);
+  assert.equal(withItems.length, 39);
   assert.equal(noItems.length, 23);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
@@ -194,4 +194,24 @@ test('onda 13: ouro, dois materiais da forja, espada final e resgate sem invent�
   assert.match(end.items[0].where, /Sara/);
   assert.match(end.items[0].use, /Roman/);
   assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes('prey_for_pack'));
+});
+
+test('onda 14: duas provas Wilhelmina, três Elena, suborno Herman e Ekertt opcional', () => {
+  const rose = QUEST_ITEM_REQUIREMENTS.every_rose;
+  assert.equal(rose.items.length, 2);
+  assert.match(rose.guidance, /TRÊS DIAS/);
+  assert.match(rose.guidance, /Battahli-Crested Letter/);
+  assert.match(rose.items[0].use, /Wilhelmina/);
+  assert.match(rose.items[1].use, /Brant/);
+  const saint = QUEST_ITEM_REQUIREMENTS.saint_slums;
+  assert.equal(saint.items.length, 3);
+  assert.match(saint.items[0].quantity, /3 unidades/);
+  assert.match(saint.items[1].use, /Radcliff/);
+  assert.match(saint.items[2].where, /porão/);
+  assert.match(QUEST_ITEM_REQUIREMENTS.candle_storm.items[0].quantity, /5\.000 G/);
+  const hugo = QUEST_ITEM_REQUIREMENTS.pilfered_path;
+  assert.equal(hugo.items.length, 1);
+  assert.equal(hugo.items[0].optional, true);
+  assert.match(hugo.items[0].quantity, /8\.500 G/);
+  assert.match(hugo.guidance, /OPCIONAL/);
 });
