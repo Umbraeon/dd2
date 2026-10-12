@@ -31,11 +31,11 @@ const parseCsv = (raw) => {
 
 const evidence = parseCsv(csv);
 
-test('evidência de itens cobre todos os 54 guias e distingue missões sem item de lacunas', () => {
+test('evidência de itens cobre todos os 58 guias e distingue missões sem item de lacunas', () => {
   const guides = new Map(QUEST_GUIDES.map(guide => [guide.original, guide]));
   const recorded = new Set(evidence.map(row => row.quest_en));
-  assert.equal(guides.size, 54);
-  assert.equal(recorded.size, 54, 'A tabela deve cobrir todas as missões; não só 23');
+  assert.equal(guides.size, 58);
+  assert.equal(recorded.size, 58, 'A tabela deve cobrir todas as missões; não só 23');
   assert.deepEqual([...recorded].sort(), [...guides.keys()].sort());
   for (const row of evidence) assert.ok(guides.has(row.quest_en), row.quest_en);
   const idsWithItems = new Set(Object.keys(QUEST_ITEM_REQUIREMENTS));
@@ -51,7 +51,7 @@ test('evidência de itens cobre todos os 54 guias e distingue missões sem item 
 });
 
 test('proveniência: texto de localização não é ID runtime e rotas/preços não viram verificação em save', () => {
-  assert.equal(evidence.length, 72);
+  assert.equal(evidence.length, 77);
   const states = new Set(['VERIFICADO_NA_BUILD', 'FONTE_SECUNDARIA', 'NAO_VERIFICADO', 'OBSERVADO_EM_SAVE']);
   for (const row of evidence) {
     assert.equal(row.item_id, '', 'Sufixo item_name_N não comprova ID de inventário: ' + row.quest_en);

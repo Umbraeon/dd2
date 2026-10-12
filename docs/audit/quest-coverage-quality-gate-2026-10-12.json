@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified)",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -218,6 +218,22 @@
     {
       "id": "convergence",
       "english": "Convergence"
+    },
+    {
+      "id": "place_call_home",
+      "english": "A Place to Call Home"
+    },
+    {
+      "id": "dulled_steel",
+      "english": "Dulled Steel, Cold Forge"
+    },
+    {
+      "id": "steeled_resolve",
+      "english": "Steeled Resolve, Blazing Forge"
+    },
+    {
+      "id": "prey_for_pack",
+      "english": "Prey for the Pack"
     }
   ],
   "indexedWithoutGuide": [
@@ -252,38 +268,11 @@
       "priority": "P2"
     },
     {
-      "english": "A Place to Call Home",
-      "ptBR": "Um Lugar para Chamar de Lar",
-      "events": [
-        "v105"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
       "english": "Every Rose Has Its Thorn",
       "ptBR": "As Rosas Têm Espinhos",
       "events": [
         "v302",
         "v303"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "Dulled Steel, Cold Forge",
-      "ptBR": "Lâmina Cega, Forja Fria",
-      "events": [
-        "i06"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "Steeled Resolve, Blazing Forge",
-      "ptBR": "Vontade Resistente, Forja Ardente",
-      "events": [
-        "i06"
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
@@ -316,7 +305,6 @@
     "A Magisterial Amenity",
     "A Veil of Gossamer Clouds",
     "Hunt for the Jadeite Orb",
-    "Prey for the Pack",
     "Tolled to Rest",
     "Masked Correspondence",
     "Welcome to Battahl",

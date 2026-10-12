@@ -9,9 +9,9 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 54);
-  assert.equal(withItems.length, 32);
-  assert.equal(noItems.length, 22);
+  assert.equal(QUEST_GUIDES.length, 58);
+  assert.equal(withItems.length, 35);
+  assert.equal(noItems.length, 23);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
   for (const [id, section] of Object.entries(QUEST_ITEM_REQUIREMENTS)) {
@@ -176,4 +176,22 @@ test('sete missões principais: carta de Allard e fragmento azul não são confu
   for (const id of ['gaoled_awakening', 'tales_beginning', 'in_dragons_wake', 'seat_sovran', 'convergence']) {
     assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes(id), id);
   }
+});
+
+test('onda 13: ouro, dois materiais da forja, espada final e resgate sem inventário', () => {
+  const home = QUEST_ITEM_REQUIREMENTS.place_call_home;
+  assert.match(home.items[0].quantity, /20\.000 G/);
+  assert.match(home.items[0].use, /Mildred/);
+  const forge = QUEST_ITEM_REQUIREMENTS.dulled_steel;
+  assert.equal(forge.items.length, 2);
+  assert.match(forge.items[0].where, /Roman/);
+  assert.match(forge.items[0].use, /INVENTÁRIO/);
+  assert.match(forge.items[1].quantity, /15 obrigatórios/);
+  assert.match(forge.items[1].quantity, /25 opcionais/);
+  assert.match(forge.items[1].where, /Glymercole/);
+  const end = QUEST_ITEM_REQUIREMENTS.steeled_resolve;
+  assert.equal(end.items.length, 1);
+  assert.match(end.items[0].where, /Sara/);
+  assert.match(end.items[0].use, /Roman/);
+  assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes('prey_for_pack'));
 });

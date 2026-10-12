@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 54);
+  assert.equal(QUEST_GUIDES.length, 58);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -375,5 +375,28 @@ test('história principal: 16 missões do catálogo histórico têm guias distin
   const v101 = PHASES.flatMap(p => p.events).find(e => e.id === 'v101');
   assert.match(v101.note, /Gregor/);
   assert.doesNotMatch(v101.note, /com o Capitão Brant/);
+  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+});
+
+test('onda 13: casa, forja sequencial e resgate de Rodge mantêm as condições críticas', () => {
+  const row = id => QUEST_GUIDES.find(q => q.id === id);
+  const home = row('place_call_home'), steel = row('dulled_steel');
+  const resolve = row('steeled_resolve'), prey = row('prey_for_pack');
+  for (const q of [home, steel, resolve, prey]) {
+    assert.ok(q && q.steps.length >= 5);
+    assert.ok(q.references.length >= 2);
+  }
+  assert.ok(home.relatedEventIds.includes('v105'));
+  assert.match(home.steps.join(' '), /20\.000 G/);
+  assert.ok(steel.relatedEventIds.includes('i06'));
+  assert.match(steel.preparation.join(' '), /15 Glimmercoal/);
+  assert.match(steel.preparation.join(' '), /Glymercole/);
+  assert.match(steel.steps.join(' '), /25/);
+  assert.match(resolve.preparation.join(' '), /DESAPARECEU/);
+  assert.match(resolve.steps.join(' '), /Roman/);
+  assert.ok(prey.relatedEventIds.includes('v206'));
+  assert.match(prey.preparation.join(' '), /MISSÃO COM PRAZO/);
+  assert.match(prey.steps.join(' '), /Caverna Pútrida/);
+  assert.match(prey.completion, /desfecho pior/);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
