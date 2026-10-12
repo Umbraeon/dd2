@@ -511,8 +511,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'O retorno a Margit conclui a missão; a sobrevivência de Gregor e a conquista por derrotar o Dullahan são objetivos distintos.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-till-death-do-us-part-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Till-Death-Do-Us-Part']
-  },,
-
+  },
   {
     id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
     region: 'Vernworth, Rose Chateau Bordelrie, castelo e Bairro Nobre',
@@ -537,7 +536,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     completion: 'A conversa posterior com Wilhelmina encerra a missão e pode render o Ring of Benevolence. O prazo de três dias é contado somente após aceitar ajudá-la.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/', 'https://gamerpillar.com/every-rose-has-its-thorn-walkthrough-dragons-dogma-2/']
   }
-]; 
+];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */
 export const questGuidesForEvent = (eventId: string): readonly QuestGuide[] =>
