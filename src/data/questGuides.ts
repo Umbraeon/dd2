@@ -844,6 +844,94 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.powerpyx.com/dragons-dogma-2-the-regentkins-resolve-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/The-Regentkins-Resolve'
     ]
+  },
+  {
+    id: 'civil_unrest', title: 'Instabilidade Civil', original: 'Civil Unrest',
+    region: 'Mundo Desancorado — Bakbattahl, caminho do Palácio da Chama Luzente',
+    giver: 'Menella, perto do caminho do palácio',
+    relatedEventIds: ['u04'],
+    preparation: [
+      'Depois de iniciar Átrios da Primeira Aurora no Santuário do Leito Marinho, procure Menella em Bakbattahl. A ativação pode variar com o progresso das provas e com a sobrevivência dos personagens.',
+      'Uma das três discussões pode ser resolvida oferecendo uma fruta fresca à criança; guarde uma antes de chegar ao mercado. Não é preciso falsificar nada.'
+    ],
+    steps: [
+      'Na subida para o Palácio da Chama Luzente, encontre Menella perto do caminho das carroças e aceite ajudar a conter os conflitos da cidade.',
+      'No entorno da Guilda das Vocações, ouça Scario e Nabrah e aceite testemunhar o duelo para que se resolva sem agressão sua.',
+      'Perto do mercado e da estalagem Pilgrims’ Inn, encontre Glintt e Nomos. Diga que nenhum dos dois está errado; quando as crianças pedirem, entregue uma fruta que não esteja podre.',
+      'Na entrada do Bairro Residencial, Grantt e Abba podem avançar contra você. Para um desfecho pacífico, defenda-se ou aguente os ataques até que se cansem, sem matá-los.',
+      'Após as três disputas, volte a Menella e depois fale com a imperatriz Nadinia em seus aposentos no Palácio da Chama Luzente para confirmar a evacuação.'
+    ],
+    completion: 'Bakbattahl aceita evacuar. Soluções violentas podem alterar recompensas ou o resultado dos conflitos, embora walkthroughs relatem que a evacuação ainda pode acontecer.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-civil-unrest-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450312'
+    ]
+  },
+  {
+    id: 'wandering_roots', title: 'Raízes Errantes', original: 'Wandering Roots',
+    region: 'Mundo Desancorado — Jardim Sagrado (Sacred Arbor), a noroeste de Vernworth',
+    giver: 'Glyndwr, na plataforma circular de entrada do Jardim Sagrado',
+    relatedEventIds: ['u04'],
+    preparation: [
+      'Comece Átrios da Primeira Aurora. Leve um peão com especialização Woodland Wordsmith (intérprete de élfico), se disponível.',
+      'Há duas rotas para convencer Taliesin: plantar um ramo da Árvore Sagrada no santuário, caso tenha desenvolvido a cadeia The Ailing Arborheart e Out of the Forest, Into the Forge; OU insistir nas conversas ao longo de dias. O ramo não é obrigatório para a alternativa de diálogo.'
+    ],
+    steps: [
+      'Entre no Jardim Sagrado e fale com Glyndwr na plataforma redonda perto da entrada. Siga-o até Taliesin, seu pai.',
+      'Converse com Taliesin na casa do arborista; ele teme que os elfos não sobrevivam longe da Árvore Sagrada.',
+      'Rota do ramo, se disponível no estado da sua campanha: receba o Arborheart Cutting de Taliesin, vá ao setor de terra do Santuário do Leito Marinho e plante-o no círculo de pedras indicado pelo marcador de missão.',
+      'Retorne a Taliesin e conte que o ramo foi plantado; ele concordará em evacuar seu povo.',
+      'Rota alternativa se não tiver a cadeia de missões pronta: esgote o diálogo de Taliesin, volte a conversar após a passagem de tempo e repita até ele ceder. Descansos fazem o Mundo Desancorado avançar; organize outras tarefas antes de escolher essa rota.'
+    ],
+    completion: 'Taliesin aceita a evacuação do Jardim Sagrado. Não é necessário ter um Arborheart Cutting se conseguir convencê-lo pelo diálogo.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-wandering-roots-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450033'
+    ]
+  },
+  {
+    id: 'aiding_ernesto', title: 'A Importância de Ajudar Ernesto', original: 'The Importance of Aiding Ernesto',
+    region: 'Mundo Desancorado — Acampamento da Ilha Vulcânica de Agamen',
+    giver: 'Ernesto, no portão norte do Acampamento da Ilha Vulcânica',
+    relatedEventIds: ['u04'],
+    preparation: [
+      'Comece Átrios da Primeira Aurora no Santuário do Leito Marinho. Esta é a retirada do ACAMPAMENTO, separada da missão Pastor de Peões no Local de Escavação.',
+      'Pedra de transporte e cristal de porto no acampamento são opcionais para abreviar a escolta; você também pode conduzir os dois personagens caminhando.'
+    ],
+    steps: [
+      'Entre no Acampamento da Ilha Vulcânica pelo portão norte e fale com Ernesto, que não quer abandonar os moradores.',
+      'Siga o marcador para oeste do acampamento até a casa de Gautstafr e Cliodhna. Converse com eles e convença-os a acompanhar você; enfrente perigos que impeçam a saída, conforme o estado de sua partida.',
+      'Escolte o casal ao acampamento. Gautstafr anda devagar: mantenha o grupo junto, limpe o caminho ou carregue-o; um teleporte até um cristal de porto próximo é alternativa, não exigência.',
+      'Depois de entregar o casal a Ernesto, procure Lamond perto das fontes termais e converse com ele sobre a evacuação. Se a conversa permitir, convide-o a proteger Gautstafr e Cliodhna.',
+      'Volte a Ernesto e confirme que o casal e Lamond estão prontos; encerre a retirada do acampamento.'
+    ],
+    completion: 'Acampamento da Ilha Vulcânica evacuado. Ainda é necessário ir ao Local de Escavação para completar Pastor de Peões — são duas retiradas independentes.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-importance-of-aiding-ernesto-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450317'
+    ]
+  },
+  {
+    id: 'shepherd_pawns', title: 'Pastor de Peões', original: 'Shepherd of the Pawns',
+    region: 'Mundo Desancorado — Local de Escavação, Ilha Vulcânica de Agamen',
+    giver: 'Henrique, no portão do Local de Escavação',
+    relatedEventIds: ['u04'],
+    preparation: [
+      'Comece Átrios da Primeira Aurora no Santuário do Leito Marinho. Esta missão NÃO é a evacuação do Acampamento Vulcânico feita por Ernesto.',
+      'Henrique entrega a chave do alojamento do capataz para recuperar o Diminished Godsway (cajado); guarde esse item e leve-o diretamente a ele. Não há necessidade de encomendar falsificação.'
+    ],
+    steps: [
+      'Vá ao Local de Escavação, próximo do Acampamento da Ilha Vulcânica, e derrote o Golem mágico que bloqueia a área da entrada.',
+      'Converse com Henrique no portão e acompanhe-o até as celas onde os peões se abrigaram. Receba a Overseer’s Lodge Key.',
+      'Volte em direção ao portão onde o Golem estava e suba até os alojamentos na encosta. Procure a segunda cabana trancada e abra-a com a chave de Henrique.',
+      'Recolha dentro do alojamento o Diminished Godsway, objeto que ajuda Henrique a convencer os peões a abandonar o local.',
+      'Retorne às celas e entregue o Diminished Godsway diretamente a Henrique. Confira a confirmação da retirada do Local de Escavação no diário.'
+    ],
+    completion: 'Peões do Local de Escavação evacuados. A entrega do Diminished Godsway a Henrique é obrigatória nesta rota e distinta da conversa com Ernesto no acampamento.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-shepherd-of-the-pawns-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450321'
+    ]
   }
 ];
 

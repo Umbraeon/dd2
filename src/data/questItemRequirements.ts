@@ -224,6 +224,84 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
   nameless_village: {
     guidance: 'A investigação termina ao apresentar a Brant a prova recebida de Srail.',
     items: [{ name: 'Evidência sobre o falso soberano', namePt: 'Mandado de Prisão de Darragh (Darragh\'s Bill of Arrest)', quantity: '1 documento da investigação', where: 'Receba de Srail, após atravessar as Profundezas da Vila Sem Nome (Vilarejo sem Nome).', use: 'Leve a informação/prova a Brant na Stardrop Inn. Não é item para copiar.', forgery: 'original' }]
+  },
+  civil_unrest: {
+    guidance: 'A fruta é uma opção para resolver PACIFICAMENTE a discussão das crianças no mercado; não é requisito universal para evacuar Bakbattahl. Os demais conflitos se resolvem por ações e diálogo.',
+    items: [{
+      name: 'Fruta fresca (não estragada)',
+      quantity: '1 unidade, apenas para resolução pacífica no mercado',
+      where: 'Compre frutas nos vendedores de Bakbattahl ou use uma maçã/outra fruta não estragada guardada no inventário.',
+      use: 'Na discussão de Glintt e Nomos, diga que nenhum dos dois está errado; entregue a fruta às crianças quando pedirem. Não é necessária para soluções alternativas.',
+      forgery: 'not-applicable',
+      optional: true
+    }],
+    references: [
+      'https://game8.co/games/Dragons-Dogma-2/archives/450312',
+      'https://www.neoseeker.com/dragons-dogma-2/walkthrough/Civil_Unrest'
+    ]
+  },
+  wandering_roots: {
+    guidance: 'O ramo serve SOMENTE para a rota de plantio, caso tenha progredido na história da Árvore Sagrada. É possível evacuar os elfos sem o ramo insistindo nas conversas com Taliesin, mas passar dias pode afetar o Mundo Desancorado.',
+    items: [{
+      name: 'Arborheart Cutting (ramo da Árvore Sagrada)',
+      quantity: '1 ramo, apenas se escolher a rota de plantio',
+      where: 'Recebido de Taliesin no Jardim Sagrado quando a campanha permite a rota após The Ailing Arborheart e Out of the Forest, Into the Forge.',
+      use: 'No Santuário do Leito Marinho, localize o pequeno círculo de pedras e plante o ramo. Volte a Taliesin para informar o resultado; não precisa falsificar.',
+      forgery: 'not-applicable',
+      optional: true
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-wandering-roots-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450033'
+    ]
+  },
+  aiding_ernesto: {
+    guidance: 'Não há item obrigatório de inventário na escolta. Os recursos abaixo são conveniências OPCIONAIS: andar com Gautstafr e Cliodhna também funciona.',
+    items: [
+      {
+        name: 'Portcrystal (cristal de porto)',
+        quantity: '1 opcional e reutilizável, se não houver ponto próximo',
+        where: 'Use um cristal de porto que já possui; posicioná-lo junto ao Acampamento da Ilha Vulcânica acelera o retorno do casal.',
+        use: 'Coloque no acampamento antes da escolta. Sem ele, simplesmente volte caminhando com o casal.',
+        forgery: 'not-applicable',
+        optional: true
+      },
+      {
+        name: 'Ferrystone (pedra de transporte)',
+        quantity: '1 opcional, consumida na viagem',
+        where: 'Obtida de recompensas, baús ou vendedores; precisa haver um ponto de teleporte válido no destino.',
+        use: 'Após convencer os dois, segure/carregue Gautstafr e use a pedra para retornar ao acampamento se houver cristal de porto. Caso contrário, escolte a pé.',
+        forgery: 'not-applicable',
+        optional: true
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-importance-of-aiding-ernesto-walkthrough/',
+      'https://www.neoseeker.com/dragons-dogma-2/walkthrough/The_Importance_of_Aiding_Ernesto'
+    ]
+  },
+  shepherd_pawns: {
+    guidance: 'Esta missão exige uma chave para ABRIR a porta e um objeto para ENTREGAR. A chave vem de Henrique; o Diminished Godsway está no alojamento trancado e deve ser devolvido a Henrique. Nenhuma falsificação é necessária.',
+    items: [
+      {
+        name: 'Overseer’s Lodge Key (chave do alojamento do capataz)',
+        quantity: '1, recebida durante a missão',
+        where: 'Henrique entrega após você derrotar o Golem mágico e acompanhá-lo das portas do Local de Escavação às celas.',
+        use: 'Abra a segunda cabana nos alojamentos da encosta, perto do caminho da entrada. Guarde a chave até abrir a porta.',
+        forgery: 'not-applicable'
+      },
+      {
+        name: 'Diminished Godsway (cajado debilitado)',
+        quantity: '1, obrigatório para entregar',
+        where: 'Dentro da segunda cabana trancada na colina perto do portão do Local de Escavação; abra com a chave de Henrique.',
+        use: 'Entregue o objeto ORIGINAL a Henrique junto às celas para permitir a evacuação dos peões. Não encomende falsificação.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-shepherd-of-the-pawns-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450321'
+    ]
   }
 };
 

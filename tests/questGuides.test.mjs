@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 40);
+  assert.equal(QUEST_GUIDES.length, 44);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -297,4 +297,31 @@ test('Mundo Desancorado: Phaesus em Bakbattahl, cinco evacuações e feixe final
   assert.match(u03.title, /Bakbattahl/);
   assert.match(u03.note, /Laboratório.*Phaesus/);
   assert.doesNotMatch(u03.note, /Acorde no Santuário do Leito Marinho/);
+});
+
+test('Mundo Desancorado: quatro evacuações restantes possuem gatilho, roteiro e limites explícitos', () => {
+  const names = ['civil_unrest', 'wandering_roots', 'aiding_ernesto', 'shepherd_pawns'];
+  const rows = names.map(id => QUEST_GUIDES.find(q => q.id === id));
+  for (const [i, q] of rows.entries()) {
+    assert.ok(q, names[i]);
+    assert.ok(q.relatedEventIds.includes('u04'));
+    assert.match(q.region, /Mundo Desancorado/);
+    assert.ok(q.steps.length >= 5);
+    assert.ok(q.references.length >= 2);
+  }
+  const [bak,elv,ern,hen] = rows;
+  for (const person of ['Menella', 'Nadinia', 'Glintt', 'Nomos', 'Scario', 'Nabrah']) {
+    assert.match(bak.steps.join(' '), new RegExp(person));
+  }
+  assert.match(elv.steps.join(' '), /Arborheart Cutting/);
+  assert.match(elv.steps.join(' '), /Rota alternativa/);
+  assert.match(elv.preparation.join(' '), /Woodland Wordsmith/);
+  assert.match(ern.steps.join(' '), /Gautstafr/);
+  assert.match(ern.steps.join(' '), /Cliodhna/);
+  assert.match(ern.steps.join(' '), /Lamond/);
+  assert.match(ern.completion, /Pastor de Peões/);
+  assert.match(hen.steps.join(' '), /Overseer’s Lodge Key/);
+  assert.match(hen.steps.join(' '), /Diminished Godsway/);
+  assert.match(hen.completion, /obrigatória/);
+  assert.equal(new Set(PHASES.flatMap(p => p.events).map(e => e.id)).size, 53);
 });
