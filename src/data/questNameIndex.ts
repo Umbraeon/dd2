@@ -1,4 +1,4 @@
-/** 63 quest-title pairs mapped to editorial milestones, NOT 62 milestone equivalents.
+/** 66 quest-title pairs mapped to editorial milestones, NOT 66 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
@@ -563,6 +563,27 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
     "english": "Prey for the Pack",
     "ptBR": "A Presa da Alcateia",
     "eventIds": ["v206"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+  },
+  {
+    "english": "Saint of the Slums",
+    "ptBR": "A Santa dos Cortiços",
+    "eventIds": ["v103"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+  },
+  {
+    "english": "A Candle in the Storm",
+    "ptBR": "Como uma Vela na Tempestade",
+    "eventIds": ["b02", "i04"],
+    "evidence": "kiranico_ptbr",
+    "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+  },
+  {
+    "english": "Off the Pilfered Path",
+    "ptBR": "Provações do Pobre Desgarrado",
+    "eventIds": ["b02", "b03"],
     "evidence": "kiranico_ptbr",
     "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
   }
