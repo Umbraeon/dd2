@@ -9,9 +9,9 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 44);
-  assert.equal(withItems.length, 28);
-  assert.equal(noItems.length, 16);
+  assert.equal(QUEST_GUIDES.length, 47);
+  assert.equal(withItems.length, 30);
+  assert.equal(noItems.length, 17);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
   for (const [id, section] of Object.entries(QUEST_ITEM_REQUIREMENTS)) {
@@ -148,4 +148,18 @@ test('quatro evacuações: distinguir materiais condicionais de objetos de entre
   assert.match(shepherd[1].where, /cabana trancada/);
   assert.match(shepherd[1].use, /Henrique/);
   assert.equal(shepherd[1].forgery, 'original');
+});
+
+test('onda 11: Godsbane na prova, documento original para Brant e Talos sem item', () => {
+  const scholarly = QUEST_ITEM_REQUIREMENTS.scholarly_pursuit;
+  assert.equal(scholarly.items.length, 1);
+  assert.match(scholarly.items[0].name, /Empowered Godsbane Blade/);
+  assert.match(scholarly.items[0].use, /feixe vermelho/);
+  assert.match(scholarly.guidance, /NÃO confunda/);
+  const cart = QUEST_ITEM_REQUIREMENTS.phantom_oxcart;
+  assert.equal(cart.items.length, 1);
+  assert.match(cart.items[0].name, /Labor Requisition Orders/);
+  assert.match(cart.items[0].use, /Brant/);
+  assert.match(cart.guidance, /DESEQUIPE/);
+  assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes('when_wills_collide'));
 });

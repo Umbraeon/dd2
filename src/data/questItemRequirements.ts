@@ -302,6 +302,36 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-shepherd-of-the-pawns-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/450321'
     ]
+  },
+  scholarly_pursuit: {
+    guidance: 'Para investigar o FEIXE VERMELHO de Bakbattahl, tenha a Godsbane Potencializada recebida durante a história. É um item da missão principal, não um recurso para comprar ou falsificar. NÃO confunda esta prova com o feixe final do Santuário do Leito Marinho.',
+    items: [{
+      name: 'Empowered Godsbane Blade',
+      namePt: 'Lâmina da Perdição dos Deuses Potencializada',
+      quantity: '1 item-chave já obtido na campanha',
+      where: 'Recebido na missão principal Um Novo Chamado Divino (A New Godsway), após entregar a Ambrosius a lâmina restaurada.',
+      use: 'Interaja com o feixe vermelho diante do Palácio da Chama Luzente em Bakbattahl e use a lâmina quando o jogo solicitar. Ela não precisa ser entregue a Phaesus nem falsificada.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://game8.co/games/Dragons-Dogma-2/archives/A-Scholarly-Pursuit',
+      'https://www.powerpyx.com/dragons-dogma-2-a-scholarly-pursuit-walkthrough/'
+    ]
+  },
+  phantom_oxcart: {
+    guidance: 'Para entrar como peão, DESEQUIPE todo o equipamento visível; não é preciso adquirir uma fantasia. Recolha as ordens dos guardas em Bakbattahl e ENTREGUE-as a Brant. O item abaixo é prova obtida no fim do trajeto, não algo que se compra antes de embarcar.',
+    items: [{
+      name: 'Labor Requisition Orders',
+      namePt: 'Ordens de requisição de trabalho (tradução explicativa; PT-BR do inventário ainda não validado)',
+      quantity: '1 documento, obrigatório para a entrega final',
+      where: 'Após o trecho noturno da Carroça Fantasma e a revelação dos guardas em Bakbattahl, enfrente os guardas hostis; o documento é obtido nesse conflito.',
+      use: 'Retorne à Estalagem Stardrop em Vernworth e entregue as ordens ao Capitão Brant. Preserve o documento original; não é necessário fabricar cópia.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/',
+      'https://www.polygon.com/dragons-dogma-2-guide/24111543/phantom-oxcart-quest-walkthrough-location-start-navil-disguise'
+    ]
   }
 };
 
@@ -316,5 +346,5 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'readvent_calamity', 'arisen_shadow', 'monster_culling', 'scaly_invaders',
   'trouble_cape', 'till_death', 'mercy_thieves', 'shadowed_prayers',
   'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
-  'regentkins_resolve'
+  'regentkins_resolve', 'when_wills_collide'
 ];
