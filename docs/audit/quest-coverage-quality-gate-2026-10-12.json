@@ -126,6 +126,14 @@
     {
       "id": "poisonous_proposal",
       "english": "A Poisonous Proposal"
+    },
+    {
+      "id": "spring_thy_step",
+      "english": "Put a Spring in Thy Step"
+    },
+    {
+      "id": "sotted_sage",
+      "english": "The Sotted Sage"
     }
   ],
   "indexedWithoutGuide": [
@@ -231,24 +239,6 @@
       "ptBR": "A Carroça Fantasma",
       "events": [
         "b05"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "Put a Spring in Thy Step",
-      "ptBR": "A Fonte do Contentamento",
-      "events": [
-        "i03"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "The Sotted Sage",
-      "ptBR": "O Sábio Beberrão",
-      "events": [
-        "i05"
       ],
       "evidence": "paired_catalog",
       "priority": "P1"
@@ -435,5 +425,9 @@
     "Without an individual walkthrough != not mentioned anywhere in summary roadmap",
     "Jadeite Orb has a walkthrough and PT-BR label but no matching QuestNameIndex entry; validate localization evidence before adding",
     "Two maister-trigger quests are indexed but lack walkthroughs: Put a Spring in Thy Step and The Sotted Sage"
+  ],
+  "lastReviewed": "2026-10-12",
+  "changelog": [
+    "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification"
   ]
 }
