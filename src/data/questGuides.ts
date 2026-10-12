@@ -1628,8 +1628,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://game8.co/games/Dragons-Dogma-2/archives/Tolled-to-Rest',
       'https://www.rpgsite.net/guide/15635-dragons-dogma-2-a-game-wit-where-to-find-how-to-solve-all-sphinxs-riddles'
     ]
-  },,
-
+  },
   {
     id: 'masked_correspondence', title: 'Masked Correspondence', original: 'Masked Correspondence',
     region: 'Vernworth — aposentos de Sven no Castelo e Salão de Máscaras',
