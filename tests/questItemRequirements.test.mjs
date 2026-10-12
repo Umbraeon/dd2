@@ -9,8 +9,8 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 40);
-  assert.equal(withItems.length, 24);
+  assert.equal(QUEST_GUIDES.length, 44);
+  assert.equal(withItems.length, 28);
   assert.equal(noItems.length, 16);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
@@ -127,3 +127,25 @@ test('itens possuem traduções oficiais da build e identificação das falsific
   assert.equal(QUEST_ITEM_REQUIREMENTS.sorcerers_appraisal.items[0].namePt, 'Túnica Cortês + Calção Cortês');
 });
 
+
+test('quatro evacuações: distinguir materiais condicionais de objetos de entrega obrigatória', () => {
+  const map = QUEST_ITEM_REQUIREMENTS;
+  const food = map.civil_unrest.items;
+  assert.equal(food.length, 1);
+  assert.equal(food[0].optional, true);
+  assert.match(food[0].use, /Glintt e Nomos/);
+  const cutting = map.wandering_roots.items;
+  assert.equal(cutting.length, 1);
+  assert.equal(cutting[0].optional, true);
+  assert.match(map.wandering_roots.guidance, /diálogos com Taliesin/);
+  assert.equal(map.aiding_ernesto.items.length, 2);
+  assert.ok(map.aiding_ernesto.items.every(item => item.optional), 'Teleporte não pode ser marcado obrigatório');
+  assert.match(map.aiding_ernesto.guidance, /Não há item obrigatório/);
+  const shepherd = map.shepherd_pawns.items;
+  assert.equal(shepherd.length, 2);
+  assert.ok(shepherd.every(item => !item.optional));
+  assert.match(shepherd[0].where, /Henrique/);
+  assert.match(shepherd[1].where, /cabana trancada/);
+  assert.match(shepherd[1].use, /Henrique/);
+  assert.equal(shepherd[1].forgery, 'original');
+});
