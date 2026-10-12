@@ -9,8 +9,8 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 66);
-  assert.equal(withItems.length, 42);
+  assert.equal(QUEST_GUIDES.length, 70);
+  assert.equal(withItems.length, 46);
   assert.equal(noItems.length, 24);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
@@ -235,4 +235,25 @@ test('onda 15: roupa irreversível, ingredientes podres e três itens para Sebas
   for(const name of ['Misshapen Eye','Detoxifying Decoction','Waking Powder']) {
     assert.ok(house.items.some(item=>item.name===name),name);
   }
+});
+
+test('onda 16: itens e recompensas de Daphne, Donovan, Waldhar e Sven não se confundem', () => {
+  const d=QUEST_ITEM_REQUIREMENTS.gift_giving;
+  assert.equal(d.items.length,4);
+  assert.match(d.items[0].name,/Bunch of Flowers/);
+  assert.match(d.items[1].name,/Silver Ore/);
+  assert.match(d.items[2].quantity,/2 minérios/);
+  assert.match(d.items[3].quantity,/3–5/);
+  assert.match(d.guidance,/FONTES/);
+  const cart=QUEST_ITEM_REQUIREMENTS.oxcart_courier;
+  assert.match(cart.items[0].name,/Letter to Ser Lennart/);
+  assert.match(cart.items[0].use,/Donovan/);
+  const amenity=QUEST_ITEM_REQUIREMENTS.magisterial_amenity;
+  assert.match(amenity.items[0].name,/Exquisite Spectacles/);
+  assert.match(amenity.guidance,/Winter’s Path/);
+  const sven=QUEST_ITEM_REQUIREMENTS.gossamer_clouds;
+  assert.equal(sven.items.length,2);
+  assert.match(sven.items[0].name,/Unfinished Letter/);
+  assert.match(sven.items[1].name,/Letter to Lord Phaesus/);
+  assert.equal(sven.items[1].optional,true);
 });
