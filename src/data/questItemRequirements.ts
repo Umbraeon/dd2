@@ -665,7 +665,8 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-a-veil-of-gossamer-clouds-walkthrough/',
       'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds'
     ]
-  }  game_of_wits: {
+  },
+  game_of_wits: {
     guidance: 'ALERTA: dez enigmas, incluindo Reunião; respostas erradas são perdíveis. Use o Rastreador da Esfinge para conferir as soluções antes de responder. O Finder’s Token exige retorno em sete dias do jogo; a Unmaking Arrow é obtida num baú da própria cadeia, não precisa ser comprada antes de começar.',
     items: [
       {
