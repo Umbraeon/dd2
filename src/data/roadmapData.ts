@@ -61,7 +61,7 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Conheça Beren e prepare a rota de grimórios genuínos",
         type: "missao",
-        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'Seat of the Sovran', volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Em paralelo, reserve três grimórios originais para Trysha e três falsificações diferentes para Myrddin. Os guias individuais estão abaixo.",
+        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'O Trono do Sobran' (Seat of the Sovran), volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Em paralelo, reserve três grimórios originais para Trysha e três falsificações diferentes para Myrddin. Os guias individuais estão abaixo.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
