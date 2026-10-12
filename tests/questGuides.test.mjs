@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 27);
+  assert.equal(QUEST_GUIDES.length, 26);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -28,8 +28,8 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 4);
   assert.equal(questGuidesForEvent('v301').length, 2);
-  assert.equal(questGuidesForEvent('v303').length, 6);
-  assert.equal(questGuidesForEvent('v304').length, 2);
+  assert.equal(questGuidesForEvent('v303').length, 5);
+  assert.equal(questGuidesForEvent('v304').length, 1);
   assert.equal(questGuidesForEvent('v104').length, 1);
   assert.equal(questGuidesForEvent('v201').length, 3);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
@@ -124,8 +124,8 @@ test('passos de coronação e Wilhelmina não expõem hipóteses internas', ()
   assert.doesNotMatch(copy, /walkthroughs divergem|fonte única|não comprovado|em auditoria|não foi reproduzido/i);
 });
 
-test('onda 4: cinco missões novas possuem passos, fontes e destinos independentes', () => {
-  const ids = ['monster_culling', 'scaly_invaders', 'trouble_cape', 'till_death', 'every_rose'];
+test('onda 4: quatro missões novas possuem passos, fontes e destinos independentes', () => {
+  const ids = ['monster_culling', 'scaly_invaders', 'trouble_cape', 'till_death'];
   for (const id of ids) {
     const entry = guide(id);
     assert.ok(entry.steps.length >= 5, `Passos incompletos: ${id}`);
@@ -137,9 +137,7 @@ test('onda 4: cinco missões novas possuem passos, fontes e destinos independent
   assert.match(guide('scaly_invaders').steps.join(' '), /segundo grupo/);
   assert.match(guide('trouble_cape').steps.join(' '), /Zoran/);
   assert.match(guide('till_death').completion, /objetivos distintos/);
-  assert.match(guide('every_rose').steps.join(' '), /Sven.*Patrick.*Murder Report.*Bribery Investigation Findings/s);
-  assert.match(guide('every_rose').preparation.join(' '), /três dias no jogo/);
-  assert.match(guide('every_rose').completion, /depois que você aceita/);
+  assert.match(guide('till_death').steps.join(' '), /basta mantê-lo vivo/);
   assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 2);
   assert.equal(questGuidesForEvent('v203').find(g => g.id === 'till_death')?.id, 'till_death');
 });
