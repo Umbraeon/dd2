@@ -16,7 +16,7 @@ test('Consulta exibe plano de cópias com os dois destinatários corretos no mob
   const jadeite = items.filter({ hasText: 'Jadeite Orb' });
   await expect(jadeite).toContainText('Original → Everard');
   await expect(jadeite).toContainText('Cópia → Offulve');
-  const grim = items.filter({ hasText: 'Fulminous Shield' });
+  const grim = items.filter({ has: page.getByRole('heading', { name: 'Fulminous Shield', exact: true }) });
   await expect(grim).toContainText('Trysha');
   await expect(grim).toContainText('Myrddin');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
