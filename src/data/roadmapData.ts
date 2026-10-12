@@ -946,7 +946,7 @@ export const PHASES: Phase[] = [
         id: "p04",
         title: "Prepare-se antes do confronto com Gigantus",
         type: "checkpoint",
-        note: "Na história, 'Sombras Trêmulas' leva a Ambrosius, ao Forjado pelo Dragão, a Luz e ao Ancião de Harve; em 'Convergência', entre na Caverna da Tempestade e receba a Sucessão Vil de Rothais. Antes de avançar 'Um Novo Chamado Divino' e enfrentar Gigantus, revise as missões pendentes. Confira seus salvamentos e pontos sem retorno.",
+        note: "Na história, 'Sombras Trêmulas' leva a Ambrosius, ao Forjado pelo Dragão, a Luz e ao Ancião de Harve; em 'Convergência', entre na Caverna da Tempestade e receba a Sucessão Vil de Rothais. Antes de avançar 'Um Novo Chamado Divino' e enfrentar Gigantus, revise as missões pendentes. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada; confira o registro disponível antes de seguir, sem presumir rollback garantido.",
         achievements: [],
         risk: "critico",
         source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
