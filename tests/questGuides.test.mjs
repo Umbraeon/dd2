@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 26);
+  assert.equal(QUEST_GUIDES.length, 29);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -140,4 +140,22 @@ test('onda 4: quatro missões novas possuem passos, fontes e destinos independen
   assert.match(guide('till_death').steps.join(' '), /basta mantê-lo vivo/);
   assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 2);
   assert.equal(questGuidesForEvent('v203').find(g => g.id === 'till_death')?.id, 'till_death');
+});
+
+test('onda 5: Bakbattahl separa perseguição, atentado urgente e experimentos de veneno', () => {
+  for (const id of ['mercy_thieves', 'shadowed_prayers', 'poisonous_proposal']) {
+    const q = guide(id);
+    assert.ok(q.steps.length >= 5);
+    assert.equal(q.references.length, 2);
+    assert.ok(q.relatedEventIds.every(eventId => knownEvents.has(eventId)));
+    assert.ok(q.completion.length > 45);
+  }
+  assert.match(guide('mercy_thieves').steps.join(' '), /Lyssandro.*Toumi.*Hugo/s);
+  assert.match(guide('mercy_thieves').completion, /missão posterior/);
+  assert.match(guide('shadowed_prayers').preparation.join(' '), /urgente/);
+  assert.match(guide('shadowed_prayers').steps.join(' '), /braço direito.*agarrar/s);
+  assert.match(guide('poisonous_proposal').steps.join(' '), /Asp.*Venin Harpy.*quimera/s);
+  assert.match(guide('poisonous_proposal').preparation.join(' '), /ainda envenenado/);
+  assert.equal(questGuidesForEvent('b02').filter(q => ['mercy_thieves', 'shadowed_prayers', 'poisonous_proposal'].includes(q.id)).length, 3);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
 });

@@ -118,3 +118,29 @@ test('Harve: busca global abre Invasores Escamosos e mantém progresso intacto',
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Bakbattahl: busca mobile encontra o assassino de Orações Ensombradas sem marcar progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Orações Ensombradas');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Orações Ensombradas/ }).click();
+  const entry = page.locator('#quest-guide-shadowed_prayers');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('braço direito');
+  await expect(entry).toContainText('comando de agarrar');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Bakbattahl: Jarle exige duas voltas envenenado e recebe veneno da quimera', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Uma Proposta Venenosa');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Uma Proposta Venenosa/ }).click();
+  const entry = page.locator('#quest-guide-poisonous_proposal');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Venin Harpy');
+  await expect(entry).toContainText('cabeça de serpente');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
