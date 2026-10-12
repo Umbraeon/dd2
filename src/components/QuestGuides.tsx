@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { FORGERY_ITEMS, QUEST_GUIDES, questGuidesForEvent } from '../data/questGuides';
 import type { QuestGuide } from '../data/questGuides';
+import { QUEST_ITEM_REQUIREMENTS } from '../data/questItemRequirements';
 
 const smallHeading = 'font-serif text-base font-bold text-[#f0d1a0]';
 const note = 'text-sm leading-relaxed text-[#d1c7b7]';
@@ -26,6 +27,24 @@ const WalkthroughCard: React.FC<{ guide: QuestGuide; initialOpen?: boolean }> = 
     </summary>
     <div className="pt-3 space-y-3">
       <p className={note}><strong>Onde:</strong> {guide.region} · <strong>Quem:</strong> {guide.giver}</p>
+      {QUEST_ITEM_REQUIREMENTS[guide.id] && (
+        <section className="space-y-3 border border-[#756044] rounded-md bg-[#221e1a] p-3" aria-label="Itens necessários e onde conseguir">
+          <h4 className={smallHeading}>Itens necessários: onde conseguir e o que entregar</h4>
+          <p className={note}>{QUEST_ITEM_REQUIREMENTS[guide.id].guidance}</p>
+          <ul className="space-y-3">
+            {QUEST_ITEM_REQUIREMENTS[guide.id].items.map(item => (
+              <li key={item.name} className="border-t border-[#574b39] pt-2 space-y-1">
+                <p className="text-sm font-semibold text-[#f0d1a0]">{item.name}{item.optional ? ' (opcional/condicional)' : ''}</p>
+                <p className={note}><strong>Quantidade:</strong> {item.quantity}</p>
+                <p className={note}><strong>Onde conseguir:</strong> {item.where}</p>
+                <p className={note}><strong>O que fazer:</strong> {item.use}</p>
+                <p className={note}><strong>Falsificação:</strong> {item.forgery === 'original' ? 'preserve ou entregue o original' : item.forgery === 'copy' ? 'faça/entregue uma cópia' : item.forgery === 'optional' ? 'cópia opcional' : 'não é necessário falsificar'}</p>
+              </li>
+            ))}
+          </ul>
+          {QUEST_ITEM_REQUIREMENTS[guide.id].references && <SourceLinks urls={QUEST_ITEM_REQUIREMENTS[guide.id].references} />}
+        </section>
+      )}
       {guide.preparation.length > 0 && <div>
         <h4 className={smallHeading}>Antes de começar</h4>
         <ul className="mt-1 list-disc list-inside space-y-1">
@@ -100,7 +119,8 @@ export const QuestGuideLibrary: React.FC<{ initialGuideId?: string }> = ({ initi
   }, [initialGuideId]);
   const normalized = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const visible = QUEST_GUIDES.filter(guide =>
-    [guide.title, guide.original, guide.region, guide.giver].join(' ')
+    [guide.title, guide.original, guide.region, guide.giver,
+      ...(QUEST_ITEM_REQUIREMENTS[guide.id]?.items.flatMap(item => [item.name, item.where]) ?? [])].join(' ')
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(normalized));
   return (
     <section aria-labelledby="guides-title" className="space-y-5">
