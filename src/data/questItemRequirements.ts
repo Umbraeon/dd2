@@ -362,6 +362,61 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-flickering-shadows-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/Flickering-Shadows'
     ]
+  },
+  place_call_home: {
+    guidance: 'Mildred empresta a casa por uma semana. Para ADQUIRIR a residência e registrar a conquista, leve 20.000 G quando ela retornar. Trata-se de ouro comum, não de item para falsificação.',
+    items: [{
+      name: 'Gold (20,000 G)',
+      namePt: '20.000 moedas de ouro',
+      quantity: '20.000 G (compra opcional até a oferta; necessária para possuir a residência)',
+      where: 'Acumule ouro em recompensas de missões, vendas e exploração ANTES de aceitar a oferta de compra após a semana.',
+      use: 'Converse com Mildred diante da casa no Bairro Popular de Vernworth após uma semana e PAGUE 20.000 G para adquirir o imóvel. Não requer falsificação.',
+      forgery: 'not-applicable'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-place-to-call-home-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  dulled_steel: {
+    guidance: 'Há DOIS requisitos: a Espada Régia cega entregue por Roman (não guarde no depósito antes de negociar com Sara) e pelo menos 15 carvões lustrazul coletados nas Ruínas da Escavação. Você pode entregar até 25 carvões para benefício extra; NÃO confunda com Glymercole.',
+    items: [
+      {
+        name: 'Dulled Regalia Sword',
+        namePt: 'Espada Régia cega (nome de contexto da missão)',
+        quantity: '1 espada, recebida de Roman',
+        where: 'Roman entrega a espada no pátio do Castelo de Vernworth depois da missão O Trono do Sobran.',
+        use: 'Conserve no INVENTÁRIO, não no depósito. Quando Sara se oferecer para restaurá-la na Forja de Brokkr, entregue a espada ORIGINAL a ela para encerrar a etapa.',
+        forgery: 'original'
+      },
+      {
+        name: 'Glimmercoal',
+        namePt: 'Carvão lustrazul',
+        quantity: '15 obrigatórios; até 25 opcionais para recompensa melhor',
+        where: 'Ruínas da Escavação (Digger’s Ruins), sudoeste de Bakbattahl. Apague a lanterna para identificar o minério que brilha verde no escuro; NÃO é Glymercole.',
+        use: 'Entregue de 15 a 25 carvões lustrazul a Sara na Forja de Brokkr; depois confie a espada original à aprendiz.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-dulled-steel-cold-forge-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Dulled-Steel-Cold-Forge'
+    ]
+  },
+  steeled_resolve: {
+    guidance: 'Não é preciso coletar material novo. RESGATE Sara na Caverna na Base da Montanha, recupere a espada restaurada na forja e entregue o ORIGINAL a Roman no Castelo de Vernworth.',
+    items: [{
+      name: 'Restored Regalia Sword',
+      namePt: 'Espada Régia restaurada (descrição explicativa)',
+      quantity: '1, recebida de Sara depois da escolta',
+      where: 'Na Forja de Brokkr, em Bakbattahl, Sara entrega a espada depois que você a escoltar com segurança para fora da Caverna na Base da Montanha.',
+      use: 'Retorne ao pátio do Castelo de Vernworth e ENTREGUE a espada restaurada a Roman. Não falsifique nem substitua pelo objeto cego.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-steeled-resolve-blazing-forge-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Steeled-Resolve-Blazing-Forge'
+    ]
   }
 };
 
@@ -378,5 +433,5 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
   'regentkins_resolve', 'when_wills_collide',
   'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
-  'seat_sovran', 'convergence'
+  'seat_sovran', 'convergence', 'prey_for_pack'
 ];
