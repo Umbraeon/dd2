@@ -932,6 +932,78 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.powerpyx.com/dragons-dogma-2-shepherd-of-the-pawns-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/450321'
     ]
+  },
+  {
+    id: 'scholarly_pursuit', title: 'A Missão dos Eruditos', original: 'A Scholarly Pursuit',
+    region: 'Mundo Desancorado — Bakbattahl, entrada do Palácio da Chama Luzente',
+    giver: 'Feixe vermelho de Bakbattahl; Phaesus participa da missão',
+    relatedEventIds: ['u05'],
+    preparation: [
+      'SPOILERS DO MUNDO DESANCORADO. Esta missão é a prova do feixe vermelho de Bakbattahl, não a evacuação Instabilidade Civil nem o feixe FINAL do Santuário do Leito Marinho.',
+      'O marcador pode ficar acessível apenas depois de outras provas, conforme o estado da campanha. Proteja Phaesus durante a travessia e tenha recursos de cura ou uma Pedra do Despertar disponíveis para imprevistos.',
+      'Para acionar o feixe vermelho, use a Lâmina da Perdição dos Deuses Potencializada (Empowered Godsbane Blade) quando o jogo solicitar.'
+    ],
+    steps: [
+      'Em Bakbattahl, procure o feixe vermelho no caminho de acesso ao Palácio da Chama Luzente e interaja com ele, usando a Godsbane Potencializada quando solicitado.',
+      'Assista à queda da estátua do dragão e à chegada de Phaesus. Aproximar-se da barreira pelo lado da frente não resolve o bloqueio; prepare-se para contorná-la.',
+      'Acompanhe Phaesus pela rota lateral e pelas dependências do Laboratório de Pesquisa de Magia Proibida, derrotando inimigos que surgirem no trajeto.',
+      'Durante o caminho, desvie dos pedregulhos que caem e proteja Phaesus; ele precisa chegar com você à parte traseira do palácio.',
+      'Aproxime-se da estátua do dragão por trás da barreira e atravesse a área indicada para destruí-la e concluir a prova de Bakbattahl.'
+    ],
+    completion: 'A estátua do dragão de Bakbattahl é destruída. A Missão dos Eruditos termina sem exigir a ativação do feixe vermelho FINAL do Santuário do Leito Marinho.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-scholarly-pursuit-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/A-Scholarly-Pursuit',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/A_Scholarly_Pursuit'
+    ]
+  },
+  {
+    id: 'when_wills_collide', title: 'Quando as Vontades São Conflituantes', original: 'When Wills Collide',
+    region: 'Mundo Desancorado — Ilha Vulcânica de Agamen, local da queda de Talos',
+    giver: 'Evento com Phaesus junto aos restos do Gigantus (Talos)',
+    relatedEventIds: ['u05', 'u06'],
+    preparation: [
+      'SPOILERS DO MUNDO DESANCORADO. Recupere o Peão Principal em Destinos Separados antes de procurar Talos; a sequência depende do estado em que o Gigantus terminou O Guardião Gigantus.',
+      'Procure no mapa o ícone de Talos na Ilha Vulcânica de Agamen. Se a missão ainda não surgir, confira o avanço de Átrios da Primeira Aurora e os diálogos de Phaesus/Ambrosius. Os guias divergem quanto ao gatilho exato.',
+      'Não confunda a cena de Talos enfrentando monstros com o feixe vermelho FINAL do Santuário do Leito Marinho. Evite seguir para o encerramento enquanto houver evacuações pendentes.'
+    ],
+    steps: [
+      'Depois de recuperar seu peão, retorne à Ilha Vulcânica de Agamen e encontre os restos de Talos onde ele caiu durante O Guardião Gigantus.',
+      'Aproxime-se da carcaça do Gigantus e converse com Phaesus ou acompanhe o evento no local. Se não houver marcador, procure Ambrosius no Laboratório de Pesquisa de Magia Proibida e verifique a progressão das provas.',
+      'Na sequência cinematográfica, seu Peão Principal pode entrar em Talos e fazê-lo se erguer novamente; acompanhe o que acontece sem abandonar a área.',
+      'Observe Talos confrontar as monstruosidades do Mundo Desancorado. A quantidade de encontros e a disponibilidade do evento podem variar com onde e como Talos foi imobilizado na história.',
+      'Confirme a conclusão de Quando as Vontades São Conflituantes no diário; volte às evacuações e às provas que permanecerem pendentes antes de finalizar a campanha.'
+    ],
+    completion: 'O evento de reativação de Talos é registrado. Ele pode contar para a conquista Eu, Talos; não é o comando de encerrar o Mundo Desancorado.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-when-wills-collide-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/450352'
+    ]
+  },
+  {
+    id: 'phantom_oxcart', title: 'A Carroça Fantasma', original: 'The Phantom Oxcart',
+    region: 'Vermund — estrada ao norte de Vernworth e rota noturna até Bakbattahl',
+    giver: 'Conversa sobre carroça noturna perto do terminal oeste de Vernworth',
+    relatedEventIds: ['b05'],
+    preparation: [
+      'Esta missão noturna costuma aparecer depois de avançar Nação da Chama Luzente e retornar de Bakbattahl para Vermund. Escute a conversa sobre uma carroça que trafega de madrugada.',
+      'Para a conquista relacionada à viagem, prefira se disfarçar de peão: remova TODAS as armas e peças de armadura equipadas antes de conversar com o cocheiro, guardando-as no inventário.',
+      'Durante o trajeto, não equipe armas, não dê comandos aos peões e evite atacar guardas antes de a encenação revelar a fraude. Preserve o documento recolhido até falar com Brant.'
+    ],
+    steps: [
+      'À noite, perto do terminal oeste das carroças de Vernworth, ouça os viajantes comentarem sobre a carroça misteriosa para ativar a investigação.',
+      'Siga o marcador até a estrada/cruzamento ao norte de Vernworth, encontre a Carroça Fantasma e intercepte Navil, o soldado envolvido. Decida se o entrega ou o deixa partir e recolha a prova que ele fornece.',
+      'À noite, converse com o Capitão Brant na Estalagem Stardrop e mostre a prova. Ele sugerirá investigar a rota seguindo a carroça ou embarcando disfarçado.',
+      'Para a rota do disfarce, volte à carroça à noite SEM armas nem armaduras equipadas; converse com o cocheiro e entre no espaço dos peões sem revelar que é um Nascen.',
+      'Quando a viagem parar por ataque de monstros, participe sem equipar armas nem comandar seus peões, depois retome o trajeto. Na parada da fronteira, não revide as agressões dos guardas enquanto o disfarce for necessário.',
+      'Ao chegar ao destino em Bakbattahl, quando for descoberto, equipe os itens e enfrente os guardas hostis. Recolha as Labor Requisition Orders (ordens de requisição de trabalho) obtidas no conflito.',
+      'Volte a Brant na Estalagem Stardrop em Vernworth e entregue as ordens para concluir A Carroça Fantasma.'
+    ],
+    completion: 'Brant recebe as Labor Requisition Orders. Embarcar e completar o percurso como peão é a rota vinculada à conquista de viajar na carroça, enquanto apenas segui-la pode ter resultado distinto.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/',
+      'https://www.polygon.com/dragons-dogma-2-guide/24111543/phantom-oxcart-quest-walkthrough-location-start-navil-disguise'
+    ]
   }
 ];
 
