@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation; wave 16: gift Daphne, Donovan letter, Waldhar spectacles and Sven letter rewards; PT-BR localized Kiranico, sources secondary, medicines quantity discrepancy disclosed",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation; wave 16: gift Daphne, Donovan letter, Waldhar spectacles and Sven letter rewards; PT-BR localized Kiranico, sources secondary, medicines quantity discrepancy disclosed; wave 17: Sphinx (indexed) and Oskar at Ancient Battleground (EN-only until PT-BR verified); secondary walkthroughs only; 72/80 historical guides",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -282,6 +282,14 @@
     {
       "id": "gossamer_clouds",
       "english": "A Veil of Gossamer Clouds"
+    },
+    {
+      "id": "game_of_wits",
+      "english": "A Game of Wits"
+    },
+    {
+      "id": "tolled_to_rest",
+      "english": "Tolled to Rest"
     }
   ],
   "indexedWithoutGuide": [
@@ -293,18 +301,6 @@
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
-    },
-    {
-      "english": "A Game of Wits",
-      "ptBR": "Um Jogo de Perspicácia",
-      "events": [
-        "m06",
-        "v205",
-        "b06",
-        "b062"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
     },
     {
       "english": "One-Eyed Interloper",
@@ -350,12 +346,14 @@
     "The DLC added in October 2026 is out of scope until questlog/PAK inventory is compared",
     "Without an individual walkthrough != not mentioned anywhere in summary roadmap",
     "Jadeite Orb has a walkthrough and PT-BR label but no matching QuestNameIndex entry; validate localization evidence before adding",
-    "The two maister-trigger quests Put a Spring in Thy Step and The Sotted Sage have individual guides (PR #38); validate in-game triggers independently"
+    "The two maister-trigger quests Put a Spring in Thy Step and The Sotted Sage have individual guides (PR #38); validate in-game triggers independently",
+    "Wave 17: A Game of Wits and Tolled to Rest have individual guides; Tolled to Rest is NOT localized in index until title evidence is provided. Sphinx tracker riddles are reused, not duplicated as separate persistent state."
   ],
   "lastReviewed": "2026-10-12",
   "changelog": [
     "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification",
     "PR wave7: two endgame main quests added; registry reached 35, index backlog reached 25. Walkthrough sources are not real-save verification.",
-    "PR wave8: Nation of the Lambent Flame and Legacy; 37 guide IDs and 23 indexed titles without guide. Permit type depends on The Arisen's Shadow; endgame choices require real-save verification."
+    "PR wave8: Nation of the Lambent Flame and Legacy; 37 guide IDs and 23 indexed titles without guide. Permit type depends on The Arisen's Shadow; endgame choices require real-save verification.",
+    "Wave 17: added Sphinx and Tolled to Rest; 72 published guides (16 main, 56 side); 8 historical side quests missing. Indexed-without-guide reduced to 4. Not an exhaustive 2026/DLC inventory."
   ]
 }

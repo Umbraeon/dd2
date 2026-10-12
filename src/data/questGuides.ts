@@ -1573,7 +1573,62 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
-  }
+  },
+  {
+    id: 'game_of_wits', title: 'Um Jogo de Perspicácia', original: 'A Game of Wits',
+    region: 'Campo de Batalha Antigo → Santuário da Montanha → Santuário da Fronteira',
+    giver: 'Esfinge, no Santuário da Montanha, após atravessar a Caverna do Fim do Mundo',
+    relatedEventIds: ['m06', 'v205', 'b06', 'b062'],
+    preparation: [
+      'ALERTA PERDÍVEL: respostas erradas podem bloquear a conquista de resolver todos os dez enigmas nesta campanha. Faça um salvamento na hospedaria antes de se comprometer, sem confundir salvamento normal com salvamento da hospedaria.',
+      'Registre ONDE pegou o primeiro Memento do Buscador desta campanha. A Ruminação concede somente SETE DIAS no jogo para buscar ali o Finder’s Token e entregá-lo.',
+      'Leve um Peão Principal, prepare acesso a uma Pedra da Fenda para contratar SphinxParent/SphinxMother/SphinxFather e não gaste o Sealing Phial antes de apresentá-lo no enigma dos Olhos.',
+      'O rastreador Esfinge em Ferramentas traz as respostas individuais dos dez desafios e registra o local do primeiro memento; consultá-lo não conclui automaticamente esta missão.'
+    ],
+    steps: [
+      'Saindo da Cidade de Descanso da Fronteira, alcance o Campo de Batalha Antigo, atravesse a fortaleza e a Caverna do Fim do Mundo até o Santuário da Montanha. Converse com a Esfinge para iniciar A Game of Wits.',
+      'Resolva os CINCO enigmas iniciais: Olhos (Sealing Phial no baú sobre a entrada da caverna), Loucura (apresente seu Peão Principal ou alguém com afinidade suficiente), Sabedoria (traga um peão com nome SphinxParent/SphinxMother/SphinxFather), Convicção (entregue um item que deseja duplicar) e Ruminação (Finder’s Token do PRIMEIRO memento).',
+      'Na Ruminação, só inicie a contagem quando estiver preparado. Volte ao local exato de seu primeiro Seeker’s Token, recolha o Finder’s Token e entregue à Esfinge em até sete dias do jogo.',
+      'Quando a Esfinge voar, localize-a novamente no Santuário da Fronteira, a oeste da Cidade de Descanso da Fronteira. Essa REUNIÃO conta como o sexto enigma, mesmo sem resposta verbal.',
+      'Resolva os quatro desafios restantes na ORDEM QUE SURGIREM, que pode variar: Futilidade (leve Maurits até o vaso, em vez de transportar o vaso frágil), Diferenciação (compare Dante e Vergil), Competição (arremesse o adversário apesar do Ring of Derision) e Memória (número exato de enigmas anteriores resolvidos corretamente).',
+      'Na Memória, conte os baús de recompensa liberados por respostas corretas, INCLUINDO a Reunião. Respostas erradas não contam; confirme as estátuas somente depois de revisar o total.',
+      'Abra o baú do enigma da Memória para obter a Unmaking Arrow. ANTES da despedida da Esfinge, equipe a vocação Arqueiro. A flecha é um meio recomendado de concluir o combate, não a única técnica relatada.',
+      'Após o último desafio, não deixe a Esfinge fugir: inicie o combate e, se usar a Unmaking Arrow, atire no corpo/pernas DEPOIS do início do combate, não na cabeça. Recolha a chave deixada por ela e abra o grande baú dourado.',
+      'Confira a missão no diário e, se for seu objetivo, use a Eternal Wakestone em um grupo de pelo menos duas pessoas mortas para a conquista relacionada. Essa recompensa é posterior aos enigmas.'
+    ],
+    completion: 'Os dez enigmas incluem a Reunião, e a missão é concluída com o confronto final contra a Esfinge. O grande baú exige a chave obtida no combate; errar enigmas prejudica a conquista de todos os acertos.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-game-of-wits-walkthrough/',
+      'https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/',
+      'https://www.rpgsite.net/guide/15635-dragons-dogma-2-a-game-wit-where-to-find-how-to-solve-all-sphinxs-riddles'
+    ]
+  },
+  {
+    id: 'tolled_to_rest', title: 'Tolled to Rest', original: 'Tolled to Rest',
+    region: 'Estrada e ruínas do Campo de Batalha Antigo, a nordeste da Cidade de Descanso da Fronteira',
+    giver: 'Oskar, na estrada de acesso ao Campo de Batalha Antigo',
+    relatedEventIds: ['v205'],
+    preparation: [
+      'Título de missão em PT-BR NÃO CONFIRMADO por catálogo localizado ou captura da build: a ficha usa o nome inglês Tolled to Rest, sem tradução inventada.',
+      'Encontre Oskar sob ataque de monstros na estrada. Proteja-o antes de entrar na fortaleza: ele precisa chegar à sala do sino.',
+      'Na sala do sino há um exemplar ORIGINAL de Nation’s Death Knell (Dobre de Finados da Nação), útil para Magia Vertiginosa e O Julgamento do Feiticeiro. Não entregue um grimório importante à pessoa errada.'
+    ],
+    steps: [
+      'Vá para o Campo de Batalha Antigo, seguindo a estrada a nordeste da Cidade de Descanso da Fronteira, e encontre Oskar, vestido de vermelho, entre os inimigos.',
+      'Derrote os monstros que o atacam e fale com Oskar para aceitar a escolta até o cenotáfio no interior das ruínas.',
+      'Acompanhe Oskar pelo castelo e pelas passarelas, eliminando inimigos, sobretudo esqueletos. Não o deixe isolado durante o percurso.',
+      'Passe pela muralha superior e atravesse a abertura que leva ao lado interno de uma porta anteriormente bloqueada; abra caminho para Oskar.',
+      'Chegue com ele à sala do sino. Se o grimório Nation’s Death Knell estiver no pedestal, deixe Oskar concluir a interação; se já o recolheu em outra visita, confira inventário e depósito porque Game8 relata que pode ser necessário apresentá-lo para resolver a etapa.',
+      'Depois de Oskar tocar o sino, receba a Ancient Battleground Key e confirme a conclusão da missão no diário. A chave abre a sala trancada em frente para saque opcional.',
+      'Antes de sair, localize o Nation’s Death Knell ORIGINAL disponível na área e guarde-o para as missões de Trysha/Myrddin, planejando as cópias com Ibrahim quando necessário.'
+    ],
+    completion: 'Oskar chega ao sino, toca-o e entrega a Ancient Battleground Key. O grimório pode ser recolhido para outra missão; a chave é recompensa, não pré-requisito para a escolta.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-tolled-to-rest-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Tolled-to-Rest',
+      'https://www.rpgsite.net/guide/15635-dragons-dogma-2-a-game-wit-where-to-find-how-to-solve-all-sphinxs-riddles'
+    ]
+  },
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */

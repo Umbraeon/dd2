@@ -665,7 +665,51 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-a-veil-of-gossamer-clouds-walkthrough/',
       'https://www.neoseeker.com/dragons-dogma-2/guides/A_Veil_of_Gossamer_Clouds'
     ]
-  }
+  },
+  game_of_wits: {
+    guidance: 'ALERTA: dez enigmas, incluindo Reunião; respostas erradas são perdíveis. Use o Rastreador da Esfinge para conferir as soluções antes de responder. O Finder’s Token exige retorno em sete dias do jogo; a Unmaking Arrow é obtida num baú da própria cadeia, não precisa ser comprada antes de começar.',
+    items: [
+      {
+        name: 'Sealing Phial', namePt: 'Frasco Selante (denominação editorial)',
+        quantity: '1 unidade, para responder ao enigma dos Olhos',
+        where: 'No baú ACIMA da entrada da caverna indicada pela Esfinge no Santuário da Montanha.',
+        use: 'Mostre/ENTREGUE o frasco à Esfinge como resposta aos Olhos; não o consuma antes de responder.',
+        forgery: 'original'
+      },
+      {
+        name: "Finder's Token", namePt: 'Memento do Descobridor',
+        quantity: '1, encontrado dentro de SETE DIAS no jogo após ouvir Ruminação',
+        where: 'Surge exatamente no local do PRIMEIRO Seeker’s Token (Memento do Buscador) encontrado na campanha em curso; confira as anotações do rastreador.',
+        use: 'ENTREGUE à Esfinge no Santuário da Montanha antes do prazo de sete dias. Não substitua por um Memento do Buscador normal.',
+        forgery: 'original'
+      },
+      {
+        name: 'Unmaking Arrow', namePt: 'Flecha da Ruína (denominação editorial)',
+        quantity: '1, OPCIONAL para a luta final (rota recomendada)',
+        where: 'Baú aberto após resolver corretamente o enigma da Memória no Santuário da Fronteira.',
+        use: 'Equipe Arqueiro; DEPOIS de iniciar combate com a Esfinge, acerte a parte não humana do corpo (por exemplo pernas). Não dispare na cabeça; existem relatos de rota alternativa de combate.',
+        forgery: 'not-applicable', optional: true
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/',
+      'https://www.rpgsite.net/guide/15635-dragons-dogma-2-a-game-wit-where-to-find-how-to-solve-all-sphinxs-riddles'
+    ]
+  },
+  tolled_to_rest: {
+    guidance: 'O grimoire Nation’s Death Knell é relevante para Trysha/Myrddin, mas costuma estar no pedestal da sala do sino; o objeto não deve ser confundido com a Ancient Battleground Key recebida COMO RECOMPENSA. Game8 relata procedimento especial caso o livro já tenha sido retirado.',
+    items: [{
+      name: "Nation's Death Knell", namePt: 'Dobre de Finados da Nação',
+      quantity: '1 ORIGINAL no pedestal (ou no inventário/depósito se coletado antes)',
+      where: 'Sala do sino no Campo de Batalha Antigo, destino de Oskar; existe outro exemplar na Gruta da Cachoeira.',
+      use: 'Se o livro está no pedestal, permita a interação de Oskar; se o removeu previamente e a missão não avança, recupere-o e confira a solicitação no diário. Depois, preserve o original para Trysha ou Myrddin.',
+      forgery: 'original', optional: true
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-tolled-to-rest-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Tolled-to-Rest'
+    ]
+  },
 };
 
 /**
