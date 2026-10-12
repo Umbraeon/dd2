@@ -417,6 +417,95 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-steeled-resolve-blazing-forge-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/Steeled-Resolve-Blazing-Forge'
     ]
+  },
+  every_rose: {
+    guidance: 'TRÊS DIAS NO JOGO após aceitar a ajuda a Wilhelmina. São DUAS evidências: Murder Report (entregue a Wilhelmina) e Bribery Investigation Findings (exibido a Brant primeiro). NÃO use a Battahli-Crested Letter de Um Encontro Perturbador como substituto.',
+    items: [
+      {
+        name: 'Murder Report',
+        namePt: 'Relatório do assassinato (nome explicativo; PT-BR do inventário não verificado)',
+        quantity: '1 relatório original',
+        where: 'Mansão de Allard no Bairro Nobre de Vernworth: depois de Patrick distraí-lo, examine o quadro na parede do andar superior.',
+        use: 'Mostre a Brant depois do Bribery Investigation Findings e ENTREGUE a Wilhelmina no Rose Chateau para continuar o plano dentro do prazo de três dias.',
+        forgery: 'original'
+      },
+      {
+        name: 'Bribery Investigation Findings',
+        namePt: 'Resultados da investigação de suborno (descrição explicativa)',
+        quantity: '1 documento original',
+        where: 'Casa ao norte de Vernworth, perto da barbearia de Clovis, sobre uma mesa. Caso não apareça, consulte Brant sobre a investigação.',
+        use: 'MOSTRE PRIMEIRO este documento ao Capitão Brant na Estalagem Stardrop, depois apresente Murder Report e aceite a ajuda dele para fugir.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/',
+      'https://www.rpgsite.net/guide/15670-dragons-dogma-2-every-rose-has-its-thorn-how-to-romance-wilhelmina-complete-her-quest'
+    ]
+  },
+  saint_slums: {
+    guidance: 'Elena requer 3 Miasmites. Depois reúna no porão Unlabeled Medicine e Records of Treatment, mostre a medicina a Radcliff no Posto do Retiro e só então AGARRE Elena para prendê-la. Sem necessidade de falsificação.',
+    items: [
+      {
+        name: 'Miasmite',
+        namePt: 'Miasmita',
+        quantity: '3 unidades obrigatórias',
+        where: 'Derrote fantasmas/Phantoms em Vermund durante a noite; o item pode cair dos inimigos. Também vale o estoque que já possui.',
+        use: 'ENTREGUE três unidades a Elena na Casa Mãos Caridosas dos Cortiços para receber a visita guiada.',
+        forgery: 'original'
+      },
+      {
+        name: 'Unlabeled Medicine',
+        namePt: 'Remédio sem rótulo (tradução explicativa)',
+        quantity: '1 amostra original',
+        where: 'Depósito atrás da cortina branca na enfermaria do porão da Casa Mãos Caridosas.',
+        use: 'Mostre a Lubomir e ENTREGUE ao médico Radcliff no Posto do Retiro. Depois de um dia, recolha o diagnóstico antes de agarrar Elena.',
+        forgery: 'original'
+      },
+      {
+        name: 'Records of Treatment',
+        namePt: 'Registros dos tratamentos (tradução explicativa)',
+        quantity: '1 conjunto de registros',
+        where: 'Mesmo depósito da enfermaria do porão da Casa Mãos Caridosas, junto ao remédio sem rótulo.',
+        use: 'Recolha e apresente como prova a Lubomir; preserve até terminar a investigação de Elena.',
+        forgery: 'original'
+      }
+    ],
+    references: [
+      'https://www.gamesradar.com/dragons-dogma-2-saint-of-the-slums/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Saint-of-the-Slums'
+    ]
+  },
+  candle_storm: {
+    guidance: 'Tenha 5.000 G para subornar Herman na prisão. Depois prepare a falsa informação sobre Nadinia e preserve a imperatriz na encenação final. NÃO dê um golpe fatal nela.',
+    items: [{
+      name: 'Gold (5,000 G)',
+      namePt: '5.000 moedas de ouro',
+      quantity: '5.000 G para o suborno de Herman',
+      where: 'Ouro de missões, venda ou inventário antes de chegar à prisão de Bakbattahl.',
+      use: 'PAGUE 5.000 G a Herman na cela quando ele pedir para revelar a conexão com os Cobras-Corais; depois informe Menella.',
+      forgery: 'not-applicable'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-candle-in-the-storm-walkthrough/',
+      'https://www.gamesradar.com/dragons-dogma-2-a-candle-in-the-storm/'
+    ]
+  },
+  pilfered_path: {
+    guidance: 'Subornos a Ekertt são uma rota OPCIONAL de soltura. Outra é impedir Lanzo e obter a liberdade de Hugo pelos eventos. Não pague tudo como se fosse obrigatório. Opções de emprego dependem do desfecho de As Rosas Têm Espinhos ou Ambição Cega.',
+    items: [{
+      name: 'Gold (bribes to Ekertt)',
+      namePt: 'Ouro para subornos (opcional)',
+      quantity: 'Até 8.500 G em parcelas relatadas de 1.000, 2.500 e 5.000 G; somente na rota de suborno',
+      where: 'Ouro acumulado em Bakbattahl, missões e exploração; não é necessário se optar por outra forma de soltura.',
+      use: 'Fale com Ekertt na prisão, pague a primeira parcela e retorne após a espera para saber se são necessárias outras; a rota não substitui impedir a morte de Hugo.',
+      forgery: 'not-applicable',
+      optional: true
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-off-the-pilfered-path-walkthrough/',
+      'https://www.gamesradar.com/dragons-dogma-2-off-the-pilfered-path/'
+    ]
   }
 };
 
