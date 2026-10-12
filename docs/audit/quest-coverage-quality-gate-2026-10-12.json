@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation; wave 16: gift Daphne, Donovan letter, Waldhar spectacles and Sven letter rewards; PT-BR localized Kiranico, sources secondary, medicines quantity discrepancy disclosed",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -266,6 +266,22 @@
     {
       "id": "blue_sunbright_house",
       "english": "House of the Blue Sunbright"
+    },
+    {
+      "id": "gift_giving",
+      "english": "The Gift of Giving"
+    },
+    {
+      "id": "oxcart_courier",
+      "english": "Oxcart Courier"
+    },
+    {
+      "id": "magisterial_amenity",
+      "english": "A Magisterial Amenity"
+    },
+    {
+      "id": "gossamer_clouds",
+      "english": "A Veil of Gossamer Clouds"
     }
   ],
   "indexedWithoutGuide": [
@@ -319,11 +335,7 @@
     }
   ],
   "notInLocalizationIndexFrom2024": [
-    "Oxcart Courier",
     "A Case of Sculptor's Block",
-    "The Gift of Giving",
-    "A Magisterial Amenity",
-    "A Veil of Gossamer Clouds",
     "Hunt for the Jadeite Orb",
     "Tolled to Rest",
     "Masked Correspondence",
