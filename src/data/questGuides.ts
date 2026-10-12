@@ -99,6 +99,48 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
 
 export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
+    id: 'beren_claw', title: 'Treino Leonino', original: 'Claw Them Into Shape',
+    region: 'Moonglow Garden, a oeste do Posto Avançado da Fronteira, e Vernworth',
+    giver: 'Beren',
+    relatedEventIds: ['m03', 'p03'],
+    preparation: [
+      'Após avançar No Rastro do Dragão (In Dragon’s Wake), procure Beren na tenda perto de Moonglow Garden, a oeste do Posto Avançado da Fronteira. Se ele não estiver lá, procure-o treinando soldados no posto ou volte à tenda depois de descansar.',
+      'Separe três espadas comuns, compradas ou encontradas. Você também precisará chegar a Vernworth para recrutar Humphrey.'
+    ],
+    steps: [
+      'Converse com Beren perto da tenda em Moonglow Garden e aceite ajudá-lo a conseguir três espadas para treino e um recruta motivado.',
+      'Leve três espadas de qualquer tipo para Beren; se necessário, compre armas simples no Posto Avançado da Fronteira.',
+      'Em Vernworth, vá ao Bairro Comercial perto da barbearia de Clovis, encontre Humphrey e diga a ele que Beren procura um soldado motivado.',
+      'Retorne a Beren e confirme os dois objetivos: as três espadas entregues e a indicação de Humphrey.',
+      'Vá à área de treinamento do Posto Avançado e participe do duelo com Beren. Empurrá-lo para fora do círculo vence a luta, mas perder não impede a continuação da missão.',
+      'Quando um soldado avisar de um ataque de goblins, siga Beren pelo caminho indicado até encontrar os sobreviventes e descobrir o que aconteceu com os recrutas.',
+      'Depois da conversa final com Beren, confira a conclusão no diário; esta é a primeira das duas missões da sequência.'
+    ],
+    completion: 'A conversa após a investigação do ataque encerra Treino Leonino. Volte a procurar Beren em Moonglow Garden para iniciar A Última Lição de Beren.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Claw-Them-Into-Shape']
+  },
+  {
+    id: 'beren_final_lesson', title: 'A Última Lição de Beren', original: "Beren's Final Lesson",
+    region: 'Moonglow Garden; depois, Beren’s Childhood Home no lado de Battahl da fronteira',
+    giver: 'Beren',
+    relatedEventIds: ['m03', 'p03'],
+    preparation: [
+      'Conclua Treino Leonino e avance a campanha pelo menos até O Trono do Sobran (Seat of the Sovran). Depois, reencontre Beren perto da tenda em Moonglow Garden.',
+      'A técnica de Mestre da vocação Guerreiro é uma recompensa posterior, na casa de infância de Beren em Battahl; não termina automaticamente junto com a luta contra o ciclope.'
+    ],
+    steps: [
+      'Volte a Moonglow Garden e aproxime-se de Beren depois de completar Treino Leonino; acompanhe a conversa sobre sua dispensa do posto.',
+      'Defenda os recrutas quando o ciclope aparecer. Lute ao lado de Beren e dos demais soldados, procurando evitar que os recrutas morram.',
+      'Derrote o ciclope, converse com Beren e deixe passar aproximadamente um dia no jogo, usando o acampamento próximo se quiser.',
+      'Retorne à tenda em Moonglow Garden e fale novamente com Beren antes de ele partir; isso conclui A Última Lição de Beren e rende a espada Lifetaker.',
+      'Mais tarde, atravesse a fronteira rumo a Battahl e procure Beren’s Childhood Home ao sul da Cidade de Descanso da Fronteira, no lado de Battahl.',
+      'Converse com Beren na casa de infância para receber o pergaminho Champion’s Fable. Se não o entregar, aumente a afinidade com presentes ou uma escolta e tente conversar novamente.',
+      'Use o pergaminho Champion’s Fable pelo inventário para aprender Arc of Might, a técnica de Mestre de Guerreiro.'
+    ],
+    completion: 'A segunda conversa na tenda encerra a missão; a obtenção e o uso de Champion’s Fable em Battahl são a etapa posterior para liberar Arc of Might.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-berens-final-lesson-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Berens-Final-Lesson', 'https://www.powerpyx.com/dragons-dogma-2-all-maisters-teachings-locations/']
+  },
+  {
     id: 'spellbound', title: 'Magia Vertiginosa', original: 'Spellbound',
     region: 'Casa de Eini, ao norte de Melve', giver: 'Trysha',
     relatedEventIds: ['m03', 'v206', 'p03'],
