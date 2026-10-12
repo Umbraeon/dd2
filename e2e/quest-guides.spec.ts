@@ -228,3 +228,33 @@ test('Campanha final: buscar O Guardião Gigantus indica fraquezas e diferença 
   await expect(entry).toContainText('objetivo separado');
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('Onda 8: fronteira de Battahl encontra os dois tipos de passe em 390px', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Nação da Chama Luzente');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Nação da Chama Luzente/ }).click();
+  const entry = page.locator('#quest-guide-nation_lambent_flame');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Beastren Border Entry Permit');
+  await expect(entry).toContainText('Bermudo');
+  await expect(entry).toContainText('Menella');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Onda 8: busca mobile encontra Legado e distingue finais sem escrever progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Legado');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Legado/ }).click();
+  const entry = page.locator('#quest-guide-legacy');
+  await expect(entry).toHaveAttribute('open', '');
+  await expect(entry).toContainText('Pioneiro (Pathfinder)');
+  await expect(entry).toContainText('Mundo Desancorado');
+  await expect(entry).toContainText('Paz');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});

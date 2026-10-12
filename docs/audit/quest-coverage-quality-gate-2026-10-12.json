@@ -142,6 +142,14 @@
     {
       "id": "guardian_gigantus",
       "english": "The Guardian Gigantus"
+    },
+    {
+      "id": "nation_lambent_flame",
+      "english": "Nation of the Lambent Flame"
+    },
+    {
+      "id": "legacy",
+      "english": "Legacy"
     }
   ],
   "indexedWithoutGuide": [
@@ -233,16 +241,6 @@
       "priority": "P2"
     },
     {
-      "english": "Nation of the Lambent Flame",
-      "ptBR": "Nação da Chama Luzente",
-      "events": [
-        "v304",
-        "b01"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
       "english": "The Phantom Oxcart",
       "ptBR": "A Carroça Fantasma",
       "events": [
@@ -268,17 +266,6 @@
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
-    },
-    {
-      "english": "Legacy",
-      "ptBR": "Legado",
-      "events": [
-        "p06",
-        "u01",
-        "u02"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
     },
     {
       "english": "Dreams Apart",
@@ -413,11 +400,12 @@
     "The DLC added in October 2026 is out of scope until questlog/PAK inventory is compared",
     "Without an individual walkthrough != not mentioned anywhere in summary roadmap",
     "Jadeite Orb has a walkthrough and PT-BR label but no matching QuestNameIndex entry; validate localization evidence before adding",
-    "Two maister-trigger quests are indexed but lack walkthroughs: Put a Spring in Thy Step and The Sotted Sage"
+    "The two maister-trigger quests Put a Spring in Thy Step and The Sotted Sage have individual guides (PR #38); validate in-game triggers independently"
   ],
   "lastReviewed": "2026-10-12",
   "changelog": [
     "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification",
-    "PR wave7: the two endgame main quest guides added, registry now 37 and backlog 23. Sources are walkthroughs, not real save verification."
+    "PR wave7: two endgame main quests added; registry reached 35, index backlog reached 25. Walkthrough sources are not real-save verification.",
+    "PR wave8: Nation of the Lambent Flame and Legacy; 37 guide IDs and 23 indexed titles without guide. Permit type depends on The Arisen's Shadow; endgame choices require real-save verification."
   ]
 }

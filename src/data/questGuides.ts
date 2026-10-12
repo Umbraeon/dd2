@@ -99,6 +99,32 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
 
 export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
+    id: 'nation_lambent_flame', title: 'Nação da Chama Luzente', original: 'Nation of the Lambent Flame',
+    region: 'Vernworth, Posto de Controle da Fronteira e estrada até Bakbattahl',
+    giver: 'Brant, após O Banquete da Farsa',
+    relatedEventIds: ['v304', 'b01'],
+    preparation: [
+      'Depois de O Banquete da Farsa, fale com Brant e examine qual permissão de fronteira recebeu. A decisão sobre Bermudo em Uma Sombra à Espreita pode mudar o tipo de passe.',
+      'Antes de sair de Vernworth, conclua as missões opcionais que ainda deseja fazer, principalmente as cadeias de Ulrika e Wilhelmina. A viagem é longa e a fronteira separa duas regiões.',
+      'Na versão com Border Entry Permit comum, qualquer raça pode cruzar pelo portão. Com Beastren Border Entry Permit, personagens humanos precisam de Beastren Mask para usar a passagem oficial.'
+    ],
+    steps: [
+      'Saia de Vernworth pelo noroeste e siga até a Cidade de Descanso da Fronteira. O carro de boi da saída noroeste pode encurtar o caminho, mas é possível sofrer ataques durante o trajeto.',
+      'No Posto de Controle da Fronteira, confira o passe no inventário. Se Brant interrogou Bermudo, o Border Entry Permit comum permite solicitar passagem ao guarda sem disfarce.',
+      'Se recebeu Beastren Border Entry Permit, apresente-o como beastren; sendo humano, compre e equipe Beastren Mask na loja de Ibrahim antes de falar com o guarda.',
+      'Para tentar a conquista Tô Dentro!, considere a alternativa clandestina: esconda-se na parte traseira de uma carruagem nobre que atravessa o portão. A passagem ilegal é opcional e pode provocar reação dos guardas se você for descoberto.',
+      'Depois de cruzar, siga pelas estradas de Battahl rumo ao sul até Bakbattahl. Prepare poções, acampamento e peões para os grupos de inimigos no percurso.',
+      'Na entrada da cidade, procure a hospedaria Rockmouse’s Burrow e converse com Menella, seguindo a indicação da missão.',
+      'Receba a Battahl Residence Permit de Menella e confira a conclusão da missão no diário. Essa permissão facilita as futuras travessias regulares da fronteira.'
+    ],
+    completion: 'A conversa com Menella em Rockmouse’s Burrow encerra Nação da Chama Luzente. A travessia clandestina para Tô Dentro! é um objetivo opcional distinto da conclusão da missão principal.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-nation-of-the-lambent-flame-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Nation-of-the-Lambent-Flame',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Arisens-Shadow'
+    ]
+  },
+  {
     id: 'new_godsway', title: 'Um Novo Chamado Divino', original: 'A New Godsway',
     region: 'Bakbattahl, laboratório Forbidden Magick Research Lab sob Flamebearer Palace',
     giver: 'Ambrosius',
@@ -148,6 +174,32 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.powerpyx.com/dragons-dogma-2-the-guardian-gigantus-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/The-Guardian-Gigantus',
       'https://www.gamerguides.com/dragons-dogma-2/guide/walkthrough/bakbattahl/dragons-dogma-2-a-new-godsway-walkthrough'
+    ]
+  },
+  {
+    id: 'legacy', title: 'Legado', original: 'Legacy',
+    region: 'Moonglint Tower, voo do Dragão, salão do trono de Vernworth e acesso ao Mundo Desancorado',
+    giver: 'Missão principal iniciada ao alcançar o topo da Torre do Luar',
+    relatedEventIds: ['p06', 'u01', 'u02'],
+    preparation: [
+      'A entrada no trecho final da Torre do Luar, depois de O Guardião Gigantus, leva ao confronto de Legado. Revise missões opcionais e suas opções reais de salvamento ANTES de continuar; não pressuponha que poderá recuperar o estado anterior.',
+      'Esta ficha contém spoilers dos finais. Na rota comum, você segue no voo e enfrenta o Dragão; para o Mundo Desancorado, use a Empowered Godsbane Blade sobre o coração do Dragão durante o voo.',
+      'Se deseja tentar os dois caminhos na mesma campanha, não selecione Novo Jogo+ antes de conferir as opções de continuidade disponibilizadas pela sua versão do jogo.'
+    ],
+    steps: [
+      'Suba a Moonglint Tower e enfrente o falso Sobran e seus guardas. Sobreviver até o ritual de Phaesus avançar já pode desencadear a cena; não é necessário prometer derrotar todos antes disso.',
+      'Quando o Dragão aparecer e oferecer uma decisão, afastar-se dele representa a rota de rendição. Para prosseguir ao confronto, aproxime-se e ataque-o.',
+      'Durante o voo nas costas do Dragão, decida qual final deseja agora. Permanecer nele até o pouso leva à luta da rota comum; a escolha para o Mundo Desancorado precisa ser feita ainda no voo.',
+      'Na rota comum, derrote o Dragão na arena, atacando a cabeça e o coração quando estiver exposto. Após a luta, no salão do trono, permaneça sentado até o fim dos créditos se buscar a conquista Paz.',
+      'Se concluiu a rota comum e quer explorar outro final, NÃO inicie Novo Jogo+. Verifique a opção de retomar do último save; no salão do trono, procure o Pioneiro (Pathfinder) brilhante e converse novamente quando ele reaparecer para voltar ao voo.',
+      'Para entrar diretamente no Mundo Desancorado durante o voo, desça pelo corpo do Dragão até a região do coração brilhante sob o peito. Abra o inventário, selecione Empowered Godsbane Blade e escolha usá-la em si mesmo enquanto estiver no local correto.',
+      'Após a cena, confirme a chegada ao Mundo Desancorado e siga a sequência de recuperação do Peão Principal, provações e evacuações. Não interaja precipitadamente com o farol vermelho final do Santuário do Leito Marinho: ele encerra essa parte da campanha.'
+    ],
+    completion: 'Legado encaminha para um final da campanha comum ou para a rota do Mundo Desancorado. A conquista Paz exige a condição do trono na rota comum; entrar no Mundo Desancorado e concluir suas provações são etapas distintas. O resultado disponível depende da decisão durante o voo.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-legacy-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Legacy',
+      'https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/'
     ]
   },
   {
