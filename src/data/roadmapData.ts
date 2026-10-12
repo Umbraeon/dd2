@@ -210,7 +210,7 @@ export const PHASES: Phase[] = [
         id: "v101",
         title: "Chegue a Vernworth na história principal",
         type: "historia",
-        note: "Acompanhe a escolta de carroça ou siga a pé até as portas da capital de Vermund com o Capitão Brant.",
+        note: "Em 'No Rastro do Dragão', acompanhe Gregor desde Melve pela estrada até as portas de Vernworth, enfrentando eventuais harpias e ciclope. Brant será encontrado depois, na Estalagem Stardrop à noite, em 'O Trono do Sobran'.",
         achievements: [3],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -466,7 +466,7 @@ export const PHASES: Phase[] = [
         id: "v301",
         title: "Conclua as investigações de conspiração no castelo",
         type: "missao",
-        note: "Termine 'O Plano de Disa' (Disa's Plot), investigando o escritório da rainha regente; 'Uma Sombra à Espreita' (The Arisen's Shadow), capturando Bermudo nas ruas de Vernworth e optando por poupá-lo ou prendê-lo; e as tarefas de Sven.",
+        note: "Investigue 'O Plano de Disa' e 'Uma Sombra à Espreita' em Vernworth. Depois de 'O Trono Roubado', aceite com Brant 'Um Encontro Perturbador': entre à noite nos aposentos de Allard, encontre a carta na parede secreta e entregue-a a Brant antes da coroação. Confira também as tarefas de Sven.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -946,7 +946,7 @@ export const PHASES: Phase[] = [
         id: "p04",
         title: "Prepare-se antes do confronto com Gigantus",
         type: "checkpoint",
-        note: "Antes de avançar 'Um Novo Chamado Divino' (A New Godsway) e a rota de 'O Guardião Gigantus' (The Guardian Gigantus), revise as missões pendentes. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada. Confira o registro disponível antes de seguir.",
+        note: "Na história, 'Sombras Trêmulas' leva a Ambrosius, ao Forjado pelo Dragão, a Luz e ao Ancião de Harve; em 'Convergência', entre na Caverna da Tempestade e receba a Sucessão Vil de Rothais. Antes de avançar 'Um Novo Chamado Divino' e enfrentar Gigantus, revise as missões pendentes. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada; confira o registro disponível antes de seguir, sem presumir rollback garantido.",
         achievements: [],
         risk: "critico",
         source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",

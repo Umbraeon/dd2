@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified)",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -190,43 +190,42 @@
     {
       "id": "phantom_oxcart",
       "english": "The Phantom Oxcart"
+    },
+    {
+      "id": "gaoled_awakening",
+      "english": "Gaoled Awakening"
+    },
+    {
+      "id": "tales_beginning",
+      "english": "Tale's Beginning"
+    },
+    {
+      "id": "in_dragons_wake",
+      "english": "In Dragon's Wake"
+    },
+    {
+      "id": "seat_sovran",
+      "english": "Seat of the Sovran"
+    },
+    {
+      "id": "unsettling_encounter",
+      "english": "An Unsettling Encounter"
+    },
+    {
+      "id": "flickering_shadows",
+      "english": "Flickering Shadows"
+    },
+    {
+      "id": "convergence",
+      "english": "Convergence"
     }
   ],
   "indexedWithoutGuide": [
-    {
-      "english": "Gaoled Awakening",
-      "ptBR": "O Despertar na Prisão",
-      "events": [
-        "m01"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
     {
       "english": "The Hand That Guides",
       "ptBR": "A Mão que Guia",
       "events": [
         "m01"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "Tale's Beginning",
-      "ptBR": "A História se Inicia",
-      "events": [
-        "m01"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "In Dragon's Wake",
-      "ptBR": "No Rastro do Dragão",
-      "events": [
-        "m01",
-        "v101",
-        "m04"
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
@@ -246,15 +245,6 @@
     {
       "english": "One-Eyed Interloper",
       "ptBR": "Intruso de um Olho Só",
-      "events": [
-        "v101"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "Seat of the Sovran",
-      "ptBR": "O Trono do Sobran",
       "events": [
         "v101"
       ],
@@ -318,9 +308,6 @@
     }
   ],
   "notInLocalizationIndexFrom2024": [
-    "An Unsettling Encounter",
-    "Flickering Shadows",
-    "Convergence",
     "Oxcart Courier",
     "A Case of Sculptor's Block",
     "The Gift of Giving",

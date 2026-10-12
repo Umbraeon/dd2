@@ -1004,6 +1004,170 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/',
       'https://www.polygon.com/dragons-dogma-2-guide/24111543/phantom-oxcart-quest-walkthrough-location-start-navil-disguise'
     ]
+  },
+  {
+    id: 'gaoled_awakening', title: 'O Despertar na Prisão', original: 'Gaoled Awakening',
+    region: 'Prólogo — Local de Escavação, prisão e pedreira',
+    giver: 'Fiska, supervisor da escavação; missão inicial automática',
+    relatedEventIds: ['m01'],
+    preparation: [
+      'É a primeira missão da história, logo após criar o personagem. Siga o tutorial; não há objeto raro para guardar nem falsificação necessária.',
+      'A criatura que chega à pedreira dá início à fuga. A fuga aérea ocorre nas asas de um GRIFO, não da Esfinge.'
+    ],
+    steps: [
+      'Saia da cela e obedeça às ordens de Fiska, seguindo Rook até a área da escavação.',
+      'Desça a encosta, localize uma pedra grande entre as rochas e pegue-a usando o comando de agarrar.',
+      'Carregue a pedra de volta até Rook; a movimentação no acampamento será interrompida por uma agitação.',
+      'Suba em direção à entrada da escavação para investigar o tumulto e prepare-se para o combate tutorial.',
+      'Pegue a arma indicada, defenda-se da criatura até a cena seguinte e, quando receber a ordem de fugir, siga Rook até o penhasco.',
+      'Salte do precipício na sequência de fuga; o grifo leva seu personagem para longe do Local de Escavação, iniciando A História se Inicia.'
+    ],
+    completion: 'Fuga concluída depois do ataque à escavação e do voo no grifo; prossiga com Justinn e o posto de fronteira.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-gaoled-awakening-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'tales_beginning', title: 'A História se Inicia', original: "Tale's Beginning",
+    region: 'Prólogo — encosta da cachoeira e Posto Avançado da Guarda nas Fronteiras',
+    giver: 'Justinn, soldado que encontra o Nascen após a fuga',
+    relatedEventIds: ['m01'],
+    preparation: [
+      'Começa após O Despertar na Prisão. Recrute seu Peão Principal na Pedra de Fenda do posto; os peões de apoio são opcionais.',
+      'Antes de seguir para Melve, descanse na hospedagem do posto para fechar esta etapa. Não é exigida compra de equipamento.'
+    ],
+    steps: [
+      'Após a cena da cachoeira, converse com Justinn e siga o soldado pela trilha que leva ao posto de fronteira.',
+      'Derrote os goblins que bloqueiam a passagem; mantenha-se junto ao grupo até chegar ao Posto Avançado da Guarda nas Fronteiras.',
+      'No posto, interaja com a Pedra de Fenda e crie ou confirme seu Peão Principal, que passará a acompanhá-lo na jornada.',
+      'Converse com Luksa sobre peões e pedras, se desejar, e tente seguir pela saída em direção a Melve.',
+      'Quando o guarda recomendar um descanso, volte à tenda da hospedagem, fale com o responsável e use o primeiro repouso gratuito.'
+    ],
+    completion: 'Depois do descanso, termina A História se Inicia e fica disponível No Rastro do Dragão, rumo a Melve.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-tales-beginning-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Tales-Beginning',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'in_dragons_wake', title: 'No Rastro do Dragão', original: "In Dragon's Wake",
+    region: 'Vermund — Posto Avançado, Melve, estrada até Vernworth',
+    giver: 'Após a hospedagem do posto, missão principal iniciada automaticamente',
+    relatedEventIds: ['m04', 'v101'],
+    preparation: [
+      'Antes de deixar o posto de fronteira, considere concluir Provações de um Novo Recruta e Um Fornecedor em Apuros, cujas fichas já existem.',
+      'Acompanhe Gregor até Vernworth. O capitão Brant NÃO é quem escolta você na estrada: a reunião com Brant ocorre na capital, posteriormente.'
+    ],
+    steps: [
+      'Saia do Posto Avançado em direção ao sul e siga o caminho indicado até Melve; na trilha ficam oportunidades de missões como Treino Leonino, de Beren.',
+      'Ao entrar em Melve, suba a colina da aldeia destruída e acompanhe a cena que recupera lembranças do ataque do Dragão.',
+      'Encontre Lennart nas proximidades da Estalagem de Tristan em Melve; converse sobre vocações e receba as orientações iniciais.',
+      'Siga até a saída da aldeia e fale com Gregor, que organiza a escolta até Vernworth. Prepare suprimentos antes da marcha.',
+      'Acompanhe Gregor pela estrada; enfrente harpias e, quando surgir, o ciclope da passagem. O combate pode ser listado como Intruso de um Olho Só, uma missão breve adicional.',
+      'Chegue às portas de Vernworth com a escolta. A investigação do falso soberano e o contato com Brant começam na sequência.'
+    ],
+    completion: 'Chegada à capital, sem perder as missões locais que queira resolver em Melve. Prossiga com O Trono do Sobran.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-in-dragons-wake-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'seat_sovran', title: 'O Trono do Sobran', original: 'Seat of the Sovran',
+    region: 'Vernworth — Estalagem Stardrop, centro da cidade',
+    giver: 'Capitão Brant, na Estalagem Stardrop à noite',
+    relatedEventIds: ['v101'],
+    preparation: [
+      'Após chegar a Vernworth em No Rastro do Dragão, procure Brant NA CIDADE, não no posto avançado.',
+      'Converse com Brant à noite. Se ainda for dia, peça ao atendente da Estalagem Stardrop que avance o horário.'
+    ],
+    steps: [
+      'Entre em Vernworth após o evento de chegada com Gregor; acompanhe a apresentação da situação política da cidade.',
+      'Encontre a Estalagem Stardrop, na praça principal de Vernworth, e vá até lá depois de escurecer.',
+      'Fale com o Capitão Brant no balcão e siga-o até os fundos da estalagem para uma conversa reservada.',
+      'Ouça o plano para investigar o falso Sobran e selecione as opções de diálogo disponíveis para obter as tarefas.',
+      'Aceite Elimine os Monstros, O Plano de Disa e O Magistrado Aprisionado. Essas investigações podem ser concluídas em ordens diferentes.'
+    ],
+    completion: 'Abertura da sequência de investigações de Brant em Vernworth. As três missões abertas têm guias individuais no Compêndio.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-seat-of-the-sovran-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Seat-of-the-Sovran',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'unsettling_encounter', title: 'Um Encontro Perturbador', original: 'An Unsettling Encounter',
+    region: 'Vernworth — Estalagem Stardrop e Castelo de Vernworth, aposentos de Allard',
+    giver: 'Capitão Brant, na conversa noturna após outras investigações no castelo',
+    relatedEventIds: ['v301', 'v303'],
+    preparation: [
+      'Depois de avançar as investigações de Brant, especialmente O Trono Roubado, fale com ele à noite na Estalagem Stardrop. Evite avançar a coroação sem concluir esta investigação.',
+      'A missão exige encontrar uma carta escondida no quarto de Allard; não compre nem falsifique o documento em Ibrahim.'
+    ],
+    steps: [
+      'À noite, converse com Brant na Estalagem Stardrop em Vernworth e aceite investigar o ministro Allard.',
+      'Vá ao Castelo de Vernworth pelo Bairro Nobre; se a entrada principal estiver fechada, use a passagem da guarita de guarda para alcançar o interior.',
+      'Suba ao segundo andar e aguarde a conversa entre Allard e seu acompanhante; entre nos aposentos quando os dois saírem.',
+      'Examine o canto esquerdo da parede dos aposentos e empurre o painel escondido para revelar uma saleta secreta.',
+      'Pegue a Battahli-Crested Letter (carta com brasão de Battahl) sobre a mesa e acompanhe a cena que ocorre ao sair do esconderijo.',
+      'Retorne à Estalagem Stardrop à noite, converse com Brant sobre os rumores de Allard e entregue a carta encontrada.'
+    ],
+    completion: 'Brant recebe a carta que prova a ligação de Allard com Battahl. A missão pode repercutir em tramas de Wilhelmina e deve ser concluída antes de avançar a coroação.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-an-unsettling-encounter-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/An-Unsettling-Encounter',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'flickering_shadows', title: 'Sombras Trêmulas', original: 'Flickering Shadows',
+    region: 'Battahl — Bakbattahl, Costa de Olta’Battahl, Santuário Reverente e Harve',
+    giver: 'Início da investigação do chamado divino ao entrar em Bakbattahl',
+    relatedEventIds: ['b02', 'b04'],
+    preparation: [
+      'Começa após Nação da Chama Luzente, quando você chega a Bakbattahl e busca informações sobre o chamado divino.',
+      'Leve recursos de viagem: a missão percorre locais distantes e termina falando com o Ancião de Harve. O cristal azul PEQUENO para Ambrosius é obtido na costa, e não comprado.'
+    ],
+    steps: [
+      'Entre no Distrito Mercantil de Bakbattahl e acompanhe a conversa que encaminha sua investigação sobre o chamado divino.',
+      'Siga para a Costa de Olta’Battahl a leste/nordeste da cidade e encontre Ambrosius. Derrote as harpias que o ameaçam, conforme o estado de seu jogo.',
+      'Procure Small Blue Crystal Shards na água e nas margens próximas; pegue pelo menos um e entregue a Ambrosius quando ele pedir uma amostra.',
+      'Visite o Santuário à Beira da Baía (Bay Wayside Shrine) e converse com o Forjado pelo Dragão sobre os cristais do chamado divino.',
+      'Vá ao Santuário Reverente (Reverent Shrine), a noroeste de Bakbattahl, e converse com Luz. Esse encontro também pode desbloquear a vocação Ilusionista.',
+      'Volte ao vilarejo de Harve em Vermund e fale com o Ancião à beira-mar. Se ele não estiver disponível, retorne em outro horário; a conversa libera Convergência.'
+    ],
+    completion: 'Informações coletadas com Ambrosius, o Forjado pelo Dragão, Luz e o Ancião de Harve; a história avança para Convergência.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-flickering-shadows-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Flickering-Shadows',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'convergence', title: 'Convergência', original: 'Convergence',
+    region: 'Harve — Caverna da Tempestade e Templo Abissal (Santuário do Leito Marinho)',
+    giver: 'Início automático após Sombras Trêmulas e conversa com o Ancião de Harve',
+    relatedEventIds: ['p04'],
+    preparation: [
+      'Esta etapa é da HISTÓRIA PRINCIPAL, antes do Guardião Gigantus, e NÃO é a sequência de evacuação do Mundo Desancorado.',
+      'O objeto Dulled Godsbane Blade (Sucessão Vil sem poder) é RECEBIDO de Rothais como recompensa, não um item exigido antes de entrar na caverna.'
+    ],
+    steps: [
+      'Após falar com o Ancião em Sombras Trêmulas, siga até a Caverna da Tempestade, próxima à praia do vilarejo de Harve.',
+      'Entre na passagem que se abriu na caverna e avance pelos túneis até a entrada das ruínas reveladas pelo recuo do mar.',
+      'Desça as escadarias do Templo Abissal e atravesse a sala grande pelo lado sul, seguindo o caminho principal.',
+      'Aproxime-se do salão do trono e converse com Rothais, o antigo Sobran de Vermund, para conhecer a origem do chamado divino.',
+      'Receba a Dulled Godsbane Blade (Sucessão Vil), que será necessária na próxima missão, Um Novo Chamado Divino.',
+      'Para sair, volte pelas ruínas. É possível encontrar uma pedra de transporte num baú ou utilizar a lâmina no mecanismo azul para subir por uma rota de saída.'
+    ],
+    completion: 'Convergência termina após encontrar Rothais e receber a lâmina. Continue em Um Novo Chamado Divino levando o item original.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-convergence-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Convergence',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
   }
 ];
 

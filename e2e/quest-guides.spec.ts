@@ -100,12 +100,13 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: cinco fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: seis fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(5);
+  await expect(panel.locator('details')).toHaveCount(6);
+  await expect(panel.locator('#quest-guide-unsettling_encounter')).toBeVisible();
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
   await expect(feast).toContainText('Quando Brant perguntar se você está pronto');
@@ -502,6 +503,64 @@ test('Carroça Fantasma: disfarce sem equipamentos e ordens para Brant acessíve
   const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
   await expect(items).toContainText('Labor Requisition Orders');
   await expect(items).toContainText('Estalagem Stardrop');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('história principal inicial: quatro guias do prólogo a Vernworth abrem no celular sem gravar progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  const cases = [
+    ['O Despertar na Prisão', 'gaoled_awakening', 'grifo'],
+    ['A História se Inicia', 'tales_beginning', 'Justinn'],
+    ['No Rastro do Dragão', 'in_dragons_wake', 'Gregor'],
+    ['O Trono do Sobran', 'seat_sovran', 'Brant']
+  ];
+  for (const [title, id, essential] of cases) {
+    await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill(title);
+    await page.getByRole('region', { name: 'Resultados encontrados' })
+      .getByRole('button', { name: new RegExp('Guia de missão ' + title) }).click();
+    const guide = page.locator('#quest-guide-' + id);
+    await expect(guide).toHaveAttribute('open', '');
+    await expect(guide).toContainText(essential);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('história principal: carta de Allard e cristal de Ambrosius aparecem na ficha da missão', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  const cases = [
+    ['Um Encontro Perturbador', 'unsettling_encounter', 'Battahli-Crested Letter', 'Brant'],
+    ['Sombras Trêmulas', 'flickering_shadows', 'Small Blue Crystal Shard', 'Ambrosius']
+  ];
+  for (const [title, id, required, recipient] of cases) {
+    await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill(title);
+    await page.getByRole('region', { name: 'Resultados encontrados' })
+      .getByRole('button', { name: new RegExp('Guia de missão ' + title) }).click();
+    const guide = page.locator('#quest-guide-' + id);
+    await expect(guide).toHaveAttribute('open', '');
+    const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+    await expect(items).toContainText(required);
+    await expect(items).toContainText(recipient);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Convergência: Rothais entrega lâmina e missão precede Um Novo Chamado Divino', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Convergência');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Guia de missão Convergência/ }).click();
+  const guide = page.locator('#quest-guide-convergence');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Rothais');
+  await expect(guide).toContainText('Dulled Godsbane Blade');
+  await expect(guide).toContainText('Um Novo Chamado Divino');
+  await expect(guide).toContainText('NÃO é a sequência de evacuação');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });

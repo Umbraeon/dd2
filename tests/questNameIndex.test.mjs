@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import { QUEST_NAME_INDEX, questNamesForEvent } from '../src/data/questNameIndex.ts';
 import { PHASES } from '../src/data/roadmapData.ts';
 
-test('59 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
-  assert.equal(QUEST_NAME_INDEX.length, 59);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 59);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 59);
+test('62 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
+  assert.equal(QUEST_NAME_INDEX.length, 62);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 62);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 62);
   for (const item of QUEST_NAME_INDEX) {
     assert.ok(item.ptBR.trim() && item.english.trim());
     assert.ok(item.eventIds.length >= 1);
   }
 });
 
-test('7 amostras PAK reportadas têm chave, recurso e hash; 52 ficam em catálogo pareado', () => {
+test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 3 de catálogo Kiranico', () => {
   const samples = QUEST_NAME_INDEX.filter(item => item.evidence === 'pak_sample_reported');
   assert.equal(samples.length, 7);
   for (const item of samples) {
@@ -43,4 +43,22 @@ test('índice é somente leitura; marcos e conquistas existentes permanecem est�
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
   assert.deepEqual(questNamesForEvent('___inexistente___'), []);
+});
+
+test('três novos nomes PT-BR são sustentados por catálogo localizado, não hashes PAK inventados', () => {
+  const expected = [
+    ['An Unsettling Encounter', 'Um Encontro Perturbador'],
+    ['Flickering Shadows', 'Sombras Trêmulas'],
+    ['Convergence', 'Convergência']
+  ];
+  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 3);
+  for (const [english, ptBR] of expected) {
+    const q = QUEST_NAME_INDEX.find(x => x.english === english);
+    assert.ok(q);
+    assert.equal(q.ptBR, ptBR);
+    assert.equal(q.evidence, 'kiranico_ptbr');
+    assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
+    assert.equal(q.sha256, undefined);
+    assert.equal(q.titleKey, undefined);
+  }
 });

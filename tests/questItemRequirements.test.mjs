@@ -9,9 +9,9 @@ const noItems = [...QUESTS_WITHOUT_ITEM_REQUIREMENTS];
 
 test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e destino de cada item', () => {
   const ids = QUEST_GUIDES.map(guide => guide.id).sort();
-  assert.equal(QUEST_GUIDES.length, 47);
-  assert.equal(withItems.length, 30);
-  assert.equal(noItems.length, 17);
+  assert.equal(QUEST_GUIDES.length, 54);
+  assert.equal(withItems.length, 32);
+  assert.equal(noItems.length, 22);
   assert.deepEqual([...withItems, ...noItems].sort(), ids, 'Cada guia deve ser classificado e nenhum pode ficar sem avaliação de itens');
   assert.equal(new Set([...withItems, ...noItems]).size, ids.length);
   for (const [id, section] of Object.entries(QUEST_ITEM_REQUIREMENTS)) {
@@ -162,4 +162,18 @@ test('onda 11: Godsbane na prova, documento original para Brant e Talos sem item
   assert.match(cart.items[0].use, /Brant/);
   assert.match(cart.guidance, /DESEQUIPE/);
   assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes('when_wills_collide'));
+});
+
+test('sete missões principais: carta de Allard e fragmento azul não são confundidos com recompensas', () => {
+  const letter = QUEST_ITEM_REQUIREMENTS.unsettling_encounter.items[0];
+  const crystal = QUEST_ITEM_REQUIREMENTS.flickering_shadows.items[0];
+  assert.match(letter.name, /Battahli-Crested Letter/);
+  assert.match(letter.where, /Allard/);
+  assert.match(letter.use, /Brant/);
+  assert.match(crystal.name, /Small Blue Crystal Shard/);
+  assert.match(crystal.where, /Ambrosius/);
+  assert.match(crystal.use, /Ambrosius/);
+  for (const id of ['gaoled_awakening', 'tales_beginning', 'in_dragons_wake', 'seat_sovran', 'convergence']) {
+    assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes(id), id);
+  }
 });

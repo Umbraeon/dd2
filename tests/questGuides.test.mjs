@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 47);
+  assert.equal(QUEST_GUIDES.length, 54);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -21,14 +21,14 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   }
   assert.equal(questGuidesForEvent('b03')[0].id, 'short_sighted');
   assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
-  assert.equal(questGuidesForEvent('m04').length, 3);
+  assert.equal(questGuidesForEvent('m04').length, 4);
   assert.equal(questGuidesForEvent('m02').length, 2);
   assert.equal(questGuidesForEvent('v102').length, 3);
   assert.equal(questGuidesForEvent('v103').length, 3);
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 4);
-  assert.equal(questGuidesForEvent('v301').length, 2);
-  assert.equal(questGuidesForEvent('v303').length, 5);
+  assert.equal(questGuidesForEvent('v301').length, 3);
+  assert.equal(questGuidesForEvent('v303').length, 6);
   assert.equal(questGuidesForEvent('v304').length, 2);
   assert.equal(questGuidesForEvent('v104').length, 1);
   assert.equal(questGuidesForEvent('v201').length, 3);
@@ -351,5 +351,29 @@ test('onda 11: feixes de Bakbattahl, Talos e carroça possuem rotas distintas', 
   assert.match(cart.steps.join(' '), /Brant/);
   assert.match(cart.steps.join(' '), /Labor Requisition Orders/);
   assert.match(cart.preparation.join(' '), /remova TODAS as armas/);
+  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+});
+
+test('história principal: 16 missões do catálogo histórico têm guias distintos e encadeados', () => {
+  const main = [
+    'Gaoled Awakening', "Tale's Beginning", "In Dragon's Wake", 'Seat of the Sovran',
+    'Monster Culling', "Disa's Plot", 'An Unsettling Encounter', 'The Caged Magistrate',
+    'The Stolen Throne', 'Feast of Deception', 'Nation of the Lambent Flame',
+    'Flickering Shadows', 'Convergence', 'A New Godsway', 'The Guardian Gigantus', 'Legacy'
+  ];
+  for (const name of main) assert.ok(QUEST_GUIDES.some(q => q.original === name), 'História principal sem ficha: ' + name);
+  const quest = id => QUEST_GUIDES.find(q => q.id === id);
+  assert.match(quest('gaoled_awakening').steps.join(' '), /grifo/);
+  assert.doesNotMatch(quest('gaoled_awakening').steps.join(' '), /Esfinge/);
+  assert.match(quest('tales_beginning').steps.join(' '), /Justinn/);
+  assert.match(quest('in_dragons_wake').steps.join(' '), /Gregor/);
+  assert.match(quest('seat_sovran').steps.join(' '), /Brant/);
+  assert.match(quest('unsettling_encounter').steps.join(' '), /Allard/);
+  assert.match(quest('flickering_shadows').steps.join(' '), /Ambrosius/);
+  assert.match(quest('convergence').steps.join(' '), /Rothais/);
+  assert.match(quest('convergence').completion, /Um Novo Chamado Divino/);
+  const v101 = PHASES.flatMap(p => p.events).find(e => e.id === 'v101');
+  assert.match(v101.note, /Gregor/);
+  assert.doesNotMatch(v101.note, /com o Capitão Brant/);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
