@@ -332,6 +332,36 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/',
       'https://www.polygon.com/dragons-dogma-2-guide/24111543/phantom-oxcart-quest-walkthrough-location-start-navil-disguise'
     ]
+  },
+  unsettling_encounter: {
+    guidance: 'A evidência é encontrada dentro dos aposentos de Allard no Castelo de Vernworth, após abrir a passagem da parede secreta. O documento deve ser levado ORIGINAL a Brant na Estalagem Stardrop; não precisa de falsificação.',
+    items: [{
+      name: 'Battahli-Crested Letter',
+      namePt: 'Carta com brasão de Battahl (descrição explicativa; nome do inventário PT-BR não verificado)',
+      quantity: '1 documento obrigatório',
+      where: 'No aposento oculto atrás da parede falsa dos aposentos de Allard, segundo andar do Castelo de Vernworth, à noite.',
+      use: 'Recolha a carta e entregue a Brant na Estalagem Stardrop, à noite, ao relatar os rumores sobre Allard.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-an-unsettling-encounter-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/An-Unsettling-Encounter'
+    ]
+  },
+  flickering_shadows: {
+    guidance: 'Ambrosius pede um fragmento PEQUENO de cristal azul obtido no litoral próximo dele. Não é o conjunto de 15 Cristais da Vida da Serpe da missão posterior Um Novo Chamado Divino.',
+    items: [{
+      name: 'Small Blue Crystal Shard',
+      namePt: 'Pequeno fragmento de cristal azul (descrição explicativa; nome do inventário PT-BR não verificado)',
+      quantity: 'Pelo menos 1 amostra',
+      where: 'Na Costa de Olta’Battahl, a leste/nordeste de Bakbattahl, entre os fragmentos brilhantes no chão e na água perto de Ambrosius.',
+      use: 'Entregue um fragmento a Ambrosius quando ele solicitar a amostra do chamado divino; guarde os demais para outras necessidades. Não é item para falsificação.',
+      forgery: 'original'
+    }],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-flickering-shadows-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Flickering-Shadows'
+    ]
   }
 };
 
@@ -346,5 +376,7 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'readvent_calamity', 'arisen_shadow', 'monster_culling', 'scaly_invaders',
   'trouble_cape', 'till_death', 'mercy_thieves', 'shadowed_prayers',
   'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
-  'regentkins_resolve', 'when_wills_collide'
+  'regentkins_resolve', 'when_wills_collide',
+  'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
+  'seat_sovran', 'convergence'
 ];
