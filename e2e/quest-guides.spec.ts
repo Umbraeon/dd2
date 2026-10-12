@@ -35,12 +35,20 @@ test('busca global por Jadeite abre guia individual sem criar progresso', async 
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
 
-test('Diário mostra passo a passo de Trysha e Myrddin sob demanda', async ({ page }) => {
+test('Diário: Beren e grimórios aparecem juntos no marco Conheça Beren', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('melve');
   await page.getByRole('button', { name: /Consultar atividade: Conheça Beren/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(2);
+  await expect(panel.locator('details')).toHaveCount(4);
+  const beren = panel.locator('#quest-guide-beren_claw');
+  await beren.locator('summary').click();
+  await expect(beren).toContainText('três espadas');
+  await expect(beren).toContainText('Humphrey');
+  const final = panel.locator('#quest-guide-beren_final_lesson');
+  await final.locator('summary').click();
+  await expect(final).toContainText('Champion’s Fable');
+  await expect(final).toContainText('Arc of Might');
   const trysha = panel.locator('details').filter({ hasText: /Magia Vertiginosa/ });
   await trysha.locator('summary').click();
   await expect(trysha).toContainText('pelo menos três grimórios autênticos');
@@ -142,5 +150,25 @@ test('Bakbattahl: Jarle exige duas voltas envenenado e recebe veneno da quimera'
   await expect(entry).toHaveAttribute('open', '');
   await expect(entry).toContainText('Venin Harpy');
   await expect(entry).toContainText('cabeça de serpente');
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Beren: biblioteca encontra as duas missões PT-BR no celular sem criar progresso', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Treino Leonino');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Treino Leonino/ }).click();
+  const first = page.locator('#quest-guide-beren_claw');
+  await expect(first).toHaveAttribute('open', '');
+  await expect(first).toContainText('Humphrey');
+  await expect(first).toContainText('três espadas');
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Última Lição de Beren');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Última Lição de Beren/ }).click();
+  const second = page.locator('#quest-guide-beren_final_lesson');
+  await expect(second).toHaveAttribute('open', '');
+  await expect(second).toContainText('Arc of Might');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
