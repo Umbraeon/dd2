@@ -137,7 +137,7 @@ test('quatro evacuações: distinguir materiais condicionais de objetos de entre
   const cutting = map.wandering_roots.items;
   assert.equal(cutting.length, 1);
   assert.equal(cutting[0].optional, true);
-  assert.match(map.wandering_roots.guidance, /diálogos com Taliesin/);
+  assert.match(map.wandering_roots.guidance, /conversas com Taliesin/);
   assert.equal(map.aiding_ernesto.items.length, 2);
   assert.ok(map.aiding_ernesto.items.every(item => item.optional), 'Teleporte não pode ser marcado obrigatório');
   assert.match(map.aiding_ernesto.guidance, /Não há item obrigatório/);
