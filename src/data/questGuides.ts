@@ -1168,6 +1168,103 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://game8.co/games/Dragons-Dogma-2/archives/Convergence',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
+  },
+  {
+    id: 'place_call_home', title: 'Um Lugar para Chamar de Lar', original: 'A Place to Call Home',
+    region: 'Vernworth — rua ao sul da Estalagem Stardrop e Bairro Popular',
+    giver: 'Mildred, perto da rua ao sul da Estalagem Stardrop durante o dia',
+    relatedEventIds: ['v105'],
+    preparation: [
+      'Após O Trono do Sobran, procure Mildred durante o dia na rua ao sul da Estalagem Stardrop. Se ela não aparecer, volte após algum tempo.',
+      'Para comprar a casa e obter a conquista de residência própria, reserve 20.000 moedas de ouro. O empréstimo inicial da casa é gratuito.'
+    ],
+    steps: [
+      'Passe pela rua ao sul da Estalagem Stardrop em Vernworth durante o dia até Mildred abordá-lo; aceite encontrá-la na residência.',
+      'Siga o marcador até a casa de Mildred, no Bairro Popular, na parte leste da cidade, e converse com ela diante da entrada.',
+      'Aceite cuidar da residência enquanto Mildred viaja. A cama poderá ser utilizada sem pagar hospedagem.',
+      'Deixe transcorrer uma semana no jogo, jogando normalmente ou descansando repetidas vezes na cama da casa, até a missão indicar o retorno de Mildred.',
+      'Quando Mildred regressar, fale com ela em frente à residência e aceite a oferta de compra por 20.000 G.',
+      'Confirme que a casa passou a ser sua e que a conquista de adquirir residência foi registrada.'
+    ],
+    completion: 'Casa de Vernworth adquirida por 20.000 G. Ela passa a servir como local de descanso e acesso ao armazenamento.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-place-to-call-home-walkthrough/',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/a-place-to-call-home-walkthrough',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'dulled_steel', title: 'Lâmina Cega, Forja Fria', original: 'Dulled Steel, Cold Forge',
+    region: 'Vernworth — Castelo; Bakbattahl — Forja de Brokkr e Ruínas da Escavação',
+    giver: 'Roman, soldado no pátio do Castelo de Vernworth',
+    relatedEventIds: ['i06'],
+    preparation: [
+      'Depois de O Trono do Sobran, fale com Roman no pátio do castelo e RECEBA a Dulled Regalia Sword (Espada Régia cega). Mantenha a espada no inventário ao oferecê-la a Sara; não a deixe no depósito.',
+      'São exigidos pelo menos 15 Glimmercoal (carvões lustrazul), encontrados nas Ruínas da Escavação a sudoeste de Bakbattahl. Recolher até 25 é opcional e pode render recompensa melhor.',
+      'Glimmercoal e Glymercole são materiais DIFERENTES. Apague a lanterna na caverna: o minério certo brilha em verde no escuro.'
+    ],
+    steps: [
+      'No pátio do Castelo de Vernworth, aceite a missão de Roman e receba a Espada Régia cega, um objeto de missão que deve ser preservado.',
+      'Viaje até Bakbattahl e entre na Forja de Brokkr. Fale com Brokkr no cômodo dos fundos; ele se recusa a restaurar a espada.',
+      'Na saída, converse com Sara, sua aprendiz; espere Brokkr sair do estabelecimento e fale com ela novamente para saber do combustível necessário.',
+      'Vá às Ruínas da Escavação (Digger’s Ruins), a sudoeste de Bakbattahl, e recolha no mínimo 15 carvões lustrazul. No escuro, os depósitos corretos brilham em verde.',
+      'Retorne à Forja de Brokkr e ENTREGUE entre 15 e 25 carvões lustrazul a Sara; 25 é opcional, não a quantidade mínima exigida.',
+      'Com a Espada Régia cega no inventário, aceite confiar sua restauração a Sara. Isso encerra Lâmina Cega, Forja Fria e abre a continuação Vontade Resistente, Forja Ardente.'
+    ],
+    completion: 'Sara assume a restauração da espada. Concluir essa etapa NÃO devolve imediatamente a arma restaurada: siga para Vontade Resistente, Forja Ardente.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-dulled-steel-cold-forge-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Dulled-Steel-Cold-Forge',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'steeled_resolve', title: 'Vontade Resistente, Forja Ardente', original: 'Steeled Resolve, Blazing Forge',
+    region: 'Bakbattahl — Forja de Brokkr; Ilha Vulcânica — Caverna na Base da Montanha; Vernworth',
+    giver: 'Sara, na Forja de Brokkr, após Lâmina Cega, Forja Fria',
+    relatedEventIds: ['i06'],
+    preparation: [
+      'É continuação direta de Lâmina Cega, Forja Fria. A espada original deve estar com Sara; não é preciso comprar outra, recuperar um novo carvão ou criar falsificação.',
+      'Quando a missão indicar que Sara DESAPARECEU na Ilha Vulcânica, priorize resgatá-la. Fontes divergem sobre o prazo exato; evite descansar por vários dias após saber do desaparecimento.'
+    ],
+    steps: [
+      'Após entregar a espada a Sara, afaste-se da Forja de Brokkr e deixe algum tempo passar, depois retorne e pergunte sobre o progresso.',
+      'Saia mais uma vez e volte à forja; Brokkr informa que Sara foi à Caverna na Base da Montanha (Mountain Base Cave), na Ilha Vulcânica de Agamen.',
+      'Viaje até a Caverna na Base da Montanha e elimine inimigos pelo caminho, abrindo uma rota segura antes de localizar Sara na área da fornalha.',
+      'Converse com Sara e ESCOLTE-a para fora pela mesma rota. Mantenha-a por perto e afaste monstros antes que prejudiquem sua fuga.',
+      'Após alcançar a saída, volte à Forja de Brokkr em Bakbattahl, onde Sara entrega a Espada Régia restaurada.',
+      'Retorne a Vernworth e entregue a espada restaurada a Roman, no pátio do castelo, para concluir a missão.'
+    ],
+    completion: 'Roman recebe a Espada Régia restaurada. A cadeia também libera o serviço de aprimoramento de estilo anão na forja, conforme progressão da campanha.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-steeled-resolve-blazing-forge-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Steeled-Resolve-Blazing-Forge',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'prey_for_pack', title: 'A Presa da Alcateia', original: 'Prey for the Pack',
+    region: 'Cidade de Descanso da Fronteira — estrada a leste e Caverna Pútrida',
+    giver: 'Morris, dono da farmácia na Cidade de Descanso da Fronteira',
+    relatedEventIds: ['v206'],
+    preparation: [
+      'MISSÃO COM PRAZO: Rodge foi levado por lobos. Ao ativá-la, vá imediatamente resgatá-lo. O prazo exato não está confirmado e pode variar; NÃO durma dias para procurar pistas.',
+      'Você pode ir diretamente à Caverna Pútrida (Putrid Cave), a leste da cidade, sem conversar com todos os moradores. Não há item obrigatório de inventário.'
+    ],
+    steps: [
+      'Passe pela farmácia de Morris, no centro da Cidade de Descanso da Fronteira, e aceite procurar seu neto Rodge, levado por lobos.',
+      'Para investigar, pergunte a Alsa sobre as flores Moonglow e a Jacint sobre o jardim de flores de Rodge; essas conversas são opcionais.',
+      'Siga pela estrada que sai da cidade para leste até o canteiro de flores azuis Moonglow. À noite, as flores e pétalas brilhantes ajudam a localizar o caminho.',
+      'Acompanhe a trilha de flores até a Caverna Pútrida, próxima ao lago; você também pode ir direto ao local de dia para evitar perder tempo.',
+      'Entre na caverna e DERROTE os lobos imediatamente para manter Rodge vivo. Confira se o garoto o acompanha ao sair.',
+      'Escolte Rodge em segurança de volta à farmácia de Morris e fale com o avô para encerrar a missão.'
+    ],
+    completion: 'Rodge retorna vivo para Morris. Se você demorar demais, a caverna pode conter apenas um retalho de roupa e a missão terá um desfecho pior, embora ainda possa ser encerrada.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-prey-for-the-pack-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Prey-for-the-Pack',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
   }
 ];
 
