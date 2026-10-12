@@ -511,8 +511,33 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'O retorno a Margit conclui a missão; a sobrevivência de Gregor e a conquista por derrotar o Dullahan são objetivos distintos.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-till-death-do-us-part-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Till-Death-Do-Us-Part']
-  },
-];
+  },,
+
+  {
+    id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
+    region: 'Vernworth, Rose Chateau Bordelrie, castelo e Bairro Nobre',
+    giver: 'Wilhelmina',
+    relatedEventIds: ['v302', 'v303', 'v304'],
+    preparation: [
+      'Depois de O Banquete da Farsa, procure Wilhelmina no Rose Chateau, no Bairro Nobre, e converse com ela. O acesso à cena também depende do avanço das missões de corte e da afinidade com Wilhelmina.',
+      'Se a cena não surgir, entregue um Buquê de Flores a Wilhelmina e volte outra noite. Você pode deixar Vernworth e passar algum tempo fora da cidade antes de retornar.',
+      'O prazo de três dias para investigar Allard só começa depois que você aceita ajudar Wilhelmina; não confunda com os dias usados para ativar a cena.'
+    ],
+    steps: [
+      'Depois da coroação, vá ao quarto de Wilhelmina no andar superior do Rose Chateau, converse com ela e tente elevar a afinidade com um Buquê de Flores, se necessário.',
+      'Volte à noite. Quando o atendente Rolf disser que Wilhelmina está com um cliente, entre no quarto dela e examine o quadro para espiar a conversa.',
+      'Após a cena, ofereça ajuda a Wilhelmina: a partir desse aceite, reúna as provas dentro dos próximos três dias do jogo.',
+      'Encontre Sven nos aposentos dele no Castelo de Vernworth e pergunte sobre Allard; siga a indicação para procurar Patrick.',
+      'Fale com Patrick no Bairro Nobre à noite e aceite que ele atraia Allard para fora da residência. Vá ao escritório de Allard no andar superior, examine o quadro e recolha o Murder Report. Não ataque Allard ali.',
+      'Perto da barbearia de Clovis na área comercial, entre na casa ao sul e recolha o Bribery Investigation Findings sobre a mesa.',
+      'À noite, na Stardrop Inn, fale com Brant sobre o Myrmecoleon. Apresente primeiro o Bribery Investigation Findings, escolha procurar mais provas, apresente o Murder Report e peça a ajuda de Brant.',
+      'Volte ao Rose Chateau e entregue o Murder Report a Wilhelmina. Confirme que continuará ajudando; no quarto de Allard, agarre-o quando ela solicitar.',
+      'Fuja pela janela e siga Brant até estar fora de perigo. Volte ao Rose Chateau na noite seguinte e converse com Wilhelmina.'
+    ],
+    completion: 'A conversa posterior com Wilhelmina encerra a missão e pode render o Ring of Benevolence. O prazo de três dias é contado somente após aceitar ajudá-la.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/', 'https://gamerpillar.com/every-rose-has-its-thorn-walkthrough-dragons-dogma-2/']
+  }
+]; 
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */
 export const questGuidesForEvent = (eventId: string): readonly QuestGuide[] =>
