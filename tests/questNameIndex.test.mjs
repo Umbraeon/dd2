@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import { QUEST_NAME_INDEX, questNamesForEvent } from '../src/data/questNameIndex.ts';
 import { PHASES } from '../src/data/roadmapData.ts';
 
-test('63 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
-  assert.equal(QUEST_NAME_INDEX.length, 63);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 63);
-  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 63);
+test('66 pares únicos do mapeamento têm nomes EN/PT-BR não vazios', () => {
+  assert.equal(QUEST_NAME_INDEX.length, 66);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.english)).size, 66);
+  assert.equal(new Set(QUEST_NAME_INDEX.map(item => item.ptBR)).size, 66);
   for (const item of QUEST_NAME_INDEX) {
     assert.ok(item.ptBR.trim() && item.english.trim());
     assert.ok(item.eventIds.length >= 1);
   }
 });
 
-test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 4 de catálogo Kiranico', () => {
+test('7 amostras PAK reportadas têm chave, recurso e hash; 52 pareadas e 7 de catálogo Kiranico', () => {
   const samples = QUEST_NAME_INDEX.filter(item => item.evidence === 'pak_sample_reported');
   assert.equal(samples.length, 7);
   for (const item of samples) {
@@ -51,7 +51,7 @@ test('três novos nomes PT-BR são sustentados por catálogo localizado, não ha
     ['Flickering Shadows', 'Sombras Trêmulas'],
     ['Convergence', 'Convergência']
   ];
-  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 4);
+  assert.equal(QUEST_NAME_INDEX.filter(x => x.evidence === 'kiranico_ptbr').length, 7);
   for (const [english, ptBR] of expected) {
     const q = QUEST_NAME_INDEX.find(x => x.english === english);
     assert.ok(q);
@@ -71,4 +71,20 @@ test('A Presa da Alcateia tem nome do catálogo PT-BR e não inventa hash de PAK
   assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
   assert.deepEqual(q.eventIds, ['v206']);
   assert.equal(q.sha256, undefined);
+});
+
+test('nomes PT-BR de Elena, Nadinia e Hugo são títulos de catálogo, não IDs inventados', () => {
+  const added = [
+    ['Saint of the Slums', 'A Santa dos Cortiços'],
+    ['A Candle in the Storm', 'Como uma Vela na Tempestade'],
+    ['Off the Pilfered Path', 'Provações do Pobre Desgarrado']
+  ];
+  for (const [english, ptBR] of added) {
+    const q = QUEST_NAME_INDEX.find(x => x.english === english);
+    assert.ok(q);
+    assert.equal(q.ptBR, ptBR);
+    assert.equal(q.evidence, 'kiranico_ptbr');
+    assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
+    assert.equal(q.titleKey, undefined);
+  }
 });
