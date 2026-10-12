@@ -312,9 +312,9 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   },
   {
     id: 'sorcerers_appraisal', title: 'O Julgamento do Feiticeiro', original: "The Sorcerer's Appraisal",
-    region: 'Cidade de Descanso da Fronteira', giver: 'Myrddin',
-    relatedEventIds: ['m03', 'v206', 'p03'],
-    preparation: ['Vista a túnica e as calças da corte para entrar na residência de Myrddin.', 'Separe três falsificações de grimórios diferentes; reserve os originais para Trysha.'],
+    region: 'Cidade de Descanso da Fronteira (Checkpoint Rest Town), a oeste de Vernworth', giver: 'Myrddin',
+    relatedEventIds: ['v206', 'p03'],
+    preparation: ['Esta missão começa com Myrddin em sua mansão na Cidade de Descanso da Fronteira, e não em Melve nem dentro de Vernworth. Saia de Vernworth pela estrada oeste ou pelo carro de boi que vai à cidade fronteiriça.', 'Leve a túnica e as calças da corte, que podem ser obtidas em Vernworth, e equipe ambas para entrar na residência de Myrddin.', 'Separe três falsificações de grimórios diferentes; reserve os originais para Trysha, cuja missão começa perto de Melve.'],
     steps: [
       'Entre na casa de Myrddin com o traje de corte e converse com ele.',
       'Obtenha os grimórios e visite Ibrahim, na mesma cidade, para produzir cópias falsas dos volumes que pretende entregar.',
