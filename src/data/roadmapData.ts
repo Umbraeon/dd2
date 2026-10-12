@@ -41,7 +41,7 @@ export const PHASES: Phase[] = [
         id: "m01",
         title: "Conclua o Prólogo até alcançar o Posto Avançado da Guarda",
         type: "historia",
-        note: "Desperte nas prisões de escavação, escape com a ajuda da esfinge/grifo e chegue ao Posto Avançado de Guarda nas Fronteiras. A memória como Nascen é restaurada.",
+        note: "Desperte nas prisões de escavação, escape após o ataque de um grifo e chegue ao Posto Avançado de Guarda nas Fronteiras. A memória como Nascen é restaurada.",
         achievements: [1, 2],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"

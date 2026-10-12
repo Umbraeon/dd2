@@ -16,7 +16,7 @@ test('Consulta exibe plano de cópias com os dois destinatários corretos no mob
   const jadeite = items.filter({ hasText: 'Jadeite Orb' });
   await expect(jadeite).toContainText('Original → Everard');
   await expect(jadeite).toContainText('Cópia → Offulve');
-  const grim = items.filter({ hasText: 'Fulminous Shield' });
+  const grim = items.filter({ has: page.getByRole('heading', { name: 'Fulminous Shield', exact: true }) });
   await expect(grim).toContainText('Trysha');
   await expect(grim).toContainText('Myrddin');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
@@ -268,5 +268,54 @@ test('Onda 8: busca mobile encontra Legado e distingue finais sem escrever progr
   await expect(entry).toContainText('Mundo Desancorado');
   await expect(entry).toContainText('Paz');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('itens por missão: Trysha mostra cinco origens e exige livros originais no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Magia Vertiginosa');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Magia Vertiginosa/ }).click();
+  const entry = page.locator('#quest-guide-spellbound');
+  await expect(entry).toHaveAttribute('open', '');
+  const items = entry.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(5);
+  for (const name of ['Fulminous Shield', 'Nation\'s Death Knell', 'Howling Blizzard', 'Towering Earth', 'Let There Be Light']) {
+    await expect(items).toContainText(name);
+  }
+  await expect(items).toContainText('Dudley');
+  await expect(items).toContainText('Wendy');
+  await expect(items).toContainText('Waldhar');
+  await expect(items).toContainText('preserve ou entregue o original');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('itens por missão: Myrddin apresenta traje e cada cópia no local correto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('O Julgamento do Feiticeiro');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /O Julgamento do Feiticeiro/ }).click();
+  const entry = page.locator('#quest-guide-sorcerers_appraisal');
+  await expect(entry).toHaveAttribute('open', '');
+  const items = entry.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(6);
+  await expect(items).toContainText('Courtly Tunic + Courtly Breeches');
+  await expect(items).toContainText('Fruminous Shield');
+  await expect(items).toContainText('Hurling Blizzard');
+  await expect(items).toContainText('Turquoise Ring');
+  await expect(items).toContainText('faça/entregue uma cópia');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('busca global encontra itens de obtenção e falsificações da ficha', async ({ page }) => {
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Waldhar');
+  const results = page.getByRole('region', { name: 'Resultados encontrados' });
+  await expect(results.getByRole('button', { name: /Magia Vertiginosa/ })).toBeVisible();
+  await expect(results.getByRole('button', { name: /O Julgamento do Feiticeiro/ })).toBeVisible();
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
