@@ -244,7 +244,7 @@ test('onda 16: itens e recompensas de Daphne, Donovan, Waldhar e Sven não se co
   assert.match(d.items[1].name,/Silver Ore/);
   assert.match(d.items[2].quantity,/2 minérios/);
   assert.match(d.items[3].quantity,/3–5/);
-  assert.match(d.guidance,/FONTES/);
+  assert.match(d.guidance,/fontes com DIFERENTES quantidades/i);
   const cart=QUEST_ITEM_REQUIREMENTS.oxcart_courier;
   assert.match(cart.items[0].name,/Letter to Ser Lennart/);
   assert.match(cart.items[0].use,/Donovan/);
