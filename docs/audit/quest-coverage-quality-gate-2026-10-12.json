@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -250,6 +250,22 @@
     {
       "id": "pilfered_path",
       "english": "Off the Pilfered Path"
+    },
+    {
+      "id": "beggars_tale",
+      "english": "A Beggar's Tale"
+    },
+    {
+      "id": "ailing_arborheart",
+      "english": "The Ailing Arborheart"
+    },
+    {
+      "id": "forest_to_forge",
+      "english": "Out of the Forest, Into the Forge"
+    },
+    {
+      "id": "blue_sunbright_house",
+      "english": "House of the Blue Sunbright"
     }
   ],
   "indexedWithoutGuide": [
@@ -306,7 +322,6 @@
     "Oxcart Courier",
     "A Case of Sculptor's Block",
     "The Gift of Giving",
-    "House of the Blue Sunbright",
     "A Magisterial Amenity",
     "A Veil of Gossamer Clouds",
     "Hunt for the Jadeite Orb",
@@ -316,10 +331,7 @@
     "Tensions on the Highroad",
     "A Noble Exchange",
     "'Twixt a Rock and a Hard Place",
-    "A Beggar's Tale",
     "Crossing in Shadow",
-    "The Ailing Arborheart",
-    "Out of the Forest, Into the Forge",
     "Clash and Conclusion"
   ],
   "explanatoryNotes": [
