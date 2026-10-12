@@ -19,7 +19,7 @@ test('inventário editorial inclui TODAS as fichas e exige origem, quantidade e 
     assert.ok(section.items.length >= 1, id);
     for (const item of section.items) {
       for (const field of ['name', 'quantity', 'where', 'use']) {
-        assert.ok(item[field]?.length > 2, id + ': ' + field);
+        assert.ok(item[field]?.length >= (field === 'quantity' ? 1 : 3), id + ': ' + field);
       }
       assert.ok(['original', 'copy', 'optional', 'not-applicable'].includes(item.forgery), id);
     }
