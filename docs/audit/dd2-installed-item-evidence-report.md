@@ -2,7 +2,16 @@
 
 **Data:** 12/10/2026  
 **Auditor/Executor:** Executor Técnico e Auditor Factual do Compêndio do Nascen  
-**Escopo:** Inspeção *read-only* de contêineres oficiais extraídos da instalação local de *Dragon's Dogma 2*, auditoria factual dos 37 guias de missões, dos 5 grimórios e suas falsificações, das 60 conquistas e dos 53 marcos da jornada.
+**Escopo:** Inspeção *read-only* de contêineres oficiais extraídos da instalação local de *Dragon's Dogma 2*; conferência de nomes e textos dos itens e revisão editorial dos 37 guias. **Não houve validação independente em saves reais, nem verificação de todos os preços/baús no jogo.** Os 60 IDs de conquistas e 53 marcos foram preservados, não auditados integralmente em gameplay.
+
+---
+
+## Nota de proveniência e limitações da revisão do Head (12/10/2026)
+
+- A inspeção documenta **chaves de localização de texto** como `item_name_378`. O sufixo `378` **não é, por si só, um ID de item no inventário em tempo de execução**. O CSV distingue `localization_index` de `item_id`, que permanece vazio sem vínculo técnico comprovado.
+- Na evidência tabular, nomes PT-BR e algumas falas podem ser `VERIFICADO_NA_BUILD`; posições de baús, comerciantes, custos e resultados jogáveis foram classificados **por campo** como `FONTE_SECUNDARIA` ou `NAO_VERIFICADO`. O status agregado não significa confirmação integral de uma linha.
+- O CSV cobre as 37 fichas: 24 com itens e 13 com classificação explícita sem itens. Não há prova de gameplay em saves fornecida aqui; a classificação editorial não descarta variantes de estado ou missões atualizadas.
+- Esta revisão preserva a entrega técnica e evita elevar inferências a fatos primários. Para homologar preços e consequências, o executor deve trazer evidência de menu ou teste em save de laboratório.
 
 ---
 
@@ -44,9 +53,9 @@ A coleta de dados foi executada em conformidade com as diretrizes de segurança 
 
 As missões **Magia Vertiginosa (Spellbound / qu030150)** e **O Julgamento do Feiticeiro (The Sorcerer's Appraisal / qu030160)** compartilham a busca pelos mesmos cinco grimórios lendários.
 
-### Tabela canônica comprovada na build instalada
+### Nomes canônicos observados nos recursos textuais da build instalada
 
-| Item ID | Nome EN | Nome Oficial PT-BR | ID Falso | Falsificação EN | Falsificação Oficial PT-BR | Efeito / Feitiço do Original |
+| Sufixo da chave de localização | Nome EN | Nome Oficial PT-BR | Sufixo da chave falsa | Falsificação EN | Falsificação Oficial PT-BR | Efeito / Feitiço do Original |
 |---|---|---|---|---|---|---|
 | `378` | Fulminous Shield | **Escudo Fulminante** | `389` | Fruminous Shield | **Escudo Fulgentante** | Evoca "Mina de Trovoada-Mor" (*High Thundermine*) |
 | `379` | Nation's Death Knell | **Dobre de Finados da Nação** | `390` | Nation's Death Knock | **Dobla de Finados da Nação** | Evoca "Meteoron" (*Meteoron*) |
@@ -89,9 +98,9 @@ As missões **Magia Vertiginosa (Spellbound / qu030150)** e **O Julgamento do Fe
 ### Regras de entrega e falsificação com Ibrahim
 
 - **Local de falsificação:** Loja de Sucatas do Ibrahim (*Ibrahim's Scrap Store*) no Posto do Retiro (*Checkpoint Rest Town*).
-- **Custo comprovado:** 6.000 G por cópia de grimório.
+- **Preço de referência de guias externos (não observado na instalação):** 6.000 G por cópia de grimório. Confirme no menu do Ibrahim antes de encomendar.
 - **Prazo:** Demora 1 a 2 dias no jogo (basta aguardar no banco em frente à loja ou descansar em estalagem).
-- **Quantos livros cada missão exige:** **Pelo menos 3 títulos diferentes** (basta 3 dos 5).
+- **Quantos livros cada missão exige:** os walkthroughs consultados indicam **pelo menos 3 títulos diferentes** (basta 3 dos 5); os textos de missão extraídos são compatíveis, mas não substituem confirmação de gameplay.
   - *Comprovação em quest log:* `Mes_qu030150_log_remind_010_detail` e `Mes_qu030160_log_remind_010_detail` registram: *"Você deu livros suficientes para provar sua determinação/estudar magia"*.
 - **Destinatário correto:**
   - **Trysha:** EXIGE ORIGINAIS. Se você entregar cópias falsas a Trysha, a missão conclui com desfecho negativo (`Mes_qu030150_log_report_000`), ela não aprende magia e você **perde permanentemente o ensinamento Meteoron e o Hino Celestial de Eini**.
@@ -116,7 +125,7 @@ As missões **Magia Vertiginosa (Spellbound / qu030150)** e **O Julgamento do Fe
 
 O levantamento auditou 100% dos 37 guias cadastrados no projeto:
 - **24 missões possuem requisitos materiais de inventário** (itens obtidos, entregues, consumidos, equipados ou falsificados).
-- **13 missões foram rigorosamente checadas e classificadas como SEM requisitos de itens de inventário** (missões puramente de combate, escolta, investigação dialogada ou perseguição).
+- **13 missões foram classificadas editorialmente, a partir das fontes consultadas, como SEM requisitos conhecidos de itens de inventário** (missões puramente de combate, escolta, investigação dialogada ou perseguição).
 
 ### Tabela de correspondência oficial (PT-BR comprovado na build vs EN)
 
@@ -216,6 +225,6 @@ O levantamento auditou 100% dos 37 guias cadastrados no projeto:
 ## 7. Classificação das evidências
 
 - **VERIFICADO_NA_BUILD:** Nomes exatos PT-BR e EN de todos os itens e falsificações, descrições oficiais, nomes de NPCs e áreas geográficas, chaves de mensagens, títulos de missões, diálogos de entrega dos grimórios, reações aos falsos e texto da fuga do grifo no prólogo.
-- **OBSERVADO_EM_SAVE / GAMEPLAY:** Aceitação de 3 livros em vez de 5 para conclusão de Spellbound e The Sorcerer's Appraisal; comportamento de vestir o traje cortês para interagir com Myrddin; arremesso dos barris e veneno no ninho dos sáurios.
+- **OBSERVADO_EM_SAVE / GAMEPLAY:** **Nenhuma observação em save foi apresentada nesta execução.** Aceitação de 3 livros, interação com traje e arremesso de barris/veneno permanecem inferidos de textos de missão e walkthroughs, não verificados diretamente em gameplay.
 - **FONTE_SECUNDARIA:** Preço histórico de 6.000 G por cópia de grimório (PowerPyx, Game8); coordenadas geográficas finas dos baús da Gruta da Cachoeira.
 - **PENDENTE / NÃO VERIFICADO:** Condições de recusa de outros tipos de armas em Beren além das usuais; comportamento exato de quebra de timers em saves que dormem mais de 14 dias seguidos durante *Readvent of Calamity*.
