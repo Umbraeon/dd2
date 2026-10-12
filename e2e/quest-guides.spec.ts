@@ -382,3 +382,75 @@ test('Mundo Desancorado: evacuação de Vernworth explica Disa e Allard sem item
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
+
+test('evacuação Bakbattahl: três conflitos e fruta condicional sem progresso salvo no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Instabilidade Civil');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Instabilidade Civil/ }).click();
+  const guide = page.locator('#quest-guide-civil_unrest');
+  await expect(guide).toHaveAttribute('open', '');
+  for (const name of ['Menella', 'Nadinia', 'Scario', 'Nabrah', 'Glintt', 'Nomos', 'Grantt', 'Abba']) {
+    await expect(guide).toContainText(name);
+  }
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items).toContainText('Fruta fresca');
+  await expect(items).toContainText('opcional/condicional');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('evacuação Jardim Sagrado: diálogo alternativo e ramo opcional no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Raízes Errantes');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Raízes Errantes/ }).click();
+  const guide = page.locator('#quest-guide-wandering_roots');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Woodland Wordsmith');
+  await expect(guide).toContainText('Rota alternativa');
+  await expect(guide).toContainText('Arborheart Cutting');
+  await expect(guide).toContainText('opcional/condicional');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('evacuação do Acampamento Vulcânico: teleporte é opcional e Henrique é missão distinta', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Importância de Ajudar Ernesto');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /A Importância de Ajudar Ernesto/ }).click();
+  const guide = page.locator('#quest-guide-aiding_ernesto');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Gautstafr');
+  await expect(guide).toContainText('Cliodhna');
+  await expect(guide).toContainText('Lamond');
+  await expect(guide).toContainText('Pastor de Peões');
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(2);
+  await expect(items).toContainText('Não há item obrigatório');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('evacuação Local de Escavação: chave e Diminished Godsway obrigatórios no mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Pastor de Peões');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Pastor de Peões/ }).click();
+  const guide = page.locator('#quest-guide-shepherd_pawns');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('Henrique');
+  await expect(guide).toContainText('Golem');
+  const items = guide.getByRole('region', { name: 'Itens necessários e onde conseguir' });
+  await expect(items.locator('li')).toHaveCount(2);
+  await expect(items).toContainText('Overseer’s Lodge Key');
+  await expect(items).toContainText('Diminished Godsway');
+  await expect(items).toContainText('Não há necessidade de encomendar falsificação');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
