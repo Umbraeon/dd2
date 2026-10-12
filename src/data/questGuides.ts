@@ -33,7 +33,7 @@ const GAME8_APPRAISAL = 'https://game8.co/games/Dragons-Dogma-2/archives/The-Sor
 export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   {
     id: 'fulminous_shield', item: 'Fulminous Shield', forged: 'Fruminous Shield',
-    obtain: 'Compre de Dudley em Melve, perto da entrada norte.',
+    obtain: 'Compre de Dudley perto da entrada norte de Melve por 5.000 G; ele pode mudar de local após a compra.',
     originalTo: 'Trysha (Magia Vertiginosa)',
     copyTo: 'Myrddin (O Julgamento do Feiticeiro)',
     action: 'Separe o original antes de criar a falsificação. Se negociar com Wendy na Vila Sem Nome por Howling Blizzard, ofereça uma cópia.',
@@ -41,7 +41,7 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   },
   {
     id: 'nations_death_knell', item: "Nation's Death Knell", forged: "Nation's Death Knock",
-    obtain: 'Há exemplares na Caverna da Cascata e no Campo de Batalha Antigo.',
+    obtain: 'Um exemplar em baú no 2º piso da Caverna da Cascata, junto de Howling Blizzard; outro em pedestal no 2º piso da fortaleza do Campo de Batalha Antigo. Não pegue o exemplar do pedestal antes de concluir Tolled to Rest, caso precise dele para a missão de Oskar.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin (ou entregue um segundo original, se preferir)',
     action: 'Dois exemplares originais permitem economizar uma falsificação.',
@@ -49,7 +49,7 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   },
   {
     id: 'howling_blizzard', item: 'Howling Blizzard', forged: 'Hurling Blizzard',
-    obtain: "No baú da Caverna da Cascata, junto de Nation's Death Knell.",
+    obtain: "No baú do 2º piso da Caverna da Cascata junto de Nation's Death Knell (abrir o baú invoca um Wight). Alternativamente, troque Fruminous Shield, uma falsificação de Fulminous Shield, com Wendy na Vila Sem Nome.",
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
     action: 'Não troque o único original por engano.',
@@ -57,7 +57,7 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   },
   {
     id: 'towering_earth', item: 'Towering Earth', forged: 'Lowering Earth',
-    obtain: 'Peça a Waldhar depois de encontrar o magistrado e sua nova biblioteca.',
+    obtain: 'Receba de Waldhar após O Magistrado Aprisionado, na biblioteca subterrânea das galerias da Mão Graciosa (Bairro Pobre de Vernworth). Volte a conversar com ele se não receber na primeira interação.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
     action: 'Copie antes de entregar.',
@@ -65,7 +65,7 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
   },
   {
     id: 'let_there_be_light', item: 'Let There Be Light', forged: 'Let There Be Lite',
-    obtain: 'Encontre no andar superior da casa de Myrddin, na Cidade de Descanso da Fronteira.',
+    obtain: 'Pegue sobre a mesa no andar superior da casa de Myrddin na Cidade de Descanso da Fronteira; entre pela sacada a partir da parede destruída para evitar que ele o ataque por subir pelo interior.',
     originalTo: 'Trysha',
     copyTo: 'Myrddin',
     action: 'Pegue o livro antes de concluir as entregas.',
