@@ -99,6 +99,57 @@ export const FORGERY_ITEMS: readonly ForgeryItem[] = [
 
 export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
+    id: 'spring_thy_step', title: 'A Fonte do Contentamento', original: 'Put a Spring in Thy Step',
+    region: 'Ilha Vulcânica de Agamen, estrada após Drabnir’s Grotto, casa Windwalker’s Home e fontes de Geyser Hamlet',
+    giver: 'Gautstafr',
+    relatedEventIds: ['i03', 'p03'],
+    preparation: [
+      'Chegue à Ilha Vulcânica de Agamen pelo caminho de Drabnir’s Grotto e procure Gautstafr, o anão com dores nas costas, na estrada. Não é preciso entrar na torre do confronto final para chegar até ele.',
+      'Guarde três ervas/flores colhidas no mundo para entregar a Gautstafr. Leve curativos, pois ele precisará ser escoltado por um caminho com monstros.'
+    ],
+    steps: [
+      'Encontre Gautstafr na estrada após a saída de Drabnir’s Grotto, fale com ele sobre as dores nas costas e aceite buscar flores silvestres.',
+      'Entregue três ervas ou flores silvestres. Morningtide, Pitywort e outras ervas encontradas na vegetação da região podem servir.',
+      'Siga a indicação até Windwalker’s Home, a casa de Gautstafr em uma pequena ilha ao norte da estrada; entre, converse com ele e conheça sua esposa, Cliodhna.',
+      'Quando Gautstafr voltar a reclamar da coluna, ofereça-se para acompanhá-lo até as fontes termais de Geyser Hamlet.',
+      'Escolte Gautstafr ao Acampamento da Ilha Vulcânica. Mantenha-se próximo dele, derrote as criaturas pelo caminho e, se for mais prático, carregue-o nos trechos seguros.',
+      'Dentro do acampamento, suba as rampas de madeira e a escada que levam às fontes termais; acompanhe Gautstafr até o ponto da missão.',
+      'Após a cena com Cliodhna, confirme o desbloqueio da vocação Arqueiro Mágico. Fale novamente com ela para obter Spellbow’s Paradox, o ensinamento de Mestre; se não receber o pergaminho, tente reencontrá-la na casa após algum tempo.'
+    ],
+    completion: 'A chegada de Gautstafr às termas encerra A Fonte do Contentamento e libera Arqueiro Mágico. Use Spellbow’s Paradox no inventário para aprender Martyr’s Bolt (Flecha do Mártir); confira o pergaminho separadamente da conclusão.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-put-a-spring-in-thy-step-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Put-a-Spring-in-Thy-Step',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/Put_a_Spring_in_Thy_Step'
+    ]
+  },
+  {
+    id: 'sotted_sage', title: 'O Sábio Beberrão', original: 'The Sotted Sage',
+    region: 'Acampamento da Ilha Vulcânica, fontes de Geyser Hamlet; bebidas em Bakbattahl',
+    giver: 'Lamond',
+    relatedEventIds: ['i05', 'p03'],
+    preparation: [
+      'Encontre Lamond perto das termas, depois de subir as rampas e a escada do Acampamento da Ilha Vulcânica. A conversa inicia a missão independentemente da primeira resposta.',
+      'Separe três Newt Liqueur (Licor de Lagarto). Uma garrafa pode ser encontrada na casa de Gautstafr, visitada em A Fonte do Contentamento.',
+      'Para comprar bebidas em Higgs’s Tavern Stand, em Bakbattahl, personagens humanos precisam vestir uma Beastren Mask antes de mover os sacos para o cercado; sem a máscara, a ação pode provocar hostilidade dos guardas.'
+    ],
+    steps: [
+      'Converse com Lamond próximo às fontes termais do Acampamento da Ilha Vulcânica e identifique o pedido de Newt Liqueur.',
+      'Consiga três unidades no total. Você pode combinar Fruit Wine com Saurian Tail, procurar garrafas pelo mundo ou comprar bebidas no comércio secreto de Higgs em Bakbattahl.',
+      'Se optar por Higgs’s Tavern Stand e seu personagem for humano, equipe uma Beastren Mask, mova um dos sacos do lado de fora para o cercado e entre quando o acesso ao comerciante for liberado.',
+      'Suba ao piso superior do estabelecimento, procure o vendedor por trás da porta e compre as unidades necessárias. Evite fazer a manobra sem a máscara para não provocar confrontos.',
+      'Volte a Lamond e entregue as três garrafas de Newt Liqueur; se já entregou uma na primeira conversa, ela faz parte das três exigidas.',
+      'Confirme o desbloqueio da vocação Chefe de Guerra (Warfarer), então converse com Lamond novamente até receber Grandmaster’s Path. Em algumas situações, pode ser necessário melhorar sua afinidade.',
+      'Abra o inventário e use Grandmaster’s Path para aprender Rearmament (Reordenar), habilidade de Mestre; possuir o pergaminho sem usá-lo não conta como aprendizado.'
+    ],
+    completion: 'Entregar três Newt Liqueur conclui O Sábio Beberrão e libera Chefe de Guerra. O pergaminho Grandmaster’s Path é uma recompensa a confirmar e utilizar separadamente para aprender Rearmament.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-the-sotted-sage-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/The-Sotted-Sage',
+      'https://www.gamespot.com/app.php/articles/dragons-dogma-2-warfarer-newt-liqueur-guide/1100-6522105/'
+    ]
+  },
+  {
     id: 'beren_claw', title: 'Treino Leonino', original: 'Claw Them Into Shape',
     region: 'Moonglow Garden, a oeste do Posto Avançado da Fronteira, e Vernworth',
     giver: 'Beren',

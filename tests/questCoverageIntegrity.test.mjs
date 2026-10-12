@@ -15,7 +15,7 @@ test('gate: toda ficha publicada até 12/10 permanece cadastrada com ID estável
   const identifiers = QUEST_GUIDES.map(q => q.id);
   assert.equal(new Set(identifiers).size, identifiers.length);
   assert.equal(new Set(QUEST_GUIDES.map(q => normalize(q.original))).size, QUEST_GUIDES.length);
-  assert.equal(gate.publishedGuideRegistry.length, 31);
+  assert.equal(gate.publishedGuideRegistry.length, 33);
   for (const original of gate.publishedGuideRegistry) {
     assert.ok(current.has(original.id), `Guia perdido: ${original.id} (${original.english})`);
     assert.equal(normalize(current.get(original.id).original), normalize(original.english), `Original mudou para ${original.id}`);
@@ -68,14 +68,18 @@ test('gate: títulos oficiais registrados permanecem alinhados aos guias, sem tr
   assert.ok(!lookup.has(normalize('An Unsettling Encounter')), 'Não inventar título EN/PT-BR');
 });
 
-test('gate: rotas de Mestre têm vínculos explícitos para as quests ausentes', () => {
+test('gate: rotas de Mestre têm guias e vínculo aos marcos', () => {
   assert.equal(MAISTER_SKILLS.length, 12);
   const warrior = MAISTER_SKILLS.find(s => s.id === 'warrior_beren');
   assert.match(warrior.questOrCondition, /Treino Leonino.*A Última Lição de Beren/);
+  const guideNames = new Set(QUEST_GUIDES.map(q => normalize(q.original)));
   const missingById = new Set(gate.indexedWithoutGuide.map(q => normalize(q.english)));
   for (const english of ['Put a Spring in Thy Step', 'The Sotted Sage']) {
-    assert.ok(missingById.has(normalize(english)), `Rota de Mestre esquecida: ${english}`);
+    assert.ok(guideNames.has(normalize(english)), `Rota de Mestre sem ficha: ${english}`);
+    assert.ok(!missingById.has(normalize(english)), `Rota de Mestre ainda listada como ausente: ${english}`);
   }
+  assert.ok(QUEST_GUIDES.find(q => q.original === 'Put a Spring in Thy Step').relatedEventIds.includes('p03'));
+  assert.ok(QUEST_GUIDES.find(q => q.original === 'The Sotted Sage').relatedEventIds.includes('p03'));
 });
 
 test('DLC: inventário comunitário mantém ambiguidade de categoria e não mascara falta de guias', () => {

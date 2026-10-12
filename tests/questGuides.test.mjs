@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 31);
+  assert.equal(QUEST_GUIDES.length, 33);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -176,8 +176,31 @@ test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () =>
   assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
   assert.equal(questGuidesForEvent('p03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
   assert.equal(questGuidesForEvent('m03').length, 4);
-  assert.equal(questGuidesForEvent('p03').length, 4);
+  assert.equal(questGuidesForEvent('p03').length, 6);
   const step = PHASES.flatMap(phase => phase.events).find(event => event.id === 'm03');
   assert.match(step.note, /Treino Leonino.*A Última Lição de Beren.*Champion.s Fable/s);
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+});
+
+test('onda 6: missões de Mestre da Ilha Vulcânica explicam pergaminhos e passos extras', () => {
+  const spring = guide('spring_thy_step');
+  const sage = guide('sotted_sage');
+  assert.equal(spring.title, 'A Fonte do Contentamento');
+  assert.equal(sage.title, 'O Sábio Beberrão');
+  assert.deepEqual(spring.relatedEventIds, ['i03', 'p03']);
+  assert.deepEqual(sage.relatedEventIds, ['i05', 'p03']);
+  assert.match(spring.steps.join(' '), /Gautstafr.*três ervas.*Windwalker.s Home.*Geyser Hamlet/s);
+  assert.match(spring.steps.join(' '), /Spellbow.s Paradox/);
+  assert.match(spring.completion, /Martyr.s Bolt/);
+  assert.match(sage.steps.join(' '), /Lamond.*Newt Liqueur.*Higgs.*Beastren Mask.*Grandmaster.s Path/s);
+  assert.match(sage.completion, /Rearmament/);
+  assert.equal(questGuidesForEvent('i03').find(q => q.id === 'spring_thy_step')?.id, 'spring_thy_step');
+  assert.equal(questGuidesForEvent('i05').find(q => q.id === 'sotted_sage')?.id, 'sotted_sage');
+  assert.equal(questGuidesForEvent('p03').length, 6);
+  for (const id of ['spring_thy_step', 'sotted_sage']) {
+    const q = guide(id);
+    assert.ok(q.steps.length >= 6);
+    assert.ok(q.references.length >= 2);
+    assert.ok(q.preparation.length > 0);
+  }
 });
