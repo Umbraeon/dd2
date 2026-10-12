@@ -197,3 +197,16 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
     items: [{ name: 'Evidência sobre o falso soberano', quantity: '1 documento da investigação', where: 'Receba de Srail, após atravessar as Profundezas da Vila Sem Nome.', use: 'Leve a informação/prova a Brant na Stardrop Inn. Não é item para copiar.', forgery: 'original' }]
   }
 };
+
+/**
+ * Revisão editorial das outras fichas existentes: não há um objeto a obter,
+ * comprar, entregar ou falsificar para completar a missão nos walkthroughs
+ * atuais. Recompensas recebidas depois não são pré-requisitos de inventário.
+ * É uma revisão de fontes, NÃO validação primária da build do jogador.
+ */
+export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
+  'beren_final_lesson', 'new_recruit', 'brothers_brave', 'trial_of_archery',
+  'readvent_calamity', 'arisen_shadow', 'monster_culling', 'scaly_invaders',
+  'trouble_cape', 'till_death', 'mercy_thieves', 'shadowed_prayers',
+  'poisonous_proposal'
+];
