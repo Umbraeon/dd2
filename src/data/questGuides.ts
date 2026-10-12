@@ -1265,6 +1265,109 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://game8.co/games/Dragons-Dogma-2/archives/Prey-for-the-Pack',
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
+  },
+  {
+    id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
+    region: 'Vernworth — Rose Chateau Bordelrie, Bairro Nobre; mansões de Patrick e Allard',
+    giver: 'Wilhelmina, no Rose Chateau',
+    relatedEventIds: ['v302', 'v303'],
+    preparation: [
+      'ALERTA DE PRAZO: depois que você oferecer ajuda a Wilhelmina, terá apenas TRÊS DIAS NO JOGO para investigar Allard. Reúna as duas provas antes de se distrair com outra missão.',
+      'O gatilho pode exigir conhecer Wilhelmina nas missões O Trono Roubado/Um Encontro Perturbador, aumentar sua afinidade (flores ajudam) e voltar ao Rose Chateau à noite depois de algum tempo. Walkthroughs divergem sobre o limite da janela de ativação.',
+      'As provas DESTA missão são Murder Report e Bribery Investigation Findings: não confundir com a Battahli-Crested Letter de Um Encontro Perturbador. Comprar a casa de Mildred é opcional e afeta um bilhete posterior.'
+    ],
+    steps: [
+      'Após O Banquete da Farsa, visite Wilhelmina à noite no Rose Chateau e converse/entregue flores se for necessário aumentar afinidade. Se ela estiver ocupada com um cliente, examine o quadro com olho mágico nos aposentos e assista à cena; aceite ajudá-la.',
+      'COM A MISSÃO ATIVA, fale com Sven no Castelo de Vernworth à noite. Procure Patrick em sua mansão no Bairro Nobre e aceite que ele distraia Allard para permitir investigar a casa dele.',
+      'Entre na mansão de Allard à noite, depois que Patrick o atrair para fora; no andar superior, examine o quadro na parede para obter o Murder Report. Não ataque nem mate Allard prematuramente.',
+      'Pegue também o Bribery Investigation Findings na casa perto da barbearia de Clovis, ao norte de Vernworth; se o documento não aparecer, consulte Brant antes de prosseguir, sem entregar a prova errada.',
+      'Volte ao Capitão Brant à noite, na Estalagem Stardrop. Apresente primeiro Bribery Investigation Findings e depois Murder Report; aceite a oferta de auxílio de Brant para escapar dos guardas.',
+      'No Rose Chateau, ENTREGUE Murder Report a Wilhelmina, escolha continuar ajudando, entre na sala com Allard e agarre-o quando ela pedir. Fuja pela janela e siga a ajuda de Brant.',
+      'Após a fuga, deixe passar aproximadamente um dia e volte a Wilhelmina. Se comprou a casa de Mildred, confira também a porta da residência para um bilhete opcional.'
+    ],
+    completion: 'A trama de Wilhelmina termina após o encontro posterior. Perder o prazo de três dias ou denunciar a conspiração a Allard pode mudar o resultado e impedir sua rota preferida.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/',
+      'https://www.rpgsite.net/guide/15670-dragons-dogma-2-every-rose-has-its-thorn-how-to-romance-wilhelmina-complete-her-quest',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'saint_slums', title: 'A Santa dos Cortiços', original: 'Saint of the Slums',
+    region: 'Vernworth — Cortiços, Casa Mãos Caridosas; Posto do Retiro',
+    giver: 'Elena, abadessa da Casa Mãos Caridosas',
+    relatedEventIds: ['v103'],
+    preparation: [
+      'Reúna TRÊS Miasmites derrotando fantasmas/Phantoms durante a noite: são o pedido inicial de Elena, não um medicamento para comprar.',
+      'No porão, recolha Unlabeled Medicine e Records of Treatment. A prova deve ser investigada por Radcliff ANTES de prender Elena.',
+      'Para prender a abadessa, use AGARRAR — apenas conversar, atacar ou tentar entregá-la manualmente aos guardas não substitui esse comando.'
+    ],
+    steps: [
+      'Nos Cortiços de Vernworth, escute a queixa de Vlasiy sobre seu filho Lubomir. Ofereça ajuda a Elena e ENTREGUE três Miasmites, obtidas de fantasmas à noite.',
+      'Siga Elena pela Casa Mãos Caridosas. Fale com o paciente Lubomir, saia e ouça Lottie mencionar a sala de doentes do porão; retorne a Lubomir para aceitar investigar.',
+      'Desça ao porão da casa, entre na sala dos doentes e passe pela cortina branca até o depósito: recolha Unlabeled Medicine e Records of Treatment sem descartá-los.',
+      'Mostre os indícios a Lubomir; converse com Bruno na taverna dos Cortiços e, se possível, com Jehan. À noite, testemunhe o encontro de Elena com Alois na praça do Bairro Popular.',
+      'Viaje ao Posto do Retiro e ENTREGUE Unlabeled Medicine ao médico Radcliff. Deixe um dia passar para ele analisar a substância e retorne para ouvir seu parecer.',
+      'Com as provas reunidas, volte à Casa Mãos Caridosas, encontre Elena perto do porão e use AGARRAR nela: os guardas a prendem automaticamente.'
+    ],
+    completion: 'Elena é detida após a investigação. Os registros e a medicina identificada são evidência, não objetos de falsificação.',
+    references: [
+      'https://www.gamesradar.com/dragons-dogma-2-saint-of-the-slums/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Saint-of-the-Slums',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'candle_storm', title: 'Como uma Vela na Tempestade', original: 'A Candle in the Storm',
+    region: 'Ilha Vulcânica — Acampamento; Bakbattahl — prisão e estrada oeste',
+    giver: 'Menella, no Acampamento da Ilha Vulcânica',
+    relatedEventIds: ['b02', 'i04'],
+    preparation: [
+      'Só avance após salvar Nadinia em Orações Ensombradas (Shadowed Prayers). Procure Menella no Acampamento da Ilha Vulcânica, perto das termas.',
+      'Reserve 5.000 G para subornar Herman na prisão de Bakbattahl; sem esse pagamento ele pode não contar quem encomendou o atentado.',
+      'DECISÃO DE RISCO: na encenação final, apoie a imperatriz Nadinia. Sacar a arma e apontá-la na direção dela pode revelar o mandante SEM matá-la; não golpeie Nadinia de verdade.'
+    ],
+    steps: [
+      'Após Orações Ensombradas, encontre Menella no Acampamento da Ilha Vulcânica e aceite investigar quem ordenou o atentado contra Nadinia.',
+      'Viaje à prisão de Bakbattahl pela estrada além dos Depósitos de Tintas. Fale com Herman na cela e PAGUE 5.000 G para obter a informação sobre os Cobras-Corais.',
+      'Volte ao Acampamento Vulcânico e relate a informação a Menella; ela pede divulgar uma falsa localização da imperatriz para atrair os mandantes.',
+      'Retorne à prisão de Bakbattahl e fale com Ashe na cela, espalhando a informação falsa conforme indicado pelo diário.',
+      'Encontre Menella no lado oeste de Bakbattahl e acompanhe-a até a casa no exterior da cidade; concorde em proteger Nadinia no plano de emboscada.',
+      'Quando o mandante chegar e exigir a morte da imperatriz, SAQUE a arma na direção de Nadinia sem atacá-la efetivamente e aguarde a reação de Menella; a encenação revela o conspirador.',
+      'Converse com Menella após a cena e confirme o desfecho no diário.'
+    ],
+    completion: 'Mandante identificado com Nadinia preservada na rota protegida. Atacar o próprio mandante cedo ou escolher contra a imperatriz altera o desfecho e as recompensas.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-a-candle-in-the-storm-walkthrough/',
+      'https://www.gamesradar.com/dragons-dogma-2-a-candle-in-the-storm/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'pilfered_path', title: 'Provações do Pobre Desgarrado', original: 'Off the Pilfered Path',
+    region: 'Bakbattahl — prisão; Vermund — Campo de Batalha Antigo',
+    giver: 'Hugo, após Piedade entre Ladrões e sua prisão em Bakbattahl',
+    relatedEventIds: ['b02', 'b03'],
+    preparation: [
+      'ALERTA DE MORTE: se Hugo descobrir quem matou seus pais, poderá ir atrás de Lanzo. Localize Lanzo no Campo de Batalha Antigo antes do confronto ou chegue rapidamente para impedir que Hugo morra.',
+      'Para obter uma boa saída para Hugo, deixe uma vaga de trabalho disponível: segurança do Rose Chateau após As Rosas Têm Espinhos OU loja de Isaac desocupada após o final alternativo de Ambição Cega.',
+      'IMPORTANTE: o caminho seguro da família de Isaac (entregar LIVRO FALSO) preserva a família e NÃO libera necessariamente sua loja para Hugo. Não sacrifique personagens sem entender a escolha.'
+    ],
+    steps: [
+      'Depois de Piedade entre Ladrões, vá à prisão de Bakbattahl, pelo caminho perto dos Depósitos de Tintas, e converse com Hugo em sua cela.',
+      'Fale repetidas vezes com o prisioneiro Brefft para descobrir a verdade sobre os pais de Hugo e o esconderijo atual dos Cobras-Corais com Lanzo no Campo de Batalha Antigo.',
+      'Escolha se contará a verdade a Hugo. Avisá-lo pode levá-lo a fugir em busca de vingança; se fizer isso, siga imediatamente ao Campo de Batalha Antigo e derrote Lanzo antes que Hugo morra.',
+      'Como alternativa, fale com Dietrich e o carcereiro Ekertt para negociar a soltura de Hugo. Walkthroughs relatam pagamentos sucessivos de 1.000 G, 2.500 G e 5.000 G, com esperas entre as tentativas.',
+      'Quando Hugo sair da prisão ou encontrar você no Campo de Batalha Antigo, converse com ele sobre uma vida honesta e sugira um trabalho viável em seu estado da campanha.',
+      'Se completou As Rosas Têm Espinhos e a vaga do Rose Chateau estiver disponível, recomende-o como segurança; se a loja de Isaac estiver vazia pelo OUTRO desfecho de Ambição Cega, essa é uma alternativa.',
+      'Confira a conclusão da missão e as consequências no diário; a disponibilidade de empregos, diálogo e soltura pode variar segundo decisões anteriores.'
+    ],
+    completion: 'Hugo pode sair vivo e conseguir trabalho, sair sem colocação ou morrer na vingança. As ações anteriores em Wilhelmina e Isaac mudam as opções: não prometer uma rota universal.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-off-the-pilfered-path-walkthrough/',
+      'https://www.gamesradar.com/dragons-dogma-2-off-the-pilfered-path/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
   }
 ];
 
