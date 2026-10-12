@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified)",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -150,6 +150,18 @@
     {
       "id": "legacy",
       "english": "Legacy"
+    },
+    {
+      "id": "dreams_apart",
+      "english": "Dreams Apart"
+    },
+    {
+      "id": "halls_first_dawn",
+      "english": "Halls of the First Dawn"
+    },
+    {
+      "id": "regentkins_resolve",
+      "english": "The Regentkin's Resolve"
     }
   ],
   "indexedWithoutGuide": [
@@ -266,34 +278,6 @@
       ],
       "evidence": "paired_catalog",
       "priority": "P2"
-    },
-    {
-      "english": "Dreams Apart",
-      "ptBR": "Destinos Separados",
-      "events": [
-        "u03"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "Halls of the First Dawn",
-      "ptBR": "Átrios da Primeira Aurora",
-      "events": [
-        "u04",
-        "u08"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
-    },
-    {
-      "english": "The Regentkin's Resolve",
-      "ptBR": "A Determinação do Príncipe Regente",
-      "events": [
-        "u04"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P1"
     },
     {
       "english": "Civil Unrest",
