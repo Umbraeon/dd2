@@ -99,7 +99,6 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
     "english": "The Sorcerer's Appraisal",
     "ptBR": "O Julgamento do Feiticeiro",
     "eventIds": [
-      "m03",
       "v206",
       "p03"
     ],
