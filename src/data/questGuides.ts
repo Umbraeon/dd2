@@ -433,9 +433,85 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ],
     completion: 'A conversa noturna com Ulrika encerra a missão e a cadeia de eventos iniciada em Melve.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Home-is-Where-the-Hearth-is']
-  }
+  },
 
-
+  {
+    id: 'monster_culling', title: 'Elimine os Monstros', original: 'Monster Culling',
+    region: 'Vernworth, Mina de Trevo, Aldeia de Harve e Floresta Oriental',
+    giver: 'Capitão Brant',
+    relatedEventIds: ['v201'],
+    preparation: [
+      'Após chegar a Vernworth, fale com Brant na Stardrop Inn à noite e pergunte sobre o extermínio de monstros.',
+      'Prepare-se para três locais diferentes; na Mina de Trevo há também armas ligadas a Frustração Vocacional.'
+    ],
+    steps: [
+      'Aceite Elimine os Monstros com Brant na Stardrop Inn, durante a noite.',
+      'Na Mina de Trevo, a oeste da capital, derrote os goblins que cercam os soldados e fale com eles. Aproveite a passagem para recolher as armas de Frustração Vocacional, caso ainda precise delas.',
+      'Siga para a Aldeia de Harve, entre na Stormwind Cave e elimine os sáurios que prendem os soldados.',
+      'Acompanhe os soldados resgatados até a saída da caverna. Ao sair, você poderá ajudar Fyoran na missão Invasores Escamosos.',
+      'Na Floresta Oriental, a leste de Vernworth, encontre o grupo de soldados atacado perto de sua carga, derrote os monstros e converse com os sobreviventes.',
+      'Após resolver os três locais, volte à Stardrop Inn à noite e relate o resultado a Brant.'
+    ],
+    completion: 'O relatório dos três resgates a Brant encerra a missão principal. As missões de Harve continuam separadas.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-monster-culling-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Monster-Culling']
+  },
+  {
+    id: 'scaly_invaders', title: 'Invasores Escamosos', original: 'Scaly Invaders',
+    region: 'Aldeia de Harve',
+    giver: 'Fyoran',
+    relatedEventIds: ['v201', 'v202'],
+    preparation: [
+      'Na missão Elimine os Monstros, resgate os soldados da caverna de Harve e encontre Fyoran ao sair.',
+      'Esta missão ocorre em duas visitas: a primeira luta não conclui a tarefa.'
+    ],
+    steps: [
+      'Converse com Fyoran na Aldeia de Harve, depois de resgatar os soldados na missão de Brant.',
+      'Derrote os sáurios que invadiram a vila e volte a falar com Fyoran.',
+      'Deixe a região para que a reconstrução avance e passe alguns dias no jogo.',
+      'Retorne a Harve e converse com Fyoran quando os sáurios invadirem novamente a vila.',
+      'Derrote o segundo grupo de sáurios e confirme a conclusão com Fyoran.'
+    ],
+    completion: 'A segunda defesa da vila encerra Invasores Escamosos. A história de Ulrika em Harve continua em uma missão separada.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-scaly-invaders-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Scaly-Invaders']
+  },
+  {
+    id: 'trouble_cape', title: 'As Mãos Atadas que Abraçam a Causa', original: 'Trouble on the Cape',
+    region: 'Aldeia de Harve e Stormwind Cave',
+    giver: 'Ulrika',
+    relatedEventIds: ['v202', 'v303'],
+    preparation: [
+      'Procure Ulrika em Harve durante a sequência de Revinda da Calamidade, depois de ajudá-la em Melve.',
+      'A retomada da aldeia em Invasores Escamosos faz parte da preparação para essa história.'
+    ],
+    steps: [
+      'Ao encontrar Ulrika em Harve, acompanhe a discussão dela com os moradores e aceite ajudar no resgate.',
+      'Siga Ulrika e os guardas até a entrada da Stormwind Cave, ao sul da vila.',
+      'Avance pela caverna e elimine os sáurios que atacam o grupo.',
+      'Encontre Zoran nas partes internas da caverna e liberte-o dos monstros.',
+      'Escolte Zoran de volta à Aldeia de Harve com Ulrika e acompanhe a conversa dos moradores.'
+    ],
+    completion: 'A volta de Zoran encerra o resgate e avança a história de Ulrika em Harve.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-trouble-on-the-cape-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Trouble-on-the-Cape']
+  },
+  {
+    id: 'till_death', title: 'Até que a Morte Nos Separe', original: 'Till Death Do Us Part',
+    region: 'Vernworth e Pântano Nebuloso',
+    giver: 'Margit, após conversar com Oswald',
+    relatedEventIds: ['v203'],
+    preparation: [
+      'Em Vernworth, procure Oswald perto da fonte na entrada do Bairro Nobre; depois fale com Margit, perto da casa de Gregor.',
+      'Vá preparado para proteger Gregor de um Dullahan à noite no Pântano Nebuloso.'
+    ],
+    steps: [
+      'Ouça Oswald falar da expedição de Gregor e procure Margit no Bairro Nobre.',
+      'Converse com Margit sobre Ser Ludolph, conte o que sabe e aceite socorrer Gregor.',
+      'Vá ao Pântano Nebuloso, a noroeste da capital, e siga a trilha até o local indicado na missão.',
+      'Encontre Gregor enfrentando o Dullahan e ajude-o a sobreviver à batalha. Para salvar Gregor, basta mantê-lo vivo até a criatura fugir; derrotar o Dullahan nessa luta também pode render a conquista relacionada.',
+      'Volte à casa de Margit, em Vernworth, e fale com ela para encerrar o resgate.'
+    ],
+    completion: 'O retorno a Margit conclui a missão; a sobrevivência de Gregor e a conquista por derrotar o Dullahan são objetivos distintos.',
+    references: ['https://www.powerpyx.com/dragons-dogma-2-till-death-do-us-part-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Till-Death-Do-Us-Part']
+  },
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */

@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 22);
+  assert.equal(QUEST_GUIDES.length, 26);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);
@@ -26,12 +26,12 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v102').length, 3);
   assert.equal(questGuidesForEvent('v103').length, 3);
   assert.equal(questGuidesForEvent('v107').length, 1);
-  assert.equal(questGuidesForEvent('v202').length, 2);
+  assert.equal(questGuidesForEvent('v202').length, 4);
   assert.equal(questGuidesForEvent('v301').length, 2);
-  assert.equal(questGuidesForEvent('v303').length, 4);
+  assert.equal(questGuidesForEvent('v303').length, 5);
   assert.equal(questGuidesForEvent('v304').length, 1);
   assert.equal(questGuidesForEvent('v104').length, 1);
-  assert.equal(questGuidesForEvent('v201').length, 1);
+  assert.equal(questGuidesForEvent('v201').length, 3);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
   assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
   assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
@@ -122,4 +122,22 @@ test('passos de coronação e Wilhelmina não expõem hipóteses internas', ()
   const copy = [...QUEST_GUIDES.filter(g => ['feast_deception', 'home_hearth'].includes(g.id))
     .flatMap(g => [...g.preparation, ...g.steps, g.completion])].join(' ');
   assert.doesNotMatch(copy, /walkthroughs divergem|fonte única|não comprovado|em auditoria|não foi reproduzido/i);
+});
+
+test('onda 4: quatro missões novas possuem passos, fontes e destinos independentes', () => {
+  const ids = ['monster_culling', 'scaly_invaders', 'trouble_cape', 'till_death'];
+  for (const id of ids) {
+    const entry = guide(id);
+    assert.ok(entry.steps.length >= 5, `Passos incompletos: ${id}`);
+    assert.equal(entry.references.length, 2, `Duas fontes em ${id}`);
+    assert.ok(entry.relatedEventIds.every(eventId => knownEvents.has(eventId)));
+    assert.ok(entry.completion.length > 35, `Conclusão incompleta: ${id}`);
+  }
+  assert.match(guide('monster_culling').steps.join(' '), /Mina de Trevo.*Harve.*Floresta Oriental/s);
+  assert.match(guide('scaly_invaders').steps.join(' '), /segundo grupo/);
+  assert.match(guide('trouble_cape').steps.join(' '), /Zoran/);
+  assert.match(guide('till_death').completion, /objetivos distintos/);
+  assert.match(guide('till_death').steps.join(' '), /basta mantê-lo vivo/);
+  assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 2);
+  assert.equal(questGuidesForEvent('v203').find(g => g.id === 'till_death')?.id, 'till_death');
 });

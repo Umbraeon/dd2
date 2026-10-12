@@ -80,12 +80,12 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: quatro fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: cinco fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(4);
+  await expect(panel.locator('details')).toHaveCount(5);
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
   await expect(feast).toContainText('Quando Brant perguntar se você está pronto');
@@ -102,6 +102,19 @@ test('busca global encontra a missão de investigação de Disa sem alertas edit
   await expect(guide).toHaveAttribute('open', '');
   await expect(guide).toContainText('entregue a carta a Brant');
   await expect(guide).not.toContainText('walkthroughs divergem');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
+});
+
+test('Harve: busca global abre Invasores Escamosos e mantém progresso intacto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openConsultation(page);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Invasores Escamosos');
+  await page.getByRole('region', { name: 'Resultados encontrados' })
+    .getByRole('button', { name: /Invasores Escamosos/ }).click();
+  const guide = page.locator('#quest-guide-scaly_invaders');
+  await expect(guide).toHaveAttribute('open', '');
+  await expect(guide).toContainText('segundo grupo de sáurios');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   expect(await page.evaluate(k => localStorage.getItem(k), savedKey)).toBeNull();
 });
