@@ -77,3 +77,18 @@ test('gate: rotas de Mestre têm vínculos explícitos para as quests ausentes',
     assert.ok(missingById.has(normalize(english)), `Rota de Mestre esquecida: ${english}`);
   }
 });
+
+test('DLC: inventário comunitário mantém ambiguidade de categoria e não mascara falta de guias', () => {
+  const dlc = JSON.parse(readFileSync(new URL('../docs/audit/dark-arisen-candidate-quest-roster-2026-10-12.json', import.meta.url), 'utf8'));
+  assert.equal(dlc.candidateMainRows.length, 12, 'Linhas editoriais, não questlog IDs');
+  assert.equal(dlc.candidateSideRows.length, 23);
+  assert.match(dlc.status, /PROVISIONAL/);
+  const main = new Set(dlc.candidateMainRows.map(normalize));
+  const side = new Set(dlc.candidateSideRows.map(normalize));
+  const crossListed = [...main].filter(q => side.has(q)).sort();
+  assert.deepEqual(crossListed, names(dlc.crossListed));
+  assert.equal(crossListed.length, 2);
+  assert.deepEqual(dlc.separateFromBoth, ['Lost Rites']);
+  assert.ok(dlc.editorialWarnings.some(w => w.includes('questlog')));
+  assert.ok(dlc.candidateMainRows.includes('Chilling Tidings'));
+});
