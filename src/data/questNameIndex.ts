@@ -1,4 +1,4 @@
-/** 74 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
+/** 78 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
