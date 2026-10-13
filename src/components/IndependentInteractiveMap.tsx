@@ -44,7 +44,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
   // UI state
   const [activeTypes, setActiveTypes] = useState<Set<MarkerType>>(
-    () => new Set(['quest', 'npc', 'cave', 'fast_travel', 'token'])
+    () => new Set(['cave', 'token'])
   );
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMarker, setSelectedMarker] = useState<DD2MapMarker | null>(null);
@@ -52,7 +52,8 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   // Coordenadas do protótipo não foram auditadas; não poluem o mapa original por padrão.
-  const [showExperimentalMarkers, setShowExperimentalMarkers] = useState(false);
+  const [showExperimentalMarkers, setShowExperimentalMarkers] = useState(true);
+  const [mapZoom, setMapZoom] = useState(-2);
   const [tileManifest, setTileManifest] = useState<MapTilesManifest | null>(null);
   const [mapSharpness, setMapSharpness] = useState<'original' | 'enhanced'>('enhanced');
 
@@ -155,6 +156,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     // Exibir a arte do pergaminho, não a grande margem preta nativa do arquivo.
     map.fitBounds(ARTWORK_BOUNDS, { padding: [18, 18], animate: false });
+    const onZoomEnd = () => setMapZoom(map.getZoom());
+    map.on('zoomend', onZoomEnd);
+    setMapZoom(map.getZoom());
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     // Markers layer group
@@ -165,6 +169,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     // Cleanup on unmount
     return () => {
       setMapReady(false);
+      map.off('zoomend', onZoomEnd);
       map.remove();
       mapInstanceRef.current = null;
       markersLayerRef.current = null;
@@ -244,54 +249,58 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     if (!showExperimentalMarkers) return;
 
-    filteredMarkers.forEach(marker => {
-      if (!marker.mapPosition) return;
-
-      const [lat, lng] = pixelToLatLng(
-        marker.mapPosition.pixelX,
-        marker.mapPosition.pixelY,
-        DEFAULT_MAP_SIZE
-      );
-
-      const cfg = CATEGORY_CONFIG[marker.type];
-      const iconHtml = `
-        <div class="custom-map-pin" style="
-          background: ${cfg.color};
-          box-shadow: 0 0 10px ${cfg.color}80, 0 2px 5px rgba(0,0,0,0.8);
-          border: 2px solid #ffffff;
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 13px;
-          transition: transform 0.15s ease;
-        ">
-          <span>${cfg.icon}</span>
-        </div>
-      `;
-
-      const customIcon = L.divIcon({
-        className: 'custom-leaflet-div-icon',
-        html: iconHtml,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14]
+    // Agrupar apenas mementos enquanto o zoom estiver afastado.
+    const getIcon = (type: 'cave' | 'token' | 'cluster', count = 1) => {
+      const kind = type === 'cave' ? 'dd2-cave-pin' : type === 'token' ? 'dd2-token-pin' : 'dd2-token-cluster';
+      const label = type === 'cave' ? '◆' : type === 'token' ? '✦' : String(count);
+      const size = type === 'cluster' ? 37 : type === 'cave' ? 29 : 24;
+      return L.divIcon({
+        className: 'dd2-location-icon',
+        html: `<span class="${kind}" aria-hidden="true">${label}</span>`,
+        iconSize: [size,size], iconAnchor: [size/2,size/2]
       });
-
-      const leafletMarker = L.marker([lat, lng], {
-        icon: customIcon,
-        title: marker.title
+    };
+    const addPoint = (marker: DD2MapMarker) => {
+      const pos = marker.mapPosition;
+      if (!pos) return;
+      const m = L.marker(pixelToLatLng(pos.pixelX,pos.pixelY,DEFAULT_MAP_SIZE),{
+        icon: getIcon(marker.type === 'cave' ? 'cave' : 'token'),
+        title: marker.title, keyboard:true
       });
-
-      leafletMarker.on('click', () => {
-        setSelectedMarker(marker);
-      });
-
-      markersLayer.addLayer(leafletMarker);
-    });
-  }, [filteredMarkers, mapReady, showExperimentalMarkers]);
+      m.bindTooltip(marker.title,{direction:'top',offset:[0,-12]});
+      m.on('click',()=>setSelectedMarker(marker));
+      markersLayer.addLayer(m);
+    };
+    const caves = filteredMarkers.filter(m=>m.type==='cave'&&m.mapPosition);
+    const tokens = filteredMarkers.filter(m=>m.type==='token'&&m.mapPosition);
+    caves.forEach(addPoint);
+    if(mapZoom>=0 || tokens.length<2){
+      tokens.forEach(addPoint);
+    }else{
+      const cell = 52/Math.pow(2,mapZoom);
+      const buckets = new Map<string,DD2MapMarker[]>();
+      for(const item of tokens){
+        const p=item.mapPosition!;
+        const key=`${Math.floor(p.pixelX/cell)}:${Math.floor(p.pixelY/cell)}`;
+        const b=buckets.get(key)??[];b.push(item);buckets.set(key,b);
+      }
+      for(const members of buckets.values()){
+        if(members.length===1){addPoint(members[0]);continue;}
+        const px=members.reduce((a,m)=>a+m.mapPosition!.pixelX,0)/members.length;
+        const py=members.reduce((a,m)=>a+m.mapPosition!.pixelY,0)/members.length;
+        const cluster=L.marker(pixelToLatLng(px,py,DEFAULT_MAP_SIZE),{
+          icon:getIcon('cluster',members.length),
+          title:`${members.length} mementos — aproximar para separar`,keyboard:true
+        });
+        cluster.bindTooltip(`${members.length} mementos — clique para aproximar`);
+        cluster.on('click',()=>{
+          map.flyTo(cluster.getLatLng(),Math.min(0,map.getMaxZoom()),{duration:0.35});
+          setSelectedMarker(null);
+        });
+        markersLayer.addLayer(cluster);
+      }
+    }
+  }, [filteredMarkers, mapReady, showExperimentalMarkers, mapZoom]);
 
   // Toggle category
   const toggleCategory = useCallback((type: MarkerType) => {
@@ -398,7 +407,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       </header>
 
       <p role="note" className="dd2-map-notice relative z-20 border-b border-[#5b452e] bg-[#342a1f] px-3 py-1.5 text-[11px] leading-snug text-[#ead4af] sm:px-4">
-        Versão experimental · Arte © CAPCOM · Localizações dos marcadores ainda não verificadas.
+        Mapa experimental · Arte © CAPCOM · 240 Mementos do Buscador e 37 entradas de cavernas; entradas aproximadas.
       </p>
 
       {/* Main Interactive Map Area */}
@@ -415,12 +424,12 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         {/* Marcadores exploratórios: opt-in para não esconder a cartografia real. */}
         <div className="dd2-map-filters absolute left-3 top-3 z-30 max-w-[calc(100%-1.5rem)]">
           <div className="flex flex-wrap items-center gap-2">
-            <button type="button" aria-label={showExperimentalMarkers ? 'Ocultar marcadores experimentais' : 'Mostrar marcadores experimentais'}
+            <button type="button" aria-label={showExperimentalMarkers ? 'Ocultar localizações' : 'Mostrar localizações'}
               aria-pressed={showExperimentalMarkers}
               onClick={() => setShowExperimentalMarkers(prev => !prev)}
               className={`flex min-h-10 items-center gap-2 rounded border px-3 text-xs font-semibold shadow-lg backdrop-blur-sm ${showExperimentalMarkers ? 'border-[#d3a15f] bg-[#ead2a6] text-[#241a11]' : 'border-[#70583a] bg-[#1c1a17ee] text-[#f5dfb7]'}`}>
               <MapPin size={16} aria-hidden="true" />
-              {showExperimentalMarkers ? 'Ocultar pontos de teste' : 'Mostrar pontos de teste'}
+              {showExperimentalMarkers ? 'Ocultar localizações' : 'Mostrar localizações'}
             </button>
             <button type="button" aria-label="Alternar filtros" aria-expanded={filterPanelOpen}
               onClick={() => setFilterPanelOpen(prev => !prev)}
@@ -430,7 +439,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
           </div>
           {filterPanelOpen && (
             <section aria-label="Filtros de marcadores" className="mt-2 max-h-[45vh] w-[min(350px,calc(100vw-1.5rem))] overflow-y-auto rounded border border-[#78603f] bg-[#1b1916f5] p-3 shadow-2xl">
-              <p className="mb-2 text-xs leading-relaxed text-[#d8c4a4]">Pontos de teste não auditados. Podem estar fora de posição; a cartografia não é alterada.</p>
+              <p className="mb-2 text-xs leading-relaxed text-[#d8c4a4]">240 mementos com coordenadas do jogo e 37 entradas de cavernas de guias cartográficos. Entradas ainda aproximadas.</p>
               <div className="relative mb-3 lg:hidden">
                 <Search size={15} className="absolute left-2 top-3 text-[#bba686]" aria-hidden="true" />
                 <input type="search" aria-label="Buscar no mapa" value={searchQuery}
@@ -442,7 +451,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
                   className="min-h-10 w-full rounded border border-[#665237] bg-[#29241c] pl-8 pr-2 text-xs text-[#f4e7cf] placeholder-[#b9a68b]" />
               </div>
               <div className="flex flex-wrap gap-2">
-                {(Object.keys(CATEGORY_CONFIG) as MarkerType[]).map(type => {
+                {(['cave','token'] as const).map(type => {
                   const cfg = CATEGORY_CONFIG[type];
                   const active = activeTypes.has(type);
                   return (
@@ -530,11 +539,20 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
               <div className="flex justify-between text-[#94a3b8] border-t border-[#2d3748] pt-1 mt-0.5">
                 <span>Fonte / Verificação:</span>
                 <span className="text-[#10b981] font-sans font-semibold">
-                  {selectedMarker.verification} ({selectedMarker.source})
+                  {selectedMarker.type === 'token' ? 'COORDENADA DO JOGO' : 'ENTRADA REFERENCIADA'}
                 </span>
               </div>
             </div>
 
+            {selectedMarker.type === 'token' && (
+              <p className="text-[11px] text-[#e4cb9f]">Alguns mementos estão dentro de cavernas ou em andares altos. O ponto é a posição em planta, não a entrada.</p>
+            )}
+            {selectedMarker.sourceUrl && (
+              <a href={selectedMarker.sourceUrl} target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1.5 rounded border border-[#87653d] bg-[#292116] px-3 py-2 text-xs text-[#edc989] hover:bg-[#403221]">
+                Conferir fonte da localização <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            )}
             {/* Guide Link Button */}
             {selectedMarker.guideId && onOpenGuide && QUEST_GUIDES.some(guide => guide.id === selectedMarker.guideId) && (
               <button
