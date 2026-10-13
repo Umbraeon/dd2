@@ -890,3 +890,8 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
 .dd2-location-icon:hover .dd2-cave-pin,.dd2-location-icon:hover .dd2-token-pin,.dd2-location-icon:hover .dd2-token-cluster {filter:brightness(1.35);}
 .independent-map-dialog .leaflet-tooltip {border-radius:4px;background:#231c15;color:#f8dfb9;border:1px solid #99764b;box-shadow:0 3px 12px #000b;font-size:12px;}
 .independent-map-dialog .leaflet-tooltip-top::before {border-top-color:#99764b;}
+
+/* Visão geral: ícones menores para não cobrir o pergaminho; zoom detalhado mantém ícones maiores. */
+.dd2-pin-compact .dd2-cave-pin { font-size: 12px; border-width: 1.5px; }
+.dd2-pin-compact .dd2-token-pin { font-size: 13px; border-width: 1.5px; }
+.dd2-pin-compact .dd2-token-cluster { font-size: 10px; border-width: 1.5px; }
