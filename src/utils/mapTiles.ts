@@ -17,6 +17,7 @@ export interface MapTilesManifest {
   sourceHeight: number;
   minNativeZoom: number;
   maxNativeZoom: number;
+  enhancedNativeZoom?: number | null;
   source: string;
   tileCount: number;
 }
@@ -35,18 +36,22 @@ export function isMapTilesManifest(value: unknown): value is MapTilesManifest {
     m.sourceHeight === width &&
     typeof highest === 'number' &&
     highest === Math.log2(width / MAP_PLANE_SIZE) &&
+    (m.enhancedNativeZoom === undefined ||
+      m.enhancedNativeZoom === null ||
+      m.enhancedNativeZoom === highest) &&
     typeof m.tileCount === 'number' &&
     m.tileCount > 0 &&
     typeof m.source === 'string';
 }
 
 /** Traduz um tile Leaflet (Y negativo) para o caminho estático raster. */
-export function mapTileUrl(z: number, x: number, y: number): string | null {
+export function mapTileUrl(z: number, x: number, y: number, mode: 'original' | 'enhanced' = 'original'): string | null {
   if (![z, x, y].every(Number.isInteger)) return null;
   const count = (MAP_PLANE_SIZE / MAP_TILE_SIZE) * 2 ** z;
   const topDownRow = y + count;
   if (count < 1 || x < 0 || x >= count || topDownRow < 0 || topDownRow >= count) {
     return null;
   }
-  return `/map-tiles/${z}/${x}/${topDownRow}.webp`;
+  const prefix = mode === 'enhanced' ? '/map-tiles/enhanced' : '/map-tiles';
+  return `${prefix}/${z}/${x}/${topDownRow}.webp`;
 }
