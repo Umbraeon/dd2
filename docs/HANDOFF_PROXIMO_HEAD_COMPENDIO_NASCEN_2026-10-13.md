@@ -78,10 +78,10 @@ O proprietário decidiu investigar um **mapa web independente**, com camadas de 
 - [#16](https://github.com/Umbraeon/dd2/issues/16) mapa externo e limitações de incorporação, enquanto o mapa próprio é uma nova investigação.
 - [#2](https://github.com/Umbraeon/dd2/issues/2) auditoria UX/UI **independente**, ainda não realizada apenas por integração de PRs.
 
-### Componentes de UI de escopo implementado
+### Componentes de UI de escopo implementado — issues encerradas neste handoff
 
-- [#9](https://github.com/Umbraeon/dd2/issues/9): conquistas inline + Consulta por PRs #10/#11 e Ferramentas opcionais no PR #15. Pode ser encerrada **apenas como escopo de implementação**, sem alegar aceite de UX amplo.
-- [#12](https://github.com/Umbraeon/dd2/issues/12): Central de Ferramentas integrada pelo PR #15; pode ser encerrada **como funcionalidade implementada**, mantendo ressalvas de acessibilidade humana na issue #2.
+- [#9](https://github.com/Umbraeon/dd2/issues/9) **closed/completed**: conquistas inline + Consulta por PRs #10/#11, com Ferramentas opcionais no PR #15. Fechamento **somente do escopo de implementação**; revisão humana UX e auditoria factual continuam separadas.
+- [#12](https://github.com/Umbraeon/dd2/issues/12) **closed/completed**: Central de Ferramentas integrada pelo PR #15 com regressões automatizadas. Fechamento **somente como funcionalidade implementada**, sem declarar WCAG integral ou testes com jogadores; acompanhar issue #2.
 
 ### PRs ainda abertos em 13/10/2026
 
