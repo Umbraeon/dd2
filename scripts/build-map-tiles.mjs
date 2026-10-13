@@ -58,8 +58,14 @@ for (let z = LOWEST_Z; z <= highestZ; z += 1) {
       const filename = path.join(folder, row + '.webp');
       tasks.push((async () => {
         await mkdir(folder, { recursive: true });
+        // O nível nativo já é 8K: recompressão com qualidade 83 deixava
+        // inscrições e estradas mais borradas. Lossless preserva cada pixel
+        // da textura de origem; níveis reduzidos continuam leves.
+        const encoder = z === highestZ
+          ? { lossless: true, effort: 4 }
+          : { quality: 92, effort: 4 };
         await sharp(tileBytes, { raw: { width: TILE, height: TILE, channels: 4 } })
-          .webp({ quality: 83, effort: 4 })
+          .webp(encoder)
           .toFile(filename);
       })());
       if (tasks.length >= 8) await Promise.all(tasks.splice(0));
