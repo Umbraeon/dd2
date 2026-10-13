@@ -54,6 +54,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   // Coordenadas do protótipo não foram auditadas; não poluem o mapa original por padrão.
   const [showExperimentalMarkers, setShowExperimentalMarkers] = useState(false);
   const [tileManifest, setTileManifest] = useState<MapTilesManifest | null>(null);
+  const [mapSharpness, setMapSharpness] = useState<'original' | 'enhanced'>('enhanced');
 
   // O build gera o manifesto e os tiles antes de publicar na Vercel.
   // Em dev, sem build, a imagem 2K continua funcionando como fallback.
@@ -216,8 +217,12 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       });
       // Em CRS.Simple o eixo Y da grade Leaflet é negativo. O utilitário
       // normaliza para o índice de linha do raster (origem no canto superior).
-      tiles.getTileUrl = coords => mapTileUrl(coords.z, coords.x, coords.y)
-        ?? 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+      tiles.getTileUrl = coords => mapTileUrl(
+        coords.z,
+        coords.x,
+        coords.y,
+        mapSharpness === 'enhanced' && tileManifest.enhancedNativeZoom === coords.z ? 'enhanced' : 'original'
+      ) ?? 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
       sourceLayers.push(tiles);
     }
     baseMapLayerRef.current = L.layerGroup(sourceLayers).addTo(map);
@@ -227,7 +232,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       }
       baseMapLayerRef.current = null;
     };
-  }, [baseLayer, mapReady, tileManifest]);
+  }, [baseLayer, mapReady, tileManifest, mapSharpness]);
 
   // Render Markers on Map
   useEffect(() => {
@@ -374,6 +379,17 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
               Esquema
             </button>
           </div>
+          {tileManifest?.enhancedNativeZoom != null && (
+            <button type="button"
+              onClick={() => setMapSharpness(prev => prev === 'enhanced' ? 'original' : 'enhanced')}
+              aria-label={mapSharpness === 'enhanced' ? 'Usar nitidez original' : 'Ativar nitidez aprimorada'}
+              aria-pressed={mapSharpness === 'enhanced'}
+              title="Aprimora bordas e estradas no zoom máximo; não aumenta a resolução. Alterne para comparar com a arte original."
+              className={`flex min-h-10 items-center gap-1.5 rounded border px-2.5 text-xs font-semibold transition-colors ${mapSharpness === 'enhanced' ? 'border-[#d7aa65] bg-[#44331b] text-[#fce0af]' : 'border-[#71583b] bg-[#2b261e] text-[#cbb899] hover:bg-[#403526]'}`}>
+              <Sparkles size={15} aria-hidden="true" />
+              <span>Nitidez {mapSharpness === 'enhanced' ? '+' : 'original'}</span>
+            </button>
+          )}
           <button type="button" onClick={resetView} className="flex min-h-10 min-w-10 items-center justify-center rounded border border-[#71583b] bg-[#2b261e] text-[#ead1a3] hover:bg-[#403526]"
             title="Enquadrar pergaminho" aria-label="Ajustar aos limites">
             <RotateCcw size={17} />
@@ -539,7 +555,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         {/* Informative Watermark Footnote */}
         <footer className="dd2-map-status absolute bottom-3 left-3 z-10 max-w-[calc(100%-6rem)] rounded border border-[#675035] bg-[#171512ed] px-2.5 py-1.5 text-[11px] text-[#f1d6a6] shadow-lg backdrop-blur-sm select-none pointer-events-none">
           {tileManifest
-            ? `Mapa ${tileManifest.sourceWidth / 1024}K · zoom nativo até ${tileManifest.maxNativeZoom}`
+            ? `Mapa ${tileManifest.sourceWidth / 1024}K · zoom nativo até ${tileManifest.maxNativeZoom} · ${mapSharpness === 'enhanced' ? 'nitidez aprimorada' : 'arte original'}`
             : 'Carregando imagem do jogo...'}
         </footer>
       </div>
