@@ -137,8 +137,10 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       minZoom: -3,
       // MaxZoom será atualizado após o manifesto. Não permitir upscale acima da fonte.
       maxZoom: 0,
-      zoomSnap: 1,
-      zoomDelta: 1,
+      // Pequenos incrementos permitem enquadrar a altura do pergaminho sem
+      // deixá-lo minúsculo em monitores largos. O zoom MÁXIMO é inteiro e nativo.
+      zoomSnap: 0.25,
+      zoomDelta: 0.5,
       zoomControl: false,
       attributionControl: false,
       maxBounds: [[226, 175], [1888, 1630]],
