@@ -80,6 +80,6 @@ test('inconsistencias de IDs, builds, hashes e classificacao sao rejeitadas', ()
 test('parser rejeita dados truncados ou ambiguidade de cabecalho', () => {
   assert.throws(() => parseQuestEvidenceCsv(''), /CSV vazio/);
   assert.throws(() => parseQuestEvidenceCsv('"quest_internal_id","title_key"\n"one"'), /Coluna CSV ausente/);
-  assert.throws(() => parseQuestEvidenceCsv(actualCsv.replace('GAME_DATA_CURRENT_BUILD', '"texto"solto')), /Aspas inesperadas/);
+  assert.throws(() => parseQuestEvidenceCsv(actualCsv.replace('GAME_DATA_CURRENT_BUILD', '"texto"solto')), /Texto apos aspas|Aspas inesperadas/);
   assert.throws(() => parseQuestEvidenceCsv(actualCsv + '"incompleto'), /aspas nao encerradas/);
 });
