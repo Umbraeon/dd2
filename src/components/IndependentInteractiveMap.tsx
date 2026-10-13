@@ -542,6 +542,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
                   {selectedMarker.type === 'token' ? 'COORDENADA DO JOGO' : 'ENTRADA REFERENCIADA'}
                 </span>
               </div>
+              <p className="break-words text-[10px] leading-relaxed text-[#aab8c5]">{selectedMarker.source}</p>
             </div>
 
             {selectedMarker.type === 'token' && (
