@@ -874,3 +874,19 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   }
 }
 
+
+/* B03 — cavernas e mementos. DivIcons transparentes, âncora centrada no ponto. */
+.independent-map-dialog .dd2-location-icon { background:none; border:0; }
+.dd2-cave-pin,.dd2-token-pin,.dd2-token-cluster {
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;width:100%;height:100%;box-sizing:border-box;
+  font-family:Georgia,serif;line-height:1;cursor:pointer;
+  box-shadow:0 2px 9px #000b,0 0 0 1px #08080766;
+  transition:filter .13s ease;
+}
+.dd2-cave-pin { color:#ffe1a8;font-size:18px;background:#4a2b1f;border:2px solid #e1ad6a; }
+.dd2-token-pin { color:#fff3b9;font-size:19px;background:#13575a;border:2px solid #81e4d4; }
+.dd2-token-cluster {color:#ecfeff;font:700 12px 'Plus Jakarta Sans',sans-serif;background:#11525a;border:2px solid #81e4d4;}
+.dd2-location-icon:hover .dd2-cave-pin,.dd2-location-icon:hover .dd2-token-pin,.dd2-location-icon:hover .dd2-token-cluster {filter:brightness(1.35);}
+.independent-map-dialog .leaflet-tooltip {border-radius:4px;background:#231c15;color:#f8dfb9;border:1px solid #99764b;box-shadow:0 3px 12px #000b;font-size:12px;}
+.independent-map-dialog .leaflet-tooltip-top::before {border-top-color:#99764b;}
