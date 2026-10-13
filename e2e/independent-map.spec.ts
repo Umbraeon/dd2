@@ -4,7 +4,6 @@ import { mkdirSync } from 'node:fs';
 test.describe('Mapa Interativo Independente (Missão B01)', () => {
   test.beforeEach(async () => {
     mkdirSync('test-results/screenshots', { recursive: true });
-    mkdirSync('D:/dd2-map-research-b01/prototype/screenshots', { recursive: true });
   });
 
   test('deve abrir o mapa a partir da Central de Ferramentas e exibir interface funcional', async ({ page }) => {
@@ -31,8 +30,9 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     const pins = page.locator('.custom-map-pin');
     await expect(pins.first()).toBeVisible();
     const pinCount = await pins.count();
+    expect(pinCount).toBeGreaterThan(0);
     // Screenshot 1: Desktop Initial Map
-    await page.screenshot({ path: 'D:/dd2-map-research-b01/prototype/screenshots/01-desktop-initial-map.png' });
+    await page.screenshot({ path: 'test-results/screenshots/01-desktop-initial-map.png' });
 
     // 7. Click on a marker to test selection drawer
     await page.locator('.leaflet-marker-icon').first().click({ force: true });
@@ -40,10 +40,10 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     await expect(detailDrawer).toBeVisible();
     await expect(detailDrawer).toContainText('Mundo (X, Y, Z):');
     await expect(detailDrawer).toContainText('Pixel 2D (MapX, MapY):');
-    await expect(detailDrawer).toContainText('VERIFIED');
+    await expect(detailDrawer).toContainText('UNVERIFIED');
 
     // Screenshot 2: Marker Details
-    await page.screenshot({ path: 'D:/dd2-map-research-b01/prototype/screenshots/02-desktop-marker-detail.png' });
+    await page.screenshot({ path: 'test-results/screenshots/02-desktop-marker-detail.png' });
 
     // 8. Test Layer Switcher
     const schematicBtn = page.getByRole('button', { name: 'Esquema' });
@@ -51,7 +51,7 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     await page.waitForTimeout(500);
 
     // Screenshot 3: Schematic Layer
-    await page.screenshot({ path: 'D:/dd2-map-research-b01/prototype/screenshots/03-desktop-schematic-layer.png' });
+    await page.screenshot({ path: 'test-results/screenshots/03-desktop-schematic-layer.png' });
 
     // Switch back
     await page.getByRole('button', { name: 'Oficial (8K)' }).click();
@@ -62,6 +62,17 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
 
     const storageAfter = await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'));
     expect(storageAfter).toBe(storageBefore);
+  });
+
+  test('deve abrir o guia por ID sem busca textual intermediária', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
+    await page.locator('.leaflet-marker-icon').first().click({ force: true });
+    const link = page.getByRole('button', { name: 'Ver Guia no Compêndio' });
+    await expect(link).toBeVisible();
+    await link.click();
+    await expect(page.getByRole('heading', { name: 'Guias de missões e falsificações' })).toBeVisible();
+    await expect(page.locator('dialog.independent-map-dialog')).not.toBeVisible();
   });
 
   test('deve funcionar em viewport mobile (390x844) com controles táteis e responsivos', async ({ page }) => {
@@ -77,7 +88,7 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     await expect(mapDialog).toBeVisible();
 
     // Screenshot 4: Mobile View
-    await page.screenshot({ path: 'D:/dd2-map-research-b01/prototype/screenshots/04-mobile-initial-view.png' });
+    await page.screenshot({ path: 'test-results/screenshots/04-mobile-initial-view.png' });
 
     // Verify pins visible on mobile
     const pins = page.locator('.custom-map-pin');
@@ -89,7 +100,7 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     await expect(detailDrawer).toBeVisible();
 
     // Screenshot 5: Mobile Marker Detail
-    await page.screenshot({ path: 'D:/dd2-map-research-b01/prototype/screenshots/05-mobile-marker-detail.png' });
+    await page.screenshot({ path: 'test-results/screenshots/05-mobile-marker-detail.png' });
 
     // Close
     await page.getByRole('button', { name: 'Voltar', exact: true }).click();
