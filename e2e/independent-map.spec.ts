@@ -26,8 +26,22 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     const leafletMap = page.locator('.leaflet-container');
     await expect(leafletMap).toBeVisible();
 
-    // 6. O build serve mosaicos estáticos 2K e, futuramente, 8K nativos.
-    await expect(page.getByRole('button', { name: /^Mapa do jogo \(2K · tiles\)$/ })).toBeVisible();
+    // 6. A imagem original 8K foi enviada para esta branch.
+    // O build precisa gerar a pirâmide nativa completa, não reescalar uma fonte 2K.
+    const manifestResponse = await page.request.get('/map-tiles/metadata.json');
+    expect(manifestResponse.ok()).toBeTruthy();
+    const manifest = await manifestResponse.json();
+    expect(manifest).toMatchObject({
+      source: 'world-map-8k.webp',
+      sourceWidth: 8192,
+      sourceHeight: 8192,
+      maxNativeZoom: 2,
+      tileCount: 1365
+    });
+    const zoom2Tile = await page.request.get('/map-tiles/2/0/0.webp');
+    expect(zoom2Tile.ok()).toBeTruthy();
+    expect(zoom2Tile.headers()['content-type']).toContain('image/webp');
+    await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
     const nativeTiles = page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]');
     await expect(nativeTiles.first()).toBeVisible();
     await expect.poll(() => nativeTiles.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
