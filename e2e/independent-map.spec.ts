@@ -14,11 +14,13 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
 
     const zoomIn = page.locator('.leaflet-control-zoom-in');
     await expect(zoomIn).toBeVisible();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 18; i++) {
       if (await zoomIn.evaluate(node => node.classList.contains('leaflet-disabled'))) break;
       await zoomIn.click();
+      // Leaflet ignora cliques enquanto anima um nível de zoom.
+      await page.waitForTimeout(350);
     }
-    await expect(zoomIn).toHaveClass(/leaflet-disabled/);
+    await expect(zoomIn).toHaveAttribute('aria-disabled', 'true');
 
     const native8k = page.locator('.leaflet-tile-pane img[src*="/map-tiles/2/"]');
     await expect(native8k.first()).toBeVisible();
