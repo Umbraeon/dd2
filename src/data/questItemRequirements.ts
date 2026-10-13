@@ -818,5 +818,5 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'regentkins_resolve', 'when_wills_collide',
   'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
   'seat_sovran', 'convergence', 'prey_for_pack', 'ailing_arborheart',
-  'welcome_battahl', 'tensions_highroad', 'clash_conclusion'
+  'welcome_battahl', 'tensions_highroad', 'clash_conclusion', 'crossing_shadow'
 ];
