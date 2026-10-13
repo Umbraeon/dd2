@@ -73,7 +73,10 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
   test('deve abrir o guia por ID sem busca textual intermediária', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
-    await page.locator('.leaflet-marker-icon[title*="Na Trilha do Dragão"]').click({ force: true });
+    // Filtra antes de clicar: os pontos da região de Vernworth se sobrepõem no zoom inicial.
+    await page.getByPlaceholder('Buscar missões, NPCs, locais...').fill('Na Trilha do Dragão');
+    await expect(page.locator('.leaflet-marker-icon')).toHaveCount(1);
+    await page.locator('.leaflet-marker-icon').click();
     const link = page.getByRole('button', { name: 'Ver Guia no Compêndio' });
     await expect(link).toBeVisible();
     await link.click();
