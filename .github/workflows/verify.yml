@@ -16,6 +16,8 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm run lint
       - run: npm test
+      - name: Validate questlog ZIP audit verifier CLI (no game assets on CI)
+        run: python3 scripts/verify-questlog-package.py --help
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Investigar renderização externa do MapGenie em Chromium (diagnóstico, não aceite)
