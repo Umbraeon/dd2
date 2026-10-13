@@ -179,7 +179,8 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         minNativeZoom: tileManifest.minNativeZoom,
         maxNativeZoom: tileManifest.maxNativeZoom,
         tileSize: tileManifest.tileSize,
-        bounds,
+        // O filtro bounds do GridLayer descarta tiles no CRS.Simple com Y negativo.
+        // A validação de x/linha já é feita em mapTileUrl.
         noWrap: true,
         keepBuffer: 3,
         crossOrigin: false,
