@@ -18,8 +18,8 @@ const unchanged=async (page: import('@playwright/test').Page) => {
 };
 
 test('Sven: identificar Patrick e três itens antes de entregar carta única',async({page})=>{
-  const guide=await show(page,'Masked Correspondence','masked_correspondence');
-  for(const x of ['TÍTULO PT-BR NÃO COMPROVADO','Lord Patrick','capa AZUL','Sven','Unfinished Letter']) await expect(guide).toContainText(x);
+  const guide=await show(page,'Correspondência Mascarada','masked_correspondence');
+  for(const x of ['catálogo Kiranico PT-BR','Lord Patrick','capa AZUL','Sven','Unfinished Letter']) await expect(guide).toContainText(x);
   const items=guide.getByRole('region',{name:'Itens necessários e onde conseguir'});
   await expect(items.locator('li')).toHaveCount(3);
   for(const x of ['Letter to Lord Patrick','Courtly Tunic','Eventide Mask']) await expect(items).toContainText(x);
@@ -27,20 +27,20 @@ test('Sven: identificar Patrick e três itens antes de entregar carta única',as
 });
 
 test('Welcome: dupla rota, Taleef e Fruit Wine de recompensa',async({page})=>{
-  const guide=await show(page,'Welcome to Battahl','welcome_battahl');
+  const guide=await show(page,'De Volta a Battahl','welcome_battahl');
   for(const x of ['Raghnall','Roger','Taleef','Fruit Wine','13.500 G']) await expect(guide).toContainText(x);
   await expect(guide.getByRole('region',{name:'Itens necessários e onde conseguir'})).toHaveCount(0);
   await unchanged(page);
 });
 
 test('Tensions: Simon, Augustin, caverna e dois lados sem inventário',async({page})=>{
-  const guide=await show(page,'Tensions on the Highroad','tensions_highroad');
+  const guide=await show(page,'Tensão na Estrada','tensions_highroad');
   for(const x of ['Simon','Augustin','Raghnall','Caverna Guerco','duas rotas']) await expect(guide).toContainText(x);
   await unchanged(page);
 });
 
 test('Clash: confronto é condicional e reviver Raghnall não é obrigação',async({page})=>{
-  const guide=await show(page,'Clash and Conclusion','clash_conclusion');
+  const guide=await show(page,'Confronto Final','clash_conclusion');
   for(const x of ['CONDICIONAL','Raghnall','Torre do Luar','Wakestone','Taleef']) await expect(guide).toContainText(x);
   await unchanged(page);
 });
