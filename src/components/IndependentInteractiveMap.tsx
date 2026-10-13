@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { DD2MapMarker, MarkerType } from '../types/independentMap';
 import { INDEPENDENT_MAP_MARKERS } from '../data/independentMapMarkers';
+import { QUEST_GUIDES } from '../data/questGuides';
 import { DEFAULT_MAP_SIZE, pixelToLatLng } from '../utils/mapCoordinates';
 
 interface Props {
@@ -287,11 +288,11 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
                 Mapa Interativo Independente
               </h1>
               <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider bg-[#2d3748] text-[#38bdf8] rounded">
-                Protótipo B01
+                Teste B01
               </span>
             </div>
             <p className="hidden md:block text-[11px] text-[#94a3b8]">
-              Cartografia própria da RE Engine · 100% autônomo sem dependência externa do MapGenie
+              Protótipo de mapa próprio · posições dos marcadores ainda não auditadas
             </p>
           </div>
         </div>
@@ -328,9 +329,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
               className={`px-2 py-1 rounded transition-colors ${
                 baseLayer === 'official' ? 'bg-[#f59e0b] text-[#0f172a] font-bold' : 'text-[#94a3b8] hover:text-[#f8fafc]'
               }`}
-              title="Base fotográfica reconstruída dos arquivos da RE Engine"
+              title="Imagem rasterizada do mapa do jogo; uso experimental, direitos da CAPCOM"
             >
-              Oficial (8K)
+              Mapa do jogo (2K)
             </button>
             <button
               type="button"
@@ -338,7 +339,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
               className={`px-2 py-1 rounded transition-colors ${
                 baseLayer === 'schematic' ? 'bg-[#f59e0b] text-[#0f172a] font-bold' : 'text-[#94a3b8] hover:text-[#f8fafc]'
               }`}
-              title="Esquema vetorial editorial do Compêndio"
+              title="Camada sem imagem de fundo, para teste dos marcadores"
             >
               Esquema
             </button>
@@ -369,6 +370,11 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
           </button>
         </div>
       </header>
+
+      <p role="note" className="px-4 py-2 bg-[#332418] text-[#f5d5a1] border-b border-[#72542b] text-xs">
+        VERSÃO DE TESTE — Imagem do jogo © CAPCOM. Mapa não oficial. Os pontos demonstrativos
+        ainda não foram conferidos individualmente em jogo: não use estas posições para decisões irreversíveis.
+      </p>
 
       {/* Main Interactive Map Area */}
       <div className="relative flex-1 w-full h-full overflow-hidden bg-[#0a0c10]">
@@ -485,7 +491,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
             </div>
 
             {/* Guide Link Button */}
-            {selectedMarker.guideId && onOpenGuide && (
+            {selectedMarker.guideId && onOpenGuide && QUEST_GUIDES.some(guide => guide.id === selectedMarker.guideId) && (
               <button
                 type="button"
                 onClick={() => {
