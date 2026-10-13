@@ -32,6 +32,7 @@ import { BarbecueTrackerModal } from './components/BarbecueTrackerModal';
 import { MaistersTrackerModal } from './components/MaistersTrackerModal';
 import { TokensTrackerModal } from './components/TokensTrackerModal';
 import { TokensInteractiveMap } from './components/TokensInteractiveMap';
+import { IndependentInteractiveMap } from './components/IndependentInteractiveMap';
 import { CheckpointsModal } from './components/CheckpointsModal';
 import { GlossaryModal } from './components/GlossaryModal';
 import { SourcesModal } from './components/SourcesModal';
@@ -44,6 +45,7 @@ export default function App() {
   const [navigationTarget, setNavigationTarget] = useState<string | null>(null);
   const [navigationNotice, setNavigationNotice] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [requestedGuideId, setRequestedGuideId] = useState('');
   const [activeFilter, setActiveFilter] = useState<ConsultationFilter>('all');
   const [consultationSection, setConsultationSection] = useState<ConsultationSection>('missions');
   const [selectedAchievementId, setSelectedAchievementId] = useState<number | null>(null);
@@ -59,6 +61,7 @@ export default function App() {
   const [isMaistersOpen, setIsMaistersOpen] = useState(false);
   const [isTokensOpen, setIsTokensOpen] = useState(false);
   const [isTokensMapOpen, setIsTokensMapOpen] = useState(false);
+  const [isIndependentMapOpen, setIsIndependentMapOpen] = useState(false);
   const [isCheckpointsOpen, setIsCheckpointsOpen] = useState(false);
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
@@ -324,6 +327,14 @@ export default function App() {
     });
   };
 
+  const handleOpenGuideFromMap = (guideId: string) => {
+    setIsIndependentMapOpen(false);
+    setView('consultation');
+    setConsultationSection('guides');
+    setSearchQuery('');
+    setRequestedGuideId(guideId);
+  };
+
   const openTokensMap = () => {
     // Exchange one top-level overlay for another; never mount two at once.
     setIsTokensOpen(false);
@@ -353,6 +364,7 @@ export default function App() {
         toolsExpanded={toolsHubOpen}
         onOpenSources={handleOpenSources}
         onOpenBackup={event => openTool('backup', event.currentTarget)}
+        onOpenIndependentMap={() => setIsIndependentMapOpen(true)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
       />
@@ -385,6 +397,7 @@ export default function App() {
       {view === 'consultation' && (
         <Consultation phases={PHASES} progress={progress}
           section={consultationSection} onSectionChange={setConsultationSection}
+          requestedGuideId={requestedGuideId}
           chapter={selectedChapter} onChapterChange={setSelectedChapter}
           search={searchQuery} onSearchChange={setSearchQuery}
           filter={activeFilter} onFilterChange={setActiveFilter}
@@ -437,6 +450,11 @@ export default function App() {
       />
 
       <TokensInteractiveMap isOpen={isTokensMapOpen} onBack={returnToTokens} />
+      <IndependentInteractiveMap
+        isOpen={isIndependentMapOpen}
+        onClose={() => setIsIndependentMapOpen(false)}
+        onOpenGuide={handleOpenGuideFromMap}
+      />
 
       <CheckpointsModal
         isOpen={isCheckpointsOpen}

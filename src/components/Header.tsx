@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, ShieldAlert, FolderDown } from 'lucide-react';
+import { BookOpen, ShieldAlert, FolderDown, Compass } from 'lucide-react';
 
 interface HeaderProps {
   onOpenCheckpoints: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -7,12 +7,13 @@ interface HeaderProps {
   toolsExpanded: boolean;
   onOpenSources: () => void;
   onOpenBackup: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onOpenIndependentMap?: () => void;
   onGoJourney: () => void;
   onGoChapter: (phaseId: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  onOpenCheckpoints, onOpenTools, toolsExpanded, onOpenSources, onOpenBackup, onGoJourney, onGoChapter
+  onOpenCheckpoints, onOpenTools, toolsExpanded, onOpenSources, onOpenBackup, onOpenIndependentMap, onGoJourney, onGoChapter
 }) => (
   <header className="codex-header sticky top-0 z-40">
     <div className="codex-header-inner">
@@ -26,6 +27,11 @@ export const Header: React.FC<HeaderProps> = ({
         <button type="button" onClick={onOpenSources}>Referências</button>
       </nav>
       <div className="codex-header-tools">
+        {onOpenIndependentMap && (
+          <button type="button" onClick={onOpenIndependentMap} className="codex-header-tool" title="Mapa Interativo Independente (B01)" aria-label="Abrir mapa independente">
+            <Compass size={16}/><span className="hidden lg:inline">MAPA B01</span>
+          </button>
+        )}
         <button type="button" onClick={onOpenCheckpoints} className="codex-header-warning" title="Conferir alertas registrados no roteiro" aria-label="Conferir alertas">
           <ShieldAlert size={16}/><span className="hidden sm:inline">CHECKPOINTS</span>
         </button>

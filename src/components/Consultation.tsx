@@ -17,6 +17,7 @@ interface Props {
   progress: UserProgress;
   section: ConsultationSection;
   onSectionChange: (section: ConsultationSection) => void;
+  requestedGuideId?: string;
   chapter: string;
   onChapterChange: (id: string) => void;
   search: string;
@@ -43,7 +44,7 @@ const normalize = (value: string) =>
   value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim();
 
 export const Consultation: React.FC<Props> = ({
-  phases, progress, section, onSectionChange, chapter, onChapterChange,
+  phases, progress, section, onSectionChange, requestedGuideId, chapter, onChapterChange,
   search, onSearchChange, filter, onFilterChange, selectedAchievementId,
   onClearAchievement, expandedEventId, onExpandEvent, onOpenEvent,
   onOpenAchievement, onToggleEvent, onToggleAchievement, onConfirmCheckpoint,
@@ -51,6 +52,7 @@ export const Consultation: React.FC<Props> = ({
 }) => {
   const [achievementChapter, setAchievementChapter] = useState('all');
   const [selectedGuideId, setSelectedGuideId] = useState('');
+  useEffect(() => { if (requestedGuideId) setSelectedGuideId(requestedGuideId); }, [requestedGuideId]);
   useEffect(() => { if (selectedAchievementId !== null) setAchievementChapter('all'); }, [selectedAchievementId]);
   const achievements = useMemo(() => {
     const unique = new Map<number, { phase: Phase; achievement: Phase['achievements'][number] }>();
