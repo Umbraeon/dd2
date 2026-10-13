@@ -359,5 +359,6 @@ export function caveGuideToPixel(x:number,y:number):MapPixelPosition {
   return worldToMapPixel({x:game.x,y:0,z:game.z});
 }
 export function caveSourceUrl(guidePath:string):string {
-  return 'https://www.gamerguides.com/dragons-dogma-2/database/' + guidePath;
+  return 'https://www.gamerguides.com/dragons-dogma-2/database/' +
+    (guidePath.startsWith('locations/') ? '' : 'dungeons/') + guidePath;
 }
