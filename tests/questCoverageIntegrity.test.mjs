@@ -34,7 +34,7 @@ test('gate: não é possível adicionar outra quest ao índice PT-BR sem guia OU
     'Uma quest foi incluída ou resolvida sem atualizar o registro de lacunas auditado'
   );
   assert.equal(uncovered.length, gate.indexedWithoutGuide.length);
-  assert.equal(QUEST_NAME_INDEX.length, 74);
+  assert.equal(QUEST_NAME_INDEX.length, 78);
   assert.equal(new Set(QUEST_NAME_INDEX.map(q => normalize(q.english))).size, QUEST_NAME_INDEX.length);
   for (const missing of uncovered) {
     assert.ok(missing.eventIds.length > 0, missing.english);
@@ -52,10 +52,10 @@ test('gate: catálogo de 2024 identifica 49 faltantes sem confundir marcos com q
   assert.ok(report.summary.withoutIndividualGuide <= 49);
   assert.ok(report.summary.withIndividualGuide >= 31);
   assert.equal(report.summary.indexedWithoutGuide, gate.indexedWithoutGuide.length);
-  assert.equal(report.summary.guidesWithoutLocalizedIndex, 6);
-  assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['clash_conclusion', 'jadeite', 'masked_correspondence', 'tensions_highroad', 'tolled_to_rest', 'welcome_battahl']);
+  assert.equal(report.summary.guidesWithoutLocalizedIndex, 2);
+  assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['jadeite', 'tolled_to_rest']);
   assert.deepEqual(names(report.missingLocalization), names(gate.notInLocalizationIndexFrom2024));
-  assert.equal(report.missingLocalization.length, 10);
+  assert.equal(report.missingLocalization.length, 6);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
 
