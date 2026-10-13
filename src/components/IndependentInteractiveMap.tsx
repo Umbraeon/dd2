@@ -342,7 +342,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
           </button>
           <Compass size={18} className="hidden shrink-0 text-[#e9b86a] sm:block" aria-hidden="true" />
           <div className="min-w-0">
-            <h1 id="independent-map-title" className="truncate font-serif text-sm font-semibold tracking-wide text-[#f7e3c1] sm:text-lg">Mapa Interativo Independente</h1>
+            <h1 id="independent-map-title" className="font-serif text-sm font-semibold tracking-wide text-[#f7e3c1] sm:text-lg"><span className="sm:hidden">Mapa Interativo</span><span className="hidden sm:inline">Mapa Interativo Independente</span></h1>
             <p className="hidden text-[11px] text-[#bba785] md:block">Dragon's Dogma 2 · mapa original em mosaicos</p>
           </div>
         </div>
