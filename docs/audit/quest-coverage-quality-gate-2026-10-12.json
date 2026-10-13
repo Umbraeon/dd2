@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-12",
   "baseCommit": "fbd270eb781abe960bea761834d752c697de90fc",
-  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation; wave 16: gift Daphne, Donovan letter, Waldhar spectacles and Sven letter rewards; PT-BR localized Kiranico, sources secondary, medicines quantity discrepancy disclosed; wave 17: Sphinx (indexed) and Oskar at Ancient Battleground (EN-only until PT-BR verified); secondary walkthroughs only; 72/80 historical guides; wave 18: 4 historical side quests: Sven's letter and 3-step Raghnall chain, four PT-BR names from Kiranico (not screenshot/PAK verified); 76/80 historical quests, walkthrough-only verification; wave 19 closes 80/80 comparator PowerPyx 2024 (16 main, 64 side); no inference about DLC or current-build exhaustion",
+  "scope": "2024 PowerPyx base-game comparator and 59-entry editorial localization index; no DLC/runtime completeness claim; wave 9 published three Unmoored World guides from walkthroughs (not game-save-verified); wave 10: four Unmoored World evacuation guides sourced to 2024 community walkthroughs, without save-level verification; wave 11: two late Unmoored World quests + Phantom Oxcart, grounded to secondary walkthroughs without gameplay testing; wave 12 closes all 7 main-quest gaps in 2024 comparator, adds 3 Kiranico PT-BR EN pairs (not PAK-verified); wave 13: home purchase, Roman/Sara two-step forging, time-limited rescue of Rodge; PT-BR Prey from Kiranico; secondary sources, not save-verified; wave 14: four fate-sensitive side quests (Wilhelmina, Elena, Nadinia, Hugo), secondary walkthroughs and 3 new Kiranico PT-BR titles; no save-level verification; wave 15: 4 choices and chain quest guides (Beggar, Arborheart, Nutriabh, Sebastian), EN/PT-BR Kiranico; no gameplay validation; wave 16: gift Daphne, Donovan letter, Waldhar spectacles and Sven letter rewards; PT-BR localized Kiranico, sources secondary, medicines quantity discrepancy disclosed; wave 17: Sphinx (indexed) and Oskar at Ancient Battleground (EN-only until PT-BR verified); secondary walkthroughs only; 72/80 historical guides; wave 18: 4 historical side quests: Sven's letter and 3-step Raghnall chain, four PT-BR names from Kiranico (not screenshot/PAK verified); 76/80 historical quests, walkthrough-only verification; wave 19 closes 80/80 comparator PowerPyx 2024 (16 main, 64 side); no inference about DLC or current-build exhaustion; wave 20: 2 base quests found in extraction subset, 82 published guides; two DLC entry quests still unguided; no complete DLC claim",
   "publishedGuideRegistry": [
     {
       "id": "beren_claw",
@@ -322,27 +322,17 @@
     {
       "id": "crossing_shadow",
       "english": "Crossing in Shadow"
+    },
+    {
+      "id": "hand_that_guides",
+      "english": "The Hand That Guides"
+    },
+    {
+      "id": "one_eyed_interloper",
+      "english": "One-Eyed Interloper"
     }
   ],
   "indexedWithoutGuide": [
-    {
-      "english": "The Hand That Guides",
-      "ptBR": "A Mão que Guia",
-      "events": [
-        "m01"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
-    {
-      "english": "One-Eyed Interloper",
-      "ptBR": "Intruso de um Olho Só",
-      "events": [
-        "v101"
-      ],
-      "evidence": "paired_catalog",
-      "priority": "P2"
-    },
     {
       "english": "Chilling Tidings",
       "ptBR": "Notícias Congelantes",
@@ -375,7 +365,7 @@
     "Wave 18: Masked Correspondence, Welcome to Battahl, Tensions on the Highroad and Clash and Conclusion paired with respective PT-BR names from Kiranico catalog, not from installed questlog PAK. Fruit Wine is a reward, not prerequisite.",
     "Wave 19: four localized quest titles from Kiranico; disputed Noble Exchange staff-discard/capture combinations preserved as a cited divergence; Medusa head optional for sculptor; escort fugitive choice may cause arrest; 2 sequential letters to Ernesto and Barbas."
   ],
-  "lastReviewed": "2026-10-12",
+  "lastReviewed": "2026-10-13",
   "changelog": [
     "PR wave6: two maister-unlock quests upgraded from indexedWithoutGuide to publishedGuideRegistry; note this is coverage not in-game verification",
     "PR wave7: two endgame main quests added; registry reached 35, index backlog reached 25. Walkthrough sources are not real-save verification.",
@@ -383,6 +373,7 @@
     "Wave 17: added Sphinx and Tolled to Rest; 72 published guides (16 main, 56 side); 8 historical side quests missing. Indexed-without-guide reduced to 4. Not an exhaustive 2026/DLC inventory.",
     "Wave 18: 76 guides (16/16 main, 60/64 side), four historic side quests remain; 74 EN/PT pairs, four indexed without guide; no DLC/runtime coverage claim.",
     "Wave 18 localization update: 4 Kiranico EN/PT-BR pairs added; quest name index 78; missing historical localization now 6; guides without paired index now 2.",
-    "Wave 19: all 80 historical main/side quests have individual walkthroughs, 82 EN/PT index pairs, two prior guides outside the index (Jadeite, Tolled), 53 events and 60 achievements untouched. Secondary-only gameplay; save/PAK questlog proof pending."
+    "Wave 19: all 80 historical main/side quests have individual walkthroughs, 82 EN/PT index pairs, two prior guides outside the index (Jadeite, Tolled), 53 events and 60 achievements untouched. Secondary-only gameplay; save/PAK questlog proof pending.",
+    "Wave 20: two current-build title-backed prologue/route guides The Hand That Guides and One-Eyed Interloper; 82 total published guides vs 80 historical comparator; only Chilling Tidings and Lost Rites remain indexed without guide, DLC full questlog not verified."
   ]
 }
