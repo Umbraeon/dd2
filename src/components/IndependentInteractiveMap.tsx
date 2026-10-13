@@ -174,6 +174,19 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     if (baseLayer !== 'official') return;
 
     const bounds: L.LatLngBoundsExpression = [[0, 0], [DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE]];
+    // Mantenha uma imagem 2K no plano inferior mesmo se a rede de tiles falhar.
+    // A pane fica atrás dos mosaicos; nos zooms altos os tiles prevalecem.
+    if (!map.getPane('dd2-tile-fallback')) {
+      const pane = map.createPane('dd2-tile-fallback');
+      pane.style.zIndex = '190';
+      pane.style.pointerEvents = 'none';
+    }
+    const fallback = L.imageOverlay('/world-map.webp', bounds, {
+      pane: 'dd2-tile-fallback',
+      opacity: 1,
+      interactive: false
+    });
+    const sourceLayers: L.Layer[] = [fallback];
     if (tileManifest) {
       const tiles = L.tileLayer('', {
         minNativeZoom: tileManifest.minNativeZoom,
@@ -190,17 +203,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       // normaliza para o índice de linha do raster (origem no canto superior).
       tiles.getTileUrl = coords => mapTileUrl(coords.z, coords.x, coords.y)
         ?? 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-      tiles.addTo(map);
-      tiles.bringToBack();
-      baseMapLayerRef.current = tiles;
-    } else {
-      const fallback = L.imageOverlay('/world-map.webp', bounds, {
-        opacity: 1,
-        interactive: false
-      }).addTo(map);
-      fallback.bringToBack();
-      baseMapLayerRef.current = fallback;
+      sourceLayers.push(tiles);
     }
+    baseMapLayerRef.current = L.layerGroup(sourceLayers).addTo(map);
     return () => {
       if (baseMapLayerRef.current && map.hasLayer(baseMapLayerRef.current)) {
         map.removeLayer(baseMapLayerRef.current);
