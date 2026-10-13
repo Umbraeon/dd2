@@ -189,6 +189,10 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     const sourceLayers: L.Layer[] = [fallback];
     if (tileManifest) {
       const tiles = L.tileLayer('', {
+        // TileLayer herda minZoom=0 por padrão; fitBounds abre em zoom negativo.
+        // Sem estes limites, nenhum tile é renderizado na visão inicial.
+        minZoom: tileManifest.minNativeZoom,
+        maxZoom: 3,
         minNativeZoom: tileManifest.minNativeZoom,
         maxNativeZoom: tileManifest.maxNativeZoom,
         tileSize: tileManifest.tileSize,
