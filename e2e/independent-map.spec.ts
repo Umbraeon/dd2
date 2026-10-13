@@ -26,6 +26,12 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     const leafletMap = page.locator('.leaflet-container');
     await expect(leafletMap).toBeVisible();
 
+    // 6. O build serve mosaicos estáticos 2K e, futuramente, 8K nativos.
+    await expect(page.getByRole('button', { name: /^Mapa do jogo \(2K · tiles\)$/ })).toBeVisible();
+    const nativeTiles = page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]');
+    await expect(nativeTiles.first()).toBeVisible();
+    await expect.poll(() => nativeTiles.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
+
     // 6. Pins should be rendered
     const pins = page.locator('.custom-map-pin');
     await expect(pins.first()).toBeVisible();
@@ -54,7 +60,7 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     await page.screenshot({ path: 'test-results/screenshots/03-desktop-schematic-layer.png' });
 
     // Switch back
-    await page.getByRole('button', { name: 'Oficial (8K)' }).click();
+    await page.getByRole('button', { name: /^Mapa do jogo \(/ }).click();
 
     // 9. Close dialog and verify storage preservation
     await page.getByRole('button', { name: 'Voltar', exact: true }).click();
@@ -67,7 +73,7 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
   test('deve abrir o guia por ID sem busca textual intermediária', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
-    await page.locator('.leaflet-marker-icon').first().click({ force: true });
+    await page.locator('.leaflet-marker-icon[title*="Na Trilha do Dragão"]').click({ force: true });
     const link = page.getByRole('button', { name: 'Ver Guia no Compêndio' });
     await expect(link).toBeVisible();
     await link.click();
