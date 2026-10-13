@@ -74,6 +74,13 @@ for (let z = LOWEST_Z; z <= highestZ; z += 1) {
   }
   await Promise.all(tasks);
 }
+// Uma visão geral contínua elimina as costuras visuais nos zooms afastados.
+// Gerada sempre da mesma textura-fonte dos tiles 8K.
+await sharp(inputFile)
+  .resize(PLANE, PLANE, { kernel: 'lanczos3' })
+  .webp({ quality: 94, effort: 4 })
+  .toFile(path.join(TARGET, 'overview.webp'));
+
 const manifest = {
   version: 1,
   planeSize: PLANE,
