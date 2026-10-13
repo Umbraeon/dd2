@@ -18,6 +18,10 @@ interface Props {
   onOpenGuide?: (guideId: string) => void;
 }
 
+// O pergaminho ocupa apenas parte da textura quadrada 8K; enquadrar o desenho,
+// sem cortar/reprojetar os tiles ou alegar calibração de coordenadas.
+const ARTWORK_BOUNDS: L.LatLngBoundsExpression = [[326, 275], [1788, 1530]];
+
 const CATEGORY_CONFIG: Record<MarkerType, { label: string; color: string; bg: string; icon: string }> = {
   quest: { label: 'Missões', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.15)', icon: '🧭' },
   npc: { label: 'NPCs Relevantes', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)', icon: '👤' },
@@ -47,6 +51,8 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   const [baseLayer, setBaseLayer] = useState<'official' | 'schematic'>('official');
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
+  // Coordenadas do protótipo não foram auditadas; não poluem o mapa original por padrão.
+  const [showExperimentalMarkers, setShowExperimentalMarkers] = useState(false);
   const [tileManifest, setTileManifest] = useState<MapTilesManifest | null>(null);
 
   // O build gera o manifesto e os tiles antes de publicar na Vercel.
@@ -129,15 +135,14 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     const map = L.map(mapContainerRef.current, {
       crs: L.CRS.Simple,
       minZoom: -3,
-      maxZoom: 3,
-      zoomSnap: 0.25,
-      zoomDelta: 0.5,
+      // MaxZoom será atualizado após o manifesto. Não permitir upscale acima da fonte.
+      maxZoom: 0,
+      zoomSnap: 1,
+      zoomDelta: 1,
+      zoomControl: false,
       attributionControl: false,
-      maxBounds: [
-        [-200, -200],
-        [mapSize + 200, mapSize + 200]
-      ],
-      maxBoundsViscosity: 0.8
+      maxBounds: [[226, 175], [1888, 1630]],
+      maxBoundsViscosity: 0.95
     });
 
     mapInstanceRef.current = map;
@@ -145,8 +150,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     // A camada de imagem é montada pelo efeito separado abaixo,
     // evitando duas cópias da textura original no mapa.
 
-    // Set initial view
-    map.fitBounds(bounds);
+    // Exibir a arte do pergaminho, não a grande margem preta nativa do arquivo.
+    map.fitBounds(ARTWORK_BOUNDS, { padding: [18, 18], animate: false });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     // Markers layer group
     const markersLayer = L.layerGroup().addTo(map);
@@ -171,6 +177,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       map.removeLayer(baseMapLayerRef.current);
       baseMapLayerRef.current = null;
     }
+    map.setMaxZoom(tileManifest?.maxNativeZoom ?? 0);
     if (baseLayer !== 'official') return;
 
     const bounds: L.LatLngBoundsExpression = [[0, 0], [DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE]];
@@ -192,7 +199,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         // TileLayer herda minZoom=0 por padrão; fitBounds abre em zoom negativo.
         // Sem estes limites, nenhum tile é renderizado na visão inicial.
         minZoom: tileManifest.minNativeZoom,
-        maxZoom: 3,
+        maxZoom: tileManifest.maxNativeZoom,
         minNativeZoom: tileManifest.minNativeZoom,
         maxNativeZoom: tileManifest.maxNativeZoom,
         tileSize: tileManifest.tileSize,
@@ -225,6 +232,8 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     if (!map || !markersLayer) return;
 
     markersLayer.clearLayers();
+
+    if (!showExperimentalMarkers) return;
 
     filteredMarkers.forEach(marker => {
       if (!marker.mapPosition) return;
@@ -273,7 +282,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
       markersLayer.addLayer(leafletMarker);
     });
-  }, [filteredMarkers, mapReady]);
+  }, [filteredMarkers, mapReady, showExperimentalMarkers]);
 
   // Toggle category
   const toggleCategory = useCallback((type: MarkerType) => {
@@ -292,7 +301,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   const resetView = useCallback(() => {
     const map = mapInstanceRef.current;
     if (!map) return;
-    map.fitBounds([[0, 0], [DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE]]);
+    map.fitBounds(ARTWORK_BOUNDS, { padding: [18, 18], animate: true });
     setSelectedMarker(null);
   }, []);
 
@@ -305,7 +314,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       marker.mapPosition.pixelY,
       DEFAULT_MAP_SIZE
     );
-    map.setView([lat, lng], 1.5, { animate: true });
+    map.setView([lat, lng], Math.min(1, map.getMaxZoom()), { animate: true });
     setSelectedMarker(marker);
   }, []);
 
