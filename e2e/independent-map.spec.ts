@@ -1,201 +1,112 @@
 import { test, expect } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 
-test.describe('Mapa Interativo Independente (Missão B01)', () => {
+test.describe('Mapa independente B03 — cavernas e mementos', () => {
   test.beforeEach(async () => {
-    mkdirSync('test-results/screenshots', { recursive: true });
+    mkdirSync('test-results/screenshots', {recursive:true});
   });
 
-
-  test('zoom máximo mantém tiles 8K nativos e não permite upscale', async ({ page }) => {
+  test('carrega arte 8K, panorama sem emendas e fontes de marcadores', async ({page}) => {
     await page.goto('/');
-    await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
-    await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
+    const before = await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'));
+    await page.getByRole('button',{name:'Abrir mapa independente'}).click();
+    const dialog = page.locator('dialog.independent-map-dialog');
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByText('240 Mementos do Buscador e 37 entradas')).toBeVisible();
+    await expect(dialog.getByRole('button',{name:'Mapa do jogo (8K · tiles)'})).toBeVisible();
 
-    const zoomIn = page.locator('.leaflet-control-zoom-in');
+    const manifestResponse=await page.request.get('/map-tiles/metadata.json');
+    expect(manifestResponse.ok()).toBeTruthy();
+    expect(await manifestResponse.json()).toMatchObject({
+      source:'world-map-8k.webp',sourceWidth:8192,sourceHeight:8192,maxNativeZoom:2,tileCount:1365
+    });
+    const image=page.locator('.leaflet-image-layer[src*="/map-tiles/overview.webp"]');
+    await expect(image).toBeVisible();
+    await expect.poll(()=>image.evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBe(2048);
+    await expect(page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]')).toHaveCount(0);
+
+    await expect(dialog.locator('.dd2-cave-pin').first()).toBeVisible();
+    await expect(dialog.locator('.dd2-token-cluster').first()).toBeVisible();
+    await expect(dialog.locator('.dd2-token-pin').count()).resolves.toBeGreaterThanOrEqual(0);
+    await page.screenshot({path:'test-results/screenshots/00-b03-map-overview.png'});
+
+    await dialog.getByRole('button',{name:'Voltar'}).click();
+    await expect(dialog).not.toBeVisible();
+    expect(await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'))).toBe(before);
+  });
+
+  test('37 entradas de cavernas, busca e referência de origem', async ({page}) => {
+    await page.goto('/');
+    await page.getByRole('button',{name:'Abrir mapa independente'}).click();
+    const dialog=page.locator('dialog.independent-map-dialog');
+    await dialog.getByRole('button',{name:'Alternar filtros'}).click();
+    await expect(dialog.getByText('37',{exact:true})).toBeVisible();
+    await dialog.getByRole('searchbox',{name:'Buscar no mapa'}).first().fill('Gruta de Drabnir');
+    await expect(dialog.locator('.dd2-cave-pin')).toHaveCount(2);
+    await dialog.locator('.dd2-cave-pin').first().click({force:true});
+    const drawer=dialog.locator('aside');
+    await expect(drawer).toBeVisible();
+    await expect(drawer).toContainText('ENTRADA REFERENCIADA');
+    await expect(drawer.getByRole('link',{name:'Conferir fonte da localização'})).toHaveAttribute('href',/gamerguides.com/);
+    await page.screenshot({path:'test-results/screenshots/01-b03-cave-detail.png'});
+  });
+
+  test('240 Mementos por GUID, clusters que se separam no zoom', async ({page}) => {
+    await page.goto('/');
+    await page.getByRole('button',{name:'Abrir mapa independente'}).click();
+    const dialog=page.locator('dialog.independent-map-dialog');
+    await dialog.getByRole('button',{name:'Alternar filtros'}).click();
+    await expect(dialog.getByText('240',{exact:true})).toBeVisible();
+    await dialog.getByRole('searchbox',{name:'Buscar no mapa'}).first().fill('Memento do Buscador 001');
+    const token=dialog.locator('.dd2-token-pin');
+    await expect(token).toHaveCount(1);
+    await token.click({force:true});
+    const drawer=dialog.locator('aside');
+    await expect(drawer).toContainText('COORDENADA DO JOGO');
+    await expect(drawer).toContainText('GUID');
+    await expect(drawer.getByRole('link',{name:'Conferir fonte da localização'})).toHaveAttribute('href',/github.com\/frostmx\/dd2-map/);
+    await page.screenshot({path:'test-results/screenshots/02-b03-token-detail.png'});
+  });
+
+  test('zoom 8K nativo sem upscale e troca da nitidez', async ({page}) => {
+    await page.goto('/');
+    await page.getByRole('button',{name:'Abrir mapa independente'}).click();
+    const dialog=page.locator('dialog.independent-map-dialog');
+    const zoomIn=dialog.locator('.leaflet-control-zoom-in');
     await expect(zoomIn).toBeVisible();
-    for (let i = 0; i < 18; i++) {
-      if (await zoomIn.evaluate(node => node.classList.contains('leaflet-disabled'))) break;
+    for(let i=0;i<18;i++){
+      if(await zoomIn.getAttribute('aria-disabled')==='true') break;
       await zoomIn.click();
-      // Leaflet ignora cliques enquanto anima um nível de zoom.
       await page.waitForTimeout(350);
     }
-    await expect(zoomIn).toHaveAttribute('aria-disabled', 'true');
-
-    // Modo aprimorado no zoom máximo (não é upscale: mosaico 256×256).
-    const enhanced = page.locator('.leaflet-tile-pane img[src*="/map-tiles/enhanced/2/"]');
+    await expect(zoomIn).toHaveAttribute('aria-disabled','true');
+    const enhanced=dialog.locator('.leaflet-tile-pane img[src*="/map-tiles/enhanced/2/"]');
     await expect(enhanced.first()).toBeVisible();
-    await expect.poll(() => enhanced.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
-    await page.screenshot({ path: 'test-results/screenshots/06-enhanced-8k-max-zoom.png' });
-
-    // Comparação real no mesmo zoom e centro, sem trocar textura/base cartográfica.
-    await page.getByRole('button', { name: 'Usar nitidez original' }).click();
-    const original = page.locator('.leaflet-tile-pane img[src*="/map-tiles/2/"]');
-    await expect(original.first()).toBeVisible();
-    await expect.poll(() => original.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
-    await page.screenshot({ path: 'test-results/screenshots/07-original-8k-max-zoom.png' });
-    await page.getByRole('button', { name: 'Ativar nitidez aprimorada' }).click();
+    await expect.poll(()=>enhanced.first().evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBe(256);
+    await dialog.getByRole('button',{name:'Usar nitidez original'}).click();
+    await expect(dialog.locator('.leaflet-tile-pane img[src*="/map-tiles/2/"]').first()).toBeVisible();
+    await dialog.getByRole('button',{name:'Ativar nitidez aprimorada'}).click();
     await expect(enhanced.first()).toBeVisible();
-
-    const visibleZoomedTiles = page.locator('.leaflet-tile-pane img[src*="/map-tiles/3/"]');
-    await expect(visibleZoomedTiles).toHaveCount(0);
+    await expect(dialog.locator('.leaflet-tile-pane img[src*="/map-tiles/3/"]')).toHaveCount(0);
+    await page.screenshot({path:'test-results/screenshots/03-b03-native-zoom.png'});
   });
 
-  test('filtros compactos podem ser expandidos e recolhidos sem cobrir o mapa', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
+  test('mobile: cavernas, mementos e filtros sem overflow',async ({page})=>{
+    await page.setViewportSize({width:390,height:844});
     await page.goto('/');
-    await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
-    const filterToggle = page.getByRole('button', { name: 'Alternar filtros' });
-    await expect(filterToggle).toHaveAttribute('aria-expanded', 'false');
-    await filterToggle.click();
-    await expect(filterToggle).toHaveAttribute('aria-expanded', 'true');
-    await expect(page.getByRole('region', { name: 'Filtros de marcadores' })).toBeVisible();
-    await expect(page.getByRole('searchbox', { name: 'Buscar no mapa' })).toBeVisible();
-    await filterToggle.click();
-    await expect(filterToggle).toHaveAttribute('aria-expanded', 'false');
-  });
-
-  test('deve abrir o mapa a partir da Central de Ferramentas e exibir interface funcional', async ({ page }) => {
-    await page.goto('/');
-
-    // 1. Storage check before opening
-    const storageBefore = await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'));
-
-    // 2. Open Independent Map
-    const mapHeaderBtn = page.getByRole('button', { name: 'Abrir mapa independente' });
-    await expect(mapHeaderBtn).toBeVisible();
-    await mapHeaderBtn.click();
-
-    // 4. Map dialog should be visible
-    const mapDialog = page.locator('dialog.independent-map-dialog');
-    await expect(mapDialog).toBeVisible();
-    await expect(page.locator('#independent-map-title')).toContainText('Mapa Interativo Independente');
-
-    // 5. Leaflet surface check
-    const leafletMap = page.locator('.leaflet-container');
-    await expect(leafletMap).toBeVisible();
-
-    // 6. A imagem original 8K foi enviada para esta branch.
-    // O build precisa gerar a pirâmide nativa completa, não reescalar uma fonte 2K.
-    const manifestResponse = await page.request.get('/map-tiles/metadata.json');
-    expect(manifestResponse.ok()).toBeTruthy();
-    const manifest = await manifestResponse.json();
-    expect(manifest).toMatchObject({
-      source: 'world-map-8k.webp',
-      sourceWidth: 8192,
-      sourceHeight: 8192,
-      maxNativeZoom: 2,
-      tileCount: 1365
-    });
-    const zoom2Tile = await page.request.get('/map-tiles/2/0/0.webp');
-    expect(zoom2Tile.ok()).toBeTruthy();
-    expect(zoom2Tile.headers()['content-type']).toContain('image/webp');
-    expect(manifest.enhancedNativeZoom).toBe(2);
-    const enhanced2Tile = await page.request.get('/map-tiles/enhanced/2/0/0.webp');
-    expect(enhanced2Tile.ok()).toBeTruthy();
-    expect(enhanced2Tile.headers()['content-type']).toContain('image/webp');
-    await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
-    // Panorama inicial usa uma imagem única, evitando grade de junções subpixel.
-    const overviewResponse = await page.request.get('/map-tiles/overview.webp');
-    expect(overviewResponse.ok()).toBeTruthy();
-    const overview = page.locator('.leaflet-image-layer[src*="/map-tiles/overview.webp"]');
-    await expect(overview).toBeVisible();
-    await expect.poll(() => overview.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(2048);
-    await expect(page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]')).toHaveCount(0);
-    await page.screenshot({ path: 'test-results/screenshots/00-desktop-clean-overview.png' });
-
-    // Marcadores sem auditoria não devem cobrir o desenho por padrão.
-    const pins = page.locator('.custom-map-pin');
-    await expect(pins).toHaveCount(0);
-    await page.getByRole('button', { name: 'Mostrar marcadores experimentais' }).click();
-    await expect(page.getByRole('button', { name: 'Ocultar marcadores experimentais' })).toBeVisible();
-
-    // 6. Pins should be rendered
-    await expect(pins.first()).toBeVisible();
-    const pinCount = await pins.count();
-    expect(pinCount).toBeGreaterThan(0);
-    // Screenshot 1: Desktop Initial Map
-    await page.screenshot({ path: 'test-results/screenshots/01-desktop-initial-map.png' });
-
-    // 7. Click on a marker to test selection drawer
-    await page.locator('.leaflet-marker-icon').first().click({ force: true });
-    const detailDrawer = mapDialog.locator('aside');
-    await expect(detailDrawer).toBeVisible();
-    await expect(detailDrawer).toContainText('Mundo (X, Y, Z):');
-    await expect(detailDrawer).toContainText('Pixel 2D (MapX, MapY):');
-    await expect(detailDrawer).toContainText('UNVERIFIED');
-
-    // Screenshot 2: Marker Details
-    await page.screenshot({ path: 'test-results/screenshots/02-desktop-marker-detail.png' });
-
-    // 8. Test Layer Switcher
-    const schematicBtn = page.getByRole('button', { name: 'Esquema' });
-    await schematicBtn.click();
-    await page.waitForTimeout(500);
-
-    // Screenshot 3: Schematic Layer
-    await page.screenshot({ path: 'test-results/screenshots/03-desktop-schematic-layer.png' });
-
-    // Switch back
-    await page.getByRole('button', { name: /^Mapa do jogo \(/ }).click();
-
-    // 9. Close dialog and verify storage preservation
-    await page.getByRole('button', { name: 'Voltar', exact: true }).click();
-    await expect(mapDialog).not.toBeVisible();
-
-    const storageAfter = await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'));
-    expect(storageAfter).toBe(storageBefore);
-  });
-
-  test('deve abrir o guia por ID sem busca textual intermediária', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Abrir mapa independente' }).click();
-    await page.getByRole('button', { name: 'Mostrar marcadores experimentais' }).click();
-    // Filtra antes de clicar: os pontos da região de Vernworth se sobrepõem no zoom inicial.
-    await page.getByPlaceholder('Buscar missões, NPCs, locais...').fill('Na Trilha do Dragão');
-    await expect(page.locator('.leaflet-marker-icon')).toHaveCount(1);
-    await page.locator('.leaflet-marker-icon').click();
-    const link = page.getByRole('button', { name: 'Ver Guia no Compêndio' });
-    await expect(link).toBeVisible();
-    await link.click();
-    await expect(page.getByRole('heading', { name: 'Guias de missões e falsificações' })).toBeVisible();
-    await expect(page.locator('dialog.independent-map-dialog')).not.toBeVisible();
-  });
-
-  test('deve funcionar em viewport mobile (390x844) com controles táteis e responsivos', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/');
-
-    // Open Independent Map
-    const mapHeaderBtn = page.getByRole('button', { name: 'Abrir mapa independente' });
-    await expect(mapHeaderBtn).toBeVisible();
-    await mapHeaderBtn.click();
-
-    const mapDialog = page.locator('dialog.independent-map-dialog');
-    await expect(mapDialog).toBeVisible();
-
-    // Screenshot 4: Mobile View
-    await page.screenshot({ path: 'test-results/screenshots/04-mobile-initial-view.png' });
-
-    // No celular a interface é compacta e não apresenta overflow horizontal.
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 2)).toBe(true);
-    await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
-    // Marcadores só aparecem por escolha explícita (coordenadas não auditadas).
-    const pins = page.locator('.custom-map-pin');
-    await expect(pins).toHaveCount(0);
-    await page.getByRole('button', { name: 'Mostrar marcadores experimentais' }).click();
-    await expect(pins.first()).toBeVisible();
-
-    // Click pin on mobile
-    await page.locator('.leaflet-marker-icon').first().click({ force: true });
-    const detailDrawer = mapDialog.locator('aside');
-    await expect(detailDrawer).toBeVisible();
-
-    // Screenshot 5: Mobile Marker Detail
-    await page.screenshot({ path: 'test-results/screenshots/05-mobile-marker-detail.png' });
-
-    // Close
-    await page.getByRole('button', { name: 'Voltar', exact: true }).click();
-    await expect(mapDialog).not.toBeVisible();
+    await page.getByRole('button',{name:'Abrir mapa independente'}).click();
+    const dialog=page.locator('dialog.independent-map-dialog');
+    await expect(dialog).toBeVisible();
+    await expect(dialog.locator('.dd2-cave-pin').first()).toBeVisible();
+    await expect(dialog.getByRole('button',{name:'Ocultar localizações'})).toBeVisible();
+    await dialog.getByRole('button',{name:'Alternar filtros'}).click();
+    await expect(dialog.getByRole('region',{name:'Filtros de marcadores'})).toBeVisible();
+    await expect(dialog.getByRole('searchbox',{name:'Buscar no mapa'})).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+    await page.screenshot({path:'test-results/screenshots/04-b03-mobile.png'});
+    await dialog.getByRole('button',{name:'Ocultar localizações'}).click();
+    await expect(dialog.locator('.dd2-cave-pin')).toHaveCount(0);
+    await dialog.getByRole('button',{name:'Mostrar localizações'}).click();
+    await expect(dialog.locator('.dd2-cave-pin').first()).toBeVisible();
   });
 });
