@@ -1,0 +1,296 @@
+{
+  "asOf": "2026-10-13",
+  "source": "User-supplied dd2-questlog-audit-2026-10-13.zip; normalized/quest-titles.csv independently matched to each included raw GMSG CSV and raw .msg.24 SHA-256 (125/125 within this user package). Original installed PAK bytes not inspected here.",
+  "packageSha256": "d12cd191ed21405191142330f700aa70431270a0d6fbdd3d156ef8117a1b4eb1",
+  "steamBuildReported": "25290080",
+  "status": "CANDIDATE_TITLE_ONLY_NOT_GAMEPLAY_VERIFIED",
+  "scope": "40 title records not associated with existing 82 guides or two indexed DLC entries according to the user-supplied crosswalk; these are not verified reachable quests or complete walkthroughs.",
+  "sourcePathPattern": "raw/{sourceKind}/{id}_log.msg.24 (with prefix contents_0014 for special id, not used here)",
+  "backlog": {
+    "base": 6,
+    "dlc": 34,
+    "total": 40
+  },
+  "candidates": [
+    {
+      "id": "qu020160",
+      "english": "The Expeditious Explorer",
+      "ptBR": "O Preço da Pressa",
+      "sourceKind": "base",
+      "sourceMsgSha256": "E99CC4A973455C2059B7EA831E49AECBE2A1B8C58DDE298F7751266CA88D1275"
+    },
+    {
+      "id": "qu020170",
+      "english": "'Ware the Corrupted Beasts",
+      "ptBR": "Cuidado com as Feras Corrompidas",
+      "sourceKind": "base",
+      "sourceMsgSha256": "F6B4DEAA55E39B02B10620667896FD19C377907885064BE881AB71E4941EED3C"
+    },
+    {
+      "id": "qu020180",
+      "english": "Belle of the Bar",
+      "ptBR": "A Bela do Bar",
+      "sourceKind": "base",
+      "sourceMsgSha256": "1C7B608D8448AA0EDB77530A0AC51EE076520681111FD28F98B75045282C6D01"
+    },
+    {
+      "id": "qu040021",
+      "english": "Monster Culling in Vernworth",
+      "ptBR": "Elimine o Monstro em Vernworth",
+      "sourceKind": "base",
+      "sourceMsgSha256": "F2868D8DBCD48DC9CFCBDF581B29C07B7B967E3A941B7E692D525A8E5BDC741A"
+    },
+    {
+      "id": "qu040022",
+      "english": "Disturbance at the Mountain Stronghold",
+      "ptBR": "Distúrbio na Fortaleza da Montanha",
+      "sourceKind": "base",
+      "sourceMsgSha256": "6670979D1E7C579950369790CFD9532EC786D59D1516C26A8D7871153B3336B3"
+    },
+    {
+      "id": "qu040023",
+      "english": "The Snowstorm-Bringer",
+      "ptBR": "A Mensageira das Nevascas",
+      "sourceKind": "base",
+      "sourceMsgSha256": "E1F464CF209A5CDAABD89FBE44ACF59E91C16F629CA66BB0ED405BA22EC168C2"
+    },
+    {
+      "id": "qu040020",
+      "english": "Rumbles in the North",
+      "ptBR": "Estrondos do Norte",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "5BCF957025FA3DAE6182EB9C09A9C8F9B36AC16DCC84DE67260F769FC82F4D86"
+    },
+    {
+      "id": "qu040030",
+      "english": "Sealed History",
+      "ptBR": "História Selada",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "F44A05960954C34FCAD1B14C6A3DBB66EFF7A50343B12C1F0FB5A85754C01849"
+    },
+    {
+      "id": "qu040040",
+      "english": "Seeking the Sage",
+      "ptBR": "Em Busca da Sábia",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "E8A4EEB1BD60C4474DB1F2535FF7C141FF5ECD661530BF5232FE9500A6B7F5F1"
+    },
+    {
+      "id": "qu040041",
+      "english": "Sage's Wisdom - Riddle of the Body",
+      "ptBR": "Mistérios da Sábia - O Enigma do Corpo",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "1A0127AB7DEB6429C7244606E3011C17D75392C4DDE1B044F4C74CEADC739501"
+    },
+    {
+      "id": "qu040042",
+      "english": "Sage's Wisdom - Riddle of the Soul",
+      "ptBR": "Mistérios da Sábia - O Enigma da Alma",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "14CF505B5EB14059F2927400FA3D85F38C886DA2BC73DF92874329E8E6D34FC8"
+    },
+    {
+      "id": "qu040043",
+      "english": "Sage's Wisdom - Riddle of the Will",
+      "ptBR": "Mistérios da Sábia - O Enigma da Vontade",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "DD107AF4F9FB0C89AC49420BCAF61D7469DEE9262F4EEDBF7BF401FFCFC98ADA"
+    },
+    {
+      "id": "qu040050",
+      "english": "The Castle in the Ice",
+      "ptBR": "O Castelo no Gelo",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "099470032C06B038D44553DEB257F39ECF8A1FB2A920467EC0118E39C2CB052D"
+    },
+    {
+      "id": "qu040060",
+      "english": "Soul Searching",
+      "ptBR": "Em Busca da Alma",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "A5B029429BD57A7EEEB281AF664CABB767C4DC2F9B2C95421EB3DC2FE4C9CDAE"
+    },
+    {
+      "id": "qu040070",
+      "english": "Where There's a Will, There's a Way",
+      "ptBR": "Onde Há Vontade, Há um Meio",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "DF2C0769255C7D19EB1B0158F09B172863B7F0078A49971C4CDB4D87028811E7"
+    },
+    {
+      "id": "qu040080",
+      "english": "Reunion",
+      "ptBR": "Reunião",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "08A08290BE2E83642B1DCDCD2A0DCE6BEEBE20856E788918A33296FDBE90FC72"
+    },
+    {
+      "id": "qu040090",
+      "english": "Into Rancor",
+      "ptBR": "Entre os Ecos dos Rancores",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "844CCC174402AC4BCF7AB1AC21F996615C94498DB8DBC2E0BFCDB8EBA88357A6"
+    },
+    {
+      "id": "qu050010",
+      "english": "Hammer and Tongs",
+      "ptBR": "Em Casa de Ferreiro...",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "C40DF593ACF962B5666E8689F101DF46837B3F2F9CA9D0C365EFA1D4EA386F83"
+    },
+    {
+      "id": "qu050020",
+      "english": "In for a Hare, in for a Hound",
+      "ptBR": "Espólio por Lebre",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "1CE10DDA856AEBE477BF43D2B89CA7244DB9FB0C80D2519F0407E01234C73F5C"
+    },
+    {
+      "id": "qu050030",
+      "english": "The Truant Soldier",
+      "ptBR": "O Soldado Relapso",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "F05055C591A4342B0E474813F9A84A5E218D051EE80B078A3BA6D53B22C3C7CB"
+    },
+    {
+      "id": "qu050040",
+      "english": "Quilt Me Down with a Feather",
+      "ptBR": "Pena Que Faz Frio",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "9A4205280BE5451C5849DEC2E06BB1ACFF5E3BB0DB47151CA4ED35FEF92FE927"
+    },
+    {
+      "id": "qu050050",
+      "english": "No Spoils Get Left Behind",
+      "ptBR": "Atrás do Espólio Perdido",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "60021E4C506BFADADACA5A4BCF48A248C41CD9150E63CAC5D0629276ABA9E17A"
+    },
+    {
+      "id": "qu050060",
+      "english": "Beyond Ruin-Night",
+      "ptBR": "Além da Noite da Ruína",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "D82CAF1730FFCC9ECB4279D4CA8B8F645CFAD456D70A7C4A95A22CC23AEEEE45"
+    },
+    {
+      "id": "qu050070",
+      "english": "Sticks and Stones",
+      "ptBR": "Neve Mole em Pedra Quente",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "DACCC475C5A95B5B9EA02F0132430E7E015EBA0CAA9BDDE33868DFF77061166E"
+    },
+    {
+      "id": "qu050080",
+      "english": "The Stranger in the Snowfield",
+      "ptBR": "O Estranho das Neves",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "07724E05F54BE33C881ABFB9970FEBAA64DAC61EACB10151C154CC8B44A32F1C"
+    },
+    {
+      "id": "qu050090",
+      "english": "The Snatching-Beast",
+      "ptBR": "A Besta Raptora",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "2168049E3C42921876CD83F45CBD7CD5F314755652C08A45536F5A526C42319F"
+    },
+    {
+      "id": "qu050100",
+      "english": "Flight in the Night",
+      "ptBR": "Fuga Noturna",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "FB8BD318CC8627E402E8E30E6D27BD02594A4476F381B73F585ED9BCFE2B6692"
+    },
+    {
+      "id": "qu050110",
+      "english": "A Keepsake, for Your Sake",
+      "ptBR": "Memento Destinado",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "CF6E3BBD5C3709900E4060FC40922A88BE73E731F1A08870A030F4C74DBB7460"
+    },
+    {
+      "id": "qu050120",
+      "english": "Village Defense",
+      "ptBR": "A Defesa do Vilarejo",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "64392914886A12B2502B72DA399BC1DDB94008D87F8E2955E4F6C6A58465F2EE"
+    },
+    {
+      "id": "qu050130",
+      "english": "Relics of the Past",
+      "ptBR": "Relíquias do Passado",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "79C4605E4D236C4E2B7D145F9A9E9BDD2CF888E0A8BB2B6F9A5E7CF53CD9B51A"
+    },
+    {
+      "id": "qu050140",
+      "english": "When the Culling Gets Tough",
+      "ptBR": "Abate Difícil",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "00D430A63B41A70A80CB09AE61DF0A8781B522FD620FFB1653C0E42569A7A953"
+    },
+    {
+      "id": "qu050150",
+      "english": "Oh, to Be in Vermund",
+      "ptBR": "Sonhando com Vermund",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "90752A7BD2BF5C9F856790088487FEAFA751652F29F9206A8AFD427F788E4C64"
+    },
+    {
+      "id": "qu050160",
+      "english": "Reaching the Far Shore",
+      "ptBR": "A Travessia ao Outro Lado",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "8692C5F4A83556D3FC1BC2859D26626183FE09B9241172B654392B4D95566946"
+    },
+    {
+      "id": "qu050170",
+      "english": "Hal's Treasure Hunt",
+      "ptBR": "A Caça ao Tesouro de Hal",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "CA08E9DB89B809BFA631989855F1C152DA1B0A17896A0D6226AD6929FF163208"
+    },
+    {
+      "id": "qu050180",
+      "english": "A Howl in the Dark",
+      "ptBR": "Um Uivo no Escuro",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "AF18A8123FD26030A40D3DC45A2258C67B2374A8E35539549E21CDA61D9156DE"
+    },
+    {
+      "id": "qu050190",
+      "english": "A Direwolf Delicacy",
+      "ptBR": "Iguaria Lupina",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "DDC64CDFDBD46BD435FA5CF8AF905FAE0A1723FB84166B175ED48AF51E85135D"
+    },
+    {
+      "id": "qu050200",
+      "english": "A Hound and His Bone",
+      "ptBR": "Um Lobo e seu Osso",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "F57D08A7016F5D11D4D127D7718BC6ACFAA450926C6AD39F368402BDE10808DA"
+    },
+    {
+      "id": "qu050210",
+      "english": "Bout of Passage",
+      "ptBR": "Duelo de Passagem",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "B01E6D3835D4ACEE1B68457FD46B277104BE96D0981BD7EA744C5D4CA3591960"
+    },
+    {
+      "id": "qu050220",
+      "english": "The Obelisks of Benediction",
+      "ptBR": "Os Obeliscos da Consagração",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "1DA979A83903125FF3F528CCE03498F7E990DB930190FE450EAE418D5EA7535C"
+    },
+    {
+      "id": "qu050230",
+      "english": "Back to the Temple",
+      "ptBR": "De Volta ao Templo",
+      "sourceKind": "dlc",
+      "sourceMsgSha256": "E4905A61718A5ECB35BD70E69FB433D85224501B1CD6B23FBB37BAF33F5AA083"
+    }
+  ]
+}
