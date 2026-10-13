@@ -1863,7 +1863,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       "https://game8.co/games/Dragons-Dogma-2/archives/Crossing-in-Shadow",
       "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
     ]
-  }
+  },
   {
     id: 'hand_that_guides', title: 'A Mão que Guia', original: 'The Hand That Guides',
     region: 'Local da Escavação — prólogo',
