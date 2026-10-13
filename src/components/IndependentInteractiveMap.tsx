@@ -253,9 +253,12 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     const getIcon = (type: 'cave' | 'token' | 'cluster', count = 1) => {
       const kind = type === 'cave' ? 'dd2-cave-pin' : type === 'token' ? 'dd2-token-pin' : 'dd2-token-cluster';
       const label = type === 'cave' ? '◆' : type === 'token' ? '✦' : String(count);
-      const size = type === 'cluster' ? 37 : type === 'cave' ? 29 : 24;
+      const compact = mapZoom < 0;
+      const size = compact
+        ? (type === 'cluster' ? 25 : type === 'cave' ? 19 : 18)
+        : (type === 'cluster' ? 33 : type === 'cave' ? 27 : 22);
       return L.divIcon({
-        className: 'dd2-location-icon',
+        className: 'dd2-location-icon' + (compact ? ' dd2-pin-compact' : ''),
         html: `<span class="${kind}" aria-hidden="true">${label}</span>`,
         iconSize: [size,size], iconAnchor: [size/2,size/2]
       });
@@ -277,7 +280,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     if(mapZoom>=0 || tokens.length<2){
       tokens.forEach(addPoint);
     }else{
-      const cell = 52/Math.pow(2,mapZoom);
+      const cell = 72/Math.pow(2,mapZoom);
       const buckets = new Map<string,DD2MapMarker[]>();
       for(const item of tokens){
         const p=item.mapPosition!;
