@@ -12,9 +12,9 @@ const knownEvents=new Set(PHASES.flatMap(p=>p.events.map(e=>e.id)));
 test('onda 18: carta única de Patrick e roupas do baile sem tradução inventada', () => {
   const q=get('masked_correspondence');
   assert.ok(q);
-  assert.equal(q.title,'Masked Correspondence');
+  assert.equal(q.title,'Correspondência Mascarada');
   assert.deepEqual(q.relatedEventIds,['v104']);
-  assert.match(q.preparation.join(' '),/TÍTULO PT-BR NÃO COMPROVADO/);
+  assert.match(q.preparation.join(' '),/catálogo Kiranico PT-BR/);
   assert.match(q.preparation.join(' '),/UMA Letter to Lord Patrick/);
   assert.match(q.preparation.join(' '),/ENTREGAR/i);
   assert.match(q.steps.join(' '),/Lord Patrick/);
@@ -37,7 +37,7 @@ test('onda 18: cadeia de Raghnall exige apresentação, escolta e duelo na torre
     assert.ok(q.steps.length>=6);
     assert.ok(q.references.length>=2);
     assert.ok(q.relatedEventIds.every(id=>knownEvents.has(id)));
-    assert.match(q.preparation.join(' '),/TÍTULO PT-BR NÃO COMPROVADO/);
+    assert.match(q.preparation.join(' '),/catálogo Kiranico PT-BR/);
     assert.ok(QUESTS_WITHOUT_ITEM_REQUIREMENTS.includes(q.id),q.id);
     assert.ok(!QUEST_ITEM_REQUIREMENTS[q.id]);
   }
@@ -56,14 +56,17 @@ test('onda 18: cadeia de Raghnall exige apresentação, escolta e duelo na torre
   assert.ok(questGuidesForEvent('p06').some(q=>q.id==='clash_conclusion'));
 });
 
-test('onda 18: 4 títulos permanecem EN; preservar marcos, conquistas e índice PT-BR', () => {
-  const en=['Masked Correspondence','Welcome to Battahl','Tensions on the Highroad','Clash and Conclusion'];
-  for (const name of en) {
-    assert.ok(QUEST_GUIDES.some(g=>g.original===name && g.title===name));
-    assert.ok(!QUEST_NAME_INDEX.some(n=>n.english===name),'Não inventar tradução oficial: '+name);
+test('onda 18: 4 títulos PT-BR pareados em Kiranico, sem alegar extração PAK', () => {
+  const pairs=[['Masked Correspondence','Correspondência Mascarada'],['Welcome to Battahl','De Volta a Battahl'],['Tensions on the Highroad','Tensão na Estrada'],['Clash and Conclusion','Confronto Final']];
+  for (const [en,pt] of pairs) {
+    assert.ok(QUEST_GUIDES.some(g=>g.original===en && g.title===pt));
+    const name=QUEST_NAME_INDEX.find(n=>n.english===en);
+    assert.equal(name?.ptBR,pt);
+    assert.equal(name?.evidence,'kiranico_ptbr');
+    assert.ok(name?.sourceUrl?.includes('kiranico'));
   }
   assert.equal(QUEST_GUIDES.length,76);
-  assert.equal(QUEST_NAME_INDEX.length,74);
+  assert.equal(QUEST_NAME_INDEX.length,78);
   assert.equal(PHASES.flatMap(p=>p.events).length,53);
   assert.equal(new Set(PHASES.flatMap(p=>p.achievements.map(a=>a.id))).size,60);
 });
