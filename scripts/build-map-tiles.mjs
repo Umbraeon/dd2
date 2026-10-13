@@ -46,6 +46,20 @@ for (let z = LOWEST_Z; z <= highestZ; z += 1) {
     .raw()
     .toBuffer({ resolveWithObject: true });
   if (info.channels !== 4 || info.width !== side || info.height !== side) throw Error('Falha na imagem rasterizada.');
+  // Opcional: uma segunda variante apenas no nível nativo mais detalhado.
+  // O sharpening é feito ANTES de cortar os tiles, para evitar halos nas junções.
+  // Preserva dimensões e georreferenciamento; não cria detalhes inexistentes.
+  const enhanced = z === highestZ && highestZ > 0
+    ? await sharp(inputFile)
+        .resize(side, side, { fit: 'fill', kernel: 'lanczos3' })
+        .sharpen({ sigma: 1.15, m1: 0.75, m2: 2.0 })
+        .ensureAlpha()
+        .raw()
+        .toBuffer({ resolveWithObject: true })
+    : null;
+  if (enhanced && (enhanced.info.channels !== 4 || enhanced.info.width !== side || enhanced.info.height !== side)) {
+    throw Error('Falha na variante de nitidez aprimorada.');
+  }
   const tasks = [];
   for (let row = 0; row < columns; row += 1) {
     for (let col = 0; col < columns; col += 1) {
@@ -58,15 +72,25 @@ for (let z = LOWEST_Z; z <= highestZ; z += 1) {
       const filename = path.join(folder, row + '.webp');
       tasks.push((async () => {
         await mkdir(folder, { recursive: true });
-        // O nível nativo já é 8K: recompressão com qualidade 83 deixava
-        // inscrições e estradas mais borradas. Lossless preserva cada pixel
-        // da textura de origem; níveis reduzidos continuam leves.
+        // Tiles originais no nível nativo já são lossless.
         const encoder = z === highestZ
           ? { lossless: true, effort: 4 }
           : { quality: 92, effort: 4 };
         await sharp(tileBytes, { raw: { width: TILE, height: TILE, channels: 4 } })
           .webp(encoder)
           .toFile(filename);
+        if (enhanced) {
+          const enhancedBytes = Buffer.alloc(TILE * TILE * 4);
+          for (let y = 0; y < TILE; y += 1) {
+            const offset = ((row * TILE + y) * side + col * TILE) * 4;
+            enhanced.data.copy(enhancedBytes, y * TILE * 4, offset, offset + TILE * 4);
+          }
+          const enhancedFolder = path.join(TARGET, 'enhanced', String(z), String(col));
+          await mkdir(enhancedFolder, { recursive: true });
+          await sharp(enhancedBytes, { raw: { width: TILE, height: TILE, channels: 4 } })
+            .webp({ lossless: true, effort: 4 })
+            .toFile(path.join(enhancedFolder, row + '.webp'));
+        }
       })());
       if (tasks.length >= 8) await Promise.all(tasks.splice(0));
       total++;
@@ -89,8 +113,9 @@ const manifest = {
   sourceHeight: height,
   minNativeZoom: LOWEST_Z,
   maxNativeZoom: highestZ,
+  enhancedNativeZoom: highestZ > 0 ? highestZ : null,
   source: inputName,
   tileCount: total
 };
 await writeFile(path.join(TARGET, 'metadata.json'), JSON.stringify(manifest, null, 2) + '\n');
-console.log('[map-tiles] ' + inputName + ' (' + width + '²): ' + total + ' tiles, zoom ' + LOWEST_Z + ' a ' + highestZ);
+console.log('[map-tiles] ' + inputName + ' (' + width + '²): ' + total + ' originais, zoom ' + LOWEST_Z + ' a ' + highestZ + (highestZ > 0 ? ', + ' + (8 * 2 ** highestZ) ** 2 + ' tiles de nitidez opcional' : ''));
