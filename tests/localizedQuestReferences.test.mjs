@@ -41,11 +41,11 @@ test('avisos de coroação e saves não garantem perda irreversível ou rollback
   assert.doesNotMatch(gig.tip, /Salve antes na pousada!/i);
 });
 
-test('IDs, totais e índice de 74 referências não foram alterados', () => {
+test('IDs, totais e índice de 78 referências não foram alterados', () => {
   const events = PHASES.flatMap(phase => phase.events);
   const achievements = PHASES.flatMap(phase => phase.achievements);
   assert.equal(events.length, 53);
   assert.equal(achievements.length, 60);
   assert.equal(RISK_CHECKPOINTS.length, 4);
-  assert.equal(QUEST_NAME_INDEX.length, 74);
+  assert.equal(QUEST_NAME_INDEX.length, 78);
 });

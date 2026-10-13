@@ -710,6 +710,36 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://game8.co/games/Dragons-Dogma-2/archives/Tolled-to-Rest'
     ]
   },
+  masked_correspondence: {
+    guidance: 'Sven entrega UMA carta para Lord Patrick. Atenção à identidade antes de escolher Entregar: GamerGuides relata falha se a carta for dada a outro convidado. Roupas e máscara são de EQUIPAR, não devem ser entregues. Não confundir com as cartas de Um Véu de Finas Nuvens.',
+    items: [
+      {
+        name: 'Letter to Lord Patrick', namePt: 'Carta para Lord Patrick (descrição explicativa)',
+        quantity: '1 carta original, sem cópia necessária',
+        where: 'Recebida de Sven no segundo andar do Castelo de Vernworth após aceitar Masked Correspondence.',
+        use: 'ENTREGUE exclusivamente a Lord Patrick no baile, identificado pela capa azul e máscara preta e dourada sem juba. Depois informe Sven.',
+        forgery: 'original'
+      },
+      {
+        name: 'Courtly Tunic + Courtly Breeches', namePt: 'Túnica Cortês + Calção Cortês',
+        quantity: '1 conjunto de roupa de corte equipado',
+        where: 'Baús e aposentos do Bairro Nobre/Castelo de Vernworth; o conjunto é usado também em O Trono Roubado.',
+        use: 'EQUIPE as duas peças para entrar discretamente no Salão de Máscaras. Não as entregue ao destinatário da carta.',
+        forgery: 'not-applicable'
+      },
+      {
+        name: 'Eventide Mask', namePt: 'Máscara de baile (tradução explicativa)',
+        quantity: '1 máscara equipada',
+        where: 'Obtida na campanha de O Trono Roubado com o Capitão Brant; se perdida, PowerPyx relata reposição por Ibrahim no Posto do Retiro.',
+        use: 'EQUIPE junto ao traje cortesão para entrar na festa à noite. Não é um item de entrega.',
+        forgery: 'not-applicable'
+      }
+    ],
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-masked-correspondence-walkthrough/',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/masked-correspondence-walkthrough'
+    ]
+  },
 };
 
 /**
@@ -725,5 +755,6 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'poisonous_proposal', 'dreams_apart', 'halls_first_dawn',
   'regentkins_resolve', 'when_wills_collide',
   'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
-  'seat_sovran', 'convergence', 'prey_for_pack', 'ailing_arborheart'
+  'seat_sovran', 'convergence', 'prey_for_pack', 'ailing_arborheart',
+  'welcome_battahl', 'tensions_highroad', 'clash_conclusion'
 ];

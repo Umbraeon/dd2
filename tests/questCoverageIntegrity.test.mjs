@@ -15,7 +15,7 @@ test('gate: toda ficha publicada até 12/10 permanece cadastrada com ID estável
   const identifiers = QUEST_GUIDES.map(q => q.id);
   assert.equal(new Set(identifiers).size, identifiers.length);
   assert.equal(new Set(QUEST_GUIDES.map(q => normalize(q.original))).size, QUEST_GUIDES.length);
-  assert.equal(gate.publishedGuideRegistry.length, 72);
+  assert.equal(gate.publishedGuideRegistry.length, 76);
   for (const original of gate.publishedGuideRegistry) {
     assert.ok(current.has(original.id), `Guia perdido: ${original.id} (${original.english})`);
     assert.equal(normalize(current.get(original.id).original), normalize(original.english), `Original mudou para ${original.id}`);
@@ -34,7 +34,7 @@ test('gate: não é possível adicionar outra quest ao índice PT-BR sem guia OU
     'Uma quest foi incluída ou resolvida sem atualizar o registro de lacunas auditado'
   );
   assert.equal(uncovered.length, gate.indexedWithoutGuide.length);
-  assert.equal(QUEST_NAME_INDEX.length, 74);
+  assert.equal(QUEST_NAME_INDEX.length, 78);
   assert.equal(new Set(QUEST_NAME_INDEX.map(q => normalize(q.english))).size, QUEST_NAME_INDEX.length);
   for (const missing of uncovered) {
     assert.ok(missing.eventIds.length > 0, missing.english);
@@ -55,7 +55,7 @@ test('gate: catálogo de 2024 identifica 49 faltantes sem confundir marcos com q
   assert.equal(report.summary.guidesWithoutLocalizedIndex, 2);
   assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['jadeite', 'tolled_to_rest']);
   assert.deepEqual(names(report.missingLocalization), names(gate.notInLocalizationIndexFrom2024));
-  assert.equal(report.missingLocalization.length, 10);
+  assert.equal(report.missingLocalization.length, 6);
   assert.equal(PHASES.flatMap(p => p.events).length, 53);
 });
 

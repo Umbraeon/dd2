@@ -1629,6 +1629,113 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://www.rpgsite.net/guide/15635-dragons-dogma-2-a-game-wit-where-to-find-how-to-solve-all-sphinxs-riddles'
     ]
   },
+  {
+    id: 'masked_correspondence', title: 'Correspondência Mascarada', original: 'Masked Correspondence',
+    region: 'Vernworth — aposentos de Sven no Castelo e Salão de Máscaras',
+    giver: 'Sven, em seu quarto no segundo andar do Castelo de Vernworth',
+    relatedEventIds: ['v104'],
+    preparation: [
+      'Título PT-BR Correspondência Mascarada pareado no catálogo Kiranico PT-BR, sem confirmação direta em save do jogo.',
+      'Antes de avançar demais a história em Vernworth, visite Sven após O Trono do Sobran e A Caixa Ornamentada. Fontes divergem sobre o gatilho e possível limite de disponibilidade; conferir se Sven oferece a carta no diário da sua campanha.',
+      'LEVE o traje cortesão (Courtly Tunic e Courtly Breeches) e a Eventide Mask, obtidos ou usados em O Trono Roubado. O baile ocorre à noite, e não em todas as noites.',
+      'ALERTA: você recebe UMA Letter to Lord Patrick. Um guia relata falha ao entregar a pessoa errada; confirme o nome do NPC antes de selecionar Entregar.'
+    ],
+    steps: [
+      'Entre no Castelo de Vernworth e procure o quarto de Sven no segundo andar, a noroeste. Converse com ele e aceite levar a Letter to Lord Patrick.',
+      'Confira que recebeu a Letter to Lord Patrick. NÃO confunda essa carta com a Unfinished Letter e a Letter to Lord Phaesus de Um Véu de Finas Nuvens.',
+      'Vista Courtly Tunic, Courtly Breeches e Eventide Mask e vá ao Salão de Máscaras, na ala oeste dos terrenos do castelo, DURANTE UMA NOITE DE BAILE; se não houver festa, retorne na noite seguinte.',
+      'Dentro do salão, procure Lord Patrick: capa AZUL e máscara preta/dourada sobre os olhos, sem o adorno de juba das máscaras de outros nobres. Não entregue a qualquer convidado.',
+      'Confirme o nome Lord Patrick na interação e ENTREGUE a carta original somente a ele.',
+      'Retorne aos aposentos de Sven no segundo andar e informe que a carta foi entregue. Verifique a conclusão no diário e a recompensa, descrita nas fontes como 900 XP, 6.000 G e um Onyx.'
+    ],
+    completion: 'Lord Patrick recebe a carta correta no baile; Sven é informado posteriormente. A disponibilidade inicial e o ponto exato de corte na história não foram verificados em save da versão vigente.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-masked-correspondence-walkthrough/',
+      'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/masked-correspondence-walkthrough',
+      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-masked-correspondence-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'welcome_battahl', title: 'De Volta a Battahl', original: 'Welcome to Battahl',
+    region: 'Bakbattahl — Bairro Mercantil, em frente à taverna Wanderer’s Haven',
+    giver: 'Roger e seus valentões abordam o Nascen ao se aproximar da taverna',
+    relatedEventIds: ['b02'],
+    preparation: [
+      'Título PT-BR De Volta a Battahl pareado no catálogo Kiranico PT-BR, sem confirmação direta em save do jogo. A abordagem ocorre após chegar a Bakbattahl, normalmente na sequência de Nação da Chama Luzente.',
+      'Essa missão apresenta o mercenário RAGHNALL e é o pré-requisito narrativo documentado de Tensions on the Highroad.',
+      'Há resultados diferentes: derrotar todos os três valentões antes da intervenção de Raghnall pode render mais ouro; caso intervenha, normalmente há duelo individual contra Taleef. Fontes secundárias divergem nos detalhes de derrota e recompensa.',
+      'Se vencer, guarde o Fruit Wine de recompensa se quiser usá-lo futuramente para produzir Newt Liqueur em O Sábio Beberrão. Esse vinho NÃO é item que você precisa trazer para começar a missão.'
+    ],
+    steps: [
+      'Chegue a Bakbattahl e passe em frente à taverna Wanderer’s Haven no Bairro Mercantil; Roger e seu grupo iniciam uma provocação e combate.',
+      'Defenda-se dos três valentões. Se vencê-los antes da intervenção de Raghnall, há relatos de uma recompensa em ouro maior (13.500 G), sem duelo separado.',
+      'Se Raghnall interromper o combate, ele pedirá uma luta justa de um contra um contra Taleef, um adversário de espada pesada. Seus peões não participam desse duelo.',
+      'Derrote Taleef esquivando dos golpes largos e contra-atacando, para obter o encerramento favorável; fontes relatam 8.500 G e Fruit Wine nessa rota.',
+      'Se for derrotado, a missão pode ser encerrada mesmo assim, mas Game8 relata perda de 3.000 G e ausência de Fruit Wine. NÃO tratar vitória/recompensa máxima como garantidas.',
+      'Após a conversa final com Roger e Raghnall, confira o diário. Mais adiante, retorne a Vernworth e procure Simon, que pode iniciar Tensions on the Highroad.'
+    ],
+    completion: 'Confronto com o grupo de Roger concluído e Raghnall apresentado. A quantidade de ouro e o recebimento de Fruit Wine dependem do resultado.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-welcome-to-battahl-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Welcome-to-Battahl',
+      'https://www.neoseeker.com/dragons-dogma-2/guides/Welcome_to_Battahl',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'tensions_highroad', title: 'Tensão na Estrada', original: 'Tensions on the Highroad',
+    region: 'Vernworth → estrada do Posto de Controle da Fronteira → Caverna Guerco',
+    giver: 'Simon, soldado próximo à estação norte de carroças de Vernworth',
+    relatedEventIds: ['v304', 'b02'],
+    preparation: [
+      'Título PT-BR Tensão na Estrada pareado no catálogo Kiranico PT-BR (sem teste em save). Depois de Welcome to Battahl, RETORNE a Vernworth e procure Simon perto da estação norte/fonte. Não assuma que a missão dispara antes da apresentação de Raghnall.',
+      'Simon pede escolta de Ser Augustin, opositor político da rainha regente. O objetivo muda após a intervenção de Raghnall; a carroça NÃO é o objetivo final.',
+      'Há uma escolha entre Simon/soldados e Raghnall. As duas rotas chegam à fuga pela Caverna Guerco; Game8 recomenda apoiar Raghnall por sua disposição posterior, mas o ganho de afinidade não foi testado em save.',
+      'Concluir essa missão é pré-requisito relatado para encontrar Raghnall em Clash and Conclusion, na Torre do Luar.'
+    ],
+    steps: [
+      'Após terminar Welcome to Battahl, volte a Vernworth. Procure Simon na região da estação norte de carroças/fonte e aceite escoltar Ser Augustin.',
+      'Dirija-se à bifurcação da estrada perto da Cidade de Descanso da Fronteira, onde a carroça de Augustin aguarda a escolta.',
+      'Proteja a carroça até Raghnall aparecer e interromper o trajeto. Escolha apoiar Raghnall ou os soldados — ambos os caminhos resultam em perseguição.',
+      'Siga Raghnall e Augustin rumo à Caverna Guerco; não continue simplesmente escoltando uma carroça que já abandonou a rota.',
+      'Dentro da caverna, uma queda separa você dos peões. Prossiga a pé até reencontrar Raghnall e ajude-o contra os inimigos.',
+      'Enfrente os Saurianos e siga junto de Raghnall até a saída. Ele revela o plano de incriminá-lo pelo ataque a Augustin.',
+      'Saia da Caverna Guerco e confira a conclusão. Na progressão posterior de O Guardião Gigantus, prepare-se para o encontro individual com Raghnall na Torre do Luar.'
+    ],
+    completion: 'Você e Raghnall saem da Caverna Guerco e a missão é concluída, independentemente do lado inicialmente escolhido. A etapa abre caminho ao confronto posterior.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-tensions-on-the-highroad-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Tensions-on-the-Highroad',
+      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-tensions-on-the-highroad-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
+  {
+    id: 'clash_conclusion', title: 'Confronto Final', original: 'Clash and Conclusion',
+    region: 'Ilha Vulcânica de Agamen — Torre do Luar (Moonglint Tower)',
+    giver: 'Raghnall, que intercepta o caminho durante O Guardião Gigantus',
+    relatedEventIds: ['p06'],
+    preparation: [
+      'Título PT-BR Confronto Final pareado no catálogo Kiranico PT-BR (sem teste em save). Esta luta é CONDICIONAL: fontes indicam que é necessário ter concluído Tensions on the Highroad antes de subir a Torre do Luar.',
+      'É um duelo com Raghnall durante a história principal O Guardião Gigantus. Não é necessário carregar item de entrega ou falsificação.',
+      'A derrota de Raghnall pode matá-lo. Game8 menciona possibilidade de ressuscitá-lo com Wakestone, mas sem benefício adicional observado; não prometa consequência positiva nem a exija.'
+    ],
+    steps: [
+      'Complete Welcome to Battahl, depois Tensions on the Highroad, antes de iniciar a subida final da Torre do Luar.',
+      'Progrida na missão principal O Guardião Gigantus e vá à Torre do Luar na Ilha Vulcânica de Agamen.',
+      'Ao subir a torre, Raghnall pode bloquear sua passagem e exigir um duelo um contra um. Caso não apareça, revise se a cadeia anterior foi cumprida; o gatilho foi descrito em guias de 2024.',
+      'Lute com cautela: Raghnall é ágil e usa ataques de guerreiro. Esquive, abra espaço e contra-ataque; ataques à distância também podem funcionar.',
+      'Derrote Raghnall para encerrar Clash and Conclusion. Revivê-lo com Wakestone é uma escolha separada, não um passo obrigatório de conclusão.',
+      'Continue a subir a torre em direção aos eventos de Phaesus e à missão principal Legado. Não confunda este duelo com a luta anterior contra Taleef em Bakbattahl.'
+    ],
+    completion: 'Raghnall é vencido na Torre do Luar, a passagem fica livre e a história principal pode prosseguir. O encontro depende da cadeia anterior.',
+    references: [
+      'https://www.powerpyx.com/dragons-dogma-2-clash-and-conclusion-walkthrough/',
+      'https://game8.co/games/Dragons-Dogma-2/archives/Clash-and-Conclusion',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
+    ]
+  },
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */

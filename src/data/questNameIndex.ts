@@ -1,4 +1,4 @@
-/** 74 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
+/** 78 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
@@ -594,7 +594,11 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   { english: 'The Gift of Giving', ptBR: 'A Dádiva da Caridade', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'Oxcart Courier', ptBR: 'Correio por Carroça', eventIds: ['v102'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'A Magisterial Amenity', ptBR: 'Cortesia Magisterial', eventIds: ['v103', 'v301'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'A Veil of Gossamer Clouds', ptBR: 'Um Véu de Finas Nuvens', eventIds: ['v304','b02'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
+  { english: 'A Veil of Gossamer Clouds', ptBR: 'Um Véu de Finas Nuvens', eventIds: ['v304','b02'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Masked Correspondence", ptBR: "Correspondência Mascarada", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Welcome to Battahl", ptBR: "De Volta a Battahl", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Tensions on the Highroad", ptBR: "Tensão na Estrada", eventIds: ["v304","b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ["p06"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
 ];
 export const questNamesForEvent = (eventId: string): QuestNameRecord[] =>
   QUEST_NAME_INDEX.filter(item => item.eventIds.includes(eventId));
