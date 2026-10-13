@@ -32,6 +32,7 @@ import { BarbecueTrackerModal } from './components/BarbecueTrackerModal';
 import { MaistersTrackerModal } from './components/MaistersTrackerModal';
 import { TokensTrackerModal } from './components/TokensTrackerModal';
 import { TokensInteractiveMap } from './components/TokensInteractiveMap';
+import { IndependentInteractiveMap } from './components/IndependentInteractiveMap';
 import { CheckpointsModal } from './components/CheckpointsModal';
 import { GlossaryModal } from './components/GlossaryModal';
 import { SourcesModal } from './components/SourcesModal';
@@ -59,6 +60,7 @@ export default function App() {
   const [isMaistersOpen, setIsMaistersOpen] = useState(false);
   const [isTokensOpen, setIsTokensOpen] = useState(false);
   const [isTokensMapOpen, setIsTokensMapOpen] = useState(false);
+  const [isIndependentMapOpen, setIsIndependentMapOpen] = useState(false);
   const [isCheckpointsOpen, setIsCheckpointsOpen] = useState(false);
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
   const [isSourcesOpen, setIsSourcesOpen] = useState(false);
@@ -324,6 +326,13 @@ export default function App() {
     });
   };
 
+  const handleOpenGuideFromMap = (guideId: string) => {
+    setIsIndependentMapOpen(false);
+    setView('consultation');
+    setConsultationSection('missions');
+    setSearchQuery(guideId);
+  };
+
   const openTokensMap = () => {
     // Exchange one top-level overlay for another; never mount two at once.
     setIsTokensOpen(false);
@@ -353,6 +362,7 @@ export default function App() {
         toolsExpanded={toolsHubOpen}
         onOpenSources={handleOpenSources}
         onOpenBackup={event => openTool('backup', event.currentTarget)}
+        onOpenIndependentMap={() => setIsIndependentMapOpen(true)}
         onGoJourney={handleGoJourney}
         onGoChapter={handleJumpToPhase}
       />
@@ -437,6 +447,11 @@ export default function App() {
       />
 
       <TokensInteractiveMap isOpen={isTokensMapOpen} onBack={returnToTokens} />
+      <IndependentInteractiveMap
+        isOpen={isIndependentMapOpen}
+        onClose={() => setIsIndependentMapOpen(false)}
+        onOpenGuide={handleOpenGuideFromMap}
+      />
 
       <CheckpointsModal
         isOpen={isCheckpointsOpen}
