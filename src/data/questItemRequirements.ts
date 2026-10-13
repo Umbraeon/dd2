@@ -740,6 +740,68 @@ export const QUEST_ITEM_REQUIREMENTS: Readonly<Record<string, QuestItemSection>>
       'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/masked-correspondence-walkthrough'
     ]
   },
+  case_sculptors_block: {
+    "guidance": "Cabeça de Medusa é ITEM OPCIONAL para facilitar resultado máximo, não obrigatório para concluir a missão. Deve conservar carga petrificante no momento do encontro com o grifo. Fontes divergem quanto à recompensa intermediária; o melhor desfecho depende de Fulvio esboçar adequadamente, não de coletar ou entregar cabeça ao escultor.",
+    "items": [
+      {
+        "name": "Preserved Medusa Head (Medusa Head com carga)",
+        "namePt": "Cabeça de Medusa Preservada (descrição; título de inventário não auditado)",
+        "quantity": "1 cabeça com poder ativo, OPCIONAL para melhor desfecho",
+        "where": "Medusa nas Caliginous Depths, floresta de Wyrmsblood a sudoeste de Bakbattahl; decapitar e guardar fria/rapidamente para minimizar desgaste.",
+        "use": "EQUIPE como item utilizável e mire o olhar no grifo na presença de Fulvio, durante a etapa de desenho. Não entregue a Fulvio nem a Klark; o uso consome carga da cabeça.",
+        "forgery": "optional",
+        "optional": true
+      }
+    ],
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-a-case-of-sculptors-block-walkthrough/",
+      "https://www.neoseeker.com/dragons-dogma-2/guides/A_Case_of_Sculptors_Block",
+      "https://www.gameskinny.com/tips/how-to-use-the-withered-medusa-head-in-dragons-dogma-2/"
+    ]
+  },
+  noble_exchange: {
+    "guidance": "Paragon Staff é entregue ao jogador pelo nobre do baile e é a PROVA de roubo. Se quiser preservar a possibilidade de comprar o bastão mais tarde, descarte-o ATRÁS DO BIOMBO antes da captura ou revista. Neoseeker relata que descartar e capturar o ladrão concede rota superior, enquanto PowerPyx simplifica a recompensa ao capturar; ambos são fontes secundárias.",
+    "items": [
+      {
+        "name": "Paragon Staff",
+        "namePt": "Bastão Paragon (descrição do item, sem ID PT-BR da build)",
+        "quantity": "1 bastão recebido no evento, depois DESCARTADO se escolher a rota conservadora",
+        "where": "O nobre mascarado que inicia Uma Nobre Troca o coloca no inventário no Salão de Máscaras de Vernworth.",
+        "use": "DESCARTE atrás do biombo no vestiário para não portar o item roubado durante a revista; então agarre o nobre que o entregou para acusá-lo. Caso tenha descartado, Ibrahim pode comercializar o bastão após alguns dias por 60.000 G segundo walkthroughs.",
+        "forgery": "not-applicable"
+      }
+    ],
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
+      "https://www.neoseeker.com/dragons-dogma-2/guides/A_Nobles_Exchange",
+      "https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange"
+    ]
+  },
+  twixt_rock_hard_place: {
+    "guidance": "Akakios → Ernesto → Barbas é uma cadeia de DUAS ENTREGAS. Cada etapa depende da carta de pedido corrente no inventário; não confundir destinatário ou buscar cópia. Uma Ferrystone é PRÊMIO por terminar, não item que você precise trazer para iniciar. Ernesto pode morrer lutando; confira morgue.",
+    "items": [
+      {
+        "name": "Letter of Request (Akakios → Ernesto)",
+        "namePt": "Carta de Pedido para Ernesto (descrição editorial)",
+        "quantity": "1 carta original recebida de Akakios",
+        "where": "Recebida ao aceitar Entre Dois Fogos com Akakios no Bairro Mercantil de Bakbattahl.",
+        "use": "ENTREGUE a Ernesto, guerreiro beastren de armadura vermelha ao norte do Acampamento da Ilha Vulcânica de Agamen.",
+        "forgery": "original"
+      },
+      {
+        "name": "Letter of Request (Ernesto → Barbas)",
+        "namePt": "Carta de Pedido para Barbas (descrição editorial)",
+        "quantity": "1 carta da segunda etapa",
+        "where": "Recebida após conversar com Ernesto sobre a carta de Akakios e avançar o objetivo no diário.",
+        "use": "ENTREGUE a Barbas junto à entrada do Local da Escavação, a leste do Acampamento da Ilha Vulcânica. Não é a carta da primeira etapa.",
+        "forgery": "original"
+      }
+    ],
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-twixt-a-rock-and-a-hard-place-walkthrough/",
+      "https://game8.co/games/Dragons-Dogma-2/archives/Twixt-a-Rock-and-a-Hard-Place"
+    ]
+  },
 };
 
 /**
@@ -756,5 +818,5 @@ export const QUESTS_WITHOUT_ITEM_REQUIREMENTS: readonly string[] = [
   'regentkins_resolve', 'when_wills_collide',
   'gaoled_awakening', 'tales_beginning', 'in_dragons_wake',
   'seat_sovran', 'convergence', 'prey_for_pack', 'ailing_arborheart',
-  'welcome_battahl', 'tensions_highroad', 'clash_conclusion'
+  'welcome_battahl', 'tensions_highroad', 'clash_conclusion', 'crossing_shadow'
 ];

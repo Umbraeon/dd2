@@ -1736,6 +1736,134 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
   },
+  {
+    "id": "case_sculptors_block",
+    "title": "A Inspiração de um Escultor",
+    "original": "A Case of Sculptor's Block",
+    "region": "Vernworth (Bairro Nobre) → oficina de Fulvio em Bakbattahl → Ninho do Grifo do Ermo",
+    "giver": "Klark, junto à propriedade dele no Bairro Nobre de Vernworth",
+    "relatedEventIds": [
+      "b02"
+    ],
+    "preparation": [
+      "MISSÃO COM RECOMPENSA VARIÁVEL: Klark pede uma escultura de grifo, mas Fulvio precisa completar o desenho DURANTE o combate. Matar o grifo muito depressa ou deixá-lo fugir pode produzir estátua inferior.",
+      "Rota mais controlável: obter uma cabeça de Medusa ainda ativa, preferencialmente Preserved Medusa Head, e petrificar o grifo enquanto Fulvio observa. É OPCIONAL para concluir a missão, mas relevante ao melhor resultado. A cabeça perde potência com o tempo; guardar em depósito desacelera a deterioração, segundo guias comunitários.",
+      "Alternativa sem Medusa: mantenha o grifo vivo e distraído, proteja Fulvio e aguarde a confirmação do desenho. Não confie em um número exato de minutos: os walkthroughs divergem.",
+      "A missão e a tradução PT-BR estão pareadas no catálogo Kiranico; procedimentos e valores baseiam-se em walkthroughs da versão original, não em teste no save da expansão."
+    ],
+    "steps": [
+      "Em Vernworth, vá à propriedade de Klark no Bairro Nobre e aceite procurar o escultor Fulvio em Battahl.",
+      "Viaje para Bakbattahl, entre na oficina de Fulvio ao sul do bairro residencial e converse sobre seu esboço de um grifo.",
+      "ANTES de acompanhar Fulvio até o ninho, decida se quer usar uma cabeça ativa de Medusa. Para obtê-la, enfrente a Medusa na caverna Caliginous Depths (região da floresta de Wyrmsblood, ao sudoeste de Battahl) e decapite-a; leve a cabeça rapidamente.",
+      "Encontre Fulvio perto de Wasteland Griffin’s Nest, a noroeste de Bakbattahl, e acompanhe-o até o grifo. Evite provocar um combate antecipado longe dele.",
+      "Com Medusa, equipe a cabeça como item de uso e direcione o olhar petrificante ao grifo antes que o desenho termine. Sem Medusa, segure a atenção do monstro, não o mate precocemente e proteja Fulvio.",
+      "Observe o comentário de Fulvio sobre a qualidade do esboço. Se o grifo morrer cedo ou escapar e ele reclamar, a missão pode avançar mesmo com resultado inferior; não prometa a recompensa máxima.",
+      "Espere alguns dias e volte à oficina de Fulvio em Bakbattahl para saber se a escultura está pronta; então retorne ao segundo piso da propriedade de Klark em Vernworth e assista à apresentação."
+    ],
+    "completion": "A apresentação da escultura conclui a missão. Fontes descrevem 7.000 G no pior resultado, 14.000 G em desenho prolongado e 18.500 G com petrificação; os valores e a condição intermediária divergem entre walkthroughs e não foram testados nesta build.",
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-a-case-of-sculptors-block-walkthrough/",
+      "https://www.neoseeker.com/dragons-dogma-2/guides/A_Case_of_Sculptors_Block",
+      "https://game8.co/games/Dragons-Dogma-2/archives/A-Case-of-Sculptors-Block",
+      "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+    ]
+  },
+  {
+    "id": "noble_exchange",
+    "title": "Uma Nobre Troca",
+    "original": "A Noble Exchange",
+    "region": "Vernworth — Salão de Máscaras do Castelo, durante um baile noturno",
+    "giver": "Nobre mascarado que oferece o Paragon Staff no Salão de Máscaras",
+    "relatedEventIds": [
+      "v104"
+    ],
+    "preparation": [
+      "MISSÃO DE ESCOLHA: depois de Correspondência Mascarada e de avançar a história, participe de outro baile à noite. Game8 indica Correspondência Mascarada como pré-requisito; PowerPyx localiza o desbloqueio em uma janela narrativa posterior. Confira se o evento acontece no seu diário.",
+      "Vá com vestes cortesãs e máscara de baile, como em O Trono Roubado. Receber o Paragon Staff é parte do evento, NÃO o prêmio certo da missão.",
+      "ALERTA DE PERDA: a maneira de lidar com o Paragon Staff afeta a suspeita, o ouro e a oportunidade de comprá-lo mais tarde com Ibrahim. Para manter a opção de compra, DESCARTE o item atrás do biombo do vestiário, não o venda nem o entregue a NPC aleatório.",
+      "Guia PowerPyx simplifica a rota de 7.500 G como apenas prender o ladrão; Neoseeker acrescenta descarte antes da captura para evitar o comprometimento pelo bastão. A sequência descarte + captura é a orientação conservadora, mas não foi testada em save."
+    ],
+    "steps": [
+      "Visite o Salão de Máscaras de Vernworth em noite de baile; se não houver evento, tente outra noite e confira a progressão da missão Correspondência Mascarada.",
+      "Fale com o nobre mascarado que apresenta a troca de presentes. Ele coloca o Paragon Staff no seu inventário. Lembre de sua aparência, pois ele é o suspeito central.",
+      "Circule entre os demais convidados e aceite os presentes automáticos. Não é preciso doar itens próprios para cumprir esta fase.",
+      "Aguarde Olven, o guarda, anunciar o roubo do Paragon Staff e avisar que todos serão revistados. Não saia com o bastão em mãos sem escolher o desfecho.",
+      "ROTA de maior controle: vá ao vestiário, atrás do biombo, e selecione Descartar no Paragon Staff. Isso impede que o item roubado permaneça no seu inventário durante a inspeção.",
+      "Volte ao salão e agarre o mesmo nobre que entregou o bastão; ele confessará o roubo. Neoseeker associa descarte + captura a 7.500 G e possibilidade de comprar o bastão mais tarde; PowerPyx relata 7.500 G ao capturar sem citar descarte prévio.",
+      "ALTERNATIVA: apenas descarte o bastão e aceite a revista para terminar sem capturar o ladrão. PowerPyx relata 3.000 G nessa rota, mas Neoseeker descreve variação; não garanta o valor. Após alguns dias, Ibrahim no Posto do Retiro pode vendê-lo por 60.000 G se foi descartado."
+    ],
+    "completion": "Olven encerra a investigação e a missão termina após a revista ou confissão. A escolha pode afetar a recompensa e a futura venda do Paragon Staff; relatos variam em rotas intermediárias.",
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
+      "https://www.neoseeker.com/dragons-dogma-2/guides/A_Nobles_Exchange",
+      "https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange",
+      "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+    ]
+  },
+  {
+    "id": "twixt_rock_hard_place",
+    "title": "Entre Dois Fogos",
+    "original": "'Twixt a Rock and a Hard Place",
+    "region": "Bakbattahl → Gruta de Drabnir → Acampamento da Ilha Vulcânica → Local da Escavação",
+    "giver": "Akakios, comerciante beastren na borda oeste do Bairro Mercantil de Bakbattahl",
+    "relatedEventIds": [
+      "b02",
+      "p04"
+    ],
+    "preparation": [
+      "CADEIA DE DUAS ENTREGAS: Akakios entrega uma Letter of Request para Ernesto; depois a missão aponta Barbas, no Local da Escavação. Não confunda carta de missão com cartas de Sven ou de Phaesus.",
+      "Prepare lanterna, curativos e capacidade de sobrevivência antes de atravessar a Gruta de Drabnir. PowerPyx recomenda nível em torno de 30+ para o trajeto perigoso; não é requisito obrigatório de nível.",
+      "RISCO DE NPC AUSENTE: Ernesto costuma enfrentar monstros junto ao portão norte do Acampamento da Ilha Vulcânica. Se ele sumir, verifique se morreu na morgue de Bakbattahl e use uma Wakestone, se necessário.",
+      "O título Entre Dois Fogos e os dois objetivos foram comparados ao catálogo Kiranico PT-BR, sem verificação de item_id ou cena no save atual."
+    ],
+    "steps": [
+      "Encontre Akakios no limite oeste do Bairro Mercantil de Bakbattahl. Aceite o pedido e receba a primeira Letter of Request dirigida a Ernesto.",
+      "Viaje ao sul/sudoeste de Battahl e atravesse Drabnir’s Grotto para alcançar a Ilha Vulcânica de Agamen; siga para leste até o Acampamento da Ilha Vulcânica.",
+      "Procure Ernesto, guerreiro beastren de armadura vermelha, geralmente perto do portão norte e de combates com monstros. Proteja-o antes de iniciar a conversa.",
+      "Se Ernesto não estiver na área indicada, procure seu registro na morgue de Bakbattahl. A ressuscitação com Wakestone é uma RECUPERAÇÃO CONDICIONAL se ele estiver morto, não pré-requisito para todos.",
+      "Entregue a primeira Letter of Request a Ernesto. Depois da conversa, acompanhe a atualização no diário para a segunda carta destinada a Barbas.",
+      "Vá para leste ao Local da Escavação (Excavation Site, região inicial da campanha) e fale com Barbas logo após a entrada, conferindo que a carta atual foi destinada a ele.",
+      "Entregue a correspondência a Barbas e confirme a conclusão; os walkthroughs relatam 2.500 XP, 20.000 G e uma Ferrystone COMO RECOMPENSA, não item que você deva carregar."
+    ],
+    "completion": "As duas entregas — Ernesto e Barbas — ficam registradas no diário. O risco principal é a sobrevivência/localização de Ernesto durante a primeira entrega.",
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-twixt-a-rock-and-a-hard-place-walkthrough/",
+      "https://game8.co/games/Dragons-Dogma-2/archives/Twixt-a-Rock-and-a-Hard-Place",
+      "https://www.neoseeker.com/dragons-dogma-2/guides/Twixt_A_Rock_and_a_Hard_Place",
+      "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+    ]
+  },
+  {
+    "id": "crossing_shadow",
+    "title": "Cruzando às Sombras",
+    "original": "Crossing in Shadow",
+    "region": "Vernworth — sua casa → cidade à noite → Rose Chateau Bordelrie",
+    "giver": "Vera, assistente da imperatriz Nadinia, que procura sua casa à noite",
+    "relatedEventIds": [
+      "b02"
+    ],
+    "preparation": [
+      "GATILHO POSTERIOR A NADINIA: complete Um Lugar para Chamar de Lar e tenha a própria residência em Vernworth; complete Como uma Vela na Tempestade (A Candle in the Storm) antes de voltar à casa à noite.",
+      "ESCOLTA DISCRETA: Vera conduz o percurso, Nadinia está disfarçada e os peões ficam para trás. Não corra muito à frente ou abandone a rota: há relatos de eventos de guardas que deixam de disparar corretamente.",
+      "RISCO CRÍTICO: durante a caminhada, um homem procurado pede ajuda porque é perseguido por um soldado. ACEITAR AJUDÁ-LO pode levá-lo à prisão e ENCERRAR a missão. Recuse para preservar a escolta.",
+      "No encontro anterior, pagar cerca de 1.000 G ao comerciante pela medicina é ação opcional associada a melhor resultado; GOLD É MOEDA, não objeto de missão para coletar ou falsificar."
+    ],
+    "steps": [
+      "Confirme Um Lugar para Chamar de Lar e Como uma Vela na Tempestade no diário; depois volte à sua residência de Vernworth à noite.",
+      "Converse com Vera quando ela aparecer e aceite ajudar a imperatriz Nadinia a viajar incógnita pela capital.",
+      "Siga Vera e Nadinia a uma distância curta e sem chamar atenção. Seus peões não acompanham essa escolta.",
+      "Em um ponto do caminho, alguém precisa comprar remédio. Se quiser a rota de melhor resultado descrita pelo PowerPyx, fale com o vendedor e pague os 1.000 G, depois volte a seguir Vera.",
+      "MAIOR RISCO: um homem abordará você enquanto foge de um soldado. RECUSAR o pedido é a opção segura; aceitá-lo pode provocar prisão imediata e interrupção do objetivo.",
+      "Continue atrás de Vera até o Rose Chateau Bordelrie. Evite atacar guardas ou criar aglomeração; espere Nadinia entrar.",
+      "Acompanhe a cena final no Rose Chateau e confira a missão concluída. PowerPyx relata 4.000 XP, 20.000 G e um Sunbloom como recompensas."
+    ],
+    "completion": "Nadinia chega ao Rose Chateau sem identidade exposta e o objetivo de escolta é cumprido. Falha por detenção é um resultado distinto, não conclusão ideal.",
+    "references": [
+      "https://www.powerpyx.com/dragons-dogma-2-crossing-in-shadow-walkthrough/",
+      "https://game8.co/games/Dragons-Dogma-2/archives/Crossing-in-Shadow",
+      "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
+    ]
+  }
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */

@@ -1,4 +1,4 @@
-/** 78 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
+/** 82 quest-title pairs mapped to editorial milestones, NOT 74 milestone equivalents.
  * Source: docs/audit/quest-name-mapping.csv plus seven hash/key examples reported
  * from DD2 Steam build 25290080. The full original PAK export is NOT in Git.
  * 'paired_catalog' MUST NOT be described as independently verified PAK bytes.
@@ -598,7 +598,11 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   { english: "Masked Correspondence", ptBR: "Correspondência Mascarada", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "Welcome to Battahl", ptBR: "De Volta a Battahl", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "Tensions on the Highroad", ptBR: "Tensão na Estrada", eventIds: ["v304","b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ["p06"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
+  { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ["p06"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "A Case of Sculptor's Block", ptBR: "A Inspiração de um Escultor", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "A Noble Exchange", ptBR: "Uma Nobre Troca", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "'Twixt a Rock and a Hard Place", ptBR: "Entre Dois Fogos", eventIds: ["b02","p04"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Crossing in Shadow", ptBR: "Cruzando às Sombras", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
 ];
 export const questNamesForEvent = (eventId: string): QuestNameRecord[] =>
   QUEST_NAME_INDEX.filter(item => item.eventIds.includes(eventId));
