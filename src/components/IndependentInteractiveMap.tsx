@@ -154,6 +154,14 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     // Exibir a arte do pergaminho, não a grande margem preta nativa do arquivo.
     map.fitBounds(ARTWORK_BOUNDS, { padding: [18, 18], animate: false });
+    // Somente o zoom fracionário precisa de 1px de sobreposição anti-fenda.
+    // No zoom nativo inteiro, o tile permanece 256px = 256px de origem.
+    const syncTileSeams = () => {
+      const zoom = map.getZoom();
+      map.getContainer().classList.toggle('dd2-fractional-zoom', Math.abs(zoom - Math.round(zoom)) > 0.01);
+    };
+    map.on('zoomend', syncTileSeams);
+    syncTileSeams();
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     // Markers layer group
@@ -164,6 +172,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     // Cleanup on unmount
     return () => {
       setMapReady(false);
+      map.off('zoomend', syncTileSeams);
       map.remove();
       mapInstanceRef.current = null;
       markersLayerRef.current = null;
