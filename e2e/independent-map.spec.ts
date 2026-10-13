@@ -27,7 +27,6 @@ test.describe('Mapa independente B03 — cavernas e mementos', () => {
 
     await expect(dialog.locator('.dd2-cave-pin').first()).toBeVisible();
     await expect(dialog.locator('.dd2-token-cluster').first()).toBeVisible();
-    await expect(dialog.locator('.dd2-token-pin').count()).resolves.toBeGreaterThanOrEqual(0);
     await page.screenshot({path:'test-results/screenshots/00-b03-map-overview.png'});
 
     await dialog.getByRole('button',{name:'Voltar'}).click();
