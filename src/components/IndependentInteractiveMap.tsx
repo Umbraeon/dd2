@@ -10,6 +10,7 @@ import { DD2MapMarker, MarkerType } from '../types/independentMap';
 import { INDEPENDENT_MAP_MARKERS } from '../data/independentMapMarkers';
 import { QUEST_GUIDES } from '../data/questGuides';
 import { DEFAULT_MAP_SIZE, pixelToLatLng } from '../utils/mapCoordinates';
+import { isMapTilesManifest, mapTileUrl, type MapTilesManifest } from '../utils/mapTiles';
 
 interface Props {
   isOpen: boolean;
@@ -35,6 +36,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const baseMapLayerRef = useRef<L.Layer | null>(null);
 
   // UI state
   const [activeTypes, setActiveTypes] = useState<Set<MarkerType>>(
@@ -45,6 +47,26 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
   const [baseLayer, setBaseLayer] = useState<'official' | 'schematic'>('official');
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
+  const [tileManifest, setTileManifest] = useState<MapTilesManifest | null>(null);
+
+  // O build gera o manifesto e os tiles antes de publicar na Vercel.
+  // Em dev, sem build, a imagem 2K continua funcionando como fallback.
+  useEffect(() => {
+    if (!isOpen) return;
+    const controller = new AbortController();
+    fetch('/map-tiles/metadata.json', { signal: controller.signal })
+      .then(response => {
+        if (!response.ok) throw new Error('Mosaicos ainda não gerados');
+        return response.json() as Promise<unknown>;
+      })
+      .then(json => {
+        setTileManifest(isMapTilesManifest(json) ? json : null);
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setTileManifest(null);
+      });
+    return () => controller.abort();
+  }, [isOpen]);
 
   // Manage modal open/close
   useEffect(() => {
@@ -106,7 +128,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     const map = L.map(mapContainerRef.current, {
       crs: L.CRS.Simple,
-      minZoom: -1,
+      minZoom: -3,
       maxZoom: 3,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
@@ -120,13 +142,8 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     mapInstanceRef.current = map;
 
-    // Image overlay
-    const imageUrl = baseLayer === 'official' ? '/world-map.webp' : '';
-    let imageOverlay: L.ImageOverlay | null = null;
-
-    if (imageUrl) {
-      imageOverlay = L.imageOverlay(imageUrl, bounds).addTo(map);
-    }
+    // A camada de imagem é montada pelo efeito separado abaixo,
+    // evitando duas cópias da textura original no mapa.
 
     // Set initial view
     map.fitBounds(bounds);
@@ -145,27 +162,51 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     };
   }, [isOpen]);
 
-  // Update base layer overlay when changed
+  // Alterna entre a camada de tiles e a base sem imagem.
+  // A geometria do mapa e a posição dos marcadores não mudam com o zoom.
   useEffect(() => {
     const map = mapInstanceRef.current;
-    if (!map) return;
+    if (!map || !mapReady) return;
+    if (baseMapLayerRef.current) {
+      map.removeLayer(baseMapLayerRef.current);
+      baseMapLayerRef.current = null;
+    }
+    if (baseLayer !== 'official') return;
 
-    const mapSize = DEFAULT_MAP_SIZE;
-    const bounds: L.LatLngBoundsExpression = [[0, 0], [mapSize, mapSize]];
-
-    map.eachLayer(layer => {
-      if (layer instanceof L.ImageOverlay) {
-        map.removeLayer(layer);
-      }
-    });
-
-    if (baseLayer === 'official') {
-      L.imageOverlay('/world-map.webp', bounds, {
-        opacity: 1.0,
+    const bounds: L.LatLngBoundsExpression = [[0, 0], [DEFAULT_MAP_SIZE, DEFAULT_MAP_SIZE]];
+    if (tileManifest) {
+      const tiles = L.tileLayer('', {
+        minNativeZoom: tileManifest.minNativeZoom,
+        maxNativeZoom: tileManifest.maxNativeZoom,
+        tileSize: tileManifest.tileSize,
+        bounds,
+        noWrap: true,
+        keepBuffer: 3,
+        crossOrigin: false,
+        attribution: 'Mapa do jogo © CAPCOM — visualização não oficial'
+      });
+      // Em CRS.Simple o eixo Y da grade Leaflet é negativo. O utilitário
+      // normaliza para o índice de linha do raster (origem no canto superior).
+      tiles.getTileUrl = coords => mapTileUrl(coords.z, coords.x, coords.y)
+        ?? 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+      tiles.addTo(map);
+      tiles.bringToBack();
+      baseMapLayerRef.current = tiles;
+    } else {
+      const fallback = L.imageOverlay('/world-map.webp', bounds, {
+        opacity: 1,
         interactive: false
       }).addTo(map);
+      fallback.bringToBack();
+      baseMapLayerRef.current = fallback;
     }
-  }, [baseLayer, mapReady]);
+    return () => {
+      if (baseMapLayerRef.current && map.hasLayer(baseMapLayerRef.current)) {
+        map.removeLayer(baseMapLayerRef.current);
+      }
+      baseMapLayerRef.current = null;
+    };
+  }, [baseLayer, mapReady, tileManifest]);
 
   // Render Markers on Map
   useEffect(() => {
@@ -331,7 +372,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
               }`}
               title="Imagem rasterizada do mapa do jogo; uso experimental, direitos da CAPCOM"
             >
-              Mapa do jogo (2K)
+              {tileManifest
+                ? `Mapa do jogo (${tileManifest.sourceWidth / 1024}K · tiles)`
+                : 'Mapa do jogo (2K)'}
             </button>
             <button
               type="button"
@@ -509,7 +552,9 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
         {/* Informative Watermark Footnote */}
         <footer className="absolute bottom-2 left-3 z-10 text-[10px] text-[#64748b] bg-[#0f172a] bg-opacity-75 px-2 py-1 rounded select-none pointer-events-none">
-          DD2 Map Engine v1.0 · Projeção Afim Ortogonal Direta (8192m × 8192m) · Sem MapGenie
+          DD2 • {tileManifest
+            ? `${tileManifest.sourceWidth}² px · ${tileManifest.tileCount} tiles · zoom nativo até ${tileManifest.maxNativeZoom}`
+            : 'imagem 2K (fallback)'} · Localizações não auditadas
         </footer>
       </div>
     </dialog>
