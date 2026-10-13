@@ -45,6 +45,7 @@ export default function App() {
   const [navigationTarget, setNavigationTarget] = useState<string | null>(null);
   const [navigationNotice, setNavigationNotice] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [requestedGuideId, setRequestedGuideId] = useState('');
   const [activeFilter, setActiveFilter] = useState<ConsultationFilter>('all');
   const [consultationSection, setConsultationSection] = useState<ConsultationSection>('missions');
   const [selectedAchievementId, setSelectedAchievementId] = useState<number | null>(null);
@@ -329,8 +330,9 @@ export default function App() {
   const handleOpenGuideFromMap = (guideId: string) => {
     setIsIndependentMapOpen(false);
     setView('consultation');
-    setConsultationSection('missions');
-    setSearchQuery(guideId);
+    setConsultationSection('guides');
+    setSearchQuery('');
+    setRequestedGuideId(guideId);
   };
 
   const openTokensMap = () => {
@@ -395,6 +397,7 @@ export default function App() {
       {view === 'consultation' && (
         <Consultation phases={PHASES} progress={progress}
           section={consultationSection} onSectionChange={setConsultationSection}
+          requestedGuideId={requestedGuideId}
           chapter={selectedChapter} onChapterChange={setSelectedChapter}
           search={searchQuery} onSearchChange={setSearchQuery}
           filter={activeFilter} onFilterChange={setActiveFilter}
