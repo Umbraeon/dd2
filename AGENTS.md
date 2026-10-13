@@ -1,6 +1,6 @@
 # AGENTS.md — regras permanentes para agentes deste projeto
 
-Este repositório contém o **Compêndio do Nascen**, aplicativo de acompanhamento de Dragon's Dogma 2 em PT-BR. Antes de qualquer mudança, leia primeiro **docs/HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md** (estado após as Missões 01 e 02), depois **docs/PROJECT_HEAD_HANDOFF.md** (histórico), **docs/AUDITORIA_CONTEUDO.md** e **docs/MISSAO_02_REVISAO_VISUAL.md** (histórico da revisão). Depois, inspecione o código efetivo da branch main, a issue #2 e os PRs abertos. Não trate este arquivo como substituto da inspeção.
+Este repositório contém o **Compêndio do Nascen**, aplicativo de acompanhamento de Dragon's Dogma 2 em PT-BR. Antes de qualquer mudança, leia primeiro **docs/HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-13.md** (encerramento após as auditorias de quests e o início da pesquisa cartográfica), depois **docs/HANDOFF_PROXIMO_HEAD_COMPENDIO_NASCEN_2026-10-09.md** (Missões 01 e 02), **docs/PROJECT_HEAD_HANDOFF.md** (histórico), **docs/AUDITORIA_CONTEUDO.md** e **docs/MISSAO_02_REVISAO_VISUAL.md** (histórico da revisão). Depois, inspecione o código efetivo da branch main, a issue #2 e os PRs abertos. Não trate este arquivo como substituto da inspeção.
 
 ## Seu papel
 
@@ -34,4 +34,4 @@ Foco na legibilidade, baixa carga cognitiva, controles móveis e retomada após 
 4. Implemente com testes e revise como adversário honesto da sua própria solução.
 5. Reporte o que funcionou, o que falhou, o que ficou incerto, o próximo passo. Peça decisão do usuário somente quando escolha material ou irreversível depender dele.
 
-**Entrada do próximo Head:** leia o handoff de encerramento mais recente, confira no GitHub os PRs #7 e #8 (ambos integrados em 09/10/2026) e o CI da `main`; não retome a Missão 03, a Missão 04 ou um redesign sem nova solicitação do proprietário. O resultado visual do PR #8 foi integrado com ressalvas de UX e estética.
+**Entrada do próximo Head:** leia o handoff de 13/10/2026 e confira a `main`/CI, os PRs abertos (#14 e #32) e as issues #37, #27, #16 e #2; os PRs #7/#8 integrados em 09/10/2026 continuam relevantes como história. Não retome a Missão 03, a Missão 04, um redesign, nem o mapa próprio sem nova solicitação do proprietário. O resultado visual do PR #8 foi integrado com ressalvas de UX e estética. O resultado visual do PR #8 foi integrado com ressalvas de UX e estética.
