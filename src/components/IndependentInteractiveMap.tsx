@@ -154,14 +154,6 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
 
     // Exibir a arte do pergaminho, não a grande margem preta nativa do arquivo.
     map.fitBounds(ARTWORK_BOUNDS, { padding: [18, 18], animate: false });
-    // Somente o zoom fracionário precisa de 1px de sobreposição anti-fenda.
-    // No zoom nativo inteiro, o tile permanece 256px = 256px de origem.
-    const syncTileSeams = () => {
-      const zoom = map.getZoom();
-      map.getContainer().classList.toggle('dd2-fractional-zoom', Math.abs(zoom - Math.round(zoom)) > 0.01);
-    };
-    map.on('zoomend', syncTileSeams);
-    syncTileSeams();
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     // Markers layer group
@@ -172,7 +164,6 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     // Cleanup on unmount
     return () => {
       setMapReady(false);
-      map.off('zoomend', syncTileSeams);
       map.remove();
       mapInstanceRef.current = null;
       markersLayerRef.current = null;
@@ -199,7 +190,7 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       pane.style.zIndex = '190';
       pane.style.pointerEvents = 'none';
     }
-    const fallback = L.imageOverlay('/world-map.webp', bounds, {
+    const fallback = L.imageOverlay(tileManifest ? '/map-tiles/overview.webp' : '/world-map.webp', bounds, {
       pane: 'dd2-tile-fallback',
       opacity: 1,
       interactive: false
@@ -209,9 +200,11 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
       const tiles = L.tileLayer('', {
         // TileLayer herda minZoom=0 por padrão; fitBounds abre em zoom negativo.
         // Sem estes limites, nenhum tile é renderizado na visão inicial.
-        minZoom: tileManifest.minNativeZoom,
+        // Zoom afastado usa uma imagem overview contínua, sem costuras entre tiles.
+        // Tiles individuais só entram a partir de zoom 0 para preservar nitidez.
+        minZoom: 0,
         maxZoom: tileManifest.maxNativeZoom,
-        minNativeZoom: tileManifest.minNativeZoom,
+        minNativeZoom: 0,
         maxNativeZoom: tileManifest.maxNativeZoom,
         tileSize: tileManifest.tileSize,
         // O filtro bounds do GridLayer descarta tiles no CRS.Simple com Y negativo.
