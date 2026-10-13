@@ -23,3 +23,19 @@ test('manifesto mantém 2K e 8K distintos e invalida upscales falsos', () => {
   assert.ok(!isMapTilesManifest({...base,sourceWidth:2048,maxNativeZoom:2}));
   assert.ok(!isMapTilesManifest({...base,sourceWidth:4096,sourceHeight:2048,maxNativeZoom:1}));
 });
+
+test('trocar nitidez não altera coordenadas, nem solicita tiles fora do mundo', () => {
+  assert.equal(mapTileUrl(2, 31, -1, 'enhanced'), '/map-tiles/enhanced/2/31/31.webp');
+  assert.equal(mapTileUrl(2, 0, -32, 'enhanced'), '/map-tiles/enhanced/2/0/0.webp');
+  assert.equal(mapTileUrl(2, -1, -1, 'enhanced'), null);
+  assert.ok(isMapTilesManifest({
+    version: 1, planeSize: 2048, tileSize: 256,
+    sourceWidth: 8192, sourceHeight: 8192, minNativeZoom: -3, maxNativeZoom: 2,
+    enhancedNativeZoom: 2, source: 'world-map-8k.webp', tileCount: 1365
+  }));
+  assert.ok(!isMapTilesManifest({
+    version: 1, planeSize: 2048, tileSize: 256,
+    sourceWidth: 8192, sourceHeight: 8192, minNativeZoom: -3, maxNativeZoom: 2,
+    enhancedNativeZoom: 3, source: 'world-map-8k.webp', tileCount: 1365
+  }));
+});
