@@ -22,13 +22,23 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     }
     await expect(zoomIn).toHaveAttribute('aria-disabled', 'true');
 
-    const native8k = page.locator('.leaflet-tile-pane img[src*="/map-tiles/2/"]');
-    await expect(native8k.first()).toBeVisible();
-    await expect.poll(() => native8k.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
+    // Modo aprimorado no zoom máximo (não é upscale: mosaico 256×256).
+    const enhanced = page.locator('.leaflet-tile-pane img[src*="/map-tiles/enhanced/2/"]');
+    await expect(enhanced.first()).toBeVisible();
+    await expect.poll(() => enhanced.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
+    await page.screenshot({ path: 'test-results/screenshots/06-enhanced-8k-max-zoom.png' });
+
+    // Comparação real no mesmo zoom e centro, sem trocar textura/base cartográfica.
+    await page.getByRole('button', { name: 'Usar nitidez original' }).click();
+    const original = page.locator('.leaflet-tile-pane img[src*="/map-tiles/2/"]');
+    await expect(original.first()).toBeVisible();
+    await expect.poll(() => original.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
+    await page.screenshot({ path: 'test-results/screenshots/07-original-8k-max-zoom.png' });
+    await page.getByRole('button', { name: 'Ativar nitidez aprimorada' }).click();
+    await expect(enhanced.first()).toBeVisible();
 
     const visibleZoomedTiles = page.locator('.leaflet-tile-pane img[src*="/map-tiles/3/"]');
     await expect(visibleZoomedTiles).toHaveCount(0);
-    await page.screenshot({ path: 'test-results/screenshots/06-native-8k-max-zoom.png' });
   });
 
   test('filtros compactos podem ser expandidos e recolhidos sem cobrir o mapa', async ({ page }) => {
@@ -80,6 +90,10 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     const zoom2Tile = await page.request.get('/map-tiles/2/0/0.webp');
     expect(zoom2Tile.ok()).toBeTruthy();
     expect(zoom2Tile.headers()['content-type']).toContain('image/webp');
+    expect(manifest.enhancedNativeZoom).toBe(2);
+    const enhanced2Tile = await page.request.get('/map-tiles/enhanced/2/0/0.webp');
+    expect(enhanced2Tile.ok()).toBeTruthy();
+    expect(enhanced2Tile.headers()['content-type']).toContain('image/webp');
     await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
     // Panorama inicial usa uma imagem única, evitando grade de junções subpixel.
     const overviewResponse = await page.request.get('/map-tiles/overview.webp');
