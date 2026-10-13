@@ -5,7 +5,7 @@
 
 export type MarkerType = 'quest' | 'npc' | 'cave' | 'token' | 'fast_travel' | 'landmark';
 
-export type MapRegion = 'Vermund' | 'Battahl' | 'Agamen Volcanic Island' | 'Unmoored World';
+export type MapRegion = 'Vermund' | 'Battahl' | 'Agamen Volcanic Island' | 'Unmoored World' | 'A verificar';
 
 export type VerificationStatus = 'VERIFIED' | 'SUPPORTED' | 'UNVERIFIED' | 'EXAMPLE_ONLY';
 
@@ -42,6 +42,8 @@ export interface DD2MapMarker {
   mapPosition: MapPixelPosition | null;
   /** Provenance of the data */
   source: string;
+  /** URL da base pesquisável para conferir/provar a origem da posição. */
+  sourceUrl?: string;
   /** Factual verification status */
   verification: VerificationStatus;
   /** Associated guide ID from the 82 editorial guides (when available) */
