@@ -302,6 +302,20 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
     }
   }, [filteredMarkers, mapReady, showExperimentalMarkers, mapZoom]);
 
+  // Buscar deve levar a pessoa ao ponto: de nada adianta filtrar um pino fora da tela.
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!mapReady || !map || !searchQuery.trim()) return;
+    const points = filteredMarkers
+      .filter(m => m.mapPosition)
+      .map(m => pixelToLatLng(m.mapPosition!.pixelX,m.mapPosition!.pixelY,DEFAULT_MAP_SIZE));
+    if (points.length === 1) {
+      map.flyTo(points[0],Math.min(0.5,map.getMaxZoom()),{duration:0.25});
+    } else if (points.length > 1 && points.length <= 12) {
+      map.fitBounds(L.latLngBounds(points),{padding:[70,70],maxZoom:1,animate:true});
+    }
+  }, [mapReady,searchQuery,filteredMarkers]);
+
   // Toggle category
   const toggleCategory = useCallback((type: MarkerType) => {
     setActiveTypes(prev => {
