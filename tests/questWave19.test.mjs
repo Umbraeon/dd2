@@ -11,7 +11,7 @@ const byId=id=>QUEST_GUIDES.find(q=>q.id===id);
 const gate=JSON.parse(readFileSync(new URL('../docs/audit/quest-coverage-quality-gate-2026-10-12.json',import.meta.url),'utf8'));
 
 test('onda 19: todos os 80 itens do roster PowerPyx histórico têm ficha distinta',()=>{
-  const report=buildQuestCoverage();
+  const report=buildQuestCoverage(baselineRoster);
   assert.equal(QUEST_GUIDES.length,80);
   assert.equal(gate.publishedGuideRegistry.length,80);
   assert.equal(baselineRoster.main.length,16);
