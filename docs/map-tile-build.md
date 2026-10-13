@@ -1,8 +1,9 @@
 # Mapa B01 — tiles multinível (preview)
 
 ## Estado comprovado
-- Esta branch contém **apenas** `public/world-map.webp` (2048×2048, imagem derivada do jogo).
-- O arquivo 8192×8192 citado pelo Executor B está fora deste repositório. Nenhum detalhe extra será inventado por ampliação.
+- Esta branch contém `public/world-map.webp` (2048×2048) e, desde a missão B02, `public/world-map-8k.webp` (8192×8192).
+- O 8K foi entregue pelo Executor B em PNG/WebP a partir de textura do jogo, com relatório técnico separado; a versão WebP otimizada de 22.588.980 bytes foi adicionada ao GitHub na branch experimental.
+- O build prioriza automaticamente o arquivo 8K real e não faz upscale para criar detalhes artificiais.
 - O mapa usa `Leaflet CRS.Simple` com plano de referência 2048×2048 e marcadores **não auditados**.
 - `npm run build` executa `scripts/build-map-tiles.mjs` e emite `dist/map-tiles/` via `public/map-tiles/`.
 - A arte original de Dragon's Dogma 2 permanece sujeita aos direitos de propriedade intelectual da CAPCOM. O uso no preview não significa licença concedida.
@@ -15,9 +16,9 @@ npm test
 npm run build
 ```
 
-Confira `public/map-tiles/metadata.json` após o build. Esperado para a fonte 2K: **85 tiles** em níveis nativos -3, -2, -1 e 0, com pixel original preservado no zoom 0. A versão 8K cria **1365 tiles** e alcança zoom nativo 2, ou seja, 4 vezes mais pixels lineares no mesmo espaço cartográfico.
+Confira `public/map-tiles/metadata.json` após o build. **Nesta branch, esperamos a fonte 8K**: **1.365 tiles** em níveis nativos -3 a 2, ou seja, 4 vezes mais resolução linear que a imagem 2K, sem interpolação além da resolução nativa. Se o arquivo 8K for retirado intencionalmente, o fallback 2K produz 85 tiles em níveis -3 a 0.
 
-## Substituir a fonte por 8K real
+## Procedimento para substituir/atualizar a fonte 8K
 
 1. Obter do responsável pelo pacote de extração uma imagem 8192×8192 **comprovadamente derivada do mapa correto**, exportada para PNG ou WebP (não `.tex`). Inspecionar dimensões, orientação, acabamento e direitos de uso.
 2. Salvar como `public/world-map-8k.webp` ou `public/world-map-8k.png`.
