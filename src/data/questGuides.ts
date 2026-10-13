@@ -1863,7 +1863,54 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       "https://game8.co/games/Dragons-Dogma-2/archives/Crossing-in-Shadow",
       "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
     ]
-  }
+  },
+  {
+    id: 'hand_that_guides', title: 'A Mão que Guia', original: 'The Hand That Guides',
+    region: 'Local da Escavação — prólogo',
+    giver: 'Progressão automática durante a fuga do local de trabalho dos peões',
+    relatedEventIds: ['m01'],
+    preparation: [
+      'Missão curta dentro da sequência do prólogo. Não é uma segunda viagem nem uma tarefa que exige retornar ao Local da Escavação.',
+      'O catálogo de objetivos EN/PT-BR registra somente defender-se do monstro e fugir. Não há item coletável, falsificação, prazo ou recompensa próprios comprovados para esta ficha.'
+    ],
+    steps: [
+      'Siga a sequência inicial de O Despertar na Prisão no Local da Escavação até a chegada da grande criatura semelhante a uma serpente.',
+      'Quando a perturbação começar, assuma a arma disponibilizada pela história e concentre-se em sobreviver ao ataque.',
+      'Acompanhe o objetivo do diário “Defenda-se do monstro”; lute apenas enquanto o jogo mantiver essa instrução.',
+      'Quando o objetivo mudar para “Fuja para viver”, priorize a fuga pela rota aberta pela sequência, sem insistir em derrotar definitivamente a criatura.',
+      'Continue a transição de fuga do prólogo e confira no diário o avanço para A História se Inicia. A luta e a fuga são dois objetivos da mesma missão.'
+    ],
+    completion: 'A sequência deixa a fase de combate/fuga e o diário avança à missão A História se Inicia. Não é exigida vitória permanente contra a criatura nem um objeto para entregar.',
+    references: [
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests',
+      'https://dragonsdogma2.kiranico.com/en/data/quests'
+    ]
+  },
+  {
+    id: 'one_eyed_interloper', title: 'Intruso de um Olho Só', original: 'One-Eyed Interloper',
+    region: 'Vermund — estrada com Gregor em direção a Vernworth',
+    giver: 'Progressão automática ao acompanhar Gregor em No Rastro do Dragão',
+    relatedEventIds: ['v101'],
+    preparation: [
+      'Missão principal curta de combate no caminho para a capital. Ela surge ao seguir Gregor; não exige procurar um NPC diferente para aceitá-la.',
+      'O deslizamento e a cachoeira podem ser usados na luta. A Missive to the Captain (carta ao capitão) é recebida de Gregor APÓS o combate, não é um item que você precise obter previamente.',
+      'Confira o grupo antes de avançar; a criatura bloqueia a estrada. Nenhum prazo ou opção de resultado alternativo foi confirmado no material consultado.'
+    ],
+    steps: [
+      'Em No Rastro do Dragão, acompanhe Gregor rumo a Vernworth até que um ciclope interrompa o caminho.',
+      'Se estiver disponível, jogue uma pedra ou barril explosivo na barreira próxima à cachoeira para soltar a água e causar dano ao ciclope. É uma estratégia OPCIONAL, não condição da vitória.',
+      'Lute com os aliados de Gregor e seus peões. Para combate corpo a corpo, ataque as pernas por trás e evite os golpes largos do ciclope.',
+      'Quando ele se desequilibrar, aproveite para derrubá-lo e concentrar ataques na cabeça; continue até o objetivo “Derrote o ciclope” ser cumprido.',
+      'Após a batalha, converse com Gregor e receba a Missive to the Captain (carta ao capitão), conforme o walkthrough; prossiga rumo a Vernworth a pé ou utilizando o transporte disponível.',
+      'Confirme o objetivo “Prossiga até Vernworth” para seguir à próxima etapa principal, O Trono do Sobran.'
+    ],
+    completion: 'O ciclope foi derrotado, a estrada liberada e o avanço a Vernworth está disponível. A carta de Gregor é recebida após a luta; não foi tratada como item de requisito ou falsificação.',
+    references: [
+      'https://game8.co/games/Dragons-Dogma-2/archives/One-Eyed-Interloper',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests',
+      'https://dragonsdogma2.kiranico.com/en/data/quests'
+    ]
+  },
 ];
 
 /** O índice é editorial e não representa a totalidade das missões do jogo. */

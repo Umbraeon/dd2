@@ -14,7 +14,7 @@ test('amostra PAK registrada cruza guias e titulos, sem proclamar cobertura da b
   assert.equal(report.summary.extractedTitleRows, 59, '59 vinculos versionados nao significam todas as chaves extraidas');
   assert.equal(report.summary.dlcRows, 2);
   assert.equal(report.summary.baseRows, 57);
-  assert.equal(report.summary.observedWithoutGuide, 4);
+  assert.equal(report.summary.observedWithoutGuide, 2);
   assert.equal(report.summary.observedNotInNameIndex, 0);
   assert.equal(report.summary.indexPtBRConflicts, 0, 'Titulos PAK reportados divergiram do indice');
   assert.equal(report.summary.guidePtBRConflicts, 0, 'Titulos PAK reportados divergiram dos guias');
@@ -28,7 +28,7 @@ test('amostra PAK registrada cruza guias e titulos, sem proclamar cobertura da b
 test('quatro titulos observados sem ficha nao sao apagados da auditoria', () => {
   const missing = buildInstalledQuestEvidenceReport(records).observedWithoutGuide;
   assert.deepEqual(missing.map(row => row.english).sort(), [
-    'Chilling Tidings', 'Lost Rites', 'One-Eyed Interloper', 'The Hand That Guides'
+    'Chilling Tidings', 'Lost Rites'
   ]);
   for (const row of missing) {
     assert.ok(row.questInternalId);

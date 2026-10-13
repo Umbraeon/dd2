@@ -11,7 +11,7 @@ const recipe = id => {
 };
 
 test('guias cobrem missões individuais sem alterar o roteiro persistido', () => {
-  assert.equal(QUEST_GUIDES.length, 80);
+  assert.equal(QUEST_GUIDES.length, 82);
   assert.equal(new Set(QUEST_GUIDES.map(guide => guide.id)).size, QUEST_GUIDES.length);
   for (const guide of QUEST_GUIDES) {
     assert.ok(guide.steps.length >= 4, `Passos insuficientes em ${guide.id}`);

@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { QUEST_GUIDES } from '../src/data/questGuides.ts';
 import { QUEST_NAME_INDEX } from '../src/data/questNameIndex.ts';
 import { baselineRoster, buildQuestCoverage, normalizeQuestName } from '../scripts/report-quest-coverage.mjs';
+import { buildInstalledQuestEvidenceReport, parseQuestEvidenceCsv } from '../scripts/report-installed-quest-evidence.mjs';
 
 test('histórico de 2024 tem exatamente 16 principais e 64 secundárias, sem duplicidade', () => {
   assert.equal(baselineRoster.main.length, 16);
@@ -29,9 +30,14 @@ test('inventário detecta lacunas sem confundir guias com nomes PT-BR ou 53 marc
   const candidateNames = new Set([
     ...dlc.candidateMainRows, ...dlc.candidateSideRows, ...dlc.separateFromBoth
   ].map(normalizeQuestName));
+  const extractedRows = parseQuestEvidenceCsv(readFileSync(
+    new URL('../docs/audit/game-localization-evidence.csv', import.meta.url), 'utf8'
+  ));
+  const observedNames = new Set(buildInstalledQuestEvidenceReport(extractedRows).rows.map(row => normalizeQuestName(row.english)));
   for (const outside of report.unlistedGuides) {
-    assert.ok(candidateNames.has(normalizeQuestName(outside.english)),
-      `Guia de quest fora do catálogo 2024 precisa de categoria e fonte explícitas: ${outside.english}`);
+    const normalized = normalizeQuestName(outside.english);
+    assert.ok(candidateNames.has(normalized) || observedNames.has(normalized),
+      `Guia fora do comparador 2024 precisa de evidência DLC ou ID extraído: ${outside.english}`);
   }
   assert.match(report.warning, /NOT an exhaustive/);
 });

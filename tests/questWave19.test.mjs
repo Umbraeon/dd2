@@ -12,8 +12,8 @@ const gate=JSON.parse(readFileSync(new URL('../docs/audit/quest-coverage-quality
 
 test('onda 19: todos os 80 itens do roster PowerPyx histórico têm ficha distinta',()=>{
   const report=buildQuestCoverage(baselineRoster);
-  assert.equal(QUEST_GUIDES.length,80);
-  assert.equal(gate.publishedGuideRegistry.length,80);
+  assert.equal(QUEST_GUIDES.length,82);
+  assert.equal(gate.publishedGuideRegistry.length,82);
   assert.equal(baselineRoster.main.length,16);
   assert.equal(baselineRoster.side.length,64);
   assert.equal(report.summary.withoutIndividualGuide,0,'Pendente no comparador histórico');
