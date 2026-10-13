@@ -78,10 +78,10 @@ test('2. Limites do mapa: extensão cúbica e parâmetros de projeção', () => 
 });
 
 test('3. Camada de marcadores: conformidade com contrato e integridade espacial', () => {
-  assert.ok(INDEPENDENT_MAP_MARKERS.length >= 10, 'Deve conter pelo menos 10 marcadores demonstrativos');
+  assert.ok(INDEPENDENT_MAP_MARKERS.length >= 10, 'Deve conter pelo menos 10 localizações documentadas');
 
   const validTypes = new Set(['quest', 'npc', 'cave', 'fast_travel', 'token', 'landmark']);
-  const validRegions = new Set(['Vermund', 'Battahl', 'Agamen Volcanic Island', 'Unmoored World']);
+  const validRegions = new Set(['Vermund', 'Battahl', 'Agamen Volcanic Island', 'Unmoored World','A verificar']);
   const validVerifications = new Set(['VERIFIED', 'SUPPORTED', 'UNVERIFIED', 'EXAMPLE_ONLY']);
 
   for (const m of INDEPENDENT_MAP_MARKERS) {
@@ -104,13 +104,11 @@ test('3. Camada de marcadores: conformidade com contrato e integridade espacial'
   }
 });
 
-test('4. Categorias representadas: missões, npcs, cavernas, mementos e viagem rápida', () => {
+test('4. Escopo B03: exclusivamente cavernas e Mementos do Buscador', () => {
   const typesFound = new Set(INDEPENDENT_MAP_MARKERS.map(m => m.type));
-  assert.ok(typesFound.has('quest'), 'Deve conter marcadores de missões');
-  assert.ok(typesFound.has('npc'), 'Deve conter marcadores de NPCs');
-  assert.ok(typesFound.has('cave'), 'Deve conter marcadores de cavernas');
-  assert.ok(typesFound.has('fast_travel'), 'Deve conter marcadores de viagem rápida');
-  assert.ok(typesFound.has('token'), 'Deve conter marcadores de mementos');
+  assert.deepEqual([...typesFound].sort(), ['cave', 'token']);
+  assert.equal(INDEPENDENT_MAP_MARKERS.filter(m=>m.type==='cave').length, 37);
+  assert.equal(INDEPENDENT_MAP_MARKERS.filter(m=>m.type==='token').length, 240);
 });
 
 test('5. Independência estrita do MapGenie: ausência de scraping e URLs proprietárias', () => {
