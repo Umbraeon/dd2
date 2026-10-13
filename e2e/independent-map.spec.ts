@@ -81,9 +81,14 @@ test.describe('Mapa Interativo Independente (Missão B01)', () => {
     expect(zoom2Tile.ok()).toBeTruthy();
     expect(zoom2Tile.headers()['content-type']).toContain('image/webp');
     await expect(page.getByRole('button', { name: 'Mapa do jogo (8K · tiles)' })).toBeVisible();
-    const nativeTiles = page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]');
-    await expect(nativeTiles.first()).toBeVisible();
-    await expect.poll(() => nativeTiles.first().evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(256);
+    // Panorama inicial usa uma imagem única, evitando grade de junções subpixel.
+    const overviewResponse = await page.request.get('/map-tiles/overview.webp');
+    expect(overviewResponse.ok()).toBeTruthy();
+    const overview = page.locator('.leaflet-image-layer[src*="/map-tiles/overview.webp"]');
+    await expect(overview).toBeVisible();
+    await expect.poll(() => overview.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(2048);
+    await expect(page.locator('.leaflet-tile-pane img[src*="/map-tiles/"]')).toHaveCount(0);
+    await page.screenshot({ path: 'test-results/screenshots/00-desktop-clean-overview.png' });
 
     // Marcadores sem auditoria não devem cobrir o desenho por padrão.
     const pins = page.locator('.custom-map-pin');
