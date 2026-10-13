@@ -1,0 +1,125 @@
+{
+  "asOf": "2026-10-13",
+  "installedBuildReported": "25290080",
+  "scope": "Two DLC EN/PT-BR title keys from the 59-row versioned GMSG subset; detailed gameplay only from independent online walkthroughs, NOT tested on installed saves",
+  "evidenceTierDefinitions": {
+    "installedCsv": "Versioned extraction metadata: reported key/ID/literals/hash; this audit does not rehash PAK bytes",
+    "walkthroughAgreement": "At least two guide publishers agree on the instruction; not a real-save verification",
+    "walkthroughOnly": "A step is documented by a community guide without direct verification",
+    "conflicting": "Current sources disagree; no deterministic user promise allowed",
+    "unverified": "No evidence sufficient to state the claim"
+  },
+  "entries": [
+    {
+      "english": "Chilling Tidings",
+      "ptBR": "Notícias Congelantes",
+      "indexedInternalId": "qu040010",
+      "category": "dlc-opening",
+      "coveredByIndividualGuide": false,
+      "sourceTitleEvidence": "docs/audit/game-localization-evidence.csv",
+      "claims": [
+        {
+          "field": "start",
+          "value": "Speak to Brant at night at Vernworth Stardrop Inn; choose About the new Arisen…",
+          "tier": "walkthroughAgreement",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dragons-dogma-2-how-to-start-the-dark-arisen-dlc-recommended-levels/",
+            "https://allthings.how/dragon-s-dogma-2-how-to-unlock-captain-brant-s-dark-arisen-menu/"
+          ]
+        },
+        {
+          "field": "firstObjective",
+          "value": "Stay at Shakir's Inn",
+          "tier": "walkthroughOnly",
+          "sources": [
+            "https://allthings.how/dragon-s-dogma-2-how-to-start-the-dark-arisen-dlc-and-reach-norgan/"
+          ]
+        },
+        {
+          "field": "recommendedLevel",
+          "value": "40 suggested, not a hard gate",
+          "tier": "walkthroughAgreement",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dragons-dogma-2-how-to-start-the-dark-arisen-dlc-recommended-levels/",
+            "https://allthings.how/dragon-s-dogma-2-how-to-start-the-dark-arisen-dlc-and-reach-norgan/"
+          ]
+        },
+        {
+          "field": "norganEntry",
+          "value": "Travel via the Malachite Forest to a waterfall clearing southwest of Melve, speak to Pekdre by the fallen creature",
+          "tier": "walkthroughOnly",
+          "sources": [
+            "https://allthings.how/chilling-tidings-walkthrough-in-dragon-s-dogma-2-dark-arisen-fallen-monster-location/"
+          ]
+        },
+        {
+          "field": "currentSaveEndgameRestriction",
+          "value": "Unmoored World accessibility and NG+ transition not reproduced in a save",
+          "tier": "unverified",
+          "sources": [
+            "https://www.pcgamer.com/games/rpg/dragons-dogma-2-how-to-start-dark-arisen/"
+          ]
+        }
+      ]
+    },
+    {
+      "english": "Lost Rites",
+      "ptBR": "Rituais Perdidos",
+      "indexedInternalId": "CONTENTS_0014",
+      "category": "dlc-challenge-entry",
+      "coveredByIndividualGuide": false,
+      "sourceTitleEvidence": "docs/audit/game-localization-evidence.csv",
+      "claims": [
+        {
+          "field": "start",
+          "value": "Speak to Brant at night at Vernworth Stardrop Inn; choose About the uncovered ruins…",
+          "tier": "walkthroughAgreement",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dragons-dogma-2-how-to-start-the-dark-arisen-dlc-recommended-levels/",
+            "https://allthings.how/dragon-s-dogma-2-how-to-unlock-captain-brant-s-dark-arisen-menu/"
+          ]
+        },
+        {
+          "field": "recommendedLevel",
+          "value": "20 suggested, not a hard gate",
+          "tier": "walkthroughAgreement",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dragons-dogma-2-how-to-start-the-dark-arisen-dlc-recommended-levels/",
+            "https://allthings.how/dragon-s-dogma-2-how-to-start-the-dark-arisen-dlc-and-reach-norgan/"
+          ]
+        },
+        {
+          "field": "provingGroundCompassTiming",
+          "value": "One source says complete Lost Rites to receive compass; another says clearing first dungeon; precise milestone must be checked on installed save",
+          "tier": "conflicting",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dragons-dogma-2-how-to-start-the-dark-arisen-dlc-recommended-levels/",
+            "https://allthings.how/dragon-s-dogma-2-how-to-start-the-dark-arisen-dlc-and-reach-norgan/"
+          ]
+        },
+        {
+          "field": "spellsealDoors",
+          "value": "Some doors require Empowered Godsbane Blade acquired after A New Godsway; avoid claiming all doors are immediately open",
+          "tier": "walkthroughOnly",
+          "sources": [
+            "https://www.videogameschronicle.com/guide/dd2-dark-arisen-open-the-dlc-spellseal-doors-in-the-lost-rites-quest/"
+          ]
+        },
+        {
+          "field": "completeDungeonsRoster",
+          "value": "No primary questlog ID-to-dungeon mapping yet",
+          "tier": "unverified",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "crossReference": "docs/audit/dark-arisen-candidate-quest-roster-2026-10-12.json",
+  "outstanding": [
+    "Acquire the remaining GMSG _log_title records for base and DLC with full ID/key/EN/PT-BR and sha256 provenance; do not call 125 keys 125 unique journal quests",
+    "Reconcile overlapping Relics of the Past and Hammer and Tongs candidates without summing duplicates",
+    "Check if Sage's Wisdom aggregates several journal IDs and whether Lost Rites represents one quest or a hub of entries",
+    "Test Brant trigger, compass acquisition timing, endgame lock, and spellseal doors in a controlled current-build save before publishing time-sensitive or irreversible claims",
+    "Write DLC full walkthroughs only after evidence for quest completion and alternative outcomes has been reconciled"
+  ]
+}
