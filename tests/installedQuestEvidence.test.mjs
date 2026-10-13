@@ -16,6 +16,8 @@ test('amostra PAK registrada cruza guias e titulos, sem proclamar cobertura da b
   assert.equal(report.summary.baseRows, 57);
   assert.equal(report.summary.observedWithoutGuide, 4);
   assert.equal(report.summary.observedNotInNameIndex, 0);
+  assert.equal(report.summary.indexPtBRConflicts, 0, 'Titulos PAK reportados divergiram do indice');
+  assert.equal(report.summary.guidePtBRConflicts, 0, 'Titulos PAK reportados divergiram dos guias');
   assert.equal(report.summary.observedWithGuide + report.summary.observedWithoutGuide, records.length);
   assert.equal(report.summary.publishedGuidesOutsideSample + report.summary.observedWithGuide, QUEST_GUIDES.length);
   assert.equal(report.summary.indexedNamesOutsideSample + records.length, QUEST_NAME_INDEX.length);
