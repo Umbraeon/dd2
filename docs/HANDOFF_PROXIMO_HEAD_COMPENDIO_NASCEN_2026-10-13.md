@@ -65,7 +65,7 @@ O proprietário decidiu investigar um **mapa web independente**, com camadas de 
 
 - Mapa atual em produção: `src/components/TokensInteractiveMap.tsx`, iframe `https://mapgenie.io/dragons-dogma-2/maps/world?embed=light`, sem acesso/sincronização aos pins de terceiros. Questões de filtro visível e autorização do provedor continuam pendentes na [issue #16](https://github.com/Umbraeon/dd2/issues/16).
 - Viabilidade B01: localizar recursos cartográficos de jogo `.tex` e afins; estudar reconstrução/tiles localmente; obter pelo menos cinco âncoras confiáveis e estimar transformação `XYZ → (pixelX,pixelY)`; construir um protótipo separado com React + Leaflet `CRS.Simple`, dados próprios e sem dependência da API privada do MapGenie. **Não presumir** eixo, escala ou relação de localização.
-- Separar investigação privada de textura e **direito de redistribuição/publicação**. Não commit artem proprietário extraído/PAKs/saves; usar arte cartográfica publicável no protótipo e avaliar distribuição antes de tornar pública imagem extraída. “Gratuito/fanmade” não é licença automática.
+- Separar investigação privada de textura e **direito de redistribuição/publicação**. Não commitar arte proprietária extraída, PAKs ou saves; usar arte cartográfica publicável no protótipo e avaliar distribuição antes de tornar pública imagem extraída. “Gratuito/fanmade” não é licença automática.
 - Nenhuma alteração de produção do mapa, progressos ou guias foi autorizada para B01. Se o executor B reaparecer com resultados, avaliar **PR e screenshots reais**, não o relato apenas.
 
 ## 5. Pendências e governança no GitHub
@@ -92,7 +92,7 @@ O proprietário decidiu investigar um **mapa web independente**, com camadas de 
 
 1. **Começar por este handoff, depois inspecionar `AGENTS.md`, o anterior de 09/10, `main`/CI, issues #37/#27/#16/#2, PRs #14/#32 e anexos recebidos.** Não confiar somente nas contagens relatadas.
 2. Responder ao próximo pedido específico do proprietário; **nenhum trabalho está executando em background** e o encerramento atual não autoriza iniciar automaticamente Missão 03 ou 04, PRs de UX ou substituição do mapa.
-3. Se o Executor A devolver ZIP revisado, primeiro conferir hashes/binários/scripts e tiers, depois avaliar se o gatilho semântico foi de fato comprovado; não inventar factos para “fechar” o problema.
+3. Se o Executor A devolver ZIP revisado, primeiro conferir hashes/binários/scripts e tiers, depois avaliar se o gatilho semântico foi de fato comprovado; não inventar fatos para “fechar” o problema.
 4. Se o Executor B devolver pesquisa B01, verificar inventário real de texturas, direitos de uso, coordenadas com erro mensurado, screenshots e protótipo independente; não usar pins scraped do MapGenie.
 5. Se houver nova autorização para implementação, entregar PR **pequeno**, testes TypeScript/unitários/build/E2E aplicáveis, revisão factual e sem mudança no progresso v3, sem merge em falha de CI.
 
