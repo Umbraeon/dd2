@@ -116,7 +116,7 @@
   ],
   "crossReference": "docs/audit/dark-arisen-candidate-quest-roster-2026-10-12.json",
   "outstanding": [
-    "Acquire the remaining GMSG _log_title records for base and DLC with full ID/key/EN/PT-BR and sha256 provenance; do not call 125 keys 125 unique journal quests",
+    "Acquire the remaining GMSG questlog _log_title records for base and DLC with full ID/key/EN/PT-BR and sha256 provenance; do not call 125 keys 125 unique journal quests",
     "Reconcile overlapping Relics of the Past and Hammer and Tongs candidates without summing duplicates",
     "Check if Sage's Wisdom aggregates several journal IDs and whether Lost Rites represents one quest or a hub of entries",
     "Test Brant trigger, compass acquisition timing, endgame lock, and spellseal doors in a controlled current-build save before publishing time-sensitive or irreversible claims",
