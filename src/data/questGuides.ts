@@ -1790,7 +1790,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
       "Aguarde Olven, o guarda, anunciar o roubo do Paragon Staff e avisar que todos serão revistados. Não saia com o bastão em mãos sem escolher o desfecho.",
       "ROTA de maior controle: vá ao vestiário, atrás do biombo, e selecione Descartar no Paragon Staff. Isso impede que o item roubado permaneça no seu inventário durante a inspeção.",
       "Volte ao salão e agarre o mesmo nobre que entregou o bastão; ele confessará o roubo. Neoseeker associa descarte + captura a 7.500 G e possibilidade de comprar o bastão mais tarde; PowerPyx relata 7.500 G ao capturar sem citar descarte prévio.",
-      "ALTERNATIVA: apenas descarte o bastão e aceite a revista para terminar sem capturar o ladrão, com recompensa menor ou diferente conforme a fonte. Após alguns dias, Ibrahim no Posto do Retiro pode vendê-lo por 60.000 G se foi descartado."
+      "ALTERNATIVA: apenas descarte o bastão e aceite a revista para terminar sem capturar o ladrão. PowerPyx relata 3.000 G nessa rota, mas Neoseeker descreve variação; não garanta o valor. Após alguns dias, Ibrahim no Posto do Retiro pode vendê-lo por 60.000 G se foi descartado."
     ],
     "completion": "Olven encerra a investigação e a missão termina após a revista ou confissão. A escolha pode afetar a recompensa e a futura venda do Paragon Staff; relatos variam em rotas intermediárias.",
     "references": [
