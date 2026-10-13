@@ -330,112 +330,55 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         onClose();
       }}
     >
-      {/* Top Navigation Bar */}
-      <header className="flex items-center justify-between px-4 py-3 bg-[#13161c] border-b border-[#242b35] z-10 select-none">
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-[#f8fafc] bg-[#1a1f26] hover:bg-[#252c37] border border-[#2d3748] rounded transition-colors"
-          >
+      {/* Barra responsiva: não deixa ações transbordarem no celular. */}
+      <header className="dd2-map-header relative z-30 flex flex-wrap items-center justify-between gap-2 border-b border-[#55422f] bg-[#171510] px-3 py-2.5 sm:px-4">
+        <div className="flex min-w-0 items-center gap-2">
+          <button type="button" onClick={onClose}
+            className="flex min-h-10 shrink-0 items-center gap-1.5 rounded border border-[#6e5637] bg-[#2b261e] px-2.5 text-xs text-[#f6e3be] hover:bg-[#403526]">
             <ArrowLeft size={16} aria-hidden="true" />
             <span>Voltar</span>
           </button>
-          <div>
-            <div className="flex items-center gap-2">
-              <Compass size={18} className="text-[#f59e0b]" aria-hidden="true" />
-              <h1 id="independent-map-title" className="text-sm md:text-base font-semibold tracking-wide text-[#f8fafc]">
-                Mapa Interativo Independente
-              </h1>
-              <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider bg-[#2d3748] text-[#38bdf8] rounded">
-                Teste B01
-              </span>
-            </div>
-            <p className="hidden md:block text-[11px] text-[#94a3b8]">
-              Protótipo de mapa próprio · posições dos marcadores ainda não auditadas
-            </p>
+          <Compass size={18} className="hidden shrink-0 text-[#e9b86a] sm:block" aria-hidden="true" />
+          <div className="min-w-0">
+            <h1 id="independent-map-title" className="truncate font-serif text-sm font-semibold tracking-wide text-[#f7e3c1] sm:text-lg">Mapa Interativo Independente</h1>
+            <p className="hidden text-[11px] text-[#bba785] md:block">Dragon's Dogma 2 · mapa original em mosaicos</p>
           </div>
         </div>
 
-        {/* Center / Search Input */}
-        <div className="relative max-w-xs w-full mx-2 hidden sm:block">
-          <Search size={14} className="absolute left-2.5 top-2.5 text-[#64748b]" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
+        <div className="relative mx-2 hidden min-w-[180px] max-w-xs flex-1 lg:block">
+          <Search size={14} className="absolute left-2.5 top-3 text-[#b29d7f]" aria-hidden="true" />
+          <input aria-label="Buscar no mapa" type="search" value={searchQuery} onChange={e => {
+            setSearchQuery(e.target.value);
+            if (e.target.value.trim()) setShowExperimentalMarkers(true);
+          }}
             placeholder="Buscar missões, NPCs, locais..."
-            className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#1a1f26] border border-[#2d3748] rounded text-[#f8fafc] placeholder-[#64748b] focus:outline-none focus:border-[#f59e0b]"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              className="absolute right-2 top-2 text-[#94a3b8] hover:text-[#f8fafc]"
-              aria-label="Limpar busca"
-            >
-              <X size={13} />
-            </button>
-          )}
+            className="h-10 w-full rounded border border-[#6b563e] bg-[#211d18] pl-8 pr-3 text-xs text-[#f4e9d7] placeholder-[#baa78a] focus:border-[#e2b76f] focus:outline-none" />
         </div>
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-2">
-          {/* Base Layer Switcher */}
-          <div className="flex items-center bg-[#1a1f26] border border-[#2d3748] rounded p-0.5 text-xs">
-            <button
-              type="button"
-              onClick={() => setBaseLayer('official')}
-              className={`px-2 py-1 rounded transition-colors ${
-                baseLayer === 'official' ? 'bg-[#f59e0b] text-[#0f172a] font-bold' : 'text-[#94a3b8] hover:text-[#f8fafc]'
-              }`}
-              title="Imagem rasterizada do mapa do jogo; uso experimental, direitos da CAPCOM"
-            >
-              {tileManifest
-                ? `Mapa do jogo (${tileManifest.sourceWidth / 1024}K · tiles)`
-                : 'Mapa do jogo (2K)'}
+        <div className="dd2-map-actions flex w-full flex-wrap items-center gap-2 sm:w-auto">
+          <div className="flex min-w-0 flex-1 items-center rounded border border-[#71583b] bg-[#252018] p-0.5 text-xs sm:flex-none">
+            <button type="button" onClick={() => setBaseLayer('official')}
+              aria-label={tileManifest ? `Mapa do jogo (${tileManifest.sourceWidth / 1024}K · tiles)` : 'Mapa do jogo (2K)'}
+              aria-pressed={baseLayer === 'official'}
+              className={`min-h-9 flex-1 rounded px-2.5 transition-colors sm:flex-none ${baseLayer === 'official' ? 'bg-[#e8b96a] font-bold text-[#201810]' : 'text-[#e5d2b0] hover:bg-[#3b3024]'}`}
+              title="Arte original do jogo © CAPCOM">
+              <span className="sm:hidden">Mapa {tileManifest ? tileManifest.sourceWidth / 1024 : 2}K</span>
+              <span className="hidden sm:inline">{tileManifest ? `Mapa do jogo (${tileManifest.sourceWidth / 1024}K · tiles)` : 'Mapa do jogo (2K)'}</span>
             </button>
-            <button
-              type="button"
-              onClick={() => setBaseLayer('schematic')}
-              className={`px-2 py-1 rounded transition-colors ${
-                baseLayer === 'schematic' ? 'bg-[#f59e0b] text-[#0f172a] font-bold' : 'text-[#94a3b8] hover:text-[#f8fafc]'
-              }`}
-              title="Camada sem imagem de fundo, para teste dos marcadores"
-            >
+            <button type="button" onClick={() => setBaseLayer('schematic')} aria-pressed={baseLayer === 'schematic'}
+              className={`min-h-9 rounded px-2.5 transition-colors ${baseLayer === 'schematic' ? 'bg-[#e8b96a] font-bold text-[#201810]' : 'text-[#e5d2b0] hover:bg-[#3b3024]'}`}>
               Esquema
             </button>
           </div>
-
-          <button
-            type="button"
-            onClick={resetView}
-            className="p-1.5 text-[#94a3b8] hover:text-[#f8fafc] bg-[#1a1f26] border border-[#2d3748] rounded"
-            title="Ajustar aos limites do mapa"
-            aria-label="Ajustar aos limites"
-          >
-            <RotateCcw size={15} />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setFilterPanelOpen(prev => !prev)}
-            className={`p-1.5 rounded border transition-colors ${
-              filterPanelOpen
-                ? 'bg-[#f59e0b] text-[#0f172a] border-[#f59e0b]'
-                : 'text-[#94a3b8] hover:text-[#f8fafc] bg-[#1a1f26] border-[#2d3748]'
-            }`}
-            title="Filtros de marcadores"
-            aria-label="Alternar filtros"
-          >
-            <Filter size={15} />
+          <button type="button" onClick={resetView} className="flex min-h-10 min-w-10 items-center justify-center rounded border border-[#71583b] bg-[#2b261e] text-[#ead1a3] hover:bg-[#403526]"
+            title="Enquadrar pergaminho" aria-label="Ajustar aos limites">
+            <RotateCcw size={17} />
           </button>
         </div>
       </header>
 
-      <p role="note" className="px-4 py-2 bg-[#332418] text-[#f5d5a1] border-b border-[#72542b] text-xs">
-        VERSÃO DE TESTE — Imagem do jogo © CAPCOM. Mapa não oficial. Os pontos demonstrativos
-        ainda não foram conferidos individualmente em jogo: não use estas posições para decisões irreversíveis.
+      <p role="note" className="dd2-map-notice relative z-20 border-b border-[#5b452e] bg-[#342a1f] px-3 py-1.5 text-[11px] leading-snug text-[#ead4af] sm:px-4">
+        Versão experimental · Arte © CAPCOM · Localizações dos marcadores ainda não verificadas.
       </p>
 
       {/* Main Interactive Map Area */}
@@ -449,35 +392,55 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
           }}
         />
 
-        {/* Filter Toolbar (Floating Pill Bar) */}
-        <div className="absolute top-3 left-3 right-3 md:right-auto z-20 flex flex-wrap gap-1.5 max-w-2xl pointer-events-auto">
-          {(Object.keys(CATEGORY_CONFIG) as MarkerType[]).map(type => {
-            const cfg = CATEGORY_CONFIG[type];
-            const active = activeTypes.has(type);
-            const count = countsByType[type];
-            return (
-              <button
-                key={type}
-                type="button"
-                onClick={() => toggleCategory(type)}
-                className={`flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-full border transition-all ${
-                  active
-                    ? 'border-opacity-100 shadow-md font-medium text-[#f8fafc]'
-                    : 'opacity-50 hover:opacity-80 bg-[#161b22] border-[#30363d] text-[#94a3b8]'
-                }`}
-                style={{
-                  backgroundColor: active ? cfg.bg : undefined,
-                  borderColor: active ? cfg.color : undefined
-                }}
-              >
-                <span>{cfg.icon}</span>
-                <span>{cfg.label}</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#1e293b] text-[#cbd5e1] font-mono">
-                  {count}
-                </span>
-              </button>
-            );
-          })}
+        {/* Marcadores exploratórios: opt-in para não esconder a cartografia real. */}
+        <div className="dd2-map-filters absolute left-3 top-3 z-30 max-w-[calc(100%-1.5rem)]">
+          <div className="flex flex-wrap items-center gap-2">
+            <button type="button" aria-label={showExperimentalMarkers ? 'Ocultar marcadores experimentais' : 'Mostrar marcadores experimentais'}
+              aria-pressed={showExperimentalMarkers}
+              onClick={() => setShowExperimentalMarkers(prev => !prev)}
+              className={`flex min-h-10 items-center gap-2 rounded border px-3 text-xs font-semibold shadow-lg backdrop-blur-sm ${showExperimentalMarkers ? 'border-[#d3a15f] bg-[#ead2a6] text-[#241a11]' : 'border-[#70583a] bg-[#1c1a17ee] text-[#f5dfb7]'}`}>
+              <MapPin size={16} aria-hidden="true" />
+              {showExperimentalMarkers ? 'Ocultar pontos de teste' : 'Mostrar pontos de teste'}
+            </button>
+            <button type="button" aria-label="Alternar filtros" aria-expanded={filterPanelOpen}
+              onClick={() => setFilterPanelOpen(prev => !prev)}
+              className="flex min-h-10 items-center gap-1.5 rounded border border-[#70583a] bg-[#1c1a17ee] px-3 text-xs text-[#f5dfb7] shadow-lg backdrop-blur-sm">
+              <Filter size={15} aria-hidden="true" /> Filtros
+            </button>
+          </div>
+          {filterPanelOpen && (
+            <section aria-label="Filtros de marcadores" className="mt-2 max-h-[45vh] w-[min(350px,calc(100vw-1.5rem))] overflow-y-auto rounded border border-[#78603f] bg-[#1b1916f5] p-3 shadow-2xl">
+              <p className="mb-2 text-xs leading-relaxed text-[#d8c4a4]">Pontos de teste não auditados. Podem estar fora de posição; a cartografia não é alterada.</p>
+              <div className="relative mb-3 lg:hidden">
+                <Search size={15} className="absolute left-2 top-3 text-[#bba686]" aria-hidden="true" />
+                <input type="search" aria-label="Buscar no mapa" value={searchQuery}
+                  onChange={e => {
+                    setSearchQuery(e.target.value);
+                    if (e.target.value.trim()) setShowExperimentalMarkers(true);
+                  }}
+                  placeholder="Buscar missões, NPCs, locais..."
+                  className="min-h-10 w-full rounded border border-[#665237] bg-[#29241c] pl-8 pr-2 text-xs text-[#f4e7cf] placeholder-[#b9a68b]" />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {(Object.keys(CATEGORY_CONFIG) as MarkerType[]).map(type => {
+                  const cfg = CATEGORY_CONFIG[type];
+                  const active = activeTypes.has(type);
+                  return (
+                    <button key={type} type="button" onClick={() => {
+                      toggleCategory(type);
+                      setShowExperimentalMarkers(true);
+                    }}
+                      aria-pressed={active}
+                      className={`flex min-h-9 items-center gap-1.5 rounded border px-2 text-xs ${active ? 'border-[#b68b52] bg-[#403322] text-[#f5ddac]' : 'border-[#49423a] bg-[#23201d] text-[#938778]'}`}>
+                      <span aria-hidden="true">{cfg.icon}</span>
+                      <span>{cfg.label}</span>
+                      <span className="rounded bg-[#171513] px-1 font-mono text-[#ead8b7]">{countsByType[type]}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* Marker Details Drawer / Popup */}
@@ -570,10 +533,10 @@ export const IndependentInteractiveMap: React.FC<Props> = ({
         )}
 
         {/* Informative Watermark Footnote */}
-        <footer className="absolute bottom-2 left-3 z-10 text-[10px] text-[#64748b] bg-[#0f172a] bg-opacity-75 px-2 py-1 rounded select-none pointer-events-none">
-          DD2 • {tileManifest
-            ? `${tileManifest.sourceWidth}² px · ${tileManifest.tileCount} tiles · zoom nativo até ${tileManifest.maxNativeZoom}`
-            : 'imagem 2K (fallback)'} · Localizações não auditadas
+        <footer className="dd2-map-status absolute bottom-3 left-3 z-10 max-w-[calc(100%-6rem)] rounded border border-[#675035] bg-[#171512ed] px-2.5 py-1.5 text-[11px] text-[#f1d6a6] shadow-lg backdrop-blur-sm select-none pointer-events-none">
+          {tileManifest
+            ? `Mapa ${tileManifest.sourceWidth / 1024}K · zoom nativo até ${tileManifest.maxNativeZoom}`
+            : 'Carregando imagem do jogo...'}
         </footer>
       </div>
     </dialog>
