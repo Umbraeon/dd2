@@ -1630,12 +1630,12 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     ]
   },
   {
-    id: 'masked_correspondence', title: 'Masked Correspondence', original: 'Masked Correspondence',
+    id: 'masked_correspondence', title: 'Correspondência Mascarada', original: 'Masked Correspondence',
     region: 'Vernworth — aposentos de Sven no Castelo e Salão de Máscaras',
     giver: 'Sven, em seu quarto no segundo andar do Castelo de Vernworth',
     relatedEventIds: ['v104'],
     preparation: [
-      'TÍTULO PT-BR NÃO COMPROVADO: conservar Masked Correspondence, sem apresentar tradução editorial como oficial.',
+      'Título PT-BR Correspondência Mascarada pareado no catálogo Kiranico PT-BR, sem confirmação direta em save do jogo.',
       'Antes de avançar demais a história em Vernworth, visite Sven após O Trono do Sobran e A Caixa Ornamentada. Fontes divergem sobre o gatilho e possível limite de disponibilidade; conferir se Sven oferece a carta no diário da sua campanha.',
       'LEVE o traje cortesão (Courtly Tunic e Courtly Breeches) e a Eventide Mask, obtidos ou usados em O Trono Roubado. O baile ocorre à noite, e não em todas as noites.',
       'ALERTA: você recebe UMA Letter to Lord Patrick. Um guia relata falha ao entregar a pessoa errada; confirme o nome do NPC antes de selecionar Entregar.'
@@ -1652,16 +1652,17 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     references: [
       'https://www.powerpyx.com/dragons-dogma-2-masked-correspondence-walkthrough/',
       'https://www.gamerguides.com/dragons-dogma-2/guide/side-quests/vernworth/masked-correspondence-walkthrough',
-      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-masked-correspondence-walkthrough/'
+      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-masked-correspondence-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
   },
   {
-    id: 'welcome_battahl', title: 'Welcome to Battahl', original: 'Welcome to Battahl',
+    id: 'welcome_battahl', title: 'De Volta a Battahl', original: 'Welcome to Battahl',
     region: 'Bakbattahl — Bairro Mercantil, em frente à taverna Wanderer’s Haven',
     giver: 'Roger e seus valentões abordam o Nascen ao se aproximar da taverna',
     relatedEventIds: ['b02'],
     preparation: [
-      'TÍTULO PT-BR NÃO COMPROVADO: nome EN preservado. A abordagem ocorre após chegar a Bakbattahl, normalmente na sequência de Nação da Chama Luzente.',
+      'Título PT-BR De Volta a Battahl pareado no catálogo Kiranico PT-BR, sem confirmação direta em save do jogo. A abordagem ocorre após chegar a Bakbattahl, normalmente na sequência de Nação da Chama Luzente.',
       'Essa missão apresenta o mercenário RAGHNALL e é o pré-requisito narrativo documentado de Tensions on the Highroad.',
       'Há resultados diferentes: derrotar todos os três valentões antes da intervenção de Raghnall pode render mais ouro; caso intervenha, normalmente há duelo individual contra Taleef. Fontes secundárias divergem nos detalhes de derrota e recompensa.',
       'Se vencer, guarde o Fruit Wine de recompensa se quiser usá-lo futuramente para produzir Newt Liqueur em O Sábio Beberrão. Esse vinho NÃO é item que você precisa trazer para começar a missão.'
@@ -1678,16 +1679,17 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     references: [
       'https://www.powerpyx.com/dragons-dogma-2-welcome-to-battahl-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/Welcome-to-Battahl',
-      'https://www.neoseeker.com/dragons-dogma-2/guides/Welcome_to_Battahl'
+      'https://www.neoseeker.com/dragons-dogma-2/guides/Welcome_to_Battahl',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
   },
   {
-    id: 'tensions_highroad', title: 'Tensions on the Highroad', original: 'Tensions on the Highroad',
+    id: 'tensions_highroad', title: 'Tensão na Estrada', original: 'Tensions on the Highroad',
     region: 'Vernworth → estrada do Posto de Controle da Fronteira → Caverna Guerco',
     giver: 'Simon, soldado próximo à estação norte de carroças de Vernworth',
     relatedEventIds: ['v304', 'b02'],
     preparation: [
-      'TÍTULO PT-BR NÃO COMPROVADO. Depois de Welcome to Battahl, RETORNE a Vernworth e procure Simon perto da estação norte/fonte. Não assuma que a missão dispara antes da apresentação de Raghnall.',
+      'Título PT-BR Tensão na Estrada pareado no catálogo Kiranico PT-BR (sem teste em save). Depois de Welcome to Battahl, RETORNE a Vernworth e procure Simon perto da estação norte/fonte. Não assuma que a missão dispara antes da apresentação de Raghnall.',
       'Simon pede escolta de Ser Augustin, opositor político da rainha regente. O objetivo muda após a intervenção de Raghnall; a carroça NÃO é o objetivo final.',
       'Há uma escolha entre Simon/soldados e Raghnall. As duas rotas chegam à fuga pela Caverna Guerco; Game8 recomenda apoiar Raghnall por sua disposição posterior, mas o ganho de afinidade não foi testado em save.',
       'Concluir essa missão é pré-requisito relatado para encontrar Raghnall em Clash and Conclusion, na Torre do Luar.'
@@ -1705,16 +1707,17 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     references: [
       'https://www.powerpyx.com/dragons-dogma-2-tensions-on-the-highroad-walkthrough/',
       'https://game8.co/games/Dragons-Dogma-2/archives/Tensions-on-the-Highroad',
-      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-tensions-on-the-highroad-walkthrough/'
+      'https://samurai-gamers.com/dragons-dogma-2/dd2-vernworth-side-quest-tensions-on-the-highroad-walkthrough/',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
   },
   {
-    id: 'clash_conclusion', title: 'Clash and Conclusion', original: 'Clash and Conclusion',
+    id: 'clash_conclusion', title: 'Confronto Final', original: 'Clash and Conclusion',
     region: 'Ilha Vulcânica de Agamen — Torre do Luar (Moonglint Tower)',
     giver: 'Raghnall, que intercepta o caminho durante O Guardião Gigantus',
     relatedEventIds: ['p06'],
     preparation: [
-      'TÍTULO PT-BR NÃO COMPROVADO. Esta luta é CONDICIONAL: fontes indicam que é necessário ter concluído Tensions on the Highroad antes de subir a Torre do Luar.',
+      'Título PT-BR Confronto Final pareado no catálogo Kiranico PT-BR (sem teste em save). Esta luta é CONDICIONAL: fontes indicam que é necessário ter concluído Tensions on the Highroad antes de subir a Torre do Luar.',
       'É um duelo com Raghnall durante a história principal O Guardião Gigantus. Não é necessário carregar item de entrega ou falsificação.',
       'A derrota de Raghnall pode matá-lo. Game8 menciona possibilidade de ressuscitá-lo com Wakestone, mas sem benefício adicional observado; não prometa consequência positiva nem a exija.'
     ],
@@ -1729,7 +1732,8 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     completion: 'Raghnall é vencido na Torre do Luar, a passagem fica livre e a história principal pode prosseguir. O encontro depende da cadeia anterior.',
     references: [
       'https://www.powerpyx.com/dragons-dogma-2-clash-and-conclusion-walkthrough/',
-      'https://game8.co/games/Dragons-Dogma-2/archives/Clash-and-Conclusion'
+      'https://game8.co/games/Dragons-Dogma-2/archives/Clash-and-Conclusion',
+      'https://dragonsdogma2.kiranico.com/pt-BR/data/quests'
     ]
   },
 ];
