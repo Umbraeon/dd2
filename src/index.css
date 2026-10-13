@@ -874,6 +874,3 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   }
 }
 
-/* Em zoom fracionário o raster pode deixar fendas subpixel nas bordas dos tiles.
-   Um pixel de sobreposição evita riscas claras, sem alterar as coordenadas. */
-.independent-map-dialog .leaflet-container.dd2-fractional-zoom .leaflet-tile { width:257px !important; height:257px !important; }
