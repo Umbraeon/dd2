@@ -105,7 +105,7 @@ test('coroação: cinco fichas preventivas antes do Banquete, sem antecipar Wilh
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
   await expect(panel.locator('details')).toHaveCount(5);
   await expect(panel.locator('#quest-guide-every_rose')).toHaveCount(0);
-  await expect(panel.locator('#quest-guide-unsettling_encounter')).toHaveCount(0);
+  await expect(panel.locator('#quest-guide-unsettling_encounter')).toBeVisible();
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
   await expect(feast).toContainText('Quando Brant perguntar se você está pronto');
