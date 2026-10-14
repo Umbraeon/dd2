@@ -21,6 +21,8 @@ export interface QuestEvent {
   suggestionTiming?: 'ongoing';
   /** Explicit verified risk attributes separating timed vs missable vs general alert. */
   isTimed?: boolean;
+  /** Explicit starting condition for a time limit; never inferred from selected/current progress. */
+  timedTrigger?: string;
   isMissable?: boolean;
 }
 

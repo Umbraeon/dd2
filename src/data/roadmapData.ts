@@ -675,6 +675,7 @@ export const PHASES: Phase[] = [
         extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
         failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias.",
         isTimed: true,
+        timedTrigger: "aceitar ajudar Wilhelmina na missão As Rosas Têm Espinhos",
         isMissable: true,
         prerequisites: "Concluir 'O Banquete da Farsa' e ter conhecido Wilhelmina nas investigações do castelo. O gatilho pode exigir afinidade e visitas no período noturno."
       },

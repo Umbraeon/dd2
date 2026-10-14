@@ -36,9 +36,10 @@ test('diário conserva categorias nas atividades sem exibir a legenda global pol
     const timed = byId('v302');
     await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(timed.phase.id);
     const timedRow = page.getByRole('button', { name: `Consultar atividade: ${timed.event.title}` });
-    await expect(timedRow.locator('.journey-risk-indicator')).toHaveAttribute('aria-label', 'Temporizada e perdível');
+    await expect(timedRow.locator('.journey-risk-indicator')).toHaveAttribute('aria-label', 'Prazo após gatilho e perdível');
     await timedRow.click();
-    await expect(page.locator('.quest-detail [data-journey-risk="timed"]')).toHaveText('Temporizada');
+    await expect(page.locator('.quest-detail [data-journey-risk="timed"]')).toHaveText('Prazo após gatilho');
+    await expect(page.locator('.quest-detail [data-journey-risk="timed"]')).toHaveAttribute('title', /aceitar ajudar Wilhelmina/);
     await expect(page.locator('.quest-detail [data-journey-risk="missable"]')).toHaveText('Perdível');
     if (width < 600) await page.getByRole('button', { name: 'Voltar à lista de missões' }).click();
 
