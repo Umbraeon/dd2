@@ -1,6 +1,6 @@
 /**
- * Guias de missões verificadas em fontes independentes; não confundir com os 53
- * marcos editoriais do roteiro, que agrupam várias missões.
+ * Guias de missões verificadas em fontes independentes; não confundir com os marcos editoriais da Jornada,
+ * que podem agrupar várias missões e têm contagem variável.
  * Títulos de itens mágicos em EN evitam traduções PT-BR sem prova primária.
  */
 export interface QuestGuide {
