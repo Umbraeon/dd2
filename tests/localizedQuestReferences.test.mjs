@@ -44,7 +44,7 @@ test('avisos de coroação e saves não garantem perda irreversível ou rollback
 test('IDs, totais e índice de 82 referências não foram alterados', () => {
   const events = PHASES.flatMap(phase => phase.events);
   const achievements = PHASES.flatMap(phase => phase.achievements);
-  assert.equal(events.length, 71);
+  assert.equal(events.length, 72);
   assert.equal(achievements.length, 60);
   assert.equal(RISK_CHECKPOINTS.length, 4);
   assert.equal(QUEST_NAME_INDEX.length, 82);
