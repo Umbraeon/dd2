@@ -187,6 +187,12 @@ export const Consultation: React.FC<Props> = ({
                   <option key={phase.id} value={phase.id}>{String(index + 1).padStart(2, '0')} · {phase.slug}</option>
                 )}
               </select>
+              {activePhase.id === 'melve' && (
+                <div className="consult-route-next" role="note">
+                  <p><strong>Retorno a Melve:</strong> Problemas Aninhados, Flora e Norbert acontecem na vila, após a chegada à capital no roteiro.</p>
+                  <button type="button" onClick={() => onOpenEvent('m04')}>Ver etapa do retorno a Melve <ChevronRight size={15} aria-hidden="true" /></button>
+                </div>
+              )}
               {matchingEvents.length ? (
                 <ChapterSection key={activePhase.id} phase={activePhase} visibleEventIds={matchingEvents.map(event => event.id)}
                   phases={phases} progress={progress} onToggleEvent={onToggleEvent}
