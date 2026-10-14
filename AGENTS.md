@@ -26,6 +26,14 @@ Foco na legibilidade, baixa carga cognitiva, controles móveis e retomada após 
 - PRs pequenos, com objetivo verificável, checklist de regressão, screenshots reais quando pertinente, testes executados e riscos remanescentes. Não fazer merge em falha de CI ou quando houver regressão relevante. Permissão para merge não substitui critérios de qualidade.
 - O aplicativo deve permanecer útil se imagens externas ou Google Fonts falharem; não depender de geração de conteúdo ou Gemini em tempo de execução para a jornada básica.
 
+## Regras de roteamento (14/10/2026)
+
+- A ordem da Jornada é **sugestão editorial, não dependência universal**. Priorizar: **disponibilidade documentada e eventuais prazos/perda**, depois **mesma região e retorno já planejado**, depois **facilidade/custo de deslocamento**. Não presumir tempo de jogo ou distância exata sem dados.
+- Separar **local físico da missão** e **janela em que ela fica disponível**. Exemplo: `m04` é em Melve, embora o retorno ocorra depois da chegada a Vernworth. `b05` começa em Vernworth depois de visitar Bakbattahl; `b11` exige `b10` mas se inicia ao retornar a Vernworth.
+- Missões paralelas não têm ordem obrigatória; a sequência recomendada pode mudar quando o jogador encontra a missão disponível. Não inventar gatilhos; registrar divergências.
+- Marcos `suggestionTiming: 'ongoing'` continuam pendentes, mas não travam a próxima sugestão: colecionáveis, casa e objetivos cumulativos podem ser concluídos depois.
+- Não duplicar marcos nem adicionar caixas ou legendas para explicar deslocamentos: uma indicação de local no título/nota e, quando necessário, um único atalho contextual bastam.
+
 ## Fluxo de decisão
 
 1. Formule a necessidade real do jogador e a evidência.
@@ -34,4 +42,4 @@ Foco na legibilidade, baixa carga cognitiva, controles móveis e retomada após 
 4. Implemente com testes e revise como adversário honesto da sua própria solução.
 5. Reporte o que funcionou, o que falhou, o que ficou incerto, o próximo passo. Peça decisão do usuário somente quando escolha material ou irreversível depender dele.
 
-**Entrada do próximo Head:** leia o handoff de encerramento mais recente, confira no GitHub os PRs #7 e #8 (ambos integrados em 09/10/2026) e o CI da `main`; não retome a Missão 03, a Missão 04 ou um redesign sem nova solicitação do proprietário. O resultado visual do PR #8 foi integrado com ressalvas de UX e estética.
+**Estado operacional atual:** a Jornada passou pelos PRs #60, #62, #63, #64 e #65. O registro anterior de 53 marcos é histórico. Leia também `docs/implementation/higienizacao-jornada-2026-10-14.md` para as regras de roteamento e pendências editoriais. Os PRs #59 (mapa experimental) e #61 (implementação superada) NÃO são evidência de conteúdo aprovado.
