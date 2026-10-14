@@ -108,7 +108,7 @@ export const PHASES: Phase[] = [
         title: "Durante No Rastro do Dragão: Intruso de um Olho Só",
         type: "historia",
         journeyCategory: "main",
-        note: "Durante a escolta de Gregor de Melve para Vernworth em 'No Rastro do Dragão' (In Dragon's Wake), o ciclope da estrada bloqueada ativa 'Intruso de um Olho Só' (One-Eyed Interloper). DERROTE-O com Gregor e seus soldados; a quest curta termina ali, ANTES de chegar a Vernworth. Você pode derrubar o bloqueio perto da cachoeira para ajudar no combate. Depois, siga viagem e conclua 'No Rastro do Dragão' em Vernworth.",
+        note: "Durante a escolta de Gregor de Melve para Vernworth em 'No Rastro do Dragão' (In Dragon's Wake), o ciclope da estrada bloqueada corresponde a 'Intruso de um Olho Só' (One-Eyed Interloper). Derrote-o com Gregor e seus soldados antes de chegar a Vernworth. O combate ocorre durante a campanha, mas a missão breve nem sempre aparece separada no diário; o marco representa o encontro, não a exibição de um título. Você pode derrubar o bloqueio perto da cachoeira para ajudar no combate. Depois, siga viagem e conclua 'No Rastro do Dragão' em Vernworth.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-in-dragons-wake-walkthrough/",
