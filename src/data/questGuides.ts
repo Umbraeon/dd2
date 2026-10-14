@@ -138,7 +138,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'new_godsway', title: 'Um Novo Chamado Divino', original: 'A New Godsway',
     region: 'Bakbattahl, laboratório Forbidden Magick Research Lab sob Flamebearer Palace',
     giver: 'Ambrosius',
-    relatedEventIds: ['p04'],
+    relatedEventIds: ['p04', 'p07'],
     preparation: [
       'Conclua Convergence e tenha consigo a Dulled Godsbane Blade obtida com Rothais; então procure Ambrosius no Forbidden Magick Research Lab, sob o palácio de Bakbattahl.',
       'Antes de entregar os cristais e avançar para a missão seguinte, revise missões opcionais, conquistas de oportunidade única, equipamentos, vocações e os salvamentos que sua versão realmente permite recuperar.',
@@ -288,7 +288,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'beren_final_lesson', title: 'A Última Lição de Beren', original: "Beren's Final Lesson",
     region: 'Moonglow Garden; depois, Beren’s Childhood Home no lado de Battahl da fronteira',
     giver: 'Beren',
-    relatedEventIds: ['m03', 'p03'],
+    relatedEventIds: ['m07', 'p03'],
     preparation: [
       'Conclua Treino Leonino e avance a campanha pelo menos até O Trono do Sobran (Seat of the Sovran). Depois, reencontre Beren perto da tenda em Moonglow Garden.',
       'A técnica de Mestre da vocação Guerreiro é uma recompensa posterior, na casa de infância de Beren em Battahl; não termina automaticamente junto com a luta contra o ciclope.'
@@ -367,7 +367,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
     id: 'caged_magistrate', title: 'O Magistrado Aprisionado', original: 'The Caged Magistrate',
     region: 'Vernworth', giver: 'Capitão Brant',
-    relatedEventIds: ['v103'],
+    relatedEventIds: ['v111'],
     preparation: ['Brant entrega a Chave da Prisão. Se quiser continuar com uma chave funcional, solicite uma cópia a Ibrahim antes de concluir com Brant.'],
     steps: [
       'À noite, fale com Brant na taverna Stardrop Inn e aceite investigar Waldhar.',
@@ -547,7 +547,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
     id: 'disas_plot', title: 'O Plano de Disa', original: "Disa's Plot",
     region: 'Vernworth e Castelo de Vernworth', giver: 'Capitão Brant',
-    relatedEventIds: ['v301'],
+    relatedEventIds: ['v109'],
     preparation: ['Encontre Brant à noite na Stardrop Inn e pergunte sobre a rainha regente.', 'A investigação acontece no castelo durante a noite.'],
     steps: [
       'Aceite a missão com Brant, na Stardrop Inn, à noite.',
@@ -628,7 +628,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
     id: 'home_hearth', title: 'Lar é Onde o Coração Está', original: 'Home Is Where the Hearth Is',
     region: 'Melve e Aldeia de Harve', giver: 'Lennart',
-    relatedEventIds: ['v202', 'v303'],
+    relatedEventIds: ['v305'],
     preparation: ['Acompanhe a sequência de Ulrika em Harve e retorne a Melve para encontrar a vila ocupada por soldados.', 'Se ajudou Ian e Norbert anteriormente, os irmãos podem ajudar você a recuperar as armas.'],
     steps: [
       'Na entrada de Melve, converse com o guarda e consiga passagem para a vila.',
@@ -646,7 +646,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'monster_culling', title: 'Elimine os Monstros', original: 'Monster Culling',
     region: 'Vernworth, Mina de Trevo, Aldeia de Harve e Floresta Oriental',
     giver: 'Capitão Brant',
-    relatedEventIds: ['v201'],
+    relatedEventIds: ['v110'],
     preparation: [
       'Após chegar a Vernworth, fale com Brant na Stardrop Inn à noite e pergunte sobre o extermínio de monstros.',
       'Prepare-se para três locais diferentes; na Mina de Trevo há também armas ligadas a Frustração Vocacional.'
@@ -1055,7 +1055,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'in_dragons_wake', title: 'No Rastro do Dragão', original: "In Dragon's Wake",
     region: 'Vermund — Posto Avançado, Melve, estrada até Vernworth',
     giver: 'Após a hospedagem do posto, missão principal iniciada automaticamente',
-    relatedEventIds: ['m04', 'v101'],
+    relatedEventIds: ['v101'],
     preparation: [
       'Antes de deixar o posto de fronteira, considere concluir Provações de um Novo Recruta e Um Fornecedor em Apuros, cujas fichas já existem.',
       'Acompanhe Gregor até Vernworth. O capitão Brant NÃO é quem escolta você na estrada: a reunião com Brant ocorre na capital, posteriormente.'
@@ -1078,7 +1078,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'seat_sovran', title: 'O Trono do Sobran', original: 'Seat of the Sovran',
     region: 'Vernworth — Estalagem Stardrop, centro da cidade',
     giver: 'Capitão Brant, na Estalagem Stardrop à noite',
-    relatedEventIds: ['v101'],
+    relatedEventIds: ['v101', 'v108'],
     preparation: [
       'Após chegar a Vernworth em No Rastro do Dragão, procure Brant NA CIDADE, não no posto avançado.',
       'Converse com Brant à noite. Se ainda for dia, peça ao atendente da Estalagem Stardrop que avance o horário.'
@@ -1125,7 +1125,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'flickering_shadows', title: 'Sombras Trêmulas', original: 'Flickering Shadows',
     region: 'Battahl — Bakbattahl, Costa de Olta’Battahl, Santuário Reverente e Harve',
     giver: 'Início da investigação do chamado divino ao entrar em Bakbattahl',
-    relatedEventIds: ['b02', 'b04'],
+    relatedEventIds: ['b08'],
     preparation: [
       'Começa após Nação da Chama Luzente, quando você chega a Bakbattahl e busca informações sobre o chamado divino.',
       'Leve recursos de viagem: a missão percorre locais distantes e termina falando com o Ancião de Harve. O cristal azul PEQUENO para Ambrosius é obtido na costa, e não comprado.'
@@ -1149,7 +1149,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'convergence', title: 'Convergência', original: 'Convergence',
     region: 'Harve — Caverna da Tempestade e Templo Abissal (Santuário do Leito Marinho)',
     giver: 'Início automático após Sombras Trêmulas e conversa com o Ancião de Harve',
-    relatedEventIds: ['p04'],
+    relatedEventIds: ['b09'],
     preparation: [
       'Esta etapa é da HISTÓRIA PRINCIPAL, antes do Guardião Gigantus, e NÃO é a sequência de evacuação do Mundo Desancorado.',
       'O objeto Dulled Godsbane Blade (Sucessão Vil sem poder) é RECEBIDO de Rothais como recompensa, não um item exigido antes de entrar na caverna.'
@@ -1270,7 +1270,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'every_rose', title: 'As Rosas Têm Espinhos', original: 'Every Rose Has Its Thorn',
     region: 'Vernworth — Rose Chateau Bordelrie, Bairro Nobre; mansões de Patrick e Allard',
     giver: 'Wilhelmina, no Rose Chateau',
-    relatedEventIds: ['v302', 'v303'],
+    relatedEventIds: ['v302'],
     preparation: [
       'ALERTA DE PRAZO: depois que você oferecer ajuda a Wilhelmina, terá apenas TRÊS DIAS NO JOGO para investigar Allard. Reúna as duas provas antes de se distrair com outra missão.',
       'O gatilho pode exigir conhecer Wilhelmina nas missões O Trono Roubado/Um Encontro Perturbador, aumentar sua afinidade (flores ajudam) e voltar ao Rose Chateau à noite depois de algum tempo. Walkthroughs divergem sobre o limite da janela de ativação.',
