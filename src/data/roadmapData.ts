@@ -715,6 +715,17 @@ export const PHASES: Phase[] = [
         prerequisites: "Concluir 'De Volta a Battahl' e voltar a Vernworth antes do trecho final."
       },
       {
+        id: "b12",
+        title: "De volta a Vernworth: Uma Nobre Troca no baile",
+        type: "missao",
+        journeyCategory: "side",
+        note: "APÓS avançar para 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao retornar de Battahl a Vernworth, confira se o baile noturno no castelo oferece 'Uma Nobre Troca' (A Noble Exchange). É um evento de presente roubado, DIFERENTE de 'O Trono Roubado' (The Stolen Throne) e 'Correspondência Mascarada' (Masked Correspondence) da etapa inicial de Vernworth. O gatilho exato pode surgir em noites diferentes: se não estiver disponível, avance a campanha e retorne antes de 'Um Novo Chamado Divino'. Aproveite a ida à capital para aceitar 'A Inspiração de um Escultor' (A Case of Sculptor's Block) com Klark; sua conclusão ocorre em Battahl.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
+        prerequisites: "Ter avançado a partir de 'Nação da Chama Luzente'; disponibilidade do baile pode variar antes de 'Um Novo Chamado Divino'."
+      },
+      {
         id: "b03",
         title: "Proteja a família de Isaac em 'Ambição Cega' (Short-Sighted Ambition)",
         type: "checkpoint",
