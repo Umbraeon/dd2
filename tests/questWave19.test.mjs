@@ -21,7 +21,7 @@ test('onda 19: todos os 80 itens do roster PowerPyx histórico têm ficha distin
   assert.equal(report.summary.historicalSideWithoutGuide,0);
   assert.equal(QUEST_NAME_INDEX.length,82);
   assert.equal(PHASES.length,9);
-  assert.equal(PHASES.flatMap(p=>p.events).length,62);
+  assert.equal(PHASES.flatMap(p=>p.events).length,72);
   assert.equal(PHASES.flatMap(p=>p.achievements).length,60);
 });
 
@@ -43,7 +43,7 @@ test('escultor: opcional de Medusa e risco de estátua inferior',()=>{
 test('baile: esconder bastão roubado e apreender ladrão, com fontes divergentes',()=>{
   const guide=byId('noble_exchange');
   assert.equal(guide.title,'Uma Nobre Troca');
-  assert.ok(questGuidesForEvent('v104').some(q=>q.id===guide.id));
+  assert.ok(questGuidesForEvent('b12').some(q=>q.id===guide.id));
   for(const keyword of ['Olven','Paragon Staff','Descartar','7.500 G','3.000 G','60.000 G']){
     const text=[...guide.preparation,...guide.steps,guide.completion].join(' ');
     assert.ok(text.includes(keyword),keyword);

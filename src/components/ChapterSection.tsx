@@ -1,3 +1,4 @@
+import { JourneyCategoryBadge } from './JourneyCategoryBadge';
 import React from 'react';
 import { AlertTriangle, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
 import { Phase, QuestEvent, UserProgress } from '../types/roadmap';
@@ -169,7 +170,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                           </h4>
                         </div>
 
-                        <span className="text-[10px] uppercase font-mono text-[#aea79b]">{event.type}</span>
+                        <JourneyCategoryBadge event={event} />
                       </div>
 
                       {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && (

@@ -27,7 +27,7 @@ test('busca global por Jadeite abre guia individual sem criar progresso', async 
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Jadeite');
   const results = page.getByRole('region', { name: 'Resultados encontrados' });
-  await results.getByRole('button', { name: /Orbe de Jadeíta/ }).click();
+  await results.getByRole('button', { name: /^Guia de missão Orbe de Jadeíta/ }).click();
   await expect(page.getByRole('button', { name: 'Guias e cópias' })).toHaveAttribute('aria-pressed', 'true');
   const guide = page.locator('details').filter({ hasText: /Orbe de Jadeíta.*Hunt for the Jadeite Orb/ }).first();
   await expect(guide).toHaveAttribute('open', '');

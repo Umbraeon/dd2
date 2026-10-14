@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, Chevro
 import type { Phase, QuestEvent, UserProgress } from '../types/roadmap';
 import { AchievementPreview, InlineAchievements } from './InlineAchievements';
 import { QuestWalkthroughsForEvent } from './QuestGuides';
+import { JourneyCategoryBadge, JourneyCategoryLegend } from './JourneyCategoryBadge';
 import { isStepCompleted, isStepDeferred, listJourneySteps, resolveJourney } from '../utils/journey';
 
 const USER_PANORAMA = '/assets/gemini-codex-panorama.webp';
@@ -89,6 +90,7 @@ export const QuestCodex: React.FC<Props> = ({
             {phases.map((p, i) => <option key={p.id} value={p.id}>{String(i + 1).padStart(2, '0')} · {p.slug}</option>)}
           </select>
           <p className="quest-chapter-subtitle">{phase.title} · {phase.subtitle}</p>
+          <JourneyCategoryLegend />
         </div>
         <div className="quest-master-scroll" role="list" aria-label={`Atividades de ${phase.slug}`}>
           {filteredEvents.map(e => {
@@ -106,6 +108,7 @@ export const QuestCodex: React.FC<Props> = ({
                 </span>
                 <span className="quest-row-main">
                   <strong>{e.title}</strong>
+                  <JourneyCategoryBadge event={e} />
                   {(isActive || isSuggested || isDeferred || e.achievements.length > 0) && (
                     <span className="quest-row-meta">
                       {(isActive || isSuggested || isDeferred) && <small>
@@ -144,7 +147,7 @@ export const QuestCodex: React.FC<Props> = ({
               {imageKind === 'promo' && <figcaption>Arte promocional © CAPCOM</figcaption>}
             </figure>
             <div className="quest-detail-body">
-              <p className="quest-detail-chapter">{displayed?.phase.slug} <span aria-hidden="true">·</span> {event.type.toUpperCase()}</p>
+              <p className="quest-detail-chapter">{displayed?.phase.slug} <span aria-hidden="true">·</span> <JourneyCategoryBadge event={event} /></p>
               <h2 id="quest-detail-heading">{event.title}</h2>
               <div className="quest-state-row">
                 <span>{active ? 'ATIVIDADE FIXADA COMO ATUAL' : suggestion ? 'SUGESTÃO DO ROTEIRO' : completed ? 'CONCLUÍDA' : deferred ? 'ADIADA' : 'APENAS EM CONSULTA'}</span>

@@ -806,3 +806,32 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   .consult-sections { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .consult-sections button { min-width:0; gap:6px; }
 }
+
+
+/* Distinguish timeline category from risk/completion: text + icon + outline never color alone. */
+.journey-kind {
+  display:inline-flex; align-items:center; gap:4px; width:fit-content; max-width:100%;
+  border:1px solid; border-radius:3px; padding:3px 7px;
+  font:650 10px/1.25 'Plus Jakarta Sans',system-ui,sans-serif;
+  letter-spacing:.035em; text-transform:uppercase; text-align:left;
+  white-space:normal;
+}
+.journey-kind svg { shrink:0; }
+.journey-kind--main { color:#ead3a6; border-color:#907049; background:#4a3820; }
+.journey-kind--side { color:#cce3ef; border-color:#607f97; background:#273a46; }
+.journey-kind--during { color:#b2ece1; border-color:#3e877c; background:#1c3e38; }
+.journey-kind--exploration, .journey-kind--optional { color:#e2e8f0; border-color:#64748b; background:#242f3e; }
+.journey-kind--point_of_no_return { color:#ffd3c3; border-color:#bc6b51; background:#5e3028; }
+.journey-kind--timed { color:#fed7aa; border-color:#c2410c; background:#451a03; }
+.journey-kind-legend {
+  display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+  padding:9px 0 3px; max-width:100%;
+}
+.journey-kind-legend .journey-kind { font-size:9px; padding:2px 6px; }
+.quest-row-main > .journey-kind, .quest-row-main > .journey-badges-wrapper { margin:3px 0 1px; }
+.quest-detail-chapter .journey-kind, .quest-detail-chapter .journey-badges-wrapper { vertical-align:middle; letter-spacing:.035em; }
+.consultation .journey-kind-legend { margin:5px 0 10px; }
+@media(max-width:600px) {
+  .journey-kind-legend { gap:4px; }
+  .journey-kind-legend .journey-kind { font-size:8.5px; padding:2px 5px; gap:3px; }
+}
