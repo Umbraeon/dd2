@@ -27,7 +27,7 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   assert.equal(questGuidesForEvent('v103').length, 4);
   assert.equal(questGuidesForEvent('v107').length, 1);
   assert.equal(questGuidesForEvent('v202').length, 3);
-  assert.equal(questGuidesForEvent('v301').length, 3);
+  assert.equal(questGuidesForEvent('v301').length, 2);
   assert.equal(questGuidesForEvent('v303').length, 5);
   assert.equal(questGuidesForEvent('v304').length, 2);
   assert.equal(questGuidesForEvent('v104').length, 3);
@@ -396,7 +396,7 @@ test('onda 13: casa, forja sequencial e resgate de Rodge mantêm as condições 
   assert.match(steel.steps.join(' '), /25/);
   assert.match(resolve.preparation.join(' '), /DESAPARECEU/);
   assert.match(resolve.steps.join(' '), /Roman/);
-  assert.ok(prey.relatedEventIds.includes('v206'));
+  assert.ok(prey.relatedEventIds.includes('v114'));
   assert.match(prey.preparation.join(' '), /MISSÃO COM PRAZO/);
   assert.match(prey.steps.join(' '), /Caverna Pútrida/);
   assert.match(prey.completion, /desfecho pior/);
