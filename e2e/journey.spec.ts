@@ -54,6 +54,25 @@ test('new player: current/suggested step in first screen, no storage writes, fou
   expect(await storage(page)).toBeNull();
 });
 
+
+test('Melve e Ulrika mostram pré-requisitos e alerta perdível sem registrar progresso', async ({ page }) => {
+  for (const [width, height] of [[390, 844], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    for (const id of ['m04', 'v107']) {
+      const entry = all.find(({ event }) => event.id === id);
+      expect(entry).toBeDefined();
+      await page.goto('/');
+      await page.getByRole('combobox', { name: 'Capítulo' }).selectOption(entry!.phase.id);
+      await page.getByRole('button', { name: `Consultar atividade: ${entry!.event.title}` }).click();
+      const detail = page.locator('.quest-detail');
+      await expect(detail.getByRole('heading', { name: 'Antes de começar' })).toBeVisible();
+      await expect(detail.getByRole('heading', { name: 'Antes de avançar' })).toBeVisible();
+      await expect(detail).toContainText(id === 'm04' ? 'Norbert' : 'O Banquete da Farsa');
+      expect(await storage(page)).toBeNull();
+    }
+  }
+});
+
 test('20/62: screenshot on four viewports, active suggestion is not assumed position', async ({ page }) => {
   const state = original();
   steps.slice(0, 20).forEach(event => { state.steps[event.id] = true; });
