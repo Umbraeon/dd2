@@ -337,7 +337,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
   {
     id: 'jadeite', title: 'Orbe de Jadeíta', original: 'Hunt for the Jadeite Orb',
     region: 'Cidade de Descanso da Fronteira', giver: 'Offulve e Everard',
-    relatedEventIds: [],
+    relatedEventIds: ['v114'],
     preparation: ['Reserve ouro para comprar o orbe e solicitar a falsificação.', 'É preciso distinguir claramente original e cópia no inventário.'],
     steps: [
       'Converse com Offulve e Everard, que procuram o mesmo orbe.',
@@ -1055,7 +1055,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'in_dragons_wake', title: 'No Rastro do Dragão', original: "In Dragon's Wake",
     region: 'Vermund — Posto Avançado, Melve, estrada até Vernworth',
     giver: 'Após a hospedagem do posto, missão principal iniciada automaticamente',
-    relatedEventIds: ['v101'],
+    relatedEventIds: ['m08', 'v101'],
     preparation: [
       'Antes de deixar o posto de fronteira, considere concluir Provações de um Novo Recruta e Um Fornecedor em Apuros, cujas fichas já existem.',
       'Acompanhe Gregor até Vernworth. O capitão Brant NÃO é quem escolta você na estrada: a reunião com Brant ocorre na capital, posteriormente.'
@@ -1246,7 +1246,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'prey_for_pack', title: 'A Presa da Alcateia', original: 'Prey for the Pack',
     region: 'Cidade de Descanso da Fronteira — estrada a leste e Caverna Pútrida',
     giver: 'Morris, dono da farmácia na Cidade de Descanso da Fronteira',
-    relatedEventIds: ['v206'],
+    relatedEventIds: ['v114'],
     preparation: [
       'MISSÃO COM PRAZO: Rodge foi levado por lobos. Ao ativá-la, vá imediatamente resgatá-lo. O prazo exato não está confirmado e pode variar; NÃO durma dias para procurar pistas.',
       'Você pode ir diretamente à Caverna Pútrida (Putrid Cave), a leste da cidade, sem conversar com todos os moradores. Não há item obrigatório de inventário.'
@@ -1449,7 +1449,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'blue_sunbright_house', title: 'A Casa da Luz-Solaris Azul', original: 'House of the Blue Sunbright',
     region: 'Vernworth — Cortiços, Bairro Nobre e Mansão Townsend; estrada para Melve',
     giver: 'Diana, criada da família Townsend, após A Dádiva da Caridade',
-    relatedEventIds: ['v103'],
+    relatedEventIds: ['v112'],
     preparation: [
       'Complete A Dádiva da Caridade (The Gift of Giving) para ajudar Daphne. A missão seguinte depende dela e da aproximação da criada Diana.',
       'Antes de permitir a viagem de Sebastian, reúna TRÊS suprimentos: Misshapen Eye (olho disforme de ciclope), Detoxifying Decoction (antídoto) e Waking Powder (pó despertador).',
@@ -1475,7 +1475,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'gift_giving', title: 'A Dádiva da Caridade', original: 'The Gift of Giving',
     region: 'Vernworth — Cortiços e Casa Mãos Caridosas',
     giver: 'Daphne, menina que circula pelos Cortiços',
-    relatedEventIds: ['v103'],
+    relatedEventIds: ['v112'],
     preparation: [
       'É a missão que antecede A Casa da Luz-Solaris Azul: termine os pedidos de Daphne antes de procurar Diana e Sebastian na Mansão Townsend.',
       'Prepare 1 Bunch of Flowers (buquê de flores), 1 Silver Ore (minério de prata), 2 Gold Ore (minérios de ouro) e remédios contra intoxicação.',
@@ -1528,7 +1528,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'magisterial_amenity', title: 'Cortesia Magisterial', original: 'A Magisterial Amenity',
     region: 'Vernworth — arquivo subterrâneo da Casa Mãos Caridosas e Salão de Máscaras do castelo',
     giver: 'Waldhar, no arquivo sob os Cortiços, após O Magistrado Aprisionado',
-    relatedEventIds: ['v103', 'v301'],
+    relatedEventIds: ['v113'],
     preparation: [
       'Conclua O Magistrado Aprisionado e A História sob a Profundez para liberar o arquivo subterrâneo onde Waldhar passa a estudar. Converse repetidas vezes com ele até receber a busca pelos óculos.',
       'Os Exquisite Spectacles (óculos requintados) estão em um depósito atrás do Salão de Máscaras do castelo. Vá durante o DIA para evitar exigência de traje nobre durante um baile.',
@@ -1553,7 +1553,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'gossamer_clouds', title: 'Um Véu de Finas Nuvens', original: 'A Veil of Gossamer Clouds',
     region: 'Vernworth — quarto de Sven no Castelo; Bakbattahl — Laboratório de Pesquisa de Magia Proibida',
     giver: 'Sven, em seus aposentos no segundo andar do Castelo de Vernworth',
-    relatedEventIds: ['v304', 'b02'],
+    relatedEventIds: ['v306'],
     preparation: [
       'Começa depois de O Banquete da Farsa. Sven entrega uma Unfinished Letter; para a MELHOR RECOMPENSA, investigue Phaesus no laboratório em Bakbattahl ANTES de encerrar a missão.',
       'Há dois caminhos com recompensas diferentes: analisar a carta com Waldhar pode encerrar mais cedo, com menos ouro e SEM Ferrystone; investigar o laboratório e entregar a Letter to Lord Phaesus concede a recompensa maior.',
@@ -1660,7 +1660,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'welcome_battahl', title: 'De Volta a Battahl', original: 'Welcome to Battahl',
     region: 'Bakbattahl — Bairro Mercantil, em frente à taverna Wanderer’s Haven',
     giver: 'Roger e seus valentões abordam o Nascen ao se aproximar da taverna',
-    relatedEventIds: ['b02'],
+    relatedEventIds: ['b10'],
     preparation: [
       'Título PT-BR De Volta a Battahl pareado no catálogo Kiranico PT-BR, sem confirmação direta em save do jogo. A abordagem ocorre após chegar a Bakbattahl, normalmente na sequência de Nação da Chama Luzente.',
       'Essa missão apresenta o mercenário RAGHNALL e é o pré-requisito narrativo documentado de Tensions on the Highroad.',
@@ -1687,7 +1687,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'tensions_highroad', title: 'Tensão na Estrada', original: 'Tensions on the Highroad',
     region: 'Vernworth → estrada do Posto de Controle da Fronteira → Caverna Guerco',
     giver: 'Simon, soldado próximo à estação norte de carroças de Vernworth',
-    relatedEventIds: ['v304', 'b02'],
+    relatedEventIds: ['b11'],
     preparation: [
       'Título PT-BR Tensão na Estrada pareado no catálogo Kiranico PT-BR (sem teste em save). Depois de Welcome to Battahl, RETORNE a Vernworth e procure Simon perto da estação norte/fonte. Não assuma que a missão dispara antes da apresentação de Raghnall.',
       'Simon pede escolta de Ser Augustin, opositor político da rainha regente. O objetivo muda após a intervenção de Raghnall; a carroça NÃO é o objetivo final.',
@@ -1715,7 +1715,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'clash_conclusion', title: 'Confronto Final', original: 'Clash and Conclusion',
     region: 'Ilha Vulcânica de Agamen — Torre do Luar (Moonglint Tower)',
     giver: 'Raghnall, que intercepta o caminho durante O Guardião Gigantus',
-    relatedEventIds: ['p06'],
+    relatedEventIds: ['p08'],
     preparation: [
       'Título PT-BR Confronto Final pareado no catálogo Kiranico PT-BR (sem teste em save). Esta luta é CONDICIONAL: fontes indicam que é necessário ter concluído Tensions on the Highroad antes de subir a Torre do Luar.',
       'É um duelo com Raghnall durante a história principal O Guardião Gigantus. Não é necessário carregar item de entrega ou falsificação.',
@@ -1890,7 +1890,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'one_eyed_interloper', title: 'Intruso de um Olho Só', original: 'One-Eyed Interloper',
     region: 'Vermund — estrada com Gregor em direção a Vernworth',
     giver: 'Progressão automática ao acompanhar Gregor em No Rastro do Dragão',
-    relatedEventIds: ['v101'],
+    relatedEventIds: ['m09'],
     preparation: [
       'Missão principal curta de combate no caminho para a capital. Ela surge ao seguir Gregor; não exige procurar um NPC diferente para aceitá-la.',
       'O deslizamento e a cachoeira podem ser usados na luta. A Missive to the Captain (carta ao capitão) é recebida de Gregor APÓS o combate, não é um item que você precise obter previamente.',
