@@ -27,6 +27,63 @@ async function browse(page: Page, index: number) {
 }
 const storage = (page: Page) => page.evaluate(key => localStorage.getItem(key), key);
 
+test('voltar à etapa atual após navegar por outro capítulo preserva o progresso v3 em mobile e desktop', async ({ page }) => {
+  const target = all.find(step => step.event.id === 'b05')!;
+  const state = { ...original(), activeStepId: target.event.id };
+  await seed(page, state);
+  for (const [width, height] of [[390, 844], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    const chapter = page.getByRole('combobox', { name: 'Capítulo' });
+    await expect(chapter).toHaveValue(target.phase.id);
+    const before = await storage(page);
+    await chapter.selectOption('melve');
+    const shortcut = page.getByRole('button', { name: 'Voltar à etapa atual' });
+    await expect(shortcut).toBeVisible();
+    await shortcut.click();
+    await expect(chapter).toHaveValue(target.phase.id);
+    const row = page.getByRole('button', { name: `Consultar atividade: ${target.event.title}` });
+    await expect(row).toHaveAttribute('aria-current', 'true');
+    await expect(row).toBeFocused();
+    expect(await storage(page)).toBe(before);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+  }
+});
+
+test('informação secundária permanece na mesma linha, e voltar à sugestão não altera salvamento', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const first = PHASES[0].events[0];
+  const row = page.getByRole('button', { name: `Consultar atividade: ${first.title}` });
+  const type = row.locator('.quest-row-meta .journey-kind');
+  const state = row.locator('.quest-row-meta small');
+  await expect(type).toBeVisible();
+  await expect(state).toHaveText('SUGERIDA');
+  const typeBox = await type.boundingBox();
+  const stateBox = await state.boundingBox();
+  expect(typeBox).not.toBeNull();
+  expect(stateBox).not.toBeNull();
+  expect(Math.abs(typeBox!.y - stateBox!.y)).toBeLessThan(8);
+
+  await page.getByRole('button', { name: `Consultar atividade: ${PHASES[0].events[1].title}` }).click();
+  await page.getByRole('button', { name: 'Voltar à sugestão' }).click();
+  await expect(row).toHaveAttribute('aria-current', 'true');
+  expect(await storage(page)).toBeNull();
+});
+
+test('retorno à atividade concluída ou adiada preserva filtros e não fabrica progresso', async ({ page }) => {
+  const first = PHASES[0].events[0];
+  await seed(page, { ...original(), activeStepId: first.id, steps: { [first.id]: true } });
+  await page.goto('/');
+  await expect(page.getByRole('button', { name: 'Concluídas', exact: false })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Em andamento', exact: false }).click();
+  const before = await storage(page);
+  await page.getByRole('button', { name: 'Rever etapa concluída' }).click();
+  await expect(page.getByRole('button', { name: 'Concluídas', exact: false })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: `Consultar atividade: ${first.title}` })).toHaveAttribute('aria-current', 'true');
+  expect(await storage(page)).toBe(before);
+});
+
 test('new player: current/suggested step in first screen, no storage writes, four real screenshots', async ({ page }) => {
   mkdirSync('test-results/screenshots', { recursive: true });
   for (const [width, height] of [[375, 812], [390, 844], [1440, 900], [1920, 1080]]) {
