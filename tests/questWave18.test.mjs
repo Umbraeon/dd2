@@ -53,7 +53,7 @@ test('onda 18: cadeia de Raghnall exige apresentação, escolta e duelo na torre
   assert.match(clash.steps.join(' '),/O Guardião Gigantus/);
   assert.match(clash.steps.join(' '),/Wakestone/);
   assert.match(clash.steps.join(' '),/Taleef/);
-  assert.ok(questGuidesForEvent('p06').some(q=>q.id==='clash_conclusion'));
+  assert.ok(questGuidesForEvent('p08').some(q=>q.id==='clash_conclusion'));
 });
 
 test('onda 18: 4 títulos PT-BR pareados em Kiranico, sem alegar extração PAK', () => {
@@ -67,6 +67,6 @@ test('onda 18: 4 títulos PT-BR pareados em Kiranico, sem alegar extração PAK'
   }
   assert.equal(QUEST_GUIDES.length,82);
   assert.equal(QUEST_NAME_INDEX.length,82);
-  assert.equal(PHASES.flatMap(p=>p.events).length,62);
+  assert.equal(PHASES.flatMap(p=>p.events).length,71);
   assert.equal(new Set(PHASES.flatMap(p=>p.achievements.map(a=>a.id))).size,60);
 });
