@@ -6,7 +6,6 @@ import { ChapterSection } from './ChapterSection';
 import { AchievementCard } from './AchievementCard';
 import { AchievementMiniIcon } from './InlineAchievements';
 import { QuestGuideLibrary } from './QuestGuides';
-import { JourneyCategoryLegend } from './JourneyCategoryBadge';
 import { QUEST_GUIDES } from '../data/questGuides';
 import { QUEST_ITEM_REQUIREMENTS } from '../data/questItemRequirements';
 
@@ -182,7 +181,6 @@ export const Consultation: React.FC<Props> = ({
                 <div><p className="consult-eyebrow">ROTEIRO CRONOLÓGICO</p><h2 id="consult-missions-title">Missões</h2></div>
                 <span>{totalEvents} marcos · {phases.length} capítulos</span>
               </div>
-              <JourneyCategoryLegend />
               <label htmlFor="consult-chapter" className="consult-label">Capítulo do roteiro</label>
               <select id="consult-chapter" className="consult-chapter-select" value={activePhase.id} onChange={e => onChapterChange(e.target.value)}>
                 {phases.map((phase, index) =>
