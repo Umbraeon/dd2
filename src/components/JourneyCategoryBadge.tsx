@@ -33,6 +33,8 @@ export function JourneyCategoryBadge({ event, compact = false }: { event: QuestE
   const kind = journeyCategoryForEvent(event);
   const isTimed = !!event.isTimed;
   const isMissable = !!event.isMissable;
+  const timedLabel = event.timedTrigger ? 'Prazo após gatilho' : 'Temporizada';
+  const timedDescription = event.timedTrigger ? `Prazo começa: ${event.timedTrigger}` : (event.failureRisk || 'Missão temporizada');
   const isGeneralAlert = !isTimed && !isMissable &&
     (event.risk === 'critico' || event.risk === 'alerta') && !!event.failureRisk;
 
@@ -47,8 +49,8 @@ export function JourneyCategoryBadge({ event, compact = false }: { event: QuestE
           <span
             className="journey-risk-indicator"
             role="img"
-            aria-label={isTimed && isMissable ? 'Temporizada e perdível' : isTimed ? 'Temporizada' : 'Perdível'}
-            title={event.failureRisk || (isTimed ? 'Temporizada' : 'Perdível')}
+            aria-label={isTimed && isMissable ? `${timedLabel} e perdível` : isTimed ? timedLabel : 'Perdível'}
+            title={isTimed ? timedDescription : (event.failureRisk || 'Perdível')}
           >
             {isTimed ? <Clock size={12} aria-hidden="true" /> : <AlertTriangle size={12} aria-hidden="true" />}
           </span>
@@ -56,9 +58,9 @@ export function JourneyCategoryBadge({ event, compact = false }: { event: QuestE
       ) : (
         <>
           {isTimed && (
-            <span className="journey-kind journey-kind--timed" data-journey-risk="timed" title={event.failureRisk || 'Missão temporizada'}>
+            <span className="journey-kind journey-kind--timed" data-journey-risk="timed" title={timedDescription}>
               <Clock size={12} aria-hidden="true" />
-              <span>Temporizada</span>
+              <span>{timedLabel}</span>
             </span>
           )}
           {isMissable && (
