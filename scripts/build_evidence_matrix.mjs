@@ -95,8 +95,8 @@ const matrixData = [
       { name: "Game8 (Spellbound)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Spellbound" }
     ],
     evidence: "Beren pede 3 espadas e recruta; Trysha exige grimórios autênticos para ensinar maestria sem enlouquecer com cópias.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
+    divergence: "PowerPyx situa missões de Ian e Flora após O Trono do Sobran, enquanto Game8 recomenda conferir Ian na primeira passagem. O marco de Beren/Trysha não determina o gatilho de Melve.",
+    confidence: "PROVÁVEL",
     proposal: "Mantido em Melve com aviso visual de grimórios"
   },
   {
@@ -237,20 +237,20 @@ const matrixData = [
   },
   {
     id: "m04",
-    content: "Retorne a Melve: Problemas Aninhados, Flora e Norbert (Marco agregador de 3 secundárias de Melve)",
-    quests: "Remédio de Flora, Problemas Aninhados, Irmãos Valentes e Tímidos / Medicament Predicament, Nesting Troubles, Brothers Brave and Timid",
+    content: "Em Melve: Problemas Aninhados, Flora e resgate de Norbert (três secundárias locais)",
+    quests: "Problemas Aninhados, Bravura Revigorante, A Tímida Bravura dos Irmãos / Nesting Troubles, Medicament Predicament, Brothers Brave and Timid",
     location: "Melve e arredores",
     mainQuest: "Nenhuma",
     relation: "OPCIONAL_NA_ROTA",
     moment: "Capítulo 02 · Vernworth e retorno a Melve (Retorno conveniente pela carroça de Donovan)",
-    prerequisites: "PowerPyx e Game8 indicam Problemas Aninhados após No Rastro do Dragão; relatos de acesso na primeira visita divergem. Flora e Ian têm condições próprias.",
-    risk: "Perdível (canceladas se o ataque do dragão ou a coroação avançarem sem falar com os NPCs)",
+    prerequisites: "Nesting Troubles depois de No Rastro do Dragão segundo PowerPyx; Flora e Ian após iniciar O Trono do Sobran. Game8 recomenda conferir Ian antes. Tarefas distintas, não janela universal.",
+    risk: "Perdível em particular o resgate de Norbert após ataque do dragão; não afirmar que todas as três expiram juntas.",
     sources: [
       { name: "PowerPyx (Nesting Troubles)", url: "https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/" },
       { name: "Game8 (Nesting Troubles)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles" }
     ],
-    evidence: "PowerPyx e Game8 confirmam Melve como local e o retorno após No Rastro do Dragão para Problemas Aninhados. As outras missões do marco exigem verificação separada.",
-    divergence: "Algumas fontes relatam o início de Problemas Aninhados já na primeira visita; não há consenso para tratar como regra universal.",
+    evidence: "Três missões em Melve com NPCs e momentos independentes. Ian e Norbert podem auxiliar a obter espadas em Home Is Where the Hearth Is mas não são pré-requisito.",
+    divergence: "PowerPyx e Game8 não concordam integralmente na primeira janela de Ian; não impor regra universal.",
     confidence: "PROVÁVEL",
     proposal: "Mantido ID m04, com acesso pelo capítulo Melve e momento de retorno explícito"
   },
@@ -344,10 +344,10 @@ const matrixData = [
       { name: "PowerPyx (Monster Culling)", url: "https://www.powerpyx.com/dragons-dogma-2-monster-culling-walkthrough/" },
       { name: "Game8 (Monster Culling)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Monster-Culling" }
     ],
-    evidence: "Três destacamentos militares combatem goblins e sauris; vitória nos 3 locais avança o relatório a Brant.",
+    evidence: "Monster Culling passa por três frentes; na saída de Stormwind Cave em Harve, o jogador pode iniciar Scaly Invaders com Fyoran e lutar a primeira onda, sem concluir a secundária naquele momento.",
     divergence: "Nenhuma",
     confidence: "CORROBORADO",
-    proposal: "Mantido como marco principal de combate (v110)"
+    proposal: "Concentrar objetivos de Harve na ida do Monster Culling sem prometer conclusão de Scaly Invaders."
   },
   {
     id: "v105",
@@ -429,60 +429,60 @@ const matrixData = [
   // --- FASE 3: VERNWORTH 2 ---
   {
     id: "v201",
-    content: "Investigue O Vilarejo sem Nome e a defesa de Harve (Marco agregador de principal e secundária)",
+    content: "Vilarejo sem Nome e segunda defesa de Harve (percursos independentes)",
     quests: "O Vilarejo sem Nome & Invasores Escamosos / The Nameless Village & Scaly Invaders",
     location: "Vila dos Ladrões (Leste) & Vila Harve (Sul)",
     mainQuest: "O Vilarejo sem Nome",
     relation: "PARALELA",
     moment: "Capítulo 03 · Vermund, Melve e Harve (Investigações avançadas de Brant)",
-    prerequisites: "Aceitar missão com Brant; visitar Harve",
+    prerequisites: "O Vilarejo sem Nome: missão independente de Brant. Scaly Invaders: completar a parte de Harve em Monster Culling, lutar primeira onda, deixar a região e retornar alguns dias depois.",
     risk: "Nenhum",
     sources: [
       { name: "PowerPyx (The Nameless Village)", url: "https://www.powerpyx.com/dragons-dogma-2-the-nameless-village-walkthrough/" },
       { name: "Game8 (The Nameless Village)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Nameless-Village" }
     ],
-    evidence: "Pista de salto subterrânea no Vilarejo sem Nome revela Srail e a farsa de Darragh; defesa de Harve contra sauris prepara a vila para Ulrika.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
-    proposal: "Mantido como marco principal (v201)"
+    evidence: "Duas missões independentes. A segunda onda de sáurios conclui Scaly Invaders; o Vilarejo sem Nome não é pré-requisito de Ulrika.",
+    divergence: "A matriz reúne uma investigação principal e secundária independentes; fontes para a segunda defesa não comprovam requisito do Vilarejo sem Nome.",
+    confidence: "PROVÁVEL",
+    proposal: "Não confundir primeiro combate em Harve com segundo retorno nem vincular Vilarejo sem Nome como requisito de Ulrika."
   },
   {
     id: "v107",
-    content: "Retorne a Melve: Revinda da Calamidade (Alerta de ataque do dragão)",
+    content: "Em Melve, enfrente o dragão e INICIE Revinda da Calamidade (não concluída no combate)",
     quests: "Revinda da Calamidade (Ataque do Dragão) / Readvent of Calamity",
     location: "Melve",
     mainQuest: "Nenhuma",
-    relation: "REQUER",
+    relation: "PARALELA",
     moment: "Capítulo 03 · Vermund, Melve e Harve (Após 1-2 missões de Brant)",
-    prerequisites: "Ter visitado Melve antes; retorno durante as investigações",
-    risk: "Perdível (cancelada irreversivelmente se a coroação v301 for iniciada)",
+    prerequisites: "Antes de Feast of Deception. PowerPyx cita Seat of the Sovran, Scaly Invaders e cruzamento de Battahl; outros guias descrevem retorno durante Brant sem confirmar as mesmas condições. Não impor travessia como requisito universal.",
+    risk: "Perdível: início de Readvent pode desaparecer depois de O Banquete da Farsa; a missão NÃO termina após repelir o dragão.",
     sources: [
       { name: "PowerPyx (Readvent of Calamity)", url: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/" },
       { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" }
     ],
-    evidence: "Dragão infectado menor ataca Melve com Sigurd; Ulrika é acusada de traição por Martin e planeja fuga noturna.",
-    divergence: "Gatilho de dias/missões exatas para o dragão pousar varia entre saves",
-    confidence: "DIVERGENTE",
-    proposal: "Matriz corrigida: v107 é Readvent of Calamity (alerta do dragão em Melve) com flag 'Perdível'"
+    evidence: "Ataque e conversa com Sigurd representam início de Readvent; seus objetivos seguintes incluem casa de Ulrika, encontrá-la em Harve e informar Lennart em Melve.",
+    divergence: "Passagem antecipada por Battahl como requisito é citada pela PowerPyx sem corroboração independente nesta revisão. Não confundir início com conclusão.",
+    confidence: "PROVÁVEL",
+    proposal: "Marco v107 rastreia somente ataque/início; v202 acompanha busca por Ulrika e conclusão com Lennart."
   },
   {
     id: "v202",
-    content: "Acompanhe Ulrika em Melve e Harve ('Revinda da Calamidade') (Missão secundária encadeada)",
+    content: "Ulrika em Harve: conclua Revinda e ajude Zoran quando disponível (etapa agregada)",
     quests: "Revinda da Calamidade (Fuga) & Problemas no Cabo / Readvent of Calamity & Trouble on the Cape",
     location: "Melve & Vila Harve",
     mainQuest: "Nenhuma",
-    relation: "REQUER",
+    relation: "DURANTE",
     moment: "Capítulo 03 · Vermund, Melve e Harve (Após fuga de Ulrika)",
-    prerequisites: "Completar ataque do dragão em v107 e defesa de Harve em v201",
-    risk: "Perdível (concluir antes da coroação v301)",
+    prerequisites: "Iniciar Revinda com ataque em v107; sair e voltar à casa de Ulrika após pelo menos um dia; duas ondas de Scaly Invaders em Harve. O resgate de Zoran pode começar durante ou depois da busca.",
+    risk: "Perdível antes de Feast of Deception; marco agrupado pode ser adiado se Trouble on the Cape ainda não ocorrer.",
     sources: [
       { name: "PowerPyx (Trouble on the Cape)", url: "https://www.powerpyx.com/dragons-dogma-2-trouble-on-the-cape-walkthrough/" },
       { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" }
     ],
-    evidence: "Ulrika foge para Harve; resgatar Zoran na caverna marítima torna Ulrika líder da vila; relatar a Lennart conclui a etapa.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
-    proposal: "Matriz corrigida: v202 é o desfecho de Ulrika em Melve/Harve com flag 'Perdível'"
+    evidence: "PowerPyx: Trouble on the Cape inicia automaticamente durante a busca por Ulrika em Harve, e relatar a Lennart depois de encontrar Ulrika encerra Readvent. Game8 apresenta uma sequência com retorno a Lennart antes do resgate de Zoran.",
+    divergence: "PowerPyx descreve Trouble on the Cape DURANTE Readvent; Game8 descreve retorno a Lennart primeiro e Trouble depois. Não tratar qualquer uma como universal.",
+    confidence: "DIVERGENTE",
+    proposal: "Se Ulrika encontrada mas Zoran não disponível, informar Lennart e deixar somente o marco agregado adiado, sem travar a história."
   },
   {
     id: "v204",
@@ -583,21 +583,21 @@ const matrixData = [
   },
   {
     id: "v305",
-    content: "Após Um Encontro Perturbador, retorne a Melve para Lar é Onde o Coração Está (Missão secundária de clímax de Melve)",
+    content: "Após Um Encontro Perturbador: liberte Melve e visite Ulrika em Harve",
     quests: "Lar é Onde o Coração Está / Home Is Where the Hearth Is",
     location: "Melve → Vila Harve",
     mainQuest: "Nenhuma",
     relation: "REQUER",
     moment: "Capítulo 04 · Vernworth e Melve (Antes de aceitar a coroação de Brant)",
-    prerequisites: "Concluir v202 (linha de Ulrika) e v301 (Um Encontro Perturbador)",
-    risk: "Perdível (cancelada se O Banquete da Farsa for concluído)",
+    prerequisites: "PowerPyx: concluir Revinda da Calamidade e Um Encontro Perturbador; Game8 também inclui Trouble on the Cape na cadeia de Ulrika. Salvar Norbert não é requisito obrigatório.",
+    risk: "Missão de Melve a concluir preferencialmente antes de Feast of Deception se o jogador quiser manter a linha de Ulrika.",
     sources: [
       { name: "PowerPyx (Home Is Where the Hearth Is)", url: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/" },
       { name: "Game8 (Home Is Where the Hearth Is)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Home-Is-Where-the-Hearth-Is" }
     ],
-    evidence: "Melve está dominada por guardas; subornar porteiro; entregar 4 espadas a Lennart; expulsar soldados e reencontrar Ulrika na praia de Harve.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
+    evidence: "Após superar bloqueio dos soldados, levar quatro espadas (do inventário, compra ou depósito), liberar Melve, encontrar Ulrika em Harve e falar no cais à noite. A ajuda de Ian/Norbert só facilita recuperar armas.",
+    divergence: "Game8 inclui o resgate de Zoran como etapa da cadeia; PowerPyx lista diretamente Readvent e An Unsettling Encounter. Não impor Norbert ou outra condição sem verificação.",
+    confidence: "PROVÁVEL",
     proposal: "Posicionado antes do Banquete com flag 'Perdível'"
   },
   {
@@ -608,16 +608,16 @@ const matrixData = [
     mainQuest: "O Banquete da Farsa",
     relation: "ANTES_DO_PONTO_SEM_RETORNO",
     moment: "Capítulo 04 · Vernworth e Melve (Antes de confirmar ida ao Banquete)",
-    prerequisites: "Completar todas as tarefas pendentes de Melve e Vermund",
-    risk: "Ponto sem Retorno (confirmar com Brant inicia o Banquete e cancela missões pendentes)",
+    prerequisites: "Revisar missões opcionais que deseja concluir em Vermund, especialmente cadeia de Ulrika; não é necessário completar absolutamente todas as missões do mapa.",
+    risk: "Checkpoint: Feast of Deception pode fechar a janela de Revinda da Calamidade / Lar é Onde o Coração Está; não declarar cancelamento universal de missões pendentes.",
     sources: [
       { name: "PowerPyx (Feast of Deception)", url: "https://www.powerpyx.com/dragons-dogma-2-feast-of-deception-walkthrough/" },
       { name: "Game8 (Feast of Deception)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Feast-of-Deception" }
     ],
-    evidence: "Brant avisa formalmente: certifique-se de que não restam assuntos inacabados antes de comparecer à coroação.",
+    evidence: "Antes de falar com Brant sobre a coroação, conferir início do ataque v107, continuação em Harve e retorno a Lennart v202, libertação de Melve v305, quando disponíveis.",
     divergence: "Nenhuma",
     confidence: "CORROBORADO",
-    proposal: "Matriz corrigida: v303 é o Checkpoint Pré-Banquete (Ponto sem retorno)"
+    proposal: "Checkpoint por janelas comprovadas; evitar sugerir que todos os conteúdos paralelos são cancelados."
   },
   {
     id: "v304",
