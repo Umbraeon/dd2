@@ -438,6 +438,17 @@ body,.codex-app { background-color:#100e0d; }
    The approved 43/57 mission diary and all persistence controls remain untouched. */
 .quest-row-meta { display:flex; align-items:center; flex-wrap:wrap; gap:3px 9px; min-height:21px; min-width:0; }
 .quest-row-meta:empty { display:none; }
+/* Route-area headings make return trips explicit without turning them into new missions. */
+.quest-route-heading { margin:10px 0 0; padding:8px clamp(13px,2vw,30px) 3px; border-top:1px solid #5e513e; color:#baaa90; font:600 10px/1.4 'Plus Jakarta Sans',system-ui,sans-serif; letter-spacing:.08em; }
+.quest-route-next { margin:14px clamp(13px,2vw,30px); padding:10px 0 2px; border-top:1px solid #66533b; color:#d9cbb5; }
+.quest-route-next p { font-size:12px; line-height:1.55; }
+.quest-route-next strong { color:#edd6b4; font-weight:600; }
+.quest-route-next button, .consult-route-next button { display:inline-flex; align-items:center; gap:4px; min-height:38px; padding:6px 0; background:transparent; color:#e6c79c; font-size:12px; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.quest-route-next small { display:block; color:#afa08b; font-size:11px; line-height:1.5; }
+.consult-route-next { border-left:2px solid #92775d; background:#201b18; margin:12px 0; padding:9px 14px; }
+.consult-route-next p { color:#e1d2bc; font-size:13px; line-height:1.55; }
+.consult-route-next strong { color:#f0d7ae; font-weight:600; }
+
 .quest-row-meta small { flex:0 0 auto; font-size:10px; font-weight:500; letter-spacing:.02em; color:#baa68a; }
 .inline-achievement-preview { display:inline-flex; align-items:center; gap:3px; flex:0 0 auto; min-width:0; }
 .inline-achievement-preview-icon { position:relative; display:inline-flex; flex:0 0 26px; width:26px; height:26px; }
