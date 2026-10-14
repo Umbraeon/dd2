@@ -21,7 +21,7 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   }
   assert.equal(questGuidesForEvent('b03')[0].id, 'short_sighted');
   assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
-  assert.equal(questGuidesForEvent('m04').length, 4);
+  assert.equal(questGuidesForEvent('m04').length, 3);
   assert.equal(questGuidesForEvent('m02').length, 2);
   assert.equal(questGuidesForEvent('v102').length, 4);
   assert.equal(questGuidesForEvent('v103').length, 7);
