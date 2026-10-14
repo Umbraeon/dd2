@@ -220,9 +220,9 @@ export const PHASES: Phase[] = [
   },
   {
     id: "vernworth1",
-    title: "02 · VERNWORTH · PARTE 1",
-    subtitle: "A Capital, Guilda, Bairros e Primeiras Missões de Brant",
-    slug: "Vernworth pt.1",
+    title: "02 · VERNWORTH E RETORNO A MELVE",
+    subtitle: "Chegada à capital, missões de Brant e retorno a Melve",
+    slug: "Vernworth + Melve",
     cue: "Antes de concluir 'O Banquete da Farsa' (Feast of Deception), confira as missões secundárias de Vernworth que podem ficar indisponíveis.",
     events: [
       {
@@ -278,15 +278,15 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m04",
-        title: "Retorne cedo a Melve: Flora, Lennart, Ian e Norbert",
+        title: "Retorne a Melve: Problemas Aninhados, Flora e Norbert",
         type: "missao",
         journeyCategory: "side",
-        note: "Assim que concluir 'O Trono do Sobran' com Brant, retorne cedo a Melve (ou conclua desde a primeira visita qualquer missão já disponível). Ajude Flora com um Fruit Roborant; em 'Problemas Aninhados', volte a Lennart após os barris e novamente após o veneno; siga Ian para salvar Norbert. Faça essas tarefas antes de a linha de Ulrika alterar a vila. Se encontrar o ataque do dragão nesta visita, priorize 'Revinda da Calamidade' — não espere a etapa de aviso do capítulo seguinte.",
+        note: "LOCAL: MELVE (não Vernworth). Depois de concluir 'No Rastro do Dragão' e chegar à capital, volte a Melve para verificar 'Problemas Aninhados' com Lennart: lance barris no ninho, reporte a ele, lance o veneno e reporte novamente. Ajude Flora com um Fruit Roborant e siga Ian para resgatar Norbert. As fontes divergem sobre a disponibilidade dessas tarefas na primeira visita: se os NPCs oferecerem missões antes da partida com Gregor, aproveite; caso contrário, volte após chegar à capital. Priorize tudo antes do ataque que inicia 'Revinda da Calamidade' e dos eventos posteriores de Ulrika.",
         achievements: [],
         risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
-        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/"],
-        prerequisites: "Tenha chegado a Vernworth e iniciado ou concluído 'O Trono do Sobran'. Se Flora, Ian ou Lennart já oferecerem ajuda antes disso, aceite imediatamente.",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles", "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-medicament-predicament-walkthrough/"],
+        prerequisites: "Local: Melve. PowerPyx e Game8 indicam 'Problemas Aninhados' após concluir 'No Rastro do Dragão'; alguns guias relatam acesso já na primeira visita. O retorno ocorre depois de chegar a Vernworth, mas a missão não se passa na capital. Flora e Ian têm gatilhos relatados de maneira diferente; confira-os quando estiverem disponíveis.",
         failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert.",
         isMissable: true
       },
@@ -489,9 +489,9 @@ export const PHASES: Phase[] = [
   },
   {
     id: "vernworth2",
-    title: "03 · VERNWORTH · PARTE 2",
-    subtitle: "Campo de Batalha Antigo, Ponte de Ciclope e Primeira Fase da Esfinge",
-    slug: "Vernworth pt.2",
+    title: "03 · VERMUND · MELVE, HARVE E ARREDORES",
+    subtitle: "Retornos a Melve, Harve, exploração e primeira fase da Esfinge",
+    slug: "Vermund e arredores",
     cue: "Antes dos enigmas da Esfinge, confira suas opções de salvamento e prepare cada resposta.",
     events: [
       {
@@ -600,9 +600,9 @@ export const PHASES: Phase[] = [
   },
   {
     id: "vernworth3",
-    title: "04 · VERNWORTH · PARTE 3",
-    subtitle: "Wilhelmina, Tramas da Corte e Ponto de Não Retorno da Coroação",
-    slug: "Vernworth pt.3",
+    title: "04 · VERNWORTH E MELVE · COROAÇÃO",
+    subtitle: "Tramas da corte, último retorno a Melve e coroação",
+    slug: "Corte e Melve",
     cue: "Antes de avançar 'O Banquete da Farsa' (Feast of Deception), confira as missões pendentes de Vermund.",
     events: [
       {
