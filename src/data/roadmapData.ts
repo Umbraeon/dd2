@@ -253,10 +253,11 @@ export const PHASES: Phase[] = [
         title: "Ative a Guilda e inicie missões urbanas prioritárias",
         type: "missao",
         journeyCategory: "side",
-        note: "Para 'Frustração Vocacional', entregue a Klaus a espada Two-Hander e o cajado Grievous Horns, encontrados na Mina de Trevo. Para 'O Dom do Arco', dê um arco a Glyndwr e treine como Arqueiro nas ruínas. Depois, acompanhe Glyndwr em 'A Prova de Arco e Flecha'. Confira as fichas para os percursos.",
+        note: "Em Vernworth, visite primeiro a Guilda de Vocações e aceite 'Frustração Vocacional' (Vocation Frustration) com Klaus; as armas ficam na Mina de Trevo, que você também pode visitar durante 'Elimine os Monstros' (Monster Culling), evitando uma viagem só por elas. Na cidade, ofereça um arco a Glyndwr para iniciar 'O Dom do Arco' (Gift of the Bow). O treino dele acontece nas Ruínas da Montanha, fora de Vernworth, usando a vocação Arqueiro: faça o desvio quando estiver preparado. 'A Prova de Arco e Flecha' (A Trial of Archery) só fica disponível depois de concluir 'O Dom do Arco'; ela leva ao Bosque Sagrado e não é uma tarefa urbana imediata. Aceitar tarefas na cidade não significa concluir todas na mesma visita.",
         achievements: [],
         risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-gift-of-the-bow-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-a-trial-of-archery-walkthrough/","https://www.powerpyx.com/dragons-dogma-2-vocation-frustration-walkthrough/"]
       },
       {
         id: "v103",
@@ -371,11 +372,12 @@ export const PHASES: Phase[] = [
         title: "Participe do baile de máscaras com traje nobre",
         type: "conquista",
         journeyCategory: "main",
-        note: "Durante a missão de Brant 'O Trono Roubado' (The Stolen Throne), equipe a Túnica da Corte, Calças da Corte e a Máscara do Baile antes de adentrar o salão real à noite.",
+        note: "Em 'O Trono Roubado' (The Stolen Throne), equipe Túnica da Corte, Calças da Corte e Máscara do Baile para entrar no salão à noite. Aproveite uma visita ao castelo para conferir a missão opcional de Sven 'Correspondência Mascarada' (Masked Correspondence), nos aposentos dele; a disponibilidade pode depender do avanço de 'O Plano de Disa' (Disa's Plot). Se estiver ativa, entregue a carta a Lorde Patrick em uma noite de baile e reporte a Sven. Essa missão NÃO é condição para concluir 'O Trono Roubado', mas a Game8 a relaciona ao desbloqueio posterior de 'Uma Nobre Troca' e 'Um Véu de Finas Nuvens'.",
         achievements: [12],
         risk: "cuidado",
         source: "https://steamcommunity.com/stats/2054970/achievements",
-        failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas."
+        failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas.",
+        extraSources: ["https://game8.co/games/Dragons-Dogma-2/archives/Masked-Correspondence","https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange"]
       },
       {
         id: "v203",
@@ -615,10 +617,11 @@ export const PHASES: Phase[] = [
         title: "Conclua Uma Sombra à Espreita e Um Encontro Perturbador",
         type: "missao",
         journeyCategory: "main",
-        note: "Resolva 'Uma Sombra à Espreita' (The Arisen's Shadow) enquanto a investigação da corte continua. Após 'O Trono Roubado', fale com Brant para 'Um Encontro Perturbador' (An Unsettling Encounter): investigue os aposentos de Allard à noite, obtenha a carta do compartimento oculto e entregue-a a Brant. 'O Plano de Disa' foi antecipado como etapa individual de Brant.",
+        note: "Durante a investigação da corte, resolva 'Uma Sombra à Espreita' (The Arisen's Shadow). A escolha diante de Bermudo influencia a permissão de fronteira recebida mais tarde: segundo a Game8, recusar a oferta e permitir que Brant o interrogue pode conceder permissão válida para qualquer raça; aceitar o dinheiro leva à permissão exclusiva para ferídeos, que um Nascen humano pode usar com máscara apropriada. É uma escolha opcional, não um requisito para avançar. Após 'O Trono Roubado', fale com Brant para 'Um Encontro Perturbador' (An Unsettling Encounter), investigue os aposentos de Allard à noite, obtenha a carta e entregue-a. Aproveite visitas ao castelo para verificar a missão opcional 'Correspondência Mascarada' (Masked Correspondence) com Sven, caso apareça.",
         achievements: [],
         risk: "normal",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
+        extraSources: ["https://game8.co/games/Dragons-Dogma-2/archives/449760","https://www.powerpyx.com/dragons-dogma-2-nation-of-the-lambent-flame-walkthrough/"]
       },
       {
         id: "v305",
@@ -696,10 +699,11 @@ export const PHASES: Phase[] = [
         title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira",
         type: "conquista",
         journeyCategory: "main",
-        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao atravessar o portão da Cidade de Descanso da Fronteira, confira se 'Piedade entre Ladrões' (Mercy among Thieves) já está disponível: ela começa ali, no lado de Battahl, e pode ser feita durante o caminho ao sul, sem obrigar retorno depois. Esse é um desvio opcional da rota; o marco b02 agrupa sua revisão com outras missões locais. Depois, use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
+        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), siga de Vernworth para a Cidade de Descanso da Fronteira. ANTES do portão, confira as missões locais disponíveis, como 'A Presa da Alcateia' (Prey for the Pack) e a entrega de grimórios a Myrddin. Para atravessar legalmente, verifique sua permissão: o documento para ferídeos fornecido por Brant não funciona sozinho para um Nascen humano; nesse caso, compre e equipe a Máscara de Ferídeo em Ibrahim ou utilize outra rota. A Game8 também relata que certas escolhas em 'Uma Sombra à Espreita' concedem uma permissão sem restrição de raça. A travessia clandestina escondido na carruagem nobre é OPCIONAL para a conquista 'Tô Dentro!' e não é requisito da campanha. AO CRUZAR para o lado de Battahl, confira 'Piedade entre Ladrões' (Mercy among Thieves) antes de seguir pela estrada ao sul, para evitar voltar à fronteira mais tarde. Continue até o abrigo Rockmouse em Bakbattahl.",
         achievements: [13, 35],
         risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-nation-of-the-lambent-flame-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/","https://game8.co/games/Dragons-Dogma-2/archives/449760"]
       },
       {
         id: "b10",
@@ -717,10 +721,12 @@ export const PHASES: Phase[] = [
         title: "Execute as missões locais de Bakbattahl",
         type: "missao",
         journeyCategory: "side",
-        note: "Reúna as missões disponíveis sem repetir a travessia: se já fez 'Piedade entre Ladrões' ao entrar em Battahl, considere essa parte resolvida; caso contrário, avalie fazê-la quando passar pela fronteira. Em Bakbattahl, prossiga com: 'Piedade entre Ladrões' (Mercy among Thieves), 'Orações Ensombradas' (Shadowed Prayers) para proteger Nadinia e 'Uma Proposta Venenosa' (A Poisonous Proposal). Elas podem ser concluídas em paralelo. 'De Volta a Battahl' apresenta Raghnall, e a continuação 'Tensão na Estrada' tem uma etapa separada de retorno a Vernworth.",
+        note: "Separe as missões por localização e condição. 'Piedade entre Ladrões' (Mercy among Thieves) começa no lado de Battahl da Cidade de Descanso da Fronteira; aproveite a primeira travessia (ver b01), sem voltar para lá só para marcar este marco. Já em Bakbattahl, verifique 'Orações Ensombradas' (Shadowed Prayers) com Menella, no Palácio Portador da Chama: a cerimônia é pela manhã e, depois de iniciada com ela, a identificação do assassino NÃO deve ser adiada, pois o objetivo pode falhar. Confira também 'Uma Proposta Venenosa' (A Poisonous Proposal) quando disponível. As três são missões opcionais distintas, com gatilhos próprios; não espere que apareçam todas ao mesmo tempo e não considere uma única concluída como conclusão automática do conjunto.",
         achievements: [],
         risk: "alerta",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://www.powerpyx.com/dragons-dogma-2-shadowed-prayers-walkthrough/",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/","https://www.powerpyx.com/dragons-dogma-2-a-poisonous-proposal-walkthrough/"],
+        failureRisk: "Em 'Orações Ensombradas', após iniciar a cerimônia com Menella, identifique o assassino imediatamente. O marco também reúne missões não temporizadas; não atribua um prazo único ao conjunto."
       },
       {
         id: "b04",
@@ -769,11 +775,12 @@ export const PHASES: Phase[] = [
         title: "De volta a Vernworth: Uma Nobre Troca no baile",
         type: "missao",
         journeyCategory: "side",
-        note: "RETORNO A VERNWORTH: agrupe com 'A Carroça Fantasma' e 'Tensão na Estrada' para evitar outra ida à capital. APÓS avançar para 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao retornar de Battahl a Vernworth, confira se o baile noturno no castelo oferece 'Uma Nobre Troca' (A Noble Exchange). É um evento de presente roubado, DIFERENTE de 'O Trono Roubado' (The Stolen Throne) e 'Correspondência Mascarada' (Masked Correspondence) da etapa inicial de Vernworth. O gatilho exato pode surgir em noites diferentes: se não estiver disponível, avance a campanha e retorne antes de 'Um Novo Chamado Divino'. Aproveite a ida à capital para aceitar 'A Inspiração de um Escultor' (A Case of Sculptor's Block) com Klark; sua conclusão ocorre em Battahl.",
+        note: "RETORNO A VERNWORTH: agrupe a visita com 'A Carroça Fantasma' (The Phantom Oxcart) e 'Tensão na Estrada' (Tensions on the Highroad) quando elas estiverem disponíveis; não são pré-requisitos umas das outras. Para 'Uma Nobre Troca' (A Noble Exchange), visite o baile noturno em Vernworth com o traje e a máscara da corte. Há divergência sobre o gatilho: a Game8 exige ter concluído 'Correspondência Mascarada' (Masked Correspondence) com Sven, enquanto a PowerPyx descreve uma janela de progressão entre 'Nação da Chama Luzente' (Nation of the Lambent Flame) e 'Um Novo Chamado Divino' (A New Godsway). Portanto, se a troca não começar, confira primeiro a missão de Sven; não suponha que esperar noites sem resolver a cadeia fará a missão aparecer. Na mesma visita à capital, você pode aceitar 'A Inspiração de um Escultor' (A Case of Sculptor's Block) com Klark; os objetivos seguintes levam a Battahl e podem ser feitos depois.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
-        prerequisites: "Ter avançado a partir de 'Nação da Chama Luzente'; disponibilidade do baile pode variar antes de 'Um Novo Chamado Divino'."
+        prerequisites: "Local: salão de máscaras do castelo em Vernworth. PowerPyx situa a disponibilidade após 'Nação da Chama Luzente' e antes de 'Um Novo Chamado Divino'; a Game8 também aponta a conclusão de 'Correspondência Mascarada' como requisito. Se não aparecer, verifique Sven e aguarde outro baile, sem presumir gatilho universal.",
+        extraSources: ["https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange","https://game8.co/games/Dragons-Dogma-2/archives/Masked-Correspondence"]
       },
       {
         id: "b05",
