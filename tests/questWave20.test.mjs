@@ -22,7 +22,7 @@ test('onda 20: inclui dois guias além dos 80 históricos, sem confundir catálo
   assert.equal(buildQuestCoverage(baselineRoster).summary.guidesOutsideHistoricalBaseline, 2);
   assert.deepEqual(installed.observedWithoutGuide.map(q => q.english).sort(), ['Chilling Tidings', 'Lost Rites']);
   assert.deepEqual(gate.indexedWithoutGuide.map(q => q.english).sort(), ['Chilling Tidings', 'Lost Rites']);
-  assert.equal(PHASES.flatMap(p => p.events).length, 62);
+  assert.equal(PHASES.flatMap(p => p.events).length, 71);
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
 });
 
@@ -45,8 +45,8 @@ test('Intruso de um Olho Só: escolha opcional da cachoeira; carta é prêmio ap
   const q = byId('one_eyed_interloper');
   assert.ok(q);
   assert.equal(q.title,'Intruso de um Olho Só');
-  assert.deepEqual(q.relatedEventIds,['v101']);
-  assert.ok(questGuidesForEvent('v101').some(x=>x.id===q.id));
+  assert.deepEqual(q.relatedEventIds,['m09']);
+  assert.ok(questGuidesForEvent('m09').some(x=>x.id===q.id));
   assert.match(q.steps.join(' '),/cachoeira.*OPCIONAL/s);
   assert.match(q.steps.join(' '),/Gregor.*Missive to the Captain/);
   assert.match(q.steps.join(' '),/Prossiga até Vernworth/);
