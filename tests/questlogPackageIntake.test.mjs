@@ -50,6 +50,6 @@ test('guia publicado e titulo DLC pendente sao separados do inventario novo', ()
   const present = new Set(QUEST_GUIDES.map(q=>normalizeQuestName(q.original)));
   const indexedWithoutGuide = QUEST_NAME_INDEX.filter(q=>!present.has(normalizeQuestName(q.english)));
   assert.deepEqual(indexedWithoutGuide.map(q=>q.english).sort(), ['Chilling Tidings','Lost Rites']);
-  assert.equal(PHASES.flatMap(p=>p.events).length, 62);
+  assert.equal(PHASES.flatMap(p=>p.events).length, 71);
   assert.equal(new Set(PHASES.flatMap(p=>p.achievements.map(a=>a.id))).size, 60);
 });
