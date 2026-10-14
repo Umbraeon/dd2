@@ -284,7 +284,7 @@ export const PHASES: Phase[] = [
         title: "Retorne a Melve: Problemas Aninhados, Flora e Norbert",
         type: "missao",
         journeyCategory: "side",
-        note: "LOCAL: MELVE. Após chegar a Vernworth, aproveite a viagem de 'Mensageiro da Carroça' (Oxcart Courier), com Donovan, para retornar à vila e verificar para verificar 'Problemas Aninhados' com Lennart: lance barris no ninho, reporte a ele, lance o veneno e reporte novamente. Ajude Flora com um Fruit Roborant e siga Ian para resgatar Norbert. As três missões não têm necessariamente o mesmo gatilho. Se alguém já oferecer ajuda na primeira visita, aproveite; se não oferecer, confira ao retornar após chegar à capital. Priorize tudo antes do ataque que inicia 'Revinda da Calamidade' e dos eventos posteriores de Ulrika.",
+        note: "LOCAL: MELVE. Após chegar a Vernworth, aproveite 'Correio por Carroça' (Oxcart Courier), de Donovan, para retornar à vila e iniciar 'Problemas Aninhados' com Lennart: lance barris no ninho, reporte a ele, lance o veneno e reporte novamente. Ajude Flora com um Fruit Roborant e siga Ian para resgatar Norbert. As três missões não têm necessariamente o mesmo gatilho. Se alguém já oferecer ajuda na primeira visita, aproveite; se não oferecer, confira ao retornar após chegar à capital. Priorize tudo antes do ataque que inicia 'Revinda da Calamidade' e dos eventos posteriores de Ulrika.",
         achievements: [],
         risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
