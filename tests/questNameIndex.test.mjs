@@ -40,7 +40,7 @@ test('cada nome referencia um marco conhecido, ou anotação auxiliar MAISTER', 
 
 test('índice é somente leitura; marcos e conquistas existentes permanecem estáveis', () => {
   assert.equal(PHASES.length, 9);
-  assert.equal(PHASES.flatMap(p => p.events).length, 71);
+  assert.equal(PHASES.flatMap(p => p.events).length, 72);
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
   assert.deepEqual(questNamesForEvent('___inexistente___'), []);
 });
