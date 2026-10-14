@@ -37,6 +37,7 @@ export const PHASES: Phase[] = [
     slug: "Melve",
     cue: "Anote o local do primeiro Memento do Buscador que encontrar.",
     events: [
+
       {
         id: "m01",
         title: "Conclua o Prólogo até alcançar o Posto Avançado da Guarda",
@@ -57,17 +58,6 @@ export const PHASES: Phase[] = [
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-in-dragons-wake-walkthrough/",
         prerequisites: "Concluir 'A História se Inicia' (Tale's Beginning) no Posto Avançado."
-      },
-      {
-        id: "m06",
-        title: "Registre o local do primeiro Memento do Buscador",
-        type: "alerta",
-        journeyCategory: "optional",
-        note: "Ao coletar seu primeiro Memento do Buscador, anote o local ou tire uma captura de tela. Essa informação será útil no Enigma de Ruminação da Esfinge.",
-        achievements: [],
-        risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Guarde o local do primeiro memento para não precisar procurá-lo novamente durante o enigma."
       },
       {
         id: "m02",
@@ -96,6 +86,18 @@ export const PHASES: Phase[] = [
         failureRisk: "Antes de entregar os grimórios, preserve originais para Trysha; ela não aceita falsificações para avançar normalmente."
       },
       {
+        id: "m06",
+        title: "Registre o local do primeiro Memento do Buscador",
+        type: "alerta",
+        journeyCategory: "optional",
+        note: "Ao coletar seu primeiro Memento do Buscador, anote o local ou tire uma captura de tela. Essa informação será útil no Enigma de Ruminação da Esfinge.",
+        achievements: [],
+        risk: "critico",
+        suggestionTiming: "ongoing",
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
+        failureRisk: "Guarde o local do primeiro memento para não precisar procurá-lo novamente durante o enigma."
+      },
+      {
         id: "m05",
         title: "Inicie as conquistas de sistemas e conclua-as quando desbloquear os recursos",
         type: "conquista",
@@ -103,6 +105,7 @@ export const PHASES: Phase[] = [
         note: "Ao longo dos capítulos, monte acampamento, use uma carroça de bois, troque a vocação na guilda, teletransporte-se por Pedra-barca e reviva dois peões caídos juntos. Várias ações dependem de recursos liberados mais tarde: não é necessário terminar esta etapa antes de chegar a Vernworth; adie-a para continuar a história.",
         achievements: [4, 5, 6, 7, 8],
         risk: "normal",
+        suggestionTiming: "ongoing",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
@@ -281,12 +284,12 @@ export const PHASES: Phase[] = [
         title: "Retorne a Melve: Problemas Aninhados, Flora e Norbert",
         type: "missao",
         journeyCategory: "side",
-        note: "LOCAL: MELVE (não Vernworth). Depois de concluir 'No Rastro do Dragão' e chegar à capital, volte a Melve para verificar 'Problemas Aninhados' com Lennart: lance barris no ninho, reporte a ele, lance o veneno e reporte novamente. Ajude Flora com um Fruit Roborant e siga Ian para resgatar Norbert. As fontes divergem sobre a disponibilidade dessas tarefas na primeira visita: se os NPCs oferecerem missões antes da partida com Gregor, aproveite; caso contrário, volte após chegar à capital. Priorize tudo antes do ataque que inicia 'Revinda da Calamidade' e dos eventos posteriores de Ulrika.",
+        note: "LOCAL: MELVE. Após chegar a Vernworth, aproveite 'Correio por Carroça' (Oxcart Courier), de Donovan, para retornar à vila e iniciar 'Problemas Aninhados' com Lennart: lance barris no ninho, reporte a ele, lance o veneno e reporte novamente. Ajude Flora com um Fruit Roborant e siga Ian para resgatar Norbert. As três missões não têm necessariamente o mesmo gatilho. Se alguém já oferecer ajuda na primeira visita, aproveite; se não oferecer, confira ao retornar após chegar à capital. Priorize tudo antes do ataque que inicia 'Revinda da Calamidade' e dos eventos posteriores de Ulrika.",
         achievements: [],
         risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles", "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-medicament-predicament-walkthrough/"],
-        prerequisites: "Local: Melve. PowerPyx e Game8 indicam 'Problemas Aninhados' após concluir 'No Rastro do Dragão'; alguns guias relatam acesso já na primeira visita. O retorno ocorre depois de chegar a Vernworth, mas a missão não se passa na capital. Flora e Ian têm gatilhos relatados de maneira diferente; confira-os quando estiverem disponíveis.",
+        prerequisites: "Local: Melve. PowerPyx e Game8 indicam 'Problemas Aninhados' após 'No Rastro do Dragão', mas o wiki comunitário relata acesso durante a primeira visita; não tratar uma dessas condições como universal. O retorno ocorre depois de chegar a Vernworth, mas a missão não se passa na capital. Flora e Ian têm gatilhos relatados de maneira diferente; confira-os quando estiverem disponíveis.",
         failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert.",
         isMissable: true
       },
@@ -349,6 +352,7 @@ export const PHASES: Phase[] = [
         note: "Aceite o pedido de Mildred nos bairros residenciais ('Um Lugar para Chamar de Lar' — A Place to Call Home). Cuide da casa por uma semana no jogo e, ao retorno dela, compre o imóvel por 20.000 moedas de ouro.",
         achievements: [10],
         risk: "normal",
+        suggestionTiming: "ongoing",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
@@ -359,6 +363,7 @@ export const PHASES: Phase[] = [
         note: "Defina uma missão de peão na Fenda, ensine uma Especialização usando um pergaminho e eleve a afinidade de um NPC ao máximo (dando presentes diários que ele aprecie).",
         achievements: [11, 14, 16, 17],
         risk: "normal",
+        suggestionTiming: "ongoing",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
@@ -685,12 +690,13 @@ export const PHASES: Phase[] = [
     slug: "Battahl",
     cue: "Entrar na Carroça Fantasma exige ficar sem armas e armaduras. Conclua os 5 enigmas finais da Esfinge e mate-a antes que fuja!",
     events: [
+
       {
         id: "b01",
         title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira",
         type: "conquista",
         journeyCategory: "main",
-        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
+        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao atravessar o portão da Cidade de Descanso da Fronteira, confira se 'Piedade entre Ladrões' (Mercy among Thieves) já está disponível: ela começa ali, no lado de Battahl, e pode ser feita durante o caminho ao sul, sem obrigar retorno depois. Esse é um desvio opcional da rota; o marco b02 agrupa sua revisão com outras missões locais. Depois, use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
         achievements: [13, 35],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -711,44 +717,10 @@ export const PHASES: Phase[] = [
         title: "Execute as missões locais de Bakbattahl",
         type: "missao",
         journeyCategory: "side",
-        note: "Em Bakbattahl, faça as missões locais que já estiverem liberadas: 'Piedade entre Ladrões' (Mercy among Thieves), 'Orações Ensombradas' (Shadowed Prayers) para proteger Nadinia e 'Uma Proposta Venenosa' (A Poisonous Proposal). Elas podem ser concluídas em paralelo. 'De Volta a Battahl' apresenta Raghnall, e a continuação 'Tensão na Estrada' tem uma etapa separada de retorno a Vernworth.",
+        note: "Reúna as missões disponíveis sem repetir a travessia: se já fez 'Piedade entre Ladrões' ao entrar em Battahl, considere essa parte resolvida; caso contrário, avalie fazê-la quando passar pela fronteira. Em Bakbattahl, prossiga com: 'Piedade entre Ladrões' (Mercy among Thieves), 'Orações Ensombradas' (Shadowed Prayers) para proteger Nadinia e 'Uma Proposta Venenosa' (A Poisonous Proposal). Elas podem ser concluídas em paralelo. 'De Volta a Battahl' apresenta Raghnall, e a continuação 'Tensão na Estrada' tem uma etapa separada de retorno a Vernworth.",
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
-      },
-      {
-        id: "b11",
-        title: "Depois de De Volta a Battahl: Tensão na Estrada com Raghnall",
-        type: "missao",
-        journeyCategory: "side",
-        note: "Depois de 'De Volta a Battahl' (Welcome to Battahl), VOLTE a Vernworth, encontre Simon próximo à estação norte de carroças e siga 'Tensão na Estrada' (Tensions on the Highroad). A decisão envolvendo Raghnall prepara um encontro posterior, 'Confronto Final', na Torre do Luar DURANTE O GUARDIÃO GIGANTUS. Não marque essa etapa antes de conhecer Raghnall em Bakbattahl.",
-        achievements: [],
-        risk: "cuidado",
-        source: "https://www.powerpyx.com/dragons-dogma-2-tensions-on-the-highroad-walkthrough/",
-        prerequisites: "Concluir 'De Volta a Battahl' e voltar a Vernworth antes do trecho final."
-      },
-      {
-        id: "b12",
-        title: "De volta a Vernworth: Uma Nobre Troca no baile",
-        type: "missao",
-        journeyCategory: "side",
-        note: "APÓS avançar para 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao retornar de Battahl a Vernworth, confira se o baile noturno no castelo oferece 'Uma Nobre Troca' (A Noble Exchange). É um evento de presente roubado, DIFERENTE de 'O Trono Roubado' (The Stolen Throne) e 'Correspondência Mascarada' (Masked Correspondence) da etapa inicial de Vernworth. O gatilho exato pode surgir em noites diferentes: se não estiver disponível, avance a campanha e retorne antes de 'Um Novo Chamado Divino'. Aproveite a ida à capital para aceitar 'A Inspiração de um Escultor' (A Case of Sculptor's Block) com Klark; sua conclusão ocorre em Battahl.",
-        achievements: [],
-        risk: "cuidado",
-        source: "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
-        prerequisites: "Ter avançado a partir de 'Nação da Chama Luzente'; disponibilidade do baile pode variar antes de 'Um Novo Chamado Divino'."
-      },
-      {
-        id: "b03",
-        title: "Proteja a família de Isaac em 'Ambição Cega' (Short-Sighted Ambition)",
-        type: "checkpoint",
-        journeyCategory: "side",
-        note: "Isaac pede o segundo tomo 'On the Transference of Souls 2'. Vá ao Ibrahim na Fronteira e crie a falsificação 'On the Transit of Souls 2'. Entregue APENAS a falsificação para que o experimento falhe inofensivamente e a esposa e filha de Isaac sobrevivam!",
-        achievements: [],
-        risk: "cuidado",
-        source: "https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/",
-        failureRisk: "Entregar o tomo original mata a esposa e a filha de Isaac em uma explosão horrível.",
-        isMissable: true
       },
       {
         id: "b04",
@@ -761,18 +733,6 @@ export const PHASES: Phase[] = [
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
-        id: "b05",
-        title: "Infiltre-se em 'A Carroça Fantasma' (The Phantom Oxcart)",
-        type: "alerta",
-        journeyCategory: "side",
-        note: "À noite perto de Vernworth, após ouvir rumores, aguarde a carroça fantasma. DESEQUIPE TODAS AS ARMAS E ARMADURAS, aproxime-se do cocheiro, converse e ENTRE dentro da carroça. Não reaja quando os guardas baterem nos peões até cruzar o portão de Battahl!",
-        achievements: [33],
-        risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/",
-        failureRisk: "Apenas seguir a carroça a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?'.",
-        isMissable: true
-      },
-      {
         id: "b08",
         title: "Investigue Sombras Trêmulas em Bakbattahl",
         type: "historia",
@@ -783,11 +743,67 @@ export const PHASES: Phase[] = [
         source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
       },
       {
+        id: "b03",
+        title: "Proteja a família de Isaac em 'Ambição Cega' (Short-Sighted Ambition)",
+        type: "checkpoint",
+        journeyCategory: "side",
+        note: "COMECE EM BAKBATTAHL. Quando retornar ao norte pela Cidade de Descanso da Fronteira, aproveite a visita a Ibrahim em vez de viajar só por este item. Isaac pede o segundo tomo 'On the Transference of Souls 2'. Vá ao Ibrahim na Fronteira e crie a falsificação 'On the Transit of Souls 2'. Entregue APENAS a falsificação para que o experimento falhe inofensivamente e a esposa e filha de Isaac sobrevivam!",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/",
+        failureRisk: "Entregar o tomo original mata a esposa e a filha de Isaac em uma explosão horrível.",
+        isMissable: true
+      },
+      {
+        id: "b063",
+        title: "Derrote a Medusa e obtenha uma Cabeça Preservada",
+        type: "conquista",
+        journeyCategory: "optional",
+        note: "No covil da Medusa (Nera-Do Cavern), use a vocação de Ladrão com adagas de raio ou golpe pesado na cabeça enquanto ela estiver atordoada para decapitá-la na primeira barra de vida. Guarde a cabeça preservada imediatamente no baú para não estragar e use-a para petrificar outra Medusa.",
+        achievements: [38, 48, 53],
+        risk: "cuidado",
+        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3195173063"
+      },
+      {
+        id: "b12",
+        title: "De volta a Vernworth: Uma Nobre Troca no baile",
+        type: "missao",
+        journeyCategory: "side",
+        note: "RETORNO A VERNWORTH: agrupe com 'A Carroça Fantasma' e 'Tensão na Estrada' para evitar outra ida à capital. APÓS avançar para 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao retornar de Battahl a Vernworth, confira se o baile noturno no castelo oferece 'Uma Nobre Troca' (A Noble Exchange). É um evento de presente roubado, DIFERENTE de 'O Trono Roubado' (The Stolen Throne) e 'Correspondência Mascarada' (Masked Correspondence) da etapa inicial de Vernworth. O gatilho exato pode surgir em noites diferentes: se não estiver disponível, avance a campanha e retorne antes de 'Um Novo Chamado Divino'. Aproveite a ida à capital para aceitar 'A Inspiração de um Escultor' (A Case of Sculptor's Block) com Klark; sua conclusão ocorre em Battahl.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/",
+        prerequisites: "Ter avançado a partir de 'Nação da Chama Luzente'; disponibilidade do baile pode variar antes de 'Um Novo Chamado Divino'."
+      },
+      {
+        id: "b05",
+        title: "Infiltre-se em 'A Carroça Fantasma' (The Phantom Oxcart)",
+        type: "alerta",
+        journeyCategory: "side",
+        note: "RETORNO A VERNWORTH (NÃO BAKBATTAHL): após concluir 'Nação da Chama Luzente' e visitar Bakbattahl, retorne e procure rumores perto da estação de carroças. À noite, aguarde a carroça fantasma. DESEQUIPE TODAS AS ARMAS E ARMADURAS, aproxime-se do cocheiro, converse e ENTRE dentro da carroça. Não reaja quando os guardas baterem nos peões até cruzar o portão de Battahl!",
+        achievements: [33],
+        risk: "critico",
+        source: "https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/",
+        failureRisk: "Apenas seguir a carroça a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?'.",
+        isMissable: true
+      },
+      {
+        id: "b11",
+        title: "Depois de De Volta a Battahl: Tensão na Estrada com Raghnall",
+        type: "missao",
+        journeyCategory: "side",
+        note: "No mesmo retorno a Vernworth após 'De Volta a Battahl' (Welcome to Battahl), encontre Simon próximo à estação norte de carroças e siga 'Tensão na Estrada' (Tensions on the Highroad). A decisão envolvendo Raghnall prepara um encontro posterior, 'Confronto Final', na Torre do Luar DURANTE O GUARDIÃO GIGANTUS. Não marque essa etapa antes de conhecer Raghnall em Bakbattahl.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-tensions-on-the-highroad-walkthrough/",
+        prerequisites: "Concluir 'De Volta a Battahl' e voltar a Vernworth antes do trecho final."
+      },
+      {
         id: "b06",
         title: "Segunda localização da Esfinge: 4 enigmas em ordem variável",
         type: "alerta",
         journeyCategory: "optional",
-        note: "No Santuário da Fronteira (Frontier Shrine), a Esfinge apresentará 4 enigmas em ordem aleatória: Memória (conte os baús abertos e empilhe estátuas), Competição (use o anel fraco e jogue o inimigo do precipício), Diferenciação (traga Dante ou Vergil conforme o cabelo pedido) e Futilidade (entregue o vaso ou use a Sealing Phial/Ferrystone para trazer o NPC até ele!).",
+        note: "Aproveite a região da Cidade de Descanso da Fronteira no retorno. No Santuário da Fronteira (Frontier Shrine), a Esfinge apresentará 4 enigmas em ordem aleatória: Memória (conte os baús abertos e empilhe estátuas), Competição (use o anel fraco e jogue o inimigo do precipício), Diferenciação (traga Dante ou Vergil conforme o cabelo pedido) e Futilidade (entregue o vaso ou use a Sealing Phial/Ferrystone para trazer o NPC até ele!).",
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
@@ -805,23 +821,14 @@ export const PHASES: Phase[] = [
         source: "https://www.trueachievements.com/a429033/reapers-scorn-achievement"
       },
       {
-        id: "b063",
-        title: "Derrote a Medusa e obtenha uma Cabeça Preservada",
-        type: "conquista",
-        journeyCategory: "optional",
-        note: "No covil da Medusa (Nera-Do Cavern), use a vocação de Ladrão com adagas de raio ou golpe pesado na cabeça enquanto ela estiver atordoada para decapitá-la na primeira barra de vida. Guarde a cabeça preservada imediatamente no baú para não estragar e use-a para petrificar outra Medusa.",
-        achievements: [38, 48, 53],
-        risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3195173063"
-      },
-      {
         id: "b07",
         title: "Explore cavernas até totalizar 50 para 'Turista'",
         type: "conquista",
         journeyCategory: "optional",
-        note: "O troféu exige descobrir e entrar em 50 CAVERNAS/MASMORRAS distintas, não meros pontos de interesse. Consulte o registro no diário de aventura.",
+        note: "ATIVIDADE CUMULATIVA: avance nas cavernas encontradas naturalmente, sem bloquear o próximo capítulo por esta contagem. O troféu exige descobrir e entrar em 50 CAVERNAS/MASMORRAS distintas, não meros pontos de interesse. Consulte o registro no diário de aventura.",
         achievements: [46],
         risk: "cuidado",
+        suggestionTiming: "ongoing",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-cave-locations-tourist-trophy/"
       },
       {

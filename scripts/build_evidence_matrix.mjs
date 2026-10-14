@@ -741,7 +741,7 @@ const matrixData = [
     location: "Vernworth (Portão Norte) → Estrada Real de Battahl (Caverna Guerco)",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 05 · Battahl (No retorno a Vernworth pós-Battahl)",
+    moment: "Capítulo 05 · retorno agrupado a Vernworth e caminho de volta à fronteira",
     prerequisites: "Concluir b10 (De Volta a Battahl) com Raghnall",
     risk: "Atenção (escolha de lado entre Simon e Raghnall; pré-requisito para o duelo na Torre do Luar em p08)",
     sources: [
@@ -760,7 +760,7 @@ const matrixData = [
     location: "Salão de Máscaras do Castelo de Vernworth à noite",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 05 · Battahl (Durante o retorno noturno a Vernworth)",
+    moment: "Capítulo 05 · retorno agrupado a Vernworth (baile noturno)",
     prerequisites: "Ter avançado para Battahl a partir de Nação da Chama Luzente",
     risk: "Atenção (se for pego segurando o cajado roubado pelos guardas, é preso)",
     sources: [
@@ -817,8 +817,8 @@ const matrixData = [
     location: "Vernworth (Estação de Carroças) → Portão da Fronteira de Battahl",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 05 · Battahl (Após ouvir rumores em Vernworth)",
-    prerequisites: "Ouvir rumores da carroça noturna após avançar a história",
+    moment: "Capítulo 05 · retorno agrupado a Vernworth, após chegar a Bakbattahl",
+    prerequisites: "Concluir Nação da Chama Luzente, visitar Bakbattahl e retornar a Vernworth para ouvir os rumores",
     risk: "Perdível (seguir a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?')",
     sources: [
       { name: "PowerPyx (The Phantom Oxcart)", url: "https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/" },
@@ -1390,8 +1390,25 @@ const matrixData = [
   }
 ];
 
-// Verify 1:1 match with stages
+// Uma URL para a missão A e outra para a missão B NÃO corroboram todas
+// as afirmações de um marco agregador. A verificação individual ainda está aberta.
+const COMPOSITE_FACTS_UNAUDITED = new Set([
+  'm02', 'm03', 'm05', 'v102', 'v103', 'v112', 'v201', 'v301', 'b02', 'u04'
+]);
+for (const item of matrixData) {
+  if (COMPOSITE_FACTS_UNAUDITED.has(item.id) && item.confidence === 'CORROBORADO') {
+    item.confidence = 'PROVÁVEL';
+    item.divergence = [item.divergence !== 'Nenhuma' ? item.divergence : '',
+      'Marco agregador: fontes não comprovam individualmente todas as missões e condições agrupadas.']
+      .filter(Boolean).join(' ');
+  }
+}
+
+// A matriz acompanha a ordem real dos dados; não manter uma segunda lista manual divergente.
 const stages = PHASES.flatMap(p => p.events);
+const stageOrder = new Map(stages.map((event, index) => [event.id, index]));
+matrixData.sort((a, b) => (stageOrder.get(a.id) ?? Infinity) - (stageOrder.get(b.id) ?? Infinity));
+// Verify 1:1 match with stages
 if (matrixData.length !== stages.length) {
   throw new Error(`Data length mismatch: matrixData has ${matrixData.length}, stages has ${stages.length}`);
 }
@@ -1407,9 +1424,9 @@ let md = `# Matriz de Evidências — Auditoria Cronológica e Classificação V
 
 **Data da Auditoria:** 14/10/2026  
 **Repositório:** \`dd2\` (\`https://github.com/Umbraeon/dd2\`)  
-**Branch Auditada:** \`audit/jornada-cronologia-p0-20261014\`  
+**Base original da auditoria:** \`audit/jornada-cronologia-p0-20261014\` (matriz sincronizada com PHASES atual)  
 **Responsável Técnico:** Executor técnico (Gemini/Antigravity)  
-**Supervisor:** Head de Produto e Engenharia (ChatGPT / Sol)  
+**Supervisor:** Head de Produto e Engenharia (ChatGPT)  
 **Prioridade:** P0 — Exatidão editorial, honestidade factual e confiabilidade do guia  
 
 ---
@@ -1506,7 +1523,7 @@ A versão anterior da matriz apresentava graves descompassos entre os identifica
 ### Reclassificação dos Níveis de Confiança
 
 - **10 entradas reclassificadas de 'VALIDADO EM GAMEPLAY' para 'CORROBORADO':** Nenhuma entrada na matriz afirma ter sido validada in-game nesta sessão de pair-programming. Walkthroughs de terceiros são evidências documentais e sustentam o status \`CORROBORADO\`, nunca gameplay direto.
-- **55 entradas reforçadas com 2+ fontes independentes:** Para manter o status \`CORROBORADO\`, cada entrada agora traz pelo menos duas referências independentes verificadas (PowerPyx + Game8 / IGN / Steam / TrueAchievements), com detalhamento do fato factual comprovado.
+- **Limitação de evidências:** O número de links por linha não demonstra que cada fato de marcos agregadores tenha duas confirmações independentes. Os registros devem ser reavaliados por afirmação, e não apenas pela contagem de URLs.
 - **Entradas classificadas como 'PROVÁVEL' ou 'DIVERGENTE':** Casos como \`b12\` (*Uma Nobre Troca*, dependente de noites de baile) permanecem como \`PROVÁVEL\`, e \`v107\` / \`v302\` (gatilhos de Melve e Wilhelmina) permanecem como \`DIVERGENTE\`, sem falsa certeza.
 
 ---

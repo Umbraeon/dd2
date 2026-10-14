@@ -84,37 +84,36 @@ test('retorno à atividade concluída ou adiada preserva filtros e não fabrica 
   expect(await storage(page)).toBe(before);
 });
 
-test('Melve inclui acesso ao retorno cronológico das missões locais sem deslocá-las nem escrever progresso', async ({ page }) => {
+test('Melve mantém apenas um atalho discreto para a viagem de retorno, sem alterar o save', async ({ page }) => {
   const melveReturn = all.find(({ event }) => event.id === 'm04')!;
   expect(melveReturn.phase.id).toBe('vernworth1');
-  expect(melveReturn.event.title).toContain('Melve');
   for (const [width, height] of [[390, 844], [1440, 900]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/');
-    await expect(page.getByRole('combobox', { name: 'Capítulo' })).toHaveValue('melve');
-    const shortcut = page.getByRole('button', { name: 'Ver etapa do retorno a Melve' });
+    const shortcut = page.getByRole('button', { name: 'Missões no retorno a Melve' });
     await expect(shortcut).toBeVisible();
+    await expect(page.locator('.quest-route-heading')).toHaveCount(0);
+    await expect(page.locator('.quest-route-next button')).toHaveCount(1);
     await shortcut.click();
     await expect(page.getByRole('combobox', { name: 'Capítulo' })).toHaveValue('vernworth1');
     const row = page.getByRole('button', { name: `Consultar atividade: ${melveReturn.event.title}` });
     await expect(row).toHaveAttribute('aria-current', 'true');
     await expect(row).toBeFocused();
-    await expect(page.locator('.quest-route-heading').first()).toContainText('MELVE');
     expect(await storage(page)).toBeNull();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
   }
 });
 
-test('Consulta aponta a missão de Lennart para Melve e conserva seu ID único', async ({ page }) => {
+test('Consulta usa a busca existente em vez de um segundo cartão duplicado de Melve', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Consulta e ferramentas' }).click();
-  await page.getByRole('button', { name: 'Missões', exact: true }).click();
-  await page.getByRole('combobox', { name: 'Capítulo do roteiro' }).selectOption('melve');
-  await page.getByRole('button', { name: 'Ver etapa do retorno a Melve' }).click();
+  await expect(page.locator('.consult-route-next')).toHaveCount(0);
+  await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Problemas Aninhados');
+  const results = page.locator('.consult-results-list');
+  await results.getByRole('button', { name: /Retorne a Melve: Problemas Aninhados/ }).click();
   await expect(page.getByRole('combobox', { name: 'Capítulo do roteiro' })).toHaveValue('vernworth1');
   await expect(page.locator('#step-m04')).toBeFocused();
-  await expect(page.locator('#event-details-m04')).toBeVisible();
   await expect(page.locator('#event-details-m04')).toContainText('MELVE');
   expect(await storage(page)).toBeNull();
 });

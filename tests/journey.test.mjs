@@ -29,6 +29,22 @@ test('72 existing steps: first is only a suggestion; no mutation for a new playe
   assert.deepEqual(p.deferredStepIds, undefined);
 });
 
+test('atividades cumulativas não bloqueiam a próxima etapa realmente executável', () => {
+  const p = fresh();
+  for (const id of ['m01', 'm08', 'm02', 'm03']) p.steps[id] = true;
+  assert.equal(firstPendingStep(PHASES, p).event.id, 'm09');
+  assert.equal(resolveJourney(PHASES, p).target.event.id, 'm09');
+  assert.equal(p.steps.m06, undefined);
+  assert.equal(p.steps.m05, undefined);
+  assert.ok(['m06', 'm05', 'v105', 'v106', 'b07'].every(id =>
+    allSteps.find(s => s.event.id === id).event.suggestionTiming === 'ongoing'));
+  for (const { event } of allSteps) {
+    if (event.suggestionTiming !== 'ongoing') p.steps[event.id] = true;
+  }
+  assert.equal(firstPendingStep(PHASES, p).event.id, 'm06', 'Objetivos contínuos permanecem recuperáveis');
+  assert.equal(p.steps.m06, undefined, 'A sugestão não altera o save');
+});
+
 test('20/72 completed: first pending found without inferring achievements', () => {
   const p = fresh();
   for (const { event } of allSteps.slice(0, 20)) p.steps[event.id] = true;
