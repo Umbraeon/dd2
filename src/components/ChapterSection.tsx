@@ -170,7 +170,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                           </h4>
                         </div>
 
-                        <JourneyCategoryBadge event={event} />
+                        <JourneyCategoryBadge event={event} compact />
                       </div>
 
                       {event.failureRisk && (event.risk === 'critico' || event.risk === 'alerta') && (
