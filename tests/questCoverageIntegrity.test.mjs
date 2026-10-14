@@ -56,7 +56,7 @@ test('gate: catálogo de 2024 identifica 49 faltantes sem confundir marcos com q
   assert.deepEqual(report.guidesWithoutLocalizedIndex.map(q => q.id).sort(), ['jadeite', 'tolled_to_rest']);
   assert.deepEqual(names(report.missingLocalization), names(gate.notInLocalizationIndexFrom2024));
   assert.equal(report.missingLocalization.length, 2);
-  assert.equal(PHASES.flatMap(p => p.events).length, 62);
+  assert.equal(PHASES.flatMap(p => p.events).length, 71);
 });
 
 test('gate: títulos oficiais registrados permanecem alinhados aos guias, sem tradução nova inventada', () => {
