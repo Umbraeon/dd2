@@ -21,7 +21,9 @@ A revisão distingue **marco editorial**, **missão do diário do jogo**, **desb
 | Till Death Do Us Part | Agrupada depois das missões de Harve | `v203` reaproveitado na janela inicial de Vernworth, antes de grande avanço em Brant | [PowerPyx — secundárias](https://www.powerpyx.com/dragons-dogma-2-all-side-quests/) |
 | Dragonsbreath Tower | Desvio opcional após o marco de entrar na Ilha Vulcânica | `i02` vem antes de `i01` | Geografia descrita na própria ficha; desvio, não obrigatoriedade |
 
-## Legenda editorial aplicada a TODOS os 71 marcos
+| A Noble Exchange | Estava ligada ao primeiro baile de Brant, anterior à disponibilidade relatada | `b12` no retorno a Vernworth após começar `Nation of the Lambent Flame`; disponibilidade varia entre noites | [PowerPyx](https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/) |
+
+## Legenda editorial aplicada a TODOS os 72 marcos
 
 - `main`: progresso obrigatório da história / batalha embutida obrigatória.
 - `side`: missões secundárias, incluindo as condicionais.
@@ -32,7 +34,7 @@ A revisão distingue **marco editorial**, **missão do diário do jogo**, **desb
 
 ## Compatibilidade de progresso
 
-- 53 IDs originais preservados. As 9 novas etapas do PR anterior também foram preservadas: 62 IDs legados da `main` + **9 novos** = **71 marcos**.
+- 53 IDs originais preservados. As 9 novas etapas do PR anterior também foram preservadas: 62 IDs legados da `main` + **10 novos** = **72 marcos**.
 - 9 capítulos, 60 conquistas, 82 guias individuais e 82 nomes localizados preservados.
 - Sem edição no formato `dd2_roadmap_user_progress_v3`. Marcações antigas não são redefinidas. Novos passos NÃO são automaticamente inferidos como concluídos.
 
