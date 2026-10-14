@@ -66,7 +66,7 @@ test('Libertar Melve exige espadas e não depende obrigatoriamente de ter salvad
   assert.match(home.note,/não é requisito obrigatório/i);
   assert.match(home.note,/CAIS à NOITE/i);
   assert.match(home.prerequisites,/PowerPyx.*Game8/);
-  assert.match(guide('home_hearth').preparation.join(' '),/NÃO é requisito/);
+  assert.match(guide('home_hearth').preparation.join(' '),/não exige os irmãos/i);
   assert.match(row('m04').note,/primeira visita/);
   assert.match(row('m04').failureRisk,/Norbert/);
 });
