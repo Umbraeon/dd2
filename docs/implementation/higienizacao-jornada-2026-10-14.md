@@ -29,6 +29,7 @@ Esses critérios orientam uma **rota recomendada**, não um conjunto de pré-req
 | Etapas de Bakbattahl / retorno a Vernworth | **REAGRUPAR** | Fazer os trabalhos locais antes de planejar uma viagem de volta para missões desbloqueadas por Battahl |
 | Matriz com confiança por URLs em vez de por fatos | **CORRIGIR PARCIALMENTE / MANTER PENDÊNCIA** | Reordenar pelo código, rebaixar alegações em marcos agregadores; revisão factual por missão segue aberta |
 | Mapa experimental PR #59 | **NÃO INTEGRAR** | Dependências de georreferenciamento e procedência de arte ainda não sanadas |
+| Diagnóstico externo do MapGenie e capturas fixas do PR C executados em todo CI | **REMOVER DO GATE** | Etapas históricas e não determinísticas; scripts permanecem disponíveis manualmente, enquanto lint, unitários, build, Playwright e capturas do aplicativo atual continuam obrigatórios |
 | PR #61 (versão concorrente) | **NÃO INTEGRAR** | Substituído pela versão do PR #62, já integrada; evitar dupla implementação |
 
 ## Casos editoriais prioritários e evidências
