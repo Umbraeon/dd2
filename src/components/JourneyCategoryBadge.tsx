@@ -35,6 +35,9 @@ export function JourneyCategoryBadge({ event, compact = false }: { event: QuestE
   const isMissable = !!event.isMissable;
   const timedLabel = event.timedTrigger ? 'Prazo após gatilho' : 'Temporizada';
   const timedDescription = event.timedTrigger ? `Prazo começa: ${event.timedTrigger}` : (event.failureRisk || 'Missão temporizada');
+  const compactRiskDescription = event.timedTrigger
+    ? `${timedDescription}${isMissable ? '; conteúdo perdível' : ''}`
+    : isTimed && isMissable ? 'Temporizada e perdível' : isTimed ? 'Temporizada' : 'Perdível';
   const isGeneralAlert = !isTimed && !isMissable &&
     (event.risk === 'critico' || event.risk === 'alerta') && !!event.failureRisk;
 
@@ -49,7 +52,7 @@ export function JourneyCategoryBadge({ event, compact = false }: { event: QuestE
           <span
             className="journey-risk-indicator"
             role="img"
-            aria-label={isTimed && isMissable ? `${timedLabel} e perdível` : isTimed ? timedLabel : 'Perdível'}
+            aria-label={compactRiskDescription}
             title={isTimed ? timedDescription : (event.failureRisk || 'Perdível')}
           >
             {isTimed ? <Clock size={12} aria-hidden="true" /> : <AlertTriangle size={12} aria-hidden="true" />}
