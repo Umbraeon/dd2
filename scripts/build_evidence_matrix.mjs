@@ -92,7 +92,9 @@ const matrixData = [
     risk: "Atenção (Trysha exige grimórios autênticos; cópias causam falha com ela)",
     sources: [
       { name: "PowerPyx (Claw Them Into Shape)", url: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/" },
-      { name: "Game8 (Spellbound)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Spellbound" }
+      { name: "Game8 (Spellbound)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Spellbound" },
+      { name: "PowerPyx (Brothers Brave and Timid)", url: "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/" },
+      { name: "Game8 (Brothers Brave and Timid)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Brothers-Brave-and-Timid" }
     ],
     evidence: "Beren pede 3 espadas e recruta; Trysha exige grimórios autênticos para ensinar maestria sem enlouquecer com cópias.",
     divergence: "PowerPyx situa missões de Ian e Flora após O Trono do Sobran, enquanto Game8 recomenda conferir Ian na primeira passagem. O marco de Beren/Trysha não determina o gatilho de Melve.",
@@ -247,7 +249,9 @@ const matrixData = [
     risk: "Perdível em particular o resgate de Norbert após ataque do dragão; não afirmar que todas as três expiram juntas.",
     sources: [
       { name: "PowerPyx (Nesting Troubles)", url: "https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/" },
-      { name: "Game8 (Nesting Troubles)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles" }
+      { name: "Game8 (Nesting Troubles)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles" },
+      { name: "PowerPyx (Brothers Brave and Timid)", url: "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/" },
+      { name: "PowerPyx (Medicament Predicament)", url: "https://www.powerpyx.com/dragons-dogma-2-medicament-predicament-walkthrough/" }
     ],
     evidence: "Três missões em Melve com NPCs e momentos independentes. Ian e Norbert podem auxiliar a obter espadas em Home Is Where the Hearth Is mas não são pré-requisito.",
     divergence: "PowerPyx e Game8 não concordam integralmente na primeira janela de Ian; não impor regra universal.",
@@ -342,7 +346,8 @@ const matrixData = [
     risk: "Nenhum",
     sources: [
       { name: "PowerPyx (Monster Culling)", url: "https://www.powerpyx.com/dragons-dogma-2-monster-culling-walkthrough/" },
-      { name: "Game8 (Monster Culling)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Monster-Culling" }
+      { name: "Game8 (Monster Culling)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Monster-Culling" },
+      { name: "PowerPyx (Scaly Invaders)", url: "https://www.powerpyx.com/dragons-dogma-2-scaly-invaders-walkthrough/" }
     ],
     evidence: "Monster Culling passa por três frentes; na saída de Stormwind Cave em Harve, o jogador pode iniciar Scaly Invaders com Fyoran e lutar a primeira onda, sem concluir a secundária naquele momento.",
     divergence: "Nenhuma",
@@ -439,7 +444,9 @@ const matrixData = [
     risk: "Nenhum",
     sources: [
       { name: "PowerPyx (The Nameless Village)", url: "https://www.powerpyx.com/dragons-dogma-2-the-nameless-village-walkthrough/" },
-      { name: "Game8 (The Nameless Village)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Nameless-Village" }
+      { name: "Game8 (The Nameless Village)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Nameless-Village" },
+      { name: "PowerPyx (Scaly Invaders)", url: "https://www.powerpyx.com/dragons-dogma-2-scaly-invaders-walkthrough/" },
+      { name: "Game8 (Scaly Invaders)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Scaly-Invaders" }
     ],
     evidence: "Duas missões independentes. A segunda onda de sáurios conclui Scaly Invaders; o Vilarejo sem Nome não é pré-requisito de Ulrika.",
     divergence: "A matriz reúne uma investigação principal e secundária independentes; fontes para a segunda defesa não comprovam requisito do Vilarejo sem Nome.",
@@ -458,7 +465,8 @@ const matrixData = [
     risk: "Perdível: início de Readvent pode desaparecer depois de O Banquete da Farsa; a missão NÃO termina após repelir o dragão.",
     sources: [
       { name: "PowerPyx (Readvent of Calamity)", url: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/" },
-      { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" }
+      { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" },
+      { name: "Game8 (Ulrika Romance)", url: "https://game8.co/games/Dragons-Dogma-2/archives/448886" }
     ],
     evidence: "Ataque e conversa com Sigurd representam início de Readvent; seus objetivos seguintes incluem casa de Ulrika, encontrá-la em Harve e informar Lennart em Melve.",
     divergence: "Passagem antecipada por Battahl como requisito é citada pela PowerPyx sem corroboração independente nesta revisão. Não confundir início com conclusão.",
@@ -477,7 +485,10 @@ const matrixData = [
     risk: "Perdível antes de Feast of Deception; marco agrupado pode ser adiado se Trouble on the Cape ainda não ocorrer.",
     sources: [
       { name: "PowerPyx (Trouble on the Cape)", url: "https://www.powerpyx.com/dragons-dogma-2-trouble-on-the-cape-walkthrough/" },
-      { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" }
+      { name: "Game8 (Readvent of Calamity)", url: "https://game8.co/games/Dragons-Dogma-2/archives/447927" },
+      { name: "PowerPyx (Readvent of Calamity)", url: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/" },
+      { name: "Game8 (Trouble on the Cape)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Trouble-on-the-Cape" },
+      { name: "Game8 (Ulrika Romance)", url: "https://game8.co/games/Dragons-Dogma-2/archives/448886" }
     ],
     evidence: "PowerPyx: Trouble on the Cape inicia automaticamente durante a busca por Ulrika em Harve, e relatar a Lennart depois de encontrar Ulrika encerra Readvent. Game8 apresenta uma sequência com retorno a Lennart antes do resgate de Zoran.",
     divergence: "PowerPyx descreve Trouble on the Cape DURANTE Readvent; Game8 descreve retorno a Lennart primeiro e Trouble depois. Não tratar qualquer uma como universal.",
@@ -593,7 +604,9 @@ const matrixData = [
     risk: "Missão de Melve a concluir preferencialmente antes de Feast of Deception se o jogador quiser manter a linha de Ulrika.",
     sources: [
       { name: "PowerPyx (Home Is Where the Hearth Is)", url: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/" },
-      { name: "Game8 (Home Is Where the Hearth Is)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Home-Is-Where-the-Hearth-Is" }
+      { name: "Game8 (Home Is Where the Hearth Is)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Home-Is-Where-the-Hearth-Is" },
+      { name: "PowerPyx (Brothers Brave and Timid)", url: "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/" },
+      { name: "Game8 (Missable Quests)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Quests" }
     ],
     evidence: "Após superar bloqueio dos soldados, levar quatro espadas (do inventário, compra ou depósito), liberar Melve, encontrar Ulrika em Harve e falar no cais à noite. A ajuda de Ian/Norbert só facilita recuperar armas.",
     divergence: "Game8 inclui o resgate de Zoran como etapa da cadeia; PowerPyx lista diretamente Readvent e An Unsettling Encounter. Não impor Norbert ou outra condição sem verificação.",
