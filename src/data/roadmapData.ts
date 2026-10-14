@@ -71,7 +71,7 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Inicie o treinamento com Beren e conheça Trysha (atividades iniciais)",
         type: "missao",
-        note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e reserve grimórios ORIGINAIS para 'Magia Vertiginosa' (Spellbound). Ao passar por Melve na primeira viagem, confira se Flora, Ian ou Lennart já oferecem missões: se estiverem disponíveis, faça-as antes de avançar a história, para não perdê-las com os eventos de Ulrika. 'A Última Lição de Beren' aparece após 'O Trono do Sobran' e tem etapa própria.",
+        note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e reserve grimórios ORIGINAIS para 'Magia Vertiginosa' (Spellbound), pois Myrddin precisará de cópias em sua missão posterior na Cidade de Descanso da Fronteira. Ao passar por Melve na primeira viagem, confira se Flora, Ian ou Lennart já oferecem missões: se estiverem disponíveis, faça-as antes de avançar a história, para não perdê-las com os eventos de Ulrika. 'A Última Lição de Beren' aparece após 'O Trono do Sobran' e tem etapa própria.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
