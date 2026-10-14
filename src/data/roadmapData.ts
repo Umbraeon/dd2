@@ -69,7 +69,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m03",
-        title: "Inicie o treinamento com Beren e conheça Trysha (atividades iniciais)"
+        title: "Inicie o treinamento com Beren e conheça Trysha (atividades iniciais)",
         type: "missao",
         note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e planeje 'Magia Vertiginosa' (Spellbound): reserve grimórios ORIGINAIS para ela e faça cópias para Myrddin antes de entregar livros. A Última Lição de Beren só aparece após 'O Trono do Sobran' e tem etapa própria adiante.",
         achievements: [],
@@ -80,7 +80,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m05",
-        title: "Inicie as conquistas de sistemas e conclua-as quando desbloquear os recursos"
+        title: "Inicie as conquistas de sistemas e conclua-as quando desbloquear os recursos",
         type: "conquista",
         note: "Ao longo dos capítulos, monte acampamento, use uma carroça de bois, troque a vocação na guilda, teletransporte-se por Pedra-barca e reviva dois peões caídos juntos. Várias ações dependem de recursos liberados mais tarde: não é necessário terminar esta etapa antes de chegar a Vernworth; adie-a para continuar a história.",
         achievements: [4, 5, 6, 7, 8],
@@ -225,7 +225,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v103",
-        title: "Ajude Sven e encontre a biblioteca com Malcolm"
+        title: "Ajude Sven e encontre a biblioteca com Malcolm",
         type: "missao",
         note: "Inicie 'A Caixa Ornamentada' com Sven e retorne à fonte nos dias seguintes para receber as recompensas. Em 'A História sob a Profundez', encontre Malcolm no bairro pobre e descubra a biblioteca subterrânea; ela será útil na missão separada de Brant 'O Magistrado Aprisionado'. Se essas atividades ainda não aparecerem, prossiga as missões principais e volte.",
         achievements: [],
@@ -261,7 +261,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m04",
-        title: "Retorne a Melve depois de falar com Brant: Flora, Lennart, Ian e Norbert"
+        title: "Retorne a Melve depois de falar com Brant: Flora, Lennart, Ian e Norbert",
         type: "missao",
         note: "Depois de iniciar 'O Trono do Sobran' com Brant em Vernworth, retorne a Melve para ajudar Flora com um Fruit Roborant, completar 'Problemas Aninhados' voltando a Lennart após os barris e após o veneno, e acompanhar Ian para resgatar Norbert. Não trate essas missões como tarefas disponíveis obrigatoriamente antes de conhecer Brant.",
         achievements: [],
@@ -426,7 +426,7 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "v201",
-        title: "Investigue O Vilarejo sem Nome e a defesa de Harve"
+        title: "Investigue O Vilarejo sem Nome e a defesa de Harve",
         type: "missao",
         note: "Siga a investigação de Brant até 'O Vilarejo sem Nome' (The Nameless Village), conversando com Flaude e Srail para descobrir a verdade e suas habilidades de Ladrão. Em Harve, retorne para 'Invasores Escamosos' (Scaly Invaders) se aparecer após as incursões de 'Elimine os Monstros'. A etapa da campanha 'Elimine os Monstros' já é tratada separadamente em Vernworth parte 1.",
         achievements: [],
@@ -509,7 +509,7 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "v301",
-        title: "Conclua Uma Sombra à Espreita e Um Encontro Perturbador"
+        title: "Conclua Uma Sombra à Espreita e Um Encontro Perturbador",
         type: "missao",
         note: "Resolva 'Uma Sombra à Espreita' (The Arisen's Shadow) enquanto a investigação da corte continua. Após 'O Trono Roubado', fale com Brant para 'Um Encontro Perturbador' (An Unsettling Encounter): investigue os aposentos de Allard à noite, obtenha a carta do compartimento oculto e entregue-a a Brant. 'O Plano de Disa' foi antecipado como etapa individual de Brant.",
         achievements: [],
@@ -538,7 +538,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v304",
-        title: "Conclua O Banquete da Farsa e receba Nação da Chama Luzente"
+        title: "Conclua O Banquete da Farsa e receba Nação da Chama Luzente",
         type: "historia",
         note: "Só depois da checagem anterior, termine 'O Banquete da Farsa' (Feast of Deception) com Brant. Isso inicia 'Nação da Chama Luzente' (Nation of the Lambent Flame) e libera a viagem a Battahl. Antes de viajar, faça a etapa seguinte com Wilhelmina: sua linha opcional tem janela de disponibilidade limitada.",
         achievements: [],
@@ -548,7 +548,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v302",
-        title: "Após O Banquete da Farsa, procure Wilhelmina (prazo de três dias se aceitar)"
+        title: "Após O Banquete da Farsa, procure Wilhelmina (prazo de três dias se aceitar)",
         type: "alerta",
         note: "Após 'O Banquete da Farsa' (Feast of Deception), vá ao Rose Chateau Bordelrie e procure Wilhelmina. A ativação de 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn) pode depender de afinidade e da cena noturna; não presuma um número fixo de noites para desbloquear. Ao aceitar ajudá-la, reúna as provas contra Allard em até três dias no jogo. Faça esta etapa antes de se afastar de Vernworth.",
         achievements: [],
@@ -569,7 +569,7 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "b01",
-        title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira"
+        title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira",
         type: "conquista",
         note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
         achievements: [13, 35],
@@ -849,7 +849,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "i02",
-        title: "Desvio opcional: Torre do Sopro do Dragão no sudoeste de Battahl"
+        title: "Desvio opcional: Torre do Sopro do Dragão no sudoeste de Battahl",
         type: "conquista",
         note: "Antes ou durante a exploração da Ilha Vulcânica, faça um desvio pelo sudoeste de Battahl para subir à Torre do Sopro do Dragão (Dragonsbreath Tower) e reencontrar Sigurd. A torre não faz parte do percurso obrigatório através da Gruta de Drabnir.",
         achievements: [22],
@@ -1016,7 +1016,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p04",
-        title: "Última checagem antes de concluir Um Novo Chamado Divino"
+        title: "Última checagem antes de concluir Um Novo Chamado Divino",
         type: "checkpoint",
         note: "Após 'Sombras Trêmulas' (Flickering Shadows) e 'Convergência' (Convergence), você terá a Sucessão Vil recebida de Rothais. Antes de concluir 'Um Novo Chamado Divino' (A New Godsway), revise missões, conquistas e riscos: a missão seguinte leva ao caminho do Gigantus. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada; confira o registro disponível antes de seguir, sem presumir rollback garantido.",
         achievements: [],
@@ -1035,7 +1035,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p05",
-        title: "Em O Guardião Gigantus, detenha o colosso a tempo"
+        title: "Em O Guardião Gigantus, detenha o colosso a tempo",
         type: "conquista",
         note: "Depois de 'Um Novo Chamado Divino', siga a missão principal 'O Guardião Gigantus' (The Guardian Gigantus). Para a conquista de detê-lo rapidamente, prepare-se antes de cruzar a passagem e ataque os cristais com balistas, flechas ou a Flecha da Ruína (Unmaking Arrow). A missão segue para a Torre do Luar, tratada na próxima etapa.",
         achievements: [44],
@@ -1046,7 +1046,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p06",
-        title: "Conclua O Legado na Torre do Luar e decida o final"
+        title: "Conclua O Legado na Torre do Luar e decida o final",
         type: "historia",
         note: "Em 'O Legado' (Legacy), alcance a Torre do Luar, encontre Phaesus e confronte o Dragão. Esta etapa vem DEPOIS da marcha de Gigantus. As decisões sobre o final comum e o Mundo Desancorado estão separadas no capítulo seguinte.",
         achievements: [],
