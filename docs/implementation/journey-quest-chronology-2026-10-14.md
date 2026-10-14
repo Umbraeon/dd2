@@ -14,10 +14,11 @@ A ordem é **rota editorial recomendada com dependências**, não a única ordem
 2. **Melve, Beren e Brant:** missões de Flora/Lennart/Ian passam a ocorrer **após `Seat of the Sovran`**. `Beren's Final Lesson` foi separada de `Claw Them Into Shape` e posicionada depois da audiência com Brant.
 3. **Vernworth:** `Seat of the Sovran`, `Disa's Plot`, `The Caged Magistrate` e `Monster Culling` agora têm etapas de história identificáveis; `The Heel of History` antecede a orientação de libertar Waldhar. `The Nameless Village` não é confundida com `Monster Culling`.
 4. **Ulrika:** `Home Is Where the Hearth Is` vem após `Readvent of Calamity` **e** `An Unsettling Encounter`, sem pressupor que todas as missões destravam no mesmo dia. O retorno preventivo a Melve pode ser adiado se o ataque não disparar.
-5. **Wilhelmina:** `Every Rose Has Its Thorn` é mostrada **depois** de `Feast of Deception` no roteiro recomendado (sem prometer um gatilho fixo de afinidade), com aviso dos três dias **após aceitar ajudar**. O checkpoint anterior à coroação mantém seu lugar antes do Banquete.
-6. **Battahl → final:** individualizadas `Flickering Shadows`, `Convergence` e `A New Godsway`. O checkpoint vem **antes** da conclusão da Godsway, e `Guardian Gigantus` antecede `Legacy`.
-7. **Mundo Desancorado:** Talos aparece antes da checagem de feixes, preservando o feixe final como último ato; os objetivos paralelos continuam sujeitos ao estado do jogo.
-8. **Links editoriais** foram movidos para o marco correspondente em `questGuides.ts`; guias antigos seguem disponíveis no modo Consulta e nenhum guia foi apagado.
+5. **Aviso de Melve:** retorno de `m04` foi antecipado na Parte 1 de Vernworth; ações disponíveis na primeira visita podem ser concluídas imediatamente. O alerta de Ulrika agora explicita pré-requisitos de Harve, variação no gatilho do dragão e a possibilidade de travessia antecipada da fronteira **sem** concluir o Banquete. A continuação de Ulrika tem pré-requisitos apresentados no Diário.
+6. **Wilhelmina:** `Every Rose Has Its Thorn` é mostrada **depois** de `Feast of Deception` no roteiro recomendado (sem prometer um gatilho fixo de afinidade), com aviso dos três dias **após aceitar ajudar**. O checkpoint anterior à coroação mantém seu lugar antes do Banquete.
+7. **Battahl → final:** individualizadas `Flickering Shadows`, `Convergence` e `A New Godsway`. O checkpoint vem **antes** da conclusão da Godsway, e `Guardian Gigantus` antecede `Legacy`.
+8. **Mundo Desancorado:** Talos aparece antes da checagem de feixes, preservando o feixe final como último ato; os objetivos paralelos continuam sujeitos ao estado do jogo.
+9. **Links editoriais** foram movidos para o marco correspondente em `questGuides.ts`; guias antigos seguem disponíveis no modo Consulta e nenhum guia foi apagado.
 
 ## Etapas introduzidas
 
@@ -48,6 +49,7 @@ A ordem é **rota editorial recomendada com dependências**, não a única ordem
 ## Compatibilidade e limites
 
 - Os 53 IDs antigos permanecem, inclusive `m04` movido de capítulo. Jogador com `m04` concluído continua com ele concluído; o capítulo selecionado pode mudar se o jogador retornar ao marco através da Jornada.
+- As condições de desbloqueio em Melve variam entre guias; o aviso é conservador e não pressupõe que a passagem por Battahl seja obrigatória para todas as campanhas.
 - A pessoa com todos os **53 marcos antigos concluídos** verá as **nove etapas novas pendentes**. Isso é esperado; não marcar como feito automaticamente sem evidência de gameplay. A conclusão antiga não é apagada nem sobrescrita. Para continuar, o jogador pode fixar, concluir ou adiar esses marcos manualmente.
 - Missões opcionais e conquistas cumulativas podem ser adiadas sem perda automática das demais marcações.
 - Esta revisão **não** valida todos os gatilhos em saves atuais, nem converte 62 marcos em catálogo exaustivo. A DLC continua sua própria seção. Nenhuma alteração foi feita no mapa de preview nem no armazenamento.
