@@ -47,6 +47,16 @@ export const PHASES: Phase[] = [
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
+        id: "m06",
+        title: "Registre o local do primeiro Memento do Buscador",
+        type: "alerta",
+        note: "Ao coletar seu primeiro Memento do Buscador, anote o local ou tire uma captura de tela. Essa informação será útil no Enigma de Ruminação da Esfinge.",
+        achievements: [],
+        risk: "critico",
+        source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
+        failureRisk: "Guarde o local do primeiro memento para não precisar procurá-lo novamente durante o enigma."
+      },
+      {
         id: "m02",
         title: "Resolva as missões de novatos antes de se afastar do posto",
         type: "missao",
@@ -59,9 +69,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m03",
-        title: "Conheça Beren e Trysha na região de Melve",
+        title: "Inicie o treinamento com Beren e conheça Trysha (atividades iniciais)"
         type: "missao",
-        note: "Em Moonglow Garden, a oeste do Posto Avançado, faça 'Treino Leonino' (Claw Them Into Shape): entregue três espadas, recrute Humphrey em Vernworth, lute com Beren e investigue o ataque. Depois de 'O Trono do Sobran' (Seat of the Sovran), volte para 'A Última Lição de Beren' (Beren's Final Lesson), derrote o ciclope e fale com ele novamente no dia seguinte. Quando Beren se mudar para Battahl, visite sua casa de infância para obter Champion’s Fable e aprender Arc of Might. Na Casa de Eini, ao norte de Melve, conheça Trysha e preserve três grimórios originais para 'Magia Vertiginosa'. A missão de Myrddin não começa aqui: visite-o mais adiante na Cidade de Descanso da Fronteira, no marco de Vernworth parte 2. Os guias individuais desta região estão abaixo.",
+        note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e planeje 'Magia Vertiginosa' (Spellbound): reserve grimórios ORIGINAIS para ela e faça cópias para Myrddin antes de entregar livros. A Última Lição de Beren só aparece após 'O Trono do Sobran' e tem etapa própria adiante.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
@@ -69,33 +79,13 @@ export const PHASES: Phase[] = [
         failureRisk: "Antes de entregar os grimórios, preserve originais para Trysha; ela não aceita falsificações para avançar normalmente."
       },
       {
-        id: "m04",
-        title: "Siga para Melve e conclua as tarefas locais imediatas",
-        type: "missao",
-        note: "Em Melve, ajude Flora com um Fruit Roborant, conclua 'Problemas Aninhados' retornando a Lennart depois dos barris e depois do veneno, e acompanhe Ian para resgatar Norbert e trazê-lo de volta à vila. Cada missão tem ficha própria abaixo.",
-        achievements: [],
-        risk: "normal",
-        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
-        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"]
-      },
-      {
         id: "m05",
-        title: "Execute as ações dos sistemas básicos na exploração inicial",
+        title: "Inicie as conquistas de sistemas e conclua-as quando desbloquear os recursos"
         type: "conquista",
-        note: "Monte um acampamento em uma fogueira, embarque em uma carroça de bois, alterne sua vocação na guilda, use uma Pedra-barca para teletransporte e reviva dois peões caídos de uma só vez.",
+        note: "Ao longo dos capítulos, monte acampamento, use uma carroça de bois, troque a vocação na guilda, teletransporte-se por Pedra-barca e reviva dois peões caídos juntos. Várias ações dependem de recursos liberados mais tarde: não é necessário terminar esta etapa antes de chegar a Vernworth; adie-a para continuar a história.",
         achievements: [4, 5, 6, 7, 8],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
-      },
-      {
-        id: "m06",
-        title: "Registre o local do primeiro Memento do Buscador",
-        type: "alerta",
-        note: "Ao coletar seu primeiro Memento do Buscador, anote o local ou tire uma captura de tela. Essa informação será útil no Enigma de Ruminação da Esfinge.",
-        achievements: [],
-        risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Guarde o local do primeiro memento para não precisar procurá-lo novamente durante o enigma."
       }
     ],
     achievements: [
@@ -210,10 +200,19 @@ export const PHASES: Phase[] = [
         id: "v101",
         title: "Chegue a Vernworth na história principal",
         type: "historia",
-        note: "Em 'No Rastro do Dragão', acompanhe Gregor desde Melve pela estrada até as portas de Vernworth, enfrentando eventuais harpias e ciclope. Brant será encontrado depois, na Estalagem Stardrop à noite, em 'O Trono do Sobran'.",
+        note: "Em 'No Rastro do Dragão' (In Dragon's Wake), acompanhe Gregor do caminho de Melve até a capital Vernworth. Ao chegar, procure o capitão Brant à noite na Estalagem Stardrop para iniciar a próxima missão, 'O Trono do Sobran'.",
         achievements: [3],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+      },
+      {
+        id: "v108",
+        title: "Fale com Brant à noite: O Trono do Sobran",
+        type: "historia",
+        note: "Após chegar a Vernworth, fale com Brant na Estalagem Stardrop à noite para concluir 'O Trono do Sobran' (Seat of the Sovran). Aceite as investigações de 'O Plano de Disa', 'O Magistrado Aprisionado' e 'Elimine os Monstros'. São linhas liberadas em paralelo, não uma sequência obrigatória entre si.",
+        achievements: [],
+        risk: "normal",
+        source: "https://www.powerpyx.com/dragons-dogma-2-seat-of-the-sovran-walkthrough/"
       },
       {
         id: "v102",
@@ -226,22 +225,58 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v103",
-        title: "Execute as tarefas dos bairros e dos pobres",
+        title: "Ajude Sven e encontre a biblioteca com Malcolm"
         type: "missao",
-        note: "Ajude Sven com 'A Caixa Ornamentada' e volte à fonte em três dias diferentes para receber as recompensas. Em 'A História sob a Profundez', encontre Malcolm para descobrir a biblioteca subterrânea; use essa descoberta para ajudar Waldhar em 'O Magistrado Aprisionado'.",
+        note: "Inicie 'A Caixa Ornamentada' com Sven e retorne à fonte nos dias seguintes para receber as recompensas. Em 'A História sob a Profundez', encontre Malcolm no bairro pobre e descubra a biblioteca subterrânea; ela será útil na missão separada de Brant 'O Magistrado Aprisionado'. Se essas atividades ainda não aparecerem, prossiga as missões principais e volte.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
-        id: "v104",
-        title: "Participe do baile de máscaras com traje nobre",
-        type: "conquista",
-        note: "Durante a missão de Brant 'O Trono Roubado' (The Stolen Throne), equipe a Túnica da Corte, Calças da Corte e a Máscara do Baile antes de adentrar o salão real à noite.",
-        achievements: [12],
+        id: "v111",
+        title: "Solte Waldhar em O Magistrado Aprisionado",
+        type: "historia",
+        note: "Em 'O Magistrado Aprisionado' (The Caged Magistrate), siga o pedido de Brant, encontre Waldhar na prisão e apresente a existência da biblioteca subterrânea descoberta com Malcolm em 'A História sob a Profundez'. Volte ao capitão para concluir. As missões de Brant podem ser feitas em paralelo.",
+        achievements: [],
+        risk: "normal",
+        source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
+      },
+      {
+        id: "v109",
+        title: "Investigue O Plano de Disa no castelo",
+        type: "missao",
+        note: "Com a missão de Brant ativa, investigue 'O Plano de Disa' (Disa's Plot) no castelo e leve as provas de volta ao capitão. Ela pode ser concluída em paralelo com 'O Magistrado Aprisionado' e 'Elimine os Monstros'; não é preciso repetir essa etapa mais tarde.",
+        achievements: [],
         risk: "cuidado",
-        source: "https://steamcommunity.com/stats/2054970/achievements",
-        failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas."
+        source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
+      },
+      {
+        id: "v110",
+        title: "Conclua Elimine os Monstros nas regiões indicadas por Brant",
+        type: "historia",
+        note: "Faça 'Elimine os Monstros' (Monster Culling): avance pelos locais indicados por Brant, incluindo as investidas contra sauros na região de Harve e outros focos de monstros, e retorne ao capitão. Essa missão principal libera novas investigações e permite encontrar 'Invasores Escamosos' em Harve; confira o guia individual para as paradas.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
+      },
+      {
+        id: "m04",
+        title: "Retorne a Melve depois de falar com Brant: Flora, Lennart, Ian e Norbert"
+        type: "missao",
+        note: "Depois de iniciar 'O Trono do Sobran' com Brant em Vernworth, retorne a Melve para ajudar Flora com um Fruit Roborant, completar 'Problemas Aninhados' voltando a Lennart após os barris e após o veneno, e acompanhar Ian para resgatar Norbert. Não trate essas missões como tarefas disponíveis obrigatoriamente antes de conhecer Brant.",
+        achievements: [],
+        risk: "normal",
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"]
+      },
+      {
+        id: "m07",
+        title: "Após O Trono do Sobran, conclua A Última Lição de Beren",
+        type: "missao",
+        note: "Com 'Treino Leonino' (Claw Them Into Shape) e 'O Trono do Sobran' concluídos, volte ao Jardim do Luar (Moonglow Garden), ajude Beren contra o ciclope e fale com ele novamente após descansar. Mais tarde, ao acessar Battahl, procure sua casa de infância para a maestria de Guerreiro; não confunda esse retorno tardio com a conclusão imediata da missão.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-berens-final-lesson-walkthrough/"
       },
       {
         id: "v105",
@@ -262,10 +297,20 @@ export const PHASES: Phase[] = [
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
+        id: "v104",
+        title: "Participe do baile de máscaras com traje nobre",
+        type: "conquista",
+        note: "Durante a missão de Brant 'O Trono Roubado' (The Stolen Throne), equipe a Túnica da Corte, Calças da Corte e a Máscara do Baile antes de adentrar o salão real à noite.",
+        achievements: [12],
+        risk: "cuidado",
+        source: "https://steamcommunity.com/stats/2054970/achievements",
+        failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas."
+      },
+      {
         id: "v107",
         title: "Retorne a Melve: Revinda da Calamidade (Readvent of Calamity)",
         type: "alerta",
-        note: "Enquanto faz as missões de Brant em Vernworth, visite Melve antes de concluir 'O Banquete da Farsa'. Se ocorrer o ataque do dragão, ajude a repelir a criatura; fale com Sigurd e acompanhe a sequência de Ulrika em Melve e Harve. Veja o passo a passo de 'Revinda da Calamidade'.",
+        note: "Durante as missões de Brant, volte periodicamente a Melve antes de concluir 'O Banquete da Farsa' para conferir o ataque do dragão e a linha 'Revinda da Calamidade'. Fontes divergem sobre o momento exato em que a missão aparece; se ainda não houver ataque, não marque a missão como concluída: adie o marco e reavalie depois de avançar em Harve ou cruzar a fronteira. Se começar, faça-a antes da coroação.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
@@ -381,9 +426,9 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "v201",
-        title: "Avance pela Vila Sem Nome e Aldeia de Harve",
+        title: "Investigue O Vilarejo sem Nome e a defesa de Harve"
         type: "missao",
-        note: "Explore Harve para resgatar soldados sauros ('Elimine os Monstros' — Monster Culling) e siga até a Vila Sem Nome ('O Vilarejo sem Nome' — The Nameless Village) para obter as habilidades iniciais do Ladrão com Flaude e Srail.",
+        note: "Siga a investigação de Brant até 'O Vilarejo sem Nome' (The Nameless Village), conversando com Flaude e Srail para descobrir a verdade e suas habilidades de Ladrão. Em Harve, retorne para 'Invasores Escamosos' (Scaly Invaders) se aparecer após as incursões de 'Elimine os Monstros'. A etapa da campanha 'Elimine os Monstros' já é tratada separadamente em Vernworth parte 1.",
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -392,7 +437,7 @@ export const PHASES: Phase[] = [
         id: "v202",
         title: "Acompanhe Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity)",
         type: "missao",
-        note: "Depois do ataque do dragão em Melve, fale com Ulrika. Quando ela fugir, encontre-a em Harve ('As Mãos Atadas que Abraçam a Causa' — Trouble on the Cape). Defenda os moradores dos sauros e acompanhe a nomeação dela como líder.",
+        note: "Depois de repelir o dragão em Melve em 'Revinda da Calamidade', acompanhe o desaparecimento de Ulrika e procure-a em Harve. Resolva a situação dos sauros e 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape). A missão seguinte da linha, 'O Lar é Onde Mora o Coração' (Home Is Where the Hearth Is), será listada após 'Um Encontro Perturbador', de que ela também depende.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
@@ -464,23 +509,21 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "v301",
-        title: "Conclua as investigações de conspiração no castelo",
+        title: "Conclua Uma Sombra à Espreita e Um Encontro Perturbador"
         type: "missao",
-        note: "Investigue 'O Plano de Disa' e 'Uma Sombra à Espreita' em Vernworth. Depois de 'O Trono Roubado', aceite com Brant 'Um Encontro Perturbador': entre à noite nos aposentos de Allard, encontre a carta na parede secreta e entregue-a a Brant antes da coroação. Confira também as tarefas de Sven.",
+        note: "Resolva 'Uma Sombra à Espreita' (The Arisen's Shadow) enquanto a investigação da corte continua. Após 'O Trono Roubado', fale com Brant para 'Um Encontro Perturbador' (An Unsettling Encounter): investigue os aposentos de Allard à noite, obtenha a carta do compartimento oculto e entregue-a a Brant. 'O Plano de Disa' foi antecipado como etapa individual de Brant.",
         achievements: [],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
-        id: "v302",
-        title: "Prepare a missão de Wilhelmina e cumpra seu prazo quando disponível",
-        type: "alerta",
-        note: "Conheça Wilhelmina durante a história. Após 'O Banquete da Farsa' (Feast of Deception), volte ao Rose Chateau Bordelrie para falar com ela. Se receber a missão 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn), reúna as provas de Allard dentro de três dias no jogo.",
+        id: "v305",
+        title: "Após Um Encontro Perturbador, retorne a Melve para O Lar é Onde Mora o Coração",
+        type: "missao",
+        note: "Se completou 'Revinda da Calamidade' e 'Um Encontro Perturbador', retorne a Melve para 'O Lar é Onde Mora o Coração' (Home Is Where the Hearth Is). Fale com Lennart, obtenha as quatro espadas, ajude os moradores contra os soldados e reencontre Ulrika conforme a missão. Faça antes de concluir a coroação, se quiser proteger a linha de Ulrika.",
         achievements: [],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
-        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
-        failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias."
+        source: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/"
       },
       {
         id: "v303",
@@ -495,13 +538,24 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v304",
-        title: "Realize a Coroação e receba a autorização para Battahl",
+        title: "Conclua O Banquete da Farsa e receba Nação da Chama Luzente"
         type: "historia",
-        note: "Conclua 'O Banquete da Farsa' (Feast of Deception) e fale com Brant para começar a viagem a Battahl ('Nação da Chama Luzente' — Nation of the Lambent Flame). Antes de deixar Vernworth, procure Wilhelmina no Rose Chateau Bordelrie. Se ela solicitar provas contra Allard, conclua essa tarefa dentro de três dias no jogo. Depois siga para o Posto de Controle da Fronteira.",
+        note: "Só depois da checagem anterior, termine 'O Banquete da Farsa' (Feast of Deception) com Brant. Isso inicia 'Nação da Chama Luzente' (Nation of the Lambent Flame) e libera a viagem a Battahl. Antes de viajar, faça a etapa seguinte com Wilhelmina: sua linha opcional tem janela de disponibilidade limitada.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
         extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn"]
+      },
+      {
+        id: "v302",
+        title: "Após O Banquete da Farsa, procure Wilhelmina (prazo de três dias se aceitar)"
+        type: "alerta",
+        note: "Após 'O Banquete da Farsa' (Feast of Deception), vá ao Rose Chateau Bordelrie e procure Wilhelmina. A ativação de 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn) pode depender de afinidade e da cena noturna; não presuma um número fixo de noites para desbloquear. Ao aceitar ajudá-la, reúna as provas contra Allard em até três dias no jogo. Faça esta etapa antes de se afastar de Vernworth.",
+        achievements: [],
+        risk: "critico",
+        source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
+        extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
+        failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias."
       }
     ],
     achievements: []
@@ -515,9 +569,9 @@ export const PHASES: Phase[] = [
     events: [
       {
         id: "b01",
-        title: "Atravesse a fronteira (normal e clandestinamente)",
+        title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira"
         type: "conquista",
-        note: "Para a conquista 'Tô Dentro!', pegue carona escondido dentro de uma carruagem nobre que cruza o portão fechado sem exibir permissão (salve antes para não gerar hostilidade). Depois use sua permissão oficial para 'Através da fronteira'.",
+        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
         achievements: [13, 35],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -561,6 +615,15 @@ export const PHASES: Phase[] = [
         failureRisk: "Apenas seguir a carroça a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?'."
       },
       {
+        id: "b08",
+        title: "Investigue Sombras Trêmulas em Bakbattahl",
+        type: "historia",
+        note: "Depois de 'Nação da Chama Luzente', avance a campanha em 'Sombras Trêmulas' (Flickering Shadows): investigue a Godsway, converse com os personagens indicados em Bakbattahl e acompanhe o avanço da investigação até a etapa que permite buscar Rothais. Só depois siga para 'Convergência'.",
+        achievements: [],
+        risk: "normal",
+        source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
+      },
+      {
         id: "b06",
         title: "Segunda localização da Esfinge: 4 enigmas em ordem variável",
         type: "alerta",
@@ -596,6 +659,15 @@ export const PHASES: Phase[] = [
         achievements: [46],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-cave-locations-tourist-trophy/"
+      },
+      {
+        id: "b09",
+        title: "Complete Convergência no Santuário do Leito Marinho",
+        type: "historia",
+        note: "Após 'Sombras Trêmulas', vá à Caverna da Tempestade (Stormwind Cave), perto de Harve, entre no Santuário do Leito Marinho e converse com Rothais em 'Convergência' (Convergence) para obter a Lâmina da Perdição dos Deuses enfraquecida. A etapa seguinte da campanha será 'Um Novo Chamado Divino', cuja conclusão deve esperar pela checagem antes do final.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-convergence-walkthrough/"
       }
     ],
     achievements: [
@@ -777,9 +849,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "i02",
-        title: "Suba até a Torre do Sopro do Dragão (Dragonsbreath Tower)",
+        title: "Desvio opcional: Torre do Sopro do Dragão no sudoeste de Battahl"
         type: "conquista",
-        note: "Suba o cume no sudoeste de Battahl / entrada da ilha para encontrar a torre de nidificação dos dragões e reencontrar Sigurd.",
+        note: "Antes ou durante a exploração da Ilha Vulcânica, faça um desvio pelo sudoeste de Battahl para subir à Torre do Sopro do Dragão (Dragonsbreath Tower) e reencontrar Sigurd. A torre não faz parte do percurso obrigatório através da Gruta de Drabnir.",
         achievements: [22],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -944,19 +1016,28 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p04",
-        title: "Prepare-se antes do confronto com Gigantus",
+        title: "Última checagem antes de concluir Um Novo Chamado Divino"
         type: "checkpoint",
-        note: "Na história, 'Sombras Trêmulas' leva a Ambrosius, ao Forjado pelo Dragão, a Luz e ao Ancião de Harve; em 'Convergência', entre na Caverna da Tempestade e receba a Sucessão Vil de Rothais. Antes de avançar 'Um Novo Chamado Divino' e enfrentar Gigantus, revise as missões pendentes. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada; confira o registro disponível antes de seguir, sem presumir rollback garantido.",
+        note: "Após 'Sombras Trêmulas' (Flickering Shadows) e 'Convergência' (Convergence), você terá a Sucessão Vil recebida de Rothais. Antes de concluir 'Um Novo Chamado Divino' (A New Godsway), revise missões, conquistas e riscos: a missão seguinte leva ao caminho do Gigantus. A atualização 3.2 distingue salvamento automático, intermediário e último descanso na pousada; confira o registro disponível antes de seguir, sem presumir rollback garantido.",
         achievements: [],
         risk: "critico",
         source: "https://www.pushsquare.com/news/2026/09/colossal-game-changing-dragons-dogma-2-patch-3-2-out-now-on-ps5",
         extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/"]
       },
       {
+        id: "p07",
+        title: "Conclua Um Novo Chamado Divino antes da marcha do Gigantus",
+        type: "historia",
+        note: "Após 'Convergência' e a checagem dos conteúdos opcionais, entregue a Lâmina da Perdição dos Deuses enfraquecida a Ambrosius em Bakbattahl, reúna os 15 Cristais da Vida da Serpe exigidos e aguarde o processamento em 'Um Novo Chamado Divino' (A New Godsway). Antes de seguir o primeiro objetivo de 'O Guardião Gigantus', confirme que está pronto para o trecho final.",
+        achievements: [],
+        risk: "critico",
+        source: "https://www.powerpyx.com/dragons-dogma-2-a-new-godsway-walkthrough/"
+      },
+      {
         id: "p05",
-        title: "Derrote o Gigantus rapidamente ('Gigantus, nem sei quem é')",
+        title: "Em O Guardião Gigantus, detenha o colosso a tempo"
         type: "conquista",
-        note: "Para deter Gigantus rapidamente, prepare-se antes da marcha e ataque seus cristais com balistas, flechas ou Flecha da Ruína (Unmaking Arrow).",
+        note: "Depois de 'Um Novo Chamado Divino', siga a missão principal 'O Guardião Gigantus' (The Guardian Gigantus). Para a conquista de detê-lo rapidamente, prepare-se antes de cruzar a passagem e ataque os cristais com balistas, flechas ou a Flecha da Ruína (Unmaking Arrow). A missão segue para a Torre do Luar, tratada na próxima etapa.",
         achievements: [44],
         risk: "critico",
         source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
@@ -965,9 +1046,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "p06",
-        title: "Suba a Torre do Luar (Moonglint Tower) até o confronto",
+        title: "Conclua O Legado na Torre do Luar e decida o final"
         type: "historia",
-        note: "Confira as missões pendentes antes de avançar 'Um Novo Chamado Divino' (A New Godsway). Depois, siga para a Torre do Luar e o confronto com Phaesus e o Dragão.",
+        note: "Em 'O Legado' (Legacy), alcance a Torre do Luar, encontre Phaesus e confronte o Dragão. Esta etapa vem DEPOIS da marcha de Gigantus. As decisões sobre o final comum e o Mundo Desancorado estão separadas no capítulo seguinte.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
@@ -1236,6 +1317,15 @@ export const PHASES: Phase[] = [
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn"]
       },
       {
+        id: "u06",
+        title: "Reative o Gigantus no Mundo Desancorado ('Eu, Talos')",
+        type: "conquista",
+        note: "Na Ilha Vulcânica, aproxime-se dos restos caídos de Talos. Seu peão assumirá o controle do colosso e destruirá as duas monstruosidades que marcham pela praia.",
+        achievements: [41],
+        risk: "cuidado",
+        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+      },
+      {
         id: "u05",
         title: "Enfrente os feixes de prova sem ativar o feixe final",
         type: "conquista",
@@ -1245,15 +1335,6 @@ export const PHASES: Phase[] = [
         source: "https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/", "https://game8.co/games/Dragons-Dogma-2/archives/449759"],
         failureRisk: "Conclua as tarefas pendentes do Mundo Desancorado antes de ativar o feixe vermelho final do Templo Abissal."
-      },
-      {
-        id: "u06",
-        title: "Reative o Gigantus no Mundo Desancorado ('Eu, Talos')",
-        type: "conquista",
-        note: "Na Ilha Vulcânica, aproxime-se dos restos caídos de Talos. Seu peão assumirá o controle do colosso e destruirá as duas monstruosidades que marcham pela praia.",
-        achievements: [41],
-        risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
         id: "u07",
