@@ -1390,6 +1390,20 @@ const matrixData = [
   }
 ];
 
+// Uma URL para a missão A e outra para a missão B NÃO corroboram todas
+// as afirmações de um marco agregador. A verificação individual ainda está aberta.
+const COMPOSITE_FACTS_UNAUDITED = new Set([
+  'm02', 'm03', 'm05', 'v102', 'v103', 'v112', 'v201', 'v301', 'b02', 'u04'
+]);
+for (const item of matrixData) {
+  if (COMPOSITE_FACTS_UNAUDITED.has(item.id) && item.confidence === 'CORROBORADO') {
+    item.confidence = 'PROVÁVEL';
+    item.divergence = [item.divergence !== 'Nenhuma' ? item.divergence : '',
+      'Marco agregador: fontes não comprovam individualmente todas as missões e condições agrupadas.']
+      .filter(Boolean).join(' ');
+  }
+}
+
 // A matriz acompanha a ordem real dos dados; não manter uma segunda lista manual divergente.
 const stages = PHASES.flatMap(p => p.events);
 const stageOrder = new Map(stages.map((event, index) => [event.id, index]));
