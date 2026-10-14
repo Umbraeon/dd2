@@ -1774,9 +1774,7 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     "original": "A Noble Exchange",
     "region": "Vernworth — Salão de Máscaras do Castelo, durante um baile noturno",
     "giver": "Nobre mascarado que oferece o Paragon Staff no Salão de Máscaras",
-    "relatedEventIds": [
-      "v104"
-    ],
+    "relatedEventIds": ["b12"],
     "preparation": [
       "MISSÃO DE ESCOLHA: depois de Correspondência Mascarada e de avançar a história, participe de outro baile à noite. Game8 indica Correspondência Mascarada como pré-requisito; PowerPyx localiza o desbloqueio em uma janela narrativa posterior. Confira se o evento acontece no seu diário.",
       "Vá com vestes cortesãs e máscara de baile, como em O Trono Roubado. Receber o Paragon Staff é parte do evento, NÃO o prêmio certo da missão.",
