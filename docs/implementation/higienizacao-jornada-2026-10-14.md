@@ -47,6 +47,7 @@ Esses critérios orientam uma **rota recomendada**, não um conjunto de pré-req
 - *One-Eyed Interloper* (`m09`) permanece na rota durante a escolta de Gregor: https://www.powerpyx.com/dragons-dogma-2-in-dragons-wake-walkthrough/.
 
 ### Bakbattahl, Vermund e fronteira
+- **Mercy among Thieves** começa na fronteira, depois de atravessar o portão para Battahl: aproveitar no caminho inicial a pé ao sul, em vez de retornar à fronteira após chegar à cidade. Fontes: https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/ e https://game8.co/games/Dragons-Dogma-2/archives/Mercy-Among-Thieves. O marco agregador `b02` não duplica sua conclusão.
 - `b10` (*Welcome to Battahl*) começa ao chegar a Bakbattahl; `b11` (*Tensions on the Highroad*) só após `b10` e se inicia ao voltar a Vernworth. Fontes: https://www.powerpyx.com/dragons-dogma-2-welcome-to-battahl-walkthrough/ e https://www.powerpyx.com/dragons-dogma-2-tensions-on-the-highroad-walkthrough/.
 - `b05` (*The Phantom Oxcart*) se torna disponível **após Nation of the Lambent Flame e a visita a Bakbattahl**, mas começa na região de **Vernworth**, à noite; não pode ser tratada como missão da cidade de Bakbattahl: https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/ e https://game8.co/games/Dragons-Dogma-2/archives/448921.
 - `b12` (*A Noble Exchange*) se passa no salão de máscaras de Vernworth e está descrita como disponível entre *Nation of the Lambent Flame* e *A New Godsway*: https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/.
