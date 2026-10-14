@@ -69,7 +69,7 @@ test('A Presa da Alcateia tem nome do catálogo PT-BR e não inventa hash de PAK
   assert.equal(q.ptBR, 'A Presa da Alcateia');
   assert.equal(q.evidence, 'kiranico_ptbr');
   assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
-  assert.deepEqual(q.eventIds, ['v206']);
+  assert.deepEqual(q.eventIds, ['v114']);
   assert.equal(q.sha256, undefined);
 });
 
