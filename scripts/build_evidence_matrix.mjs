@@ -179,7 +179,7 @@ const matrixData = [
   },
   {
     id: "v102",
-    content: "Ative a Guilda e inicie missões urbanas prioritárias (Marco agregador de 2 secundárias)",
+    content: "Ative a Guilda e inicie missões urbanas prioritárias (duas cadeias com visitas fora da cidade)",
     quests: "Frustração Vocacional, O Dom do Arco e A Prova de Arco e Flecha / Vocation Frustration, Gift of the Bow, A Trial of Archery",
     location: "Vernworth (guilda e forja) → Mina de Trevo / Ruínas da Montanha → Bosque Sagrado",
     mainQuest: "Nenhuma",
@@ -189,7 +189,8 @@ const matrixData = [
     risk: "Nenhum",
     sources: [
       { name: "PowerPyx (Vocation Frustration)", url: "https://www.powerpyx.com/dragons-dogma-2-vocation-frustration-walkthrough/" },
-      { name: "Game8 (Oxcart Courier)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Oxcart-Courier" }
+      { name: "PowerPyx (Gift of the Bow)", url: "https://www.powerpyx.com/dragons-dogma-2-gift-of-the-bow-walkthrough/" },
+      { name: "PowerPyx (A Trial of Archery)", url: "https://www.powerpyx.com/dragons-dogma-2-a-trial-of-archery-walkthrough/" }
     ],
     evidence: "PowerPyx: Klaus e Glyndwr iniciam em Vernworth; Mina de Trevo também integra Elimine os Monstros; Glyndwr treina fora da cidade e a prova posterior segue ao Bosque Sagrado.",
     divergence: "Marco composto: os links sustentam etapas separadas, não uma janela única.",
@@ -389,16 +390,16 @@ const matrixData = [
   {
     id: "v104",
     content: "Participe do baile de máscaras com traje nobre (Missão principal de investigação)",
-    quests: "O Conspirador Mascarado & Correspondência Mascarada / The Stolen Throne & Masked Correspondence",
+    quests: "O Trono Roubado & Correspondência Mascarada (opcional) / The Stolen Throne & Masked Correspondence",
     location: "Salão de Máscaras do Castelo de Vernworth",
-    mainQuest: "O Conspirador Mascarado",
+    mainQuest: "O Trono Roubado",
     relation: "PARALELA",
     moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
     prerequisites: "Missão principal O Trono Roubado: traje e máscara da corte. Opcional: verificar Correspondência Mascarada com Sven após avanço de O Plano de Disa, se aparecer.",
     risk: "Atenção (exige traje nobre para entrar sem ser preso e obter conquista)",
     sources: [
       { name: "PowerPyx (The Stolen Throne)", url: "https://www.powerpyx.com/dragons-dogma-2-the-stolen-throne-walkthrough/" },
-      { name: "Game8 (The Stolen Throne)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Stolen-Throne" }
+      { name: "Game8 (Masked Correspondence)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Masked-Correspondence" }
     ],
     evidence: "O Trono Roubado requer roupa adequada para o baile. Game8 descreve carta de Sven em Correspondência Mascarada, uma missão secundária com condição própria.",
     divergence: "Missão de Sven não é pré-requisito universal para a missão principal; seu gatilho exato varia com o avanço.",
@@ -717,7 +718,7 @@ const matrixData = [
   },
   {
     id: "b02",
-    content: "Execute as missões locais de Bakbattahl (Marco agregador de 3 secundárias de Bakbattahl)",
+    content: "Execute as missões locais de Bakbattahl (marco que também registra desvio da fronteira)",
     quests: "Piedade entre Ladrões & Orações Ensombradas & Uma Proposta Venenosa / Mercy among Thieves, Shadowed Prayers, A Poisonous Proposal",
     location: "Cidade de Descanso da Fronteira (Piedade entre Ladrões) e Bakbattahl (Orações Ensombradas / Uma Proposta Venenosa)",
     mainQuest: "Nenhuma",
@@ -727,7 +728,8 @@ const matrixData = [
     risk: "Atenção: depois de iniciar a cerimônia com Menella em Orações Ensombradas, não adiar a identificação do assassino. O grupo não possui um prazo único.",
     sources: [
       { name: "PowerPyx (Mercy among Thieves)", url: "https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/" },
-      { name: "Game8 (Shadowed Prayers)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Shadowed-Prayers" }
+      { name: "PowerPyx (Shadowed Prayers)", url: "https://www.powerpyx.com/dragons-dogma-2-shadowed-prayers-walkthrough/" },
+      { name: "PowerPyx (A Poisonous Proposal)", url: "https://www.powerpyx.com/dragons-dogma-2-a-poisonous-proposal-walkthrough/" }
     ],
     evidence: "PowerPyx distingue início de Piedade entre Ladrões na fronteira e Orações Ensombradas na cerimônia matinal em Bakbattahl. A etapa da cerimônia pode falhar se abandonada.",
     divergence: "Marco agrupado; os links não corroboram simultaneamente todas as condições das três missões.",
