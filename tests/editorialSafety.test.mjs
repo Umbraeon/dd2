@@ -17,11 +17,11 @@ const checkpoint = id => {
 };
 const fullText = value => [value.title ?? '', value.note ?? '', value.failureRisk ?? '', value.description ?? '', ...(value.verificationList ?? [])].join(' ');
 
-test('correções não renumeram os 62 marcos, 60 conquistas ou 4 checkpoints persistidos', () => {
+test('correções não renumeram os 71 marcos, 60 conquistas ou 4 checkpoints persistidos', () => {
   assert.equal(PHASES.length, 9);
-  assert.equal(events.length, 62);
+  assert.equal(events.length, 71);
   assert.equal(achievements.length, 60);
-  assert.equal(new Set(events.map(item => item.id)).size, 62);
+  assert.equal(new Set(events.map(item => item.id)).size, 71);
   assert.equal(new Set(achievements.map(item => item.id)).size, 60);
   assert.deepEqual(achievements.map(item => item.id).sort((a, b) => a - b), Array.from({ length: 60 }, (_, i) => i + 1));
   assert.deepEqual(RISK_CHECKPOINTS.map(item => item.id), [
