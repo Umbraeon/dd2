@@ -41,7 +41,7 @@ test('cronologia verificável: pré-requisitos e três pontos sem retorno', () =
   for (const [a,b] of [
     ['m01','m06'],['m06','m02'],
     ['v101','v108'],['v108','v109'],['v108','v110'],['v108','v111'],
-    ['v103','v111'],['v108','m04'],['m03','m07'],['v108','m07'],
+    ['v103','v111'],['v108','m04'],['m04','v110'],['m04','v107'],['m03','m07'],['v108','m07'],
     ['v109','v104'],['v110','v201'],['v201','v107'],['v107','v202'],['v104','v301'],
     ['v202','v305'],['v301','v305'],['v305','v303'],
     ['v303','v304'],['v304','v302'],['v302','b01'],
@@ -68,6 +68,22 @@ test('novas etapas têm guia ou instrução completa e fonte independente', () =
     assert.ok(event.note.length > 100,id);
     assert.ok(questGuidesForEvent(id).some(guide => guide.id === guideId),`Guia não vinculado: ${id} ↔ ${guideId}`);
   }
+});
+
+
+test('avisos de missões perdíveis incluem pré-requisitos legíveis e proteção antes da coroação', () => {
+  const byId = id => flat.find(({ event }) => event.id === id)?.event;
+  for (const id of ['m04','v107','v202','v305','v302','b09','p07']) {
+    const item = byId(id);
+    assert.ok(item?.prerequisites?.length > 45, `${id}: sem pré-requisitos legíveis`);
+    assert.match(item.source, /^https:\/\//);
+  }
+  assert.equal(byId('m04').risk,'critico');
+  assert.match(byId('m04').note, /primeira visita|Retorne|retorne cedo/i);
+  assert.match(byId('m04').failureRisk, /Norbert/);
+  assert.match(byId('v107').note, /Invasores Escamosos/);
+  assert.match(byId('v107').failureRisk, /O Banquete da Farsa/);
+  assert.match(byId('v202').note, /adie este marco/);
 });
 
 test('progresso antigo permanece concluído sem sobrescrever etapa fixada ou adiada', () => {
