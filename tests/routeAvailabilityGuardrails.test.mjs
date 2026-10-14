@@ -31,7 +31,7 @@ test('Vernworth separa missão principal, cadeia opcional de Sven e divergência
   assert.match(exchange.note, /PowerPyx descreve/);
   assert.match(exchange.prerequisites ?? '', /Correspondência Mascarada/);
   assert.ok((exchange.extraSources ?? []).some(source => source.includes('A-Noble-Exchange')));
-  assert.equal(exchange.phase.id, 'battahl', 'marco da janela de retorno, não novo capítulo geográfico');
+  assert.equal(stage('b12').phase.id, 'battahl', 'marco da janela de retorno, não novo capítulo geográfico');
 });
 
 test('missões compostas não ocultam urgência da cerimônia nem impõem prazo a todo o grupo', () => {
