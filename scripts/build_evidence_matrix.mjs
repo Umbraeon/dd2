@@ -770,8 +770,8 @@ const matrixData = [
       { name: "Game8 (A Noble Exchange)", url: "https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange" }
     ],
     evidence: "Ambas descrevem baile em Vernworth; Game8 aponta Correspondência Mascarada como condição e PowerPyx cita somente a janela geral de campanha.",
-    divergence: "Não há comprovação independente de que a condição adicional de Correspondência Mascarada seja universal; não reduzir a espera por noites a gatilho suficiente.",
-    confidence: "DIVERGENTE",
+    divergence: "PowerPyx traz uma janela geral e Game8 cita condição adicional; silêncio da primeira fonte NÃO é refutação. Requisito adicional sem segunda confirmação.",
+    confidence: "PROVÁVEL",
     proposal: "Regra condicional explícita; missões da mesma viagem não são pré-requisitos entre si."
   },
   {
