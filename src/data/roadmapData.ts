@@ -306,15 +306,7 @@ export const PHASES: Phase[] = [
         source: "https://steamcommunity.com/stats/2054970/achievements",
         failureRisk: "Para obter a conquista do baile, entre com máscara, túnica e calças da corte equipadas."
       },
-      {
-        id: "v107",
-        title: "Retorne a Melve: Revinda da Calamidade (Readvent of Calamity)",
-        type: "alerta",
-        note: "Durante as missões de Brant, volte periodicamente a Melve antes de concluir 'O Banquete da Farsa' para conferir o ataque do dragão e a linha 'Revinda da Calamidade'. Fontes divergem sobre o momento exato em que a missão aparece; se ainda não houver ataque, não marque a missão como concluída: adie o marco e reavalie depois de avançar em Harve ou cruzar a fronteira. Se começar, faça-a antes da coroação.",
-        achievements: [],
-        risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
-      }
+
     ],
     achievements: [
       {
@@ -432,6 +424,15 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+      },
+      {
+        id: "v107",
+        title: "Retorne a Melve: Revinda da Calamidade (Readvent of Calamity)",
+        type: "alerta",
+        note: "Durante as missões de Brant, volte periodicamente a Melve antes de concluir 'O Banquete da Farsa' para conferir o ataque do dragão e a linha 'Revinda da Calamidade'. Fontes divergem sobre o momento exato em que a missão aparece; se ainda não houver ataque, não marque a missão como concluída: adie o marco e reavalie depois de avançar em Harve ou cruzar a fronteira. Se começar, faça-a antes da coroação.",
+        achievements: [],
+        risk: "critico",
+        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
       },
       {
         id: "v202",
