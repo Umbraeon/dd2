@@ -18,8 +18,8 @@ function installStorage() {
   return map;
 }
 
-test('62 existing steps: first is only a suggestion; no mutation for a new player', () => {
-  assert.equal(allSteps.length, 62);
+test('71 existing steps: first is only a suggestion; no mutation for a new player', () => {
+  assert.equal(allSteps.length, 71);
   const p = fresh();
   const result = resolveJourney(PHASES, p);
   assert.equal(result.kind, 'suggested');
@@ -29,7 +29,7 @@ test('62 existing steps: first is only a suggestion; no mutation for a new playe
   assert.deepEqual(p.deferredStepIds, undefined);
 });
 
-test('20/62 completed: first pending found without inferring achievements', () => {
+test('20/71 completed: first pending found without inferring achievements', () => {
   const p = fresh();
   for (const { event } of allSteps.slice(0, 20)) p.steps[event.id] = true;
   p.achievements[1] = true;
