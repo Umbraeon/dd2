@@ -168,7 +168,7 @@ export const QuestCodex: React.FC<Props> = ({
               </button>
             </div>;
           })}
-          {showMelveReturn && <div className="quest-route-next" role="note">
+          {showMelveReturn && <div className="quest-route-next" role="listitem">
             <p><strong>Mais tarde, em Melve</strong> — Problemas Aninhados, Flora e Norbert.</p>
             <button type="button" onClick={visitMelveReturn}>Ver etapa do retorno a Melve <ChevronRight size={15} aria-hidden="true" /></button>
             <small>A rota passa primeiro por Vernworth. A disponibilidade na primeira visita pode variar.</small>
