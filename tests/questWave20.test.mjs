@@ -22,7 +22,7 @@ test('onda 20: inclui dois guias além dos 80 históricos, sem confundir catálo
   assert.equal(buildQuestCoverage(baselineRoster).summary.guidesOutsideHistoricalBaseline, 2);
   assert.deepEqual(installed.observedWithoutGuide.map(q => q.english).sort(), ['Chilling Tidings', 'Lost Rites']);
   assert.deepEqual(gate.indexedWithoutGuide.map(q => q.english).sort(), ['Chilling Tidings', 'Lost Rites']);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
 });
 
