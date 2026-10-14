@@ -16,7 +16,7 @@ const LEGACY_IDS = [
   'p01','p02','p03','p04','p05','p06',
   'u01','u02','u03','u04','u05','u06','u07','u08','d01'
 ];
-const NEW_IDS = ['v108','v109','v110','v111','m07','v305','b08','b09','p07','m08','m09','v112','v113','v114','v306','b10','b11','p08'];
+const NEW_IDS = ['v108','v109','v110','v111','m07','v305','b08','b09','p07','m08','m09','v112','v113','v114','v306','b10','b11','b12','p08'];
 const flat = listJourneySteps(PHASES);
 const order = new Map(flat.map(({ event }, i) => [event.id, i]));
 const phaseId = id => flat.find(x => x.event.id === id)?.phase.id;
@@ -28,10 +28,10 @@ const before = (a,b) => {
 
 test('compatibilidade: todos os IDs do progresso antigo continuam únicos e publicados', () => {
   assert.equal(PHASES.length, 9);
-  assert.equal(flat.length, 71);
-  assert.equal(new Set(flat.map(s => s.event.id)).size, 71);
+  assert.equal(flat.length, 72);
+  assert.equal(new Set(flat.map(s => s.event.id)).size, 72);
   assert.equal(LEGACY_IDS.length, 53);
-  assert.equal(NEW_IDS.length, 18);
+  assert.equal(NEW_IDS.length, 19);
   assert.deepEqual(new Set(flat.map(s => s.event.id)), new Set([...LEGACY_IDS, ...NEW_IDS]));
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
   assert.ok(QUEST_GUIDES.length >= 82);
@@ -45,7 +45,7 @@ test('cronologia verificável: pré-requisitos e três pontos sem retorno', () =
     ['v109','v104'],['v110','v201'],['v206','v114'],['v201','v107'],['v107','v202'],['v104','v301'],
     ['v202','v305'],['v301','v305'],['v305','v303'],
     ['v303','v304'],['v304','v302'],['v304','v306'],['v306','b01'],['v302','b01'],
-    ['b01','b10'],['b10','b02'],['b02','b11'],['b11','p08'],['b01','b08'],['b08','b09'],['b09','p04'],
+    ['b01','b10'],['b10','b02'],['b02','b11'],['b11','b12'],['b12','p08'],['b01','b08'],['b08','b09'],['b09','p04'],
     ['p04','p07'],['p07','p05'],['p05','p08'],['p08','p06'],
     ['u04','u05'],['u06','u05'],['u05','u08']
   ]) before(a,b);
@@ -57,6 +57,7 @@ test('cronologia verificável: pré-requisitos e três pontos sem retorno', () =
   assert.equal(phaseId('p08'),'preend');
   assert.equal(phaseId('v113'),'vernworth1');
   assert.equal(phaseId('b11'),'battahl');
+  assert.equal(phaseId('b12'),'battahl');
 });
 
 test('novas etapas têm guia ou instrução completa e fonte independente', () => {
@@ -66,7 +67,7 @@ test('novas etapas têm guia ou instrução completa e fonte independente', () =
     ['b08','flickering_shadows'],['b09','convergence'],['p07','new_godsway'],
     ['m09','one_eyed_interloper'],['v112','gift_giving'],['v113','magisterial_amenity'],
     ['v114','prey_for_pack'],['v306','gossamer_clouds'],['b10','welcome_battahl'],
-    ['b11','tensions_highroad'],['p08','clash_conclusion']
+    ['b11','tensions_highroad'],['b12','noble_exchange'],['p08','clash_conclusion']
   ]);
   for(const [id,guideId] of guideByNew){
     const event = flat.find(s => s.event.id === id)?.event;
