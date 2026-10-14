@@ -282,7 +282,7 @@ export const PHASES: Phase[] = [
       },
       {
         id: "m04",
-        title: "Em Melve, resolva as tarefas disponíveis de Lennart, Flora e Ian",
+        title: "Em Melve: Problemas Aninhados, Flora e resgate de Norbert",
         type: "missao",
         journeyCategory: "side",
         note: "LOCAL: MELVE, e não Vernworth. Após iniciar 'O Trono do Sobran' (Seat of the Sovran), aproveite 'Correio por Carroça' (Oxcart Courier), de Donovan, para retornar a Melve e verificar as tarefas locais. 'Problemas Aninhados' (Nesting Troubles), com Lennart, exige dois retornos a ele: primeiro depois dos barris explosivos, depois do jarro de veneno. 'Bravura Revigorante' (Medicament Predicament), com Flora, pede um revigorante de frutas. Em 'A Tímida Bravura dos Irmãos' (Brothers Brave and Timid), acompanhe Ian para salvar Norbert dos lobos e traga os irmãos de volta. Essas missões têm gatilhos próprios; aceite o que estiver disponível e dê prioridade ao resgate de Norbert antes de o estado de Melve mudar. Essa visita pode ser combinada com a ida de Donovan, mas ela não garante que o dragão de 'Revinda da Calamidade' apareça.",
@@ -524,16 +524,16 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/",
         extraSources: ["https://game8.co/games/Dragons-Dogma-2/archives/448886","https://www.gamespot.com/gallery/dragons-dogma-2-romance-ulrika-readvent-of-calamity-guide/2900-5203/"],
-        prerequisites: "O avanço de 'O Trono do Sobran' e das atividades em Harve precede a janela segundo parte dos guias. PowerPyx também exige cruzar Battahl previamente; a exigência não é consensual. Não marque o ataque como realizado se ele não aconteceu e não adiante 'O Banquete da Farsa' sem revisar a cadeia opcional.",
+        prerequisites: "O avanço de 'O Trono do Sobran' e das atividades em Harve precede a janela segundo parte dos guias. PowerPyx também exige cruzar Battahl previamente; esse requisito adicional não está igualmente documentado nos outros guias. Não marque o ataque como realizado se ele não aconteceu e não adiante 'O Banquete da Farsa' sem revisar a cadeia opcional.",
         failureRisk: "O ataque que inicia 'Revinda da Calamidade' deixa de estar disponível depois de 'O Banquete da Farsa'. O combate não equivale à missão inteira concluída; continue em Harve e retorne a Lennart.",
         isMissable: true
       },
       {
         id: "v202",
-        title: "Harve: encontre Ulrika, salve Zoran e termine Revinda da Calamidade",
+        title: "Ulrika em Harve: conclua Revinda e ajude Zoran quando disponível",
         type: "missao",
         journeyCategory: "side",
-        note: "Esta etapa ACONTECE DURANTE a continuação de 'Revinda da Calamidade' (Readvent of Calamity), iniciada pelo ataque em Melve; não é uma missão que aguarda a conclusão dela. Depois do combate, SAIA de Melve, passe pelo menos um dia e volte à casa de Ulrika. Após a cena noturna e sua partida, Lennart pedirá que a encontre. Viaje a HARVE depois de liberar a vila pelas duas ondas de 'Invasores Escamosos' (Scaly Invaders) e procure Ulrika. Na visita, a discussão com os moradores pode iniciar automaticamente 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape): siga Ulrika à Stormwind Cave, resgate Zoran e traga-o de volta. Se o evento não começar nessa visita, converse com Ulrika, informe Lennart EM MELVE para concluir 'Revinda da Calamidade' e retorne a Harve mais tarde para verificar o resgate de Zoran. PowerPyx descreve 'Trouble on the Cape' DURANTE a busca; Game8 situa seu início depois dessa missão. A ordem exata desses dois registros pode variar, mas a missão de Zoran não deve bloquear a conversa de conclusão com Lennart.",
+        note: "Esta etapa ACONTECE DURANTE a continuação de 'Revinda da Calamidade' (Readvent of Calamity), iniciada pelo ataque em Melve; não é uma missão que aguarda a conclusão dela. Depois do combate, SAIA de Melve, passe pelo menos um dia e volte à casa de Ulrika. Após a cena noturna e sua partida, Lennart pedirá que a encontre. Viaje a HARVE depois de liberar a vila pelas duas ondas de 'Invasores Escamosos' (Scaly Invaders) e procure Ulrika. Na visita, a discussão com os moradores pode iniciar automaticamente 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape): siga Ulrika à Stormwind Cave, resgate Zoran e traga-o de volta. Se o evento não começar nessa visita, converse com Ulrika, informe Lennart EM MELVE para concluir 'Revinda da Calamidade' e retorne a Harve mais tarde para verificar o resgate de Zoran. PowerPyx descreve 'Trouble on the Cape' DURANTE a busca; Game8 situa seu início depois dessa missão. A ordem exata desses dois registros pode variar, mas a missão de Zoran não deve bloquear a conversa de conclusão com Lennart. Se o resgate ainda não aparecer, deixe este marco adiado até fazê-lo; não marque a etapa agregada como concluída e não bloqueie a história principal.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/",
