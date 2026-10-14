@@ -27,7 +27,7 @@ test('Vernworth separa missão principal, cadeia opcional de Sven e divergência
   assert.match(stage('v104').event.note, /Correspondência Mascarada.*Masked Correspondence/);
   assert.match(stage('v104').event.note, /NÃO é condição para concluir/);
   const exchange = stage('b12').event;
-  assert.match(exchange.note, /Game8 exige/);
+  assert.match(exchange.note, /Game8 cita/);
   assert.match(exchange.note, /PowerPyx descreve/);
   assert.match(exchange.prerequisites ?? '', /Correspondência Mascarada/);
   assert.ok((exchange.extraSources ?? []).some(source => source.includes('A-Noble-Exchange')));
