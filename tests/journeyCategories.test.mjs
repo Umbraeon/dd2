@@ -35,10 +35,10 @@ test('todas as 72 etapas têm categoria editorial explícita, separada do risco 
 
 test('missões embutidas ficam na posição do encontro, não em um capítulo arbitrário', () => {
   for(const [a,b] of [
-    ['m01','m08'],['m08','m02'],['m02','m09'],['m09','v101'],['v101','v108'],
+    ['m01','m08'],['m08','m02'],['m02','m06'],['m02','m09'],['m09','v101'],['v101','v108'],
     ['v103','v112'],['v111','v113'],['v206','v114'],
     ['v304','v306'],['v306','b01'],['b01','b10'],['b10','b11'],
-    ['b11','b12'],['b12','p08'],['p05','p08'],['p08','p06']
+    ['b12','b05'],['b05','b11'],['b12','p08'],['p05','p08'],['p08','p06']
   ]) before(a,b);
   assert.match(stage('m09').note,/Gregor.*Intruso de um Olho Só/s);
   assert.match(stage('p08').note,/DURANTE.*O Guardião Gigantus/s);
