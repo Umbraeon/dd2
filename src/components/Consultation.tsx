@@ -200,12 +200,6 @@ export const Consultation: React.FC<Props> = ({
                   <button type="button" onClick={clearFilters}>Limpar filtros</button>
                 </div>
               )}
-              {activePhase.id === 'melve' && (
-                <div className="consult-route-next" role="note">
-                  <p><strong>Retorno a Melve:</strong> Problemas Aninhados, Flora e Norbert acontecem na vila, após a chegada à capital no roteiro.</p>
-                  <button type="button" onClick={() => onOpenEvent('m04')}>Ver etapa do retorno a Melve <ChevronRight size={15} aria-hidden="true" /></button>
-                </div>
-              )}
             </section>
           )}
 
