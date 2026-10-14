@@ -13,7 +13,7 @@ test('diário mostra as quatro categorias por texto; intruso e Raghnall aparecem
     await expect(legend.getByText('Missão secundária')).toBeVisible();
     await expect(legend.getByText('Atividade opcional')).toBeVisible();
     await expect(legend.getByText('Ponto sem retorno')).toBeVisible();
-    for(const id of ['m09','v112','v303','p08']){
+    for(const id of ['m09','v112','v303','p08','b12']){
       const item=byId(id);
       await page.getByRole('combobox',{name:'Capítulo'}).selectOption(item.phase.id);
       const row=page.getByRole('button',{name:`Consultar atividade: ${item.event.title}`});
@@ -40,5 +40,5 @@ test('Consulta mostra categorias sem confundir posição e risco', async ({page}
   await page.getByRole('button',{name:'Missões',exact:true}).click();
   const legend=page.getByLabel('Legenda: tipos de etapas');
   await expect(legend.getByText('Ponto sem retorno')).toBeVisible();
-  await expect(page.getByText('71 marcos · 9 capítulos')).toBeVisible();
+  await expect(page.getByText('72 marcos · 9 capítulos')).toBeVisible();
 });
