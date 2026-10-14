@@ -437,7 +437,7 @@ export const PHASES: Phase[] = [
         id: "v202",
         title: "Acompanhe Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity)",
         type: "missao",
-        note: "Depois de repelir o dragão em Melve em 'Revinda da Calamidade', acompanhe o desaparecimento de Ulrika e procure-a em Harve. Resolva a situação dos sauros e 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape). A missão seguinte da linha, 'O Lar é Onde Mora o Coração' (Home Is Where the Hearth Is), será listada após 'Um Encontro Perturbador', de que ela também depende.",
+        note: "Depois de repelir o dragão em Melve em 'Revinda da Calamidade', acompanhe o desaparecimento de Ulrika e procure-a em Harve. Resolva a situação dos sauros e 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape). A missão seguinte da linha, 'Lar é Onde o Coração Está' (Home Is Where the Hearth Is), será listada após 'Um Encontro Perturbador', de que ela também depende.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
@@ -518,9 +518,9 @@ export const PHASES: Phase[] = [
       },
       {
         id: "v305",
-        title: "Após Um Encontro Perturbador, retorne a Melve para O Lar é Onde Mora o Coração",
+        title: "Após Um Encontro Perturbador, retorne a Melve para Lar é Onde o Coração Está",
         type: "missao",
-        note: "Se completou 'Revinda da Calamidade' e 'Um Encontro Perturbador', retorne a Melve para 'O Lar é Onde Mora o Coração' (Home Is Where the Hearth Is). Fale com Lennart, obtenha as quatro espadas, ajude os moradores contra os soldados e reencontre Ulrika conforme a missão. Faça antes de concluir a coroação, se quiser proteger a linha de Ulrika.",
+        note: "Se completou 'Revinda da Calamidade' e 'Um Encontro Perturbador', retorne a Melve para 'Lar é Onde o Coração Está' (Home Is Where the Hearth Is). Fale com Lennart, obtenha as quatro espadas, ajude os moradores contra os soldados e reencontre Ulrika conforme a missão. Faça antes de concluir a coroação, se quiser proteger a linha de Ulrika.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/"
