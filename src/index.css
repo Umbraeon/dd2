@@ -806,3 +806,29 @@ button.inline-achievement-entry:hover { background:#33291f; border-color:#b39a6f
   .consult-sections { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .consult-sections button { min-width:0; gap:6px; }
 }
+
+
+/* Distinguish timeline category from risk/completion: text + outline never color alone. */
+.journey-kind {
+  display:inline-flex; align-items:center; width:fit-content; max-width:100%;
+  border:1px solid; border-radius:3px; padding:3px 7px;
+  font:650 10px/1.25 'Plus Jakarta Sans',system-ui,sans-serif;
+  letter-spacing:.035em; text-transform:uppercase; text-align:left;
+  white-space:normal;
+}
+.journey-kind--main { color:#ead3a6; border-color:#907049; background:#4a3820; }
+.journey-kind--side { color:#cce3ef; border-color:#607f97; background:#273a46; }
+.journey-kind--optional { color:#d7d9d7; border-color:#777d7b; background:#313736; }
+.journey-kind--point_of_no_return { color:#ffd3c3; border-color:#bc6b51; background:#5e3028; }
+.journey-kind-legend {
+  display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+  padding:9px 0 3px; max-width:100%;
+}
+.journey-kind-legend .journey-kind { font-size:9px; }
+.quest-row-main > .journey-kind { margin:3px 0 1px; }
+.quest-detail-chapter .journey-kind { vertical-align:middle; letter-spacing:.035em; }
+.consultation .journey-kind-legend { margin:5px 0 10px; }
+@media(max-width:600px) {
+  .journey-kind-legend { gap:5px; }
+  .journey-kind-legend .journey-kind { font-size:9px; padding:3px 5px; }
+}
