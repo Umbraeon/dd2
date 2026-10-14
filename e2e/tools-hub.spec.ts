@@ -263,8 +263,8 @@ test('backup v3 importa/exporta sem mudança de contrato, após entrada pela cen
   expect(downloaded.progress.firstTokenLocation).toBe(data.firstTokenLocation);
 });
 
-test('progresso 0/20/53/62 e rotas Diário/Consulta não mudam ao navegar na central', async ({page}) => {
-  for (const done of [0,20,53,62]) {
+test('progresso 0/20/53/62/71 e rotas Diário/Consulta não mudam ao navegar na central', async ({page}) => {
+  for (const done of [0,20,53,62,71]) {
     await page.goto('/');
     const base = state();
     allEvents.slice(0,done).forEach(event => { base.steps[event.id] = true; });
