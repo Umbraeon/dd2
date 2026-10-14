@@ -111,7 +111,7 @@ test('Consulta usa a busca existente em vez de um segundo cartão duplicado de M
   await expect(page.locator('.consult-route-next')).toHaveCount(0);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Problemas Aninhados');
   const results = page.locator('.consult-results-list');
-  await results.getByRole('button', { name: /Retorne a Melve: Problemas Aninhados/ }).click();
+  await results.getByRole('button', { name: /Marco.*Problemas Aninhados/ }).click();
   await expect(page.getByRole('combobox', { name: 'Capítulo do roteiro' })).toHaveValue('vernworth1');
   await expect(page.locator('#step-m04')).toBeFocused();
   await expect(page.locator('#event-details-m04')).toContainText('MELVE');
