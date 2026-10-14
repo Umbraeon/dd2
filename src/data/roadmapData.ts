@@ -238,9 +238,9 @@ export const PHASES: Phase[] = [
         type: "missao",
         note: "Assim que concluir 'O Trono do Sobran' com Brant, retorne cedo a Melve (ou conclua desde a primeira visita qualquer missão já disponível). Ajude Flora com um Fruit Roborant; em 'Problemas Aninhados', volte a Lennart após os barris e novamente após o veneno; siga Ian para salvar Norbert. Faça essas tarefas antes de a linha de Ulrika alterar a vila. Se encontrar o ataque do dragão nesta visita, priorize 'Revinda da Calamidade' — não espere a etapa de aviso do capítulo seguinte.",
         achievements: [],
-        risk: "normal",
+        risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
-        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"],
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/"],
         prerequisites: "Tenha chegado a Vernworth e iniciado ou concluído 'O Trono do Sobran'. Se Flora, Ian ou Lennart já oferecerem ajuda antes disso, aceite imediatamente.",
         failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert."
       },
