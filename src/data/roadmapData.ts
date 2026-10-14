@@ -71,7 +71,7 @@ export const PHASES: Phase[] = [
         id: "m03",
         title: "Inicie o treinamento com Beren e conheça Trysha (atividades iniciais)",
         type: "missao",
-        note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e planeje 'Magia Vertiginosa' (Spellbound): reserve grimórios ORIGINAIS para ela e faça cópias para Myrddin antes de entregar livros. A Última Lição de Beren só aparece após 'O Trono do Sobran' e tem etapa própria adiante.",
+        note: "Perto do Posto Avançado, comece 'Treino Leonino' (Claw Them Into Shape) com Beren: leve três espadas e, ao chegar a Vernworth, recrute Humphrey e retorne para concluir o treinamento. Na Casa de Eini, conheça Trysha e reserve grimórios ORIGINAIS para 'Magia Vertiginosa' (Spellbound). Ao passar por Melve na primeira viagem, confira se Flora, Ian ou Lennart já oferecem missões: se estiverem disponíveis, faça-as antes de avançar a história, para não perdê-las com os eventos de Ulrika. 'A Última Lição de Beren' aparece após 'O Trono do Sobran' e tem etapa própria.",
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-claw-them-into-shape-walkthrough/",
@@ -233,6 +233,27 @@ export const PHASES: Phase[] = [
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
       },
       {
+        id: "m04",
+        title: "Retorne cedo a Melve: Flora, Lennart, Ian e Norbert",
+        type: "missao",
+        note: "Assim que concluir 'O Trono do Sobran' com Brant, retorne cedo a Melve (ou conclua desde a primeira visita qualquer missão já disponível). Ajude Flora com um Fruit Roborant; em 'Problemas Aninhados', volte a Lennart após os barris e novamente após o veneno; siga Ian para salvar Norbert. Faça essas tarefas antes de a linha de Ulrika alterar a vila. Se encontrar o ataque do dragão nesta visita, priorize 'Revinda da Calamidade' — não espere a etapa de aviso do capítulo seguinte.",
+        achievements: [],
+        risk: "normal",
+        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"],
+        prerequisites: "Tenha chegado a Vernworth e iniciado ou concluído 'O Trono do Sobran'. Se Flora, Ian ou Lennart já oferecerem ajuda antes disso, aceite imediatamente.",
+        failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert."
+      },
+      {
+        id: "m07",
+        title: "Após O Trono do Sobran, conclua A Última Lição de Beren",
+        type: "missao",
+        note: "Com 'Treino Leonino' (Claw Them Into Shape) e 'O Trono do Sobran' concluídos, volte ao Jardim do Luar (Moonglow Garden), ajude Beren contra o ciclope e fale com ele novamente após descansar. Mais tarde, ao acessar Battahl, procure sua casa de infância para a maestria de Guerreiro; não confunda esse retorno tardio com a conclusão imediata da missão.",
+        achievements: [],
+        risk: "cuidado",
+        source: "https://www.powerpyx.com/dragons-dogma-2-berens-final-lesson-walkthrough/"
+      },
+      {
         id: "v111",
         title: "Solte Waldhar em O Magistrado Aprisionado",
         type: "historia",
@@ -259,25 +280,8 @@ export const PHASES: Phase[] = [
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-walkthrough-all-quests/"
       },
-      {
-        id: "m04",
-        title: "Retorne a Melve depois de falar com Brant: Flora, Lennart, Ian e Norbert",
-        type: "missao",
-        note: "Depois de iniciar 'O Trono do Sobran' com Brant em Vernworth, retorne a Melve para ajudar Flora com um Fruit Roborant, completar 'Problemas Aninhados' voltando a Lennart após os barris e após o veneno, e acompanhar Ian para resgatar Norbert. Não trate essas missões como tarefas disponíveis obrigatoriamente antes de conhecer Brant.",
-        achievements: [],
-        risk: "normal",
-        source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
-        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/"]
-      },
-      {
-        id: "m07",
-        title: "Após O Trono do Sobran, conclua A Última Lição de Beren",
-        type: "missao",
-        note: "Com 'Treino Leonino' (Claw Them Into Shape) e 'O Trono do Sobran' concluídos, volte ao Jardim do Luar (Moonglow Garden), ajude Beren contra o ciclope e fale com ele novamente após descansar. Mais tarde, ao acessar Battahl, procure sua casa de infância para a maestria de Guerreiro; não confunda esse retorno tardio com a conclusão imediata da missão.",
-        achievements: [],
-        risk: "cuidado",
-        source: "https://www.powerpyx.com/dragons-dogma-2-berens-final-lesson-walkthrough/"
-      },
+
+
       {
         id: "v105",
         title: "Adquira sua própria residência em Vernworth",
@@ -420,29 +424,34 @@ export const PHASES: Phase[] = [
         id: "v201",
         title: "Investigue O Vilarejo sem Nome e a defesa de Harve",
         type: "missao",
-        note: "Siga a investigação de Brant até 'O Vilarejo sem Nome' (The Nameless Village), conversando com Flaude e Srail para descobrir a verdade e suas habilidades de Ladrão. Em Harve, retorne para 'Invasores Escamosos' (Scaly Invaders) se aparecer após as incursões de 'Elimine os Monstros'. A etapa da campanha 'Elimine os Monstros' já é tratada separadamente em Vernworth parte 1.",
+        note: "Em 'O Vilarejo sem Nome' (The Nameless Village), investigue a identidade do falso Nascen e converse com Flaude e Srail. Em Harve, após a incursão de 'Elimine os Monstros', conclua as duas ondas de sauros em 'Invasores Escamosos' (Scaly Invaders), retornando após alguns dias no jogo quando necessário. Isso prepara a chegada de Ulrika na vila e evita chegar à continuação da história dela antes de Harve estar liberada.",
         achievements: [],
         risk: "cuidado",
-        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
+        source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
+        prerequisites: "Concluir a visita a Harve em 'Elimine os Monstros'. As missões de Brant podem ser realizadas em paralelo."
       },
       {
         id: "v107",
         title: "Retorne a Melve: Revinda da Calamidade (Readvent of Calamity)",
         type: "alerta",
-        note: "Durante as missões de Brant, volte periodicamente a Melve antes de concluir 'O Banquete da Farsa' para conferir o ataque do dragão e a linha 'Revinda da Calamidade'. Fontes divergem sobre o momento exato em que a missão aparece; se ainda não houver ataque, não marque a missão como concluída: adie o marco e reavalie depois de avançar em Harve ou cruzar a fronteira. Se começar, faça-a antes da coroação.",
+        note: "Depois de 'O Trono do Sobran' e da visita a Harve, confira Melve antes de encerrar 'O Banquete da Farsa'. Se o dragão atacar, ajude Ulrika e fale com Sigurd; depois continue a missão sem atrasar a coroação. Os gatilhos relatados diferem: alguns guias exigem começar/concluir 'Invasores Escamosos', outros relatam travessia antecipada da fronteira de Battahl. Se o ataque não ocorrer, NÃO faça o Banquete ainda: termine a defesa de Harve, revisite Melve e, se necessário, investigue um caminho antecipado pela fronteira sem concluir a coroação. Adie este marco enquanto verifica — não o marque como realizado.",
         achievements: [],
         risk: "critico",
-        source: "https://game8.co/games/Dragons-Dogma-2/archives/447927"
+        source: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/",
+        extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-romance-ulrika-readvent-of-calamity-guide/2900-5203/","https://www.pcgamer.com/games/rpg/dragons-dogma-2-ulrika-location/"],
+        prerequisites: "Iniciar 'O Trono do Sobran' e avançar as atividades de Harve. Se não aparecer, revise 'Invasores Escamosos'; a travessia antecipada para Battahl é um gatilho relatado, não universalmente confirmado.",
+        failureRisk: "'Revinda da Calamidade' pode ficar indisponível depois de 'O Banquete da Farsa'. Verifique Melve e Harve antes da coroação, sem presumir um gatilho único."
       },
       {
         id: "v202",
         title: "Acompanhe Ulrika em Melve e Harve ('Revinda da Calamidade' — Readvent of Calamity)",
         type: "missao",
-        note: "Depois de repelir o dragão em Melve em 'Revinda da Calamidade', acompanhe o desaparecimento de Ulrika e procure-a em Harve. Resolva a situação dos sauros e 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape). A missão seguinte da linha, 'Lar é Onde o Coração Está' (Home Is Where the Hearth Is), será listada após 'Um Encontro Perturbador', de que ela também depende.",
+        note: "Depois do ataque em Melve, visite Ulrika em casa, acompanhe sua partida e encontre-a em Harve, já defendida nas ondas de 'Invasores Escamosos'. Resolva 'As Mãos Atadas que Abraçam a Causa' (Trouble on the Cape), libertando Zoran, e depois informe Lennart sobre Ulrika. 'Lar é Onde o Coração Está' (Home Is Where the Hearth Is) aparece mais tarde, após 'Um Encontro Perturbador'. Se a invasão de Melve ainda não aconteceu, adie este marco até concluir 'Revinda da Calamidade'.",
         achievements: [],
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
-        failureRisk: "Conclua a história de Ulrika em Melve e Harve antes de avançar a coroação."
+        failureRisk: "Conclua a história de Ulrika em Melve e Harve antes de avançar a coroação.",
+        prerequisites: "Completar 'Revinda da Calamidade' em Melve e as etapas de 'Invasores Escamosos' em Harve para encontrar Ulrika."
       },
       {
         id: "v203",
@@ -524,7 +533,8 @@ export const PHASES: Phase[] = [
         note: "Se completou 'Revinda da Calamidade' e 'Um Encontro Perturbador', retorne a Melve para 'Lar é Onde o Coração Está' (Home Is Where the Hearth Is). Fale com Lennart, obtenha as quatro espadas, ajude os moradores contra os soldados e reencontre Ulrika conforme a missão. Faça antes de concluir a coroação, se quiser proteger a linha de Ulrika.",
         achievements: [],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-home-is-where-the-hearth-is-walkthrough/",
+        prerequisites: "Concluir 'Revinda da Calamidade' e 'Um Encontro Perturbador'. A linha opcional de Ulrika deve ser resolvida antes da coroação."
       },
       {
         id: "v303",
@@ -556,7 +566,8 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
         extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
-        failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias."
+        failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias.",
+        prerequisites: "Concluir 'O Banquete da Farsa' e ter conhecido Wilhelmina nas investigações do castelo. O gatilho pode exigir afinidade e visitas no período noturno."
       }
     ],
     achievements: []
@@ -668,7 +679,8 @@ export const PHASES: Phase[] = [
         note: "Após 'Sombras Trêmulas', vá à Caverna da Tempestade (Stormwind Cave), perto de Harve, entre no Santuário do Leito Marinho e converse com Rothais em 'Convergência' (Convergence) para obter a Lâmina da Perdição dos Deuses enfraquecida. A etapa seguinte da campanha será 'Um Novo Chamado Divino', cuja conclusão deve esperar pela checagem antes do final.",
         achievements: [],
         risk: "cuidado",
-        source: "https://www.powerpyx.com/dragons-dogma-2-convergence-walkthrough/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-convergence-walkthrough/",
+        prerequisites: "Concluir 'Sombras Trêmulas' antes de entrar na Caverna da Tempestade para falar com Rothais."
       }
     ],
     achievements: [
@@ -1032,7 +1044,8 @@ export const PHASES: Phase[] = [
         note: "Após 'Convergência' e a checagem dos conteúdos opcionais, entregue a Lâmina da Perdição dos Deuses enfraquecida a Ambrosius em Bakbattahl, reúna os 15 Cristais da Vida da Serpe exigidos e aguarde o processamento em 'Um Novo Chamado Divino' (A New Godsway). Antes de seguir o primeiro objetivo de 'O Guardião Gigantus', confirme que está pronto para o trecho final.",
         achievements: [],
         risk: "critico",
-        source: "https://www.powerpyx.com/dragons-dogma-2-a-new-godsway-walkthrough/"
+        source: "https://www.powerpyx.com/dragons-dogma-2-a-new-godsway-walkthrough/",
+        prerequisites: "Concluir 'Convergência' e confirmar o checklist anterior ao Gigantus, sem assumir que o salvamento sempre poderá ser restaurado."
       },
       {
         id: "p05",
