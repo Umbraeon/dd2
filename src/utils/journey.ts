@@ -33,9 +33,12 @@ export function isStepDeferred(progress: UserProgress, id: string): boolean {
 }
 
 export function firstPendingStep(phases: readonly Phase[], progress: UserProgress): JourneyStep | undefined {
-  return listJourneySteps(phases).find(({ event }) =>
+  const pending = listJourneySteps(phases).filter(({ event }) =>
     !isStepCompleted(progress, event.id) && !isStepDeferred(progress, event.id)
   );
+  // A long-term cumulative objective must not stall the travel route.
+  // Keep it pending (and return to it when only such objectives remain).
+  return pending.find(({ event }) => event.suggestionTiming !== 'ongoing') ?? pending[0];
 }
 
 export function resolveJourney(phases: readonly Phase[], progress: UserProgress): JourneyResolution {
