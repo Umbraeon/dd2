@@ -77,6 +77,21 @@ export const QuestCodex: React.FC<Props> = ({
       row?.focus({ preventScroll: true });
     });
   };
+  const showMelveReturn = phase.id === 'melve' && tab === 'pending';
+  const visitMelveReturn = () => {
+    const later = all.find(step => step.event.id === 'm04');
+    if (!later) return;
+    onChapterChange(later.phase.id);
+    setInspectedId(later.event.id);
+    setTab(isStepCompleted(progress, later.event.id) ? 'completed' : 'pending');
+    setMobileDetail(false);
+    setMore(false);
+    requestAnimationFrame(() => {
+      const row = document.getElementById('journey-row-m04');
+      row?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      row?.focus({ preventScroll: true });
+    });
+  };
   const inspect = (target: QuestEvent) => {
     setInspectedId(target.id);
     setMore(false);
@@ -130,6 +145,8 @@ export const QuestCodex: React.FC<Props> = ({
             const isDeferred = isStepDeferred(progress, e.id);
             const isSuggested = journey.kind === 'suggested' && journey.target?.event.id === e.id;
             return <div key={e.id} role="listitem" className={`quest-row ${chosen ? 'is-inspected' : ''}`}>
+              {e.id === 'm04' && <p className="quest-route-heading">MELVE · RETORNO APÓS CHEGAR À CAPITAL</p>}
+              {e.id === 'v111' && <p className="quest-route-heading">VERNWORTH · INVESTIGAÇÕES</p>}
               <button type="button" id={`journey-row-${e.id}`} onClick={() => inspect(e)}
                 aria-current={chosen ? 'true' : undefined}
                 aria-label={`Consultar atividade: ${e.title}${e.achievements.length ? ` · ${new Set(e.achievements).size} conquistas para acompanhar` : ""}`}
@@ -151,6 +168,11 @@ export const QuestCodex: React.FC<Props> = ({
               </button>
             </div>;
           })}
+          {showMelveReturn && <div className="quest-route-next" role="note">
+            <p><strong>Mais tarde, em Melve</strong> — Problemas Aninhados, Flora e Norbert.</p>
+            <button type="button" onClick={visitMelveReturn}>Ver etapa do retorno a Melve <ChevronRight size={15} aria-hidden="true" /></button>
+            <small>A rota passa primeiro por Vernworth. A disponibilidade na primeira visita pode variar.</small>
+          </div>}
           {!filteredEvents.length && <p className="quest-empty">{tab === 'completed' ? 'Nenhuma atividade concluída neste capítulo.' : 'Todos os marcos deste capítulo estão marcados. Use a aba Concluídas.'}</p>}
           {isEveryStepDone && <p className="quest-done-message">Todos os marcos concluídos. Nenhuma próxima missão será presumida.</p>}
         </div>
