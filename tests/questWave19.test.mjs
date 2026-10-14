@@ -21,7 +21,7 @@ test('onda 19: todos os 80 itens do roster PowerPyx histórico têm ficha distin
   assert.equal(report.summary.historicalSideWithoutGuide,0);
   assert.equal(QUEST_NAME_INDEX.length,82);
   assert.equal(PHASES.length,9);
-  assert.equal(PHASES.flatMap(p=>p.events).length,53);
+  assert.equal(PHASES.flatMap(p=>p.events).length,62);
   assert.equal(PHASES.flatMap(p=>p.achievements).length,60);
 });
 

@@ -80,10 +80,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Beren's Final Lesson",
     "ptBR": "A Última Lição de Beren",
-    "eventIds": [
-      "m03",
-      "p03"
-    ],
+    "eventIds": ["m07","p03"],
     "evidence": "paired_catalog"
   },
   {
@@ -155,9 +152,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Seat of the Sovran",
     "ptBR": "O Trono do Sobran",
-    "eventIds": [
-      "v101"
-    ],
+    "eventIds": ["v108"],
     "evidence": "paired_catalog"
   },
   {
@@ -197,9 +192,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "The Caged Magistrate",
     "ptBR": "O Magistrado Aprisionado",
-    "eventIds": [
-      "v103"
-    ],
+    "eventIds": ["v111"],
     "evidence": "paired_catalog"
   },
   {
@@ -231,9 +224,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Monster Culling",
     "ptBR": "Elimine os Monstros",
-    "eventIds": [
-      "v201"
-    ],
+    "eventIds": ["v110"],
     "evidence": "paired_catalog"
   },
   {
@@ -272,9 +263,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Disa's Plot",
     "ptBR": "O Plano de Disa",
-    "eventIds": [
-      "v301"
-    ],
+    "eventIds": ["v109"],
     "evidence": "paired_catalog"
   },
   {
@@ -289,10 +278,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Every Rose Has Its Thorn",
     "ptBR": "As Rosas Têm Espinhos",
-    "eventIds": [
-      "v302",
-      "v303"
-    ],
+    "eventIds": ["v302"],
     "evidence": "paired_catalog"
   },
   {
@@ -396,9 +382,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "A New Godsway",
     "ptBR": "Um Novo Chamado Divino",
-    "eventIds": [
-      "p04"
-    ],
+    "eventIds": ["p04","p07"],
     "evidence": "pak_sample_reported",
     "titleKey": "Mes_qu010170_log_title",
     "resourcePath": "natives/stm/message/questlog/qu010170_log.msg.24",
@@ -522,11 +506,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Home Is Where the Hearth Is",
     "ptBR": "Lar é Onde o Coração Está",
-    "eventIds": [
-      "v303",
-      "v202",
-      "u04"
-    ],
+    "eventIds": ["v305"],
     "evidence": "paired_catalog"
   },
   {
@@ -548,14 +528,14 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Flickering Shadows",
     "ptBR": "Sombras Trêmulas",
-    "eventIds": ["b02", "b04"],
+    "eventIds": ["b08"],
     "evidence": "kiranico_ptbr",
     "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
   },
   {
     "english": "Convergence",
     "ptBR": "Convergência",
-    "eventIds": ["p04"],
+    "eventIds": ["b09"],
     "evidence": "kiranico_ptbr",
     "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
   },

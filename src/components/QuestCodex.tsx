@@ -123,7 +123,7 @@ export const QuestCodex: React.FC<Props> = ({
           {isEveryStepDone && <p className="quest-done-message">Todos os marcos concluídos. Nenhuma próxima missão será presumida.</p>}
         </div>
         <div className="quest-master-foot">
-          <p>53 etapas resumidas do roteiro</p>
+          <p>{all.length} etapas resumidas do roteiro</p>
           <button type="button" onClick={onOpenConsultation}>Consulta e ferramentas <BookOpen size={15} aria-hidden="true"/></button>
         </div>
       </div>

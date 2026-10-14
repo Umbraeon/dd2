@@ -21,19 +21,19 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
   }
   assert.equal(questGuidesForEvent('b03')[0].id, 'short_sighted');
   assert.equal(questGuidesForEvent('m02')[0].id, 'new_recruit');
-  assert.equal(questGuidesForEvent('m04').length, 4);
+  assert.equal(questGuidesForEvent('m04').length, 3);
   assert.equal(questGuidesForEvent('m02').length, 2);
   assert.equal(questGuidesForEvent('v102').length, 4);
-  assert.equal(questGuidesForEvent('v103').length, 8);
+  assert.equal(questGuidesForEvent('v103').length, 7);
   assert.equal(questGuidesForEvent('v107').length, 1);
-  assert.equal(questGuidesForEvent('v202').length, 4);
-  assert.equal(questGuidesForEvent('v301').length, 4);
-  assert.equal(questGuidesForEvent('v303').length, 7);
+  assert.equal(questGuidesForEvent('v202').length, 3);
+  assert.equal(questGuidesForEvent('v301').length, 3);
+  assert.equal(questGuidesForEvent('v303').length, 5);
   assert.equal(questGuidesForEvent('v304').length, 4);
   assert.equal(questGuidesForEvent('v104').length, 3);
-  assert.equal(questGuidesForEvent('v201').length, 3);
+  assert.equal(questGuidesForEvent('v201').length, 2);
   assert.ok(questGuidesForEvent('v206').some(guide => guide.id === 'spellbound'));
-  assert.ok(questGuidesForEvent('v103').some(guide => guide.id === 'caged_magistrate'));
+  assert.ok(questGuidesForEvent('v111').some(guide => guide.id === 'caged_magistrate'));
   assert.deepEqual(
     questGuidesForEvent('u03').map(guide => guide.id),
     ['dreams_apart'],
@@ -43,7 +43,7 @@ test('guias cobrem missões individuais sem alterar o roteiro persistido', () =>
     assert.ok(questGuidesForEvent('u04').some(guide => guide.id === id));
   }
   assert.ok(questGuidesForEvent('u08').some(guide => guide.id === 'halls_first_dawn'));
-  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 62);
 });
 
 test('falsificações preservam destinos originais e não confundem Trysha e Myrddin', () => {
@@ -147,7 +147,8 @@ test('onda 4: quatro missões novas possuem passos, fontes e destinos independen
   assert.match(guide('trouble_cape').steps.join(' '), /Zoran/);
   assert.match(guide('till_death').completion, /objetivos distintos/);
   assert.match(guide('till_death').steps.join(' '), /basta mantê-lo vivo/);
-  assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 2);
+  assert.equal(questGuidesForEvent('v201').filter(g => ['monster_culling', 'scaly_invaders'].includes(g.id)).length, 1);
+  assert.ok(questGuidesForEvent('v110').some(g => g.id === 'monster_culling'));
   assert.equal(questGuidesForEvent('v203').find(g => g.id === 'till_death')?.id, 'till_death');
 });
 
@@ -166,7 +167,7 @@ test('onda 5: Bakbattahl separa perseguição, atentado urgente e experimentos d
   assert.match(guide('poisonous_proposal').steps.join(' '), /Asp.*Venin Harpy.*quimera/s);
   assert.match(guide('poisonous_proposal').preparation.join(' '), /ainda envenenado/);
   assert.equal(questGuidesForEvent('b02').filter(q => ['mercy_thieves', 'shadowed_prayers', 'poisonous_proposal'].includes(q.id)).length, 3);
-  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 62);
 });
 
 test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () => {
@@ -175,20 +176,21 @@ test('Beren: duas missões próprias, encadeamento e Mestre de Guerreiro', () =>
   assert.equal(first.title, 'Treino Leonino');
   assert.equal(second.title, 'A Última Lição de Beren');
   assert.deepEqual(first.relatedEventIds, ['m03', 'p03']);
-  assert.deepEqual(second.relatedEventIds, ['m03', 'p03']);
+  assert.deepEqual(second.relatedEventIds, ['m07', 'p03']);
   assert.ok(first.references.length >= 2);
   assert.ok(second.references.length >= 2);
   assert.match(first.steps.join(' '), /três espadas.*Humphrey.*duelo.*goblins/s);
   assert.match(first.steps.join(' '), /perder não impede/);
   assert.match(second.preparation.join(' '), /Treino Leonino/);
   assert.match(second.steps.join(' '), /ciclope.*Lifetaker.*Childhood Home.*Champion.s Fable.*Arc of Might/s);
-  assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
+  assert.equal(questGuidesForEvent('m03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 1);
   assert.equal(questGuidesForEvent('p03').filter(q => ['beren_claw', 'beren_final_lesson'].includes(q.id)).length, 2);
-  assert.equal(questGuidesForEvent('m03').length, 3);
+  assert.equal(questGuidesForEvent('m03').length, 2);
   assert.equal(questGuidesForEvent('p03').length, 6);
   const step = PHASES.flatMap(phase => phase.events).find(event => event.id === 'm03');
-  assert.match(step.note, /Treino Leonino.*A Última Lição de Beren.*Champion.s Fable/s);
-  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+  assert.match(step.note, /Treino Leonino.*A Última Lição de Beren/s);
+  assert.match(PHASES.flatMap(p => p.events).find(e => e.id === 'm07').note, /maestria de Guerreiro/);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 62);
 });
 
 test('onda 6: missões de Mestre da Ilha Vulcânica explicam pergaminhos e passos extras', () => {
@@ -217,7 +219,7 @@ test('onda 6: missões de Mestre da Ilha Vulcânica explicam pergaminhos e passo
 test('onda 7: Godsway e Gigantus distinguem itens, escolha de conquista e ponto de retorno', () => {
   const godsway = guide('new_godsway');
   const gigantus = guide('guardian_gigantus');
-  assert.deepEqual(godsway.relatedEventIds, ['p04']);
+  assert.deepEqual(godsway.relatedEventIds, ['p04', 'p07']);
   assert.deepEqual(gigantus.relatedEventIds, ['p04', 'p05']);
   assert.match(godsway.steps.join(' '), /Ambrosius.*quinze Wyrmslife Crystals.*Empowered Godsbane Blade/s);
   assert.match(godsway.preparation.join(' '), /Unmaking Arrow/);
@@ -230,7 +232,7 @@ test('onda 7: Godsway e Gigantus distinguem itens, escolha de conquista e ponto 
     assert.ok(g.references.length >= 2);
     assert.ok(g.steps.length >= 6);
   }
-  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 62);
 });
 
 test('onda 8: chegada a Battahl diferencia permissões; Legado separa escolhas de final', () => {
@@ -257,7 +259,7 @@ test('onda 8: chegada a Battahl diferencia permissões; Legado separa escolhas d
   assert.match(ending, /farol vermelho final/);
   assert.equal(questGuidesForEvent('b01').find(g => g.id === 'nation_lambent_flame')?.id, 'nation_lambent_flame');
   assert.equal(questGuidesForEvent('p06').find(g => g.id === 'legacy')?.id, 'legacy');
-  assert.equal(PHASES.flatMap(phase => phase.events).length, 53);
+  assert.equal(PHASES.flatMap(phase => phase.events).length, 62);
 });
 
 test('localização de Myrddin: missão inicia na fronteira, não em Melve', () => {
@@ -273,9 +275,9 @@ test('localização de Myrddin: missão inicia na fronteira, não em Melve', () 
   assert.match(myrddin.preparation.join(' '), /não em Melve nem dentro de Vernworth/);
   const melve = PHASES.flatMap(p => p.events).find(e => e.id === 'm03');
   const route = PHASES.flatMap(p => p.events).find(e => e.id === 'v206');
-  assert.match(melve.note, /A missão de Myrddin não começa aqui/);
+  assert.match(melve.note, /Trysha.*Myrddin/);
   assert.match(route.title, /Cidade de Descanso da Fronteira/);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
 });
 
 test('Mundo Desancorado: Phaesus em Bakbattahl, cinco evacuações e feixe final protegido', () => {
@@ -323,7 +325,7 @@ test('Mundo Desancorado: quatro evacuações restantes possuem gatilho, roteiro 
   assert.match(hen.steps.join(' '), /Overseer’s Lodge Key/);
   assert.match(hen.steps.join(' '), /Diminished Godsway/);
   assert.match(hen.completion, /obrigatória/);
-  assert.equal(new Set(PHASES.flatMap(p => p.events).map(e => e.id)).size, 53);
+  assert.equal(new Set(PHASES.flatMap(p => p.events).map(e => e.id)).size, 62);
 });
 
 test('onda 11: feixes de Bakbattahl, Talos e carroça possuem rotas distintas', () => {
@@ -351,7 +353,7 @@ test('onda 11: feixes de Bakbattahl, Talos e carroça possuem rotas distintas', 
   assert.match(cart.steps.join(' '), /Brant/);
   assert.match(cart.steps.join(' '), /Labor Requisition Orders/);
   assert.match(cart.preparation.join(' '), /remova TODAS as armas/);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
 });
 
 test('história principal: 16 missões do catálogo histórico têm guias distintos e encadeados', () => {
@@ -375,7 +377,7 @@ test('história principal: 16 missões do catálogo histórico têm guias distin
   const v101 = PHASES.flatMap(p => p.events).find(e => e.id === 'v101');
   assert.match(v101.note, /Gregor/);
   assert.doesNotMatch(v101.note, /com o Capitão Brant/);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
 });
 
 test('onda 13: casa, forja sequencial e resgate de Rodge mantêm as condições críticas', () => {
@@ -398,7 +400,7 @@ test('onda 13: casa, forja sequencial e resgate de Rodge mantêm as condições 
   assert.match(prey.preparation.join(' '), /MISSÃO COM PRAZO/);
   assert.match(prey.steps.join(' '), /Caverna Pútrida/);
   assert.match(prey.completion, /desfecho pior/);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
 });
 
 test('onda 14: quatro destinos preservam evidências, prazo e rotas sem promessas absolutas', () => {
@@ -422,7 +424,7 @@ test('onda 14: quatro destinos preservam evidências, prazo e rotas sem promessa
   assert.match(hugo.preparation.join(' '), /Isaac/);
   assert.match(hugo.steps.join(' '), /Lanzo/);
   assert.match(hugo.completion, /morrer/);
-  assert.equal(PHASES.flatMap(p => p.events).length, 53);
+  assert.equal(PHASES.flatMap(p => p.events).length, 62);
 });
 
 test('onda 15: mendigo, duas missões élficas e Sebastian têm riscos e rotas documentados', () => {
@@ -447,7 +449,7 @@ test('onda 15: mendigo, duas missões élficas e Sebastian têm riscos e rotas d
     assert.match(sebastian.preparation.join(' ')+sebastian.steps.join(' '), new RegExp(name));
   }
   assert.match(sebastian.preparation.join(' '), /ALERTA DE MORTE/);
-  assert.equal(PHASES.flatMap(p=>p.events).length,53);
+  assert.equal(PHASES.flatMap(p=>p.events).length,62);
 });
 
 test('onda 16: quatro missões e divergência de medicamentos ficam explícitas', () => {
@@ -471,5 +473,5 @@ test('onda 16: quatro missões e divergência de medicamentos ficam explícitas'
   assert.match(sven.preparation.join(' '), /MELHOR RECOMPENSA/);
   assert.match(sven.steps.join(' '), /Letter to Lord Phaesus/);
   assert.match(sven.steps.join(' '), /Waldhar/);
-  assert.equal(PHASES.flatMap(p=>p.events).length,53);
+  assert.equal(PHASES.flatMap(p=>p.events).length,62);
 });

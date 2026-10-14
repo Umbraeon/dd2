@@ -59,6 +59,7 @@ export const Consultation: React.FC<Props> = ({
     }
     return [...unique.values()].sort((a, b) => a.achievement.id - b.achievement.id);
   }, [phases]);
+  const totalEvents = phases.reduce((total, phase) => total + phase.events.length, 0);
   const query = normalize(search);
   const results = useMemo(() => query ? [
     ...phases.flatMap(phase => [
@@ -117,7 +118,7 @@ export const Consultation: React.FC<Props> = ({
             autoComplete="off"/>
           {search && <button type="button" onClick={() => onSearchChange('')} aria-label="Limpar busca"><X size={18} aria-hidden="true"/></button>}
         </div>
-        <p className="consult-search-hint">53 etapas do roteiro · 60 conquistas</p>
+        <p className="consult-search-hint">{totalEvents} etapas do roteiro · {achievements.length} conquistas</p>
       </div>
 
       <nav className="consult-sections" aria-label="Seções da Consulta">
@@ -178,7 +179,7 @@ export const Consultation: React.FC<Props> = ({
             <section aria-labelledby="consult-missions-title">
               <div className="consult-section-title">
                 <div><p className="consult-eyebrow">ROTEIRO CRONOLÓGICO</p><h2 id="consult-missions-title">Missões</h2></div>
-                <span>53 marcos · 9 capítulos</span>
+                <span>{totalEvents} marcos · {phases.length} capítulos</span>
               </div>
               <label htmlFor="consult-chapter" className="consult-label">Capítulo do roteiro</label>
               <select id="consult-chapter" className="consult-chapter-select" value={activePhase.id} onChange={e => onChapterChange(e.target.value)}>

@@ -43,6 +43,6 @@ test('onda 17: Oskar, sino e grimório condicional sem inventar título oficial'
   assert.equal(items[0].name,"Nation's Death Knell");
   assert.equal(items[0].optional,true);
   assert.match(QUEST_ITEM_REQUIREMENTS.tolled_to_rest.guidance,/RECOMPENSA/);
-  assert.equal(PHASES.flatMap(p=>p.events).length,53);
+  assert.equal(PHASES.flatMap(p=>p.events).length,62);
   assert.equal(new Set(PHASES.flatMap(p=>p.achievements.map(a=>a.id))).size,60);
 });

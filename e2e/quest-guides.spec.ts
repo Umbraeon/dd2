@@ -38,18 +38,15 @@ test('busca global por Jadeite abre guia individual sem criar progresso', async 
 test('Diário: Melve exibe Beren e Trysha sem classificar Myrddin como missão local', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('melve');
-  await page.getByRole('button', { name: /Consultar atividade: Conheça Beren e Trysha/ }).click();
+  await page.getByRole('button', { name: /Consultar atividade: Inicie o treinamento com Beren e conheça Trysha/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(3);
+  await expect(panel.locator('details')).toHaveCount(2);
   await expect(panel.locator('#quest-guide-sorcerers_appraisal')).toHaveCount(0);
   const beren = panel.locator('#quest-guide-beren_claw');
   await beren.locator('summary').click();
   await expect(beren).toContainText('três espadas');
   await expect(beren).toContainText('Humphrey');
-  const final = panel.locator('#quest-guide-beren_final_lesson');
-  await final.locator('summary').click();
-  await expect(final).toContainText('Champion’s Fable');
-  await expect(final).toContainText('Arc of Might');
+  await expect(panel.locator('#quest-guide-beren_final_lesson')).toHaveCount(0);
   const trysha = panel.locator('details').filter({ hasText: /Magia Vertiginosa/ });
   await trysha.locator('summary').click();
   await expect(trysha).toContainText('pelo menos três grimórios autênticos');
@@ -101,13 +98,13 @@ test('Diário: mostra todos os percursos da Guilda sem duplicar passos de conclu
 });
 
 
-test('coroação: sete fichas acionáveis e nenhuma escrita automática de progresso', async ({ page }) => {
+test('coroação: cinco fichas preventivas antes do Banquete, sem antecipar Wilhelmina', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('combobox', { name: 'Capítulo' }).selectOption('vernworth3');
   await page.getByRole('button', { name: /Consultar atividade: Confira as missões pendentes antes da coroação/ }).click();
   const panel = page.getByRole('region', { name: 'Guias detalhados relacionados' });
-  await expect(panel.locator('details')).toHaveCount(7);
-  await expect(panel.locator('#quest-guide-every_rose')).toBeVisible();
+  await expect(panel.locator('details')).toHaveCount(5);
+  await expect(panel.locator('#quest-guide-every_rose')).toHaveCount(0);
   await expect(panel.locator('#quest-guide-unsettling_encounter')).toBeVisible();
   const feast = panel.locator('#quest-guide-feast_deception');
   await feast.locator('summary').click();
@@ -120,7 +117,7 @@ test('busca global encontra a missão de investigação de Disa sem alertas edit
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('O Plano de Disa');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /O Plano de Disa/ }).click();
+    .getByRole('button', { name: /^Guia de missão O Plano de Disa/ }).click();
   const guide = page.locator('#quest-guide-disas_plot');
   await expect(guide).toHaveAttribute('open', '');
   await expect(guide).toContainText('entregue a carta a Brant');
@@ -180,7 +177,7 @@ test('Beren: biblioteca encontra as duas missões PT-BR no celular sem criar pro
   await expect(first).toContainText('três espadas');
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('A Última Lição de Beren');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /A Última Lição de Beren/ }).click();
+    .getByRole('button', { name: /^Guia de missão A Última Lição de Beren/ }).click();
   const second = page.locator('#quest-guide-beren_final_lesson');
   await expect(second).toHaveAttribute('open', '');
   await expect(second).toContainText('Arc of Might');
@@ -221,7 +218,7 @@ test('Campanha final: buscar Um Novo Chamado Divino abre rota dos 15 cristais se
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Um Novo Chamado Divino');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /Um Novo Chamado Divino/ }).click();
+    .getByRole('button', { name: /^Guia de missão Um Novo Chamado Divino/ }).click();
   const entry = page.locator('#quest-guide-new_godsway');
   await expect(entry).toHaveAttribute('open', '');
   await expect(entry).toContainText('quinze Wyrmslife Crystals');
@@ -235,7 +232,7 @@ test('Campanha final: buscar O Guardião Gigantus indica fraquezas e diferença 
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('O Guardião Gigantus');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /O Guardião Gigantus/ }).click();
+    .getByRole('button', { name: /^Guia de missão O Guardião Gigantus/ }).click();
   const entry = page.locator('#quest-guide-guardian_gigantus');
   await expect(entry).toHaveAttribute('open', '');
   await expect(entry).toContainText('Unmaking Arrow');
@@ -249,7 +246,7 @@ test('Onda 8: fronteira de Battahl encontra os dois tipos de passe em 390px', as
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Nação da Chama Luzente');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /Nação da Chama Luzente/ }).click();
+    .getByRole('button', { name: /^Guia de missão Nação da Chama Luzente/ }).click();
   const entry = page.locator('#quest-guide-nation_lambent_flame');
   await expect(entry).toHaveAttribute('open', '');
   await expect(entry).toContainText('Beastren Border Entry Permit');
@@ -264,7 +261,7 @@ test('Onda 8: busca mobile encontra Legado e distingue finais sem escrever progr
   await openConsultation(page);
   await page.getByRole('searchbox', { name: 'Buscar em todos os 9 capítulos' }).fill('Legado');
   await page.getByRole('region', { name: 'Resultados encontrados' })
-    .getByRole('button', { name: /Legado/ }).click();
+    .getByRole('button', { name: /^Guia de missão Legado/ }).click();
   const entry = page.locator('#quest-guide-legacy');
   await expect(entry).toHaveAttribute('open', '');
   await expect(entry).toContainText('Pioneiro (Pathfinder)');
