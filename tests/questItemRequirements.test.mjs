@@ -70,13 +70,13 @@ test('itens sensíveis: preservar versões e não falsificar itens comuns desnec
   assert.equal(QUEST_ITEM_REQUIREMENTS.guardian_gigantus.items[0].optional, true);
 });
 
-test('prólogo: grifo, nunca esfinge/grifo; preserva 71 marcos e 60 conquistas', () => {
+test('prólogo: grifo, nunca esfinge/grifo; preserva 72 marcos e 60 conquistas', () => {
   const all = PHASES.flatMap(phase => phase.events);
   const intro = all.find(event => event.id === 'm01');
   assert.ok(intro);
   assert.match(intro.note, /ataque de um grifo/);
   assert.doesNotMatch(intro.note, /esfinge\/grifo/i);
-  assert.equal(all.length, 71);
+  assert.equal(all.length, 72);
   const allAchievements = new Set(PHASES.flatMap(p => p.achievements.map(a => a.id)));
   assert.equal(allAchievements.size, 60);
 });
