@@ -42,11 +42,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "In Dragon's Wake",
     "ptBR": "No Rastro do Dragão",
-    "eventIds": [
-      "m01",
-      "v101",
-      "m04"
-    ],
+    "eventIds": ["m08","v101"],
     "evidence": "paired_catalog"
   },
   {
@@ -144,9 +140,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "One-Eyed Interloper",
     "ptBR": "Intruso de um Olho Só",
-    "eventIds": [
-      "v101"
-    ],
+    "eventIds": ["m09"],
     "evidence": "paired_catalog"
   },
   {
@@ -542,7 +536,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   {
     "english": "Prey for the Pack",
     "ptBR": "A Presa da Alcateia",
-    "eventIds": ["v206"],
+    "eventIds": ["v114"],
     "evidence": "kiranico_ptbr",
     "sourceUrl": "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"
   },
@@ -570,15 +564,15 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   { english: "A Beggar's Tale", ptBR: "O Conto do Mendigo", eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'The Ailing Arborheart', ptBR: 'A Dor do Coração do Jardim', eventIds: ['v106','i06','u04'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'Out of the Forest, Into the Forge', ptBR: 'Da Floresta à Forja', eventIds: ['i06','u04'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'House of the Blue Sunbright', ptBR: 'A Casa da Luz-Solaris Azul', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'The Gift of Giving', ptBR: 'A Dádiva da Caridade', eventIds: ['v103'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'House of the Blue Sunbright', ptBR: 'A Casa da Luz-Solaris Azul', eventIds: ['v112'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'The Gift of Giving', ptBR: 'A Dádiva da Caridade', eventIds: ['v112'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: 'Oxcart Courier', ptBR: 'Correio por Carroça', eventIds: ['v102'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'A Magisterial Amenity', ptBR: 'Cortesia Magisterial', eventIds: ['v103', 'v301'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: 'A Veil of Gossamer Clouds', ptBR: 'Um Véu de Finas Nuvens', eventIds: ['v304','b02'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'A Magisterial Amenity', ptBR: 'Cortesia Magisterial', eventIds: ['v113'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: 'A Veil of Gossamer Clouds', ptBR: 'Um Véu de Finas Nuvens', eventIds: ['v306'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "Masked Correspondence", ptBR: "Correspondência Mascarada", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: "Welcome to Battahl", ptBR: "De Volta a Battahl", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: "Tensions on the Highroad", ptBR: "Tensão na Estrada", eventIds: ["v304","b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ["p06"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Welcome to Battahl", ptBR: "De Volta a Battahl", eventIds: ['b10'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Tensions on the Highroad", ptBR: "Tensão na Estrada", eventIds: ['b11'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ['p08'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "A Case of Sculptor's Block", ptBR: "A Inspiração de um Escultor", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "A Noble Exchange", ptBR: "Uma Nobre Troca", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "'Twixt a Rock and a Hard Place", ptBR: "Entre Dois Fogos", eventIds: ["b02","p04"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
