@@ -48,6 +48,35 @@ export const QuestCodex: React.FC<Props> = ({
   const pendingCount = phase.events.filter(e => !isStepCompleted(progress, e.id)).length;
   const isEveryStepDone = all.length > 0 && all.every(s => isStepCompleted(progress, s.event.id));
   const filteredEvents = phase.events.filter(e => tab === 'completed' ? isStepCompleted(progress, e.id) : !isStepCompleted(progress, e.id));
+  // An explicit navigation shortcut, never a change to the saved active step.
+  // If every remaining activity is deferred, allow returning to the first one.
+  const returnTarget = journey.target ??
+    (journey.kind === 'deferred-only'
+      ? all.find(step => !isStepCompleted(progress, step.event.id) && isStepDeferred(progress, step.event.id))
+      : undefined);
+  const returnTargetDone = returnTarget ? isStepCompleted(progress, returnTarget.event.id) : false;
+  const showReturn = !!returnTarget && (
+    displayed?.event.id !== returnTarget.event.id ||
+    phase.id !== returnTarget.phase.id ||
+    tab !== (returnTargetDone ? 'completed' : 'pending')
+  );
+  const returnLabel = journey.kind === 'suggested' ? 'Voltar à sugestão' :
+    journey.kind === 'completed-active' ? 'Rever etapa concluída' :
+    journey.kind === 'deferred-only' ? 'Rever uma adiada' : 'Voltar à etapa atual';
+  const returnToJourneyTarget = () => {
+    if (!returnTarget) return;
+    onChapterChange(returnTarget.phase.id);
+    setInspectedId(returnTarget.event.id);
+    setTab(returnTargetDone ? 'completed' : 'pending');
+    setMobileDetail(false);
+    setMore(false);
+    // Focus the exact row after React has rendered its chapter and filter.
+    requestAnimationFrame(() => {
+      const row = document.getElementById(`journey-row-${returnTarget.event.id}`);
+      row?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      row?.focus({ preventScroll: true });
+    });
+  };
   const inspect = (target: QuestEvent) => {
     setInspectedId(target.id);
     setMore(false);
@@ -78,6 +107,9 @@ export const QuestCodex: React.FC<Props> = ({
           <span className="quest-overline">COMPÊNDIO DO NASCEN <span aria-hidden="true">✦</span> CRÔNICAS DE VIAGEM</span>
           <h1 id="resume-heading">Diário do Nascen</h1>
           <p className="quest-resume-status" role="status">{statusText}</p>
+          {showReturn && <button className="quest-return-target" type="button" onClick={returnToJourneyTarget}>
+            {returnLabel} <ArrowLeft size={13} aria-hidden="true" />
+          </button>}
           {journey.invalidSelection && <p role="status" className="quest-muted">A etapa anteriormente escolhida não está no roteiro. Progresso preservado.</p>}
         </div>
         <div className="quest-master-controls">
@@ -98,7 +130,7 @@ export const QuestCodex: React.FC<Props> = ({
             const isDeferred = isStepDeferred(progress, e.id);
             const isSuggested = journey.kind === 'suggested' && journey.target?.event.id === e.id;
             return <div key={e.id} role="listitem" className={`quest-row ${chosen ? 'is-inspected' : ''}`}>
-              <button type="button" onClick={() => inspect(e)}
+              <button type="button" id={`journey-row-${e.id}`} onClick={() => inspect(e)}
                 aria-current={chosen ? 'true' : undefined}
                 aria-label={`Consultar atividade: ${e.title}${e.achievements.length ? ` · ${new Set(e.achievements).size} conquistas para acompanhar` : ""}`}
                 className="quest-row-button">
@@ -107,15 +139,13 @@ export const QuestCodex: React.FC<Props> = ({
                 </span>
                 <span className="quest-row-main">
                   <strong>{e.title}</strong>
-                  <JourneyCategoryBadge event={e} compact />
-                  {(isActive || isSuggested || isDeferred || e.achievements.length > 0) && (
-                    <span className="quest-row-meta">
-                      {(isActive || isSuggested || isDeferred) && <small>
-                        {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
-                      </small>}
-                      <AchievementPreview ids={e.achievements} phases={phases} progress={progress} />
-                    </span>
-                  )}
+                  <span className="quest-row-meta">
+                    <JourneyCategoryBadge event={e} compact />
+                    {(isActive || isSuggested || isDeferred) && <small>
+                      {isActive ? 'ATUAL FIXADA' : isDeferred ? 'ADIADA' : 'SUGERIDA'}
+                    </small>}
+                    {e.achievements.length > 0 && <AchievementPreview ids={e.achievements} phases={phases} progress={progress} />}
+                  </span>
                 </span>
                 <ChevronRight className="quest-row-chevron" size={18} aria-hidden="true" />
               </button>
