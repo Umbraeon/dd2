@@ -180,21 +180,21 @@ const matrixData = [
   {
     id: "v102",
     content: "Ative a Guilda e inicie missões urbanas prioritárias (Marco agregador de 2 secundárias)",
-    quests: "Frustração Vocacional & Correio por Carroça / Vocation Frustration & Oxcart Courier",
-    location: "Guilda de Vocações & Estação de Carroças de Vernworth",
+    quests: "Frustração Vocacional, O Dom do Arco e A Prova de Arco e Flecha / Vocation Frustration, Gift of the Bow, A Trial of Archery",
+    location: "Vernworth (guilda e forja) → Mina de Trevo / Ruínas da Montanha → Bosque Sagrado",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
     moment: "Capítulo 02 · Vernworth e retorno a Melve (Início na cidade)",
-    prerequisites: "Falar com Klaus na Guilda; falar com Donovan na estação",
+    prerequisites: "Aceitar Klaus e Glyndwr após chegar a Vernworth; A Prova de Arco e Flecha só fica disponível depois de concluir O Dom do Arco",
     risk: "Nenhum",
     sources: [
       { name: "PowerPyx (Vocation Frustration)", url: "https://www.powerpyx.com/dragons-dogma-2-vocation-frustration-walkthrough/" },
       { name: "Game8 (Oxcart Courier)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Oxcart-Courier" }
     ],
-    evidence: "Klaus desbloqueia Guerreiro e Feiticeiro ao receber espada e cajado da Mina de Trevo; Donovan pede entrega de carta a Lennart em Melve.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
-    proposal: "Mantido como marco urbano inicial (v102)"
+    evidence: "PowerPyx: Klaus e Glyndwr iniciam em Vernworth; Mina de Trevo também integra Elimine os Monstros; Glyndwr treina fora da cidade e a prova posterior segue ao Bosque Sagrado.",
+    divergence: "Marco composto: os links sustentam etapas separadas, não uma janela única.",
+    confidence: "PROVÁVEL",
+    proposal: "Aceite missões na cidade e combine as viagens; não presuma conclusão imediata de cadeia de Glyndwr."
   },
   {
     id: "v103",
@@ -394,15 +394,15 @@ const matrixData = [
     mainQuest: "O Conspirador Mascarado",
     relation: "PARALELA",
     moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
-    prerequisites: "Equipar túnica da corte, calças da corte e máscara de baile",
+    prerequisites: "Missão principal O Trono Roubado: traje e máscara da corte. Opcional: verificar Correspondência Mascarada com Sven após avanço de O Plano de Disa, se aparecer.",
     risk: "Atenção (exige traje nobre para entrar sem ser preso e obter conquista)",
     sources: [
       { name: "PowerPyx (The Stolen Throne)", url: "https://www.powerpyx.com/dragons-dogma-2-the-stolen-throne-walkthrough/" },
       { name: "Game8 (The Stolen Throne)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Stolen-Throne" }
     ],
-    evidence: "Seguir o falso soberano pela passagem secreta até o bordel Rose Chateau; cena cinematográfica com Wilhelmina.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
+    evidence: "O Trono Roubado requer roupa adequada para o baile. Game8 descreve carta de Sven em Correspondência Mascarada, uma missão secundária com condição própria.",
+    divergence: "Missão de Sven não é pré-requisito universal para a missão principal; seu gatilho exato varia com o avanço.",
+    confidence: "PROVÁVEL",
     proposal: "Mantido como marco principal de investigação (v104)"
   },
   {
@@ -575,9 +575,9 @@ const matrixData = [
       { name: "PowerPyx (An Unsettling Encounter)", url: "https://www.powerpyx.com/dragons-dogma-2-an-unsettling-encounter-walkthrough/" },
       { name: "Game8 (The Arisen's Shadow)", url: "https://game8.co/games/Dragons-Dogma-2/archives/The-Arisens-Shadow" }
     ],
-    evidence: "Bermudo espiona o Nascen na praça; sala secreta de Allard revela carta de Battahl com o brasão; fuga com ajuda de Wilhelmina.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
+    evidence: "O encontro com Bermudo e a investigação de Allard são etapas diferentes. Game8 relata permissões distintas de fronteira conforme a decisão sobre Bermudo.",
+    divergence: "Não confundir o efeito da escolha de Bermudo na permissão com pré-requisito universal da campanha.",
+    confidence: "PROVÁVEL",
     proposal: "Matriz corrigida: v301 é The Arisen's Shadow & An Unsettling Encounter"
   },
   {
@@ -685,16 +685,16 @@ const matrixData = [
     mainQuest: "Nação da Chama Luzente",
     relation: "REQUER",
     moment: "Capítulo 05 · Battahl (Entrada na nova região)",
-    prerequisites: "Passe de fronteira recebido de Brant em v304",
+    prerequisites: "Após O Banquete da Farsa, obter o passe de Brant; dependendo da escolha com Bermudo e raça do personagem pode ser necessária Máscara de Ferídeo em Ibrahim ou outra rota.",
     risk: "Atenção (passe de Beastren exige Máscara de Fera se o Nascen for humano; travessia em carruagem nobre é opcional)",
     sources: [
       { name: "PowerPyx (Nation of the Lambent Flame)", url: "https://www.powerpyx.com/dragons-dogma-2-nation-of-the-lambent-flame-walkthrough/" },
       { name: "Game8 (Nation of the Lambent Flame)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Nation-of-the-Lambent-Flame" }
     ],
-    evidence: "Atravessar o grande portão da fronteira e seguir pela estrada desértica até a capital Bakbattahl.",
+    evidence: "PowerPyx e Game8 descrevem a permissão racial, máscara e travessia. Piedade entre Ladrões começa somente depois do portão, no lado Battahl.",
     divergence: "Nenhuma",
     confidence: "CORROBORADO",
-    proposal: "Mantido como marco principal de entrada (b01)"
+    proposal: "Separar preparo antes do portão, travessia, desvio opcional na fronteira e viagem até Rockmouse."
   },
   {
     id: "b10",
@@ -719,20 +719,20 @@ const matrixData = [
     id: "b02",
     content: "Execute as missões locais de Bakbattahl (Marco agregador de 3 secundárias de Bakbattahl)",
     quests: "Piedade entre Ladrões & Orações Ensombradas & Uma Proposta Venenosa / Mercy among Thieves, Shadowed Prayers, A Poisonous Proposal",
-    location: "Bakbattahl e arredores",
+    location: "Cidade de Descanso da Fronteira (Piedade entre Ladrões) e Bakbattahl (Orações Ensombradas / Uma Proposta Venenosa)",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
     moment: "Capítulo 05 · Battahl (Estadia inicial em Bakbattahl)",
-    prerequisites: "Chegar a Bakbattahl",
-    risk: "Atenção (identificar Herman corretamente em Orações Ensombradas sem matá-lo; envenenamento em Jarle)",
+    prerequisites: "Piedade entre Ladrões: atravessar o portão; as duas missões urbanas surgem após avançar Nação da Chama Luzente. São gatilhos diferentes.",
+    risk: "Atenção: depois de iniciar a cerimônia com Menella em Orações Ensombradas, não adiar a identificação do assassino. O grupo não possui um prazo único.",
     sources: [
       { name: "PowerPyx (Mercy among Thieves)", url: "https://www.powerpyx.com/dragons-dogma-2-mercy-among-thieves-walkthrough/" },
       { name: "Game8 (Shadowed Prayers)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Shadowed-Prayers" }
     ],
-    evidence: "Investigações locais independentes: capturar Hugo dos Coral Snakes; proteger a Imperatriz Nadinia no templo; teste de venenos com Jarle.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
-    proposal: "Matriz corrigida: b02 agrupa missões urbanas de Bakbattahl"
+    evidence: "PowerPyx distingue início de Piedade entre Ladrões na fronteira e Orações Ensombradas na cerimônia matinal em Bakbattahl. A etapa da cerimônia pode falhar se abandonada.",
+    divergence: "Marco agrupado; os links não corroboram simultaneamente todas as condições das três missões.",
+    confidence: "PROVÁVEL",
+    proposal: "Separar tarefas da travessia e da cidade; alerta contextual de urgência apenas na cerimônia."
   },
   {
     id: "b11",
@@ -761,16 +761,16 @@ const matrixData = [
     mainQuest: "Nenhuma",
     relation: "REQUER",
     moment: "Capítulo 05 · retorno agrupado a Vernworth (baile noturno)",
-    prerequisites: "Ter avançado para Battahl a partir de Nação da Chama Luzente",
+    prerequisites: "PowerPyx: janela após Nação da Chama Luzente e antes de Um Novo Chamado Divino. Game8: concluir Correspondência Mascarada antes do baile. Confira Sven caso não apareça.",
     risk: "Atenção (se for pego segurando o cajado roubado pelos guardas, é preso)",
     sources: [
       { name: "PowerPyx (A Noble Exchange)", url: "https://www.powerpyx.com/dragons-dogma-2-a-noble-exchange-walkthrough/" },
       { name: "Game8 (A Noble Exchange)", url: "https://game8.co/games/Dragons-Dogma-2/archives/A-Noble-Exchange" }
     ],
-    evidence: "Nobre entrega Paragon Staff de presente no baile; guardas invadem; largar o cajado no chão e conter o ladrão em fuga.",
-    divergence: "Noite exata em que o evento surge no baile varia entre saves",
-    confidence: "PROVÁVEL",
-    proposal: "Mantido marco sequencial de retorno noturno (b12)"
+    evidence: "Ambas descrevem baile em Vernworth; Game8 aponta Correspondência Mascarada como condição e PowerPyx cita somente a janela geral de campanha.",
+    divergence: "Não há comprovação independente de que a condição adicional de Correspondência Mascarada seja universal; não reduzir a espera por noites a gatilho suficiente.",
+    confidence: "DIVERGENTE",
+    proposal: "Regra condicional explícita; missões da mesma viagem não são pré-requisitos entre si."
   },
   {
     id: "b03",
