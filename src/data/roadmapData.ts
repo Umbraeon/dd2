@@ -632,7 +632,7 @@ export const PHASES: Phase[] = [
         title: "Conclua O Banquete da Farsa e receba Nação da Chama Luzente",
         type: "historia",
         journeyCategory: "main",
-        note: "Após verificar as missões perdíveis, conclua 'O Banquete da Farsa' (Feast of Deception) com Brant. Isso inicia 'Nação da Chama Luzente' (Nation of the Lambent Flame). Antes de partir, revise a disponibilidade de 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn) e 'Um Véu de Finas Nuvens' (A Veil of Gossamer Clouds), que têm etapas específicas depois deste marco.",
+        note: "Após verificar as missões perdíveis, conclua 'O Banquete da Farsa' (Feast of Deception) com Brant. Isso inicia 'Nação da Chama Luzente' (Nation of the Lambent Flame). Antes de partir, revise com Wilhelmina a disponibilidade de 'As Rosas Têm Espinhos' (Every Rose Has Its Thorn) e 'Um Véu de Finas Nuvens' (A Veil of Gossamer Clouds), que têm etapas específicas depois deste marco.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
