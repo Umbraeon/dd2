@@ -442,7 +442,11 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'brothers_brave', title: 'A Tímida Bravura dos Irmãos', original: 'Brothers Brave and Timid',
     region: 'Melve', giver: 'Ian, perto da casa de Lennart',
     relatedEventIds: ['m04'],
-    preparation: ['Aceite a missão com Ian antes de avançar muito as missões posteriores de Melve.', 'Prepare curativos e deixe os peões acompanhar o grupo.'],
+    preparation: [
+      'PowerPyx informa disponibilidade após iniciar O Trono do Sobran, enquanto Game8 recomenda conferir Ian na primeira visita a Melve. Aceite quando ele de fato oferecer a missão.',
+      'Priorize o resgate antes de Revinda da Calamidade: depois do ataque, Ian pode não oferecer mais essa missão.',
+      'Ajudar os irmãos facilita obter armas na missão posterior de Lennart, mas NÃO é requisito para libertar Melve.'
+    ],
     steps: [
       'Converse com Ian em Melve e concorde em procurar o irmão dele, Norbert.',
       'Siga Ian pela trilha ao norte de Melve e proteja-o dos monstros encontrados no caminho.',
@@ -532,15 +536,19 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'readvent_calamity', title: 'Revinda da Calamidade', original: 'Readvent of Calamity',
     region: 'Melve e Aldeia de Harve', giver: 'Iniciada pelo ataque do dragão em Melve',
     relatedEventIds: ['v107', 'v202'],
-    preparation: ['Enquanto estiver cumprindo as missões de Brant em Vernworth, volte a Melve antes de concluir O Banquete da Farsa.', 'Se encontrar o ataque em Melve, dê prioridade a esta sequência antes de concluir O Banquete da Farsa.'],
+    preparation: [
+      'Antes de O Banquete da Farsa, confira Melve durante as viagens a partir de Vernworth; aproveitar Correio por Carroça é uma oportunidade de retorno, mas não garante o ataque.',
+      'PowerPyx cita Invasores Escamosos concluída e uma travessia anterior de Battahl como condições. Outros guias não confirmam da mesma forma essa sequência: não torne a travessia um desvio obrigatório.',
+      'O ataque é somente o INÍCIO da missão; encontrá-la depois em Harve e informar Lennart em Melve são passos da mesma quest.'
+    ],
     steps: [
       'Quando o dragão atacar Melve, ajude os moradores a repelir a criatura. Se Sigurd estiver presente, fale com ele para liberar Lanceiro Místico.',
-      'Retorne a Melve depois de algum tempo e converse com Ulrika na casa dela.',
+      'Saia da região após o ataque, deixe passar pelo menos um dia e retorne à casa de Ulrika para a cena noturna; a saída dela ocorre depois dessa visita.',
       'Após os acontecimentos com Ulrika, fale com Lennart quando ele pedir notícias sobre ela.',
-      'Vá à Aldeia de Harve e procure Ulrika. A cadeia de missões da vila pode começar com As Mãos Atadas que Abraçam a Causa.',
+      'Vá a Harve depois das duas defesas de Invasores Escamosos. Ao encontrar Ulrika, As Mãos Atadas que Abraçam a Causa pode começar na mesma visita ou posteriormente, conforme a sequência que aparecer no diário.',
       'Depois de falar com Ulrika em Harve, retorne a Melve e conte a Lennart que a encontrou.'
     ],
-    completion: 'A conversa de retorno com Lennart encerra esta missão; a história de Ulrika continua em outras missões.',
+    completion: 'A conversa FINAL com Lennart, depois de encontrar Ulrika em Harve, encerra Revinda da Calamidade. Repelir o dragão não encerra a missão; o resgate de Zoran é uma missão separada.',
     references: ['https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/', 'https://game8.co/games/Dragons-Dogma-2/archives/Readvent-of-Calamity']
 
   },
@@ -629,11 +637,14 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     id: 'home_hearth', title: 'Lar é Onde o Coração Está', original: 'Home Is Where the Hearth Is',
     region: 'Melve e Aldeia de Harve', giver: 'Lennart',
     relatedEventIds: ['v305'],
-    preparation: ['Acompanhe a sequência de Ulrika em Harve e retorne a Melve para encontrar a vila ocupada por soldados.', 'Se ajudou Ian e Norbert anteriormente, os irmãos podem ajudar você a recuperar as armas.'],
+    preparation: [
+      'Após concluir Revinda da Calamidade e Um Encontro Perturbador, retorne a Melve antes da coroação. Game8 também inclui As Mãos Atadas que Abraçam a Causa na cadeia anterior.',
+      'Se ajudou Ian e Norbert, Ian pode distrair o guarda do depósito, mas a missão não exige os irmãos: também é possível levar ou comprar quatro espadas.'
+    ],
     steps: [
-      'Na entrada de Melve, converse com o guarda e consiga passagem para a vila.',
+      'Na entrada de Melve ocupada pelos soldados, converse com o guarda e consiga passagem para a vila (PowerPyx registra um suborno).',
       'Entre na casa de Ulrika e converse com Lennart sobre como ajudar os moradores.',
-      'Obtenha quatro espadas: procure as armas confiscadas no depósito, aproveitando a distração dos irmãos, ou leve quatro do seu inventário.',
+      'Obtenha quatro espadas: recupere as confiscadas no depósito com a ajuda opcional de Ian, leve armas do inventário ou compre outras quatro em Vernworth.',
       'Entregue as quatro espadas a Lennart e, ao sair, ajude os moradores a repelir os soldados.',
       'Depois de algum tempo no jogo, vá a Harve e conte a Ulrika o que aconteceu em Melve.',
       'Volte ao cais de Harve à noite e fale com Ulrika para concluir esta etapa da história.'
@@ -668,8 +679,9 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     giver: 'Fyoran',
     relatedEventIds: ['v201', 'v202'],
     preparation: [
-      'Na missão Elimine os Monstros, resgate os soldados da caverna de Harve e encontre Fyoran ao sair.',
-      'Esta missão ocorre em duas visitas: a primeira luta não conclui a tarefa.'
+      'Durante a parte de Harve em Elimine os Monstros, ajude os soldados na Stormwind Cave e, ao sair, encontre Fyoran.',
+      'Primeira visita: afaste os sáurios e avise Fyoran. Depois saia da região e volte alguns dias mais tarde para a segunda leva; a primeira luta NÃO conclui Invasores Escamosos.',
+      'O Vilarejo sem Nome pode ser feito em paralelo: não é requisito para a segunda defesa de Harve.'
     ],
     steps: [
       'Converse com Fyoran na Aldeia de Harve, depois de resgatar os soldados na missão de Brant.',
@@ -687,8 +699,9 @@ export const QUEST_GUIDES: readonly QuestGuide[] = [
     giver: 'Ulrika',
     relatedEventIds: ['v202', 'v303'],
     preparation: [
-      'Procure Ulrika em Harve durante a sequência de Revinda da Calamidade, depois de ajudá-la em Melve.',
-      'A retomada da aldeia em Invasores Escamosos faz parte da preparação para essa história.'
+      'Depois do ataque em Melve e da cena em casa de Ulrika, procure-a em Harve quando Invasores Escamosos já tiver duas defesas concluídas.',
+      'PowerPyx descreve a missão de Zoran acontecendo DURANTE Revinda da Calamidade; Game8 também descreve uma sequência em que o relato final a Lennart acontece antes do resgate. Confirme no diário e não imponha uma ordem única.',
+      'Se a discussão não acontecer ao chegar a Harve, encontre Ulrika, informe Lennart sobre ela em Melve e volte a Harve outro dia antes da coroação.'
     ],
     steps: [
       'Ao encontrar Ulrika em Harve, acompanhe a discussão dela com os moradores e aceite ajudar no resgate.',
