@@ -17,6 +17,8 @@ export interface QuestEvent {
   extraSources?: string[];
   prerequisites?: string;
   failureRisk?: string;
+  /** Acompanhamento de longo prazo: continua pendente mas não bloqueia a próxima sugestão de roteiro. */
+  suggestionTiming?: 'ongoing';
   /** Explicit verified risk attributes separating timed vs missable vs general alert. */
   isTimed?: boolean;
   isMissable?: boolean;
