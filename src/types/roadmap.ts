@@ -2,10 +2,14 @@ export type RiskLevel = 'normal' | 'cuidado' | 'alerta' | 'critico';
 
 export type EventType = 'historia' | 'missao' | 'conquista' | 'alerta' | 'checkpoint';
 
+export type JourneyCategory = 'main' | 'side' | 'during' | 'exploration' | 'optional' | 'point_of_no_return';
+
 export interface QuestEvent {
   id: string;
   title: string;
   type: EventType;
+  /** Editorial timeline category; independent of technical event.type and risk. */
+  journeyCategory?: JourneyCategory;
   note: string;
   achievements: number[]; // achievement IDs
   risk: RiskLevel;
@@ -13,6 +17,9 @@ export interface QuestEvent {
   extraSources?: string[];
   prerequisites?: string;
   failureRisk?: string;
+  /** Explicit verified risk attributes separating timed vs missable vs general alert. */
+  isTimed?: boolean;
+  isMissable?: boolean;
 }
 
 export interface Achievement {

@@ -23,7 +23,7 @@ export const SphinxTrackerModal: React.FC<SphinxTrackerModalProps> = ({
   const completedCount = SPHINX_RIDDLES.filter(r => progress.sphinx[r.id]).length;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 lg:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 lg:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Rastreador de Enigmas da Esfinge">
       <div className="bg-[#141619] border border-[#726044] rounded-lg max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-[#3d372e] flex items-center justify-between bg-[#191c20]">

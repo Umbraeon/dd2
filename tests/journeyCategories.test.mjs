@@ -1,0 +1,92 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { PHASES } from '../src/data/roadmapData.ts';
+import { journeyCategoryForEvent, JOURNEY_CATEGORY_LABELS } from '../src/utils/journeyCategory.ts';
+import { QUEST_GUIDES, questGuidesForEvent } from '../src/data/questGuides.ts';
+import { QUEST_NAME_INDEX } from '../src/data/questNameIndex.ts';
+
+const stages = PHASES.flatMap(p => p.events);
+const idx = new Map(stages.map((e,i) => [e.id,i]));
+const stage = id => stages.find(e => e.id === id);
+const before = (a,b) => assert.ok(idx.get(a) < idx.get(b), a + ' deve anteceder ' + b);
+
+test('todas as 72 etapas têm categoria editorial explícita, separada do risco e da conclusão', () => {
+  assert.equal(PHASES.length, 9);
+  assert.equal(stages.length, 72);
+  assert.equal(new Set(stages.map(e=>e.id)).size,72);
+  assert.equal(QUEST_GUIDES.length,82);
+  assert.equal(QUEST_NAME_INDEX.length,82);
+  assert.equal(PHASES.flatMap(p=>p.achievements).length,60);
+  for(const e of stages) {
+    assert.ok(e.journeyCategory, e.id);
+    assert.ok(Object.hasOwn(JOURNEY_CATEGORY_LABELS,e.journeyCategory),e.id);
+    assert.equal(journeyCategoryForEvent(e),e.journeyCategory === 'optional' ? 'exploration' : e.journeyCategory);
+    assert.ok(e.source.startsWith('https://'),e.id);
+  }
+  assert.equal(stage('m09').journeyCategory,'during');
+  assert.equal(stage('p08').journeyCategory,'during');
+  assert.equal(JOURNEY_CATEGORY_LABELS['during'], 'Durante esta missão');
+  assert.equal(JOURNEY_CATEGORY_LABELS['exploration'], 'Exploração / Conquista');
+  assert.equal(stage('b03').journeyCategory,'side');
+  assert.equal(stage('v303').journeyCategory,'point_of_no_return');
+  assert.equal(stage('p04').journeyCategory,'point_of_no_return');
+  assert.equal(stage('u08').journeyCategory,'point_of_no_return');
+});
+
+test('missões embutidas ficam na posição do encontro, não em um capítulo arbitrário', () => {
+  for(const [a,b] of [
+    ['m01','m08'],['m08','m02'],['m02','m09'],['m09','v101'],['v101','v108'],
+    ['v103','v112'],['v111','v113'],['v206','v114'],
+    ['v304','v306'],['v306','b01'],['b01','b10'],['b10','b11'],
+    ['b11','b12'],['b12','p08'],['p05','p08'],['p08','p06']
+  ]) before(a,b);
+  assert.match(stage('m09').note,/Gregor.*Intruso de um Olho Só/s);
+  assert.match(stage('p08').note,/DURANTE.*O Guardião Gigantus/s);
+  const guides = [
+    ['m08','in_dragons_wake'],['m09','one_eyed_interloper'],
+    ['v112','blue_sunbright_house'],['v113','magisterial_amenity'],
+    ['v114','prey_for_pack'],['v306','gossamer_clouds'],
+    ['b10','welcome_battahl'],['b11','tensions_highroad'],['b12','noble_exchange'],['p08','clash_conclusion']
+  ];
+  for(const [e,g] of guides) assert.ok(questGuidesForEvent(e).some(q=>q.id===g),e+' ↔ '+g);
+  assert.ok(!questGuidesForEvent('v101').some(g=>g.id==='one_eyed_interloper'));
+  assert.ok(questGuidesForEvent('b12').some(q=>q.id==='noble_exchange'));
+  assert.ok(!questGuidesForEvent('v104').some(q=>q.id==='noble_exchange'));
+  assert.ok(!questGuidesForEvent('p06').some(g=>g.id==='clash_conclusion'));
+  assert.ok(!questGuidesForEvent('v103').some(g=>g.id==='magisterial_amenity'));
+  assert.ok(!questGuidesForEvent('v304').some(g=>g.id==='gossamer_clouds'));
+});
+
+test('alertas de risco separam missões temporizadas, perdíveis e pontos sem retorno sem rotular risco alto automaticamente como temporizado', () => {
+  // Eventos temporizados comprovados
+  assert.equal(stage('m02').isTimed, true, 'm02 (Accardo) deve ser temporizada');
+  assert.equal(stage('v203').isTimed, true, 'v203 (Gregor Dullahan) deve ser temporizada');
+  assert.equal(stage('v205').isTimed, true, 'v205 (Esfinge Ruminação) deve ser temporizada');
+  assert.equal(stage('v114').isTimed, true, 'v114 (Rodge) deve ser temporizada');
+  assert.equal(stage('v302').isTimed, true, 'v302 (Wilhelmina 3 dias) deve ser temporizada');
+  assert.equal(stage('p05').isTimed, true, 'p05 (Gigantus) deve ser temporizada');
+  assert.equal(stage('u04').isTimed, true, 'u04 (Unmoored névoa) deve ser temporizada');
+
+  // Eventos de risco alto ou crítico que NÃO são temporizados
+  assert.ok(!stage('m06').isTimed, 'm06 tem aviso de 1º memento mas não é temporizada em si');
+  assert.ok(!stage('p03').isTimed, 'p03 (12 mestrias) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('p07').isTimed, 'p07 (Um Novo Chamado Divino) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('p06').isTimed, 'p06 (O Legado) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u01').isTimed, 'u01 (Paz) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u02').isTimed, 'u02 (Entrada Unmoored) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u08').isTimed, 'u08 (Encerramento) tem risco crítico mas não é temporizada');
+
+  // Eventos com risco de perda comprovado
+  assert.equal(stage('m04').isMissable, true, 'm04 missões de Melve perdíveis');
+  assert.equal(stage('v107').isMissable, true, 'v107 Readvent of Calamity cancelável');
+  assert.equal(stage('v202').isMissable, true, 'v202 Ulrika cancelável');
+  assert.equal(stage('b03').isMissable, true, 'b03 grimório de Isaac irreversível');
+  assert.equal(stage('b05').isMissable, true, 'b05 conquista da carroça perdível');
+  assert.equal(stage('b06').isMissable, true, 'b06 Esfinge perdível');
+  assert.equal(stage('u08').isMissable, true, 'u08 Modo Casual bloqueia conquista');
+
+  // Missões condicionais não bloqueiam o roteiro principal
+  assert.match(stage('v101').note, /sem prejuízo para a campanha|contornado/i, 'v101 não presume vitória obrigatória em m09');
+  assert.match(stage('p08').note, /NÃO é bloqueada|não bloqueia/i, 'p08 deixa claro que ausência de Raghnall não trava a campanha');
+  assert.match(stage('p06').note, /tendo resolvido.*ou prosseguido diretamente/i, 'p06 avança quer p08 tenha ocorrido ou não');
+});

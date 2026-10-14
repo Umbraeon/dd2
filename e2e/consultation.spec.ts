@@ -191,8 +191,8 @@ test('conquistas e marcos não se concluem mutuamente no catálogo', async ({ pa
   expect(Object.values(data.steps).filter(Boolean)).toHaveLength(1);
 });
 
-test('zero, 20, 53 e 62 de 62 marcos não alteram a contagem das 60 conquistas', async ({ page }) => {
-  for (const n of [0,20,53,62]) {
+test('zero, 20, 53, 62 e 72 de 72 marcos não alteram a contagem das 60 conquistas', async ({ page }) => {
+  for (const n of [0,20,53,62,72]) {
     await page.context().clearCookies();
     await page.addInitScript(() => localStorage.clear());
     await seed(page,n);

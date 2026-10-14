@@ -40,7 +40,7 @@ test('cada nome referencia um marco conhecido, ou anotação auxiliar MAISTER', 
 
 test('índice é somente leitura; marcos e conquistas existentes permanecem estáveis', () => {
   assert.equal(PHASES.length, 9);
-  assert.equal(PHASES.flatMap(p => p.events).length, 62);
+  assert.equal(PHASES.flatMap(p => p.events).length, 72);
   assert.equal(PHASES.flatMap(p => p.achievements).length, 60);
   assert.deepEqual(questNamesForEvent('___inexistente___'), []);
 });
@@ -69,7 +69,7 @@ test('A Presa da Alcateia tem nome do catálogo PT-BR e não inventa hash de PAK
   assert.equal(q.ptBR, 'A Presa da Alcateia');
   assert.equal(q.evidence, 'kiranico_ptbr');
   assert.equal(q.sourceUrl, 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests');
-  assert.deepEqual(q.eventIds, ['v206']);
+  assert.deepEqual(q.eventIds, ['v114']);
   assert.equal(q.sha256, undefined);
 });
 

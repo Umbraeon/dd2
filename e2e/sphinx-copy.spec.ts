@@ -6,12 +6,13 @@ test('Esfinge: prazo só em Ruminação, outras recompensas continuam acessívei
   await page.getByRole('button', { name: 'Abrir central de ferramentas' }).click();
   await page.getByRole('button', { name: /^Esfinge/ }).click();
 
-  await expect(page.getByText('Antes de responder')).toBeVisible();
-  await expect(page.getByText(/Se errar, você perde a recompensa daquele enigma, mas pode continuar os demais/)).toBeVisible();
-  await expect(page.getByText(/O prazo de sete dias se aplica à Ruminação/)).toBeVisible();
-  await expect(page.getByText(/a Esfinge voará embora para sempre e os baús trancarão/i)).toHaveCount(0);
-  await expect(page.getByText(/Atenção:/i)).toHaveCount(0);
-  await expect(page.getByText(/Conte quantos baús de recompensa/)).toBeAttached();
+  const modal = page.getByRole('dialog', { name: 'Rastreador de Enigmas da Esfinge' });
+  await expect(modal.getByText('Antes de responder')).toBeVisible();
+  await expect(modal.getByText(/Se errar, você perde a recompensa daquele enigma, mas pode continuar os demais/)).toBeVisible();
+  await expect(modal.getByText(/O prazo de sete dias se aplica à Ruminação/)).toBeVisible();
+  await expect(modal.getByText(/a Esfinge voará embora para sempre e os baús trancarão/i)).toHaveCount(0);
+  await expect(modal.getByText(/Atenção:/i)).toHaveCount(0);
+  await expect(modal.getByText(/Conte quantos baús de recompensa/)).toBeAttached();
 
   expect(await page.evaluate(() => localStorage.getItem('dd2_roadmap_user_progress_v3'))).toBeNull();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
