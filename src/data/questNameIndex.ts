@@ -574,7 +574,7 @@ export const QUEST_NAME_INDEX: readonly QuestNameRecord[] = [
   { english: "Tensions on the Highroad", ptBR: "Tensão na Estrada", eventIds: ['b11'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "Clash and Conclusion", ptBR: "Confronto Final", eventIds: ['p08'], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "A Case of Sculptor's Block", ptBR: "A Inspiração de um Escultor", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
-  { english: "A Noble Exchange", ptBR: "Uma Nobre Troca", eventIds: ["v104"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
+  { english: "A Noble Exchange", ptBR: "Uma Nobre Troca", eventIds: ["b12"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "'Twixt a Rock and a Hard Place", ptBR: "Entre Dois Fogos", eventIds: ["b02","p04"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' },
   { english: "Crossing in Shadow", ptBR: "Cruzando às Sombras", eventIds: ["b02"], evidence: 'kiranico_ptbr', sourceUrl: 'https://dragonsdogma2.kiranico.com/pt-BR/data/quests' }
 ];
