@@ -67,6 +67,6 @@ test('onda 18: 4 títulos PT-BR pareados em Kiranico, sem alegar extração PAK'
   }
   assert.equal(QUEST_GUIDES.length,82);
   assert.equal(QUEST_NAME_INDEX.length,82);
-  assert.equal(PHASES.flatMap(p=>p.events).length,71);
+  assert.equal(PHASES.flatMap(p=>p.events).length,72);
   assert.equal(new Set(PHASES.flatMap(p=>p.achievements.map(a=>a.id))).size,60);
 });
