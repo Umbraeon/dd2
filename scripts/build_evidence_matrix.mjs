@@ -146,7 +146,7 @@ const matrixData = [
     location: "Portões de Vernworth → Estalagem Stardrop",
     mainQuest: "No Rastro do Dragão",
     relation: "DESBLOQUEIA",
-    moment: "Capítulo 02 · Vernworth 1 (Chegada à capital)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Chegada à capital)",
     prerequisites: "Chegar aos portões de Vernworth após a viagem de Melve",
     risk: "Nenhum (avança mesmo se o ciclope em m09 tiver sido contornado)",
     sources: [
@@ -165,7 +165,7 @@ const matrixData = [
     location: "Estalagem Stardrop (Vernworth) à noite",
     mainQuest: "O Trono do Sobran",
     relation: "REQUER",
-    moment: "Capítulo 02 · Vernworth 1 (Primeira noite)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Primeira noite)",
     prerequisites: "Concluir v101",
     risk: "Nenhum",
     sources: [
@@ -184,7 +184,7 @@ const matrixData = [
     location: "Guilda de Vocações & Estação de Carroças de Vernworth",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Início na cidade)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Início na cidade)",
     prerequisites: "Falar com Klaus na Guilda; falar com Donovan na estação",
     risk: "Nenhum",
     sources: [
@@ -203,7 +203,7 @@ const matrixData = [
     location: "Praça Mercantil e Cortiços de Vernworth",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Exploração dos bairros)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Exploração dos bairros)",
     prerequisites: "Comprar a caixa para Sven ou emprestar 800 G; falar com Kendrick na Mão Caridosa",
     risk: "Perdível (roupas de mendigo têm 3 entregas mutuamente exclusivas)",
     sources: [
@@ -222,7 +222,7 @@ const matrixData = [
     location: "Cortiços de Vernworth & Mansão Townsend",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 02 · Vernworth 1 (Após doações a Daphne)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Após doações a Daphne)",
     prerequisites: "Concluir todas as doações a Daphne; Diana convoca para a mansão",
     risk: "Atenção (Sebastian precisa de 3 suprimentos específicos: olho de ciclope, antídoto, pó despertador)",
     sources: [
@@ -236,22 +236,22 @@ const matrixData = [
   },
   {
     id: "m04",
-    content: "Retorne cedo a Melve: Flora, Lennart, Ian e Norbert (Marco agregador de 3 secundárias de Melve)",
+    content: "Retorne a Melve: Problemas Aninhados, Flora e Norbert (Marco agregador de 3 secundárias de Melve)",
     quests: "Remédio de Flora, Problemas Aninhados, Irmãos Valentes e Tímidos / Medicament Predicament, Nesting Troubles, Brothers Brave and Timid",
     location: "Melve e arredores",
     mainQuest: "Nenhuma",
     relation: "OPCIONAL_NA_ROTA",
-    moment: "Capítulo 02 · Vernworth 1 (Retorno conveniente pela carroça de Donovan)",
-    prerequisites: "Iniciar ou concluir O Trono do Sobran; pegar carta com Donovan",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Retorno conveniente pela carroça de Donovan)",
+    prerequisites: "PowerPyx e Game8 indicam Problemas Aninhados após No Rastro do Dragão; relatos de acesso na primeira visita divergem. Flora e Ian têm condições próprias.",
     risk: "Perdível (canceladas se o ataque do dragão ou a coroação avançarem sem falar com os NPCs)",
     sources: [
-      { name: "PowerPyx (Brothers Brave and Timid)", url: "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/" },
+      { name: "PowerPyx (Nesting Troubles)", url: "https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/" },
       { name: "Game8 (Nesting Troubles)", url: "https://game8.co/games/Dragons-Dogma-2/archives/Nesting-Troubles" }
     ],
-    evidence: "Resgate de Norbert com Ian e favores de Flora e Lennart podem expirar se a vila sofrer transição de estado pela história.",
-    divergence: "Nenhuma",
-    confidence: "CORROBORADO",
-    proposal: "Mantido retorno preventivo a Melve com flag 'Perdível'"
+    evidence: "PowerPyx e Game8 confirmam Melve como local e o retorno após No Rastro do Dragão para Problemas Aninhados. As outras missões do marco exigem verificação separada.",
+    divergence: "Algumas fontes relatam o início de Problemas Aninhados já na primeira visita; não há consenso para tratar como regra universal.",
+    confidence: "PROVÁVEL",
+    proposal: "Mantido ID m04, com acesso pelo capítulo Melve e momento de retorno explícito"
   },
   {
     id: "m07",
@@ -260,7 +260,7 @@ const matrixData = [
     location: "Jardim do Luar (Campo de Treino de Beren)",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 02 · Vernworth 1 (Após recrutar recruta em Vernworth)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Após recrutar recruta em Vernworth)",
     prerequisites: "Concluir Treino Leonino e recrutar Humphrey em Vernworth",
     risk: "Nenhum (Beren demitido ensina Arcana se visitado mais tarde em Battahl)",
     sources: [
@@ -279,7 +279,7 @@ const matrixData = [
     location: "Calabouço do Castelo de Vernworth",
     mainQuest: "O Magistrado Aprisionado",
     relation: "REQUER",
-    moment: "Capítulo 02 · Vernworth 1 (Investigações de Brant)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
     prerequisites: "Concluir v103 (descobrir arquivo de livros em Os Calcanhares da História)",
     risk: "Nenhum (Waldhar se recusa a sair da cela se não souber de um lugar com muitos livros)",
     sources: [
@@ -298,7 +298,7 @@ const matrixData = [
     location: "Cofre da Mão Caridosa & Salão de Máscaras do Castelo",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 02 · Vernworth 1 (Após Waldhar estar abrigado no cofre)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Após Waldhar estar abrigado no cofre)",
     prerequisites: "Concluir v111 (O Magistrado Aprisionado)",
     risk: "Nenhum",
     sources: [
@@ -317,7 +317,7 @@ const matrixData = [
     location: "Castelo de Vernworth à noite",
     mainQuest: "O Plano de Disa",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Investigações de Brant)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
     prerequisites: "Aceitar missão com Brant na estalagem",
     risk: "Atenção (entrar de dia ou sem cuidado chama guardas hostis)",
     sources: [
@@ -336,7 +336,7 @@ const matrixData = [
     location: "Caverna da Cascata, Mina de Trevo e Costa de Harve",
     mainQuest: "Elimine os Monstros",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Investigações de Brant)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
     prerequisites: "Aceitar missão com Brant",
     risk: "Nenhum",
     sources: [
@@ -355,7 +355,7 @@ const matrixData = [
     location: "Bairro Comum de Vernworth",
     mainQuest: "Nenhuma",
     relation: "OPCIONAL_NA_ROTA",
-    moment: "Capítulo 02 · Vernworth 1 (Durante estadia na capital)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Durante estadia na capital)",
     prerequisites: "Mildred aborda nos fundos da cidade",
     risk: "Atenção (esperar 7 dias cuidando da casa e pagar 20.000 G)",
     sources: [
@@ -374,7 +374,7 @@ const matrixData = [
     location: "Guilda de Armas de Vernworth & Aldeia Sagrada dos Elfos",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Exploração)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Exploração)",
     prerequisites: "Entregar arco fabricado por humanos a Glyndwr",
     risk: "Nenhum",
     sources: [
@@ -393,7 +393,7 @@ const matrixData = [
     location: "Salão de Máscaras do Castelo de Vernworth",
     mainQuest: "O Conspirador Mascarado",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Investigações de Brant)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Investigações de Brant)",
     prerequisites: "Equipar túnica da corte, calças da corte e máscara de baile",
     risk: "Atenção (exige traje nobre para entrar sem ser preso e obter conquista)",
     sources: [
@@ -412,7 +412,7 @@ const matrixData = [
     location: "Vernworth (Bairro Nobre) → Pântano Nebuloso (Ilefil)",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 02 · Vernworth 1 (Disponível após O Trono do Sobran)",
+    moment: "Capítulo 02 · Vernworth e retorno a Melve (Disponível após O Trono do Sobran)",
     prerequisites: "Ouvir boato de Oswald e conversar com Margit em Vernworth",
     risk: "Temporizada e Perdível (Gregor morre em combate contra o Dullahan se o jogador demorar)",
     sources: [
@@ -433,7 +433,7 @@ const matrixData = [
     location: "Vila dos Ladrões (Leste) & Vila Harve (Sul)",
     mainQuest: "O Vilarejo sem Nome",
     relation: "PARALELA",
-    moment: "Capítulo 03 · Vernworth 2 (Investigações avançadas de Brant)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Investigações avançadas de Brant)",
     prerequisites: "Aceitar missão com Brant; visitar Harve",
     risk: "Nenhum",
     sources: [
@@ -452,7 +452,7 @@ const matrixData = [
     location: "Melve",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 03 · Vernworth 2 (Após 1-2 missões de Brant)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Após 1-2 missões de Brant)",
     prerequisites: "Ter visitado Melve antes; retorno durante as investigações",
     risk: "Perdível (cancelada irreversivelmente se a coroação v301 for iniciada)",
     sources: [
@@ -471,7 +471,7 @@ const matrixData = [
     location: "Melve & Vila Harve",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 03 · Vernworth 2 (Após fuga de Ulrika)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Após fuga de Ulrika)",
     prerequisites: "Completar ataque do dragão em v107 e defesa de Harve em v201",
     risk: "Perdível (concluir antes da coroação v301)",
     sources: [
@@ -490,7 +490,7 @@ const matrixData = [
     location: "Caminho do Campo de Batalha Antigo ou cachoeiras",
     mainQuest: "Nenhuma",
     relation: "OPCIONAL_NA_ROTA",
-    moment: "Capítulo 03 · Vernworth 2 (No caminho da Esfinge)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (No caminho da Esfinge)",
     prerequisites: "Encontrar ciclope próximo a desfiladeiro estreito",
     risk: "Atenção (se peões matarem o ciclope antes da travessia, a conquista falha)",
     sources: [
@@ -509,7 +509,7 @@ const matrixData = [
     location: "Santuário da Montanha (Norte do Campo de Batalha Antigo)",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 03 · Vernworth 2 (Exploração do norte de Vermund)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Exploração do norte de Vermund)",
     prerequisites: "Alcançar o Santuário da Montanha através das ruínas",
     risk: "Temporizada e Perdível (1 tentativa por enigma; Ruminação tem prazo estrito de 7 dias)",
     sources: [
@@ -528,7 +528,7 @@ const matrixData = [
     location: "Cidade de Descanso da Fronteira & Casa de Eini",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 03 · Vernworth 2 (Visita à fronteira antes do Banquete)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Visita à fronteira antes do Banquete)",
     prerequisites: "Usar traje nobre para ser atendido por Myrddin",
     risk: "Atenção (dar falsificações de Ibrahim a Myrddin e originais a Trysha)",
     sources: [
@@ -547,7 +547,7 @@ const matrixData = [
     location: "Cidade de Descanso da Fronteira & Caverna Pútrida",
     mainQuest: "Nenhuma",
     relation: "PARALELA",
-    moment: "Capítulo 03 · Vernworth 2 (Durante a estada na fronteira)",
+    moment: "Capítulo 03 · Vermund, Melve e Harve (Durante a estada na fronteira)",
     prerequisites: "Acesso à Cidade de Descanso da Fronteira",
     risk: "Temporizada e Perdível (A Presa da Alcateia tem prazo em descansos; Rodge morre se houver demora)",
     sources: [
@@ -568,7 +568,7 @@ const matrixData = [
     location: "Vernworth & Castelo de Vernworth",
     mainQuest: "Um Encontro Perturbador",
     relation: "REQUER",
-    moment: "Capítulo 04 · Vernworth 3 (Reta final de investigações de Brant)",
+    moment: "Capítulo 04 · Vernworth e Melve (Reta final de investigações de Brant)",
     prerequisites: "Concluir investigações iniciais de Brant",
     risk: "Atenção (capturar espião Bermudo vivo; escapar pela janela de Allard sem matar guardas)",
     sources: [
@@ -587,7 +587,7 @@ const matrixData = [
     location: "Melve → Vila Harve",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 04 · Vernworth 3 (Antes de aceitar a coroação de Brant)",
+    moment: "Capítulo 04 · Vernworth e Melve (Antes de aceitar a coroação de Brant)",
     prerequisites: "Concluir v202 (linha de Ulrika) e v301 (Um Encontro Perturbador)",
     risk: "Perdível (cancelada se O Banquete da Farsa for concluído)",
     sources: [
@@ -606,7 +606,7 @@ const matrixData = [
     location: "Estalagem Stardrop (Vernworth)",
     mainQuest: "O Banquete da Farsa",
     relation: "ANTES_DO_PONTO_SEM_RETORNO",
-    moment: "Capítulo 04 · Vernworth 3 (Antes de confirmar ida ao Banquete)",
+    moment: "Capítulo 04 · Vernworth e Melve (Antes de confirmar ida ao Banquete)",
     prerequisites: "Completar todas as tarefas pendentes de Melve e Vermund",
     risk: "Ponto sem Retorno (confirmar com Brant inicia o Banquete e cancela missões pendentes)",
     sources: [
@@ -625,7 +625,7 @@ const matrixData = [
     location: "Castelo de Vernworth",
     mainQuest: "O Banquete da Farsa",
     relation: "REQUER",
-    moment: "Capítulo 04 · Vernworth 3 (Coroação)",
+    moment: "Capítulo 04 · Vernworth e Melve (Coroação)",
     prerequisites: "Confirmar com Brant após check-in de v303",
     risk: "Ponto de Transição da História",
     sources: [
@@ -644,7 +644,7 @@ const matrixData = [
     location: "Rose Chateau Bordelrie (Bairro Nobre de Vernworth)",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 04 · Vernworth 3 (Após O Banquete da Farsa)",
+    moment: "Capítulo 04 · Vernworth e Melve (Após O Banquete da Farsa)",
     prerequisites: "Concluir O Banquete da Farsa; afinidade/visitas noturnas a Wilhelmina",
     risk: "Temporizada e Perdível (após aceitar ajudar, reúne provas contra Allard em até 3 dias)",
     sources: [
@@ -663,7 +663,7 @@ const matrixData = [
     location: "Aposentos de Sven (Castelo) → Laboratório de Bakbattahl",
     mainQuest: "Nenhuma",
     relation: "REQUER",
-    moment: "Capítulo 04 · Vernworth 3 (Após O Banquete da Farsa)",
+    moment: "Capítulo 04 · Vernworth e Melve (Após O Banquete da Farsa)",
     prerequisites: "Concluir O Banquete da Farsa e ter falado com Sven",
     risk: "Atenção (investigar laboratório em Battahl antes de entregar a carta a Sven dá recompensa maior)",
     sources: [
