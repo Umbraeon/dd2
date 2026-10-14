@@ -79,7 +79,9 @@ export const PHASES: Phase[] = [
         risk: "alerta",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-ordeals-of-a-new-recruit-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Ordeals-of-a-New-Recruit"],
-        failureRisk: "O resgate de Accardo é temporizado. Ajude-o assim que receber a missão e retorne a Phill."
+        failureRisk: "O resgate de Accardo é temporizado. Ajude-o assim que receber a missão e retorne a Phill.",
+        isTimed: true,
+        isMissable: true
       },
       {
         id: "m03",
@@ -228,7 +230,7 @@ export const PHASES: Phase[] = [
         title: "Conclua No Rastro do Dragão e entre em Vernworth",
         type: "historia",
         journeyCategory: "main",
-        note: "Depois de enfrentar o ciclope em 'Intruso de um Olho Só' (One-Eyed Interloper), continue a escolta de Gregor e chegue a Vernworth. O desfecho da missão principal 'No Rastro do Dragão' (In Dragon's Wake) ocorre ao entrar na capital; a conversa noturna com Brant e 'O Trono do Sobran' (Seat of the Sovran) estão na etapa seguinte.",
+        note: "Conclua a viagem de Melve para Vernworth acompanhando Gregor (ou avance pelos caminhos de Vermund se o encontro com o ciclope em 'm09' foi contornado ou não registrado formalmente no diário). O desfecho da missão principal 'No Rastro do Dragão' (In Dragon's Wake) ocorre ao se aproximar dos portões e entrar na capital, onde Brant intervém. Caso 'Intruso de um Olho Só' não tenha ocorrido, você pode prosseguir normalmente sem prejuízo para a campanha; a conversa noturna com Brant em 'O Trono do Sobran' (Seat of the Sovran) dá início às investigações na etapa seguinte.",
         achievements: [3],
         risk: "normal",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -285,7 +287,8 @@ export const PHASES: Phase[] = [
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-nesting-troubles-walkthrough/", "https://www.powerpyx.com/dragons-dogma-2-brothers-brave-and-timid-walkthrough/"],
         prerequisites: "Tenha chegado a Vernworth e iniciado ou concluído 'O Trono do Sobran'. Se Flora, Ian ou Lennart já oferecerem ajuda antes disso, aceite imediatamente.",
-        failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert."
+        failureRisk: "Não avance a coroação nem desencadeie o ataque do dragão em Melve sem concluir as tarefas locais já disponíveis, especialmente o resgate de Norbert.",
+        isMissable: true
       },
       {
         id: "m07",
@@ -378,7 +381,9 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992",
-        failureRisk: "Resgate Gregor assim que receber a missão. Adiar pode impedir o desfecho desejado."
+        failureRisk: "Resgate Gregor assim que receber a missão. Adiar pode impedir o desfecho desejado.",
+        isTimed: true,
+        isMissable: true
       }
     ],
     achievements: [
@@ -511,7 +516,8 @@ export const PHASES: Phase[] = [
         source: "https://www.powerpyx.com/dragons-dogma-2-readvent-of-calamity-walkthrough/",
         extraSources: ["https://www.gamespot.com/gallery/dragons-dogma-2-romance-ulrika-readvent-of-calamity-guide/2900-5203/","https://www.pcgamer.com/games/rpg/dragons-dogma-2-ulrika-location/"],
         prerequisites: "Iniciar 'O Trono do Sobran' e avançar as atividades de Harve. Se não aparecer, revise 'Invasores Escamosos'; a travessia antecipada para Battahl é um gatilho relatado, não universalmente confirmado.",
-        failureRisk: "'Revinda da Calamidade' pode ficar indisponível depois de 'O Banquete da Farsa'. Verifique Melve e Harve antes da coroação, sem presumir um gatilho único."
+        failureRisk: "'Revinda da Calamidade' pode ficar indisponível depois de 'O Banquete da Farsa'. Verifique Melve e Harve antes da coroação, sem presumir um gatilho único.",
+        isMissable: true
       },
       {
         id: "v202",
@@ -523,7 +529,8 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://game8.co/games/Dragons-Dogma-2/archives/447927",
         failureRisk: "Conclua a história de Ulrika em Melve e Harve antes de avançar a coroação.",
-        prerequisites: "Completar 'Revinda da Calamidade' em Melve e as etapas de 'Invasores Escamosos' em Harve para encontrar Ulrika."
+        prerequisites: "Completar 'Revinda da Calamidade' em Melve e as etapas de 'Invasores Escamosos' em Harve para encontrar Ulrika.",
+        isMissable: true
       },
       {
         id: "v204",
@@ -545,7 +552,9 @@ export const PHASES: Phase[] = [
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Confira cada resposta antes de entregá-la. Se errar um enigma, não poderá obter a recompensa daquele desafio nesta campanha."
+        failureRisk: "Confira cada resposta antes de entregá-la. Se errar um enigma, não poderá obter a recompensa daquele desafio nesta campanha.",
+        isTimed: true,
+        isMissable: true
       },
       {
         id: "v206",
@@ -567,7 +576,9 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-side-quests/",
         prerequisites: "Acesso à Cidade de Descanso da Fronteira pela rota oeste de Vernworth.",
-        failureRisk: "Se iniciar 'A Presa da Alcateia', resgate Rodge imediatamente; não descanse repetidamente antes de localizá-lo."
+        failureRisk: "Se iniciar 'A Presa da Alcateia', resgate Rodge imediatamente; não descanse repetidamente antes de localizá-lo.",
+        isTimed: true,
+        isMissable: true
       }
     ],
     achievements: [
@@ -649,6 +660,8 @@ export const PHASES: Phase[] = [
         source: "https://www.powerpyx.com/dragons-dogma-2-every-rose-has-its-thorn-walkthrough/",
         extraSources: ["https://www.neoseeker.com/dragons-dogma-2/guides/Every_Rose_Has_Its_Thorn", "https://dragonsdogma2.kiranico.com/pt-BR/data/quests"],
         failureRisk: "Depois de aceitar ajudar Wilhelmina, reúna as provas dentro de três dias.",
+        isTimed: true,
+        isMissable: true,
         prerequisites: "Concluir 'O Banquete da Farsa' e ter conhecido Wilhelmina nas investigações do castelo. O gatilho pode exigir afinidade e visitas no período noturno."
       },
       {
@@ -734,7 +747,8 @@ export const PHASES: Phase[] = [
         achievements: [],
         risk: "cuidado",
         source: "https://www.powerpyx.com/dragons-dogma-2-short-sighted-ambition-walkthrough/",
-        failureRisk: "Entregar o tomo original mata a esposa e a filha de Isaac em uma explosão horrível."
+        failureRisk: "Entregar o tomo original mata a esposa e a filha de Isaac em uma explosão horrível.",
+        isMissable: true
       },
       {
         id: "b04",
@@ -755,7 +769,8 @@ export const PHASES: Phase[] = [
         achievements: [33],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-the-phantom-oxcart-walkthrough/",
-        failureRisk: "Apenas seguir a carroça a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?'."
+        failureRisk: "Apenas seguir a carroça a pé ou atacar o cocheiro invalida a conquista 'Já Chegamos?'.",
+        isMissable: true
       },
       {
         id: "b08",
@@ -776,7 +791,8 @@ export const PHASES: Phase[] = [
         achievements: [39],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-sphinx-riddles-solutions/",
-        failureRisk: "Antes de responder à Memória, conte os baús desbloqueados. Na Futilidade, prefira levar Maurits até o vaso."
+        failureRisk: "Antes de responder à Memória, conte os baús desbloqueados. Na Futilidade, prefira levar Maurits até o vaso.",
+        isMissable: true
       },
       {
         id: "b062",
@@ -1205,25 +1221,27 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.gamespot.com/gallery/dragons-dogma-2-gigantus-achievement-guide/2900-5209/",
         extraSources: ["https://www.trueachievements.com/a429009/gigantus-i-hardly-knew-ye-achievement"],
-        failureRisk: "Para buscar a conquista, detenha Gigantus antes que ele conclua sua marcha."
+        failureRisk: "Para buscar a conquista, detenha Gigantus antes que ele conclua sua marcha.",
+        isTimed: true,
+        isMissable: true
       },
       {
         id: "p08",
         title: "Durante O Guardião Gigantus: Confronto Final com Raghnall",
         type: "missao",
         journeyCategory: "during",
-        note: "Ao subir a Torre do Luar DURANTE 'O Guardião Gigantus' (The Guardian Gigantus), Raghnall pode interceptar você para iniciar 'Confronto Final' (Clash and Conclusion), se 'Tensão na Estrada' foi concluída antes. Resolva o duelo nessa subida; só depois avance para os acontecimentos de 'O Legado' (Legacy). Se não fez a missão de Raghnall, essa etapa pode não ser ativada: adie ou deixe sem concluir, sem forçar o combate.",
+        note: "Ao subir a Torre do Luar DURANTE 'O Guardião Gigantus' (The Guardian Gigantus), Raghnall pode interceptar você em uma ponte suspensa para 'Confronto Final' (Clash and Conclusion), mas APENAS se você concluiu previamente 'Tensão na Estrada' (Tensions on the Highroad). Caso tenha cumprido a cadeia, resolva o duelo individual na subida antes de alcançar o topo. Se a cadeia prévia não foi feita ou Raghnall não aparecer, a campanha NÃO é bloqueada: você pode avançar diretamente para 'O Legado' (Legacy) e deixar esta etapa adiada ou sem marcar, continuando a história sem qualquer impedimento.",
         achievements: [],
         risk: "normal",
         source: "https://www.powerpyx.com/dragons-dogma-2-clash-and-conclusion-walkthrough/",
-        prerequisites: "Ter concluído 'Tensão na Estrada' e chegar à Torre do Luar durante 'O Guardião Gigantus'. Missão condicional, não bloqueia a história."
+        prerequisites: "Ter concluído 'Tensão na Estrada' e alcançar a ponte interna da Torre do Luar durante 'O Guardião Gigantus'. É um encontro condicional: se não ocorrer, a progressão da história continua normalmente sem bloqueio."
       },
       {
         id: "p06",
         title: "Conclua O Legado na Torre do Luar e decida o final",
         type: "historia",
         journeyCategory: "main",
-        note: "Após atravessar a rota de Gigantus e, se aplicável, resolver 'Confronto Final' (Clash and Conclusion) com Raghnall, avance a campanha em 'O Legado' (Legacy): alcance o topo da Torre do Luar, encontre Phaesus e confronte o Dragão. A conclusão da história segue para os finais e o Mundo Desancorado no capítulo seguinte.",
+        note: "Após atravessar a rota de Gigantus (tendo resolvido o duelo de Raghnall na subida ou prosseguido diretamente caso o encontro condicional não tenha ocorrido), avance a campanha em 'O Legado' (Legacy): alcance o topo da Torre do Luar, encontre Phaesus e confronte o Dragão. A conclusão da história segue para a escolha de finais e o Mundo Desancorado no capítulo seguinte.",
         achievements: [],
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/"
@@ -1493,7 +1511,9 @@ export const PHASES: Phase[] = [
         achievements: [36],
         risk: "critico",
         source: "https://dragonsdogma2.kiranico.com/pt-BR/data/quests",
-        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn"]
+        extraSources: ["https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/", "https://game8.co/games/Dragons-Dogma-2/archives/Halls-of-the-First-Dawn"],
+        isTimed: true,
+        isMissable: true
       },
       {
         id: "u06",
@@ -1515,7 +1535,8 @@ export const PHASES: Phase[] = [
         risk: "critico",
         source: "https://www.powerpyx.com/dragons-dogma-2-halls-of-the-first-dawn-walkthrough/",
         extraSources: ["https://www.powerpyx.com/dragons-dogma-2-all-endings-guide/", "https://game8.co/games/Dragons-Dogma-2/archives/449759"],
-        failureRisk: "Conclua as tarefas pendentes do Mundo Desancorado antes de ativar o feixe vermelho final do Templo Abissal."
+        failureRisk: "Conclua as tarefas pendentes do Mundo Desancorado antes de ativar o feixe vermelho final do Templo Abissal.",
+        isMissable: true
       },
       {
         id: "u07",
@@ -1536,7 +1557,8 @@ export const PHASES: Phase[] = [
         achievements: [31],
         risk: "critico",
         source: "https://steamcommunity.com/stats/2054970/achievements",
-        failureRisk: "Jogar no Modo Casual bloqueia permanentemente a conquista 'Encerramento' nesta campanha."
+        failureRisk: "Jogar no Modo Casual bloqueia permanentemente a conquista 'Encerramento' nesta campanha.",
+        isMissable: true
       }
     ],
     achievements: [

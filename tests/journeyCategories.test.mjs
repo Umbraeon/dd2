@@ -56,3 +56,37 @@ test('missões embutidas ficam na posição do encontro, não em um capítulo ar
   assert.ok(!questGuidesForEvent('v103').some(g=>g.id==='magisterial_amenity'));
   assert.ok(!questGuidesForEvent('v304').some(g=>g.id==='gossamer_clouds'));
 });
+
+test('alertas de risco separam missões temporizadas, perdíveis e pontos sem retorno sem rotular risco alto automaticamente como temporizado', () => {
+  // Eventos temporizados comprovados
+  assert.equal(stage('m02').isTimed, true, 'm02 (Accardo) deve ser temporizada');
+  assert.equal(stage('v203').isTimed, true, 'v203 (Gregor Dullahan) deve ser temporizada');
+  assert.equal(stage('v205').isTimed, true, 'v205 (Esfinge Ruminação) deve ser temporizada');
+  assert.equal(stage('v114').isTimed, true, 'v114 (Rodge) deve ser temporizada');
+  assert.equal(stage('v302').isTimed, true, 'v302 (Wilhelmina 3 dias) deve ser temporizada');
+  assert.equal(stage('p05').isTimed, true, 'p05 (Gigantus) deve ser temporizada');
+  assert.equal(stage('u04').isTimed, true, 'u04 (Unmoored névoa) deve ser temporizada');
+
+  // Eventos de risco alto ou crítico que NÃO são temporizados
+  assert.ok(!stage('m06').isTimed, 'm06 tem aviso de 1º memento mas não é temporizada em si');
+  assert.ok(!stage('p03').isTimed, 'p03 (12 mestrias) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('p07').isTimed, 'p07 (Um Novo Chamado Divino) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('p06').isTimed, 'p06 (O Legado) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u01').isTimed, 'u01 (Paz) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u02').isTimed, 'u02 (Entrada Unmoored) tem risco crítico mas não é temporizada');
+  assert.ok(!stage('u08').isTimed, 'u08 (Encerramento) tem risco crítico mas não é temporizada');
+
+  // Eventos com risco de perda comprovado
+  assert.equal(stage('m04').isMissable, true, 'm04 missões de Melve perdíveis');
+  assert.equal(stage('v107').isMissable, true, 'v107 Readvent of Calamity cancelável');
+  assert.equal(stage('v202').isMissable, true, 'v202 Ulrika cancelável');
+  assert.equal(stage('b03').isMissable, true, 'b03 grimório de Isaac irreversível');
+  assert.equal(stage('b05').isMissable, true, 'b05 conquista da carroça perdível');
+  assert.equal(stage('b06').isMissable, true, 'b06 Esfinge perdível');
+  assert.equal(stage('u08').isMissable, true, 'u08 Modo Casual bloqueia conquista');
+
+  // Missões condicionais não bloqueiam o roteiro principal
+  assert.match(stage('v101').note, /sem prejuízo para a campanha|contornado/i, 'v101 não presume vitória obrigatória em m09');
+  assert.match(stage('p08').note, /NÃO é bloqueada|não bloqueia/i, 'p08 deixa claro que ausência de Raghnall não trava a campanha');
+  assert.match(stage('p06').note, /tendo resolvido.*ou prosseguido diretamente/i, 'p06 avança quer p08 tenha ocorrido ou não');
+});

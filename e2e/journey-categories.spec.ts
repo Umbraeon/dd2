@@ -13,8 +13,10 @@ test('diário mostra as categorias visuais por texto e ícone; intruso e Raghnal
     await expect(legend.getByText('Missão secundária')).toBeVisible();
     await expect(legend.getByText('Durante esta missão')).toBeVisible();
     await expect(legend.getByText('Exploração / Conquista')).toBeVisible();
-    await expect(legend.getByText('Atenção: Perdível ou Temporizada')).toBeVisible();
     await expect(legend.getByText('Ponto sem retorno')).toBeVisible();
+    await expect(legend.getByText('Temporizada')).toBeVisible();
+    await expect(legend.getByText('Perdível')).toBeVisible();
+    await expect(legend.getByText('Atenção')).toBeVisible();
     for(const id of ['m09','v112','v303','p08','b12']){
       const item=byId(id);
       await page.getByRole('combobox',{name:'Capítulo'}).selectOption(item.phase.id);

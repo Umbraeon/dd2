@@ -17,6 +17,9 @@ export interface QuestEvent {
   extraSources?: string[];
   prerequisites?: string;
   failureRisk?: string;
+  /** Explicit verified risk attributes separating timed vs missable vs general alert. */
+  isTimed?: boolean;
+  isMissable?: boolean;
 }
 
 export interface Achievement {
