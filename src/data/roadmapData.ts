@@ -696,7 +696,7 @@ export const PHASES: Phase[] = [
         title: "Viaje a Battahl por Nação da Chama Luzente e atravesse a fronteira",
         type: "conquista",
         journeyCategory: "main",
-        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
+        note: "Em 'Nação da Chama Luzente' (Nation of the Lambent Flame), ao atravessar o portão da Cidade de Descanso da Fronteira, confira se 'Piedade entre Ladrões' (Mercy among Thieves) já está disponível: ela começa ali, no lado de Battahl, e pode ser feita durante o caminho ao sul, sem obrigar retorno depois. Esse é um desvio opcional da rota; o marco b02 agrupa sua revisão com outras missões locais. Depois, use a permissão obtida com Brant para viajar a Battahl e procurar o abrigo Rockmouse em Bakbattahl. Se quiser a conquista 'Tô Dentro!', planeje também uma travessia clandestina escondido em carruagem nobre, sem usar a permissão; essa opção não é requisito para a história e a ordem das travessias pode variar.",
         achievements: [13, 35],
         risk: "cuidado",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
@@ -717,7 +717,7 @@ export const PHASES: Phase[] = [
         title: "Execute as missões locais de Bakbattahl",
         type: "missao",
         journeyCategory: "side",
-        note: "Concentre missões já disponíveis em Bakbattahl e arredores; deixe objetivos bloqueados para mais tarde: 'Piedade entre Ladrões' (Mercy among Thieves), 'Orações Ensombradas' (Shadowed Prayers) para proteger Nadinia e 'Uma Proposta Venenosa' (A Poisonous Proposal). Elas podem ser concluídas em paralelo. 'De Volta a Battahl' apresenta Raghnall, e a continuação 'Tensão na Estrada' tem uma etapa separada de retorno a Vernworth.",
+        note: "Reúna as missões disponíveis sem repetir a travessia: se já fez 'Piedade entre Ladrões' ao entrar em Battahl, considere essa parte resolvida; caso contrário, avalie fazê-la quando passar pela fronteira. Em Bakbattahl, prossiga com: 'Piedade entre Ladrões' (Mercy among Thieves), 'Orações Ensombradas' (Shadowed Prayers) para proteger Nadinia e 'Uma Proposta Venenosa' (A Poisonous Proposal). Elas podem ser concluídas em paralelo. 'De Volta a Battahl' apresenta Raghnall, e a continuação 'Tensão na Estrada' tem uma etapa separada de retorno a Vernworth.",
         achievements: [],
         risk: "alerta",
         source: "https://steamcommunity.com/sharedfiles/filedetails/?id=3264648992"
